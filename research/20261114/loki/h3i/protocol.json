@@ -1,0 +1,135 @@
+{
+  "id": "H3i-dihedral-support-repair",
+  "frozen_utc": "2026-11-14T23:28:35.990176+00:00",
+  "hypothesis": "At128 independently sampled training patterns, all eight fixed dihedral views improve certificate-first N20 accuracy by at least10percentage points over unaugmented individual-pair counts, while wrong-stop probability remains at most0.1%.",
+  "antecedent": "H3h found that extra empirical exclusions prevented valid certificates and caused initial false stops. This tests a fixed symmetry prior on fresh inputs and a new raw bank, with a common cardinality gate and otherwise unchanged strict margin.",
+  "primary": {
+    "arm": "augmented128",
+    "control": "raw128",
+    "minimum_accuracy_gain_pp": 10.0,
+    "maximum_wrong_stop_probability": 0.001
+  },
+  "arms": [
+    {
+      "arm": "raw128",
+      "indices": "raw128_indices",
+      "pooling": "individual",
+      "raw_patterns": 128
+    },
+    {
+      "arm": "augmented128",
+      "indices": "augmented128_indices",
+      "pooling": "individual",
+      "raw_patterns": 128
+    },
+    {
+      "arm": "raw1024",
+      "indices": "raw1024_indices",
+      "pooling": "individual",
+      "raw_patterns": 1024
+    },
+    {
+      "arm": "offset128",
+      "indices": "raw128_indices",
+      "pooling": "displacement",
+      "raw_patterns": 128
+    }
+  ],
+  "construction": "Infer q from training cardinality. Count each cell pair across the specified positive training patterns. Individual arms set J=q*1[count==0]-1 directly; offset128 pools co-occurrences by displacement before the same rule. Diagonal and unary zero. Augmentation uses every rotation and reflection once, deduplicates complete patterns, and weights unique patterns equally. No puzzle rules select coefficients.",
+  "calibration": "Each unique training pattern has equal weight (equivalent to its298 partial-input masks). Only the current arm bank determines delta, tau and unit.",
+  "search": {
+    "n": 12,
+    "unique_inputs": 4096,
+    "chains": 20,
+    "cap": 20000,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "temperature": 1.0,
+    "stop": "local plus q-cardinality gate",
+    "margin": 0.001,
+    "gate": "Require occupied-cell count == q in addition to the original strict local certificate, for every arm. No row/column/diagonal rule enters search.",
+    "operation_count": "Original floating operation counts retained; q-gate integer additions reported separately as143*(moves+1)."
+  },
+  "decision": "Primary support requires paired-input bootstrap one-sided95% lower augmented-minus-raw accuracy gain>=10pp AND exact95% upper probability that an input has ANY wrong stopped chain across20chains and3seeds<=0.001. This input-cluster safeguard is conservative for per-chain wrong-stop probability. Falsified if bootstrap upper gain<10pp OR exact95% lower probability of any wrong stop per input>0.001; otherwise inconclusive.2000bootstrap replicates,RNG20261114. No training replication is claimed.",
+  "controls": "raw1024 measures additional independent patterns, offset128 measures displacement pooling; both are descriptive. Raw1024 has1024 unique patterns whereas the deduplicated eight-view arm has the exact count in the reserved dataset. No compute/data equivalence is claimed.",
+  "validation": "Rebuild all literal pair counts; validate every transformed pattern by exhaustive solution membership; verify all test completions absent from union of all training banks; compare dense energies and every single-cell cost to literal sums; test gated backend against unchanged backend on own-training partial inputs and reject a synthetic initial false certificate. Independently audit all returned boards and training-derived gates.",
+  "dataset": {
+    "status": "reserved_and_validated_before_construction",
+    "utc": "2026-11-14T23:26:30.272503+00:00",
+    "pattern_seed": 2026111415,
+    "input_seed": 2026111416,
+    "raw128_patterns": 128,
+    "raw1024_patterns": 1024,
+    "augmented_patterns_before_deduplication": 1024,
+    "augmented_unique_patterns": 996,
+    "union_unique_patterns": 1839,
+    "raw_training_pattern_overlap_with_h3g_bank": 0,
+    "eligible_pool": 35276,
+    "requested_inputs": 4096,
+    "test_unique": 4096,
+    "test_by_clues": {
+      "1": 0,
+      "2": 2,
+      "3": 4094
+    },
+    "union_compatible_inputs": 0,
+    "prior_h3e_h3g_input_overlap": 0,
+    "all_compatible_completions": 36622,
+    "distribution": "Uniform sample of unique 1/2/3-clue inputs incompatible with the union of all four arms training patterns; excludes prior H3e and H3g test inputs.",
+    "independent_replication": "One new raw bank draw, disjoint from the previous H3g512 bank; three later seeds repeat search only. Earlier studies used the full solution universe.",
+    "no_model_or_search_outcomes": true,
+    "source_sha256": {
+      "research/20261114/loki/h3i/prepare.py": "fba778c23aaa730059f202fd60284672144714dd4c5239b8aff300acc2bd7acf",
+      "research/20261114/loki/h3g/prepare.py": "40a3c59596ac3c37d69b8863a5206ac1ba9daac6ed082c72430817df85050bcd",
+      "artifacts/research/20261114/loki/h3e/data.npz": "c3b1d31a9015f3767c8e070e35c2fc36b76fca906bfb773ccc669f741a710afd",
+      "artifacts/research/20261114/loki/h3g/data.npz": "d9e484601884afe33a6690006d802184171bc1c5743bc677e6cc5902cf6b93e2"
+    },
+    "data_sha256": "b1627afd46f8bc94b28783da7dadb5a55022416dcd13398ec6df96a5b90eb1d2"
+  },
+  "budget": {
+    "new_search_jobs": 12,
+    "gpu_minutes_envelope": 20,
+    "optimizer_fits": 0
+  },
+  "source_sha256": {
+    "research/20261114/loki/h3i/driver.py": "395bea4e043abe3281c6872207ca760670dae0c50a317ce948effce27d1319d8",
+    "research/20261114/loki/h3i/prepare.py": "fba778c23aaa730059f202fd60284672144714dd4c5239b8aff300acc2bd7acf",
+    "research/20261114/loki/h3i/backend.py": "7aeda1358924718b3547797dd885b4fdb7fffb650284c29a11f5135451deba4b",
+    "research/20261114/loki/study.py": "7c48de391879dc2f4b4f14459698afbc84c82cb3e89030e0ba4814d4fd74b552",
+    "research/20261114/loki/h3g/prepare.py": "40a3c59596ac3c37d69b8863a5206ac1ba9daac6ed082c72430817df85050bcd",
+    "upstream/cram/__init__.py": "ada20986bead2aa2d77dcc358af07dbc01b569b1765c83560e917d5cc2bd032f",
+    "upstream/cram/cram_graph_coloring.py": "ed6158d983be48082f851dcdb5175bad7aab6408ac73f14659825e90c67f5275",
+    "upstream/cram/cram_maze.py": "c9f9fa5718fdf7ce1f8ad33dc7dc9481e43c6084a31516ac1c88451dba03ead8",
+    "upstream/cram/cram_maze_hard_graph.py": "967c573a3b3dee6c015bf373b7858b856ae0e639bdfa1a8c302b65af87a19717",
+    "upstream/cram/cram_maze_hard_simple.py": "07e64a9383c4b2b1ea30021063d93e302a794023accbf6effbf188892220b2a8",
+    "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "upstream/cram/cram_sudoku.py": "2c6b53d1b81d54e35c484a3565abd60e778716d6e6121e424aede826a5ab0ed2",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "upstream/cram/graph_coloring_data.py": "b04e61911aa55d437ab3c9d602832c3df09f285f2605aba2e9a3d78c18d9cb04",
+    "upstream/cram/latent_settle_triton.py": "7eca3fdf03ec6d5eb847e0dcbcdad61c74b56c084c363190d2c32a1737f19072",
+    "upstream/cram/maze_h3.py": "dd13a3038830bf1e2db83854704fcb39167a3f76ee9de01832de9b3187ee7acd",
+    "upstream/cram/maze_h3p.py": "dd26d260efea3a84f224743e14ae8383d967dfdafb0b4409bd05e864fe7ce92a",
+    "upstream/cram/maze_learned.py": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "upstream/cram/maze_unique.py": "3ceb56a61d92c3fa52a7d84876314abe31909780159fa53560692c19b306d213",
+    "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623",
+    "upstream/cram/opcount.py": "2ddf7373d227f50f43b06cf8e129cb727a85a3e2e86065e7081ba477997e924d",
+    "upstream/cram/paths.py": "d3af83d2c75e9165b88fbaf09d35ee352523fa79e5b3b02163d0dfbaae8602b8",
+    "upstream/cram/table.py": "bbf1fdce8a9e2fa836f5a3800746671b62f740e28c1986029bb53b608ebd0493"
+  },
+  "data_sha256": {
+    "artifacts/research/20261114/loki/h3i/data.npz": "b1627afd46f8bc94b28783da7dadb5a55022416dcd13398ec6df96a5b90eb1d2",
+    "artifacts/research/20261114/loki/h3i/dataset.json": "ad45ee7c35a0a9d0d112264fbc79f506efd373766aaae8c8ab8a3be417ec81b7"
+  },
+  "limits": [
+    "One new raw bank draw, with three search seeds; no independent training replication.",
+    "Fresh inputs exclude H3e/H3g evaluation inputs and all compatible completions in the union of all four training banks; this conditions the distribution.",
+    "Dihedral augmentation is an explicit supplied geometry prior and changes the number of unique pattern views.",
+    "Allowed-pair reward, inferred q gate and certificate-first selection are derivative design choices; this is not the original paper protocol.",
+    "Earlier studies considered the entire mathematical solution universe; fresh means new bank draw and unused partial evaluation inputs, not a never-seen mathematical universe."
+  ]
+}

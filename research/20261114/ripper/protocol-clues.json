@@ -1,0 +1,57 @@
+{
+  "id": "H1p-clues-only-count-recovery",
+  "frozen_utc": "2026-11-14T23:29:03.458888+00:00",
+  "primary_hypothesis": "Never-equal counts based only on jointly given cells recover all and only the 810 true peer edges at N=3000 in all six fixed nested banks.",
+  "primary_decision": "Supported on these six banks iff every N3000 clue-only support equals the peer graph exactly. Falsified if any bank differs. This is a finite-bank result, not a population guarantee.",
+  "source": "upstream/data/sudoku-extreme/train.csv",
+  "source_sha256": "64b46674db0148e0d73a16346dadeb2b1c00824d3fca3f85b2ae7037f6b4b38e",
+  "prior_manifest": "artifacts/research/20261114/ripper/raw/input_manifest.json",
+  "prior_manifest_sha256": "28f1f8fde6790c9fa4e41a421737618fa5093dffb2a2544ab9d4ea06c263b4b2",
+  "pool_size": 3831994,
+  "pool_provenance": "Prior source-hashed exhaustive pass found all 3831994 answer strings distinct. Reuse that proof after source hash verification; source row and pool index coincide.",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "sizes": [
+    100,
+    300,
+    1000,
+    3000
+  ],
+  "sampling": "NumPy 2.3.4 default_rng(20261116+seed).permutation(3831994)[:3000]. First1000 rows, completions and masks must byte-match the prior raw banks. Nested prefixes; record cross-bank overlap.",
+  "mask_policy": "Use original associated question mask. Clue-only files have observed values in 0..8, missing=-1, given mask and source row; no solution arrays. Full completions in separate positive-control files.",
+  "estimator": "Retain pair(i,j) iff no selected row has given[i] and given[j] and value[i]==value[j]. Estimator receives clue-only files; full controls use complete solutions. No augmentation, optimization or geometry in support construction.",
+  "leakage_gates": "For every prefix, replacing all hidden entries by a sentinel, fixed random digits, or shuffled observed digits must leave support byte-identical. Empty observed mask must retain every pair. First save and hash all supports, then run geometry audit.",
+  "arms": [
+    "clues",
+    "full"
+  ],
+  "search_sizes": [
+    300,
+    3000
+  ],
+  "search": "Unit1 equal-digit pair penalties, B0, tau0, ebar0; do not call prepare or solution_stats on hidden completions. Temperature .4 to .31 over 524288 moves; focus .45; four chains; seed=bank seed; check4096; cap262144; tol.001.",
+  "rows_half_open": [
+    100000,
+    110000
+  ],
+  "split": "full-all",
+  "secondary_hypothesis": "Clue-only N3000 accuracy is noninferior within 2 percentage points to its full-completion control on the fixed test cohort.",
+  "secondary_decision": "Paired two-way bootstrap over six bank/search seeds and 10000 shared puzzles, 5000 draws, RNG20261118. Supported if 95% CI lower bound>=-2pp; falsified if upper bound<-2pp; otherwise inconclusive. N300 contrast descriptive only.",
+  "deduplication": "Reuse inference only if support bytes, zero B, literal unit/tau/ebar, full search settings, test data and seed are identical. Save each requested model-to-canonical-job mapping. Different seeds remain distinct.",
+  "oracle_audit": "Compute target energies and Sudoku geometry only after fixed supports. Target E0 is a ceiling for correct certified stops only, not all returned-board accuracy. No feedback.",
+  "validation": "Audit source masks, all support/count rules, invariance, nested monotonicity, train-test full-board overlap, artifact hashes, general/sparse parity before each unique search, and every returned board independently.",
+  "backend_sha256": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+  "capture_sha256": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+  "limitations": [
+    "Official questions were generated from Sudoku and their masks can be biased. Six fixed banks do not establish distribution-free sample complexity.",
+    "The clues-only estimator knows the cell and digit alphabet, equal-digit repulsion and a zero-energy stopping rule. It does not receive row, column or box geometry.",
+    "The preserved official test solutions are available to the search API for scoring and clue initialization; hidden targets do not set energies or move selection.",
+    "BP AdamW is outside this count-only mechanism study and is not run."
+  ]
+}

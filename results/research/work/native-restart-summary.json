@@ -1,0 +1,79 @@
+{
+  "status": "validated",
+  "utc": "2026-11-14T23:45:18.676521+00:00",
+  "primary": {
+    "hypothesis": "H2n",
+    "n_unique": 4096,
+    "joint_gains_vs_native": 0,
+    "joint_losses_vs_native": 0,
+    "observed_loss_pp": 0.0,
+    "one_sided95_loss_lower_pp": 0.0,
+    "one_sided95_loss_upper_pp": 0.07311125564754345,
+    "noninferiority_margin_pp": 0.1,
+    "decision": "supported"
+  },
+  "secondary": {
+    "energy": {
+      "gains_vs_native": 0,
+      "losses_vs_native": 1403,
+      "observed_net_gain_pp": -34.2529296875,
+      "conservative_two_sided95_net_gain_pp": [
+        -35.94082676866589,
+        -32.48669174050185
+      ],
+      "interval": "Four one-sided Clopper-Pearson bounds with alpha=.0125; Bonferroni difference. Secondary descriptive comparison."
+    },
+    "screen": {
+      "gains_vs_native": 0,
+      "losses_vs_native": 0,
+      "observed_net_gain_pp": 0.0,
+      "conservative_two_sided95_net_gain_pp": [
+        -0.10692586564921246,
+        0.10692586564921246
+      ],
+      "interval": "Four one-sided Clopper-Pearson bounds with alpha=.0125; Bonferroni difference. Secondary descriptive comparison."
+    },
+    "length": {
+      "gains_vs_native": 0,
+      "losses_vs_native": 0,
+      "observed_net_gain_pp": 0.0,
+      "conservative_two_sided95_net_gain_pp": [
+        -0.10692586564921246,
+        0.10692586564921246
+      ],
+      "interval": "Four one-sided Clopper-Pearson bounds with alpha=.0125; Bonferroni difference. Secondary descriptive comparison."
+    }
+  },
+  "joint_success": {
+    "native": 4090,
+    "energy": 2687,
+    "screen": 4090,
+    "length": 4090
+  },
+  "n_unique": 4096,
+  "models": 3,
+  "jobs": 48,
+  "logical_candidate_reference_outcomes": 61440,
+  "model_input_rollouts": 49152,
+  "native_prefix_reused_outcomes": 12288,
+  "selector_evaluations": 36864,
+  "selectors_add_no_neural_rollouts": true,
+  "no_eligible_model_inputs": 0,
+  "no_feasible_model_inputs": 14,
+  "hidden_seconds_shared": 8.05998333642492,
+  "native_answer_seconds": 45.835085491940845,
+  "four_candidate_equivalent_answer_seconds": 216.17482460371684,
+  "selector_cpu_seconds": 10.168983606912661,
+  "mean_native_steps": 314.0807291666667,
+  "mean_summed_restart_steps": 1272.8997395833333,
+  "mean_candidates_feasible": 3.6031901041666665,
+  "unique_inputs_verified": 4096,
+  "independent_shortest_oracle_checks": 4096,
+  "independent_candidate_graph_checks": 5501,
+  "exact_board_cache_hits": 55939,
+  "protocol_sha256": "56c8a5108af0306363bcf48978b665ce583e131ccb3adef391a5886230c53a42",
+  "script_sha256": "8e66e56931442907cf452e3952f0b052ad5ba1c37c472b182bf3b98b5a922b6f",
+  "audit_seconds": 27.602891367976554,
+  "scope": "Fresh 90-grid loop20 generator and three fixed reproduction models; one native and three standard-deviation-one perturbations. Native candidate sharing is exact when reference certifies by2048; equivalent timing is labeled separately. Feasibility is an added graph prior, not native CRAM. No ground-truth labels or distances used in selection. Model repeats are not independent inputs.",
+  "full_local_audit_sha256": "58565c013aaa1871074291b5c747e9560f46033006614b4c0ef7802b48ae7c16"
+}

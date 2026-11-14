@@ -1,0 +1,53 @@
+{
+  "id": "H1q-conditional-uniform-mask-randomization",
+  "frozen_utc": "2026-11-14T23:39:05.682085+00:00",
+  "primary_hypothesis": "Official masks yield unusually fewer retained nonpeer edges at N300 than independent uniform masks with identical per-row clue counts, conditional on the six fixed complete-board banks.",
+  "primary_statistic": "Sum of extra-edge counts across the six banks at N300. Lower is more efficient constraint coverage.",
+  "primary_test": "1024 joint Monte Carlo draws, one-sided p=(1+number(simulated statistic <= official statistic))/1025. Reject uniform-mask null in the stated direction iff p<=.01. Otherwise the proposed unusually-few-extra-edges effect is not supported; failure to reject is not equivalence.",
+  "input_manifest": "artifacts/research/20261114/ripper/clues/input_manifest.json",
+  "input_manifest_sha256": "838908435ae82b9f617eb92d821341ec8b6c1792329b7a05d192815aff859eae",
+  "official_models": "artifacts/research/20261114/ripper/clues/clues_models.json",
+  "official_models_sha256": "72d1cb71d6a4b4983bd918fbf67a54f1955e2075fa24a18037c3ab679c1c15b8",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "sizes": [
+    300,
+    1000,
+    3000
+  ],
+  "draws": 1024,
+  "mask_rng": "NumPy2.3.4 default_rng(20261120+bank_seed), sequential draw0..1023. Each draw rng.permuted(broadcast arange81 to(3000,81).copy(),axis=1) gives independent row permutations; given=permutation<original_row_clue_count. All prefixes nested within each draw.",
+  "first_stream": "Draw0 in every bank is prespecified for inference before randomization outcomes. Never choose a stream based on extra edges or accuracy.",
+  "estimator": "Never-equal jointly-observed counts, no Sudoku geometry. Retain masks and source arrays for draw0, per-draw support-byte hashes and prefix extra-edge counts for all1024 streams. All true peers must remain present.",
+  "expectation": "Conditional expected extras=sum over nonpeer pairs product over rows with equal values of(1-k_t(k_t-1)/(81*80)). Independently evaluate by row-wise multiplication and summed log factors; compare Monte Carlo means with exact expectations descriptively for every bank and prefix. No pair-independence assumption.",
+  "secondary": "N1000/N3000 recovery and per-bank effects descriptive. One fixed uniform-mask versus official-mask N300 search per bank on fresh test rows, report paired two-way bootstrap95percent interval descriptively,5000draws,RNG20261121.",
+  "rows_half_open": [
+    120000,
+    130000
+  ],
+  "split": "full-all",
+  "search_sizes": [
+    300
+  ],
+  "arms": [
+    "official",
+    "uniform"
+  ],
+  "search": "Unit1 equal-digit repulsion,B0,tau0,ebar0,temp.4->.31,focus.45,C4,check4096,anneal524288,cap262144,seed=bank_seed,tol.001. No prepare/solution_stats on hidden completions.",
+  "budget": "30 GPU-minutes maximum envelope. No duplicate inference for byte-identical model/settings/seed. CPU counting or exact CPU-validated GPU counting may be used; optimize actual runtime, not utilization.",
+  "validation": "Preserve source rows, solution arrays and original clue counts. Save models before geometry audit. Missing-value substitutions invariant. Independent recount plus sparse/general and hidden-target trajectory parity. Audit all returned boards.",
+  "backend_sha256": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+  "capture_sha256": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+  "limitations": [
+    "Conditional randomization changes masks only; it is not uniform Sudoku generation.",
+    "Uniform masks can produce non-unique puzzles; these masks are only training observations. Official test puzzles remain unchanged.",
+    "Official masks can encode puzzle-generator selection. A significant coverage effect does not identify which generator mechanism caused it.",
+    "BP AdamW is outside this mask-count mechanism study and is not run."
+  ]
+}

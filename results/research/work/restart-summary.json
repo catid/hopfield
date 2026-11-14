@@ -1,0 +1,66 @@
+{
+  "status": "validated",
+  "utc": "2026-11-14T23:36:21.790191+00:00",
+  "primary": {
+    "hypothesis": "H2m",
+    "n_unique": 4096,
+    "joint_gains": 1744,
+    "joint_losses": 0,
+    "observed_gain_pp": 42.578125,
+    "one_sided95_gain_lower_pp": 41.29932028443315,
+    "one_sided95_gain_upper_pp": 43.86476600699567,
+    "target_pp": 0.1,
+    "decision": "supported"
+  },
+  "secondary": {
+    "energy": {
+      "gains_vs_native": 0,
+      "losses_vs_native": 1746,
+      "observed_net_gain_pp": -42.626953125,
+      "conservative_two_sided95_net_gain_pp": [
+        -44.377161945566314,
+        -40.78319713512758
+      ],
+      "interval": "Four one-sided Clopper-Pearson bounds with alpha=.0125; Bonferroni difference. Secondary descriptive comparison."
+    },
+    "screen": {
+      "gains_vs_native": 0,
+      "losses_vs_native": 2,
+      "observed_net_gain_pp": -0.048828125,
+      "conservative_two_sided95_net_gain_pp": [
+        -0.1981492228944515,
+        0.10284572083553258
+      ],
+      "interval": "Four one-sided Clopper-Pearson bounds with alpha=.0125; Bonferroni difference. Secondary descriptive comparison."
+    }
+  },
+  "joint_success": {
+    "native": 4092,
+    "energy": 2346,
+    "screen": 4090
+  },
+  "n_unique": 4096,
+  "models": 3,
+  "jobs": 48,
+  "model_input_rollouts": 61440,
+  "selector_evaluations": 24576,
+  "selectors_add_no_neural_rollouts": true,
+  "no_eligible_model_inputs": 0,
+  "no_feasible_model_inputs": 15,
+  "hidden_seconds_shared": 8.054426254704595,
+  "native_answer_seconds": 46.145393983169924,
+  "four_restart_answer_seconds": 221.90521437529242,
+  "selector_cpu_seconds": 9.828717858355958,
+  "mean_native_steps": 313.89453125,
+  "mean_summed_restart_steps": 1276.2109375,
+  "mean_candidates_feasible": 3.4773763020833335,
+  "unique_inputs_verified": 4096,
+  "independent_shortest_oracle_checks": 4096,
+  "independent_candidate_graph_checks": 5843,
+  "exact_board_cache_hits": 55597,
+  "protocol_sha256": "8c960e5b593d5acce29318ac6e1765d6d25b4fb3650bbd2fed5a924e81f1e65b",
+  "script_sha256": "89085fd88ec96ad94d073835c08a0c623dc4354e2cad68e835c71eaabef4eb28",
+  "audit_seconds": 26.203834565996658,
+  "scope": "Fresh 90-grid loop20 generator and three fixed reproduction models; standard-deviation-one perturbations only. Feasibility is an added graph prior, not native CRAM. No ground-truth labels or distances used in selection. Model repeats are not independent inputs.",
+  "full_local_audit_sha256": "9ea64cacc3ef9123e163122c16332c57f6dbb25811b3ffd466810015921a66cd"
+}

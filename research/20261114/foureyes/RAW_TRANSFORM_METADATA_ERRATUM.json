@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-14T23:35:26.522726+00:00",
+  "kind": "metadata_clarification_before_outcome_interpretation",
+  "frozen_protocol_sha256": "3d12fa33cda47230d33ef3941ff43f8d6a0ac6bb6ff7b633f3efe0783e68b069",
+  "runner_sha256": "c1859a68aa90d1a5b9c787f36b6e297908f928fa3eedd7c36c74364eb36efaea",
+  "reason": "The protocol was derived from the earlier raw-fit comparison and retained four historical description/hash fields inconsistent with its new explicit transformation and primary hypothesis. The frozen runner and new transformation/primary fields already implement the intended study; no computation, threshold or primary decision is changed.",
+  "corrections": {
+    "PL_recipe": "Describes the source fits only. The final sentence saying no postfit transform is historical; the new transformation field governs this study.",
+    "thermal_scale": "Count uses literal1. Transformed PL uses the retained uniform coefficient level, plus training-only recomputed tau/ebar, exactly as in transformation and runner.",
+    "wrapper_sha256": "Historical raw-comparison wrapper hash; receipts identify raw_transform.py, whose hash is recorded in this clarification.",
+    "prior_selection": "Historical raw-size selection note. The new experiment does use the prior fixed largest-gap transformation, without retuning."
+  },
+  "secondary_clarification": "N30 and N300 results and N100 pl_raw are descriptive. Only N100 pl_digit minus count is primary."
+}

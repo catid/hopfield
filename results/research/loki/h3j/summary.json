@@ -1,0 +1,1045 @@
+{
+  "status": "validated",
+  "utc": "2026-11-14T23:45:54.882687+00:00",
+  "hypothesis": "H3j",
+  "decision": "supported",
+  "primary": {
+    "arm": "line-extrapolation",
+    "control": "direct-offset",
+    "decision": "supported",
+    "wrong_stops": 0,
+    "any_wrong_stop_probability_exact95_upper": 0.0007311125564754343,
+    "accuracy_difference_pp": 38.525390625,
+    "coverage_difference_pp": 58.18969762631735,
+    "accuracy_one_sided_95_lower_pp": 37.72786458333333,
+    "accuracy_one_sided_95_upper_pp": 39.274495442708336,
+    "coverage_one_sided_95_lower_pp": 57.81123356129987,
+    "coverage_one_sided_95_upper_pp": 58.56050566310552,
+    "replicates": 2000,
+    "unit": "unique input, with all three search seeds retained inside each bootstrap cluster",
+    "seed": 20261114
+  },
+  "oracle_comparison": {
+    "arm": "line-extrapolation",
+    "control": "true-graph-oracle",
+    "structural_identity": true,
+    "accuracy_difference_pp": 0.0,
+    "coverage_difference_pp": 0.0,
+    "accuracy_margin_pp": 0.1,
+    "coverage_margin_pp": 2.0,
+    "descriptive_noninferiority": true,
+    "interpretation": "Exact parameter and output identity proves equality for these seeded runs. It is not an independent accuracy replication or statistical comparison."
+  },
+  "rows": [
+    {
+      "arm": "line-extrapolation",
+      "target_training_patterns": 0,
+      "unique_inputs": 4096,
+      "chains": 20,
+      "search_seeds": [
+        0,
+        1,
+        2
+      ],
+      "original_accuracy_pct": 100.0,
+      "certificate_first_accuracy_pct": 100.0,
+      "n1_accuracy_pct": 99.86979166666666,
+      "coverage_pct": 84.14918414918414,
+      "wrong_stops": 0,
+      "any_wrong_stop_inputs": 0,
+      "capped_chains": 291,
+      "mean_moves": 1843.5548990885418,
+      "search_seconds_total": 50.96475502406247,
+      "independent_search": true,
+      "evidence": "new seeded search"
+    },
+    {
+      "arm": "direct-offset",
+      "target_training_patterns": 0,
+      "unique_inputs": 4096,
+      "chains": 20,
+      "search_seeds": [
+        0,
+        1,
+        2
+      ],
+      "original_accuracy_pct": 4.3212890625,
+      "certificate_first_accuracy_pct": 61.474609375,
+      "n1_accuracy_pct": 29.850260416666668,
+      "coverage_pct": 25.959486522866804,
+      "wrong_stops": 26301,
+      "any_wrong_stop_inputs": 3818,
+      "capped_chains": 170793,
+      "mean_moves": 14381.723868815105,
+      "search_seconds_total": 97.88103476102697,
+      "independent_search": true,
+      "evidence": "new seeded search"
+    },
+    {
+      "arm": "true-graph-oracle",
+      "target_training_patterns": 0,
+      "unique_inputs": 4096,
+      "chains": 20,
+      "search_seeds": [
+        0,
+        1,
+        2
+      ],
+      "original_accuracy_pct": 100.0,
+      "certificate_first_accuracy_pct": 100.0,
+      "n1_accuracy_pct": 99.86979166666666,
+      "coverage_pct": 84.14918414918414,
+      "wrong_stops": 0,
+      "any_wrong_stop_inputs": 0,
+      "capped_chains": 291,
+      "mean_moves": 1843.5548990885418,
+      "search_seconds_total": 0.0,
+      "independent_search": false,
+      "evidence": "derived by pre-inference full solver identity; not independent replication"
+    }
+  ],
+  "dataset": {
+    "status": "reserved_before_target_models_or_search",
+    "utc": "2026-11-14T23:37:47.701613+00:00",
+    "n": 13,
+    "complete_solutions": 73712,
+    "input_seed": 2026111417,
+    "unique_input_universe": 359025,
+    "test_unique": 4096,
+    "universe_by_clues": {
+      "1": 169,
+      "2": 10868,
+      "3": 347988
+    },
+    "test_by_clues": {
+      "1": 2,
+      "2": 140,
+      "3": 3954
+    },
+    "all_compatible_test_completions": 329411,
+    "distribution": "Uniform sample of unique valid one/two/three-clue inputs from all73712 N13 solutions. No compatibility conditioning is needed because all training patterns are N12.",
+    "target_label_use": "Target solutions are used only for input reservation, exhaustive answer counts and evaluation; none enters model construction, line selection, thresholds or temperature.",
+    "construction_seconds": 2.2051950639579445,
+    "data_sha256": "3967afc244f535f1438a8d9ba237d43166ba5b7a14cf6c6c8d1f084326cadb7f",
+    "solution_array_sha256": "c966ac405c5daa9888cd1cee19142faf5769ba4359b51ad89edd519ce4bcf2eb",
+    "source_sha256": "b2d48dee2157163c5991c24fabe753b57e7970ddeb302c411a536113281094da",
+    "source_enumerator_sha256": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623"
+  },
+  "calibration": {
+    "q": 13,
+    "delta": 12.0,
+    "tau": -78.0,
+    "unit": 25.909505208333332,
+    "explanation": "q and its symbolic delta=q-1,tau=-q(q-1)/2 are declared structural priors. Every target arm shares the inherited N12 offset128 mean-absolute-field unit. No target fit or label calibration.",
+    "unit_source": "artifacts/research/20261114/loki/h3i/models/offset128/model.json"
+  },
+  "line_fit": {
+    "status": "fitted_from_N12_only",
+    "candidates": [
+      {
+        "a": 0,
+        "b": 1,
+        "forbidden_offsets": 11,
+        "allowed_offsets": 0,
+        "retained": true
+      },
+      {
+        "a": 1,
+        "b": -2,
+        "forbidden_offsets": 0,
+        "allowed_offsets": 5,
+        "retained": false
+      },
+      {
+        "a": 1,
+        "b": -1,
+        "forbidden_offsets": 11,
+        "allowed_offsets": 0,
+        "retained": true
+      },
+      {
+        "a": 1,
+        "b": 0,
+        "forbidden_offsets": 11,
+        "allowed_offsets": 0,
+        "retained": true
+      },
+      {
+        "a": 1,
+        "b": 1,
+        "forbidden_offsets": 11,
+        "allowed_offsets": 0,
+        "retained": true
+      },
+      {
+        "a": 1,
+        "b": 2,
+        "forbidden_offsets": 0,
+        "allowed_offsets": 5,
+        "retained": false
+      },
+      {
+        "a": 2,
+        "b": -1,
+        "forbidden_offsets": 0,
+        "allowed_offsets": 5,
+        "retained": false
+      },
+      {
+        "a": 2,
+        "b": 1,
+        "forbidden_offsets": 0,
+        "allowed_offsets": 5,
+        "retained": false
+      }
+    ],
+    "retained_lines": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "training_patterns": 128,
+    "source_offset_terms": 264,
+    "source_forbidden_offsets": 51,
+    "source_sha256": "643856f7553b374ff78836663f01eff973877c0245ec77cdb2faf0dc04bf93ee",
+    "protocol_sha256": "a00439f3e09981713cf65adc52df55f3d17b91d46ac3f642cd1d8cabeca53a21"
+  },
+  "model_audits": [
+    {
+      "status": "complete",
+      "utc": "2026-11-14T23:39:40.514349+00:00",
+      "arm": "line-extrapolation",
+      "q": 13,
+      "delta": 12.0,
+      "tau": -78.0,
+      "unit": 25.909505208333332,
+      "target_training_patterns": 0,
+      "forbidden_pairs": 3328,
+      "false_forbidden": 0,
+      "missed_forbidden": 0,
+      "literal_pair_checks": {
+        "boards": 13,
+        "single_cell_changes": 2197,
+        "exact": true
+      },
+      "model_sha256": "49b5e4db160740232091c875f5e0af49cf6427860fa873b9e25eb2f4538b2a40",
+      "construction_sha256": "27aa40c8963fb42aeec4ee985d506bde28f026641ed2e652c79e292df799e916",
+      "source_sha256": "643856f7553b374ff78836663f01eff973877c0245ec77cdb2faf0dc04bf93ee",
+      "protocol_sha256": "a00439f3e09981713cf65adc52df55f3d17b91d46ac3f642cd1d8cabeca53a21"
+    },
+    {
+      "status": "complete",
+      "utc": "2026-11-14T23:39:40.615784+00:00",
+      "arm": "direct-offset",
+      "q": 13,
+      "delta": 12.0,
+      "tau": -78.0,
+      "unit": 25.909505208333332,
+      "target_training_patterns": 0,
+      "forbidden_pairs": 3356,
+      "false_forbidden": 56,
+      "missed_forbidden": 28,
+      "literal_pair_checks": {
+        "boards": 13,
+        "single_cell_changes": 2197,
+        "exact": true
+      },
+      "model_sha256": "ee8d51e8c36c7a3bdd57c12052c69f493331731e66cf24a32221ccb4acef103a",
+      "construction_sha256": "fcfd0025432fa62352b1313870e2ceedfd18c97241e08ba4949374d82059af96",
+      "source_sha256": "643856f7553b374ff78836663f01eff973877c0245ec77cdb2faf0dc04bf93ee",
+      "protocol_sha256": "a00439f3e09981713cf65adc52df55f3d17b91d46ac3f642cd1d8cabeca53a21"
+    },
+    {
+      "status": "complete",
+      "utc": "2026-11-14T23:39:40.715807+00:00",
+      "arm": "true-graph-oracle",
+      "q": 13,
+      "delta": 12.0,
+      "tau": -78.0,
+      "unit": 25.909505208333332,
+      "target_training_patterns": 0,
+      "forbidden_pairs": 3328,
+      "false_forbidden": 0,
+      "missed_forbidden": 0,
+      "literal_pair_checks": {
+        "boards": 13,
+        "single_cell_changes": 2197,
+        "exact": true
+      },
+      "model_sha256": "f5c462e0511fde60e50c72084f886e20bcf55e319ec410b0652d54a81d678578",
+      "construction_sha256": "27aa40c8963fb42aeec4ee985d506bde28f026641ed2e652c79e292df799e916",
+      "source_sha256": "643856f7553b374ff78836663f01eff973877c0245ec77cdb2faf0dc04bf93ee",
+      "protocol_sha256": "a00439f3e09981713cf65adc52df55f3d17b91d46ac3f642cd1d8cabeca53a21"
+    }
+  ],
+  "output_diagnostics": [
+    {
+      "arm": "line-extrapolation",
+      "seed": 0,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 0,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 92,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 0,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 0,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 0,
+        "(12, 0)": 0,
+        "(12, 12)": 0,
+        "(12, -12)": 0
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 0
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 0
+      }
+    },
+    {
+      "arm": "line-extrapolation",
+      "seed": 1,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 0,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 92,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 0,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 0,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 0,
+        "(12, 0)": 0,
+        "(12, 12)": 0,
+        "(12, -12)": 0
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 0
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 0
+      }
+    },
+    {
+      "arm": "line-extrapolation",
+      "seed": 2,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 0,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 107,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 0,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 0,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 0,
+        "(12, 0)": 0,
+        "(12, 12)": 0,
+        "(12, -12)": 0
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 0
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 0
+      }
+    },
+    {
+      "arm": "direct-offset",
+      "seed": 0,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 8810,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 56,
+          "equal_q": 24165,
+          "above_q": 24945
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 8810,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 9866,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 4891,
+        "(12, 0)": 4886,
+        "(12, 12)": 68,
+        "(12, -12)": 21
+      },
+      "selection_corrected_inputs": 2347,
+      "selection_regressed_inputs": 10,
+      "original_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 95,
+        "above_q": 3828,
+        "stopped": 26,
+        "capped": 3897
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 1530,
+        "above_q": 56,
+        "stopped": 1530,
+        "capped": 56
+      }
+    },
+    {
+      "arm": "direct-offset",
+      "seed": 1,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 8706,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 46,
+          "equal_q": 24311,
+          "above_q": 24894
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 8706,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 9697,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 4883,
+        "(12, 0)": 4735,
+        "(12, 12)": 67,
+        "(12, -12)": 12
+      },
+      "selection_corrected_inputs": 2377,
+      "selection_regressed_inputs": 8,
+      "original_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 95,
+        "above_q": 3829,
+        "stopped": 22,
+        "capped": 3902
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 1498,
+        "above_q": 57,
+        "stopped": 1498,
+        "capped": 57
+      }
+    },
+    {
+      "arm": "direct-offset",
+      "seed": 2,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 8785,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 56,
+          "equal_q": 24509,
+          "above_q": 24682
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 8785,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 9769,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 4935,
+        "(12, 0)": 4761,
+        "(12, 12)": 58,
+        "(12, -12)": 15
+      },
+      "selection_corrected_inputs": 2328,
+      "selection_regressed_inputs": 11,
+      "original_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 77,
+        "above_q": 3833,
+        "stopped": 21,
+        "capped": 3889
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 1538,
+        "above_q": 55,
+        "stopped": 1538,
+        "capped": 55
+      }
+    },
+    {
+      "arm": "true-graph-oracle",
+      "seed": 0,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 0,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 92,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 0,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 0,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 0,
+        "(12, 0)": 0,
+        "(12, 12)": 0,
+        "(12, -12)": 0
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 0
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 0
+      }
+    },
+    {
+      "arm": "true-graph-oracle",
+      "seed": 1,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 0,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 92,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 0,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 0,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 0,
+        "(12, 0)": 0,
+        "(12, 12)": 0,
+        "(12, -12)": 0
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 0
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 0
+      }
+    },
+    {
+      "arm": "true-graph-oracle",
+      "seed": 2,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 0,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 107,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 0,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 0,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 0,
+        "(12, 0)": 0,
+        "(12, 12)": 0,
+        "(12, -12)": 0
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 0
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 0
+      }
+    }
+  ],
+  "posthoc_valid_certificate_capacity": [
+    {
+      "arm": "line-extrapolation",
+      "inputs_with_any_valid_certificate": 4096,
+      "inputs_without_valid_certificate": 0,
+      "valid_input_completion_certificates": 329411,
+      "all_compatible_valid_completions": 329411,
+      "certificate_existence_pct": 100.0,
+      "interpretation": "Post hoc existence of a local certificate among exact valid completions; not a cap on lowest-energy fallback accuracy and not a search outcome."
+    },
+    {
+      "arm": "direct-offset",
+      "inputs_with_any_valid_certificate": 4091,
+      "inputs_without_valid_certificate": 5,
+      "valid_input_completion_certificates": 125360,
+      "all_compatible_valid_completions": 329411,
+      "certificate_existence_pct": 99.8779296875,
+      "interpretation": "Post hoc existence of a local certificate among exact valid completions; not a cap on lowest-energy fallback accuracy and not a search outcome."
+    },
+    {
+      "arm": "true-graph-oracle",
+      "inputs_with_any_valid_certificate": 4096,
+      "inputs_without_valid_certificate": 0,
+      "valid_input_completion_certificates": 329411,
+      "all_compatible_valid_completions": 329411,
+      "certificate_existence_pct": 100.0,
+      "interpretation": "Post hoc existence of a local certificate among exact valid completions; not a cap on lowest-energy fallback accuracy and not a search outcome."
+    }
+  ],
+  "bp_adamw": "Not trained or evaluated atN13. Earlier results used N12 training/evaluation and are not matched zero-shot controls.",
+  "independent_saved_boards": 491520,
+  "derived_oracle_boards": 245760,
+  "audited_record_boards": 737280,
+  "all_target_patterns_unseen_in_N12_training_by_dimension": true,
+  "independent_preflight": {
+    "status": "passed",
+    "utc": "2026-11-14T23:41:08.174968+00:00",
+    "scope": "Independent training-only line selection, synthetic representation and evaluation-data checks; no target search outcomes read",
+    "retained_lines": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "models": [
+      {
+        "arm": "line-extrapolation",
+        "forbidden_pairs": 3328,
+        "false_forbidden": 0,
+        "missed_forbidden": 0
+      },
+      {
+        "arm": "direct-offset",
+        "forbidden_pairs": 3356,
+        "false_forbidden": 56,
+        "missed_forbidden": 28
+      },
+      {
+        "arm": "true-graph-oracle",
+        "forbidden_pairs": 3328,
+        "false_forbidden": 0,
+        "missed_forbidden": 0
+      }
+    ],
+    "complete_target_solutions": 73712,
+    "independent_exhaustive_count": 73712,
+    "unique_inputs": 4096,
+    "oracle_solver_identity": {
+      "exact": true,
+      "model_keys": [
+        "S",
+        "B",
+        "q",
+        "delta",
+        "tau",
+        "unit"
+      ],
+      "backend_sha256": "7aeda1358924718b3547797dd885b4fdb7fffb650284c29a11f5135451deba4b",
+      "same_inputs": true,
+      "same_seeds": [
+        0,
+        1,
+        2
+      ],
+      "interpretation": "The two model names have exactly equal solver-used parameters, so matched-seed outputs are identical under this unchanged deterministic seeded backend."
+    },
+    "input_sha256": {
+      "research/20261114/loki/h3j/protocol.json": "a00439f3e09981713cf65adc52df55f3d17b91d46ac3f642cd1d8cabeca53a21",
+      "research/20261114/loki/h3j/driver.py": "643856f7553b374ff78836663f01eff973877c0245ec77cdb2faf0dc04bf93ee",
+      "research/20261114/loki/h3j/prepare.py": "b2d48dee2157163c5991c24fabe753b57e7970ddeb302c411a536113281094da",
+      "research/20261114/loki/h3i/backend.py": "7aeda1358924718b3547797dd885b4fdb7fffb650284c29a11f5135451deba4b",
+      "research/20261114/loki/study.py": "7c48de391879dc2f4b4f14459698afbc84c82cb3e89030e0ba4814d4fd74b552",
+      "upstream/cram/__init__.py": "ada20986bead2aa2d77dcc358af07dbc01b569b1765c83560e917d5cc2bd032f",
+      "upstream/cram/cram_graph_coloring.py": "ed6158d983be48082f851dcdb5175bad7aab6408ac73f14659825e90c67f5275",
+      "upstream/cram/cram_maze.py": "c9f9fa5718fdf7ce1f8ad33dc7dc9481e43c6084a31516ac1c88451dba03ead8",
+      "upstream/cram/cram_maze_hard_graph.py": "967c573a3b3dee6c015bf373b7858b856ae0e639bdfa1a8c302b65af87a19717",
+      "upstream/cram/cram_maze_hard_simple.py": "07e64a9383c4b2b1ea30021063d93e302a794023accbf6effbf188892220b2a8",
+      "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+      "upstream/cram/cram_sudoku.py": "2c6b53d1b81d54e35c484a3565abd60e778716d6e6121e424aede826a5ab0ed2",
+      "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+      "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+      "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+      "upstream/cram/graph_coloring_data.py": "b04e61911aa55d437ab3c9d602832c3df09f285f2605aba2e9a3d78c18d9cb04",
+      "upstream/cram/latent_settle_triton.py": "7eca3fdf03ec6d5eb847e0dcbcdad61c74b56c084c363190d2c32a1737f19072",
+      "upstream/cram/maze_h3.py": "dd13a3038830bf1e2db83854704fcb39167a3f76ee9de01832de9b3187ee7acd",
+      "upstream/cram/maze_h3p.py": "dd26d260efea3a84f224743e14ae8383d967dfdafb0b4409bd05e864fe7ce92a",
+      "upstream/cram/maze_learned.py": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+      "upstream/cram/maze_unique.py": "3ceb56a61d92c3fa52a7d84876314abe31909780159fa53560692c19b306d213",
+      "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623",
+      "upstream/cram/opcount.py": "2ddf7373d227f50f43b06cf8e129cb727a85a3e2e86065e7081ba477997e924d",
+      "upstream/cram/paths.py": "d3af83d2c75e9165b88fbaf09d35ee352523fa79e5b3b02163d0dfbaae8602b8",
+      "upstream/cram/table.py": "bbf1fdce8a9e2fa836f5a3800746671b62f740e28c1986029bb53b608ebd0493",
+      "artifacts/research/20261114/loki/h3j/data.npz": "3967afc244f535f1438a8d9ba237d43166ba5b7a14cf6c6c8d1f084326cadb7f",
+      "artifacts/research/20261114/loki/h3j/dataset.json": "4596725768584a9da4c3575ba965b2d59b49c8e16ed1dd2e3d680b3a4ed303e0",
+      "artifacts/research/20261114/loki/h3i/data.npz": "b1627afd46f8bc94b28783da7dadb5a55022416dcd13398ec6df96a5b90eb1d2",
+      "artifacts/research/20261114/loki/h3i/models/offset128/model.json": "bd8c5910533e5b194ba77d516863507bbc52c60000315554328a03e86e5ba776",
+      "artifacts/research/20261114/loki/h3i/models/offset128/model.pt": "4b3e82df6dfc904856245e51901289e0b9c6e84918e8baf68015444c17efe94a",
+      "artifacts/research/20261114/loki/h3j/source-support.npz": "ddf4e96c3548e4ee2084f7f627b73f55dfb468ac6b95a24da30a8e83c7203b29",
+      "artifacts/research/20261114/loki/h3j/line-fit.json": "722d876f4680f9d12485ac40ca682e80d15ae7ebb9c22ddbd00cc975136040e2",
+      "artifacts/research/20261114/loki/h3j/models/line-extrapolation/model.json": "a039d7f783f369d8813f41df6f9e785778d2f1401bed0740b12834f0ea33903c",
+      "artifacts/research/20261114/loki/h3j/models/line-extrapolation/model.pt": "49b5e4db160740232091c875f5e0af49cf6427860fa873b9e25eb2f4538b2a40",
+      "artifacts/research/20261114/loki/h3j/models/line-extrapolation/construction.npz": "27aa40c8963fb42aeec4ee985d506bde28f026641ed2e652c79e292df799e916",
+      "artifacts/research/20261114/loki/h3j/models/direct-offset/model.json": "cfff54bcaf704b2289be3f70013c30a42b40adec195f9376bc341a9ec4c0e1ee",
+      "artifacts/research/20261114/loki/h3j/models/direct-offset/model.pt": "ee8d51e8c36c7a3bdd57c12052c69f493331731e66cf24a32221ccb4acef103a",
+      "artifacts/research/20261114/loki/h3j/models/direct-offset/construction.npz": "fcfd0025432fa62352b1313870e2ceedfd18c97241e08ba4949374d82059af96",
+      "artifacts/research/20261114/loki/h3j/models/true-graph-oracle/model.json": "4b547619b0e61714aa79297517b7d27da039ef67c9abb072bc41124b086c0d27",
+      "artifacts/research/20261114/loki/h3j/models/true-graph-oracle/model.pt": "f5c462e0511fde60e50c72084f886e20bcf55e319ec410b0652d54a81d678578",
+      "artifacts/research/20261114/loki/h3j/models/true-graph-oracle/construction.npz": "27aa40c8963fb42aeec4ee985d506bde28f026641ed2e652c79e292df799e916",
+      "research/20261114/loki/h3j/preflight.py": "8bd3d9116a40813405e07643d561763456a8360e5d8da596f8e84e97c6a8d6de"
+    }
+  },
+  "backend_validations": [
+    {
+      "status": "passed",
+      "utc": "2026-11-14T23:39:41.487921+00:00",
+      "device": "cpu",
+      "synthetic_inputs": 16,
+      "chains": 3,
+      "cap": 64,
+      "all_five_backend_outputs_identical": true,
+      "synthetic_three_clue_false_certificate_rejected": true,
+      "synthetic_q_gate_acceptance_checked": true,
+      "seconds": 0.028209236974362284,
+      "backend_sha256": "7aeda1358924718b3547797dd885b4fdb7fffb650284c29a11f5135451deba4b",
+      "reference_sha256": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+      "source_sha256": "643856f7553b374ff78836663f01eff973877c0245ec77cdb2faf0dc04bf93ee",
+      "protocol_sha256": "a00439f3e09981713cf65adc52df55f3d17b91d46ac3f642cd1d8cabeca53a21"
+    },
+    {
+      "status": "passed",
+      "utc": "2026-11-14T23:42:12.405054+00:00",
+      "device": "cuda",
+      "synthetic_inputs": 16,
+      "chains": 3,
+      "cap": 64,
+      "all_five_backend_outputs_identical": true,
+      "synthetic_three_clue_false_certificate_rejected": true,
+      "synthetic_q_gate_acceptance_checked": true,
+      "seconds": 1.2005372959538363,
+      "backend_sha256": "7aeda1358924718b3547797dd885b4fdb7fffb650284c29a11f5135451deba4b",
+      "reference_sha256": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+      "source_sha256": "643856f7553b374ff78836663f01eff973877c0245ec77cdb2faf0dc04bf93ee",
+      "protocol_sha256": "a00439f3e09981713cf65adc52df55f3d17b91d46ac3f642cd1d8cabeca53a21"
+    }
+  ],
+  "oracle_identity_plan": {
+    "status": "ready",
+    "frozen_utc": "2026-11-14T23:42:27.445791+00:00",
+    "pid": 1711451,
+    "source_arm": "line-extrapolation",
+    "derived_arm": "true-graph-oracle",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "actual_unique_search_jobs": 6,
+    "avoided_identical_search_jobs": 3,
+    "protocol_sha256": "a00439f3e09981713cf65adc52df55f3d17b91d46ac3f642cd1d8cabeca53a21",
+    "identity_receipt_sha256": "10434e199cc5b7ba1dd1c183e20ce5fe594fe28c65d307dbf00c7fa9410f64bc",
+    "source_sha256": "0ddab103336903f040367d5418f9b00568a4a33db6081f22f25475866d775284",
+    "rationale": "All solver-used parameters and every search input/seed are equal before inference. Oracle outputs are exact mappings from extrapolation, not independent accuracy replications.",
+    "original_protocol": "The frozen protocol lists9 jobs. This pre-inference execution amendment deduplicates3 exactly identical oracle jobs without changing any arm or hypothesis."
+  },
+  "oracle_identity_mapping": {
+    "status": "complete",
+    "completed_utc": "2026-11-14T23:43:02.266785+00:00",
+    "plan_sha256": "fce23e2553ff878a5fc0a880cc1d203221d978a91a9107386e62f05964f67af3",
+    "mappings": [
+      {
+        "seed": 0,
+        "source_result": "artifacts/research/20261114/loki/h3j/search/line-extrapolation/s0/result.json",
+        "source_result_sha256": "fa47c32fc3d096f40a973d384890d06ef90958f5443119107bf91c9c561904b2",
+        "derived_result": "artifacts/research/20261114/loki/h3j/search/true-graph-oracle/s0/result.json",
+        "derived_result_sha256": "ecdb32575af5d2f8d423ea314fdc7849b2e46424d56b4e635859a88aa7e9ab34",
+        "records_sha256": "bc207eabfd41bab3fedf92fc0fa4e7dc1802accd5d9f43dfe4289908cb39a16e"
+      },
+      {
+        "seed": 1,
+        "source_result": "artifacts/research/20261114/loki/h3j/search/line-extrapolation/s1/result.json",
+        "source_result_sha256": "e67a946ab178c156e782aee15dff45843e0fe3f8133bf5a94dd4461556871909",
+        "derived_result": "artifacts/research/20261114/loki/h3j/search/true-graph-oracle/s1/result.json",
+        "derived_result_sha256": "a0a83ecfff4760d40fb7a407ee9d1a6ff26f2150088d409e01e5243b80e4914c",
+        "records_sha256": "ad36d5824edd3fe329d14427b8fe4bb567e586b4d9c62c8742a2792345189454"
+      },
+      {
+        "seed": 2,
+        "source_result": "artifacts/research/20261114/loki/h3j/search/line-extrapolation/s2/result.json",
+        "source_result_sha256": "3b3394cc3424175fda6d881793ac3e84dec465485642872b4e440447e217cc61",
+        "derived_result": "artifacts/research/20261114/loki/h3j/search/true-graph-oracle/s2/result.json",
+        "derived_result_sha256": "03515669100061c7ad2eb8d280a0ffa32e33cff996837ad9480d94cc1de42b80",
+        "records_sha256": "3b2b2c70655aa4f9ab1e5e3b44a5ea4932328f25b5949b9d5147533dd8f3a41e"
+      }
+    ]
+  },
+  "worker_receipts": [
+    {
+      "status": "complete",
+      "started_utc": "2026-11-14T23:42:28.089982+00:00",
+      "gpu": 0,
+      "pid": 1711452,
+      "host": "loki",
+      "device": "0, GPU-b13dc6fa-d115-87ba-184a-bfadd158a7e9, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 620.70.06",
+      "protocol_sha256": "a00439f3e09981713cf65adc52df55f3d17b91d46ac3f642cd1d8cabeca53a21",
+      "completed_utc": "2026-11-14T23:43:34.981430+00:00"
+    },
+    {
+      "status": "complete",
+      "started_utc": "2026-11-14T23:42:28.098431+00:00",
+      "gpu": 1,
+      "pid": 1711453,
+      "host": "loki",
+      "device": "1, GPU-0fb7c4f0-73a1-a76b-2cde-616063fa4082, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 620.70.06",
+      "protocol_sha256": "a00439f3e09981713cf65adc52df55f3d17b91d46ac3f642cd1d8cabeca53a21",
+      "completed_utc": "2026-11-14T23:43:51.913863+00:00"
+    }
+  ],
+  "gpu_worker_seconds": 150.70688,
+  "input_sha256": {
+    "research/20261114/loki/h3j/protocol.json": "a00439f3e09981713cf65adc52df55f3d17b91d46ac3f642cd1d8cabeca53a21",
+    "research/20261114/loki/h3j/driver.py": "643856f7553b374ff78836663f01eff973877c0245ec77cdb2faf0dc04bf93ee",
+    "research/20261114/loki/h3j/prepare.py": "b2d48dee2157163c5991c24fabe753b57e7970ddeb302c411a536113281094da",
+    "research/20261114/loki/h3i/backend.py": "7aeda1358924718b3547797dd885b4fdb7fffb650284c29a11f5135451deba4b",
+    "research/20261114/loki/study.py": "7c48de391879dc2f4b4f14459698afbc84c82cb3e89030e0ba4814d4fd74b552",
+    "upstream/cram/__init__.py": "ada20986bead2aa2d77dcc358af07dbc01b569b1765c83560e917d5cc2bd032f",
+    "upstream/cram/cram_graph_coloring.py": "ed6158d983be48082f851dcdb5175bad7aab6408ac73f14659825e90c67f5275",
+    "upstream/cram/cram_maze.py": "c9f9fa5718fdf7ce1f8ad33dc7dc9481e43c6084a31516ac1c88451dba03ead8",
+    "upstream/cram/cram_maze_hard_graph.py": "967c573a3b3dee6c015bf373b7858b856ae0e639bdfa1a8c302b65af87a19717",
+    "upstream/cram/cram_maze_hard_simple.py": "07e64a9383c4b2b1ea30021063d93e302a794023accbf6effbf188892220b2a8",
+    "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "upstream/cram/cram_sudoku.py": "2c6b53d1b81d54e35c484a3565abd60e778716d6e6121e424aede826a5ab0ed2",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "upstream/cram/graph_coloring_data.py": "b04e61911aa55d437ab3c9d602832c3df09f285f2605aba2e9a3d78c18d9cb04",
+    "upstream/cram/latent_settle_triton.py": "7eca3fdf03ec6d5eb847e0dcbcdad61c74b56c084c363190d2c32a1737f19072",
+    "upstream/cram/maze_h3.py": "dd13a3038830bf1e2db83854704fcb39167a3f76ee9de01832de9b3187ee7acd",
+    "upstream/cram/maze_h3p.py": "dd26d260efea3a84f224743e14ae8383d967dfdafb0b4409bd05e864fe7ce92a",
+    "upstream/cram/maze_learned.py": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "upstream/cram/maze_unique.py": "3ceb56a61d92c3fa52a7d84876314abe31909780159fa53560692c19b306d213",
+    "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623",
+    "upstream/cram/opcount.py": "2ddf7373d227f50f43b06cf8e129cb727a85a3e2e86065e7081ba477997e924d",
+    "upstream/cram/paths.py": "d3af83d2c75e9165b88fbaf09d35ee352523fa79e5b3b02163d0dfbaae8602b8",
+    "upstream/cram/table.py": "bbf1fdce8a9e2fa836f5a3800746671b62f740e28c1986029bb53b608ebd0493",
+    "artifacts/research/20261114/loki/h3j/data.npz": "3967afc244f535f1438a8d9ba237d43166ba5b7a14cf6c6c8d1f084326cadb7f",
+    "artifacts/research/20261114/loki/h3j/dataset.json": "4596725768584a9da4c3575ba965b2d59b49c8e16ed1dd2e3d680b3a4ed303e0",
+    "artifacts/research/20261114/loki/h3i/data.npz": "b1627afd46f8bc94b28783da7dadb5a55022416dcd13398ec6df96a5b90eb1d2",
+    "artifacts/research/20261114/loki/h3i/models/offset128/model.json": "bd8c5910533e5b194ba77d516863507bbc52c60000315554328a03e86e5ba776",
+    "artifacts/research/20261114/loki/h3i/models/offset128/model.pt": "4b3e82df6dfc904856245e51901289e0b9c6e84918e8baf68015444c17efe94a",
+    "artifacts/research/20261114/loki/h3j/independent-preflight.json": "10434e199cc5b7ba1dd1c183e20ce5fe594fe28c65d307dbf00c7fa9410f64bc",
+    "artifacts/research/20261114/loki/h3j/source-support.npz": "ddf4e96c3548e4ee2084f7f627b73f55dfb468ac6b95a24da30a8e83c7203b29",
+    "artifacts/research/20261114/loki/h3j/line-fit.json": "722d876f4680f9d12485ac40ca682e80d15ae7ebb9c22ddbd00cc975136040e2",
+    "artifacts/research/20261114/loki/h3j/models/line-extrapolation/model.json": "a039d7f783f369d8813f41df6f9e785778d2f1401bed0740b12834f0ea33903c",
+    "artifacts/research/20261114/loki/h3j/models/line-extrapolation/model.pt": "49b5e4db160740232091c875f5e0af49cf6427860fa873b9e25eb2f4538b2a40",
+    "artifacts/research/20261114/loki/h3j/models/line-extrapolation/construction.npz": "27aa40c8963fb42aeec4ee985d506bde28f026641ed2e652c79e292df799e916",
+    "artifacts/research/20261114/loki/h3j/models/direct-offset/model.json": "cfff54bcaf704b2289be3f70013c30a42b40adec195f9376bc341a9ec4c0e1ee",
+    "artifacts/research/20261114/loki/h3j/models/direct-offset/model.pt": "ee8d51e8c36c7a3bdd57c12052c69f493331731e66cf24a32221ccb4acef103a",
+    "artifacts/research/20261114/loki/h3j/models/direct-offset/construction.npz": "fcfd0025432fa62352b1313870e2ceedfd18c97241e08ba4949374d82059af96",
+    "artifacts/research/20261114/loki/h3j/models/true-graph-oracle/model.json": "4b547619b0e61714aa79297517b7d27da039ef67c9abb072bc41124b086c0d27",
+    "artifacts/research/20261114/loki/h3j/models/true-graph-oracle/model.pt": "f5c462e0511fde60e50c72084f886e20bcf55e319ec410b0652d54a81d678578",
+    "artifacts/research/20261114/loki/h3j/models/true-graph-oracle/construction.npz": "27aa40c8963fb42aeec4ee985d506bde28f026641ed2e652c79e292df799e916",
+    "research/20261114/loki/h3j/preflight.py": "8bd3d9116a40813405e07643d561763456a8360e5d8da596f8e84e97c6a8d6de",
+    "artifacts/research/20261114/loki/h3j/backend-validation-cpu.json": "ccc25029ee53f495b7af691a27220e713a48a63fb705fc56d730e845a695fd98",
+    "artifacts/research/20261114/loki/h3j/backend-validation-cuda.json": "a2141cd69c79f359972cc1644140ddf97f109bedbd5a30468c213c9a25c08ead",
+    "artifacts/research/20261114/loki/h3j/oracle-identity-plan.json": "fce23e2553ff878a5fc0a880cc1d203221d978a91a9107386e62f05964f67af3",
+    "artifacts/research/20261114/loki/h3j/oracle-identity-mapping.json": "08d0d8ebdf6a3a87ad7a20b5634f64aeb7787eaca9dcacb33ecac34bab1b159e",
+    "research/20261114/loki/h3j/reuse_oracle.py": "0ddab103336903f040367d5418f9b00568a4a33db6081f22f25475866d775284",
+    "artifacts/research/20261114/loki/h3j/search/line-extrapolation/s0/result.json": "fa47c32fc3d096f40a973d384890d06ef90958f5443119107bf91c9c561904b2",
+    "artifacts/research/20261114/loki/h3j/search/true-graph-oracle/s0/result.json": "ecdb32575af5d2f8d423ea314fdc7849b2e46424d56b4e635859a88aa7e9ab34",
+    "artifacts/research/20261114/loki/h3j/search/line-extrapolation/s1/result.json": "e67a946ab178c156e782aee15dff45843e0fe3f8133bf5a94dd4461556871909",
+    "artifacts/research/20261114/loki/h3j/search/true-graph-oracle/s1/result.json": "a0a83ecfff4760d40fb7a407ee9d1a6ff26f2150088d409e01e5243b80e4914c",
+    "artifacts/research/20261114/loki/h3j/search/line-extrapolation/s2/result.json": "3b3394cc3424175fda6d881793ac3e84dec465485642872b4e440447e217cc61",
+    "artifacts/research/20261114/loki/h3j/search/true-graph-oracle/s2/result.json": "03515669100061c7ad2eb8d280a0ffa32e33cff996837ad9480d94cc1de42b80",
+    "artifacts/research/20261114/loki/h3j/search/line-extrapolation/s0/records.npz": "bc207eabfd41bab3fedf92fc0fa4e7dc1802accd5d9f43dfe4289908cb39a16e",
+    "artifacts/research/20261114/loki/h3j/search/line-extrapolation/s1/records.npz": "ad36d5824edd3fe329d14427b8fe4bb567e586b4d9c62c8742a2792345189454",
+    "artifacts/research/20261114/loki/h3j/search/line-extrapolation/s2/records.npz": "3b2b2c70655aa4f9ab1e5e3b44a5ea4932328f25b5949b9d5147533dd8f3a41e",
+    "artifacts/research/20261114/loki/h3j/search/direct-offset/s0/result.json": "0bee07b305a5fe854b4683b2179ed662e3d65e715514b7768d3610b697dd6f4e",
+    "artifacts/research/20261114/loki/h3j/search/direct-offset/s0/records.npz": "c9c52bb9a6fd2475a8aadde0e818f481c4247c3e970d97f947ceacc54017ac1e",
+    "artifacts/research/20261114/loki/h3j/search/direct-offset/s1/result.json": "7ab078db5e7269a7d2a9983a05022b4f8f9c9b294ef67009bef8e3ac2edab1f4",
+    "artifacts/research/20261114/loki/h3j/search/direct-offset/s1/records.npz": "771b931ae3803829c5dae061662edd1c2b6a1e121f4e62a602c41474b41288a2",
+    "artifacts/research/20261114/loki/h3j/search/direct-offset/s2/result.json": "f518f1f3bc211a1c000b940c009b117f69f6f7ed59070e6a1982970b0e83a699",
+    "artifacts/research/20261114/loki/h3j/search/direct-offset/s2/records.npz": "420c93cbc50a4fb62c039c30d9ff23da03d44f74bbe8e6affd5a1bab8505d418",
+    "artifacts/research/20261114/loki/h3j/search/true-graph-oracle/s0/records.npz": "bc207eabfd41bab3fedf92fc0fa4e7dc1802accd5d9f43dfe4289908cb39a16e",
+    "artifacts/research/20261114/loki/h3j/search/true-graph-oracle/s1/records.npz": "ad36d5824edd3fe329d14427b8fe4bb567e586b4d9c62c8742a2792345189454",
+    "artifacts/research/20261114/loki/h3j/search/true-graph-oracle/s2/records.npz": "3b2b2c70655aa4f9ab1e5e3b44a5ea4932328f25b5949b9d5147533dd8f3a41e",
+    "artifacts/research/20261114/loki/h3j/worker-g0.json": "419dfb375ff60caee7eb23e80919b749551417c0050e6c482fe1250e6bdfb59f",
+    "artifacts/research/20261114/loki/h3j/worker-g1.json": "7a8a94aa70eb3d51a13348b43cf833c717605ae23970994e8bdbbc22ad5c9be2",
+    "research/20261114/loki/h3j/analyze.py": "36c7f05ec78998737c5778cf331b288bd183ad866a4ff8dcb5263d67ec291d51",
+    "research/20261114/loki/h3h/analyze.py": "5eff216fedc987f042fdecebb0574ed4d51a7f933510d2f112e4ae6e79b81c92",
+    "research/20261114/loki/h3g/analyze.py": "ad4869210929caf5f3ae0ef4f858b43759007be42ac270ba99686fc5286aee89",
+    "research/20261114/loki/analyze.py": "0a8d1427908062360db73bbeb83b7bbc881ed8eec81450a0245cff40043142e0"
+  },
+  "limits": [
+    "The finite primitive-line family, coordinate displacements and target cardinality are explicit priors, not learned from nothing.",
+    "The oracle reference contains supplied target rules and is not a learned baseline.",
+    "One frozen N12 training bank; search repeats do not establish training-sample uncertainty.",
+    "N13 complete patterns cannot occur in N12 training by dimension, but inference still uses the declared geometric prior.",
+    "Uniform unique valid1/2/3clue sampling differs from original GRAM input multiplicities; no claim of original paper reproduction."
+  ],
+  "audit_seconds": 6.119604410021566
+}

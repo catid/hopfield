@@ -1,0 +1,152 @@
+{
+  "id": "H4i-raw-fixed-transformation",
+  "frozen_utc": "2026-11-14T23:31:30.793695+00:00",
+  "hypothesis": "The previously fixed digit projection, repulsion, largest-gap support, uniformization and thermal normalization pipeline applied to100 raw-solution digit-relabeling PL fits is noninferior to count energy within2percentagepoints, with zero wrong stops.",
+  "k": [
+    30,
+    100,
+    300
+  ],
+  "training_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "arms": [
+    "count",
+    "pl_raw",
+    "pl_digit"
+  ],
+  "training_inputs": [
+    {
+      "seed": 0,
+      "path": "artifacts/research/20261114/ripper/raw/inputs/s0/train.npz",
+      "sha256": "afa0de1acf4183e3079d36067e7a7c8131c876053b17d2c0798c2c32f0622f74",
+      "n": 1000
+    },
+    {
+      "seed": 1,
+      "path": "artifacts/research/20261114/ripper/raw/inputs/s1/train.npz",
+      "sha256": "775349ea7f9668303fc9ebe86907b1ebe3e50d28f5d9a78e09ebc52de854c308",
+      "n": 1000
+    },
+    {
+      "seed": 2,
+      "path": "artifacts/research/20261114/ripper/raw/inputs/s2/train.npz",
+      "sha256": "afbdc5341064cf26cc9d87dcdee346ceff75aa7cbf0ff1ee92501e07e54e499c",
+      "n": 1000
+    },
+    {
+      "seed": 3,
+      "path": "artifacts/research/20261114/ripper/raw/inputs/s3/train.npz",
+      "sha256": "d66edeffc472c117f7289faa0a9badd797eb2d09e2440fe75a3d094b698fb1d5",
+      "n": 1000
+    },
+    {
+      "seed": 4,
+      "path": "artifacts/research/20261114/ripper/raw/inputs/s4/train.npz",
+      "sha256": "30e64fd84c9a0d24af6204c12d6e51ceb684c821e615b1adc90e1174393d925b",
+      "n": 1000
+    },
+    {
+      "seed": 5,
+      "path": "artifacts/research/20261114/ripper/raw/inputs/s5/train.npz",
+      "sha256": "a0b16c13e542e74a6b2d2be5d7efab0e25fab6436a8a13de9a4bccd8257aff48",
+      "n": 1000
+    }
+  ],
+  "training_input_manifest_sha256": "28f1f8fde6790c9fa4e41a421737618fa5093dffb2a2544ab9d4ea06c263b4b2",
+  "mask_policy": "Preserveofficialquestionfree-cellmask associatedwith eachselectedcompleteboard firstCSVrow. No all-free substitution; cluesverifiedduringpreparation.",
+  "PL_recipe": "Original FullConfig:lam3e-3/9,lr540,momentum.5,updates32,zero initialization,seed/split=s. pl_raw augFalse;pl_digit augTrue per-updatedigitrelabeling. No spatialaugmentation orpostfitweighttransform.",
+  "count_recipe": "Never-equal supports fromfrozenrawprefixes;W=unit1equal-digitpairweights,B0,tau0,ebar0,unit1.",
+  "uncertainty": "5000 paired two-way bootstrap draws over six seed labels and10000commonpuzzles, RNG20261114; two-sided95% percentile interval.",
+  "decision": "Support if paired two-sided95% lower endpoint>=-2pp and zero primary-arm wrong stops; falsify if upper<-2pp or any primary-arm wrong stop; otherwise inconclusive.",
+  "secondary": "N30comparisons,wrongstops,budgetfailures,training-onlymodelproperties.",
+  "oracle_diagnostic": "Forcountgraphs recordfractionoffixedtesttargets withzeroenergy. Thisupperbounds correctCERTIFIEDstops, notallreturnedboard accuracy. Model isfixedbeforediagnostic;nofeedbacktotrainingorsearchsettings.",
+  "split": "full-all",
+  "rows_half_open": [
+    110000,
+    120000
+  ],
+  "chains": 4,
+  "move_cap_per_chain": 262144,
+  "check": 4096,
+  "temperature_hi_unit": 0.4,
+  "temperature_lo_unit": 0.31,
+  "theta_unit": 0.45,
+  "anneal_period": 524288,
+  "tolerance": 0.001,
+  "thermal_scale": "PLusesownoriginalfittedpositiveweightmean hbar andtrainingtau/ebar;countusesunit1/tau0/ebar0.",
+  "deduplication": "N100/N300countsupports exactlybyteidentical forallseeds;sameS/B/unit/statistics/seed/puzzles/cap. ExecuteN100count onceperseed andexplicitlyreuseatN300. N30countgraphs distinct.36PL+12count=48searches.",
+  "performance": "Load fixedtestcohortonceperworker; sharednumpyarrays areinput-only.",
+  "fit_source_sha256": "b73f72c8e874711d0d05fa75de0043442a20297618de62e5bb714b76aa09f20b",
+  "wrapper_sha256": "4aaaaa6d4ac6f609a3c0dd37efa2f94474c51de11bdba52fae80891e7cd1ae6e",
+  "backend_sha256": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+  "prior_selection": "N30/100/300selectedafterdeclaredexploratorytraining-only rawstructurecurve; no heldoutoutcomes inspected. Largestgap heuristic isnotusedorretuned.",
+  "baseline": "BP AdamW outside thisfixedPLrecipe comparison;notrun.",
+  "primary_k": 100,
+  "primary_arm": "pl_digit",
+  "primary_margin_pp": 2.0,
+  "primary_statistic": "Transformed pl_digit minus count accuracy at N100, paired by six training/search seed labels and10000commonpuzzles.",
+  "transformation": "Exact frozen augmentation.py transform: projection helper; J=(mean diagonal - mean offdiagonal).clamp_min(0); first largest adjacent positive gap; retain J>midpoint; replace retained values by their mean; B=0; CF.prepare training-only calibration; temp/focus scaled by retained mean. No graph geometry or new threshold fitting.",
+  "limits": [
+    "This tests transfer of a previously selected transformation recipe, not all possible PL optimizers or graph estimators.",
+    "Primary N100 digit-relabeling arm selected as the stronger prior raw recipe; all other sizes/arms are descriptive.",
+    "Count N300 reuses byte-identical N100 count models and searches with explicit mapping.",
+    "Six nested training samples and shared test inputs; no independent external dataset.",
+    "Maximum moves per chain fixed; wall times are descriptive and no cross-host speed claim is made.",
+    "No new model fitting occurs; raw learned artifacts are reused unchanged from the completed audited comparison."
+  ],
+  "planned_jobs": 48,
+  "gpu_minute_envelope": 30,
+  "frozen_models": {
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k30-s0-pl_raw/fitted_model.pt": "86518214c6ca5cb339313efca32ac4aec830428e73c63804f6a0e513e2656302",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k30-s0-pl_digit/fitted_model.pt": "1e9652fc5afca4a9a41acba2a2a4ab124cb04e7eb8b59d3663b5eeb5c448beec",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k30-s1-pl_raw/fitted_model.pt": "f3974078e9b02440070ba2c28127c6730fa4b2b5868ec167812bde6b5fb7bd68",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k30-s1-pl_digit/fitted_model.pt": "2658f3a921b49d0d5e4a47908353505ec9ec64b97766c5b569b38505a9bd2dce",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k30-s2-pl_raw/fitted_model.pt": "62ef5bb2e11abff44796b019b704a8ab4183688a018cbf5da8a0bef9038d55a8",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k30-s2-pl_digit/fitted_model.pt": "47df9d33c6e71f53c43335bbfa39bef015e4898f29b60b37dbdb6e9b47d4145e",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k30-s3-pl_raw/fitted_model.pt": "ab03c8b3d6bb3f9a041fc2f2571b48635edb986f7d1e677cc754375205ea842d",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k30-s3-pl_digit/fitted_model.pt": "115a08b07ba7e242633b12622ec3e8dc139a9dab7e5b139308dd5a0e87344f1a",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k30-s4-pl_raw/fitted_model.pt": "df820eea4fc92ee13a564e25e429fb91b1f6d0b31da9f523210ccd18e7785340",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k30-s4-pl_digit/fitted_model.pt": "1300d36ed034f9c207011961a370643a2aeeb446f3c00def1cab78b3a24f3a36",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k30-s5-pl_raw/fitted_model.pt": "feaf6c9d8d5553bcc7920dc2af6737a95ff2f5fc1731a2b3a7b0134efe75660b",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k30-s5-pl_digit/fitted_model.pt": "7983238f04a3784f257835da03f51a173a94556cce3b4b5f2c804397549e3fb3",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k100-s0-pl_raw/fitted_model.pt": "589a259a6f92619c5c83a56e1c45312f1f2578b077c351bc13db35d1ec84f185",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k100-s0-pl_digit/fitted_model.pt": "2496b20183d2b5dcc846263f7d4e043f8a475229b6e863b4b70dd4ec0fff0eea",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k100-s1-pl_raw/fitted_model.pt": "25264c4e06af2f79126767d94a4a9874edd98f9a5b1a3a818d6c1df3eecbb057",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k100-s1-pl_digit/fitted_model.pt": "7496fee80b7a50d745f612411e40be1249d9a025f72b7fe3019c642cb6de1001",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k100-s2-pl_raw/fitted_model.pt": "7b11a0e4c516748285096dd1ed651900a730c4dfaf594493845e3334c42205c0",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k100-s2-pl_digit/fitted_model.pt": "c778cd698fed517bed3f4e5847c4ceb752decd7551f2fc7bb406d402d78c8e8f",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k100-s3-pl_raw/fitted_model.pt": "a15a8b8da1790875af6ae2f51463d4aec0b8a84fdf8f680bd7f34b794bc61f59",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k100-s3-pl_digit/fitted_model.pt": "c334b5a525f0e4f77b26f4f40c92b4161d0dd666cf2d99c9847c1b22320ec906",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k100-s4-pl_raw/fitted_model.pt": "0f7dc1f6f60966a294bc0140a5b50f3b67a9a4c95ebcd824d1ab3443c73cd4a5",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k100-s4-pl_digit/fitted_model.pt": "47fade18ffad7f3dbd6c0b5a0f0db73b61ed69b68f3f9eab6b406ead0cd40382",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k100-s5-pl_raw/fitted_model.pt": "a9c304588f7040acb493a9d58b685a744ff75ed8659fde7e29eca5f9324ab1b6",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k100-s5-pl_digit/fitted_model.pt": "0be009c9c1a534d56d1f2f2a7e4b8d8fd8b82c3166d4eea81457a6890ff04f1b",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k300-s0-pl_raw/fitted_model.pt": "515251012c3c1b51fb19092447837626af323d9a1be09a6d79b72ee6b5e8cba7",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k300-s0-pl_digit/fitted_model.pt": "51ea2fd8550643b52083543722164d3bae7a1e125527fe39698065368408dc44",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k300-s1-pl_raw/fitted_model.pt": "7a84f2db82d6de3d0651746cb578a8b20e222f9db58ff35362718ee771b2c88f",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k300-s1-pl_digit/fitted_model.pt": "5815d34bc7c1e809433b5757624b91a22212510c105bd61b88b914aa21d1071a",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k300-s2-pl_raw/fitted_model.pt": "6d04efc0e55703fed3eb44cd4a7dcf8236b25d58fa07c896a66f1ff63c8d36ba",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k300-s2-pl_digit/fitted_model.pt": "3ac95ba48f14208e0a97550661431a2d140b4de59d23a31a6cae99b1f6c18d26",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k300-s3-pl_raw/fitted_model.pt": "56d052bba8f1aa8136d0f2e315bc62ce03d09a79b32cb4a4f091eabfb7fc1410",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k300-s3-pl_digit/fitted_model.pt": "c0ebcb578271119c80abae6ed17b2542d1ac442ada483555176ba5c20aea5943",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k300-s4-pl_raw/fitted_model.pt": "16f81170b89bb256c272f074959c5c990e78441130f3b84f861120e195dcbd4c",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k300-s4-pl_digit/fitted_model.pt": "0cacd9ac76a9f2aa381db412e63db05b34c9426ab888cbf8e649eb76f3a0f2fd",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k300-s5-pl_raw/fitted_model.pt": "7c22a7479bbd08a98c63f383301d79c39bcf4fb5a0c91f0f95329ee6b6ff9a8d",
+    "artifacts/research/20261114/ripper/raw_compare/jobs/k300-s5-pl_digit/fitted_model.pt": "e7d1d917efec4c536928c9303d57f2332054e55e572020a72eb33e4ebc592f3a"
+  },
+  "source_sha256": {
+    "research/20261114/ripper/run.py": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+    "research/20261114/ripper/sparse_backend.py": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+    "research/20261114/ripper/augmentation.py": "d6f62d70efb44733fd114f4174cefecb19de5c0ee53a6bc47ce670770b0f0f5c",
+    "upstream/experiments/sudoku.py": "b73f72c8e874711d0d05fa75de0043442a20297618de62e5bb714b76aa09f20b",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871"
+  }
+}

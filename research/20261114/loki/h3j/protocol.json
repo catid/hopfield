@@ -1,0 +1,125 @@
+{
+  "id": "H3j-zero-shot-N13-line-extrapolation",
+  "frozen_utc": "2026-11-14T23:39:39.840820+00:00",
+  "hypothesis": "A primitive homogeneous-line hypothesis fitted only to128 N12 positive patterns improves N13 certificate-first N20 accuracy by at least10percentage points over direct offset-table transfer, with zero wrong stopped chains.",
+  "antecedent": "H3h/H3i showed strong effects of geometric parameter sharing. This fresh-size study declares a small geometric hypothesis family before target search outcomes.",
+  "training": "Only frozen H3i raw128 N12 complete patterns. Reconstruct the264 unordered displacement co-occurrence counts. No N13 example enters line selection, coefficients, thresholds or temperature.",
+  "line_family": "Enumerate integer(a,b) in[-2,2]^2 except(0,0), gcd(abs(a),abs(b))=1, canonical sign(first nonzero positive). A line is a*dr+b*dc=0. Retain iff it contains>=3 observed forbidden N12 offsets and0 observed allowed N12 offsets. Retain all qualifying lines; no subset or orientation selection on target.",
+  "arms": [
+    {
+      "arm": "line-extrapolation"
+    },
+    {
+      "arm": "direct-offset"
+    },
+    {
+      "arm": "true-graph-oracle"
+    }
+  ],
+  "construction": "Target q=13 is supplied explicitly. J=q*forbidden-1 for each unordered N13 cell pair, diagonal/unary0. Extrapolation applies the retained homogeneous line union to every target offset. Direct transfer uses the N12 zero-count support where an offset was observed, treating unseen offsets as allowed. The oracle arm uses the explicitly supplied N13 row/column/diagonal attack graph.",
+  "calibration": {
+    "q": 13,
+    "delta": 12.0,
+    "tau": -78.0,
+    "unit": 25.909505208333332,
+    "explanation": "q and its symbolic delta=q-1,tau=-q(q-1)/2 are declared structural priors. Every target arm shares the inherited N12 offset128 mean-absolute-field unit. No target fit or label calibration.",
+    "unit_source": "artifacts/research/20261114/loki/h3i/models/offset128/model.json"
+  },
+  "search": {
+    "n": 13,
+    "unique_inputs": 4096,
+    "chains": 20,
+    "cap": 20000,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "temperature": 1.0,
+    "stop": "strict local margin plus q-cardinality gate",
+    "margin": 0.001,
+    "floating_operations": "57461+859*moves",
+    "cardinality_integer_additions": "168*(moves+1)"
+  },
+  "primary": {
+    "arm": "line-extrapolation",
+    "control": "direct-offset",
+    "minimum_accuracy_gain_pp": 10.0,
+    "required_wrong_stops": 0
+  },
+  "decision": "Support if paired-input bootstrap one-sided95% lower extrapolation-minus-direct N20 gain>=10pp and zero wrong stopped chains in extrapolation. Falsify if upper gain<10pp or any extrapolation wrong stop; otherwise inconclusive.2000bootstrap replicates,RNG20261114; all3searchseeds cluster within input. Report exact95% upper probability of any wrong stop per input.",
+  "descriptive": "Extrapolation versus oracle accuracy margin0.1pp and coverage margin2pp are descriptive, with paired bootstrap intervals and no independent confirmatory claim. Report original selection, N1, coverage, wrong stops, capped chains and exact certificate existence.",
+  "dataset": {
+    "status": "reserved_before_target_models_or_search",
+    "utc": "2026-11-14T23:37:47.701613+00:00",
+    "n": 13,
+    "complete_solutions": 73712,
+    "input_seed": 2026111417,
+    "unique_input_universe": 359025,
+    "test_unique": 4096,
+    "universe_by_clues": {
+      "1": 169,
+      "2": 10868,
+      "3": 347988
+    },
+    "test_by_clues": {
+      "1": 2,
+      "2": 140,
+      "3": 3954
+    },
+    "all_compatible_test_completions": 329411,
+    "distribution": "Uniform sample of unique valid one/two/three-clue inputs from all73712 N13 solutions. No compatibility conditioning is needed because all training patterns are N12.",
+    "target_label_use": "Target solutions are used only for input reservation, exhaustive answer counts and evaluation; none enters model construction, line selection, thresholds or temperature.",
+    "construction_seconds": 2.2051950639579445,
+    "data_sha256": "3967afc244f535f1438a8d9ba237d43166ba5b7a14cf6c6c8d1f084326cadb7f",
+    "solution_array_sha256": "c966ac405c5daa9888cd1cee19142faf5769ba4359b51ad89edd519ce4bcf2eb",
+    "source_sha256": "b2d48dee2157163c5991c24fabe753b57e7970ddeb302c411a536113281094da",
+    "source_enumerator_sha256": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623"
+  },
+  "budget": {
+    "new_search_jobs": 9,
+    "gpu_minutes_envelope": 20,
+    "optimizer_fits": 0
+  },
+  "validation": "Independent literal N12 co-occurrence and candidate-line audit; exact dense energies and all single-cell costs against literal target-pair sums on synthetic boards; compare common gated backend with unchanged solver on synthetic N13 fixtures on CPU/GPU. Exhaustive N13 solution validity and sample counts are evaluation-only. Graph diagnostics occur after each model construction.",
+  "source_sha256": {
+    "research/20261114/loki/h3j/driver.py": "643856f7553b374ff78836663f01eff973877c0245ec77cdb2faf0dc04bf93ee",
+    "research/20261114/loki/h3j/prepare.py": "b2d48dee2157163c5991c24fabe753b57e7970ddeb302c411a536113281094da",
+    "research/20261114/loki/h3i/backend.py": "7aeda1358924718b3547797dd885b4fdb7fffb650284c29a11f5135451deba4b",
+    "research/20261114/loki/study.py": "7c48de391879dc2f4b4f14459698afbc84c82cb3e89030e0ba4814d4fd74b552",
+    "upstream/cram/__init__.py": "ada20986bead2aa2d77dcc358af07dbc01b569b1765c83560e917d5cc2bd032f",
+    "upstream/cram/cram_graph_coloring.py": "ed6158d983be48082f851dcdb5175bad7aab6408ac73f14659825e90c67f5275",
+    "upstream/cram/cram_maze.py": "c9f9fa5718fdf7ce1f8ad33dc7dc9481e43c6084a31516ac1c88451dba03ead8",
+    "upstream/cram/cram_maze_hard_graph.py": "967c573a3b3dee6c015bf373b7858b856ae0e639bdfa1a8c302b65af87a19717",
+    "upstream/cram/cram_maze_hard_simple.py": "07e64a9383c4b2b1ea30021063d93e302a794023accbf6effbf188892220b2a8",
+    "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "upstream/cram/cram_sudoku.py": "2c6b53d1b81d54e35c484a3565abd60e778716d6e6121e424aede826a5ab0ed2",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "upstream/cram/graph_coloring_data.py": "b04e61911aa55d437ab3c9d602832c3df09f285f2605aba2e9a3d78c18d9cb04",
+    "upstream/cram/latent_settle_triton.py": "7eca3fdf03ec6d5eb847e0dcbcdad61c74b56c084c363190d2c32a1737f19072",
+    "upstream/cram/maze_h3.py": "dd13a3038830bf1e2db83854704fcb39167a3f76ee9de01832de9b3187ee7acd",
+    "upstream/cram/maze_h3p.py": "dd26d260efea3a84f224743e14ae8383d967dfdafb0b4409bd05e864fe7ce92a",
+    "upstream/cram/maze_learned.py": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "upstream/cram/maze_unique.py": "3ceb56a61d92c3fa52a7d84876314abe31909780159fa53560692c19b306d213",
+    "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623",
+    "upstream/cram/opcount.py": "2ddf7373d227f50f43b06cf8e129cb727a85a3e2e86065e7081ba477997e924d",
+    "upstream/cram/paths.py": "d3af83d2c75e9165b88fbaf09d35ee352523fa79e5b3b02163d0dfbaae8602b8",
+    "upstream/cram/table.py": "bbf1fdce8a9e2fa836f5a3800746671b62f740e28c1986029bb53b608ebd0493"
+  },
+  "data_sha256": {
+    "artifacts/research/20261114/loki/h3j/data.npz": "3967afc244f535f1438a8d9ba237d43166ba5b7a14cf6c6c8d1f084326cadb7f",
+    "artifacts/research/20261114/loki/h3j/dataset.json": "4596725768584a9da4c3575ba965b2d59b49c8e16ed1dd2e3d680b3a4ed303e0",
+    "artifacts/research/20261114/loki/h3i/data.npz": "b1627afd46f8bc94b28783da7dadb5a55022416dcd13398ec6df96a5b90eb1d2",
+    "artifacts/research/20261114/loki/h3i/models/offset128/model.json": "bd8c5910533e5b194ba77d516863507bbc52c60000315554328a03e86e5ba776",
+    "artifacts/research/20261114/loki/h3i/models/offset128/model.pt": "4b3e82df6dfc904856245e51901289e0b9c6e84918e8baf68015444c17efe94a"
+  },
+  "limits": [
+    "The finite primitive-line family, coordinate displacements and target cardinality are explicit priors, not learned from nothing.",
+    "The oracle reference contains supplied target rules and is not a learned baseline.",
+    "One frozen N12 training bank; search repeats do not establish training-sample uncertainty.",
+    "N13 complete patterns cannot occur in N12 training by dimension, but inference still uses the declared geometric prior.",
+    "Uniform unique valid1/2/3clue sampling differs from original GRAM input multiplicities; no claim of original paper reproduction."
+  ]
+}

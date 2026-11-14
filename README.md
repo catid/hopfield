@@ -16,7 +16,13 @@ On a reserved **10,000-puzzle official test slice**, the count energy solves **5
 
 **The augmentation prior matters.** These training counts use ten unique base solutions **plus 99 stored Sudoku-symmetry variants per base**. The transformations supply task knowledge. A larger one-base-solution study recovered the exact graph in **8,105/8,192 fresh trials** with 99 spatial variants. This uses augmentation-group knowledge; it is not one unaugmented example learning Sudoku. [Coverage theorem and fresh-RNG validation →](research/20261114/ripper/REPORT-coverage.md) The count comparison also reuses the official corpus and a follow-up cohort. [Protocols, full budget curve, stopping proof and limitations →](research/20261114/foureyes/REPORT-budget.md) · [Count and augmentation controls →](research/20261114/ripper/REPORT-count.md)
 
-**Spatial augmentation is not required with more raw solutions.** A separate study recovered the exact same graph from **100 distinct, unaugmented training solutions in all six samples**. On another 10,000-puzzle slice, that count energy solved 80.40% at 262,144 moves per chain, with zero wrong stops. The paper's fixed 32-update pseudolikelihood recipes performed worse at these raw-data sizes; this is a comparison of those frozen recipes, not all possible optimizer training. [Raw-data control and audited comparisons →](research/20261114/ripper/REPORT-raw-compare.md)
+**Spatial augmentation is not required with more raw solutions.** Counting recovers the exact graph from **100 distinct, unaugmented training solutions in all six samples**. A stronger matched control then compared counting with the fixed transformation pipeline applied to digit-relabeling PL fits. At 262,144 moves per chain, counting solves **80.79%** versus **80.46%** for transformed PL, with zero wrong stops; PL passes the frozen 2-point noninferiority margin. The simpler count estimator matches a properly transformed learned model. [Raw-count structure →](research/20261114/ripper/REPORT-raw-count.md) · [Matched transformation control →](research/20261114/foureyes/REPORT-raw-transform.md)
+
+![Constraint recovery from raw solutions and the matched transformed-PL control](assets/figures/raw-count-transformed.png)
+
+Hidden solution labels can also be removed: counts from **3,000 partially observed training puzzles** recover the same graph in all six samples. Masked digits never enter estimation or calibration. These are official clue masks, whose selection may carry useful information. [Clues-only experiment and leakage checks →](research/20261114/ripper/REPORT-clues.md)
+
+**Label noise exposes a failure—and a simple repair.** Corrupting one digit in three of 300 training solutions drops strict-count accuracy from 82.01% to 55.12%. Tolerating one observed equality recovers the original graph and restores 82.01%, with zero wrong stops. This tests one declared noise level and threshold. [Noise protocol and audit →](research/20261114/foureyes/REPORT-noise.md)
 
 The earlier intervention result remains useful: digit symmetry and repulsion increased low-data accuracy by **47.83 points** on a separate reserved slice. Counting explains why the transformed models recover the same graph. [Earlier matched results →](research/20261114/ripper/REPORT-heldout.md)
 
@@ -52,6 +58,8 @@ Earlier N-Queens-10 experiments showed faster fitting with Adam and a weight-dec
 
 The maze step-size benefit has a limit: a new maze with many tied shortest paths produces certified branched or disconnected answers for two models. Simple tied-cycle controls still solve perfectly, so ties alone do not explain the failure. [Saved graph, boards and causal controls →](research/20261114/work/REPORT.md)
 
+Exhaustively scoring all **352,212 shortest paths** in that maze finds that a disconnected endpoint-only state has lower energy than every valid shortest path, for all three models. On 4,096 fresh cyclic mazes, checking candidate path feasibility rescues energy-based selection by 42.58 points—but does not improve the native initialization baseline. [Energy landscape and fresh selector controls →](research/20261114/work/REPORT.md)
+
 The learned Sudoku pipeline's four-million-move **99% all-seed joint-success hypothesis was inconclusive**, despite 99.635% mean accuracy. The sixteen-million-move secondary endpoint passed. Projection still fails at extremely low data; largest-gap pruning collapses without spatial augmentation; and maze mass rescaling gives no improvement. [All hypotheses, including negative and inconclusive outcomes →](results/README.md)
 
 Fixed Sudoku restarts also failed their frozen +0.1-point improvement target: the gain was +0.012 points, with a paired 95% interval [−0.068, +0.093]. [Restart control and full curve →](research/20261114/foureyes/REPORT-restart.md)
@@ -85,7 +93,7 @@ from hopfield_cram import fit_never_equal
 energy, equality_counts = fit_never_equal(training_solutions, n_values=9)
 ```
 
-This [small public API](src/hopfield_cram/counting.py) supplies no cell geometry. With insufficient data, it can infer exclusions that do not hold for unseen valid boards. The [published binary model](results/research/foureyes/count_budget/model.json) retains the training provenance behind the measured Sudoku result. All 33 reference/counting tests pass.
+This [small public API](src/hopfield_cram/counting.py) supplies no cell geometry. For the declared noisy-label control, use `fit_rarely_equal(training_solutions, n_values=9, max_equal_count=1)`. Positive thresholds may add false exclusions and give training states positive energy; choose inference calibration separately. With insufficient data, even strict counts can exclude unseen valid boards. The [published binary model](results/research/foureyes/count_budget/model.json) retains the training provenance behind the measured Sudoku result. All 38 reference/counting tests pass; the tolerant API exactly matches all 24 noise-study model artifacts.
 
 The readable implementation is in [src/hopfield_cram](src/hopfield_cram/). Full-scale runs use the pinned upstream kernels and the isolated [research runners](research/20261114/). [Setup, data preparation and rerun instructions](docs/RERUN_GUIDE.md) explain their hardware and dataset requirements; [implementation notes](docs/IMPLEMENTATION.md) explain the algorithms.
 

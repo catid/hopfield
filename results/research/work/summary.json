@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-14T23:18:23.733513+00:00",
+  "updated_utc": "2026-11-14T23:47:03.344574+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
-  "status": "eleven planned studies and two selected-case interventions complete; ongoing research continues separately",
+  "status": "thirteen planned studies, two selected-case interventions, and exhaustive shortest-answer energies complete; ongoing research continues separately",
   "host": "work",
-  "jobs": 216,
-  "run_arm_rows": 303,
-  "model_maze_evaluations": 44484,
+  "jobs": 312,
+  "run_arm_rows": 783,
+  "model_maze_evaluations": 155076,
   "hypotheses": [
     {
       "campaign": "discovery",
@@ -382,6 +382,36 @@
         },
         "zero_discordance_one_sided95_cluster_upper_pp": 2.3132405251746757
       }
+    },
+    {
+      "campaign": "restart",
+      "hypothesis": "H2m feasibility screening raises joint success >=0.1pp over energy-only selection of the same four candidates",
+      "outcome": {
+        "hypothesis": "H2m",
+        "n_unique": 4096,
+        "joint_gains": 1744,
+        "joint_losses": 0,
+        "observed_gain_pp": 42.578125,
+        "one_sided95_gain_lower_pp": 41.29932028443315,
+        "one_sided95_gain_upper_pp": 43.86476600699567,
+        "target_pp": 0.1,
+        "decision": "supported"
+      }
+    },
+    {
+      "campaign": "native_restart",
+      "hypothesis": "H2n feasible minimum-node-count selection noninferior within0.1pp to native8192",
+      "outcome": {
+        "hypothesis": "H2n",
+        "n_unique": 4096,
+        "joint_gains_vs_native": 0,
+        "joint_losses_vs_native": 0,
+        "observed_loss_pp": 0.0,
+        "one_sided95_loss_lower_pp": 0.0,
+        "one_sided95_loss_upper_pp": 0.07311125564754345,
+        "noninferiority_margin_pp": 0.1,
+        "decision": "supported"
+      }
     }
   ],
   "run_tables": [
@@ -392,7 +422,9 @@
     "long_ties-runs.csv",
     "forensic-edits-runs.csv",
     "coupling-swap-corrected-arms.csv",
-    "fork-angle-runs.csv"
+    "fork-angle-runs.csv",
+    "restart-candidates.csv",
+    "native-restart-candidates.csv"
   ],
   "protocols": {
     "protocol": {
@@ -448,6 +480,18 @@
     "fork_angle-protocol": {
       "sha256": "b05689eec557c3f81751710675bf335d55aa4f3f003f6af88facdb469a81e7f7",
       "frozen_utc": "2026-11-14T23:02:59.106383+00:00"
+    },
+    "path_landscape-v2-protocol": {
+      "sha256": "b356a9f789a6b0e50a715ef83d2789b1f42524878c6617a9d41d34446eb7f719",
+      "frozen_utc": "2026-11-14T23:21:40.057237+00:00"
+    },
+    "restart-protocol": {
+      "sha256": "8c960e5b593d5acce29318ac6e1765d6d25b4fb3650bbd2fed5a924e81f1e65b",
+      "frozen_utc": "2026-11-14T23:31:40.792058+00:00"
+    },
+    "native_restart-protocol": {
+      "sha256": "56c8a5108af0306363bcf48978b665ce583e131ccb3adef391a5886230c53a42",
+      "frozen_utc": "2026-11-14T23:41:27.416357+00:00"
     }
   },
   "audit_sha256": {
@@ -462,7 +506,10 @@
     "artifacts/research/20261114/work/tie_controls/audit.json": "391012a70f59ac22ea1e3991e649ecca6080531487e26868104502f94bc85432",
     "artifacts/research/20261114/work/long_ties/audit.json": "f05b01db6090d9115b8b98fb2f7677625be881bdcca6449b578b4cbf9acc1b40",
     "artifacts/research/20261114/work/coupling_swap_corrected/audit.json": "9bf97a30f41c5da511444a785df6fe3a76d9d694cbe311d172782d5aa3970ae3",
-    "artifacts/research/20261114/work/fork_angle/audit.json": "33caec388f6e7cfe1d867930f2048717222dd9140f9188508d4c5b55ea771567"
+    "artifacts/research/20261114/work/fork_angle/audit.json": "33caec388f6e7cfe1d867930f2048717222dd9140f9188508d4c5b55ea771567",
+    "artifacts/research/20261114/work/path_landscape/audit.json": "27ead262712ddef69e9d0bb97059852776e87fb70bb1c95df4874493693ee987",
+    "artifacts/research/20261114/work/restart/audit.json": "9ea64cacc3ef9123e163122c16332c57f6dbb25811b3ffd466810015921a66cd",
+    "artifacts/research/20261114/work/native_restart/audit.json": "58565c013aaa1871074291b5c747e9560f46033006614b4c0ef7802b48ae7c16"
   },
   "model_sha256": {
     "0": {
@@ -495,8 +542,8 @@
     "case": "cyclic-failure-classification.json",
     "scope": "The same cyclic maze fails for model seeds1and2; these are true invalid fixed points or a period-two timeout, not hidden/nonfinite failures."
   },
-  "primary_jobs": 210,
-  "primary_model_maze_evaluations": 44352,
+  "primary_jobs": 306,
+  "primary_model_maze_evaluations": 154944,
   "descriptive_jobs": 6,
   "descriptive_model_maze_evaluations": 132,
   "selected_case_interventions": {
@@ -520,5 +567,20 @@
     "identity_checks": 12,
     "arms": 30,
     "conclusion": "Readout from either targeted deletion restores the original geometry for all3models; original readout on edited geometry fails. Matchednoncritical readout doesnot restore failedmodels. Selected-case result only."
+  },
+  "post_outcome_energy_diagnostics": {
+    "unique_graphs": 1,
+    "shortest_paths_per_model": 352212,
+    "frozen_models": 3,
+    "model_energy_evaluations": 1056636,
+    "additional_neural_rollouts": 0,
+    "summary": "shortest-path-energy-summary.json",
+    "figure": "shortest-path-energy-landscape.png"
+  },
+  "native_prefix_reuse": {
+    "logical_candidate_reference_outcomes": 61440,
+    "new_answer_rollouts": 49152,
+    "exact_reused_native_prefixes": 12288,
+    "reused_prefixes_not_added_to_total_evaluations": true
   }
 }
