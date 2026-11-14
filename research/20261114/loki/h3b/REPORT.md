@@ -31,4 +31,4 @@ Post-inference diagnostics in the JSON recompute float64 single-cell certificate
 
 No-decay Adam uses the same tested AdamW update routine with weight decay set to zero; direct updates were verified bitwise equal to `torch.optim.Adam`. This intervention changes only weight decay. The two cached control fits are hash-identical to H3.
 
-[Frozen protocol](protocol.json), [runner](driver.py), [snapshot solver](capture_solve.py), [auditor](analyze.py), [machine-readable evidence](../../../../artifacts/research/20261114/loki/h3b/summary.json).
+[Frozen protocol](protocol.json), [runner](driver.py), [snapshot solver](capture_solve.py), [auditor](analyze.py), [tracked results and hashes](../../../../results/research/loki/summary.json), [per-seed counts](../../../../results/research/loki/per_seed.csv).

@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-14T22:15:18.226853+00:00",
+  "updated_utc": "2026-11-14T22:18:34.015562+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
-  "status": "six planned studies complete; ongoing research continues separately",
+  "status": "seven planned studies complete; ongoing research continues separately",
   "host": "work",
-  "jobs": 105,
-  "run_arm_rows": 123,
-  "model_maze_evaluations": 15936,
+  "jobs": 120,
+  "run_arm_rows": 153,
+  "model_maze_evaluations": 17856,
   "hypotheses": [
     {
       "campaign": "discovery",
@@ -222,7 +222,65 @@
         "hidden_plus_answer_runtime_ratio": 2.205781572969326,
         "censored_model_maze_arms": 0
       }
+    },
+    {
+      "campaign": "eta_comb",
+      "hypothesis": "H2h inverse-eta branch-pruning slope",
+      "outcome": {
+        "slope_eta02": 4.670200892857142,
+        "slope_eta05": 1.8604910714285712,
+        "slope_ratio": 2.5101979604079183,
+        "paired_layout_bootstrap95_ratio": [
+          2.4954146730462523,
+          2.524831268258286
+        ],
+        "equivalence_band": [
+          2,
+          3
+        ],
+        "inverse_eta_prediction": 2.5,
+        "all_model_maze_arms_valid": true,
+        "decision": "supported"
+      }
+    },
+    {
+      "campaign": "eta_comb",
+      "hypothesis": "H2h spine equivalence eta0.2",
+      "outcome": {
+        "eta": 0.2,
+        "spine128_minus16_mean_steps": 0.0,
+        "paired_layout_bootstrap95_steps": [
+          0.0,
+          0.0
+        ],
+        "equivalence_band": [
+          -32,
+          32
+        ],
+        "decision": "supported"
+      }
+    },
+    {
+      "campaign": "eta_comb",
+      "hypothesis": "H2h spine equivalence eta0.5",
+      "outcome": {
+        "eta": 0.5,
+        "spine128_minus16_mean_steps": 0.0,
+        "paired_layout_bootstrap95_steps": [
+          0.0,
+          0.0
+        ],
+        "equivalence_band": [
+          -32,
+          32
+        ],
+        "decision": "supported"
+      }
     }
+  ],
+  "run_tables": [
+    "runs.csv",
+    "eta-comb-runs.csv"
   ],
   "protocols": {
     "protocol": {
@@ -248,6 +306,10 @@
     "eta-protocol": {
       "sha256": "f1d9b66084702d0d432b1d2c4c126709e1c3d0ef17037ea1a682637d0e44c68a",
       "frozen_utc": "2026-11-14T22:06:12.225464+00:00"
+    },
+    "eta_comb-protocol": {
+      "sha256": "2b69362c03128b42a07bba39cfb34d6637be2103a1afbe9fb8249034c7ee78f9",
+      "frozen_utc": "2026-11-14T22:11:56.945131+00:00"
     }
   },
   "audit_sha256": {
@@ -256,7 +318,8 @@
     "artifacts/research/20261114/work/budget_extension/audit.json": "d32835ba3e58366cfab4611b1a91cf52459fcd3a3e3a0aa06970124e040defbf",
     "artifacts/research/20261114/work/horizon_transfer/audit.json": "237d32f37c07ae74af4d575ae1ac0da442970e99f6734dc1506c74c7e5426989",
     "artifacts/research/20261114/work/causal_comb/audit.json": "8126dc65fd73342b0efae37ea18de15c9071c90b38fdb540be9babc0d1487928",
-    "artifacts/research/20261114/work/eta/audit.json": "08a1bd6b975582c3032dd72099d6b0495398d1406d1b24017f84d6e7b67c20c1"
+    "artifacts/research/20261114/work/eta/audit.json": "08a1bd6b975582c3032dd72099d6b0495398d1406d1b24017f84d6e7b67c20c1",
+    "artifacts/research/20261114/work/eta_comb/audit.json": "4e0596bcc337b29bd6dee40eea0f01be8bf6d2402bfedd8781361f609f13d88f"
   },
   "model_sha256": {
     "0": {

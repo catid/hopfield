@@ -106,5 +106,5 @@ The separate declared gradient diagnostic gave cosine ≈0.99999967 between beta
 
 - [Final validation receipt](../results/reproduction/objective_studies/final-validation.json): hashes, independently recomputed statistics, complete schedules, all dense-clock proofs and visual plot review.
 - [Machine-readable Table 7 comparison](../results/reproduction/objective_studies/table7-comparison.csv), [Figure 4 comparison](../results/reproduction/objective_studies/figure4-comparison.csv), [D.2 results](../results/reproduction/objective_studies/d2-implicit-results.csv), [published-value provenance](../results/reproduction/objective_studies/published-comparisons.json).
-- Raw objective and external-control evidence: [objective summary](../artifacts/objectives/summary.json) and [long-BPTT summary](../results/reproduction/long_bptt/collected/summary.json).
+- Raw objective and external-control evidence: objective summary (`artifacts/objectives/summary.json`, retained local archive) and [long-BPTT summary](../results/reproduction/long_bptt/collected/summary.json).
 - Baseline figures are transcribed from the reviewed arXiv-v1 Table 7, its schedule footnote, and Figure 4 caption; published and locally measured values remain separate.

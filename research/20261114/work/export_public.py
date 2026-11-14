@@ -13,6 +13,7 @@ def main():
     for campaign in campaigns:
         directory=S.OUT if campaign=="discovery" else S.OUT/campaign;p=directory/"audit.json"
         a=json.loads(p.read_text());assert a["status"]=="validated";audits[campaign]=a;hashes[str(p.relative_to(S.ROOT))]=S.sha(p)
+        S.save(out/f"{campaign}-audit.json",{k:v for k,v in a.items() if k not in ["records","evidence_sha256"]}|{"full_local_audit_sha256":S.sha(p)})
         for r in a["records"]:
             j=r["job"];rows.append(dict(campaign=campaign,job=j["id"],length=j["length"],loop_percent=j["loop_percent"],
                 spine_length=j.get("spine_length"),branch_depth=j.get("branch_depth"),model_seed=j["seed"],arm=j["arm"],
@@ -53,6 +54,20 @@ def main():
         "diagnostics":[{k:v for k,v in d.items() if k!="recorded_updates"} for d in eta["diagnostics"]],
         "audit_sha256":S.sha(eta_path)})
     hypotheses.extend({"campaign":"eta","hypothesis":f"H2g eta0.5 speed and accuracy at {s['length']}","outcome":s} for s in eta["summaries"])
+    comb_eta_path=S.OUT/"eta_comb/audit.json";comb_eta=json.loads(comb_eta_path.read_text());assert comb_eta["status"]=="validated"
+    hashes[str(comb_eta_path.relative_to(S.ROOT))]=S.sha(comb_eta_path)
+    combo_rows=[]
+    for r in comb_eta["records"]:
+        j=r["job"];combo_rows.append(dict(job=j["id"],length=j["length"],spine_length=j["spine_length"],branch_depth=j["branch_depth"],
+            model_seed=j["seed"],eta=r["eta"],n=r["n"],solved=r["solved"],mean_answer_steps=r["answer_steps_mean"],
+            wrong_stops=r["wrong_stops"],answer_budget_failures=r["answer_budget_failures"],hidden_failures=r["hidden_failures"],
+            answer_seconds=r["answer_seconds"],hidden_seconds_shared=r["hidden_seconds_shared"],gpu=r["gpu"]))
+    with (out/"eta-comb-runs.csv").open("w",newline="") as f:
+        w=csv.DictWriter(f,fieldnames=list(combo_rows[0]));w.writeheader();w.writerows(combo_rows)
+    shutil.copyfile(S.OUT/"eta_comb/per-layout.csv",out/"eta-comb-per-layout.csv")
+    S.save(out/"eta-comb-summary.json",{k:v for k,v in comb_eta.items() if k not in ["records","evidence_sha256"]}|{"audit_sha256":S.sha(comb_eta_path)})
+    hypotheses.append({"campaign":"eta_comb","hypothesis":"H2h inverse-eta branch-pruning slope","outcome":comb_eta["primary"]})
+    hypotheses.extend({"campaign":"eta_comb","hypothesis":f"H2h spine equivalence eta{s['eta']}","outcome":s} for s in comb_eta["secondary"])
     topology=json.loads((S.OUT/"budget_extension/topology.json").read_text())
     with (out/"topology.csv").open("w",newline="") as f:
         w=csv.DictWriter(f,fieldnames=list(topology["per_maze"][0]));w.writeheader();w.writerows(topology["per_maze"])
@@ -61,11 +76,12 @@ def main():
         with (out/f"comb-{key}.csv").open("w",newline="") as f:
             w=csv.DictWriter(f,fieldnames=list(values[0]));w.writeheader();w.writerows(values)
     protocols={}
-    for name in ["protocol","confirmation-protocol","budget_extension-protocol","horizon_transfer-protocol","causal_comb-protocol","eta-protocol"]:
+    for name in ["protocol","confirmation-protocol","budget_extension-protocol","horizon_transfer-protocol","causal_comb-protocol","eta-protocol","eta_comb-protocol"]:
         path=S.HERE/f"{name}.json";d=json.loads(path.read_text());protocols[name]={"sha256":S.sha(path),"frozen_utc":d["frozen_utc"]}
     public={"updated_utc":S.utc(),"title":"Maze-Hard size transfer, causal branch pruning and eta acceleration",
-            "status":"six planned studies complete; ongoing research continues separately", "host":"work",
-            "jobs":original_jobs+eta["jobs"],"run_arm_rows":len(rows),"model_maze_evaluations":sum(r["n"] for r in rows),"hypotheses":hypotheses,
+            "status":"seven planned studies complete; ongoing research continues separately", "host":"work",
+            "jobs":original_jobs+eta["jobs"]+comb_eta["jobs"],"run_arm_rows":len(rows)+len(combo_rows),"model_maze_evaluations":sum(r["n"] for r in rows)+comb_eta["saved_board_checks"],"hypotheses":hypotheses,
+            "run_tables":["runs.csv","eta-comb-runs.csv"],
             "protocols":protocols,"audit_sha256":hashes,"model_sha256":json.loads((S.HERE/"protocol.json").read_text())["models"],
             "limits":["Generated DFS-tree/loopy/comb distributions differ from official Maze-Hard.",
                       "Training seeds are repeated frozen models, not independent maze samples.",
@@ -76,8 +92,9 @@ def main():
     S.save(out/"summary.json",public)
     for ext in ["png","pdf","svg"]:shutil.copyfile(S.OUT/f"figures/pruning-mechanism.{ext}",out/f"pruning-mechanism.{ext}")
     for ext in ["png","pdf","svg"]:shutil.copyfile(S.OUT/f"figures/eta-acceleration.{ext}",out/f"eta-acceleration.{ext}")
+    for ext in ["png","pdf","svg"]:shutil.copyfile(S.OUT/f"figures/eta-pruning-rate.{ext}",out/f"eta-pruning-rate.{ext}")
     S.save(out/"manifest.json",{"source_sha256":S.sha(__file__),"files":{p.name:S.sha(p) for p in sorted(out.iterdir()) if p.is_file() and p.name!="manifest.json"}})
-    S.emit("public_export",jobs=public["jobs"],model_maze_evaluations=sum(r["n"] for r in rows),directory=str(out))
+    S.emit("public_export",jobs=public["jobs"],model_maze_evaluations=public["model_maze_evaluations"],directory=str(out))
 
 
 if __name__=="__main__":main()

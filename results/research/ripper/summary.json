@@ -2894,5 +2894,903 @@
       "All transformedmodels use original raw-projection thermal scale; effects cannot be attributed to rescaled temperatures.",
       "Job walltimes are not isolated paired benchmarks."
     ]
+  },
+  "scale_normalization": {
+    "status": "validated",
+    "utc": "2026-11-14T22:19:09.642213+00:00",
+    "jobs": 36,
+    "saved_boards_verified": 46656,
+    "primary_effect_pp": 30.02829218106996,
+    "primary_ci95_pp": [
+      26.286008230452673,
+      33.989519032921805
+    ],
+    "primary_decision": "supported_for_frozen_protocol",
+    "effects": [
+      {
+        "k": 10,
+        "effect_pp": 30.02829218106996,
+        "ci95_pp": [
+          26.286008230452673,
+          33.989519032921805
+        ],
+        "decision": "supported_for_frozen_protocol",
+        "per_seed_pp": [
+          25.925925925925924,
+          34.49074074074074,
+          31.712962962962965,
+          25.0,
+          27.469135802469136,
+          35.57098765432099
+        ]
+      },
+      {
+        "k": 17,
+        "effect_pp": 0.16718106995884774,
+        "ci95_pp": [
+          -1.337448559670782,
+          1.7232510288065845
+        ],
+        "decision": "equivalent_within_5pp",
+        "per_seed_pp": [
+          -0.23148148148148145,
+          -0.4629629629629629,
+          1.7746913580246912,
+          -0.38580246913580246,
+          0.23148148148148145,
+          0.07716049382716049
+        ]
+      },
+      {
+        "k": 21,
+        "effect_pp": 0.7973251028806585,
+        "ci95_pp": [
+          -0.8359053497942387,
+          2.4565972222222174
+        ],
+        "decision": "equivalent_within_5pp",
+        "per_seed_pp": [
+          2.391975308641975,
+          0.4629629629629629,
+          1.6203703703703702,
+          -0.4629629629629629,
+          0.0,
+          0.7716049382716049
+        ]
+      }
+    ],
+    "grouped": [
+      {
+        "k": 10,
+        "arm": "inherited_unit",
+        "solved_per_seed": [
+          725,
+          612,
+          641,
+          725,
+          680,
+          599
+        ],
+        "mean_accuracy_pct": 51.2088477366255,
+        "wrong_stops": 0,
+        "n_per_seed": 1296,
+        "seeds": 6
+      },
+      {
+        "k": 10,
+        "arm": "normalized_unit",
+        "solved_per_seed": [
+          1061,
+          1059,
+          1052,
+          1049,
+          1036,
+          1060
+        ],
+        "mean_accuracy_pct": 81.23713991769547,
+        "wrong_stops": 0,
+        "n_per_seed": 1296,
+        "seeds": 6
+      },
+      {
+        "k": 17,
+        "arm": "inherited_unit",
+        "solved_per_seed": [
+          1058,
+          1042,
+          1030,
+          1055,
+          1033,
+          1056
+        ],
+        "mean_accuracy_pct": 80.68415637860082,
+        "wrong_stops": 0,
+        "n_per_seed": 1296,
+        "seeds": 6
+      },
+      {
+        "k": 17,
+        "arm": "normalized_unit",
+        "solved_per_seed": [
+          1055,
+          1036,
+          1053,
+          1050,
+          1036,
+          1057
+        ],
+        "mean_accuracy_pct": 80.85133744855966,
+        "wrong_stops": 0,
+        "n_per_seed": 1296,
+        "seeds": 6
+      },
+      {
+        "k": 21,
+        "arm": "inherited_unit",
+        "solved_per_seed": [
+          1024,
+          1036,
+          1028,
+          1055,
+          1060,
+          1047
+        ],
+        "mean_accuracy_pct": 80.37551440329219,
+        "wrong_stops": 0,
+        "n_per_seed": 1296,
+        "seeds": 6
+      },
+      {
+        "k": 21,
+        "arm": "normalized_unit",
+        "solved_per_seed": [
+          1055,
+          1042,
+          1049,
+          1049,
+          1060,
+          1057
+        ],
+        "mean_accuracy_pct": 81.17283950617282,
+        "wrong_stops": 0,
+        "n_per_seed": 1296,
+        "seeds": 6
+      }
+    ],
+    "rows": [
+      {
+        "job_id": "k10-s0-inherited_unit",
+        "k": 10,
+        "seed": 0,
+        "arm": "inherited_unit",
+        "solved": 725,
+        "wrong_stops": 0,
+        "budget_failures": 571,
+        "mean_moves": 154086.85725308643,
+        "wall_s": 0.703079549013637
+      },
+      {
+        "job_id": "k10-s0-normalized_unit",
+        "k": 10,
+        "seed": 0,
+        "arm": "normalized_unit",
+        "solved": 1061,
+        "wrong_stops": 0,
+        "budget_failures": 235,
+        "mean_moves": 105925.90432098765,
+        "wall_s": 0.5109604450408369
+      },
+      {
+        "job_id": "k10-s1-inherited_unit",
+        "k": 10,
+        "seed": 1,
+        "arm": "inherited_unit",
+        "solved": 612,
+        "wrong_stops": 0,
+        "budget_failures": 684,
+        "mean_moves": 172158.2962962963,
+        "wall_s": 0.782861633982975
+      },
+      {
+        "job_id": "k10-s1-normalized_unit",
+        "k": 10,
+        "seed": 1,
+        "arm": "normalized_unit",
+        "solved": 1059,
+        "wrong_stops": 0,
+        "budget_failures": 237,
+        "mean_moves": 105136.06944444444,
+        "wall_s": 0.5241744929808192
+      },
+      {
+        "job_id": "k10-s2-inherited_unit",
+        "k": 10,
+        "seed": 2,
+        "arm": "inherited_unit",
+        "solved": 641,
+        "wrong_stops": 0,
+        "budget_failures": 655,
+        "mean_moves": 166432.55941358025,
+        "wall_s": 0.7432165360078216
+      },
+      {
+        "job_id": "k10-s2-normalized_unit",
+        "k": 10,
+        "seed": 2,
+        "arm": "normalized_unit",
+        "solved": 1052,
+        "wrong_stops": 0,
+        "budget_failures": 244,
+        "mean_moves": 105462.77314814815,
+        "wall_s": 0.5227084020152688
+      },
+      {
+        "job_id": "k10-s3-inherited_unit",
+        "k": 10,
+        "seed": 3,
+        "arm": "inherited_unit",
+        "solved": 725,
+        "wrong_stops": 0,
+        "budget_failures": 571,
+        "mean_moves": 153471.52469135803,
+        "wall_s": 0.7036443669931032
+      },
+      {
+        "job_id": "k10-s3-normalized_unit",
+        "k": 10,
+        "seed": 3,
+        "arm": "normalized_unit",
+        "solved": 1049,
+        "wrong_stops": 0,
+        "budget_failures": 247,
+        "mean_moves": 105182.14274691358,
+        "wall_s": 0.4995617520180531
+      },
+      {
+        "job_id": "k10-s4-inherited_unit",
+        "k": 10,
+        "seed": 4,
+        "arm": "inherited_unit",
+        "solved": 680,
+        "wrong_stops": 0,
+        "budget_failures": 616,
+        "mean_moves": 160583.23919753087,
+        "wall_s": 0.7275390200084075
+      },
+      {
+        "job_id": "k10-s4-normalized_unit",
+        "k": 10,
+        "seed": 4,
+        "arm": "normalized_unit",
+        "solved": 1036,
+        "wrong_stops": 0,
+        "budget_failures": 260,
+        "mean_moves": 108265.24768518518,
+        "wall_s": 0.5157900250051171
+      },
+      {
+        "job_id": "k10-s5-inherited_unit",
+        "k": 10,
+        "seed": 5,
+        "arm": "inherited_unit",
+        "solved": 599,
+        "wrong_stops": 0,
+        "budget_failures": 697,
+        "mean_moves": 171494.52083333334,
+        "wall_s": 0.7731436850153841
+      },
+      {
+        "job_id": "k10-s5-normalized_unit",
+        "k": 10,
+        "seed": 5,
+        "arm": "normalized_unit",
+        "solved": 1060,
+        "wrong_stops": 0,
+        "budget_failures": 236,
+        "mean_moves": 106405.50617283951,
+        "wall_s": 0.5216263470356353
+      },
+      {
+        "job_id": "k17-s0-inherited_unit",
+        "k": 17,
+        "seed": 0,
+        "arm": "inherited_unit",
+        "solved": 1058,
+        "wrong_stops": 0,
+        "budget_failures": 238,
+        "mean_moves": 106721.25,
+        "wall_s": 0.5152304759831168
+      },
+      {
+        "job_id": "k17-s0-normalized_unit",
+        "k": 17,
+        "seed": 0,
+        "arm": "normalized_unit",
+        "solved": 1055,
+        "wrong_stops": 0,
+        "budget_failures": 241,
+        "mean_moves": 106022.59876543209,
+        "wall_s": 0.5260328020085581
+      },
+      {
+        "job_id": "k17-s1-inherited_unit",
+        "k": 17,
+        "seed": 1,
+        "arm": "inherited_unit",
+        "solved": 1042,
+        "wrong_stops": 0,
+        "budget_failures": 254,
+        "mean_moves": 104338.93904320987,
+        "wall_s": 0.5119102309690788
+      },
+      {
+        "job_id": "k17-s1-normalized_unit",
+        "k": 17,
+        "seed": 1,
+        "arm": "normalized_unit",
+        "solved": 1036,
+        "wrong_stops": 0,
+        "budget_failures": 260,
+        "mean_moves": 106573.65895061729,
+        "wall_s": 0.5113693689927459
+      },
+      {
+        "job_id": "k17-s2-inherited_unit",
+        "k": 17,
+        "seed": 2,
+        "arm": "inherited_unit",
+        "solved": 1030,
+        "wrong_stops": 0,
+        "budget_failures": 266,
+        "mean_moves": 108391.94135802469,
+        "wall_s": 0.513113496999722
+      },
+      {
+        "job_id": "k17-s2-normalized_unit",
+        "k": 17,
+        "seed": 2,
+        "arm": "normalized_unit",
+        "solved": 1053,
+        "wrong_stops": 0,
+        "budget_failures": 243,
+        "mean_moves": 105067.59876543209,
+        "wall_s": 0.5223509659990668
+      },
+      {
+        "job_id": "k17-s3-inherited_unit",
+        "k": 17,
+        "seed": 3,
+        "arm": "inherited_unit",
+        "solved": 1055,
+        "wrong_stops": 0,
+        "budget_failures": 241,
+        "mean_moves": 103047.26697530864,
+        "wall_s": 0.5112479270319454
+      },
+      {
+        "job_id": "k17-s3-normalized_unit",
+        "k": 17,
+        "seed": 3,
+        "arm": "normalized_unit",
+        "solved": 1050,
+        "wrong_stops": 0,
+        "budget_failures": 246,
+        "mean_moves": 105233.08719135802,
+        "wall_s": 0.5132982039940543
+      },
+      {
+        "job_id": "k17-s4-inherited_unit",
+        "k": 17,
+        "seed": 4,
+        "arm": "inherited_unit",
+        "solved": 1033,
+        "wrong_stops": 0,
+        "budget_failures": 263,
+        "mean_moves": 110075.82947530864,
+        "wall_s": 0.5233759639668278
+      },
+      {
+        "job_id": "k17-s4-normalized_unit",
+        "k": 17,
+        "seed": 4,
+        "arm": "normalized_unit",
+        "solved": 1036,
+        "wrong_stops": 0,
+        "budget_failures": 260,
+        "mean_moves": 108265.24768518518,
+        "wall_s": 0.5298565429984592
+      },
+      {
+        "job_id": "k17-s5-inherited_unit",
+        "k": 17,
+        "seed": 5,
+        "arm": "inherited_unit",
+        "solved": 1056,
+        "wrong_stops": 0,
+        "budget_failures": 240,
+        "mean_moves": 104776.26080246913,
+        "wall_s": 0.5179069629521109
+      },
+      {
+        "job_id": "k17-s5-normalized_unit",
+        "k": 17,
+        "seed": 5,
+        "arm": "normalized_unit",
+        "solved": 1057,
+        "wrong_stops": 0,
+        "budget_failures": 239,
+        "mean_moves": 106416.90586419753,
+        "wall_s": 0.5170675339759327
+      },
+      {
+        "job_id": "k21-s0-inherited_unit",
+        "k": 21,
+        "seed": 0,
+        "arm": "inherited_unit",
+        "solved": 1024,
+        "wrong_stops": 0,
+        "budget_failures": 272,
+        "mean_moves": 110244.67978395062,
+        "wall_s": 0.5235489940387197
+      },
+      {
+        "job_id": "k21-s0-normalized_unit",
+        "k": 21,
+        "seed": 0,
+        "arm": "normalized_unit",
+        "solved": 1055,
+        "wrong_stops": 0,
+        "budget_failures": 241,
+        "mean_moves": 106022.59876543209,
+        "wall_s": 0.5253592710359953
+      },
+      {
+        "job_id": "k21-s1-inherited_unit",
+        "k": 21,
+        "seed": 1,
+        "arm": "inherited_unit",
+        "solved": 1036,
+        "wrong_stops": 0,
+        "budget_failures": 260,
+        "mean_moves": 107097.57870370371,
+        "wall_s": 0.5295285310130566
+      },
+      {
+        "job_id": "k21-s1-normalized_unit",
+        "k": 21,
+        "seed": 1,
+        "arm": "normalized_unit",
+        "solved": 1042,
+        "wrong_stops": 0,
+        "budget_failures": 254,
+        "mean_moves": 105900.86574074074,
+        "wall_s": 0.5113659330527298
+      },
+      {
+        "job_id": "k21-s2-inherited_unit",
+        "k": 21,
+        "seed": 2,
+        "arm": "inherited_unit",
+        "solved": 1028,
+        "wrong_stops": 0,
+        "budget_failures": 268,
+        "mean_moves": 109889.80787037036,
+        "wall_s": 0.523782154021319
+      },
+      {
+        "job_id": "k21-s2-normalized_unit",
+        "k": 21,
+        "seed": 2,
+        "arm": "normalized_unit",
+        "solved": 1049,
+        "wrong_stops": 0,
+        "budget_failures": 247,
+        "mean_moves": 105473.29166666667,
+        "wall_s": 0.5224799590068869
+      },
+      {
+        "job_id": "k21-s3-inherited_unit",
+        "k": 21,
+        "seed": 3,
+        "arm": "inherited_unit",
+        "solved": 1055,
+        "wrong_stops": 0,
+        "budget_failures": 241,
+        "mean_moves": 103454.33410493827,
+        "wall_s": 0.5036251429701224
+      },
+      {
+        "job_id": "k21-s3-normalized_unit",
+        "k": 21,
+        "seed": 3,
+        "arm": "normalized_unit",
+        "solved": 1049,
+        "wrong_stops": 0,
+        "budget_failures": 247,
+        "mean_moves": 105182.14274691358,
+        "wall_s": 0.5021471839863807
+      },
+      {
+        "job_id": "k21-s4-inherited_unit",
+        "k": 21,
+        "seed": 4,
+        "arm": "inherited_unit",
+        "solved": 1060,
+        "wrong_stops": 0,
+        "budget_failures": 236,
+        "mean_moves": 105949.72530864198,
+        "wall_s": 0.5010317390551791
+      },
+      {
+        "job_id": "k21-s4-normalized_unit",
+        "k": 21,
+        "seed": 4,
+        "arm": "normalized_unit",
+        "solved": 1060,
+        "wrong_stops": 0,
+        "budget_failures": 236,
+        "mean_moves": 109216.47916666667,
+        "wall_s": 0.5258551659644581
+      },
+      {
+        "job_id": "k21-s5-inherited_unit",
+        "k": 21,
+        "seed": 5,
+        "arm": "inherited_unit",
+        "solved": 1047,
+        "wrong_stops": 0,
+        "budget_failures": 249,
+        "mean_moves": 104748.81712962964,
+        "wall_s": 0.518231249996461
+      },
+      {
+        "job_id": "k21-s5-normalized_unit",
+        "k": 21,
+        "seed": 5,
+        "arm": "normalized_unit",
+        "solved": 1057,
+        "wrong_stops": 0,
+        "budget_failures": 239,
+        "mean_moves": 106498.42669753087,
+        "wall_s": 0.5225525670102797
+      }
+    ],
+    "units": [
+      {
+        "k": 10,
+        "seed": 0,
+        "arm": "inherited_unit",
+        "unit": 0.54962158203125,
+        "level": 0.7645595669746399,
+        "unit_over_level": 0.7188734609732256
+      },
+      {
+        "k": 10,
+        "seed": 0,
+        "arm": "normalized_unit",
+        "unit": 0.7645595669746399,
+        "level": 0.7645595669746399,
+        "unit_over_level": 1.0
+      },
+      {
+        "k": 10,
+        "seed": 1,
+        "arm": "inherited_unit",
+        "unit": 0.516069769859314,
+        "level": 0.7624154686927795,
+        "unit_over_level": 0.6768878532123117
+      },
+      {
+        "k": 10,
+        "seed": 1,
+        "arm": "normalized_unit",
+        "unit": 0.7624154686927795,
+        "level": 0.7624154686927795,
+        "unit_over_level": 1.0
+      },
+      {
+        "k": 10,
+        "seed": 2,
+        "arm": "inherited_unit",
+        "unit": 0.527665913105011,
+        "level": 0.7633257508277893,
+        "unit_over_level": 0.6912722550402409
+      },
+      {
+        "k": 10,
+        "seed": 2,
+        "arm": "normalized_unit",
+        "unit": 0.7633257508277893,
+        "level": 0.7633257508277893,
+        "unit_over_level": 1.0
+      },
+      {
+        "k": 10,
+        "seed": 3,
+        "arm": "inherited_unit",
+        "unit": 0.556596040725708,
+        "level": 0.7633221745491028,
+        "unit_over_level": 0.7291757783068353
+      },
+      {
+        "k": 10,
+        "seed": 3,
+        "arm": "normalized_unit",
+        "unit": 0.7633221745491028,
+        "level": 0.7633221745491028,
+        "unit_over_level": 1.0
+      },
+      {
+        "k": 10,
+        "seed": 4,
+        "arm": "inherited_unit",
+        "unit": 0.534014880657196,
+        "level": 0.76326584815979,
+        "unit_over_level": 0.6996446676406249
+      },
+      {
+        "k": 10,
+        "seed": 4,
+        "arm": "normalized_unit",
+        "unit": 0.76326584815979,
+        "level": 0.76326584815979,
+        "unit_over_level": 1.0
+      },
+      {
+        "k": 10,
+        "seed": 5,
+        "arm": "inherited_unit",
+        "unit": 0.5143336057662964,
+        "level": 0.7660840749740601,
+        "unit_over_level": 0.6713801037878407
+      },
+      {
+        "k": 10,
+        "seed": 5,
+        "arm": "normalized_unit",
+        "unit": 0.7660840749740601,
+        "level": 0.7660840749740601,
+        "unit_over_level": 1.0
+      },
+      {
+        "k": 17,
+        "seed": 0,
+        "arm": "inherited_unit",
+        "unit": 0.8083333969116211,
+        "level": 0.8084087371826172,
+        "unit_over_level": 0.9999068042346269
+      },
+      {
+        "k": 17,
+        "seed": 0,
+        "arm": "normalized_unit",
+        "unit": 0.8084087371826172,
+        "level": 0.8084087371826172,
+        "unit_over_level": 1.0
+      },
+      {
+        "k": 17,
+        "seed": 1,
+        "arm": "inherited_unit",
+        "unit": 0.8066304326057434,
+        "level": 0.8067068457603455,
+        "unit_over_level": 0.9999052776668456
+      },
+      {
+        "k": 17,
+        "seed": 1,
+        "arm": "normalized_unit",
+        "unit": 0.8067068457603455,
+        "level": 0.8067068457603455,
+        "unit_over_level": 1.0
+      },
+      {
+        "k": 17,
+        "seed": 2,
+        "arm": "inherited_unit",
+        "unit": 0.8076016902923584,
+        "level": 0.8076642155647278,
+        "unit_over_level": 0.9999225850654709
+      },
+      {
+        "k": 17,
+        "seed": 2,
+        "arm": "normalized_unit",
+        "unit": 0.8076642155647278,
+        "level": 0.8076642155647278,
+        "unit_over_level": 1.0
+      },
+      {
+        "k": 17,
+        "seed": 3,
+        "arm": "inherited_unit",
+        "unit": 0.8069838285446167,
+        "level": 0.8070520758628845,
+        "unit_over_level": 0.9999154362892941
+      },
+      {
+        "k": 17,
+        "seed": 3,
+        "arm": "normalized_unit",
+        "unit": 0.8070520758628845,
+        "level": 0.8070520758628845,
+        "unit_over_level": 1.0
+      },
+      {
+        "k": 17,
+        "seed": 4,
+        "arm": "inherited_unit",
+        "unit": 0.806544303894043,
+        "level": 0.8066059350967407,
+        "unit_over_level": 0.9999235919300664
+      },
+      {
+        "k": 17,
+        "seed": 4,
+        "arm": "normalized_unit",
+        "unit": 0.8066059350967407,
+        "level": 0.8066059350967407,
+        "unit_over_level": 1.0
+      },
+      {
+        "k": 17,
+        "seed": 5,
+        "arm": "inherited_unit",
+        "unit": 0.8007251620292664,
+        "level": 0.8086997270584106,
+        "unit_over_level": 0.9901390284152176
+      },
+      {
+        "k": 17,
+        "seed": 5,
+        "arm": "normalized_unit",
+        "unit": 0.8086997270584106,
+        "level": 0.8086997270584106,
+        "unit_over_level": 1.0
+      },
+      {
+        "k": 21,
+        "seed": 0,
+        "arm": "inherited_unit",
+        "unit": 0.8152874112129211,
+        "level": 0.8153006434440613,
+        "unit_over_level": 0.9999837701205726
+      },
+      {
+        "k": 21,
+        "seed": 0,
+        "arm": "normalized_unit",
+        "unit": 0.8153006434440613,
+        "level": 0.8153006434440613,
+        "unit_over_level": 1.0
+      },
+      {
+        "k": 21,
+        "seed": 1,
+        "arm": "inherited_unit",
+        "unit": 0.8140274286270142,
+        "level": 0.8140463829040527,
+        "unit_over_level": 0.9999767159741304
+      },
+      {
+        "k": 21,
+        "seed": 1,
+        "arm": "normalized_unit",
+        "unit": 0.8140463829040527,
+        "level": 0.8140463829040527,
+        "unit_over_level": 1.0
+      },
+      {
+        "k": 21,
+        "seed": 2,
+        "arm": "inherited_unit",
+        "unit": 0.8151952028274536,
+        "level": 0.8152176737785339,
+        "unit_over_level": 0.9999724356428926
+      },
+      {
+        "k": 21,
+        "seed": 2,
+        "arm": "normalized_unit",
+        "unit": 0.8152176737785339,
+        "level": 0.8152176737785339,
+        "unit_over_level": 1.0
+      },
+      {
+        "k": 21,
+        "seed": 3,
+        "arm": "inherited_unit",
+        "unit": 0.8147650957107544,
+        "level": 0.8147872090339661,
+        "unit_over_level": 0.9999728600020147
+      },
+      {
+        "k": 21,
+        "seed": 3,
+        "arm": "normalized_unit",
+        "unit": 0.8147872090339661,
+        "level": 0.8147872090339661,
+        "unit_over_level": 1.0
+      },
+      {
+        "k": 21,
+        "seed": 4,
+        "arm": "inherited_unit",
+        "unit": 0.8140737414360046,
+        "level": 0.8140928149223328,
+        "unit_over_level": 0.9999765708700795
+      },
+      {
+        "k": 21,
+        "seed": 4,
+        "arm": "normalized_unit",
+        "unit": 0.8140928149223328,
+        "level": 0.8140928149223328,
+        "unit_over_level": 1.0
+      },
+      {
+        "k": 21,
+        "seed": 5,
+        "arm": "inherited_unit",
+        "unit": 0.8158602714538574,
+        "level": 0.8158807754516602,
+        "unit_over_level": 0.9999748688798417
+      },
+      {
+        "k": 21,
+        "seed": 5,
+        "arm": "normalized_unit",
+        "unit": 0.8158807754516602,
+        "level": 0.8158807754516602,
+        "unit_over_level": 1.0
+      }
+    ],
+    "weights_exactly_equal_to_frozen_input": true,
+    "input_sha256": {
+      "artifacts/research/20261114/ripper/scale/jobs/k10-s0-inherited_unit/receipt.json": "3b13b3ca6c0e98c5072e68c6a911aa5e0fd3e7448ca11cccd7e98d807935d775",
+      "artifacts/research/20261114/ripper/scale/jobs/k10-s0-normalized_unit/receipt.json": "59725b71d00cae1e27e663e8f63a07f165311b454a7a05e2c2b1cf20c54a148b",
+      "artifacts/research/20261114/ripper/scale/jobs/k10-s1-inherited_unit/receipt.json": "7ea524536b33fdaa4ba4da69b7e9b3ab030034f380c59c072d829c6d3cea7c2b",
+      "artifacts/research/20261114/ripper/scale/jobs/k10-s1-normalized_unit/receipt.json": "6dd9e98d115f2195e097ccf14b134e23371a43545c4d2efc4a873eae2f37e956",
+      "artifacts/research/20261114/ripper/scale/jobs/k10-s2-inherited_unit/receipt.json": "10a51ba81cc5e82834a705434b92af51ca3f0f3d5f252c68e4915be122e3c353",
+      "artifacts/research/20261114/ripper/scale/jobs/k10-s2-normalized_unit/receipt.json": "0c3a8301d463bff022d0d905f60231a2cc835c388335ab3cc658d1d0e227c56e",
+      "artifacts/research/20261114/ripper/scale/jobs/k10-s3-inherited_unit/receipt.json": "9c0470e2f369f61be0c9299bde9a5ab97fcf269c29521162916071f0d2cfc2f2",
+      "artifacts/research/20261114/ripper/scale/jobs/k10-s3-normalized_unit/receipt.json": "af0671be79d139a2b93934756742cae213b2986639d874009b456b6c4d6c0e0d",
+      "artifacts/research/20261114/ripper/scale/jobs/k10-s4-inherited_unit/receipt.json": "ac2f7d3bd2cc9d5a4a4778fad79d70c99a418a757a3acff95f2f4ed2a091e4cd",
+      "artifacts/research/20261114/ripper/scale/jobs/k10-s4-normalized_unit/receipt.json": "865ebb7a38f407de6c90a7df9ee4618709cb1d4fc7aec02a7a188f799d92bb9f",
+      "artifacts/research/20261114/ripper/scale/jobs/k10-s5-inherited_unit/receipt.json": "4d685241768893569452e12b7903d9560fc362a083adf06d4ac87f3d5ef564ab",
+      "artifacts/research/20261114/ripper/scale/jobs/k10-s5-normalized_unit/receipt.json": "1827f43286b543d933ea07629ac30278856bf964214319eb0e50b98822658e26",
+      "artifacts/research/20261114/ripper/scale/jobs/k17-s0-inherited_unit/receipt.json": "be4e2e318f71dbeb701aa7bece47ff1361fd72f5c36a4e36517275f26e6d3342",
+      "artifacts/research/20261114/ripper/scale/jobs/k17-s0-normalized_unit/receipt.json": "4bccbaebeb86b597e1d6274fe50c9a5302c747ebe052e5cdb46497752f0ccc97",
+      "artifacts/research/20261114/ripper/scale/jobs/k17-s1-inherited_unit/receipt.json": "f8ad018d59e318f2dd92f8c4f8563535d9d01b7b3b2cabfd922e22624e1987d4",
+      "artifacts/research/20261114/ripper/scale/jobs/k17-s1-normalized_unit/receipt.json": "f24d0b080d70371e787b6c338030c7b25d480bf8d437e67490e1dada11f4a6ee",
+      "artifacts/research/20261114/ripper/scale/jobs/k17-s2-inherited_unit/receipt.json": "8ee1f26c7daf40fc74b6007c270fc0305cb041fc57bcd40684c3ff7d28519e3d",
+      "artifacts/research/20261114/ripper/scale/jobs/k17-s2-normalized_unit/receipt.json": "380a3894b3a695ac75d56669f475611969ad5fb3d65baba3aae217afbedd5685",
+      "artifacts/research/20261114/ripper/scale/jobs/k17-s3-inherited_unit/receipt.json": "8b58fd885a1318d4e0f02336c983097680fb32d961108d9de50832f794208d64",
+      "artifacts/research/20261114/ripper/scale/jobs/k17-s3-normalized_unit/receipt.json": "2a90e1dbbc36e68722e2a5fec8551824cd57711cd92d32b0182653ab66d3cee2",
+      "artifacts/research/20261114/ripper/scale/jobs/k17-s4-inherited_unit/receipt.json": "4d352c853821221f91c4ff0f72018a434fae9e61c273879931630da9f4b3816b",
+      "artifacts/research/20261114/ripper/scale/jobs/k17-s4-normalized_unit/receipt.json": "75a73acaad70c09da80b59f154afa545b42824313539f9551ce747468c88573d",
+      "artifacts/research/20261114/ripper/scale/jobs/k17-s5-inherited_unit/receipt.json": "abc03f0ce95bd971d86cb51deeff3a133a1ac5c90156e12900cbf666de9f9d22",
+      "artifacts/research/20261114/ripper/scale/jobs/k17-s5-normalized_unit/receipt.json": "4ce9e4de927a32ab6e0ed33161c3e5124034e28b19285d708e3b6ed7ca31a162",
+      "artifacts/research/20261114/ripper/scale/jobs/k21-s0-inherited_unit/receipt.json": "5979f71ac5c523a2147a1d6f4e9ece0a02e8dc9bbe167ff7932d7b498a975b22",
+      "artifacts/research/20261114/ripper/scale/jobs/k21-s0-normalized_unit/receipt.json": "44ed0e5fd41cbd88c807a8a76347b48f82752e86d6736f35b91152eb8aaa3850",
+      "artifacts/research/20261114/ripper/scale/jobs/k21-s1-inherited_unit/receipt.json": "5316dcdffb31d5692ab38cdb6c54a6fd42a5e6f1c7047984055a4189724ad797",
+      "artifacts/research/20261114/ripper/scale/jobs/k21-s1-normalized_unit/receipt.json": "805f05039a2daf87d856ee9a780b4690d3221d25b34f2d4fa26f05055be9a334",
+      "artifacts/research/20261114/ripper/scale/jobs/k21-s2-inherited_unit/receipt.json": "ba79a74f03cec447d62307ab7b7f45d1e8e1437ff0c22de8166cd4a64ed50413",
+      "artifacts/research/20261114/ripper/scale/jobs/k21-s2-normalized_unit/receipt.json": "371ce331c48eacdd794848dab941e73fa9a7e4618ab008ddd2197f538b463de5",
+      "artifacts/research/20261114/ripper/scale/jobs/k21-s3-inherited_unit/receipt.json": "c5df4b8b24f11cb9bad9202db1c829d63bbf0c5811312ee5c10ce022216fb1a3",
+      "artifacts/research/20261114/ripper/scale/jobs/k21-s3-normalized_unit/receipt.json": "15943769d6dd9e9da3f012d510cceaa48a6422fe60573340bf3a3985dace9af4",
+      "artifacts/research/20261114/ripper/scale/jobs/k21-s4-inherited_unit/receipt.json": "1c7258509c8b500659b78e374f1adab0748a843c6452a7cd1d9d3d73b8b6373f",
+      "artifacts/research/20261114/ripper/scale/jobs/k21-s4-normalized_unit/receipt.json": "77b19a435afa11ada39873a36d9f791693e2cfd1cb30de4db8c6c8189a7cc3da",
+      "artifacts/research/20261114/ripper/scale/jobs/k21-s5-inherited_unit/receipt.json": "d303d13af788ac4997addef96ddfd0c3523f9f710244c4f3c2b9a899f5571270",
+      "artifacts/research/20261114/ripper/scale/jobs/k21-s5-normalized_unit/receipt.json": "ca35d0d9422a01e4582a46643d1185785132fcae7dcfa0f7cbfdd31c5ebcae20"
+    },
+    "new_inference": false,
+    "limitations": [
+      "Fixed short-budget development study, no external-distribution claim.",
+      "Last1296 development rows were unused before this study; all10000 development rows are now consumed across research waves.",
+      "Six model-seed clusters; paired two-way bootstrap approximate.",
+      "Only thermal/focus unit changes; weights,graph,trainingtau,ebar andsearchbudget are exactly preserved.",
+      "Observed invariance/equivalence is statistical, not exact floating-point scale invariance."
+    ]
   }
 }

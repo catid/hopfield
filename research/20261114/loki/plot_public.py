@@ -15,9 +15,10 @@ COLORS = {'adamw-decay': '#c44e52', 'adam-nodecay': '#2878b5', 'sgd-pre': '#ca8a
 
 
 def main():
-    sources = [DEST / 'summary.json', DEST / 'per_seed.csv', DEST / 'h3c/summary.json', DEST / 'h3c/per_seed.csv']
+    sources = [DEST / 'summary.json', DEST / 'per_seed.csv', DEST / 'h3c/summary.json', DEST / 'h3c/per_seed.csv', DEST / 'h3d/summary.json']
     base = json.loads(sources[0].read_text()); curve = json.loads(sources[2].read_text())
-    assert base['status'] == curve['status'] == 'validated'
+    selection = json.loads(sources[4].read_text())
+    assert base['status'] == curve['status'] == selection['status'] == 'validated'
     with sources[1].open() as handle: seeds = list(csv.DictReader(handle))
     with sources[3].open() as handle: prefix = list(csv.DictReader(handle))
     plt.rcParams.update({'font.size': 10, 'axes.spines.top': False, 'axes.spines.right': False,
@@ -26,7 +27,7 @@ def main():
     fig.subplots_adjust(left=.055, right=.985, bottom=.27, top=.77, wspace=.30)
     fig.suptitle('N-Queens: removing weight decay and shortening the fit', x=.055, y=.965,
                  ha='left', fontsize=19, fontweight='bold')
-    fig.text(.055, .89, '6,513 unique n=10 inputs · 20 search chains · 3 paired search seeds · same fixed 20,000-move cap', fontsize=11)
+    fig.text(.055, .89, 'n=10 · 6,513 unique inputs · 20 chains · 3 search seeds · cap 20,000 · original lowest-energy output selection', fontsize=11)
     arms = ['adamw-decay', 'adam-nodecay', 'sgd-pre']
     labels = ['BP AdamW\ndecay 0.01', 'BP Adam\nno decay', 'SGD +\npreconditioner']
     ax = axes[0]
@@ -70,6 +71,7 @@ def main():
     ratio = curve['primary']['median_complete_fit_time_ratio']
     fig.text(.055, .12, f"Frozen H3c result: {curve['decision']}. Adam at 1,000 vs SGD at 4,000: same observed N20 accuracy, {abs(curve['primary']['coverage_difference_pp']):.3f} pp lower coverage, fitting-time ratio {ratio:.3f}.", fontsize=10.5)
     fig.text(.055, .065, 'Dots show every repeated search seed (A–B) or timed fit (C), not confidence intervals. One deterministic fitted trajectory per optimizer.\nAdaptive follow-up on a previously used official test set. Fit timings use one Loki Blackwell GPU, three repeats after warmup; inference time is separate.', fontsize=9, color='#444', linespacing=1.5)
+    fig.text(.055, .018, f"Later H3d reanalysis: prioritizing learned stopped flags recovers decay-AdamW's {selection['primary']['recovered_inputs']} input–seed failures from the same searches (a derivative output policy).", fontsize=9, color='#444')
     for ext in ['png', 'svg']:
         fig.savefig(DEST / f'weight-decay-and-prefix.{ext}', dpi=180)
     receipt = dict(plot_source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),

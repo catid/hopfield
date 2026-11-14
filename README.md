@@ -34,11 +34,13 @@ At a tighter 2,048-update cap, joint success rises from **351/384 to 384/384** a
 
 ![Weight-decay control, training-prefix accuracy and measured fitting time](results/research/loki/weight-decay-and-prefix.png)
 
-At a fixed **1,000 updates**, Adam without decay matches the **99.9846%** accuracy of preconditioned SGD at **4,000 updates**, taking **2.03 s versus 8.08 s** in matched complete-fit measurements. Solution coverage is 0.47 points lower. The 1,000-update comparison was frozen before evaluation; the test cohort had been used in earlier follow-ups. [Protocol and audited results →](research/20261114/loki/h3c/REPORT.md)
+Under the original lowest-energy output selection, at a fixed **1,000 updates**, Adam without decay matches the **99.9846%** accuracy of preconditioned SGD at **4,000 updates**, taking **2.03 s versus 8.08 s** in matched complete-fit measurements. Solution coverage is 0.47 points lower. The 1,000-update comparison was frozen before evaluation; the test cohort had been used in earlier follow-ups. [Protocol and audited results →](research/20261114/loki/h3c/REPORT.md)
 
 ## Optimizer controls and results that did not work
 
-On all **6,513 unique N-Queens-10 test inputs**, ordinary BP AdamW with weight decay reaches **99.6059%**, Adam without decay reaches **100%**, and preconditioned SGD reaches **99.9846%**. Each is one deterministic full-batch fit with three search seeds, 20 chains and a 20,000-move cap. The learning rate was selected on development data; this is an adaptive follow-up, not a general optimizer ranking. [Full comparison →](research/20261114/loki/h3b/REPORT.md)
+Under that original selection rule, on all **6,513 unique N-Queens-10 test inputs**, ordinary BP AdamW with weight decay reaches **99.6059%**, Adam without decay reaches **100%**, and preconditioned SGD reaches **99.9846%**. Each is one deterministic full-batch fit with three search seeds, 20 chains and a 20,000-move cap. The learning rate was selected on development data; this is an adaptive follow-up, not a general optimizer ranking. [Full comparison →](research/20261114/loki/h3b/REPORT.md)
+
+**The optimizer gap depends on output selection.** A follow-up that prefers a chain satisfying the learned stopping condition fixes all 77 failed AdamW input–seed cases in the saved searches, reaching **100%** with **no additional search**. It uses stopping flags and energies, without a symbolic N-Queens checker. This changes the paper’s output convention and was evaluated adaptively on the reused test cohort. [Selector, exhaustive board checks and measured overhead →](research/20261114/loki/h3d/REPORT.md)
 
 Negative results stay visible: digit projection still solves **0%** with one or three training puzzles; clipping attractive couplings fails the proposed ten-point gain; maze mass rescaling gives **no improvement**; AdamW fails the original accuracy noninferiority test; and training-only Sudoku thresholds do not establish a replacement for the rule checker. [All hypotheses, controls and measured outcomes →](results/README.md)
 

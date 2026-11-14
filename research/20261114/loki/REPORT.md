@@ -23,4 +23,4 @@ Fit times are one observation per deterministic model on Loki Blackwell, with CU
 
 The official published SGD choice was previously selected using the original validation set; it is a frozen external control here. The new AdamW choice used only this campaign’s discovery subset. The training and validation sets are disjoint by partial input, but completed solution labels can repeat across different partial inputs, as in the original GRAM task.
 
-[Frozen protocol](protocol.json), [runner](study.py), [CPU auditor](analyze.py), [machine-readable results](../../../artifacts/research/20261114/loki/summary.json), [all rows](../../../artifacts/research/20261114/loki/results.csv).
+[Frozen protocol](protocol.json), [runner](study.py), [CPU auditor](analyze.py), [tracked results and hashes](../../../results/research/loki/summary.json), [per-seed counts](../../../results/research/loki/per_seed.csv).
