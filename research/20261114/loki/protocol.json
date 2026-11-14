@@ -1,0 +1,187 @@
+{
+  "id": "H3-nqueens-adamw",
+  "frozen_utc": "2026-11-14T21:44:43.659992+00:00",
+  "source_commit": "62bbe830c7d6f87f2ba18f30a28039258b986454",
+  "hypothesis": "BP AdamW without geometry-derived preconditioning is noninferior to frozen SGD+preconditioning at n10: N20 accuracy within0.1 percentage point and coverage within2 points, with4000 updates.",
+  "arms": {
+    "adamw-lr0.01": {
+      "optimizer": "adamw",
+      "lr": 0.01,
+      "precond": false,
+      "weight_decay": 0.01
+    },
+    "adamw-lr0.03": {
+      "optimizer": "adamw",
+      "lr": 0.03,
+      "precond": false,
+      "weight_decay": 0.01
+    },
+    "adamw-lr0.1": {
+      "optimizer": "adamw",
+      "lr": 0.1,
+      "precond": false,
+      "weight_decay": 0.01
+    },
+    "adamw-lr0.3": {
+      "optimizer": "adamw",
+      "lr": 0.3,
+      "precond": false,
+      "weight_decay": 0.01
+    },
+    "adamw-lr1": {
+      "optimizer": "adamw",
+      "lr": 1.0,
+      "precond": false,
+      "weight_decay": 0.01
+    },
+    "sgd-pre": {
+      "optimizer": "sgd",
+      "lr": 30.0,
+      "precond": true,
+      "weight_decay": 0.0
+    },
+    "sgd-plain": {
+      "optimizer": "sgd",
+      "lr": 30.0,
+      "precond": false,
+      "weight_decay": 0.0
+    }
+  },
+  "fit": {
+    "method": "pl",
+    "arm": "ising",
+    "updates": 4000,
+    "initialization": "zero",
+    "full_batch": true,
+    "schedule": "lr*0.5*(1+cos(pi*k/4000))",
+    "sgd_momentum": 0.5,
+    "adamw_betas": [
+      0.9,
+      0.999
+    ],
+    "adamw_eps": 1e-08,
+    "lam": 0.0,
+    "tf32": false,
+    "training_seed": 0,
+    "repeats": "One fit per optimizer setting; PL is deterministic. Seeds below are inference draws, not distinct fitted models."
+  },
+  "search": {
+    "chains": 20,
+    "cap": 20000,
+    "temperature": 1.0,
+    "stop": "local",
+    "margin": 0.001,
+    "seeds": [
+      0,
+      1,
+      2
+    ]
+  },
+  "cohorts": {
+    "10": {
+      "fit_rows": 97554,
+      "held_unique": 3691,
+      "discovery_unique": 512,
+      "confirmation_unique": 3179,
+      "cohort_file": "artifacts/research/20261114/loki/cohorts-n10.npz",
+      "cohort_sha256": "b5061802c726b2218bbbd148e9d919af3e5cf55b632dd5606f6b0df27e0d3792",
+      "data_sha256": {
+        "upstream/data/gram/nqueens-10/train/all__inputs.npy": "c69d64f0ebf0a0d03d3c37f1462717c7e639341af4c54ef3bef23198cdf8ff75",
+        "upstream/data/gram/nqueens-10/train/all__labels.npy": "2faa1333e6fb47f1453e5f2d129f2e7be8e7149842b3a6c28041a33cf529fcc4",
+        "upstream/data/gram/nqueens-10/train/all__num_solutions.npy": "1dd1aff4582f55e329b3e34c2ac8d253e0f6465bd2dc9d05cf740f459213bbca"
+      }
+    },
+    "8": {
+      "fit_rows": 6524,
+      "held_unique": 438,
+      "discovery_unique": 128,
+      "confirmation_unique": 310,
+      "cohort_file": "artifacts/research/20261114/loki/cohorts-n8.npz",
+      "cohort_sha256": "56efbe2a63321db9d52f6907c99f3cf27e2725c886f4361a7259fd630dd95631",
+      "data_sha256": {
+        "upstream/data/gram/nqueens-8/train/all__inputs.npy": "1738808f62d5659a9c77810047614ab0e7913bba491d57664fd012ab906bf610",
+        "upstream/data/gram/nqueens-8/train/all__labels.npy": "a4f75d5314d26783680525db96a2384a3b33baddffc819716925f1374faf5a53",
+        "upstream/data/gram/nqueens-8/train/all__num_solutions.npy": "7518e6e46dfc1d1b1feaae2f8b97c445de60802ca6583ae6b49c0707610961e1"
+      }
+    }
+  },
+  "split": "Pinned carve_validation:10% distinct train inputs, seed0. Canonical unique held inputs shuffled by20261114+n; first512(n10)/128(n8) discovery, all remainder confirmation.",
+  "selection": "n10 AdamW LR chosen once on discovery mean lowest-energyN20 accuracy across3searchseeds; tie higher paper-style coverage; tie lower LR. No stopping/temperature tuning. n8 transfers this LR without tuning.",
+  "confirmation": "SelectedAdamW + bothSGDcontrols only; n10 primary, n8 secondary. No test files opened.",
+  "metrics": {
+    "primary_accuracy": "Lowest-energy chain valid and contains givens, equal weight per unique input, then mean over3searchseeds",
+    "primary_coverage": "Number distinct valid completions among20chains capped atmin(solution_count,20); sum over unique inputs / sum capped counts, then mean over3searchseeds",
+    "secondary": [
+      "N1 accuracy",
+      "wrong stops",
+      "budget failures",
+      "moves",
+      "complete fit seconds",
+      "search seconds",
+      "PL and offset contrast"
+    ]
+  },
+  "decision": {
+    "accuracy_margin_pp": 0.1,
+    "coverage_margin_pp": 2.0,
+    "confidence": "One-sided95% noninferiority; paired unique-input bootstrap2000 draws, RNG20261114. Search repeats stay within each resampled input.",
+    "accuracy_safeguard": "Support also requires exact one-sided95% Clopper-Pearson upper bound on fraction of inputs with ANY paired accuracy regression across3seeds <0.001. This is a conservative lower bound on mean accuracy difference, preventing a degenerate zero-difference bootstrap from asserting unsupported precision.",
+    "rule": "Support if accuracy safeguard and bootstrap lower coverage difference>-2pp; falsified if bootstrap upper accuracy difference<-.1pp or upper coverage difference<-2pp; otherwise inconclusive. Discovery never establishes H3."
+  },
+  "source_sha256": {
+    "research/20261114/loki/study.py": "7c48de391879dc2f4b4f14459698afbc84c82cb3e89030e0ba4814d4fd74b552",
+    "upstream/experiments/compute_curve_export.py": "951515d262bab6599bee08af08343d039ddc57a3da5b8f38841bccccdb1b47d2",
+    "upstream/experiments/data_efficiency.py": "5f16479ed5428a192ce431e1ebc8715a5ffabeae4aeaefc9448dd4d038495c22",
+    "upstream/experiments/data_efficiency_baselines.py": "08fb19aaf0eff7ddd02fffee3a6e552c7f14e3990384806f75ec3b515f76f383",
+    "upstream/experiments/data_efficiency_common.py": "fd9736215f5268f445f089eaedc84360edbe0aa00abc8af861bf03b98eb1ba01",
+    "upstream/experiments/difficulty_export.py": "946e006435e75bdf36793f0f6dd15a830b44fc076f1ef60f27e492809eb8f051",
+    "upstream/experiments/graph_coloring.py": "156b3c5c4dd377870c10ef6caca20e5ccbf0a6921e0bec997a52d6a03443a972",
+    "upstream/experiments/graph_coloring_export.py": "6823486a862b19e0109ae9df4fca983ba43688daeeef24686450cd1c36a4541d",
+    "upstream/experiments/graph_coloring_hand_set.py": "c0dbce040824dd42d9195305ec8bc5cce581c55143cdf330b7cac8fda3586cdf",
+    "upstream/experiments/hand_set.py": "8fc4f15271655ec5b1e17eec29a48d8f11f8489ca0d1df79f0a7df4f37bac136",
+    "upstream/experiments/maze_hard_figure_export.py": "02e17d0728a458d69428a6e215a33c9d3d5f1f68bb5d49a02a5fac59bb8b037e",
+    "upstream/experiments/maze_hard_latent.py": "fad4c9c05c41ab2e3dcd997c666a2bbf0fdcca5ae894e2e90f1540d6d2cb4d77",
+    "upstream/experiments/maze_hard_support.py": "936caed5f90ef275199c73e26a437b4b6e6dc814b11e6955bb741b33e30b5c49",
+    "upstream/experiments/maze_unique.py": "042e1b0d0c760bfb7b3c4c9a6cd30785e95255ab570a5810bd80cfbf1ac651eb",
+    "upstream/experiments/maze_unique_fit_time.py": "07f0d25ea1f9a244dfba9ce031523400ba6cafa3ecb339ab8a84ade2ac3b31d6",
+    "upstream/experiments/multi_solution_export.py": "7462da58650d6b3c416e7a58b8526899543ae18fe9c05ed0ebd671875cb3317c",
+    "upstream/experiments/nqueens_coverage.py": "2694c01cb6b37b714dcb70b040317aed2789b9ae3207eb2b2c6c54254d41910c",
+    "upstream/experiments/nqueens_emptied.py": "e5d01938ef08469198028547e27cc9789336d3bec7a41cdf88bb2fec37ebeb6e",
+    "upstream/experiments/nqueens_export.py": "79bf0074e470bc6a2bfe1f2dfe5c376b38e96ef98f527a733f01f0b44ce76c96",
+    "upstream/experiments/nqueens_free.py": "67b4f3fd4188714cf04c50f0ecd6b73754c8132e3ed10e7877e17a225e875f08",
+    "upstream/experiments/nqueens_free_export.py": "6bbf21ad9d9864a21dd9f4dda8417a832f4008e7940a5c1b2d8f61162c13156d",
+    "upstream/experiments/nqueens_offset.py": "f9f0641aa33f5a6f80161f20ef55c5bfd6cb28b439439e0162176428a30df0f3",
+    "upstream/experiments/nqueens_offset_export.py": "85a2b6f5bd0d3d56b6ec52b30d22e15d08d8c70f5dca3da9039b3b99f4641127",
+    "upstream/experiments/sudoku.py": "b73f72c8e874711d0d05fa75de0043442a20297618de62e5bb714b76aa09f20b",
+    "upstream/experiments/training_curves.py": "f9c577da0d83a13a53e33ad859d9abe37fbb1cef52c42efb54424f94b6cb2e07",
+    "upstream/experiments/training_methods.py": "13ee258293c6b0883d8dbf93b14533460d402e8bd9d61f306c7d6832f46919e9",
+    "upstream/experiments/training_methods_export.py": "d60a18693e9cc488c239955b952d4f2f34c76eb3f1ed195b793ec4af35341561",
+    "upstream/cram/__init__.py": "ada20986bead2aa2d77dcc358af07dbc01b569b1765c83560e917d5cc2bd032f",
+    "upstream/cram/cram_graph_coloring.py": "ed6158d983be48082f851dcdb5175bad7aab6408ac73f14659825e90c67f5275",
+    "upstream/cram/cram_maze.py": "c9f9fa5718fdf7ce1f8ad33dc7dc9481e43c6084a31516ac1c88451dba03ead8",
+    "upstream/cram/cram_maze_hard_graph.py": "967c573a3b3dee6c015bf373b7858b856ae0e639bdfa1a8c302b65af87a19717",
+    "upstream/cram/cram_maze_hard_simple.py": "07e64a9383c4b2b1ea30021063d93e302a794023accbf6effbf188892220b2a8",
+    "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "upstream/cram/cram_sudoku.py": "2c6b53d1b81d54e35c484a3565abd60e778716d6e6121e424aede826a5ab0ed2",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "upstream/cram/graph_coloring_data.py": "b04e61911aa55d437ab3c9d602832c3df09f285f2605aba2e9a3d78c18d9cb04",
+    "upstream/cram/latent_settle_triton.py": "7eca3fdf03ec6d5eb847e0dcbcdad61c74b56c084c363190d2c32a1737f19072",
+    "upstream/cram/maze_h3.py": "dd13a3038830bf1e2db83854704fcb39167a3f76ee9de01832de9b3187ee7acd",
+    "upstream/cram/maze_h3p.py": "dd26d260efea3a84f224743e14ae8383d967dfdafb0b4409bd05e864fe7ce92a",
+    "upstream/cram/maze_learned.py": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "upstream/cram/maze_unique.py": "3ceb56a61d92c3fa52a7d84876314abe31909780159fa53560692c19b306d213",
+    "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623",
+    "upstream/cram/opcount.py": "2ddf7373d227f50f43b06cf8e129cb727a85a3e2e86065e7081ba477997e924d",
+    "upstream/cram/paths.py": "d3af83d2c75e9165b88fbaf09d35ee352523fa79e5b3b02163d0dfbaae8602b8",
+    "upstream/cram/table.py": "bbf1fdce8a9e2fa836f5a3800746671b62f740e28c1986029bb53b608ebd0493"
+  },
+  "host": "loki",
+  "preserve": "Original reproduction files remain unchanged. New source and outputs isolated.",
+  "limits": [
+    "Frozen published SGD LR was selected in the original paper; this is not a new equal-sized optimizer hyperparameter-search comparison.",
+    "Unique-input evaluation differs from repeating every duplicate-label row in the original Table3 search, so compare only paired local controls here.",
+    "Training labels can repeat completed boards across disjoint partial inputs, as in official GRAM protocol."
+  ]
+}

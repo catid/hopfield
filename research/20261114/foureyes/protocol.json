@@ -1,0 +1,48 @@
+{
+  "id": "H4-validity-stopping-wave1",
+  "frozen_utc": "2026-11-14T21:43:05.841282+00:00",
+  "host": "foureyes",
+  "hypothesis": "Adding an exact Sudoku validity gate to the learned energy certificate improves equal-weight k17/21 development accuracy by at least10percentage points at the same262144move budget.",
+  "arms": [
+    "energy_AND_valid",
+    "valid_only"
+  ],
+  "control": "Reuse Ripper H1 original-arm outputs, same inputs/source/seeds/settings; no cross-host wall-time speed claim.",
+  "primary_arm": "energy_AND_valid",
+  "secondary_arm": "valid_only",
+  "training_k": [
+    17,
+    21
+  ],
+  "training_seeds": [
+    0,
+    1,
+    2
+  ],
+  "search_seed": "training seed",
+  "split": "dev10k",
+  "rows_half_open": [
+    0,
+    512
+  ],
+  "chains": 4,
+  "move_cap_per_chain": 262144,
+  "check": 4096,
+  "anneal": [
+    0.4,
+    0.31,
+    524288
+  ],
+  "theta_hbar": 0.45,
+  "tol": 0.001,
+  "restart": 0,
+  "validity_gate": "Zero equal-digit conflicts across the810unordered row/column/box-neighbor pairs; clues remain clamped. No target labels used by gate or move policy.",
+  "primary_statistic": "Equal-weight mean of paired accuracy differences across2k x3training seeds x512shared puzzles. Report stopped-valid and returned-valid separately.",
+  "uncertainty": "5000 two-way paired bootstrap replicates resampling3training-seed clusters and512puzzle IDs, with bothk retained; bootstrap seed20261114; exploratory small-seed interval.",
+  "decision": "Supported in this screen iff95percent lower bound>=10pp; falsified iff upper bound<10pp; otherwise inconclusive.",
+  "mechanistic_statistic": "Fraction of original wrong-stop puzzles newly solved at same cap; report changes on other puzzles too.",
+  "budget_and_cost": "Same move cap, not equal realized compute. Added rule-check operations and elapsed time retained; legacy FLOPs exclude gate and cannot establish net arithmetic speedup.",
+  "rng_limit": "Same initialseed and move keys before diverging stops/compaction; thereafter paths may diverge.",
+  "scope": "Task-rule validity checker is additional symbolic knowledge; not an unmodified pure CRAM reproduction, not an exact external solver.",
+  "source_commit": "62bbe830c7d6f87f2ba18f30a28039258b986454"
+}

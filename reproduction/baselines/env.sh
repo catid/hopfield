@@ -1,0 +1,25 @@
+# Source this for task-owned baseline outputs and the pinned source clones.
+export BASELINE_ROOT=/home/catid/hopfield/reproduction/baselines
+export BASELINE_CODE=/home/catid/hopfield/reproduction/baselines/code
+export THIRD_PARTY=/home/catid/hopfield/upstream/third_party
+export CRAM_DATA=/home/catid/hopfield/upstream/data
+export V1_DATA=/home/catid/hopfield/upstream/data
+export TRM_DATA=/home/catid/hopfield/reproduction/baselines/experiments/runs/trm/data
+export EQR_DATA=/home/catid/hopfield/reproduction/baselines/experiments/runs/eqr/data
+export EQR_HF_DATA=/home/catid/hopfield/upstream/data/eqr
+export EBR_DATA=/home/catid/hopfield/reproduction/baselines/experiments/runs/ebr/data
+export GRAM_DATA=/home/catid/hopfield/reproduction/baselines/experiments/runs/gram/data
+export TRM_SRC=/home/catid/hopfield/upstream/third_party/trm
+export HRM_SRC=/home/catid/hopfield/upstream/third_party/hrm/HRM
+export EQR_SRC=/home/catid/hopfield/upstream/third_party/eqr
+export EBR_SRC=/home/catid/hopfield/upstream/third_party/ebr
+export GRAM_SRC=/home/catid/hopfield/upstream/third_party/gram
+export TRMP_PY=/home/catid/hopfield/reproduction/baselines/.venv/bin/python
+export TRM_PY=$TRMP_PY
+export EBR_PY=$TRMP_PY
+export EQR_PY=$TRMP_PY
+export HRM_PY=$TRMP_PY
+export WANDB_MODE=disabled
+export WANDB_DISABLED=true
+export OMP_NUM_THREADS=8
+export TQDM_DISABLE=1

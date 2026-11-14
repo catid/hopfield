@@ -1,0 +1,66 @@
+{
+  "id": "H1d-exact-sparse-backend",
+  "frozen_utc": "2026-11-14T22:06:28.117708+00:00",
+  "hypothesis": "The derived sparse backend achieves at least1.5x warm inference throughput with exact state, stop, and returned-board parity versus GeneralSearch.",
+  "method": "Canonical repulsive only. Use released sparse kernel NOBIAS=False,hscale=1,unique zero padding; retain GeneralSearch refresh. No integer one-level transform.",
+  "gate": "18models k10/17/21,seeds0to5;256devpuzzles [4608,4864); initial plus64checks; all25statefields and capturedboards exactly equal. This bounded measured gate passed before timing, not a universal proof.",
+  "cells": {
+    "k": [
+      10,
+      17,
+      21
+    ],
+    "seed": 0,
+    "n": [
+      128,
+      512,
+      2048
+    ],
+    "split": "dev10k",
+    "start": 4608
+  },
+  "repeats": 6,
+  "warmup_runs_per_backend": 1,
+  "order": "Alternate general-first and sparse-first for6pairedrepeats on same exclusiveGPU.",
+  "budget": {
+    "chains": 4,
+    "moves_per_chain": 262144,
+    "check": 4096,
+    "anneal_period": 524288,
+    "hi": 0.4,
+    "lo": 0.31,
+    "theta": 0.45,
+    "tolerance": 0.001
+  },
+  "primary_statistic": "Geometricmean across9cells of median general inference_s divided by median sparse inference_s, excluding warmup.",
+  "uncertainty": "5000bootstrap samples of9cells and6pairedrepeats, seed20261114; timing variability only.",
+  "decision": "Supported if95percentinterval lower>=1.5; falsified ifupper<1.5; otherwise inconclusive. Any state/board/stop mismatch fails exact-parity hypothesis.",
+  "timing": "Wall setup, production inference, and complete constructor+inference recorded separately with synchronization; CUDAevent sum of _moves calls includes device prep and kernel. Data/model load and precomputed S excluded. Capture, refresh, compaction included.",
+  "full_test_followup": {
+    "split": "full-all",
+    "rows_half_open": [
+      20000,
+      30000
+    ],
+    "k": [
+      17,
+      21
+    ],
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "arms": [
+      "original_general",
+      "canonical_repulsive_sparse"
+    ],
+    "extra_integration": "k17seed0 canonical_repulsive_general matched to sparse",
+    "selection": "Fully fixed before any cohort results; no test tuning. Cohort is held-out from these research development experiments, not asserted externally pristine."
+  },
+  "backend_sha256": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+  "benchmark_sha256": "3251b185b715ed9e48d49ccb581a1bb695a08a6b2bb24673dcd6708891a4c10a"
+}

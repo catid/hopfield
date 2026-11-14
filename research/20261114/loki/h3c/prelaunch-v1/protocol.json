@@ -1,0 +1,180 @@
+{
+  "id": "H3c-training-prefix",
+  "frozen_utc": "2026-11-14T22:07:50.714253+00:00",
+  "hypothesis": "No-decay Adam at the fixed 1000-update prefix is within 0.1 percentage point of preconditioned SGD at 4000 updates in N20 accuracy, using at most half the median complete in-memory fitting time.",
+  "antecedent": "H3b showed that removing weight decay at LR 0.3 closed the full-test gap. H3c asks whether the same fixed trajectory reaches adequate accuracy earlier.",
+  "primary": {
+    "arm": "adam-nodecay",
+    "updates": 1000,
+    "control": "sgd-pre",
+    "control_updates": 4000,
+    "accuracy_margin_pp": 0.1,
+    "maximum_median_fit_time_ratio": 0.5
+  },
+  "checkpoints": [
+    250,
+    500,
+    1000,
+    2000,
+    4000
+  ],
+  "arms": {
+    "adam-nodecay": {
+      "optimizer": "adamw",
+      "lr": 0.3,
+      "weight_decay": 0.0,
+      "precond": false
+    },
+    "sgd-pre": {
+      "optimizer": "sgd",
+      "lr": 30.0,
+      "weight_decay": 0.0,
+      "precond": true
+    }
+  },
+  "fit": {
+    "method": "pl",
+    "arm": "ising",
+    "updates": 4000,
+    "initialization": "zero",
+    "full_batch": true,
+    "schedule": "lr*0.5*(1+cos(pi*k/4000))",
+    "sgd_momentum": 0.5,
+    "adamw_betas": [
+      0.9,
+      0.999
+    ],
+    "adamw_eps": 1e-08,
+    "lam": 0.0,
+    "tf32": false,
+    "training_seed": 0,
+    "repeats": "One fit per optimizer setting; PL is deterministic. Seeds below are inference draws, not distinct fitted models.",
+    "rows": 97554,
+    "schedule_denominator": 4000,
+    "prefix_schedule": "All checkpoints are prefixes of the unchanged 4000-step cosine schedule, not separately retuned schedules."
+  },
+  "search": {
+    "unique_inputs": 6513,
+    "chains": 20,
+    "cap": 20000,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "temperature": 1.0,
+    "stop": "local",
+    "margin": 0.001,
+    "input_file": "artifacts/research/20261114/loki/h3b/test-inputs.npz"
+  },
+  "decision": {
+    "confidence": "One-sided 95%, paired unique-input bootstrap 2000 draws, seed 20261114; all three search seeds stay within each input.",
+    "safeguard": "Exact one-sided 95% Clopper-Pearson upper bound on input fraction with any paired accuracy regression <0.001.",
+    "rule": "Supported if accuracy safeguard passes and median fit-time ratio <=0.5. Falsified if accuracy bootstrap upper difference < -0.1 pp or observed median ratio >0.5; otherwise inconclusive. Timing decision is descriptive of this fixed machine and timing protocol, not a population inference.",
+    "secondary": "All other checkpoint outcomes, coverage, N1, wrong stops, capped chains and move cost are secondary. No checkpoint, LR, temperature, budget or stop is selected from these outcomes."
+  },
+  "timing": {
+    "device": "Loki GPU0 for both compared arms, exclusive GPU lock, no other campaign work until timing completes",
+    "repeats": 3,
+    "warmups_each": 1,
+    "order": [
+      [
+        "adam-nodecay",
+        "sgd-pre"
+      ],
+      [
+        "sgd-pre",
+        "adam-nodecay"
+      ],
+      [
+        "adam-nodecay",
+        "sgd-pre"
+      ]
+    ],
+    "scope": "Complete in-memory fitting: preloaded host arrays and fitting indices, then GPU transfer, task construction, all updates, training-derived unit/tau/delta, and CPU inference-ready model. Excludes dataset disk I/O, Python import, CUDA context, checkpoint disk writes. Eager PyTorch has no torch.compile phase. No intermediate snapshots in timed fits.",
+    "checks": "Each warm and measured fitted model must exactly equal its corresponding frozen trajectory checkpoint; every timing sample retained."
+  },
+  "cache_models": {
+    "adam-nodecay": {
+      "path": "artifacts/research/20261114/loki/h3b/n10/fits/adam-nodecay/model.pt",
+      "sha256": "2348ca69d6695a54ed3603e155b4bb3f723c8f12d7715a2ec12be2dab7eb67cd"
+    },
+    "sgd-pre": {
+      "path": "artifacts/research/20261114/loki/n10/fits/sgd-pre/model.pt",
+      "sha256": "5f7c721bee9d3ec96290571ff60180d0b8c36ce308ad29f5eaf8828c33c12f3a"
+    },
+    "adamw-decay": {
+      "path": "artifacts/research/20261114/loki/n10/fits/adamw-lr0.3/model.pt",
+      "sha256": "71a03e49574ccf2ae7bba2202c4321729fecf4abc2603e0c05e61a7fbf1bb8c2"
+    }
+  },
+  "cache_results": "H3b primary final outputs are reused at 4000 updates only after tensorwise and scalarwise exact model parity. AdamW-decay 4000 is a labeled cached reference, not a new trajectory.",
+  "validation": "CPU algebraic positive-scale invariance check with margin scaled too; GPU 4000-step exact cached-model parity before search; CPU saved-board exhaustive-solution/givens validation after search.",
+  "source_sha256": {
+    "research/20261114/loki/study.py": "7c48de391879dc2f4b4f14459698afbc84c82cb3e89030e0ba4814d4fd74b552",
+    "upstream/cram/__init__.py": "ada20986bead2aa2d77dcc358af07dbc01b569b1765c83560e917d5cc2bd032f",
+    "upstream/cram/cram_graph_coloring.py": "ed6158d983be48082f851dcdb5175bad7aab6408ac73f14659825e90c67f5275",
+    "upstream/cram/cram_maze.py": "c9f9fa5718fdf7ce1f8ad33dc7dc9481e43c6084a31516ac1c88451dba03ead8",
+    "upstream/cram/cram_maze_hard_graph.py": "967c573a3b3dee6c015bf373b7858b856ae0e639bdfa1a8c302b65af87a19717",
+    "upstream/cram/cram_maze_hard_simple.py": "07e64a9383c4b2b1ea30021063d93e302a794023accbf6effbf188892220b2a8",
+    "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "upstream/cram/cram_sudoku.py": "2c6b53d1b81d54e35c484a3565abd60e778716d6e6121e424aede826a5ab0ed2",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "upstream/cram/graph_coloring_data.py": "b04e61911aa55d437ab3c9d602832c3df09f285f2605aba2e9a3d78c18d9cb04",
+    "upstream/cram/latent_settle_triton.py": "7eca3fdf03ec6d5eb847e0dcbcdad61c74b56c084c363190d2c32a1737f19072",
+    "upstream/cram/maze_h3.py": "dd13a3038830bf1e2db83854704fcb39167a3f76ee9de01832de9b3187ee7acd",
+    "upstream/cram/maze_h3p.py": "dd26d260efea3a84f224743e14ae8383d967dfdafb0b4409bd05e864fe7ce92a",
+    "upstream/cram/maze_learned.py": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "upstream/cram/maze_unique.py": "3ceb56a61d92c3fa52a7d84876314abe31909780159fa53560692c19b306d213",
+    "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623",
+    "upstream/cram/opcount.py": "2ddf7373d227f50f43b06cf8e129cb727a85a3e2e86065e7081ba477997e924d",
+    "upstream/cram/paths.py": "d3af83d2c75e9165b88fbaf09d35ee352523fa79e5b3b02163d0dfbaae8602b8",
+    "upstream/cram/table.py": "bbf1fdce8a9e2fa836f5a3800746671b62f740e28c1986029bb53b608ebd0493",
+    "upstream/experiments/compute_curve_export.py": "951515d262bab6599bee08af08343d039ddc57a3da5b8f38841bccccdb1b47d2",
+    "upstream/experiments/data_efficiency.py": "5f16479ed5428a192ce431e1ebc8715a5ffabeae4aeaefc9448dd4d038495c22",
+    "upstream/experiments/data_efficiency_baselines.py": "08fb19aaf0eff7ddd02fffee3a6e552c7f14e3990384806f75ec3b515f76f383",
+    "upstream/experiments/data_efficiency_common.py": "fd9736215f5268f445f089eaedc84360edbe0aa00abc8af861bf03b98eb1ba01",
+    "upstream/experiments/difficulty_export.py": "946e006435e75bdf36793f0f6dd15a830b44fc076f1ef60f27e492809eb8f051",
+    "upstream/experiments/graph_coloring.py": "156b3c5c4dd377870c10ef6caca20e5ccbf0a6921e0bec997a52d6a03443a972",
+    "upstream/experiments/graph_coloring_export.py": "6823486a862b19e0109ae9df4fca983ba43688daeeef24686450cd1c36a4541d",
+    "upstream/experiments/graph_coloring_hand_set.py": "c0dbce040824dd42d9195305ec8bc5cce581c55143cdf330b7cac8fda3586cdf",
+    "upstream/experiments/hand_set.py": "8fc4f15271655ec5b1e17eec29a48d8f11f8489ca0d1df79f0a7df4f37bac136",
+    "upstream/experiments/maze_hard_figure_export.py": "02e17d0728a458d69428a6e215a33c9d3d5f1f68bb5d49a02a5fac59bb8b037e",
+    "upstream/experiments/maze_hard_latent.py": "fad4c9c05c41ab2e3dcd997c666a2bbf0fdcca5ae894e2e90f1540d6d2cb4d77",
+    "upstream/experiments/maze_hard_support.py": "936caed5f90ef275199c73e26a437b4b6e6dc814b11e6955bb741b33e30b5c49",
+    "upstream/experiments/maze_unique.py": "042e1b0d0c760bfb7b3c4c9a6cd30785e95255ab570a5810bd80cfbf1ac651eb",
+    "upstream/experiments/maze_unique_fit_time.py": "07f0d25ea1f9a244dfba9ce031523400ba6cafa3ecb339ab8a84ade2ac3b31d6",
+    "upstream/experiments/multi_solution_export.py": "7462da58650d6b3c416e7a58b8526899543ae18fe9c05ed0ebd671875cb3317c",
+    "upstream/experiments/nqueens_coverage.py": "2694c01cb6b37b714dcb70b040317aed2789b9ae3207eb2b2c6c54254d41910c",
+    "upstream/experiments/nqueens_emptied.py": "e5d01938ef08469198028547e27cc9789336d3bec7a41cdf88bb2fec37ebeb6e",
+    "upstream/experiments/nqueens_export.py": "79bf0074e470bc6a2bfe1f2dfe5c376b38e96ef98f527a733f01f0b44ce76c96",
+    "upstream/experiments/nqueens_free.py": "67b4f3fd4188714cf04c50f0ecd6b73754c8132e3ed10e7877e17a225e875f08",
+    "upstream/experiments/nqueens_free_export.py": "6bbf21ad9d9864a21dd9f4dda8417a832f4008e7940a5c1b2d8f61162c13156d",
+    "upstream/experiments/nqueens_offset.py": "f9f0641aa33f5a6f80161f20ef55c5bfd6cb28b439439e0162176428a30df0f3",
+    "upstream/experiments/nqueens_offset_export.py": "85a2b6f5bd0d3d56b6ec52b30d22e15d08d8c70f5dca3da9039b3b99f4641127",
+    "upstream/experiments/sudoku.py": "b73f72c8e874711d0d05fa75de0043442a20297618de62e5bb714b76aa09f20b",
+    "upstream/experiments/training_curves.py": "f9c577da0d83a13a53e33ad859d9abe37fbb1cef52c42efb54424f94b6cb2e07",
+    "upstream/experiments/training_methods.py": "13ee258293c6b0883d8dbf93b14533460d402e8bd9d61f306c7d6832f46919e9",
+    "upstream/experiments/training_methods_export.py": "d60a18693e9cc488c239955b952d4f2f34c76eb3f1ed195b793ec4af35341561",
+    "research/20261114/loki/h3c/driver.py": "0dec5ee552d46f5c84f4123483e9a4412f044d8c7df35b28d44e475a83bf4dab"
+  },
+  "data_sha256": {
+    "upstream/data/gram/nqueens-10/test/all__inputs.npy": "2a8386f46db1af59654dd1cf45fe34ec7c9b0c0f8ac6f51be1b639c7bf294a4e",
+    "artifacts/research/20261114/loki/h3b/test-inputs.npz": "8be7c2865c1d658ce70fc7a3568752385b470ef288ce89087abab6d3a40ce10f",
+    "artifacts/research/20261114/loki/h3b/cohorts-n10.npz": "b5061802c726b2218bbbd148e9d919af3e5cf55b632dd5606f6b0df27e0d3792",
+    "upstream/data/gram/nqueens-10/train/all__inputs.npy": "c69d64f0ebf0a0d03d3c37f1462717c7e639341af4c54ef3bef23198cdf8ff75",
+    "upstream/data/gram/nqueens-10/train/all__labels.npy": "2faa1333e6fb47f1453e5f2d129f2e7be8e7149842b3a6c28041a33cf529fcc4",
+    "upstream/data/gram/nqueens-10/train/all__num_solutions.npy": "1dd1aff4582f55e329b3e34c2ac8d253e0f6465bd2dc9d05cf740f459213bbca",
+    "artifacts/research/20261114/loki/cohorts-n10.npz": "b5061802c726b2218bbbd148e9d919af3e5cf55b632dd5606f6b0df27e0d3792"
+  },
+  "parent_protocol_sha256": "adb9440ee1e63973bc48d889e37bc394b89d1ac2107dd938272169aabe3bfad4",
+  "limits": [
+    "Official test inputs were already used in H3b; this is an adaptive research follow-up, not untouched external confirmation.",
+    "The 1000-update hypothesis is frozen before any H3c checkpoint accuracy is seen; all checkpoints are reported.",
+    "One deterministic full-batch fitted trajectory per optimizer; search seeds are not independent training seeds.",
+    "Geometry-derived preconditioning is retained in the SGD control; the optimizers have fixed unequal historical hyperparameter selection.",
+    "Timing is within Loki Blackwell hardware, not an H200 comparison or end-to-end inference speedup."
+  ]
+}

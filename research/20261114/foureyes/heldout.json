@@ -1,0 +1,51 @@
+{
+  "id": "H4c-validity-stopping-heldout",
+  "frozen_utc": "2026-11-14T22:10:17.631747+00:00",
+  "host": "foureyes",
+  "hypothesis": "Unchanged energy-AND-valid gate improves low-data k17/21 solve rate by at least 10 percentage points on reserved full-all rows [20000,30000), using six frozen trained models per k.",
+  "arms": [
+    "energy_AND_valid"
+  ],
+  "control": "Shared original-arm outputs from Ripper H1d held-out protocol, same 10000 puzzles, seeds and cap; no cross-host timing comparison.",
+  "primary_arm": "energy_AND_valid",
+  "secondary_arm": null,
+  "training_k": [
+    17,
+    21
+  ],
+  "training_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "search_seed": "training seed",
+  "split": "full-all",
+  "rows_half_open": [
+    20000,
+    30000
+  ],
+  "chains": 4,
+  "move_cap_per_chain": 262144,
+  "check": 4096,
+  "anneal": [
+    0.4,
+    0.31,
+    524288
+  ],
+  "theta_hbar": 0.45,
+  "tol": 0.001,
+  "restart": 0,
+  "validity_gate": "Zero equal-digit conflicts across the810unordered row/column/box-neighbor pairs; clues remain clamped. No target labels used by gate or move policy.",
+  "primary_statistic": "Equal-weight average across 2 k x 6 training seeds x 10000 shared puzzles of paired returned-board exactness.",
+  "uncertainty": "5000 paired two-way bootstrap draws of 6 seed clusters and 10000 shared puzzles, seed 20261114.",
+  "decision": "Supported in this screen iff95percent lower bound>=10pp; falsified iff upper bound<10pp; otherwise inconclusive.",
+  "mechanistic_statistic": "Fraction of original wrong-stop puzzles newly solved at same cap; report changes on other puzzles too.",
+  "budget_and_cost": "Same move cap, not equal realized compute. Added rule-check operations and elapsed time retained; legacy FLOPs exclude gate and cannot establish net arithmetic speedup.",
+  "rng_limit": "Same initialseed and move keys before diverging stops/compaction; thereafter paths may diverge.",
+  "scope": "Task-rule validity checker is additional symbolic knowledge; not an unmodified pure CRAM reproduction, not an exact external solver.",
+  "source_commit": "62bbe830c7d6f87f2ba18f30a28039258b986454",
+  "data_status": "New follow-up reserved slice; official test corpus was evaluated during original reproduction. No held-out H1d outcome inspected when freezing this protocol. This is not a newly collected external dataset."
+}

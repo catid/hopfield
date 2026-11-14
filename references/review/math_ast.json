@@ -1,0 +1,1370 @@
+[
+  {
+    "display": false,
+    "tex": "\\times"
+  },
+  {
+    "display": false,
+    "tex": "{\\times}"
+  },
+  {
+    "display": false,
+    "tex": "{\\times}"
+  },
+  {
+    "display": false,
+    "tex": "{\\times}"
+  },
+  {
+    "display": false,
+    "tex": "{\\times}"
+  },
+  {
+    "display": false,
+    "tex": "{\\times}"
+  },
+  {
+    "display": false,
+    "tex": "{\\times}"
+  },
+  {
+    "display": false,
+    "tex": "M"
+  },
+  {
+    "display": false,
+    "tex": "C"
+  },
+  {
+    "display": false,
+    "tex": "M\\times C"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}\\boldsymbol{p}}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}p}_{ia}"
+  },
+  {
+    "display": false,
+    "tex": "a"
+  },
+  {
+    "display": false,
+    "tex": "i"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}\\boldsymbol{p}}_{i}"
+  },
+  {
+    "display": false,
+    "tex": "i"
+  },
+  {
+    "display": true,
+    "tex": "\nE_{\\boldsymbol{{\\color{#EB6834}\\theta}}}({\\color{#2A78D6}\\boldsymbol{p}})=\\underbrace{\\beta^{-1}\\sum_{i}{\\color{#2A78D6}\\boldsymbol{p}}_{i}^{\\!\\top}\\log{\\color{#2A78D6}\\boldsymbol{p}}_{i}}_{\\mathclap{\\text{\\scriptsize negative entropy}}}+\\underbrace{\\frac{1}{2}\\sum_{i\\neq j}{\\color{#2A78D6}\\boldsymbol{p}}_{i}^{\\!\\top}\\boldsymbol{{\\color{#EB6834}K}}_{ij}{\\color{#2A78D6}\\boldsymbol{p}}_{j}}_{\\mathclap{\\text{\\scriptsize interaction energy}}}+\\underbrace{\\sum_{i}\\boldsymbol{{\\color{#EB6834}B}}_{i}^{\\top}{\\color{#2A78D6}\\boldsymbol{p}}_{i}}_{\\mathclap{\\text{\\scriptsize input}}}, \\tag{1}\n"
+  },
+  {
+    "display": false,
+    "tex": "\\boldsymbol{{\\color{#EB6834}\\theta}}"
+  },
+  {
+    "display": false,
+    "tex": "\\beta>0"
+  },
+  {
+    "display": false,
+    "tex": "i,j"
+  },
+  {
+    "display": false,
+    "tex": "\\boldsymbol{{\\color{#EB6834}K}}_{ij}\\in\\mathbb{R}^{C\\times C}"
+  },
+  {
+    "display": false,
+    "tex": "\\boldsymbol{{\\color{#EB6834}B}}_{i}\\in\\mathbb{R}^{C}"
+  },
+  {
+    "display": false,
+    "tex": "i"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}\\boldsymbol{p}}_{i}"
+  },
+  {
+    "display": false,
+    "tex": "C"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}\\boldsymbol{v}}_{i}\\in\\mathbb{R}^{C}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}\\boldsymbol{p}}_{i}=\\operatorname{softmax}(\\beta{\\color{#2A78D6}\\boldsymbol{v}}_{i})"
+  },
+  {
+    "display": false,
+    "tex": "\\tau_{i}>0"
+  },
+  {
+    "display": true,
+    "tex": "\n\\tau_{i}\\frac{d{\\color{#2A78D6}\\boldsymbol{v}}_{i}}{dt}=-{\\color{#2A78D6}\\boldsymbol{v}}_{i}-\\sum_{j}\\boldsymbol{{\\color{#EB6834}W}}_{ij}{\\color{#2A78D6}\\boldsymbol{p}}_{j}-\\boldsymbol{{\\color{#EB6834}B}}_{i}\\simeq-\\nabla_{{\\color{#2A78D6}\\boldsymbol{p}}_{i}}E_{\\boldsymbol{{\\color{#EB6834}\\theta}}}({\\color{#2A78D6}\\boldsymbol{p}}), \\tag{2}\n"
+  },
+  {
+    "display": false,
+    "tex": "\\simeq"
+  },
+  {
+    "display": false,
+    "tex": "c"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}\\boldsymbol{p}}_{i}=\\operatorname{softmax}(\\beta{\\color{#2A78D6}\\boldsymbol{v}}_{i}+c)=\\operatorname{softmax}(\\beta{\\color{#2A78D6}\\boldsymbol{v}}_{i})"
+  },
+  {
+    "display": false,
+    "tex": "\\boldsymbol{{\\color{#EB6834}W}}_{ij}=(\\boldsymbol{{\\color{#EB6834}K}}_{ij}+\\boldsymbol{{\\color{#EB6834}K}}_{ji}^{\\top})/2"
+  },
+  {
+    "display": false,
+    "tex": "i\\neq j"
+  },
+  {
+    "display": false,
+    "tex": "\\boldsymbol{{\\color{#EB6834}W}}_{ii}=\\boldsymbol{0}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}\\boldsymbol{v}}_{i}"
+  },
+  {
+    "display": false,
+    "tex": "E"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}\\boldsymbol{p}}_{i}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}\\boldsymbol{p}}_{i}^{\\star}"
+  },
+  {
+    "display": false,
+    "tex": "\\tau"
+  },
+  {
+    "display": false,
+    "tex": "\\eta=\\Delta t/\\tau"
+  },
+  {
+    "display": true,
+    "tex": "\n{\\color{#2A78D6}\\boldsymbol{v}}_{i}\\leftarrow(1-\\eta){\\color{#2A78D6}\\boldsymbol{v}}_{i}-\\eta\\Big(\\sum_{j}\\boldsymbol{{\\color{#EB6834}W}}_{ij}{\\color{#2A78D6}\\boldsymbol{p}}_{j}+\\boldsymbol{{\\color{#EB6834}B}}_{i}\\Big). \\tag{3}\n"
+  },
+  {
+    "display": false,
+    "tex": "\\eta=1"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}\\boldsymbol{v}}_{i}\\leftarrow-\\sum_{j}\\boldsymbol{{\\color{#EB6834}W}}_{ij}{\\color{#2A78D6}\\boldsymbol{p}}_{j}-\\boldsymbol{{\\color{#EB6834}B}}_{i}"
+  },
+  {
+    "display": false,
+    "tex": "dE/dt\\leq 0"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#18A372}\\boldsymbol{x}}\\sim P_{\\mathrm{data}}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}\\boldsymbol{x}}^{-}\\sim P_{\\boldsymbol{{\\color{#EB6834}\\theta}}}"
+  },
+  {
+    "display": false,
+    "tex": "P_{\\boldsymbol{{\\color{#EB6834}\\theta}}}({\\color{#2A78D6}\\boldsymbol{x}}^{-})\\propto\\exp[-E_{\\boldsymbol{{\\color{#EB6834}\\theta}}}({\\color{#2A78D6}\\boldsymbol{x}}^{-})]"
+  },
+  {
+    "display": true,
+    "tex": "\n\\nabla_{\\boldsymbol{{\\color{#EB6834}\\theta}}}\\mathcal{J}_{\\mathrm{ML}}(\\boldsymbol{{\\color{#EB6834}\\theta}})=\\underbrace{\\mathbb{E}_{{\\color{#18A372}\\boldsymbol{x}}\\sim P_{\\mathrm{data}}}\\!\\left[\\nabla_{\\boldsymbol{{\\color{#EB6834}\\theta}}}E_{\\boldsymbol{{\\color{#EB6834}\\theta}}}({\\color{#18A372}\\boldsymbol{x}})\\right]}_{\\mathclap{\\text{\\scriptsize lower energy on data}}}-\\underbrace{\\mathbb{E}_{{\\color{#2A78D6}\\boldsymbol{x}}^{-}\\sim P_{\\boldsymbol{{\\color{#EB6834}\\theta}}}}\\!\\left[\\nabla_{\\boldsymbol{{\\color{#EB6834}\\theta}}}E_{\\boldsymbol{{\\color{#EB6834}\\theta}}}({\\color{#2A78D6}\\boldsymbol{x}}^{-})\\right]}_{\\mathclap{\\text{\\scriptsize raise energy on model samples}}}. \\tag{4}\n"
+  },
+  {
+    "display": false,
+    "tex": "M{\\times}C"
+  },
+  {
+    "display": false,
+    "tex": "{\\times}"
+  },
+  {
+    "display": false,
+    "tex": "N"
+  },
+  {
+    "display": false,
+    "tex": "N{=}1"
+  },
+  {
+    "display": false,
+    "tex": "N{=}20"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}x}_{i}"
+  },
+  {
+    "display": false,
+    "tex": "\\mathcal{U}(C)"
+  },
+  {
+    "display": false,
+    "tex": "C"
+  },
+  {
+    "display": false,
+    "tex": "8{\\times}8"
+  },
+  {
+    "display": false,
+    "tex": "10{\\times}10"
+  },
+  {
+    "display": false,
+    "tex": "M{\\times}C"
+  },
+  {
+    "display": false,
+    "tex": "81{\\times}9"
+  },
+  {
+    "display": false,
+    "tex": "900{\\times}2"
+  },
+  {
+    "display": false,
+    "tex": "64{\\times}2"
+  },
+  {
+    "display": false,
+    "tex": "100{\\times}2"
+  },
+  {
+    "display": false,
+    "tex": "8{\\times}3"
+  },
+  {
+    "display": false,
+    "tex": "10{\\times}3"
+  },
+  {
+    "display": false,
+    "tex": "\\boldsymbol{{\\color{#EB6834}K}}_{ij}"
+  },
+  {
+    "display": false,
+    "tex": "9{\\times}9"
+  },
+  {
+    "display": false,
+    "tex": "2{\\times}2"
+  },
+  {
+    "display": false,
+    "tex": "3{\\times}3"
+  },
+  {
+    "display": false,
+    "tex": "3{\\times}3"
+  },
+  {
+    "display": false,
+    "tex": "3{\\times}3"
+  },
+  {
+    "display": false,
+    "tex": "\\boldsymbol{{\\color{#EB6834}B}}_{i}"
+  },
+  {
+    "display": false,
+    "tex": "N"
+  },
+  {
+    "display": false,
+    "tex": "N"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}x}_{i}\\sim\\mathcal{U}(C)"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}x}_{i}{=}1"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}x}_{i}{=}0"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}x}_{i}\\sim\\mathcal{U}(C)"
+  },
+  {
+    "display": false,
+    "tex": "\\pm"
+  },
+  {
+    "display": false,
+    "tex": "{\\times}"
+  },
+  {
+    "display": false,
+    "tex": "9\\times 9"
+  },
+  {
+    "display": false,
+    "tex": "30\\times 30"
+  },
+  {
+    "display": false,
+    "tex": "{\\times}"
+  },
+  {
+    "display": false,
+    "tex": "{\\times}"
+  },
+  {
+    "display": false,
+    "tex": "{\\times}"
+  },
+  {
+    "display": false,
+    "tex": "{\\times}"
+  },
+  {
+    "display": false,
+    "tex": "1.9\\times 10^{9}"
+  },
+  {
+    "display": false,
+    "tex": "5.4\\times 10^{11}"
+  },
+  {
+    "display": false,
+    "tex": "2.0\\times 10^{9}"
+  },
+  {
+    "display": false,
+    "tex": "N=1"
+  },
+  {
+    "display": false,
+    "tex": "N=20"
+  },
+  {
+    "display": false,
+    "tex": "8{\\times}8"
+  },
+  {
+    "display": false,
+    "tex": "10{\\times}10"
+  },
+  {
+    "display": false,
+    "tex": "\\pm"
+  },
+  {
+    "display": false,
+    "tex": "N{=}1"
+  },
+  {
+    "display": false,
+    "tex": "N{=}20"
+  },
+  {
+    "display": false,
+    "tex": "8\\times8"
+  },
+  {
+    "display": false,
+    "tex": "N=1"
+  },
+  {
+    "display": false,
+    "tex": "N=20"
+  },
+  {
+    "display": false,
+    "tex": "10\\times10"
+  },
+  {
+    "display": false,
+    "tex": "N=1"
+  },
+  {
+    "display": false,
+    "tex": "N=20"
+  },
+  {
+    "display": false,
+    "tex": "N=1"
+  },
+  {
+    "display": false,
+    "tex": "N=20"
+  },
+  {
+    "display": false,
+    "tex": "N=1"
+  },
+  {
+    "display": false,
+    "tex": "N=20"
+  },
+  {
+    "display": false,
+    "tex": "{\\times}"
+  },
+  {
+    "display": false,
+    "tex": "4.2\\times 10^{11}"
+  },
+  {
+    "display": false,
+    "tex": "<10"
+  },
+  {
+    "display": false,
+    "tex": "{\\times}"
+  },
+  {
+    "display": false,
+    "tex": "T_{99}"
+  },
+  {
+    "display": false,
+    "tex": "{\\times}"
+  },
+  {
+    "display": false,
+    "tex": "{\\times}"
+  },
+  {
+    "display": false,
+    "tex": "8\\times 8"
+  },
+  {
+    "display": false,
+    "tex": "10\\times 10"
+  },
+  {
+    "display": false,
+    "tex": "N"
+  },
+  {
+    "display": false,
+    "tex": "N{=}1"
+  },
+  {
+    "display": false,
+    "tex": "\\bar{h}"
+  },
+  {
+    "display": false,
+    "tex": "u"
+  },
+  {
+    "display": false,
+    "tex": "\\tau"
+  },
+  {
+    "display": false,
+    "tex": "8\\times8"
+  },
+  {
+    "display": false,
+    "tex": "10\\times10"
+  },
+  {
+    "display": false,
+    "tex": "\\lambda=3.33\\times10^{-4}"
+  },
+  {
+    "display": false,
+    "tex": "\\lambda=10^{-4}"
+  },
+  {
+    "display": false,
+    "tex": "10^{-3}"
+  },
+  {
+    "display": false,
+    "tex": "8\\times8"
+  },
+  {
+    "display": false,
+    "tex": "10\\times10"
+  },
+  {
+    "display": false,
+    "tex": "T=0"
+  },
+  {
+    "display": false,
+    "tex": "0.40\\bar{h}\\to0.31\\bar{h}"
+  },
+  {
+    "display": false,
+    "tex": "u"
+  },
+  {
+    "display": false,
+    "tex": "2\\bar{h}"
+  },
+  {
+    "display": false,
+    "tex": "3\\bar{h}"
+  },
+  {
+    "display": false,
+    "tex": "\\leq\\tau+10^{-3}"
+  },
+  {
+    "display": false,
+    "tex": "6.3\\times10^{11}"
+  },
+  {
+    "display": false,
+    "tex": "9\\times 9"
+  },
+  {
+    "display": false,
+    "tex": "\\boldsymbol{\\color{#EB6834}{K}}_{ij}=\\boldsymbol{\\color{#EB6834}{K}}_{ji}^{\\top}"
+  },
+  {
+    "display": false,
+    "tex": "\\boldsymbol{\\color{#EB6834}{B}}_{i}\\in\\mathbb{R}^{9}"
+  },
+  {
+    "display": false,
+    "tex": "0.45\\bar{h}"
+  },
+  {
+    "display": false,
+    "tex": "0.40\\bar{h}"
+  },
+  {
+    "display": false,
+    "tex": "0.31\\bar{h}"
+  },
+  {
+    "display": false,
+    "tex": "\\tau+10^{-3}"
+  },
+  {
+    "display": false,
+    "tex": "\\tau"
+  },
+  {
+    "display": false,
+    "tex": "-1.7\\times 10^{-4}"
+  },
+  {
+    "display": false,
+    "tex": "-3\\times 10^{-6}"
+  },
+  {
+    "display": false,
+    "tex": "30\\times 30"
+  },
+  {
+    "display": false,
+    "tex": "k"
+  },
+  {
+    "display": false,
+    "tex": "k\\in\\{5,6,7\\}"
+  },
+  {
+    "display": false,
+    "tex": "8\\times 8"
+  },
+  {
+    "display": false,
+    "tex": "\\{7,8,9\\}"
+  },
+  {
+    "display": false,
+    "tex": "10\\times 10"
+  },
+  {
+    "display": false,
+    "tex": "S"
+  },
+  {
+    "display": false,
+    "tex": "S"
+  },
+  {
+    "display": false,
+    "tex": "8\\times 8"
+  },
+  {
+    "display": false,
+    "tex": "10\\times 10"
+  },
+  {
+    "display": false,
+    "tex": "\\min(S,20)"
+  },
+  {
+    "display": false,
+    "tex": "\\min(S,20)"
+  },
+  {
+    "display": false,
+    "tex": "J_{d}"
+  },
+  {
+    "display": false,
+    "tex": "m_{d}/\\bar{m}"
+  },
+  {
+    "display": false,
+    "tex": "m_{d}"
+  },
+  {
+    "display": false,
+    "tex": "d"
+  },
+  {
+    "display": false,
+    "tex": "\\bar{m}"
+  },
+  {
+    "display": false,
+    "tex": "\\exp(-g_{i}(a)/u)"
+  },
+  {
+    "display": false,
+    "tex": "\\delta-10^{-3}"
+  },
+  {
+    "display": false,
+    "tex": "N{=}1"
+  },
+  {
+    "display": false,
+    "tex": "N{=}20"
+  },
+  {
+    "display": false,
+    "tex": "10\\times 10"
+  },
+  {
+    "display": false,
+    "tex": "8\\times 8"
+  },
+  {
+    "display": false,
+    "tex": "10^{-7}"
+  },
+  {
+    "display": false,
+    "tex": "3\\times 3"
+  },
+  {
+    "display": false,
+    "tex": "0.45\\bar{h}"
+  },
+  {
+    "display": false,
+    "tex": "j"
+  },
+  {
+    "display": false,
+    "tex": "9\\times 9"
+  },
+  {
+    "display": false,
+    "tex": "\\boldsymbol{\\color{#EB6834}{K}}_{ij}"
+  },
+  {
+    "display": false,
+    "tex": "i"
+  },
+  {
+    "display": false,
+    "tex": "j"
+  },
+  {
+    "display": false,
+    "tex": "i"
+  },
+  {
+    "display": false,
+    "tex": "8\\times 8"
+  },
+  {
+    "display": false,
+    "tex": "\\pm"
+  },
+  {
+    "display": false,
+    "tex": "10\\times 10"
+  },
+  {
+    "display": false,
+    "tex": "k"
+  },
+  {
+    "display": false,
+    "tex": "k<1{,}000"
+  },
+  {
+    "display": false,
+    "tex": "s"
+  },
+  {
+    "display": false,
+    "tex": "k"
+  },
+  {
+    "display": false,
+    "tex": "s"
+  },
+  {
+    "display": false,
+    "tex": "k=1{,}000"
+  },
+  {
+    "display": false,
+    "tex": "k=3{,}000"
+  },
+  {
+    "display": false,
+    "tex": "k=1{,}000"
+  },
+  {
+    "display": false,
+    "tex": "k"
+  },
+  {
+    "display": false,
+    "tex": "k=30{,}000"
+  },
+  {
+    "display": false,
+    "tex": "k<768"
+  },
+  {
+    "display": false,
+    "tex": "\\lceil 768/k\\rceil"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#18A372}\\boldsymbol{x}}"
+  },
+  {
+    "display": false,
+    "tex": "\\mathcal{F}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}\\boldsymbol{x}}^{-}_{i\\leftarrow a}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#18A372}\\boldsymbol{x}}"
+  },
+  {
+    "display": false,
+    "tex": "i"
+  },
+  {
+    "display": false,
+    "tex": "a"
+  },
+  {
+    "display": true,
+    "tex": "\n\\mathcal{J}_{\\mathrm{PL}}(\\boldsymbol{{\\color{#EB6834}\\theta}};{\\color{#18A372}\\boldsymbol{x}})=\\underbrace{E_{\\boldsymbol{{\\color{#EB6834}\\theta}}}({\\color{#18A372}\\boldsymbol{x}})}_{\\mathclap{\\substack{\\text{lower energy}\\\\\\text{on data}}}}+\\underbrace{\\frac{1}{|\\mathcal{F}|}\\sum_{i\\in\\mathcal{F}}\\log\\sum_{a}\\exp\\!\\left[-E_{\\boldsymbol{{\\color{#EB6834}\\theta}}}({\\color{#2A78D6}\\boldsymbol{x}}^{-}_{i\\leftarrow a})\\right]}_{\\mathclap{\\text{\\scriptsize raise energy on model ``samples''}}}, \\tag{5}\n"
+  },
+  {
+    "display": false,
+    "tex": "a"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#18A372}\\boldsymbol{y}}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#18A372}\\boldsymbol{x}}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#18A372}\\boldsymbol{y}}^{i\\leftarrow a}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}\\boldsymbol{x}}^{-}_{i\\leftarrow a}"
+  },
+  {
+    "display": false,
+    "tex": "P_{\\boldsymbol{{\\color{#EB6834}\\theta}}}({\\color{#2A78D6}\\boldsymbol{p}}\\mid{\\color{#4A3AA7}\\boldsymbol{x}})=\\exp[-E_{\\boldsymbol{{\\color{#EB6834}\\theta}}}({\\color{#2A78D6}\\boldsymbol{p}})]/Z_{\\boldsymbol{{\\color{#EB6834}\\theta}}}({\\color{#4A3AA7}\\boldsymbol{x}})"
+  },
+  {
+    "display": false,
+    "tex": "\\mathcal{S}({\\color{#4A3AA7}\\boldsymbol{x}})"
+  },
+  {
+    "display": false,
+    "tex": "-\\log P_{\\boldsymbol{{\\color{#EB6834}\\theta}}}({\\color{#18A372}\\boldsymbol{y}}\\mid{\\color{#4A3AA7}\\boldsymbol{x}})=E_{\\boldsymbol{{\\color{#EB6834}\\theta}}}({\\color{#18A372}\\boldsymbol{y}})+\\log Z_{\\boldsymbol{{\\color{#EB6834}\\theta}}}({\\color{#4A3AA7}\\boldsymbol{x}})"
+  },
+  {
+    "display": false,
+    "tex": "Z_{\\boldsymbol{{\\color{#EB6834}\\theta}}}({\\color{#4A3AA7}\\boldsymbol{x}})=\\sum_{{\\color{#2A78D6}\\boldsymbol{p}}^{\\prime}\\in\\mathcal{S}({\\color{#4A3AA7}\\boldsymbol{x}})}\\exp[-E_{\\boldsymbol{{\\color{#EB6834}\\theta}}}({\\color{#2A78D6}\\boldsymbol{p}}^{\\prime})]"
+  },
+  {
+    "display": false,
+    "tex": "C^{|\\mathcal{F}|}"
+  },
+  {
+    "display": false,
+    "tex": "i"
+  },
+  {
+    "display": false,
+    "tex": "\\boldsymbol{e}_{a}"
+  },
+  {
+    "display": false,
+    "tex": "a"
+  },
+  {
+    "display": false,
+    "tex": "i"
+  },
+  {
+    "display": true,
+    "tex": "\nq_{i}(a)\\equiv P_{\\boldsymbol{{\\color{#EB6834}\\theta}}}({\\color{#2A78D6}\\boldsymbol{p}}_{i}=\\boldsymbol{e}_{a}\\mid{\\color{#2A78D6}\\boldsymbol{p}}_{-i}={\\color{#18A372}\\boldsymbol{y}}_{-i},{\\color{#4A3AA7}\\boldsymbol{x}})=\\frac{\\exp z_{ia}}{\\sum_{b}\\exp z_{ib}},\\qquad z_{ia}=-E_{\\boldsymbol{{\\color{#EB6834}\\theta}}}({\\color{#18A372}\\boldsymbol{y}}^{i\\leftarrow a}), \\tag{6}\n"
+  },
+  {
+    "display": false,
+    "tex": "\\ell_{i}=-\\sum_{a}{\\color{#18A372}y}_{ia}\\log q_{i}(a)"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#18A372}\\boldsymbol{y}}_{i}=({\\color{#18A372}y}_{ia})_{a}"
+  },
+  {
+    "display": false,
+    "tex": "\\partial\\ell_{i}/\\partial z_{ia}=q_{i}(a)-{\\color{#18A372}y}_{ia}"
+  },
+  {
+    "display": false,
+    "tex": "i"
+  },
+  {
+    "display": false,
+    "tex": "q_{i}"
+  },
+  {
+    "display": false,
+    "tex": "i"
+  },
+  {
+    "display": false,
+    "tex": "n"
+  },
+  {
+    "display": false,
+    "tex": "3({\\color{#18A372}\\boldsymbol{y}}_{i}-\\mathbf{1}/C)"
+  },
+  {
+    "display": false,
+    "tex": "\\beta=0.01"
+  },
+  {
+    "display": false,
+    "tex": "\\beta=0.5"
+  },
+  {
+    "display": false,
+    "tex": "n"
+  },
+  {
+    "display": false,
+    "tex": "n"
+  },
+  {
+    "display": false,
+    "tex": "T=10"
+  },
+  {
+    "display": false,
+    "tex": "k"
+  },
+  {
+    "display": false,
+    "tex": "n"
+  },
+  {
+    "display": false,
+    "tex": "T"
+  },
+  {
+    "display": false,
+    "tex": "q"
+  },
+  {
+    "display": false,
+    "tex": "\\sigma"
+  },
+  {
+    "display": false,
+    "tex": "q"
+  },
+  {
+    "display": false,
+    "tex": "\\exp(-\\Delta E/2)"
+  },
+  {
+    "display": false,
+    "tex": "\\sigma"
+  },
+  {
+    "display": false,
+    "tex": "k"
+  },
+  {
+    "display": false,
+    "tex": "k"
+  },
+  {
+    "display": false,
+    "tex": "n"
+  },
+  {
+    "display": false,
+    "tex": "t{=}1"
+  },
+  {
+    "display": false,
+    "tex": "T"
+  },
+  {
+    "display": false,
+    "tex": "t{=}5"
+  },
+  {
+    "display": false,
+    "tex": "T"
+  },
+  {
+    "display": false,
+    "tex": "T"
+  },
+  {
+    "display": false,
+    "tex": "\\eta_{k}\\lambda"
+  },
+  {
+    "display": false,
+    "tex": "q\\in\\{0.1,0.3\\}"
+  },
+  {
+    "display": false,
+    "tex": "\\sigma\\in\\{0.5,1.5\\}"
+  },
+  {
+    "display": false,
+    "tex": "k\\in\\{81,324\\}"
+  },
+  {
+    "display": false,
+    "tex": "\\{256,1024\\}"
+  },
+  {
+    "display": false,
+    "tex": "n\\in\\{10,30\\}"
+  },
+  {
+    "display": false,
+    "tex": "\\{30,100\\}"
+  },
+  {
+    "display": false,
+    "tex": "T\\in\\{10,30\\}"
+  },
+  {
+    "display": false,
+    "tex": "T_{99}"
+  },
+  {
+    "display": false,
+    "tex": "T_{99}"
+  },
+  {
+    "display": false,
+    "tex": "\\mathrm{FLOPs}_{99}"
+  },
+  {
+    "display": false,
+    "tex": "\\pm"
+  },
+  {
+    "display": false,
+    "tex": "T_{99}"
+  },
+  {
+    "display": false,
+    "tex": "\\mathrm{FLOPs}_{99}"
+  },
+  {
+    "display": false,
+    "tex": "T_{99}"
+  },
+  {
+    "display": false,
+    "tex": "\\mathrm{FLOPs}_{99}"
+  },
+  {
+    "display": false,
+    "tex": "t{=}1"
+  },
+  {
+    "display": false,
+    "tex": "t{=}5"
+  },
+  {
+    "display": false,
+    "tex": "t{=}5"
+  },
+  {
+    "display": false,
+    "tex": "\\pm"
+  },
+  {
+    "display": false,
+    "tex": "\\pm"
+  },
+  {
+    "display": false,
+    "tex": "\\pm"
+  },
+  {
+    "display": false,
+    "tex": "\\pm"
+  },
+  {
+    "display": false,
+    "tex": "\\mathcal{L}({\\color{#2A78D6}\\boldsymbol{v}}_{i})=\\beta^{-1}\\log\\sum_{a}\\exp(\\beta{\\color{#2A78D6}v}_{ia})"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}\\boldsymbol{p}}_{i}=\\partial\\mathcal{L}/\\partial{\\color{#2A78D6}\\boldsymbol{v}}_{i}"
+  },
+  {
+    "display": true,
+    "tex": "\n{\\color{#2A78D6}\\boldsymbol{v}}_{i}^{\\top}{\\color{#2A78D6}\\boldsymbol{p}}_{i}-\\mathcal{L}({\\color{#2A78D6}\\boldsymbol{v}}_{i})=\\beta^{-1}\\sum_{a}{\\color{#2A78D6}p}_{ia}\\log{\\color{#2A78D6}p}_{ia}. \\tag{7}\n"
+  },
+  {
+    "display": false,
+    "tex": "\\mathcal{L}"
+  },
+  {
+    "display": true,
+    "tex": "\n\\frac{\\partial E}{\\partial{\\color{#2A78D6}\\boldsymbol{p}}_{i}}=\\beta^{-1}(\\log{\\color{#2A78D6}\\boldsymbol{p}}_{i}+1)+\\sum_{j}\\boldsymbol{{\\color{#EB6834}W}}_{ij}{\\color{#2A78D6}\\boldsymbol{p}}_{j}+\\boldsymbol{{\\color{#EB6834}B}}_{i}={\\color{#2A78D6}\\boldsymbol{v}}_{i}+\\sum_{j}\\boldsymbol{{\\color{#EB6834}W}}_{ij}{\\color{#2A78D6}\\boldsymbol{p}}_{j}+\\boldsymbol{{\\color{#EB6834}B}}_{i}+c_{i}, \\tag{8}\n"
+  },
+  {
+    "display": false,
+    "tex": "c_{i}=\\beta^{-1}-\\mathcal{L}({\\color{#2A78D6}\\boldsymbol{v}}_{i})"
+  },
+  {
+    "display": false,
+    "tex": "-\\partial E/\\partial{\\color{#2A78D6}\\boldsymbol{p}}_{i}"
+  },
+  {
+    "display": false,
+    "tex": "\\mathcal{L}"
+  },
+  {
+    "display": true,
+    "tex": "\nH_{i}=\\frac{\\partial^{2}\\mathcal{L}}{\\partial{\\color{#2A78D6}\\boldsymbol{v}}_{i}\\,\\partial{\\color{#2A78D6}\\boldsymbol{v}}_{i}^{\\top}}=\\beta\\big[\\operatorname{diag}({\\color{#2A78D6}\\boldsymbol{p}}_{i})-{\\color{#2A78D6}\\boldsymbol{p}}_{i}{\\color{#2A78D6}\\boldsymbol{p}}_{i}^{\\top}\\big]\\succeq 0. \\tag{9}\n"
+  },
+  {
+    "display": false,
+    "tex": "\\partial{\\color{#2A78D6}\\boldsymbol{p}}_{i}/\\partial{\\color{#2A78D6}\\boldsymbol{v}}_{i}=H_{i}"
+  },
+  {
+    "display": false,
+    "tex": "H_{i}"
+  },
+  {
+    "display": false,
+    "tex": "c_{i}"
+  },
+  {
+    "display": true,
+    "tex": "\n\\frac{dE}{dt}=\\sum_{i\\in\\mathcal{F}}\\Big(\\frac{\\partial E}{\\partial{\\color{#2A78D6}\\boldsymbol{p}}_{i}}\\Big)^{\\!\\top}\\frac{\\partial{\\color{#2A78D6}\\boldsymbol{p}}_{i}}{\\partial{\\color{#2A78D6}\\boldsymbol{v}}_{i}}\\frac{d{\\color{#2A78D6}\\boldsymbol{v}}_{i}}{dt}=-\\sum_{i\\in\\mathcal{F}}\\tau_{i}\\dot{{\\color{#2A78D6}\\boldsymbol{v}}}_{i}^{\\top}H_{i}\\dot{{\\color{#2A78D6}\\boldsymbol{v}}}_{i}\\leq 0. \\tag{10}\n"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}\\boldsymbol{z}}"
+  },
+  {
+    "display": false,
+    "tex": "z"
+  },
+  {
+    "display": false,
+    "tex": "z"
+  },
+  {
+    "display": false,
+    "tex": "74.50"
+  },
+  {
+    "display": false,
+    "tex": "85.30"
+  },
+  {
+    "display": false,
+    "tex": "87.00"
+  },
+  {
+    "display": false,
+    "tex": "89.20"
+  },
+  {
+    "display": false,
+    "tex": "88.30"
+  },
+  {
+    "display": false,
+    "tex": "z"
+  },
+  {
+    "display": false,
+    "tex": "\\dagger"
+  },
+  {
+    "display": false,
+    "tex": "30\\times 30"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#4A3AA7}x}_{i}\\in\\{\\text{wall},\\text{open},\\text{S},\\text{G}\\}"
+  },
+  {
+    "display": false,
+    "tex": "z"
+  },
+  {
+    "display": false,
+    "tex": "\\log{\\color{#2A78D6}z}^{\\star}_{i}"
+  },
+  {
+    "display": false,
+    "tex": "\\mathcal{N}(i)"
+  },
+  {
+    "display": false,
+    "tex": "i"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}z}_{i}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}z}_{\\mathrm{G}}"
+  },
+  {
+    "display": true,
+    "tex": "\nE_{z}({\\color{#2A78D6}\\boldsymbol{z}})=\\sum_{i}\\Big[\\frac{{\\color{#EB6834}m}}{2}{\\color{#2A78D6}z}_{i}^{2}-\\frac{1}{2}\\sum_{j\\in\\mathcal{N}(i)}{\\color{#2A78D6}z}_{i}{\\color{#2A78D6}z}_{j}\\Big]-{\\color{#2A78D6}z}_{\\mathrm{G}}, \\tag{11}\n"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#EB6834}m}"
+  },
+  {
+    "display": false,
+    "tex": "\\mathcal{N}(i)"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#EB6834}m}>4"
+  },
+  {
+    "display": false,
+    "tex": "\\log({\\color{#EB6834}m}-4)"
+  },
+  {
+    "display": false,
+    "tex": "\\nabla^{2}_{{\\color{#2A78D6}\\boldsymbol{z}}}E_{z}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#EB6834}m}"
+  },
+  {
+    "display": false,
+    "tex": "E_{z}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}\\boldsymbol{z}}^{\\star}"
+  },
+  {
+    "display": true,
+    "tex": "\n\\tau\\frac{d{\\color{#2A78D6}z}_{i}}{dt}=-\\frac{\\partial E_{z}}{\\partial{\\color{#2A78D6}z}_{i}}=\\begin{cases}\\displaystyle-{\\color{#EB6834}m}{\\color{#2A78D6}z}_{i}+\\sum_{j\\in\\mathcal{N}(i)}{\\color{#2A78D6}z}_{j}+1,&i=\\mathrm{G},\\\\[14.0pt]\n\\displaystyle-{\\color{#EB6834}m}{\\color{#2A78D6}z}_{i}+\\sum_{j\\in\\mathcal{N}(i)}{\\color{#2A78D6}z}_{j},&\\text{otherwise}.\\end{cases} \\tag{12}\n"
+  },
+  {
+    "display": false,
+    "tex": "\\tau"
+  },
+  {
+    "display": false,
+    "tex": "\\tau={\\color{#EB6834}m}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#EB6834}m}"
+  },
+  {
+    "display": true,
+    "tex": "\n{\\color{#2A78D6}z}_{i}\\leftarrow\\begin{cases}\\displaystyle\\frac{1}{{\\color{#EB6834}m}}\\Big(\\sum_{j\\in\\mathcal{N}(i)}{\\color{#2A78D6}z}_{j}+1\\Big),&i=\\mathrm{G},\\\\[14.0pt]\n\\displaystyle\\frac{1}{{\\color{#EB6834}m}}\\sum_{j\\in\\mathcal{N}(i)}{\\color{#2A78D6}z}_{j},&\\text{otherwise}.\\end{cases} \\tag{13}\n"
+  },
+  {
+    "display": false,
+    "tex": "1/{\\color{#EB6834}m}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}\\boldsymbol{z}}^{\\star}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}z}_{i}-{\\color{#2A78D6}z}^{\\star}_{i}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#EB6834}m}"
+  },
+  {
+    "display": false,
+    "tex": "4/{\\color{#EB6834}m}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}\\boldsymbol{z}}=\\boldsymbol{0}"
+  },
+  {
+    "display": false,
+    "tex": "d"
+  },
+  {
+    "display": false,
+    "tex": "d+1"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}\\boldsymbol{z}}=\\boldsymbol{0}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#EB6834}L}_{ij}({\\color{#2A78D6}\\boldsymbol{z}})"
+  },
+  {
+    "display": false,
+    "tex": "\\alpha_{ij}"
+  },
+  {
+    "display": false,
+    "tex": "\\mathcal{M}(i)=\\mathcal{N}(i)\\cup\\{i\\}"
+  },
+  {
+    "display": true,
+    "tex": "\n\\displaystyle\\alpha_{ij}({\\color{#2A78D6}\\boldsymbol{z}}) \\displaystyle=\\frac{e^{{\\color{#EB6834}\\beta}_{j-i}}\\,{\\color{#2A78D6}z}_{j}}{\\sum_{k\\in\\mathcal{M}(i)}e^{{\\color{#EB6834}\\beta}_{k-i}}\\,{\\color{#2A78D6}z}_{k}},\\qquad{\\color{#EB6834}L}_{ij}({\\color{#2A78D6}\\boldsymbol{z}})={\\color{#EB6834}\\kappa}_{j-i}\\,\\alpha_{ij}({\\color{#2A78D6}\\boldsymbol{z}})+{\\color{#EB6834}\\kappa}_{i-j}\\,\\alpha_{ji}({\\color{#2A78D6}\\boldsymbol{z}}). \\tag{14}\n"
+  },
+  {
+    "display": false,
+    "tex": "\\eta\\sum_{j\\in\\mathcal{M}(i)}{\\color{#EB6834}L}_{ij}({\\color{#2A78D6}\\boldsymbol{z}})\\,{\\color{#2A78D6}p}_{j}"
+  },
+  {
+    "display": false,
+    "tex": "i"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#EB6834}\\beta}_{\\delta}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}p}_{i}\\in[0,1]"
+  },
+  {
+    "display": true,
+    "tex": "\n\\begin{aligned}\n\\displaystyle{\\color{#2A78D6}\\boldsymbol{v}}_{i} & \\displaystyle\\leftarrow(1-\\eta)\\,{\\color{#2A78D6}\\boldsymbol{v}}_{i}-\\eta\\Big(\\sum_{j}\\big(\\underbrace{\\boldsymbol{{\\color{#EB6834}W}}_{ij}}_{\\mathclap{\\text{\\scriptsize Maze-Unique}}}-\\underbrace{{\\color{#EB6834}L}_{ij}({\\color{#2A78D6}\\boldsymbol{z}})\\operatorname{diag}(0,1)}_{\\mathclap{\\text{\\scriptsize links to the hidden layer}}}\\big){\\color{#2A78D6}\\boldsymbol{p}}_{j}+\\boldsymbol{{\\color{#EB6834}B}}_{i}\\Big), \\\\\n\\displaystyle{\\color{#2A78D6}\\boldsymbol{p}}_{i} & \\displaystyle=\\operatorname{softmax}({\\color{#2A78D6}\\boldsymbol{v}}_{i}).\n\\end{aligned} \\tag{15}\n"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#2A78D6}\\boldsymbol{v}}_{i}\\in\\mathbb{R}^{2}"
+  },
+  {
+    "display": false,
+    "tex": "i"
+  },
+  {
+    "display": false,
+    "tex": "\\boldsymbol{{\\color{#EB6834}W}}_{ij}"
+  },
+  {
+    "display": false,
+    "tex": "\\boldsymbol{{\\color{#EB6834}B}}_{i}"
+  },
+  {
+    "display": false,
+    "tex": "2\\times 2"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#EB6834}L}=0"
+  },
+  {
+    "display": false,
+    "tex": "\\operatorname{diag}(0,1)"
+  },
+  {
+    "display": false,
+    "tex": "i"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#EB6834}\\kappa}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#EB6834}\\beta}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#EB6834}m}"
+  },
+  {
+    "display": false,
+    "tex": "{\\color{#EB6834}\\kappa}=0"
+  },
+  {
+    "display": false,
+    "tex": "3\\times 3"
+  }
+]

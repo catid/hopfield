@@ -1,0 +1,150 @@
+{
+  "scope": "Post-training Sudoku stopping interventions; additional task-rule knowledge in validity gate. Same move cap, not equal realized compute.",
+  "studies": [
+    {
+      "phase": "discovery",
+      "comparisons": [
+        {
+          "arm": "energy_AND_valid",
+          "original_accuracy_pct": 19.954427083333336,
+          "accuracy_pct": 60.026041666666664,
+          "gain_pp": 40.07161458333333,
+          "ci95_pp": [
+            33.10546875,
+            46.32161458333333
+          ],
+          "threshold_pp": 10,
+          "decision": "supported"
+        },
+        {
+          "arm": "valid_only",
+          "original_accuracy_pct": 19.954427083333336,
+          "accuracy_pct": 60.026041666666664,
+          "gain_pp": 40.07161458333333,
+          "ci95_pp": [
+            33.46354166666667,
+            46.09375
+          ],
+          "threshold_pp": 10,
+          "decision": "supported"
+        }
+      ],
+      "saved_boards_verified": 9216,
+      "source": "artifacts/research/20261114/foureyes/audit.json",
+      "source_sha256": "065afb14ab865fcd06ebc2562b29c2a33c1cab9122526358f3878c4d78c367ae"
+    },
+    {
+      "phase": "confirmation",
+      "comparisons": [
+        {
+          "arm": "energy_AND_valid",
+          "original_accuracy_pct": 20.438639322916664,
+          "accuracy_pct": 60.872395833333336,
+          "gain_pp": 40.43375651041667,
+          "ci95_pp": [
+            35.538533528645836,
+            44.921976725260414
+          ],
+          "threshold_pp": 10,
+          "decision": "supported"
+        }
+      ],
+      "saved_boards_verified": 49152,
+      "source": "artifacts/research/20261114/foureyes/confirmation-audit.json",
+      "source_sha256": "9277a0ed9cdb5e1c0c02ef892e1f6acb9a360fa31969688b0573e9415179ba80"
+    },
+    {
+      "phase": "calibration",
+      "comparisons": [
+        {
+          "arm": "energy_max",
+          "accuracy_pct": 21.089680989583336,
+          "accuracy_difference_vs_validity_pp": -39.94954427083333,
+          "one_sided95_bounds_pp": [
+            -43.93717447916667,
+            -35.82336425781249
+          ],
+          "stopped": 23505,
+          "wrong_halts_pct": 78.08125930653053,
+          "one_sided95_wrong_halt_bounds_pct": [
+            72.59739413997386,
+            83.0638401922364
+          ],
+          "decision": "falsified",
+          "conditional_rate_note": "Undefined when no puzzle halted; never interpreted as zero error."
+        },
+        {
+          "arm": "energy_min",
+          "accuracy_pct": 55.293782552083336,
+          "accuracy_difference_vs_validity_pp": -5.745442708333334,
+          "one_sided95_bounds_pp": [
+            -6.860555013020833,
+            -4.581298828124998
+          ],
+          "stopped": 0,
+          "wrong_halts_pct": null,
+          "one_sided95_wrong_halt_bounds_pct": null,
+          "decision": "inconclusive",
+          "conditional_rate_note": "Undefined when no puzzle halted; never interpreted as zero error."
+        },
+        {
+          "arm": "energy_p05",
+          "accuracy_pct": 55.305989583333336,
+          "accuracy_difference_vs_validity_pp": -5.733235677083334,
+          "one_sided95_bounds_pp": [
+            -6.852213541666667,
+            -4.569498697916666
+          ],
+          "stopped": 155,
+          "wrong_halts_pct": 5.806451612903226,
+          "one_sided95_wrong_halt_bounds_pct": [
+            1.2195121951219512,
+            12.30874604847208
+          ],
+          "decision": "falsified",
+          "conditional_rate_note": "Undefined when no puzzle halted; never interpreted as zero error."
+        },
+        {
+          "arm": "energy_AND_valid",
+          "accuracy_pct": 61.039225260416664,
+          "accuracy_difference_vs_validity_pp": 0.0,
+          "one_sided95_bounds_pp": [
+            0.0,
+            0.0
+          ],
+          "stopped": 14962,
+          "wrong_halts_pct": 0.0,
+          "one_sided95_wrong_halt_bounds_pct": [
+            0.0,
+            0.0
+          ],
+          "decision": "supported",
+          "conditional_rate_note": "Undefined when no puzzle halted; never interpreted as zero error."
+        }
+      ],
+      "saved_boards_verified": 98304,
+      "source": "artifacts/research/20261114/foureyes/calibration/audit.json",
+      "source_sha256": "9eb2eb934be3f0ee80dc4d405b0ee26c35ba15e0237bc39d06b1522c9d222424"
+    },
+    {
+      "phase": "heldout",
+      "comparisons": [
+        {
+          "arm": "energy_AND_valid",
+          "original_accuracy_pct": 21.197499999999998,
+          "accuracy_pct": 61.3,
+          "gain_pp": 40.1025,
+          "ci95_pp": [
+            35.46327083333334,
+            44.48175
+          ],
+          "threshold_pp": 10,
+          "decision": "supported"
+        }
+      ],
+      "saved_boards_verified": 240000,
+      "source": "artifacts/research/20261114/foureyes/heldout-audit.json",
+      "source_sha256": "8c597ffe66c21d6b35552ba2693af3738ab35d41a60c9e17abb685d57d2363ee"
+    }
+  ]
+}

@@ -1,0 +1,370 @@
+{
+  "utc": "2026-11-14T04:42:19.102753+00:00",
+  "hosts": {
+    "foureyes": {
+      "gpus": "0, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, GPU-4c394fc5-b18f-6622-ca94-f7fbd7112927, 100 %, 1718 MiB, 299.98 W\n1, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, GPU-f10c2baf-536b-1d40-cd4b-25b202ae0ded, 100 %, 1718 MiB, 299.91 W\n2, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, GPU-04cde663-7c53-2f18-3ec4-1699820e2640, 100 %, 1718 MiB, 286.23 W\n3, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, GPU-972bf85d-1b32-2d1b-20f6-babc4c804999, 100 %, 15348 MiB, 299.73 W\n",
+      "processes": "1264976, GPU-4c394fc5-b18f-6622-ca94-f7fbd7112927, 1708 MiB\n1254461, GPU-f10c2baf-536b-1d40-cd4b-25b202ae0ded, 1708 MiB\n1251489, GPU-04cde663-7c53-2f18-3ec4-1699820e2640, 1708 MiB\n1268285, GPU-972bf85d-1b32-2d1b-20f6-babc4c804999, 15338 MiB\n",
+      "states": [
+        {
+          "path": "/home/catid/hopfield/artifacts/data_efficiency/extra/worker-foureyes-g3.json",
+          "status": "search",
+          "job": "cram-de-v99-recreated42-k10000-s0",
+          "child": {
+            "pid": 1268285,
+            "ppid": 1268039,
+            "startticks": 37087944,
+            "state": "R",
+            "argv": [
+              "/home/catid/hopfield/upstream/.venv/bin/python",
+              "-u",
+              "data_efficiency.py",
+              "search",
+              "--k",
+              "10000",
+              "--seed",
+              "0",
+              "--data",
+              "test10k"
+            ],
+            "cpu_ticks": 2757
+          },
+          "completed": []
+        }
+      ]
+    },
+    "ripper": {
+      "gpus": "0, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, GPU-e2bff75a-28fb-f5c2-c297-4eb3a9a26fe7, 98 %, 5192 MiB, 205.77 W\n1, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, GPU-f5fe758d-3e08-2684-6344-a4c669509bce, 98 %, 5192 MiB, 200.72 W\n2, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, GPU-f85ad413-7e01-ef0e-856a-4b3ce1fa7988, 98 %, 5192 MiB, 229.08 W\n3, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, GPU-7bef22d9-02b6-fc5d-1322-2070134dc0c7, 98 %, 5192 MiB, 196.04 W\n",
+      "processes": "1581140, GPU-e2bff75a-28fb-f5c2-c297-4eb3a9a26fe7, 5182 MiB\n1581164, GPU-f5fe758d-3e08-2684-6344-a4c669509bce, 5182 MiB\n1581176, GPU-f85ad413-7e01-ef0e-856a-4b3ce1fa7988, 5182 MiB\n1581152, GPU-7bef22d9-02b6-fc5d-1322-2070134dc0c7, 5182 MiB\n",
+      "states": [
+        {
+          "path": "/home/catid/hopfield/artifacts/data_efficiency/extra/worker-ripper-g2.json",
+          "status": "search",
+          "job": "cram-de-v99-recreated42-k3000-s2",
+          "child": {
+            "pid": 1581176,
+            "ppid": 1580253,
+            "startticks": 37166747,
+            "state": "R",
+            "argv": [
+              "/home/catid/hopfield/upstream/.venv/bin/python",
+              "-u",
+              "data_efficiency.py",
+              "search",
+              "--k",
+              "3000",
+              "--seed",
+              "2",
+              "--data",
+              "test10k"
+            ],
+            "cpu_ticks": 3621
+          },
+          "completed": []
+        },
+        {
+          "path": "/home/catid/hopfield/artifacts/data_efficiency/extra/worker-ripper-g0.json",
+          "status": "search",
+          "job": "cram-de-v99-recreated42-k3000-s0",
+          "child": {
+            "pid": 1581140,
+            "ppid": 1579974,
+            "startticks": 37166696,
+            "state": "R",
+            "argv": [
+              "/home/catid/hopfield/upstream/.venv/bin/python",
+              "-u",
+              "data_efficiency.py",
+              "search",
+              "--k",
+              "3000",
+              "--seed",
+              "0",
+              "--data",
+              "test10k"
+            ],
+            "cpu_ticks": 3665
+          },
+          "completed": []
+        },
+        {
+          "path": "/home/catid/hopfield/artifacts/data_efficiency/extra/worker-ripper-g1.json",
+          "status": "search",
+          "job": "cram-de-v99-recreated42-k3000-s1",
+          "child": {
+            "pid": 1581164,
+            "ppid": 1580119,
+            "startticks": 37166730,
+            "state": "R",
+            "argv": [
+              "/home/catid/hopfield/upstream/.venv/bin/python",
+              "-u",
+              "data_efficiency.py",
+              "search",
+              "--k",
+              "3000",
+              "--seed",
+              "1",
+              "--data",
+              "test10k"
+            ],
+            "cpu_ticks": 3633
+          },
+          "completed": []
+        },
+        {
+          "path": "/home/catid/hopfield/artifacts/data_efficiency/extra/worker-ripper-g3.json",
+          "status": "search",
+          "job": "cram-de-v99-recreated42-k3000-s3",
+          "child": {
+            "pid": 1581152,
+            "ppid": 1580373,
+            "startticks": 37166722,
+            "state": "R",
+            "argv": [
+              "/home/catid/hopfield/upstream/.venv/bin/python",
+              "-u",
+              "data_efficiency.py",
+              "search",
+              "--k",
+              "3000",
+              "--seed",
+              "3",
+              "--data",
+              "test10k"
+            ],
+            "cpu_ticks": 3637
+          },
+          "completed": []
+        }
+      ]
+    },
+    "work": {
+      "gpus": "0, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-7d991585-c5b5-889b-932b-a541900410ed, 100 %, 15346 MiB, 450.22 W\n1, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 100 %, 15346 MiB, 450.12 W\n",
+      "processes": "1403651, GPU-7d991585-c5b5-889b-932b-a541900410ed, 15336 MiB\n1403639, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 15336 MiB\n",
+      "states": [
+        {
+          "path": "/home/catid/hopfield/artifacts/data_efficiency/extra/worker-work-g0.json",
+          "status": "search",
+          "job": "cram-de-v99-recreated42-k10000-s1",
+          "child": {
+            "pid": 1403651,
+            "ppid": 1402737,
+            "startticks": 37177200,
+            "state": "R",
+            "argv": [
+              "/home/catid/hopfield/upstream/.venv/bin/python",
+              "-u",
+              "data_efficiency.py",
+              "search",
+              "--k",
+              "10000",
+              "--seed",
+              "1",
+              "--data",
+              "test10k"
+            ],
+            "cpu_ticks": 1202
+          },
+          "completed": []
+        },
+        {
+          "path": "/home/catid/hopfield/artifacts/data_efficiency/extra/worker-work-g1.json",
+          "status": "search",
+          "job": "cram-de-v99-recreated42-k10000-s2",
+          "child": {
+            "pid": 1403639,
+            "ppid": 1402826,
+            "startticks": 37177183,
+            "state": "R",
+            "argv": [
+              "/home/catid/hopfield/upstream/.venv/bin/python",
+              "-u",
+              "data_efficiency.py",
+              "search",
+              "--k",
+              "10000",
+              "--seed",
+              "2",
+              "--data",
+              "test10k"
+            ],
+            "cpu_ticks": 1219
+          },
+          "completed": []
+        }
+      ]
+    },
+    "loki": {
+      "gpus": "0, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, GPU-b13dc6fa-d115-87ba-184a-bfadd158a7e9, 100 %, 15346 MiB, 299.97 W\n1, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, GPU-0fb7c4f0-73a1-a76b-2cde-616063fa4082, 100 %, 15346 MiB, 300.89 W\n",
+      "processes": "1437652, GPU-b13dc6fa-d115-87ba-184a-bfadd158a7e9, 15336 MiB\n1437640, GPU-0fb7c4f0-73a1-a76b-2cde-616063fa4082, 15336 MiB\n",
+      "states": [
+        {
+          "path": "/home/catid/hopfield/artifacts/data_efficiency/extra/worker-loki-g1.json",
+          "status": "search",
+          "job": "cram-de-v99-recreated42-k10000-s4",
+          "child": {
+            "pid": 1437640,
+            "ppid": 1436685,
+            "startticks": 37170127,
+            "state": "R",
+            "argv": [
+              "/home/catid/hopfield/upstream/.venv/bin/python",
+              "-u",
+              "data_efficiency.py",
+              "search",
+              "--k",
+              "10000",
+              "--seed",
+              "4",
+              "--data",
+              "test10k"
+            ],
+            "cpu_ticks": 822
+          },
+          "completed": []
+        },
+        {
+          "path": "/home/catid/hopfield/artifacts/data_efficiency/extra/worker-loki-g0.json",
+          "status": "search",
+          "job": "cram-de-v99-recreated42-k10000-s3",
+          "child": {
+            "pid": 1437652,
+            "ppid": 1436580,
+            "startticks": 37170142,
+            "state": "R",
+            "argv": [
+              "/home/catid/hopfield/upstream/.venv/bin/python",
+              "-u",
+              "data_efficiency.py",
+              "search",
+              "--k",
+              "10000",
+              "--seed",
+              "3",
+              "--data",
+              "test10k"
+            ],
+            "cpu_ticks": 810
+          },
+          "completed": []
+        }
+      ]
+    }
+  },
+  "preserved_search_progress": [
+    {
+      "lane": 0,
+      "parent": {
+        "pid": 1137265,
+        "ppid": 1110480,
+        "startticks": 34499608,
+        "state": "T",
+        "argv": [
+          "python3",
+          "-u",
+          "/home/catid/hopfield/scripts/data_efficiency_queue.py",
+          "worker",
+          "--lane",
+          "0"
+        ],
+        "cpu_ticks": 1035
+      },
+      "child": {
+        "pid": 1264976,
+        "ppid": 1137265,
+        "startticks": 37028936,
+        "state": "R",
+        "argv": [
+          "/home/catid/hopfield/upstream/.venv/bin/python",
+          "-u",
+          "data_efficiency.py",
+          "search",
+          "--k",
+          "1",
+          "--seed",
+          "3",
+          "--data",
+          "test10k"
+        ],
+        "cpu_ticks": 61817
+      },
+      "cpu_ticks_advanced": 7265
+    },
+    {
+      "lane": 1,
+      "parent": {
+        "pid": 1128993,
+        "ppid": 1110481,
+        "startticks": 34343124,
+        "state": "T",
+        "argv": [
+          "python3",
+          "-u",
+          "/home/catid/hopfield/scripts/data_efficiency_queue.py",
+          "worker",
+          "--lane",
+          "1"
+        ],
+        "cpu_ticks": 1080
+      },
+      "child": {
+        "pid": 1254461,
+        "ppid": 1128993,
+        "startticks": 36777090,
+        "state": "R",
+        "argv": [
+          "/home/catid/hopfield/upstream/.venv/bin/python",
+          "-u",
+          "data_efficiency.py",
+          "search",
+          "--k",
+          "1",
+          "--seed",
+          "4",
+          "--data",
+          "test10k"
+        ],
+        "cpu_ticks": 313706
+      },
+      "cpu_ticks_advanced": 7264
+    },
+    {
+      "lane": 2,
+      "parent": {
+        "pid": 1130719,
+        "ppid": 1110482,
+        "startticks": 34374665,
+        "state": "T",
+        "argv": [
+          "python3",
+          "-u",
+          "/home/catid/hopfield/scripts/data_efficiency_queue.py",
+          "worker",
+          "--lane",
+          "2"
+        ],
+        "cpu_ticks": 1073
+      },
+      "child": {
+        "pid": 1251489,
+        "ppid": 1130719,
+        "startticks": 36706747,
+        "state": "R",
+        "argv": [
+          "/home/catid/hopfield/upstream/.venv/bin/python",
+          "-u",
+          "data_efficiency.py",
+          "search",
+          "--k",
+          "1",
+          "--seed",
+          "5",
+          "--data",
+          "test10k"
+        ],
+        "cpu_ticks": 384045
+      },
+      "cpu_ticks_advanced": 7265
+    }
+  ]
+}

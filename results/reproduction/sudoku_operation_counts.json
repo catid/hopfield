@@ -1,0 +1,786 @@
+{
+ "sudoku_general_move_D20": {
+  "total": 639,
+  "total_with_compare": 1223,
+  "classes": {
+   "matmul": 0,
+   "arith": 621,
+   "transc": 18,
+   "compare": 584,
+   "rng": 91
+  },
+  "matmul_only_flopcountermode": 0,
+  "by_op": {
+   "add": {
+    "arith": 221
+   },
+   "argmax": {
+    "compare": 90
+   },
+   "bitwise_and": {
+    "compare": 183
+   },
+   "div": {
+    "arith": 9
+   },
+   "ge": {
+    "compare": 2
+   },
+   "gt": {
+    "compare": 21
+   },
+   "le": {
+    "compare": 1
+   },
+   "log": {
+    "transc": 18
+   },
+   "lt": {
+    "compare": 1
+   },
+   "max": {
+    "compare": 81
+   },
+   "maximum": {
+    "compare": 9
+   },
+   "minimum": {
+    "compare": 1
+   },
+   "mul": {
+    "arith": 182
+   },
+   "ne": {
+    "compare": 102
+   },
+   "neg": {
+    "arith": 27
+   },
+   "rand": {
+    "rng": 91
+   },
+   "sub": {
+    "arith": 182
+   },
+   "where": {
+    "compare": 93
+   }
+  },
+  "convention": "baselines/flops/fullcount.py FullCounter: arithmetic only; 1 flop per elementary arithmetic operation per element (add, sub, mul, div, neg, abs; exp/log/sqrt/sigmoid/tanh/erf 1 each), multiply-add 2, matrix products by flop_registry plus bias adds; integer arithmetic counted; comparisons, selections, min/max, argmax and mask logic recorded but not counted; data movement, casts, indexing and random-number generation 0"
+ },
+ "sudoku_sparse_move_nobias_D20": {
+  "total": 124,
+  "total_with_compare": 828,
+  "classes": {
+   "matmul": 0,
+   "arith": 106,
+   "transc": 18,
+   "compare": 704,
+   "rng": 91
+  },
+  "matmul_only_flopcountermode": 0,
+  "by_op": {
+   "add": {
+    "arith": 32
+   },
+   "argmax": {
+    "compare": 90
+   },
+   "bitwise_and": {
+    "compare": 203
+   },
+   "bitwise_or": {
+    "compare": 20
+   },
+   "div": {
+    "arith": 1
+   },
+   "eq": {
+    "compare": 60
+   },
+   "ge": {
+    "compare": 2
+   },
+   "gt": {
+    "compare": 21
+   },
+   "le": {
+    "compare": 1
+   },
+   "log": {
+    "transc": 18
+   },
+   "lt": {
+    "compare": 1
+   },
+   "max": {
+    "compare": 81
+   },
+   "maximum": {
+    "compare": 9
+   },
+   "minimum": {
+    "compare": 1
+   },
+   "mul": {
+    "arith": 32
+   },
+   "ne": {
+    "compare": 102
+   },
+   "neg": {
+    "arith": 19
+   },
+   "rand": {
+    "rng": 91
+   },
+   "sub": {
+    "arith": 22
+   },
+   "where": {
+    "compare": 113
+   }
+  },
+  "convention": "baselines/flops/fullcount.py FullCounter: arithmetic only; 1 flop per elementary arithmetic operation per element (add, sub, mul, div, neg, abs; exp/log/sqrt/sigmoid/tanh/erf 1 each), multiply-add 2, matrix products by flop_registry plus bias adds; integer arithmetic counted; comparisons, selections, min/max, argmax and mask logic recorded but not counted; data movement, casts, indexing and random-number generation 0"
+ },
+ "sudoku_sparse_move_bias_D20": {
+  "total": 149,
+  "total_with_compare": 853,
+  "classes": {
+   "matmul": 0,
+   "arith": 131,
+   "transc": 18,
+   "compare": 704,
+   "rng": 91
+  },
+  "matmul_only_flopcountermode": 0,
+  "by_op": {
+   "add": {
+    "arith": 32
+   },
+   "argmax": {
+    "compare": 90
+   },
+   "bitwise_and": {
+    "compare": 203
+   },
+   "bitwise_or": {
+    "compare": 20
+   },
+   "div": {
+    "arith": 9
+   },
+   "eq": {
+    "compare": 60
+   },
+   "ge": {
+    "compare": 2
+   },
+   "gt": {
+    "compare": 21
+   },
+   "le": {
+    "compare": 1
+   },
+   "log": {
+    "transc": 18
+   },
+   "lt": {
+    "compare": 1
+   },
+   "max": {
+    "compare": 81
+   },
+   "maximum": {
+    "compare": 9
+   },
+   "minimum": {
+    "compare": 1
+   },
+   "mul": {
+    "arith": 32
+   },
+   "ne": {
+    "compare": 102
+   },
+   "neg": {
+    "arith": 27
+   },
+   "rand": {
+    "rng": 91
+   },
+   "sub": {
+    "arith": 31
+   },
+   "where": {
+    "compare": 113
+   }
+  },
+  "convention": "baselines/flops/fullcount.py FullCounter: arithmetic only; 1 flop per elementary arithmetic operation per element (add, sub, mul, div, neg, abs; exp/log/sqrt/sigmoid/tanh/erf 1 each), multiply-add 2, matrix products by flop_registry plus bias adds; integer arithmetic counted; comparisons, selections, min/max, argmax and mask logic recorded but not counted; data movement, casts, indexing and random-number generation 0"
+ },
+ "sudoku_general_move_D30": {
+  "total": 919,
+  "total_with_compare": 1533,
+  "classes": {
+   "matmul": 0,
+   "arith": 901,
+   "transc": 18,
+   "compare": 614,
+   "rng": 91
+  },
+  "matmul_only_flopcountermode": 0,
+  "by_op": {
+   "add": {
+    "arith": 321
+   },
+   "argmax": {
+    "compare": 90
+   },
+   "bitwise_and": {
+    "compare": 193
+   },
+   "div": {
+    "arith": 9
+   },
+   "ge": {
+    "compare": 2
+   },
+   "gt": {
+    "compare": 31
+   },
+   "le": {
+    "compare": 1
+   },
+   "log": {
+    "transc": 18
+   },
+   "lt": {
+    "compare": 1
+   },
+   "max": {
+    "compare": 81
+   },
+   "maximum": {
+    "compare": 9
+   },
+   "minimum": {
+    "compare": 1
+   },
+   "mul": {
+    "arith": 272
+   },
+   "ne": {
+    "compare": 112
+   },
+   "neg": {
+    "arith": 27
+   },
+   "rand": {
+    "rng": 91
+   },
+   "sub": {
+    "arith": 272
+   },
+   "where": {
+    "compare": 93
+   }
+  },
+  "convention": "baselines/flops/fullcount.py FullCounter: arithmetic only; 1 flop per elementary arithmetic operation per element (add, sub, mul, div, neg, abs; exp/log/sqrt/sigmoid/tanh/erf 1 each), multiply-add 2, matrix products by flop_registry plus bias adds; integer arithmetic counted; comparisons, selections, min/max, argmax and mask logic recorded but not counted; data movement, casts, indexing and random-number generation 0"
+ },
+ "sudoku_sparse_move_nobias_D30": {
+  "total": 154,
+  "total_with_compare": 948,
+  "classes": {
+   "matmul": 0,
+   "arith": 136,
+   "transc": 18,
+   "compare": 794,
+   "rng": 91
+  },
+  "matmul_only_flopcountermode": 0,
+  "by_op": {
+   "add": {
+    "arith": 42
+   },
+   "argmax": {
+    "compare": 90
+   },
+   "bitwise_and": {
+    "compare": 223
+   },
+   "bitwise_or": {
+    "compare": 30
+   },
+   "div": {
+    "arith": 1
+   },
+   "eq": {
+    "compare": 90
+   },
+   "ge": {
+    "compare": 2
+   },
+   "gt": {
+    "compare": 31
+   },
+   "le": {
+    "compare": 1
+   },
+   "log": {
+    "transc": 18
+   },
+   "lt": {
+    "compare": 1
+   },
+   "max": {
+    "compare": 81
+   },
+   "maximum": {
+    "compare": 9
+   },
+   "minimum": {
+    "compare": 1
+   },
+   "mul": {
+    "arith": 42
+   },
+   "ne": {
+    "compare": 112
+   },
+   "neg": {
+    "arith": 19
+   },
+   "rand": {
+    "rng": 91
+   },
+   "sub": {
+    "arith": 32
+   },
+   "where": {
+    "compare": 123
+   }
+  },
+  "convention": "baselines/flops/fullcount.py FullCounter: arithmetic only; 1 flop per elementary arithmetic operation per element (add, sub, mul, div, neg, abs; exp/log/sqrt/sigmoid/tanh/erf 1 each), multiply-add 2, matrix products by flop_registry plus bias adds; integer arithmetic counted; comparisons, selections, min/max, argmax and mask logic recorded but not counted; data movement, casts, indexing and random-number generation 0"
+ },
+ "sudoku_sparse_move_bias_D30": {
+  "total": 179,
+  "total_with_compare": 973,
+  "classes": {
+   "matmul": 0,
+   "arith": 161,
+   "transc": 18,
+   "compare": 794,
+   "rng": 91
+  },
+  "matmul_only_flopcountermode": 0,
+  "by_op": {
+   "add": {
+    "arith": 42
+   },
+   "argmax": {
+    "compare": 90
+   },
+   "bitwise_and": {
+    "compare": 223
+   },
+   "bitwise_or": {
+    "compare": 30
+   },
+   "div": {
+    "arith": 9
+   },
+   "eq": {
+    "compare": 90
+   },
+   "ge": {
+    "compare": 2
+   },
+   "gt": {
+    "compare": 31
+   },
+   "le": {
+    "compare": 1
+   },
+   "log": {
+    "transc": 18
+   },
+   "lt": {
+    "compare": 1
+   },
+   "max": {
+    "compare": 81
+   },
+   "maximum": {
+    "compare": 9
+   },
+   "minimum": {
+    "compare": 1
+   },
+   "mul": {
+    "arith": 42
+   },
+   "ne": {
+    "compare": 112
+   },
+   "neg": {
+    "arith": 27
+   },
+   "rand": {
+    "rng": 91
+   },
+   "sub": {
+    "arith": 41
+   },
+   "where": {
+    "compare": 123
+   }
+  },
+  "convention": "baselines/flops/fullcount.py FullCounter: arithmetic only; 1 flop per elementary arithmetic operation per element (add, sub, mul, div, neg, abs; exp/log/sqrt/sigmoid/tanh/erf 1 each), multiply-add 2, matrix products by flop_registry plus bias adds; integer arithmetic counted; comparisons, selections, min/max, argmax and mask logic recorded but not counted; data movement, casts, indexing and random-number generation 0"
+ },
+ "sudoku_general_move_D31": {
+  "total": 947,
+  "total_with_compare": 1564,
+  "classes": {
+   "matmul": 0,
+   "arith": 929,
+   "transc": 18,
+   "compare": 617,
+   "rng": 91
+  },
+  "matmul_only_flopcountermode": 0,
+  "by_op": {
+   "add": {
+    "arith": 331
+   },
+   "argmax": {
+    "compare": 90
+   },
+   "bitwise_and": {
+    "compare": 194
+   },
+   "div": {
+    "arith": 9
+   },
+   "ge": {
+    "compare": 2
+   },
+   "gt": {
+    "compare": 32
+   },
+   "le": {
+    "compare": 1
+   },
+   "log": {
+    "transc": 18
+   },
+   "lt": {
+    "compare": 1
+   },
+   "max": {
+    "compare": 81
+   },
+   "maximum": {
+    "compare": 9
+   },
+   "minimum": {
+    "compare": 1
+   },
+   "mul": {
+    "arith": 281
+   },
+   "ne": {
+    "compare": 113
+   },
+   "neg": {
+    "arith": 27
+   },
+   "rand": {
+    "rng": 91
+   },
+   "sub": {
+    "arith": 281
+   },
+   "where": {
+    "compare": 93
+   }
+  },
+  "convention": "baselines/flops/fullcount.py FullCounter: arithmetic only; 1 flop per elementary arithmetic operation per element (add, sub, mul, div, neg, abs; exp/log/sqrt/sigmoid/tanh/erf 1 each), multiply-add 2, matrix products by flop_registry plus bias adds; integer arithmetic counted; comparisons, selections, min/max, argmax and mask logic recorded but not counted; data movement, casts, indexing and random-number generation 0"
+ },
+ "sudoku_sparse_move_nobias_D31": {
+  "total": 157,
+  "total_with_compare": 960,
+  "classes": {
+   "matmul": 0,
+   "arith": 139,
+   "transc": 18,
+   "compare": 803,
+   "rng": 91
+  },
+  "matmul_only_flopcountermode": 0,
+  "by_op": {
+   "add": {
+    "arith": 43
+   },
+   "argmax": {
+    "compare": 90
+   },
+   "bitwise_and": {
+    "compare": 225
+   },
+   "bitwise_or": {
+    "compare": 31
+   },
+   "div": {
+    "arith": 1
+   },
+   "eq": {
+    "compare": 93
+   },
+   "ge": {
+    "compare": 2
+   },
+   "gt": {
+    "compare": 32
+   },
+   "le": {
+    "compare": 1
+   },
+   "log": {
+    "transc": 18
+   },
+   "lt": {
+    "compare": 1
+   },
+   "max": {
+    "compare": 81
+   },
+   "maximum": {
+    "compare": 9
+   },
+   "minimum": {
+    "compare": 1
+   },
+   "mul": {
+    "arith": 43
+   },
+   "ne": {
+    "compare": 113
+   },
+   "neg": {
+    "arith": 19
+   },
+   "rand": {
+    "rng": 91
+   },
+   "sub": {
+    "arith": 33
+   },
+   "where": {
+    "compare": 124
+   }
+  },
+  "convention": "baselines/flops/fullcount.py FullCounter: arithmetic only; 1 flop per elementary arithmetic operation per element (add, sub, mul, div, neg, abs; exp/log/sqrt/sigmoid/tanh/erf 1 each), multiply-add 2, matrix products by flop_registry plus bias adds; integer arithmetic counted; comparisons, selections, min/max, argmax and mask logic recorded but not counted; data movement, casts, indexing and random-number generation 0"
+ },
+ "sudoku_sparse_move_bias_D31": {
+  "total": 182,
+  "total_with_compare": 985,
+  "classes": {
+   "matmul": 0,
+   "arith": 164,
+   "transc": 18,
+   "compare": 803,
+   "rng": 91
+  },
+  "matmul_only_flopcountermode": 0,
+  "by_op": {
+   "add": {
+    "arith": 43
+   },
+   "argmax": {
+    "compare": 90
+   },
+   "bitwise_and": {
+    "compare": 225
+   },
+   "bitwise_or": {
+    "compare": 31
+   },
+   "div": {
+    "arith": 9
+   },
+   "eq": {
+    "compare": 93
+   },
+   "ge": {
+    "compare": 2
+   },
+   "gt": {
+    "compare": 32
+   },
+   "le": {
+    "compare": 1
+   },
+   "log": {
+    "transc": 18
+   },
+   "lt": {
+    "compare": 1
+   },
+   "max": {
+    "compare": 81
+   },
+   "maximum": {
+    "compare": 9
+   },
+   "minimum": {
+    "compare": 1
+   },
+   "mul": {
+    "arith": 43
+   },
+   "ne": {
+    "compare": 113
+   },
+   "neg": {
+    "arith": 27
+   },
+   "rand": {
+    "rng": 91
+   },
+   "sub": {
+    "arith": 42
+   },
+   "where": {
+    "compare": 124
+   }
+  },
+  "convention": "baselines/flops/fullcount.py FullCounter: arithmetic only; 1 flop per elementary arithmetic operation per element (add, sub, mul, div, neg, abs; exp/log/sqrt/sigmoid/tanh/erf 1 each), multiply-add 2, matrix products by flop_registry plus bias adds; integer arithmetic counted; comparisons, selections, min/max, argmax and mask logic recorded but not counted; data movement, casts, indexing and random-number generation 0"
+ },
+ "sudoku_general_overheads_s0": {
+  "D": 30,
+  "C": 4,
+  "check_moves": 4096,
+  "fl_move_old": 746.1083984375,
+  "init_per_puzzle": {
+   "total": 8546006,
+   "total_with_compare": 9635780,
+   "classes": {
+    "matmul": 8503056,
+    "arith": 42950,
+    "transc": 0,
+    "compare": 1089774,
+    "rng": 324
+   },
+   "matmul_only_flopcountermode": 8503056,
+   "by_op": {
+    "add": {
+     "arith": 12725
+    },
+    "any": {
+     "compare": 531441
+    },
+    "bitwise_and": {
+     "compare": 7209
+    },
+    "bitwise_not": {
+     "compare": 6885
+    },
+    "bmm": {
+     "matmul": 8503056
+    },
+    "gt": {
+     "compare": 648
+    },
+    "max": {
+     "compare": 1377
+    },
+    "min": {
+     "compare": 1296
+    },
+    "mul": {
+     "arith": 11672
+    },
+    "ne": {
+     "compare": 531441
+    },
+    "nonzero": {
+     "compare": 6561
+    },
+    "randint": {
+     "rng": 324
+    },
+    "sort": {
+     "compare": 2268
+    },
+    "sum": {
+     "arith": 18553
+    },
+    "where": {
+     "compare": 648
+    }
+   },
+   "convention": "baselines/flops/fullcount.py FullCounter: arithmetic only; 1 flop per elementary arithmetic operation per element (add, sub, mul, div, neg, abs; exp/log/sqrt/sigmoid/tanh/erf 1 each), multiply-add 2, matrix products by flop_registry plus bias adds; integer arithmetic counted; comparisons, selections, min/max, argmax and mask logic recorded but not counted; data movement, casts, indexing and random-number generation 0"
+  },
+  "check_per_puzzle": {
+   "total": 4266118,
+   "total_with_compare": 4268732,
+   "classes": {
+    "matmul": 4251528,
+    "arith": 14590,
+    "transc": 0,
+    "compare": 2614,
+    "rng": 0
+   },
+   "matmul_only_flopcountermode": 4251528,
+   "by_op": {
+    "add": {
+     "arith": 2920
+    },
+    "all": {
+     "compare": 324
+    },
+    "any": {
+     "compare": 1
+    },
+    "bitwise_and": {
+     "compare": 324
+    },
+    "bmm": {
+     "matmul": 4251528
+    },
+    "eq": {
+     "compare": 324
+    },
+    "ge": {
+     "compare": 4
+    },
+    "gt": {
+     "compare": 325
+    },
+    "lt": {
+     "compare": 2
+    },
+    "max": {
+     "compare": 648
+    },
+    "mean": {
+     "arith": 2
+    },
+    "min": {
+     "compare": 656
+    },
+    "mul": {
+     "arith": 5836
+    },
+    "sum": {
+     "arith": 5832
+    },
+    "where": {
+     "compare": 6
+    }
+   },
+   "convention": "baselines/flops/fullcount.py FullCounter: arithmetic only; 1 flop per elementary arithmetic operation per element (add, sub, mul, div, neg, abs; exp/log/sqrt/sigmoid/tanh/erf 1 each), multiply-add 2, matrix products by flop_registry plus bias adds; integer arithmetic counted; comparisons, selections, min/max, argmax and mask logic recorded but not counted; data movement, casts, indexing and random-number generation 0"
+  },
+  "note": "one puzzle with C chains; init = the constructor (first boards, their fields and energies); check = step_check without the kernel (refresh of every chain at t % 4096 == 0, bookkeeping, stops)"
+ }
+}

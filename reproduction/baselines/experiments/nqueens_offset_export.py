@@ -1,0 +1,1 @@
+/home/catid/hopfield/upstream/experiments/nqueens_offset_export.py

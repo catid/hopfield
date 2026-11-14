@@ -1,0 +1,50 @@
+{
+  "id": "H4-validity-stopping-confirmation",
+  "frozen_utc": "2026-11-14T21:48:13.358052+00:00",
+  "host": "foureyes",
+  "hypothesis": "Unchanged energy-AND-valid gate improves low-data k17/21 solve rate by at least10pp on disjoint dev512:2560 using all6trainingseeds.",
+  "arms": [
+    "energy_AND_valid"
+  ],
+  "control": "Shared frozen Ripper H1 confirmation original-arm outputs on the same2048puzzles and6trainingseeds; no cross-host timing claim.",
+  "primary_arm": "energy_AND_valid",
+  "secondary_arm": null,
+  "training_k": [
+    17,
+    21
+  ],
+  "training_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "search_seed": "training seed",
+  "split": "dev10k",
+  "rows_half_open": [
+    512,
+    2560
+  ],
+  "chains": 4,
+  "move_cap_per_chain": 262144,
+  "check": 4096,
+  "anneal": [
+    0.4,
+    0.31,
+    524288
+  ],
+  "theta_hbar": 0.45,
+  "tol": 0.001,
+  "restart": 0,
+  "validity_gate": "Zero equal-digit conflicts across the810unordered row/column/box-neighbor pairs; clues remain clamped. No target labels used by gate or move policy.",
+  "primary_statistic": "Equal-weight average across2k x6trainingseeds x2048sharedpuzzles of paired returned-board exactness.",
+  "uncertainty": "5000 paired two-way bootstrap draws of6seedclusters and2048sharedpuzzles, seed20261114; reportnewseeds3to5 separately.",
+  "decision": "Supported in this screen iff95percent lower bound>=10pp; falsified iff upper bound<10pp; otherwise inconclusive.",
+  "mechanistic_statistic": "Fraction of original wrong-stop puzzles newly solved at same cap; report changes on other puzzles too.",
+  "budget_and_cost": "Same move cap, not equal realized compute. Added rule-check operations and elapsed time retained; legacy FLOPs exclude gate and cannot establish net arithmetic speedup.",
+  "rng_limit": "Same initialseed and move keys before diverging stops/compaction; thereafter paths may diverge.",
+  "scope": "Task-rule validity checker is additional symbolic knowledge; not an unmodified pure CRAM reproduction, not an exact external solver.",
+  "source_commit": "62bbe830c7d6f87f2ba18f30a28039258b986454"
+}

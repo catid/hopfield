@@ -1,0 +1,240 @@
+{
+  "source_commit": "62bbe830c7d6f87f2ba18f30a28039258b986454",
+  "paper": "arXiv:2611.17309v1",
+  "published_source": "upstream/results/op-counts.json",
+  "records": [
+    {
+      "task": "maze_unique",
+      "published_accuracy_percent": 100.0,
+      "published_legacy_flops_mean": 560511.72,
+      "published_fc2_flops_mean": 836870.85,
+      "fresh_seeds": [
+        {
+          "task": "maze_unique",
+          "seed": 0,
+          "n": 1000,
+          "solved": 1000,
+          "wrong_stops": 0,
+          "budget_failures": 0,
+          "train_loop_s": 6.1284241050016135,
+          "mean_flop": 560511.72,
+          "all_weights_bitwise_reference": false,
+          "independent_shortest_paths": 1000,
+          "inference_timing_note": "Prediction capture adds CPU transfer to score seconds; use algorithm FLOPs, not this instrumented elapsed time for speed claims.",
+          "completed_utc": "2026-11-13T19:22:18.246286+00:00",
+          "model_sha256": "c2a8a02d69fe3357accb98e1497457721a97f8ab312e25f247ed9d85cddc9e18",
+          "fc2_flops_mean": 836870.85,
+          "wrong_indices": [],
+          "labels_matching_independent_BFS": 1000,
+          "max_abs_weight_difference": 0.00018450617790222168,
+          "host": "loki",
+          "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+          "complete_fit_timing": {
+            "cpu": {
+              "cold_s": 0.043248186993878335,
+              "warm_median_s": 0.03914926899597049,
+              "all_same_model": true
+            },
+            "cuda": {
+              "cold_s": 1.2957015709835105,
+              "warm_median_s": 0.10758122900733724,
+              "all_same_model": true
+            }
+          }
+        },
+        {
+          "task": "maze_unique",
+          "seed": 1,
+          "n": 1000,
+          "solved": 1000,
+          "wrong_stops": 0,
+          "budget_failures": 0,
+          "train_loop_s": 0.6933285959530622,
+          "mean_flop": 560511.72,
+          "all_weights_bitwise_reference": false,
+          "independent_shortest_paths": 1000,
+          "inference_timing_note": "Prediction capture adds CPU transfer to score seconds; use algorithm FLOPs, not this instrumented elapsed time for speed claims.",
+          "completed_utc": "2026-11-13T19:24:54.380994+00:00",
+          "model_sha256": "e4162e51678d016fcd05f0dc48698042ebe0c8fc8da863e03f9ee28639ad0dea",
+          "fc2_flops_mean": 836870.85,
+          "wrong_indices": [],
+          "labels_matching_independent_BFS": 1000,
+          "max_abs_weight_difference": 6.318092346191406e-05,
+          "host": "loki",
+          "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+          "complete_fit_timing": {
+            "cpu": {
+              "cold_s": 0.042876228981185704,
+              "warm_median_s": 0.038625243003480136,
+              "all_same_model": true
+            },
+            "cuda": {
+              "cold_s": 0.8112523969612084,
+              "warm_median_s": 0.10738680697977543,
+              "all_same_model": true
+            }
+          }
+        },
+        {
+          "task": "maze_unique",
+          "seed": 2,
+          "n": 1000,
+          "solved": 1000,
+          "wrong_stops": 0,
+          "budget_failures": 0,
+          "train_loop_s": 0.7460239229840226,
+          "mean_flop": 560511.72,
+          "all_weights_bitwise_reference": false,
+          "independent_shortest_paths": 1000,
+          "inference_timing_note": "Prediction capture adds CPU transfer to score seconds; use algorithm FLOPs, not this instrumented elapsed time for speed claims.",
+          "completed_utc": "2026-11-13T19:25:00.479953+00:00",
+          "model_sha256": "2a7ae13df601e8e2f92b52ab5e921fe2ae57087ce51878a131a5edfad803e5ad",
+          "fc2_flops_mean": 836870.85,
+          "wrong_indices": [],
+          "labels_matching_independent_BFS": 1000,
+          "max_abs_weight_difference": 0.00010082125663757324,
+          "host": "loki",
+          "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+          "complete_fit_timing": {
+            "cpu": {
+              "cold_s": 0.0427879259805195,
+              "warm_median_s": 0.03790359100094065,
+              "all_same_model": true
+            },
+            "cuda": {
+              "cold_s": 0.7009558649733663,
+              "warm_median_s": 0.10733571002492681,
+              "all_same_model": true
+            }
+          }
+        }
+      ],
+      "fresh_fc2_mean_over_seeds": 836870.85
+    },
+    {
+      "task": "maze_hard",
+      "published_accuracy_percent": 99.9,
+      "published_legacy_flops_mean": 6012871.8,
+      "published_fc2_flops_mean": 14058028.200000001,
+      "fresh_seeds": [
+        {
+          "task": "maze_hard",
+          "seed": 0,
+          "n": 1000,
+          "solved": 999,
+          "wrong_stops": 1,
+          "budget_failures": 0,
+          "cold_fit_s": 28.321403356967494,
+          "train_loop_s": 26.838613422005437,
+          "mean_flop": 6013738.8,
+          "flop_convention": "upstream maze_hard_latent.evaluate legacy component count; paper Table8 uses broader FC2 count (~1.41e7). Do not compare these counts directly.",
+          "all_weights_bitwise_reference": false,
+          "independent_shortest_paths": 999,
+          "completed_utc": "2026-11-13T19:22:09.184312+00:00",
+          "model_sha256": "84d694828c90cbf55bcf2eb84136324e2a5d482e4847e50d7b9f67b39c8aa230",
+          "fc2_flops_mean": 14060729.7,
+          "wrong_indices": [
+            106
+          ],
+          "labels_matching_independent_BFS": 1000,
+          "max_abs_weight_difference": 0.00011444091796875,
+          "host": "work",
+          "gpu": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition"
+        },
+        {
+          "task": "maze_hard",
+          "seed": 1,
+          "n": 1000,
+          "solved": 999,
+          "wrong_stops": 1,
+          "budget_failures": 0,
+          "cold_fit_s": 19.377277089981362,
+          "train_loop_s": 19.043071532971226,
+          "mean_flop": 6017900.4,
+          "flop_convention": "upstream maze_hard_latent.evaluate legacy component count; paper Table8 uses broader FC2 count (~1.41e7). Do not compare these counts directly.",
+          "all_weights_bitwise_reference": false,
+          "independent_shortest_paths": 999,
+          "completed_utc": "2026-11-13T19:22:15.865904+00:00",
+          "model_sha256": "21004b8bca2fde7ae23825e874a30e15d28174ae5da16382420a1743d8ad2881",
+          "fc2_flops_mean": 14073696.9,
+          "wrong_indices": [
+            106
+          ],
+          "labels_matching_independent_BFS": 1000,
+          "max_abs_weight_difference": 8.20159912109375e-05,
+          "host": "work",
+          "gpu": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition"
+        },
+        {
+          "task": "maze_hard",
+          "seed": 2,
+          "n": 1000,
+          "solved": 999,
+          "wrong_stops": 1,
+          "budget_failures": 0,
+          "cold_fit_s": 26.494884384039324,
+          "train_loop_s": 25.02662246004911,
+          "mean_flop": 6006976.2,
+          "flop_convention": "upstream maze_hard_latent.evaluate legacy component count; paper Table8 uses broader FC2 count (~1.41e7). Do not compare these counts directly.",
+          "all_weights_bitwise_reference": false,
+          "independent_shortest_paths": 999,
+          "completed_utc": "2026-11-13T19:22:28.540952+00:00",
+          "model_sha256": "5f350d5de1f42ef627a2dd6052bcdcb722bd965d1ef940863ed4f6955e4a73e3",
+          "fc2_flops_mean": 14039658.0,
+          "wrong_indices": [
+            106
+          ],
+          "labels_matching_independent_BFS": 1000,
+          "max_abs_weight_difference": 0.0001773834228515625,
+          "host": "loki",
+          "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition"
+        }
+      ],
+      "fresh_fc2_mean_over_seeds": 14058028.2
+    },
+    {
+      "task": "hand_maze_unique",
+      "published_accuracy_percent": 100.0,
+      "published_legacy_flops_mean": 560511.72,
+      "published_fc2_flops_mean": 837048.85,
+      "fresh_seeds": [
+        {
+          "seed": 0,
+          "n": 1000,
+          "solved": 1000,
+          "wrong_stops": 0,
+          "budget_failures": 0,
+          "mean_flop": 560511.72,
+          "independent_shortest_paths": 1000,
+          "completed_utc": "2026-11-13T19:28:22.112739+00:00",
+          "fc2_flops_mean": 837048.85
+        },
+        {
+          "seed": 1,
+          "n": 1000,
+          "solved": 1000,
+          "wrong_stops": 0,
+          "budget_failures": 0,
+          "mean_flop": 560511.72,
+          "independent_shortest_paths": 1000,
+          "completed_utc": "2026-11-13T19:28:25.455788+00:00",
+          "fc2_flops_mean": 837048.85
+        },
+        {
+          "seed": 2,
+          "n": 1000,
+          "solved": 1000,
+          "wrong_stops": 0,
+          "budget_failures": 0,
+          "mean_flop": 560511.72,
+          "independent_shortest_paths": 1000,
+          "completed_utc": "2026-11-13T19:28:28.948721+00:00",
+          "fc2_flops_mean": 837048.85
+        }
+      ]
+    }
+  ],
+  "protocol": "Fresh fits for Maze-Unique and Maze-Hard training seeds0,1,2; one full1000-maze test pass per model. Hand-set CPU dev100 then full1000 test per inference seed0,1,2. No test-driven changes.",
+  "accounting": "Legacy counts are evaluator component counts. FC2 counts are fresh FullCounter operator measurements on training mazes extrapolated using saved single-pass test steps; multiply-add=2, arithmetic/transcendentals=1, comparisons/selects/masks/indexing/casts/data movement/RNG=0.",
+  "implementation": "Full dataset executions use the pinned optimized upstream implementation. Independent src/hopfield_cram reference tests are separately documented in docs/IMPLEMENTATION.md."
+}

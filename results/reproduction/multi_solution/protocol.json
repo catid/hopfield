@@ -1,0 +1,88 @@
+{
+  "upstream_commit": "62bbe830c7d6f87f2ba18f30a28039258b986454",
+  "gram_builder_commit": "f2e32b9b11737890bfd4f39ead4cbea90835f91b",
+  "python": "3.13.13",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "triton": "3.6.0",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "source_unchanged": true,
+  "source_hash_manifest": "../deployment/source_manifest.json",
+  "data_hash_manifest": "../deployment/data_manifest.json",
+  "environments": "../deployment/remote_deployment.json",
+  "tasks": {
+    "nqueens": {
+      "sizes": [
+        8,
+        10
+      ],
+      "train_rows": [
+        7224,
+        108234
+      ],
+      "test_rows": [
+        1240,
+        18466
+      ],
+      "distinct_test_inputs": [
+        772,
+        6513
+      ],
+      "energy": "offset-shared Ising, 2*n*(n-1)+1 learned parameters",
+      "loss": "pseudolikelihood",
+      "updates": 4000,
+      "optimizer": "SGD momentum0.5 cosine lr30, zero initialization, per-offset gradient preconditioning, no L1",
+      "recipe": "upstream/experiments/recipes/nqueens-offset-n10.json unchanged at both sizes",
+      "search": "20 chains, local-margin stop, temperature1.0 times unit, cap20000; first chain N1, lowest-energy chain N20",
+      "temperature_unit": "Training-row-weighted mean of absolute two-state field difference over all cells in solution boards.",
+      "delta": "Minimum alternative-state field minus true-state field over all cells of all training solutions.",
+      "fit_timing": "Index route produces scored model; dense map timed separately; each fresh process includes cold+7warm fits; paper timing is seed0 warm median.",
+      "host": "ripper",
+      "gpu8": 0,
+      "gpu10": 1
+    },
+    "graph_coloring": {
+      "sizes": [
+        8,
+        10
+      ],
+      "train_rows": [
+        7002,
+        13465
+      ],
+      "test_graphs": [
+        255,
+        192
+      ],
+      "energy": "full: every pair reads all adjacency tokens, unrestricted3x3 affine cost",
+      "updates": [
+        1024,
+        256
+      ],
+      "optimizer": "SGD momentum0.5 cosine lr10, zero initialization, proximalL1",
+      "lambda": [
+        0.0001,
+        0.001
+      ],
+      "search": "CPU focused search,20chains, term-max stopping,temperature2/3 timeshbar,theta0.45,cap10000",
+      "scored_fit_host": "foureyes",
+      "scored_fit_device": "CPU",
+      "scored_fit_cpu_threads": 1,
+      "timed_gpu_host": "ripper",
+      "timed_gpu_device": 0,
+      "fit_timing": "one cold+7warm fits for each CPU and GPU model; CPU model used for test, as official code"
+    }
+  },
+  "metrics": "Table3 metrics recomputed from saved chains with no new model inference. Diagnostic upstream checkpoint metrics use different N20/coverage definitions and are kept separate.",
+  "hand_controls": "Official hand energies, validation-only temperature selection, test seeds0,1,2; each test evaluation once.",
+  "neural_baselines": "Confirmed scope: published baseline values may be imported and labeled; neural baseline retraining is excluded.",
+  "gpu_environment_deployment_timing_seconds": {
+    "ripper": 619,
+    "work": 75,
+    "loki": 81
+  }
+}

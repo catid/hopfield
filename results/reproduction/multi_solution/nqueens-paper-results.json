@@ -1,0 +1,1074 @@
+[
+  {
+    "task": "nqueens-8",
+    "kind": "released",
+    "method": "CRAM (offset-shared pair tables)",
+    "split": "test",
+    "complete_seeds": true,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "chains": 20,
+    "metrics": {
+      "acc_n1": {
+        "mean": 99.97311827956989,
+        "sd": 0.046560505579807204,
+        "per_seed": [
+          100.0,
+          100.0,
+          99.91935483870968
+        ]
+      },
+      "acc_n20": {
+        "mean": 100.0,
+        "sd": 0.0,
+        "per_seed": [
+          100.0,
+          100.0,
+          100.0
+        ]
+      },
+      "cov20_per_puzzle": {
+        "mean": 98.02965523126814,
+        "sd": 0.14629923240139237,
+        "per_seed": [
+          97.89042498719918,
+          98.01641705069125,
+          98.18212365591398
+        ]
+      },
+      "cov20_per_row": {
+        "mean": 91.15377376246941,
+        "sd": 0.4502493398797569,
+        "per_seed": [
+          90.9373235460192,
+          90.85262563523433,
+          91.67137210615472
+        ]
+      }
+    },
+    "paper_reference": {
+      "acc_n1": {
+        "mean": 99.94623655913979,
+        "sd": 0.046560505579807204,
+        "per_seed": [
+          99.91935483870968,
+          99.91935483870968,
+          100.0
+        ]
+      },
+      "acc_n20": {
+        "mean": 100.0,
+        "sd": 0.0,
+        "per_seed": [
+          100.0,
+          100.0,
+          100.0
+        ]
+      },
+      "cov20_per_puzzle": {
+        "mean": 97.93262502133469,
+        "sd": 0.06128415055770985,
+        "per_seed": [
+          97.99779185867895,
+          97.87615207373271,
+          97.92393113159241
+        ]
+      },
+      "cov20_per_row": {
+        "mean": 90.73969508752117,
+        "sd": 0.46647971885539874,
+        "per_seed": [
+          91.21964991530209,
+          90.28797289666855,
+          90.71146245059289
+        ]
+      }
+    },
+    "mean_difference_percentage_points": {
+      "acc_n1": 0.02688172043009729,
+      "acc_n20": 0.0,
+      "cov20_per_puzzle": 0.09703020993345035,
+      "cov20_per_row": 0.414078674948243
+    },
+    "per_seed": [
+      {
+        "seed": 0,
+        "rows": 1240,
+        "distinct_inputs": 772,
+        "acc_n1": 100.0,
+        "acc_n20": 100.0,
+        "cov20_per_puzzle": 97.89042498719918,
+        "cov20_per_row": 90.9373235460192,
+        "wrong_stops": 0,
+        "budget_failures": 16,
+        "records": "/home/catid/hopfield/artifacts/multi_solution/released/nq8/s0/records.npz"
+      },
+      {
+        "seed": 1,
+        "rows": 1240,
+        "distinct_inputs": 772,
+        "acc_n1": 100.0,
+        "acc_n20": 100.0,
+        "cov20_per_puzzle": 98.01641705069125,
+        "cov20_per_row": 90.85262563523433,
+        "wrong_stops": 0,
+        "budget_failures": 13,
+        "records": "/home/catid/hopfield/artifacts/multi_solution/released/nq8/s1/records.npz"
+      },
+      {
+        "seed": 2,
+        "rows": 1240,
+        "distinct_inputs": 772,
+        "acc_n1": 99.91935483870968,
+        "acc_n20": 100.0,
+        "cov20_per_puzzle": 98.18212365591398,
+        "cov20_per_row": 91.67137210615472,
+        "wrong_stops": 0,
+        "budget_failures": 12,
+        "records": "/home/catid/hopfield/artifacts/multi_solution/released/nq8/s2/records.npz"
+      }
+    ],
+    "metric_rule": "N1 first chain; N20 lowest-energy chain; coverage any valid completion capped at min(S,20), averaged over duplicate rows within each input and pooled over distinct inputs."
+  },
+  {
+    "task": "nqueens-8",
+    "kind": "fresh",
+    "method": "CRAM (offset-shared pair tables)",
+    "split": "test",
+    "complete_seeds": true,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "chains": 20,
+    "metrics": {
+      "acc_n1": {
+        "mean": 100.0,
+        "sd": 0.0,
+        "per_seed": [
+          100.0,
+          100.0,
+          100.0
+        ]
+      },
+      "acc_n20": {
+        "mean": 100.0,
+        "sd": 0.0,
+        "per_seed": [
+          100.0,
+          100.0,
+          100.0
+        ]
+      },
+      "cov20_per_puzzle": {
+        "mean": 98.0225614439324,
+        "sd": 0.1353133220269774,
+        "per_seed": [
+          97.89042498719918,
+          98.01641705069125,
+          98.1608422939068
+        ]
+      },
+      "cov20_per_row": {
+        "mean": 91.15377376246941,
+        "sd": 0.4502493398797569,
+        "per_seed": [
+          90.9373235460192,
+          90.85262563523433,
+          91.67137210615472
+        ]
+      }
+    },
+    "paper_reference": {
+      "acc_n1": {
+        "mean": 99.94623655913979,
+        "sd": 0.046560505579807204,
+        "per_seed": [
+          99.91935483870968,
+          99.91935483870968,
+          100.0
+        ]
+      },
+      "acc_n20": {
+        "mean": 100.0,
+        "sd": 0.0,
+        "per_seed": [
+          100.0,
+          100.0,
+          100.0
+        ]
+      },
+      "cov20_per_puzzle": {
+        "mean": 97.93262502133469,
+        "sd": 0.06128415055770985,
+        "per_seed": [
+          97.99779185867895,
+          97.87615207373271,
+          97.92393113159241
+        ]
+      },
+      "cov20_per_row": {
+        "mean": 90.73969508752117,
+        "sd": 0.46647971885539874,
+        "per_seed": [
+          91.21964991530209,
+          90.28797289666855,
+          90.71146245059289
+        ]
+      }
+    },
+    "mean_difference_percentage_points": {
+      "acc_n1": 0.05376344086020879,
+      "acc_n20": 0.0,
+      "cov20_per_puzzle": 0.08993642259771661,
+      "cov20_per_row": 0.414078674948243
+    },
+    "per_seed": [
+      {
+        "seed": 0,
+        "rows": 1240,
+        "distinct_inputs": 772,
+        "acc_n1": 100.0,
+        "acc_n20": 100.0,
+        "cov20_per_puzzle": 97.89042498719918,
+        "cov20_per_row": 90.9373235460192,
+        "wrong_stops": 0,
+        "budget_failures": 16,
+        "records": "/home/catid/hopfield/upstream/experiments/runs/NQ/nq11/n8/shared/pl-ising-s0/records.npz"
+      },
+      {
+        "seed": 1,
+        "rows": 1240,
+        "distinct_inputs": 772,
+        "acc_n1": 100.0,
+        "acc_n20": 100.0,
+        "cov20_per_puzzle": 98.01641705069125,
+        "cov20_per_row": 90.85262563523433,
+        "wrong_stops": 0,
+        "budget_failures": 13,
+        "records": "/home/catid/hopfield/upstream/experiments/runs/NQ/nq11/n8/shared/pl-ising-s1/records.npz"
+      },
+      {
+        "seed": 2,
+        "rows": 1240,
+        "distinct_inputs": 772,
+        "acc_n1": 100.0,
+        "acc_n20": 100.0,
+        "cov20_per_puzzle": 98.1608422939068,
+        "cov20_per_row": 91.67137210615472,
+        "wrong_stops": 0,
+        "budget_failures": 10,
+        "records": "/home/catid/hopfield/upstream/experiments/runs/NQ/nq11/n8/shared/pl-ising-s2/records.npz"
+      }
+    ],
+    "metric_rule": "N1 first chain; N20 lowest-energy chain; coverage any valid completion capped at min(S,20), averaged over duplicate rows within each input and pooled over distinct inputs."
+  },
+  {
+    "task": "nqueens-8",
+    "kind": "free",
+    "method": "CRAM (free pair tables)",
+    "split": "test",
+    "complete_seeds": true,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "chains": 20,
+    "metrics": {
+      "acc_n1": {
+        "mean": 99.75806451612904,
+        "sd": 0.08064516129032029,
+        "per_seed": [
+          99.67741935483872,
+          99.83870967741936,
+          99.75806451612902
+        ]
+      },
+      "acc_n20": {
+        "mean": 100.0,
+        "sd": 0.0,
+        "per_seed": [
+          100.0,
+          100.0,
+          100.0
+        ]
+      },
+      "cov20_per_puzzle": {
+        "mean": 94.22175285884963,
+        "sd": 0.1469025997209978,
+        "per_seed": [
+          94.17847542242703,
+          94.38543266769072,
+          94.10135048643112
+        ]
+      },
+      "cov20_per_row": {
+        "mean": 83.26745718050066,
+        "sd": 0.2546160221808552,
+        "per_seed": [
+          83.00395256916995,
+          83.51214003387916,
+          83.28627893845285
+        ]
+      }
+    },
+    "paper_reference": {
+      "acc_n1": {
+        "mean": 99.78494623655914,
+        "sd": 0.04656050557981541,
+        "per_seed": [
+          99.75806451612902,
+          99.83870967741936,
+          99.75806451612902
+        ]
+      },
+      "acc_n20": {
+        "mean": 100.0,
+        "sd": 0.0,
+        "per_seed": [
+          100.0,
+          100.0,
+          100.0
+        ]
+      },
+      "cov20_per_puzzle": {
+        "mean": 94.07410607612219,
+        "sd": 0.17228336519574564,
+        "per_seed": [
+          94.15658602150536,
+          93.87608806963645,
+          94.18964413722478
+        ]
+      },
+      "cov20_per_row": {
+        "mean": 82.8910220214568,
+        "sd": 0.37348268083915687,
+        "per_seed": [
+          83.03218520609825,
+          82.46753246753246,
+          83.17334839073969
+        ]
+      }
+    },
+    "mean_difference_percentage_points": {
+      "acc_n1": -0.02688172043009729,
+      "acc_n20": 0.0,
+      "cov20_per_puzzle": 0.1476467827274348,
+      "cov20_per_row": 0.37643515904385083
+    },
+    "per_seed": [
+      {
+        "seed": 0,
+        "rows": 1240,
+        "distinct_inputs": 772,
+        "acc_n1": 99.67741935483872,
+        "acc_n20": 100.0,
+        "cov20_per_puzzle": 94.17847542242703,
+        "cov20_per_row": 83.00395256916995,
+        "wrong_stops": 4,
+        "budget_failures": 61,
+        "records": "/home/catid/hopfield/upstream/experiments/runs/NQ/alt/n8/final/mpl-s0/records.npz"
+      },
+      {
+        "seed": 1,
+        "rows": 1240,
+        "distinct_inputs": 772,
+        "acc_n1": 99.83870967741936,
+        "acc_n20": 100.0,
+        "cov20_per_puzzle": 94.38543266769072,
+        "cov20_per_row": 83.51214003387916,
+        "wrong_stops": 8,
+        "budget_failures": 64,
+        "records": "/home/catid/hopfield/upstream/experiments/runs/NQ/alt/n8/final/mpl-s1/records.npz"
+      },
+      {
+        "seed": 2,
+        "rows": 1240,
+        "distinct_inputs": 772,
+        "acc_n1": 99.75806451612902,
+        "acc_n20": 100.0,
+        "cov20_per_puzzle": 94.10135048643112,
+        "cov20_per_row": 83.28627893845285,
+        "wrong_stops": 8,
+        "budget_failures": 67,
+        "records": "/home/catid/hopfield/upstream/experiments/runs/NQ/alt/n8/final/mpl-s2/records.npz"
+      }
+    ],
+    "metric_rule": "N1 first chain; N20 lowest-energy chain; coverage any valid completion capped at min(S,20), averaged over duplicate rows within each input and pooled over distinct inputs."
+  },
+  {
+    "task": "nqueens-8",
+    "kind": "hand",
+    "method": "CRAM (hand-set)",
+    "split": "test",
+    "complete_seeds": true,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "chains": 20,
+    "metrics": {
+      "acc_n1": {
+        "mean": 100.0,
+        "sd": 0.0,
+        "per_seed": [
+          100.0,
+          100.0,
+          100.0
+        ]
+      },
+      "acc_n20": {
+        "mean": 100.0,
+        "sd": 0.0,
+        "per_seed": [
+          100.0,
+          100.0,
+          100.0
+        ]
+      },
+      "cov20_per_puzzle": {
+        "mean": 98.42193633725893,
+        "sd": 0.013257283783892827,
+        "per_seed": [
+          98.42649129544291,
+          98.40700204813109,
+          98.43231566820276
+        ]
+      },
+      "cov20_per_row": {
+        "mean": 92.39600978731414,
+        "sd": 0.18151046039888866,
+        "per_seed": [
+          92.26425748164878,
+          92.32072275550537,
+          92.60304912478826
+        ]
+      }
+    },
+    "paper_reference": {
+      "acc_n1": {
+        "mean": 100.0,
+        "sd": 0.0,
+        "per_seed": [
+          100.0,
+          100.0,
+          100.0
+        ]
+      },
+      "acc_n20": {
+        "mean": 100.0,
+        "sd": 0.0,
+        "per_seed": [
+          100.0,
+          100.0,
+          100.0
+        ]
+      },
+      "cov20_per_puzzle": {
+        "mean": 98.39295314900154,
+        "sd": 0.023346300180832488,
+        "per_seed": [
+          98.36971966205837,
+          98.39272913466463,
+          98.41641065028163
+        ]
+      },
+      "cov20_per_row": {
+        "mean": 92.06662902315077,
+        "sd": 0.07469653616783674,
+        "per_seed": [
+          92.01016374929418,
+          92.03839638622247,
+          92.15132693393564
+        ]
+      }
+    },
+    "mean_difference_percentage_points": {
+      "acc_n1": 0.0,
+      "acc_n20": 0.0,
+      "cov20_per_puzzle": 0.028983188257384995,
+      "cov20_per_row": 0.3293807641633748
+    },
+    "per_seed": [
+      {
+        "seed": 0,
+        "rows": 1240,
+        "distinct_inputs": 772,
+        "acc_n1": 100.0,
+        "acc_n20": 100.0,
+        "cov20_per_puzzle": 98.42649129544291,
+        "cov20_per_row": 92.26425748164878,
+        "wrong_stops": 0,
+        "budget_failures": 0,
+        "records": "/home/catid/hopfield/upstream/experiments/runs/NQ/alt/n8/hand/test-s0/records.npz"
+      },
+      {
+        "seed": 1,
+        "rows": 1240,
+        "distinct_inputs": 772,
+        "acc_n1": 100.0,
+        "acc_n20": 100.0,
+        "cov20_per_puzzle": 98.40700204813109,
+        "cov20_per_row": 92.32072275550537,
+        "wrong_stops": 0,
+        "budget_failures": 0,
+        "records": "/home/catid/hopfield/upstream/experiments/runs/NQ/alt/n8/hand/test-s1/records.npz"
+      },
+      {
+        "seed": 2,
+        "rows": 1240,
+        "distinct_inputs": 772,
+        "acc_n1": 100.0,
+        "acc_n20": 100.0,
+        "cov20_per_puzzle": 98.43231566820276,
+        "cov20_per_row": 92.60304912478826,
+        "wrong_stops": 0,
+        "budget_failures": 0,
+        "records": "/home/catid/hopfield/upstream/experiments/runs/NQ/alt/n8/hand/test-s2/records.npz"
+      }
+    ],
+    "metric_rule": "N1 first chain; N20 lowest-energy chain; coverage any valid completion capped at min(S,20), averaged over duplicate rows within each input and pooled over distinct inputs."
+  },
+  {
+    "task": "nqueens-10",
+    "kind": "released",
+    "method": "CRAM (offset-shared pair tables)",
+    "split": "test",
+    "complete_seeds": true,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "chains": 20,
+    "metrics": {
+      "acc_n1": {
+        "mean": 99.38445431243005,
+        "sd": 0.054243760429312136,
+        "per_seed": [
+          99.42597205675295,
+          99.40431062493231,
+          99.3230802556049
+        ]
+      },
+      "acc_n20": {
+        "mean": 99.99458464204484,
+        "sd": 0.0,
+        "per_seed": [
+          99.99458464204484,
+          99.99458464204484,
+          99.99458464204484
+        ]
+      },
+      "cov20_per_puzzle": {
+        "mean": 93.55267968509739,
+        "sd": 0.056904944890271675,
+        "per_seed": [
+          93.59717574664874,
+          93.4885598483805,
+          93.57230346026293
+        ]
+      },
+      "cov20_per_row": {
+        "mean": 85.1625281451178,
+        "sd": 0.10918283009493153,
+        "per_seed": [
+          85.20026638759394,
+          85.03948244696032,
+          85.24783560079916
+        ]
+      }
+    },
+    "paper_reference": {
+      "acc_n1": {
+        "mean": 99.44582836925521,
+        "sd": 0.05203630205205378,
+        "per_seed": [
+          99.39889526697715,
+          99.43680277266327,
+          99.5017870681252
+        ]
+      },
+      "acc_n20": {
+        "mean": 99.99458464204484,
+        "sd": 0.0,
+        "per_seed": [
+          99.99458464204484,
+          99.99458464204484,
+          99.99458464204484
+        ]
+      },
+      "cov20_per_puzzle": {
+        "mean": 93.5520180833651,
+        "sd": 0.06460352275961005,
+        "per_seed": [
+          93.59576166357071,
+          93.47781571380776,
+          93.58247687271684
+        ]
+      },
+      "cov20_per_row": {
+        "mean": 85.13969492277931,
+        "sd": 0.03168742840020754,
+        "per_seed": [
+          85.14984302159642,
+          85.10417657691941,
+          85.16506516982209
+        ]
+      }
+    },
+    "mean_difference_percentage_points": {
+      "acc_n1": -0.06137405682515862,
+      "acc_n20": 0.0,
+      "cov20_per_puzzle": 0.000661601732289796,
+      "cov20_per_row": 0.022833222338491055
+    },
+    "per_seed": [
+      {
+        "seed": 0,
+        "rows": 18466,
+        "distinct_inputs": 6513,
+        "acc_n1": 99.42597205675295,
+        "acc_n20": 99.99458464204484,
+        "cov20_per_puzzle": 93.59717574664874,
+        "cov20_per_row": 85.20026638759394,
+        "wrong_stops": 0,
+        "budget_failures": 2067,
+        "records": "/home/catid/hopfield/artifacts/multi_solution/released/nq10/s0/records.npz"
+      },
+      {
+        "seed": 1,
+        "rows": 18466,
+        "distinct_inputs": 6513,
+        "acc_n1": 99.40431062493231,
+        "acc_n20": 99.99458464204484,
+        "cov20_per_puzzle": 93.4885598483805,
+        "cov20_per_row": 85.03948244696032,
+        "wrong_stops": 0,
+        "budget_failures": 2063,
+        "records": "/home/catid/hopfield/artifacts/multi_solution/released/nq10/s1/records.npz"
+      },
+      {
+        "seed": 2,
+        "rows": 18466,
+        "distinct_inputs": 6513,
+        "acc_n1": 99.3230802556049,
+        "acc_n20": 99.99458464204484,
+        "cov20_per_puzzle": 93.57230346026293,
+        "cov20_per_row": 85.24783560079916,
+        "wrong_stops": 0,
+        "budget_failures": 2059,
+        "records": "/home/catid/hopfield/artifacts/multi_solution/released/nq10/s2/records.npz"
+      }
+    ],
+    "metric_rule": "N1 first chain; N20 lowest-energy chain; coverage any valid completion capped at min(S,20), averaged over duplicate rows within each input and pooled over distinct inputs."
+  },
+  {
+    "task": "nqueens-10",
+    "kind": "fresh",
+    "method": "CRAM (offset-shared pair tables)",
+    "split": "test",
+    "complete_seeds": true,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "chains": 20,
+    "metrics": {
+      "acc_n1": {
+        "mean": 99.45124372721037,
+        "sd": 0.08147069638901092,
+        "per_seed": [
+          99.36640311924619,
+          99.528863857901,
+          99.45846420448392
+        ]
+      },
+      "acc_n20": {
+        "mean": 99.99458464204484,
+        "sd": 0.0,
+        "per_seed": [
+          99.99458464204484,
+          99.99458464204484,
+          99.99458464204484
+        ]
+      },
+      "cov20_per_puzzle": {
+        "mean": 93.5682724300783,
+        "sd": 0.041092196314199005,
+        "per_seed": [
+          93.61329914784977,
+          93.55872111628469,
+          93.53279702610043
+        ]
+      },
+      "cov20_per_row": {
+        "mean": 85.1587226080614,
+        "sd": 0.07053943871010743,
+        "per_seed": [
+          85.23927314242222,
+          85.12891256778613,
+          85.10798211397584
+        ]
+      }
+    },
+    "paper_reference": {
+      "acc_n1": {
+        "mean": 99.44582836925521,
+        "sd": 0.05203630205205378,
+        "per_seed": [
+          99.39889526697715,
+          99.43680277266327,
+          99.5017870681252
+        ]
+      },
+      "acc_n20": {
+        "mean": 99.99458464204484,
+        "sd": 0.0,
+        "per_seed": [
+          99.99458464204484,
+          99.99458464204484,
+          99.99458464204484
+        ]
+      },
+      "cov20_per_puzzle": {
+        "mean": 93.5520180833651,
+        "sd": 0.06460352275961005,
+        "per_seed": [
+          93.59576166357071,
+          93.47781571380776,
+          93.58247687271684
+        ]
+      },
+      "cov20_per_row": {
+        "mean": 85.13969492277931,
+        "sd": 0.03168742840020754,
+        "per_seed": [
+          85.14984302159642,
+          85.10417657691941,
+          85.16506516982209
+        ]
+      }
+    },
+    "mean_difference_percentage_points": {
+      "acc_n1": 0.005415357955158129,
+      "acc_n20": 0.0,
+      "cov20_per_puzzle": 0.01625434671319681,
+      "cov20_per_row": 0.019027685282082984
+    },
+    "per_seed": [
+      {
+        "seed": 0,
+        "rows": 18466,
+        "distinct_inputs": 6513,
+        "acc_n1": 99.36640311924619,
+        "acc_n20": 99.99458464204484,
+        "cov20_per_puzzle": 93.61329914784977,
+        "cov20_per_row": 85.23927314242222,
+        "wrong_stops": 0,
+        "budget_failures": 2069,
+        "records": "/home/catid/hopfield/upstream/experiments/runs/NQ/nq11/n10/final/pl-ising-s0/records.npz"
+      },
+      {
+        "seed": 1,
+        "rows": 18466,
+        "distinct_inputs": 6513,
+        "acc_n1": 99.528863857901,
+        "acc_n20": 99.99458464204484,
+        "cov20_per_puzzle": 93.55872111628469,
+        "cov20_per_row": 85.12891256778613,
+        "wrong_stops": 0,
+        "budget_failures": 1984,
+        "records": "/home/catid/hopfield/upstream/experiments/runs/NQ/nq11/n10/final/pl-ising-s1/records.npz"
+      },
+      {
+        "seed": 2,
+        "rows": 18466,
+        "distinct_inputs": 6513,
+        "acc_n1": 99.45846420448392,
+        "acc_n20": 99.99458464204484,
+        "cov20_per_puzzle": 93.53279702610043,
+        "cov20_per_row": 85.10798211397584,
+        "wrong_stops": 0,
+        "budget_failures": 2066,
+        "records": "/home/catid/hopfield/upstream/experiments/runs/NQ/nq11/n10/final/pl-ising-s2/records.npz"
+      }
+    ],
+    "metric_rule": "N1 first chain; N20 lowest-energy chain; coverage any valid completion capped at min(S,20), averaged over duplicate rows within each input and pooled over distinct inputs."
+  },
+  {
+    "task": "nqueens-10",
+    "kind": "free",
+    "method": "CRAM (free pair tables)",
+    "split": "test",
+    "complete_seeds": true,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "chains": 20,
+    "metrics": {
+      "acc_n1": {
+        "mean": 91.4545651467562,
+        "sd": 1.905582824496862,
+        "per_seed": [
+          92.6296978230261,
+          92.4780678002816,
+          89.2559298169609
+        ]
+      },
+      "acc_n20": {
+        "mean": 98.22195747138886,
+        "sd": 0.12281446040055488,
+        "per_seed": [
+          98.26708545434853,
+          98.08296328387306,
+          98.31582367594498
+        ]
+      },
+      "cov20_per_puzzle": {
+        "mean": 87.00391394706264,
+        "sd": 0.1521377579325463,
+        "per_seed": [
+          87.02900877011376,
+          87.14194403976919,
+          86.840789031305
+        ]
+      },
+      "cov20_per_row": {
+        "mean": 74.71442615672471,
+        "sd": 0.4378283752107397,
+        "per_seed": [
+          74.96051755303968,
+          74.97383693273714,
+          74.2089239843973
+        ]
+      }
+    },
+    "paper_reference": {
+      "acc_n1": {
+        "mean": 91.952778078631,
+        "sd": 0.6317891826882819,
+        "per_seed": [
+          92.67843604462254,
+          91.5249648001733,
+          91.65493339109715
+        ]
+      },
+      "acc_n20": {
+        "mean": 98.22376259070725,
+        "sd": 0.1925310173793049,
+        "per_seed": [
+          98.37539261345175,
+          98.00714827250081,
+          98.28874688616918
+        ]
+      },
+      "cov20_per_puzzle": {
+        "mean": 87.11694760507427,
+        "sd": 0.24608425660631034,
+        "per_seed": [
+          87.32397584774274,
+          86.84487506240582,
+          87.18199190507426
+        ]
+      },
+      "cov20_per_row": {
+        "mean": 74.65670884470238,
+        "sd": 0.46119507276757926,
+        "per_seed": [
+          75.00142707639615,
+          74.13281324326896,
+          74.83588621444201
+        ]
+      }
+    },
+    "mean_difference_percentage_points": {
+      "acc_n1": -0.49821293187480364,
+      "acc_n20": -0.0018051193183907799,
+      "cov20_per_puzzle": -0.11303365801163068,
+      "cov20_per_row": 0.057717312022333545
+    },
+    "per_seed": [
+      {
+        "seed": 0,
+        "rows": 18466,
+        "distinct_inputs": 6513,
+        "acc_n1": 92.6296978230261,
+        "acc_n20": 98.26708545434853,
+        "cov20_per_puzzle": 87.02900877011376,
+        "cov20_per_row": 74.96051755303968,
+        "wrong_stops": 23295,
+        "budget_failures": 3639,
+        "records": "/home/catid/hopfield/upstream/experiments/runs/NQ/alt/n10/final/cd-s0/records.npz"
+      },
+      {
+        "seed": 1,
+        "rows": 18466,
+        "distinct_inputs": 6513,
+        "acc_n1": 92.4780678002816,
+        "acc_n20": 98.08296328387306,
+        "cov20_per_puzzle": 87.14194403976919,
+        "cov20_per_row": 74.97383693273714,
+        "wrong_stops": 24358,
+        "budget_failures": 3920,
+        "records": "/home/catid/hopfield/upstream/experiments/runs/NQ/alt/n10/final/cd-s1/records.npz"
+      },
+      {
+        "seed": 2,
+        "rows": 18466,
+        "distinct_inputs": 6513,
+        "acc_n1": 89.2559298169609,
+        "acc_n20": 98.31582367594498,
+        "cov20_per_puzzle": 86.840789031305,
+        "cov20_per_row": 74.2089239843973,
+        "wrong_stops": 35529,
+        "budget_failures": 3365,
+        "records": "/home/catid/hopfield/upstream/experiments/runs/NQ/alt/n10/final/cd-s2/records.npz"
+      }
+    ],
+    "metric_rule": "N1 first chain; N20 lowest-energy chain; coverage any valid completion capped at min(S,20), averaged over duplicate rows within each input and pooled over distinct inputs."
+  },
+  {
+    "task": "nqueens-10",
+    "kind": "hand",
+    "method": "CRAM (hand-set)",
+    "split": "test",
+    "complete_seeds": true,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "chains": 20,
+    "metrics": {
+      "acc_n1": {
+        "mean": 99.99097440340807,
+        "sd": 0.006253116746337454,
+        "per_seed": [
+          99.98375392613453,
+          99.99458464204484,
+          99.99458464204484
+        ]
+      },
+      "acc_n20": {
+        "mean": 100.0,
+        "sd": 0.0,
+        "per_seed": [
+          100.0,
+          100.0,
+          100.0
+        ]
+      },
+      "cov20_per_puzzle": {
+        "mean": 95.52605648644307,
+        "sd": 0.025042424998757515,
+        "per_seed": [
+          95.49715748169343,
+          95.53963495886507,
+          95.54137701877072
+        ]
+      },
+      "cov20_per_row": {
+        "mean": 88.61097897440777,
+        "sd": 0.013721058987587154,
+        "per_seed": [
+          88.59956236323852,
+          88.60717343735135,
+          88.62620112263343
+        ]
+      }
+    },
+    "paper_reference": {
+      "acc_n1": {
+        "mean": 99.99277952272645,
+        "sd": 0.003126558373176932,
+        "per_seed": [
+          99.99458464204484,
+          99.98916928408967,
+          99.99458464204484
+        ]
+      },
+      "acc_n20": {
+        "mean": 100.0,
+        "sd": 0.0,
+        "per_seed": [
+          100.0,
+          100.0,
+          100.0
+        ]
+      },
+      "cov20_per_puzzle": {
+        "mean": 95.54204959674296,
+        "sd": 0.026639495796305597,
+        "per_seed": [
+          95.52402931790378,
+          95.57264943044477,
+          95.5294700418803
+        ]
+      },
+      "cov20_per_row": {
+        "mean": 88.61161323058384,
+        "sd": 0.03572866994490577,
+        "per_seed": [
+          88.61383312720008,
+          88.64618019217963,
+          88.5748263723718
+        ]
+      }
+    },
+    "mean_difference_percentage_points": {
+      "acc_n1": -0.001805119318376569,
+      "acc_n20": 0.0,
+      "cov20_per_puzzle": -0.015993110299888258,
+      "cov20_per_row": -0.0006342561760703802
+    },
+    "per_seed": [
+      {
+        "seed": 0,
+        "rows": 18466,
+        "distinct_inputs": 6513,
+        "acc_n1": 99.98375392613453,
+        "acc_n20": 100.0,
+        "cov20_per_puzzle": 95.49715748169343,
+        "cov20_per_row": 88.59956236323852,
+        "wrong_stops": 0,
+        "budget_failures": 36,
+        "records": "/home/catid/hopfield/upstream/experiments/runs/NQ/alt/n10/hand/test-s0/records.npz"
+      },
+      {
+        "seed": 1,
+        "rows": 18466,
+        "distinct_inputs": 6513,
+        "acc_n1": 99.99458464204484,
+        "acc_n20": 100.0,
+        "cov20_per_puzzle": 95.53963495886507,
+        "cov20_per_row": 88.60717343735135,
+        "wrong_stops": 0,
+        "budget_failures": 45,
+        "records": "/home/catid/hopfield/upstream/experiments/runs/NQ/alt/n10/hand/test-s1/records.npz"
+      },
+      {
+        "seed": 2,
+        "rows": 18466,
+        "distinct_inputs": 6513,
+        "acc_n1": 99.99458464204484,
+        "acc_n20": 100.0,
+        "cov20_per_puzzle": 95.54137701877072,
+        "cov20_per_row": 88.62620112263343,
+        "wrong_stops": 0,
+        "budget_failures": 44,
+        "records": "/home/catid/hopfield/upstream/experiments/runs/NQ/alt/n10/hand/test-s2/records.npz"
+      }
+    ],
+    "metric_rule": "N1 first chain; N20 lowest-energy chain; coverage any valid completion capped at min(S,20), averaged over duplicate rows within each input and pooled over distinct inputs."
+  }
+]

@@ -1,0 +1,270 @@
+{
+  "status": "resumed",
+  "created_utc": "2026-11-14T04:41:06.471210+00:00",
+  "config_sha256": "bded95b30345e299fefbaaf5361a5d4b3ba9fd6dbd35a40da7909501d3b17a35",
+  "groups": [
+    {
+      "host": "foureyes",
+      "gpu": 3,
+      "jobs": [
+        {
+          "id": "cram-de-v99-recreated42-k10000-s0",
+          "k": 10000,
+          "seed": 0,
+          "lane": 0
+        },
+        {
+          "id": "cram-de-v99-recreated42-k10000-s5",
+          "k": 10000,
+          "seed": 5,
+          "lane": 2
+        }
+      ]
+    },
+    {
+      "host": "ripper",
+      "gpu": 0,
+      "jobs": [
+        {
+          "id": "cram-de-v99-recreated42-k3000-s0",
+          "k": 3000,
+          "seed": 0,
+          "lane": 0
+        },
+        {
+          "id": "cram-de-v99-recreated42-k3000-s4",
+          "k": 3000,
+          "seed": 4,
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "host": "ripper",
+      "gpu": 1,
+      "jobs": [
+        {
+          "id": "cram-de-v99-recreated42-k3000-s1",
+          "k": 3000,
+          "seed": 1,
+          "lane": 1
+        },
+        {
+          "id": "cram-de-v99-recreated42-k3000-s5",
+          "k": 3000,
+          "seed": 5,
+          "lane": 2
+        }
+      ]
+    },
+    {
+      "host": "ripper",
+      "gpu": 2,
+      "jobs": [
+        {
+          "id": "cram-de-v99-recreated42-k3000-s2",
+          "k": 3000,
+          "seed": 2,
+          "lane": 2
+        }
+      ]
+    },
+    {
+      "host": "ripper",
+      "gpu": 3,
+      "jobs": [
+        {
+          "id": "cram-de-v99-recreated42-k3000-s3",
+          "k": 3000,
+          "seed": 3,
+          "lane": 0
+        }
+      ]
+    },
+    {
+      "host": "work",
+      "gpu": 0,
+      "jobs": [
+        {
+          "id": "cram-de-v99-recreated42-k10000-s1",
+          "k": 10000,
+          "seed": 1,
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "host": "work",
+      "gpu": 1,
+      "jobs": [
+        {
+          "id": "cram-de-v99-recreated42-k10000-s2",
+          "k": 10000,
+          "seed": 2,
+          "lane": 2
+        }
+      ]
+    },
+    {
+      "host": "loki",
+      "gpu": 0,
+      "jobs": [
+        {
+          "id": "cram-de-v99-recreated42-k10000-s3",
+          "k": 10000,
+          "seed": 3,
+          "lane": 0
+        }
+      ]
+    },
+    {
+      "host": "loki",
+      "gpu": 1,
+      "jobs": [
+        {
+          "id": "cram-de-v99-recreated42-k10000-s4",
+          "k": 10000,
+          "seed": 4,
+          "lane": 1
+        }
+      ]
+    }
+  ],
+  "parents": [
+    {
+      "lane": 0,
+      "parent": {
+        "pid": 1137265,
+        "ppid": 1110480,
+        "startticks": 34499608,
+        "state": "S",
+        "argv": [
+          "python3",
+          "-u",
+          "/home/catid/hopfield/scripts/data_efficiency_queue.py",
+          "worker",
+          "--lane",
+          "0"
+        ],
+        "cpu_ticks": 1035
+      },
+      "child": {
+        "pid": 1264976,
+        "ppid": 1137265,
+        "startticks": 37028936,
+        "state": "R",
+        "argv": [
+          "/home/catid/hopfield/upstream/.venv/bin/python",
+          "-u",
+          "data_efficiency.py",
+          "search",
+          "--k",
+          "1",
+          "--seed",
+          "3",
+          "--data",
+          "test10k"
+        ],
+        "cpu_ticks": 54552
+      },
+      "job": "cram-de-v99-recreated42-k1-s3"
+    },
+    {
+      "lane": 1,
+      "parent": {
+        "pid": 1128993,
+        "ppid": 1110481,
+        "startticks": 34343124,
+        "state": "S",
+        "argv": [
+          "python3",
+          "-u",
+          "/home/catid/hopfield/scripts/data_efficiency_queue.py",
+          "worker",
+          "--lane",
+          "1"
+        ],
+        "cpu_ticks": 1080
+      },
+      "child": {
+        "pid": 1254461,
+        "ppid": 1128993,
+        "startticks": 36777090,
+        "state": "R",
+        "argv": [
+          "/home/catid/hopfield/upstream/.venv/bin/python",
+          "-u",
+          "data_efficiency.py",
+          "search",
+          "--k",
+          "1",
+          "--seed",
+          "4",
+          "--data",
+          "test10k"
+        ],
+        "cpu_ticks": 306442
+      },
+      "job": "cram-de-v99-recreated42-k1-s4"
+    },
+    {
+      "lane": 2,
+      "parent": {
+        "pid": 1130719,
+        "ppid": 1110482,
+        "startticks": 34374665,
+        "state": "S",
+        "argv": [
+          "python3",
+          "-u",
+          "/home/catid/hopfield/scripts/data_efficiency_queue.py",
+          "worker",
+          "--lane",
+          "2"
+        ],
+        "cpu_ticks": 1073
+      },
+      "child": {
+        "pid": 1251489,
+        "ppid": 1130719,
+        "startticks": 36706747,
+        "state": "R",
+        "argv": [
+          "/home/catid/hopfield/upstream/.venv/bin/python",
+          "-u",
+          "data_efficiency.py",
+          "search",
+          "--k",
+          "1",
+          "--seed",
+          "5",
+          "--data",
+          "test10k"
+        ],
+        "cpu_ticks": 376780
+      },
+      "job": "cram-de-v99-recreated42-k1-s5"
+    }
+  ],
+  "recovery_deadline_unix": 1794631866.4712794,
+  "launches_closed": true,
+  "policy": "Only exact scheduler parent PIDs paused; never process groups or existing fit/search children.",
+  "watchdog": {
+    "pid": 1268037,
+    "ppid": 1268036,
+    "startticks": 37083457,
+    "state": "R",
+    "argv": [
+      "python3",
+      "-u",
+      "/home/catid/hopfield/scripts/data_efficiency_extra.py",
+      "watch"
+    ],
+    "cpu_ticks": 0
+  },
+  "paused_utc": "2026-11-14T04:41:06.573082+00:00",
+  "last_launch_utc": "2026-11-14T04:41:26.946718+00:00",
+  "resumed_utc": "2026-11-14T04:56:33.228296+00:00",
+  "all_delegated_complete": true,
+  "recovery_mode": "success"
+}

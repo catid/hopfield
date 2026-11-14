@@ -1,0 +1,32 @@
+{
+  "confirmed_by_user": "CRAM main results, controls, and ablations; use clearly labeled published baseline results",
+  "confirmed_date_utc": "2026-11-13",
+  "included": [
+    "Reviewed full-paper Markdown before implementation",
+    "Independent CRAM implementation and mathematical/numerical validation",
+    "Fresh CRAM main fits and complete final test sets, all declared seeds",
+    "Hand-set controls and N-Queens free-pair model",
+    "All twelve training objectives and declared long schedules",
+    "Figure 4 twenty-seed training curves and full development probes",
+    "CRAM data-efficiency study with six seeds and 99 augmentations",
+    "Learned-weight, compute, difficulty and Maze-Hard figure evidence",
+    "Clearly labeled reconstructions where original ablation/reference assets are unavailable"
+  ],
+  "baselines": {
+    "reporting": "Published numbers with citations to the retained paper and pinned records; never represented as local measurements",
+    "training": "Outside confirmed scope; task-owned baseline queues and fits canceled",
+    "partial_artifacts": "Retained with cancellation provenance; no completed-reproduction claim"
+  },
+  "known_protocol_limits": [
+    "Blackwell hardware differs from the paper H200; no locally matched baseline speedup claim",
+    "Data-efficiency original unseeded shared reference was not released; explicit seed42 recreation is labeled",
+    "Maze-Hard failed ablation recipes were not released; controlled field substitutions are labeled reconstructions",
+    "Difficulty source uses zero-energy stopping while main results use fitted-threshold stopping; execute and report separately",
+    "Unspecified Appendix D.2 gradient-cosine and beta0.5 divergence diagnostics lack original checkpoint/batch/trajectory; a declared new gradient diagnostic is separate evidence",
+    "Plain CRAM failure on Maze-Hard has no frozen fit/search recipe; retained as a published limitation claim"
+  ],
+  "inventory_note": "reproduction_manifest.json preserves the original broad source audit. This file controls active scope; its baseline training inventory is not an active queue.",
+  "optional_release_artifacts": [
+    "The 100 legacy Maze/Adam training-curve exports are not a figure or numerical result of arXiv v1; the required 36 Maze/SGD Table7 runs remain included"
+  ]
+}

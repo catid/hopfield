@@ -1,0 +1,186 @@
+{
+  "id": "H1-digit-symmetry-wave1",
+  "frozen_utc": "2026-11-14T21:39:15.776086+00:00",
+  "host": "ripper",
+  "source_commit": "62bbe830c7d6f87f2ba18f30a28039258b986454",
+  "hypothesis": "Digit-permutation projection with training-only recalibration improves mean held-out solve percentage by at least5points for k17/21 under a matched262144move/chain budget.",
+  "arms": [
+    "original",
+    "projected",
+    "projected_original_hbar"
+  ],
+  "primary_arms": [
+    "original",
+    "projected"
+  ],
+  "projection": "Each9x9pair table replaced by its mean diagonal and mean off-diagonal; each unary9-vector replaced by its mean. No Sudoku spatial rule graph or held-out labels used.",
+  "mechanistic_control": "projected_original_hbar uses projected energy/tau/ebar but original hbar temperature/focus scale.",
+  "primary_k": [
+    17,
+    21
+  ],
+  "secondary_k": [
+    30,
+    1000
+  ],
+  "training_seeds": [
+    0,
+    1,
+    2
+  ],
+  "search_seed": "same as training seed",
+  "data_split": "dev10k",
+  "rows_half_open": [
+    0,
+    512
+  ],
+  "chains": 4,
+  "move_cap_per_chain": 262144,
+  "check_moves": 4096,
+  "anneal_period": 524288,
+  "temperature_hi_hbar": 0.4,
+  "temperature_lo_hbar": 0.31,
+  "focus_theta_hbar": 0.45,
+  "tau_tolerance": 0.001,
+  "restart": 0,
+  "primary_statistic": "Equal-weight average across k17/21 and training seeds of paired512puzzle solve-percentage differences. Both returned board exactness and stopped exactness retained; primary follows released returned-board solved flag.",
+  "uncertainty": "5000 paired two-way bootstrap draws: resample3 training-seed clusters and512 shared puzzle indices, retaining both k cells and both arms within each draw; seed20261114. Approximate intervals with only3 independent training seeds, exploratory.",
+  "decision_rule": "Supported in this screen if95percent interval lower bound>=5pp; falsified in this screen if upper bound<5pp; otherwise inconclusive. No generalization beyond this frozen screen claimed.",
+  "secondary": "k30/1000 accuracy, wrong stops, independently valid boards, stop/move-cost distributions, wall seconds; no threshold-driven retuning.",
+  "rng_pairing_limit": "Same seeds/initial boards; arm-dependent compaction can make later per-chain random keys differ.",
+  "frozen_inputs": [
+    {
+      "k": 17,
+      "seed": 0,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k17-s0",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k17-s0",
+      "sha256": {
+        "model.pt": "73f45ea0c061aaacadd6d381595de27b224cd0b3968e0859892da1dad7da9d44",
+        "train.npz": "b8dce349893448e7a785a6632acc8ac6f84bf868b89ab1d7659605e093a1e741",
+        "fit.json": "1f1061345f6208351597c0943879e4a0774c0889968a6117386939eb77f15b85"
+      }
+    },
+    {
+      "k": 17,
+      "seed": 1,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k17-s1",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k17-s1",
+      "sha256": {
+        "model.pt": "0fd342c71a3a48d4100bcdc1004eab79c8dd191aab0112645490fc178a26951c",
+        "train.npz": "fe36c59b7e6d1c7f0462d96d9dcbeb9592462374e0533c31e224f8489522eb96",
+        "fit.json": "838b230d04e11b65373385ac4258194d008dc8086daa0cb4803393cbae0be7f4"
+      }
+    },
+    {
+      "k": 17,
+      "seed": 2,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k17-s2",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k17-s2",
+      "sha256": {
+        "model.pt": "f6dd31e2c9fc7d12a9ce37facefb096bad3d1972b2811b5b50af31dcccb9ac78",
+        "train.npz": "cabef3cddc9c6cfca34964eda003a22b72f1dfc77b802b62f98203e8135286fb",
+        "fit.json": "03d3c0d2f3808aa1e5e99f061e320b9af716c966a8f12ff797119ea1625702d1"
+      }
+    },
+    {
+      "k": 21,
+      "seed": 0,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k21-s0",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k21-s0",
+      "sha256": {
+        "model.pt": "ae408df1321b5f25ffb069c10275a79abff902b8485f58a1ab16682a16680f6e",
+        "train.npz": "854cf7324deb6d7954ef0634ddccbad401828ed8075ac70cfb1e9f318d3ca597",
+        "fit.json": "514ac7c9c79d3d8f9fc7f0d1255bdd541427595216951f16f50d6df41dc98e6a"
+      }
+    },
+    {
+      "k": 21,
+      "seed": 1,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k21-s1",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k21-s1",
+      "sha256": {
+        "model.pt": "c0764d82af9c20dd3d553ba47d1ef909d262c5bbcadf8c9d2822e186029029f5",
+        "train.npz": "bfae7799cc4e3033b6a065fad80c074840f788b92f33b084b86f439b91c5d9f6",
+        "fit.json": "890bd08aa3df84c7c16d8bb1d30a1c9490adc8b1e6ecb74ac044e2371b4d7f35"
+      }
+    },
+    {
+      "k": 21,
+      "seed": 2,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k21-s2",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k21-s2",
+      "sha256": {
+        "model.pt": "bbbe0edc5068ebe2e75c3ad6c7eca1e55b21266747c4532d7c343588caa74b10",
+        "train.npz": "1966280afa017945efcfd695d8ca0cbc25eb4f4087ce09610dca20b4e2026d4e",
+        "fit.json": "a184afb741aaceef74a6e1dfe1d54c38b02f1ab81d02b8d9c39e09b20af5c9ee"
+      }
+    },
+    {
+      "k": 30,
+      "seed": 0,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k30-s0",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k30-s0",
+      "sha256": {
+        "model.pt": "f038fc98797e5c04c49c9af4e45de9e9e9b511c0da1c70b779121cadeeb6a878",
+        "train.npz": "eefe6726c271b04aeaa1e676600c6e82a7cf9e9f72e7aee5691f889b179d6875",
+        "fit.json": "7b83c6ca413a294ee121460ce5549dcf44f6601c67d69e20cd77e3bd317dadcb"
+      }
+    },
+    {
+      "k": 30,
+      "seed": 1,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k30-s1",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k30-s1",
+      "sha256": {
+        "model.pt": "d290736d30e9067275a3fc75fded3b574096cf734e076b09928a0c6a8374f956",
+        "train.npz": "69c92dbedbd1753152dd7a679bec042e1d48558914d614dad87580dc2586950c",
+        "fit.json": "4af7a3d503ef6403645124681560dd9558903de8149e06f37db9a30e499bdfab"
+      }
+    },
+    {
+      "k": 30,
+      "seed": 2,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k30-s2",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k30-s2",
+      "sha256": {
+        "model.pt": "1216d2c474f9006c0140a3fd0ddd2a6be937326051f4ee011d8cfc3e92222b58",
+        "train.npz": "7b0623388f6d7eae58f70a14bda016a3771379927975fc7389fb04b05d8b0184",
+        "fit.json": "0793a461fffbb6b2c12d91946fa3c700e3de9eed9fb5b8ca170c490de4ce4ad5"
+      }
+    },
+    {
+      "k": 1000,
+      "seed": 0,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k1000-s0",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k1000-s0",
+      "sha256": {
+        "model.pt": "e5550d0cba005c7b21ff50a55cf1d1755816d23e4013edbf5461d2a487330aeb",
+        "train.npz": "b52460c2d0514d06678acaaf48d4d710b1e6f8bcfa345633ce385d8d0b8d13b5",
+        "fit.json": "630bedded91c08152ea4d6d4524d302524d4064b67d28fe0e2a9fce42096f9ed"
+      }
+    },
+    {
+      "k": 1000,
+      "seed": 1,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k1000-s1",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k1000-s1",
+      "sha256": {
+        "model.pt": "e5550d0cba005c7b21ff50a55cf1d1755816d23e4013edbf5461d2a487330aeb",
+        "train.npz": "b52460c2d0514d06678acaaf48d4d710b1e6f8bcfa345633ce385d8d0b8d13b5",
+        "fit.json": "ad660b630139a3ce1da4641a9943cbb5c1ff51a53d8d386bee7f0fa40e34d246"
+      }
+    },
+    {
+      "k": 1000,
+      "seed": 2,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k1000-s2",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k1000-s2",
+      "sha256": {
+        "model.pt": "e5550d0cba005c7b21ff50a55cf1d1755816d23e4013edbf5461d2a487330aeb",
+        "train.npz": "b52460c2d0514d06678acaaf48d4d710b1e6f8bcfa345633ce385d8d0b8d13b5",
+        "fit.json": "d135021731c51674ddec7e70bb805676e2c83bd3f7b25a113199656827a964bb"
+      }
+    }
+  ],
+  "bp_adamw": "Outside post-training projection protocol; not run; first comparison row explicitly labels this."
+}

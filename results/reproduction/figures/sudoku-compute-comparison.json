@@ -1,0 +1,4375 @@
+{
+  "figure": "2a",
+  "subset": "full-all rows10000..19999; 10000 held-out test puzzles",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "fresh_cram_source": "artifacts/sudoku_audit/learned-anytime-curves.json",
+  "fresh_cram_source_sha256": "aab1141183da258ff0c4e04a633d5cdbb5b55b3741bd8246793f4441019361b7",
+  "baseline_source": "upstream/results/compute-sweep/sudoku-extreme.json",
+  "baseline_source_sha256": "aa1fd7463ebfa6a8f643514aecde9a33f5eaab9159c53e1b9705a66be9b5e262",
+  "published_cram_source": "upstream/results/cram-anytime/sudoku-extreme.json",
+  "published_cram_source_sha256": "faadbce68f7cee47a52889ad047aa00bea2b27a83dd376d297b602f1fca905c7",
+  "published_curve_validation": {
+    "method": "EBR",
+    "reported_rounded_ratio": 282,
+    "recomputed_ratio": 282.1536872927284,
+    "matches_reported_rounding": true,
+    "same_cap_as_fresh": true,
+    "interpretation": "Applying the identical matching rule to the released CRAM curve reproduces the reported 282x after rounding. The fresh 275.4x difference comes from the measured CRAM trajectories and mean counts at the same cap, not the matching rule."
+  },
+  "baseline_status": "Published reference only; no local baseline training or inference",
+  "scope_note": "Figure2a displays the seven main-table baselines. TRMP-fast is the separately footnoted lattice model with its handwritten search; its imported comparison is retained in JSON but excluded from the main figure and main seven-baseline minimum-ratio claim.",
+  "bp_adamw_control": "Not measured; outside the confirmed CRAM-only scope",
+  "comparison_rule": "Each baseline's maximum mean accuracy across its published fixed sweep; ties choose lower mean FLOPs. Match the lowest-mean-FLOP point of the frozen CRAM cap grid at least as accurate. This is a post-hoc curve comparison, not model/test hyperparameter tuning. Ratios depend on grid resolution and imported reference conventions.",
+  "curve_rule": "Connected points form the nondominated frontier of the fixed published settings for each baseline. Error bars span minimum to maximum seed accuracy. Fresh CRAM caps use saved first-success counts without rerunning inference; below maximum cap unsolved returned boards are conservatively counted as failures.",
+  "comparisons": [
+    {
+      "method": "EBR",
+      "baseline_provenance": "Published imported sweep, not locally reproduced",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan0.2-cap64-N8",
+        "table1": false,
+        "knobs": {
+          "depth": 64,
+          "samples": 8,
+          "stop": "|grad_M E| < 0.2",
+          "tau": 0.2
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9986333333333334,
+        "solve_rate_sd": 0.0007637626158259498,
+        "mean_flop": 541474634138.8077,
+        "p99_flop": 3147620035392.481
+      },
+      "fresh_cram_matching_point": {
+        "cap": 177827941003.89227,
+        "solved_per_seed": [
+          0.9988,
+          0.9988,
+          0.999
+        ],
+        "solved_mean": 0.9988666666666667,
+        "solved_sd": 0.00011547005383791244,
+        "mean_flop_per_seed": [
+          2024383347.3714712,
+          1989566480.949471,
+          1883928715.5524921
+        ],
+        "mean_flop": 1965959514.624478,
+        "p99_flop_per_seed": [
+          17798910077.08001,
+          17306290913.56007,
+          17152674128.360008
+        ],
+        "p99_flop": 17419291706.333363
+      },
+      "published_cram_matching_point": {
+        "cap": 177827941003.89227,
+        "solved_per_seed": [
+          0.9995,
+          0.9987,
+          0.9991
+        ],
+        "solved_mean": 0.9991,
+        "solved_sd": 0.00040000000000001146,
+        "mean_flop_per_seed": [
+          1829215432.5575461,
+          1997740723.4162602,
+          1930274656.789303
+        ],
+        "mean_flop": 1919076937.5877032,
+        "p99_flop_per_seed": [
+          16447376946.640041,
+          17323206473.820023,
+          17208240992.340042
+        ],
+        "p99_flop": 16992941470.93337
+      },
+      "baseline_mean_flops_over_published_cram": 282.1536872927284,
+      "baseline_mean_flops_over_fresh_cram": 275.42511944465747
+    },
+    {
+      "method": "EqR",
+      "baseline_provenance": "Published imported sweep, not locally reproduced",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "EqR",
+        "knob": "depth x breadth",
+        "setting": "D64-B128-n0.5",
+        "table1": true,
+        "knobs": {
+          "depth": 64,
+          "breadth": 128,
+          "noise": 0.5,
+          "random_init": true,
+          "answer": "top1_conv"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9949,
+        "solve_rate_sd": 0.0014177446878758143,
+        "mean_flop": 210602174233856.0,
+        "p99_flop": 210602174233856.0
+      },
+      "fresh_cram_matching_point": {
+        "cap": 42169650342.85822,
+        "solved_per_seed": [
+          0.9942,
+          0.9954,
+          0.996
+        ],
+        "solved_mean": 0.9952,
+        "solved_sd": 0.0009165151389911761,
+        "mean_flop_per_seed": [
+          1657198529.389376,
+          1667416239.7985466,
+          1627787178.0244312
+        ],
+        "mean_flop": 1650800649.0707862,
+        "p99_flop_per_seed": [
+          17798910077.08001,
+          17306290913.56007,
+          17152674128.360008
+        ],
+        "p99_flop": 17419291706.333363
+      },
+      "published_cram_matching_point": {
+        "cap": 42169650342.85822,
+        "solved_per_seed": [
+          0.9956,
+          0.9959,
+          0.9949
+        ],
+        "solved_mean": 0.9954666666666667,
+        "solved_sd": 0.0005131601439446932,
+        "mean_flop_per_seed": [
+          1594640359.7681744,
+          1691097269.8737173,
+          1654494910.471975
+        ],
+        "mean_flop": 1646744180.0379572,
+        "p99_flop_per_seed": [
+          16447376946.640041,
+          17323206473.820023,
+          17208240992.340042
+        ],
+        "p99_flop": 16992941470.93337
+      },
+      "baseline_mean_flops_over_published_cram": 127890.03707242594,
+      "baseline_mean_flops_over_fresh_cram": 127575.77624675709
+    },
+    {
+      "method": "FRM",
+      "baseline_provenance": "Published imported sweep, not locally reproduced",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "FRM",
+        "knob": "iterations",
+        "setting": "iters8192",
+        "table1": false,
+        "knobs": {
+          "held_iters": 8192,
+          "nfe": 8193,
+          "sampler": "held_t"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9942000000000001,
+        "solve_rate_sd": 0.0013453624047073467,
+        "mean_flop": 7809603854025.0,
+        "p99_flop": 7809603854025.0
+      },
+      "fresh_cram_matching_point": {
+        "cap": 42169650342.85822,
+        "solved_per_seed": [
+          0.9942,
+          0.9954,
+          0.996
+        ],
+        "solved_mean": 0.9952,
+        "solved_sd": 0.0009165151389911761,
+        "mean_flop_per_seed": [
+          1657198529.389376,
+          1667416239.7985466,
+          1627787178.0244312
+        ],
+        "mean_flop": 1650800649.0707862,
+        "p99_flop_per_seed": [
+          17798910077.08001,
+          17306290913.56007,
+          17152674128.360008
+        ],
+        "p99_flop": 17419291706.333363
+      },
+      "published_cram_matching_point": {
+        "cap": 31622776601.683792,
+        "solved_per_seed": [
+          0.9947,
+          0.9946,
+          0.9939
+        ],
+        "solved_mean": 0.9944000000000001,
+        "solved_sd": 0.000435889894354083,
+        "mean_flop_per_seed": [
+          1543162903.0793233,
+          1643764481.6402917,
+          1596016731.63647
+        ],
+        "mean_flop": 1594314705.4520292,
+        "p99_flop_per_seed": [
+          16447376946.640041,
+          17323206473.820023,
+          17208240992.340042
+        ],
+        "p99_flop": 16992941470.93337
+      },
+      "baseline_mean_flops_over_published_cram": 4898.407966331074,
+      "baseline_mean_flops_over_fresh_cram": 4730.797663800849
+    },
+    {
+      "method": "GRAM",
+      "baseline_provenance": "Published imported sweep, not locally reproduced",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps32-n20",
+        "table1": false,
+        "knobs": {
+          "act_steps": 32,
+          "samples": 20,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9473666666666668,
+        "solve_rate_sd": 0.009645897228010136,
+        "mean_flop": 17022702185580.0,
+        "p99_flop": 17022702185580.0
+      },
+      "fresh_cram_matching_point": {
+        "cap": 7498942093.324558,
+        "solved_per_seed": [
+          0.9656,
+          0.9665,
+          0.9651
+        ],
+        "solved_mean": 0.9657333333333334,
+        "solved_sd": 0.0007094598884597902,
+        "mean_flop_per_seed": [
+          1309624083.6135578,
+          1331088049.8219652,
+          1313013414.2398195
+        ],
+        "mean_flop": 1317908515.891788,
+        "p99_flop_per_seed": [
+          7498942093.324558,
+          7498942093.324558,
+          7498942093.324558
+        ],
+        "p99_flop": 7498942093.324558
+      },
+      "published_cram_matching_point": {
+        "cap": 7498942093.324558,
+        "solved_per_seed": [
+          0.9675,
+          0.9599,
+          0.9685
+        ],
+        "solved_mean": 0.9653,
+        "solved_sd": 0.004703190406521968,
+        "mean_flop_per_seed": [
+          1283596628.2312415,
+          1361003236.934706,
+          1315148259.7597167
+        ],
+        "mean_flop": 1319916041.6418953,
+        "p99_flop_per_seed": [
+          7498942093.324558,
+          7498942093.324558,
+          7498942093.324558
+        ],
+        "p99_flop": 7498942093.324558
+      },
+      "baseline_mean_flops_over_published_cram": 12896.806803260602,
+      "baseline_mean_flops_over_fresh_cram": 12916.452075629288
+    },
+    {
+      "method": "HRM",
+      "baseline_provenance": "Published imported sweep, not locally reproduced",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "HRM",
+        "knob": "act_steps",
+        "setting": "act32",
+        "table1": false,
+        "knobs": {
+          "act_steps": 32
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.5709666666666667,
+        "solve_rate_sd": 0.04452823074559924,
+        "mean_flop": 440852595808.0,
+        "p99_flop": 440852595808.0
+      },
+      "fresh_cram_matching_point": {
+        "cap": 749894209.3324559,
+        "solved_per_seed": [
+          0.5829,
+          0.5725,
+          0.5781
+        ],
+        "solved_mean": 0.5778333333333333,
+        "solved_sd": 0.0052051256789181505,
+        "mean_flop_per_seed": [
+          454565441.9459776,
+          462668616.7078327,
+          459691421.1487714
+        ],
+        "mean_flop": 458975159.9341851,
+        "p99_flop_per_seed": [
+          749894209.3324559,
+          749894209.3324559,
+          749894209.3324559
+        ],
+        "p99_flop": 749894209.332456
+      },
+      "published_cram_matching_point": {
+        "cap": 749894209.3324559,
+        "solved_per_seed": [
+          0.5806,
+          0.5762,
+          0.5718
+        ],
+        "solved_mean": 0.5762,
+        "solved_sd": 0.004400000000000015,
+        "mean_flop_per_seed": [
+          456841032.52904207,
+          459585770.3589035,
+          464013296.5295638
+        ],
+        "mean_flop": 460146699.80582803,
+        "p99_flop_per_seed": [
+          749894209.3324559,
+          749894209.3324559,
+          749894209.3324559
+        ],
+        "p99_flop": 749894209.332456
+      },
+      "baseline_mean_flops_over_published_cram": 958.0696677690621,
+      "baseline_mean_flops_over_fresh_cram": 960.515152652741
+    },
+    {
+      "method": "TRM",
+      "baseline_provenance": "Published imported sweep, not locally reproduced",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "TRM",
+        "knob": "act_steps",
+        "setting": "act32",
+        "table1": false,
+        "knobs": {
+          "act_steps": 32
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.8972333333333333,
+        "solve_rate_sd": 0.005961822987420326,
+        "mean_flop": 822497277984.0,
+        "p99_flop": 822497277984.0
+      },
+      "fresh_cram_matching_point": {
+        "cap": 4216965034.2858224,
+        "solved_per_seed": [
+          0.9138,
+          0.916,
+          0.9156
+        ],
+        "solved_mean": 0.9151333333333334,
+        "solved_sd": 0.0011718930554165015,
+        "mean_flop_per_seed": [
+          1131240798.298634,
+          1153566020.9562051,
+          1132515869.795921
+        ],
+        "mean_flop": 1139107563.0169234,
+        "p99_flop_per_seed": [
+          4216965034.2858224,
+          4216965034.2858224,
+          4216965034.2858224
+        ],
+        "p99_flop": 4216965034.2858224
+      },
+      "published_cram_matching_point": {
+        "cap": 4216965034.2858224,
+        "solved_per_seed": [
+          0.9197,
+          0.9089,
+          0.9182
+        ],
+        "solved_mean": 0.9156,
+        "solved_sd": 0.005850640990523996,
+        "mean_flop_per_seed": [
+          1115759853.9967482,
+          1160253909.6568327,
+          1142178786.5651753
+        ],
+        "mean_flop": 1139397516.73959,
+        "p99_flop_per_seed": [
+          4216965034.2858224,
+          4216965034.2858224,
+          4216965034.2858224
+        ],
+        "p99_flop": 4216965034.2858224
+      },
+      "baseline_mean_flops_over_published_cram": 721.8703445462944,
+      "baseline_mean_flops_over_fresh_cram": 722.0540927720804
+    },
+    {
+      "method": "TRMP",
+      "baseline_provenance": "Published imported sweep, not locally reproduced",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "TRMP",
+        "knob": "rollouts",
+        "setting": "K64",
+        "table1": true,
+        "knobs": {
+          "rollouts": 64,
+          "step_cap": 1024,
+          "rollout_subset": "first K of 64"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9987,
+        "solve_rate_sd": 0.0008717797887081023,
+        "mean_flop": 4734045979380.171,
+        "p99_flop": 100744967923804.06
+      },
+      "fresh_cram_matching_point": {
+        "cap": 177827941003.89227,
+        "solved_per_seed": [
+          0.9988,
+          0.9988,
+          0.999
+        ],
+        "solved_mean": 0.9988666666666667,
+        "solved_sd": 0.00011547005383791244,
+        "mean_flop_per_seed": [
+          2024383347.3714712,
+          1989566480.949471,
+          1883928715.5524921
+        ],
+        "mean_flop": 1965959514.624478,
+        "p99_flop_per_seed": [
+          17798910077.08001,
+          17306290913.56007,
+          17152674128.360008
+        ],
+        "p99_flop": 17419291706.333363
+      },
+      "published_cram_matching_point": {
+        "cap": 177827941003.89227,
+        "solved_per_seed": [
+          0.9995,
+          0.9987,
+          0.9991
+        ],
+        "solved_mean": 0.9991,
+        "solved_sd": 0.00040000000000001146,
+        "mean_flop_per_seed": [
+          1829215432.5575461,
+          1997740723.4162602,
+          1930274656.789303
+        ],
+        "mean_flop": 1919076937.5877032,
+        "p99_flop_per_seed": [
+          16447376946.640041,
+          17323206473.820023,
+          17208240992.340042
+        ],
+        "p99_flop": 16992941470.93337
+      },
+      "baseline_mean_flops_over_published_cram": 2466.8349072710494,
+      "baseline_mean_flops_over_fresh_cram": 2408.00786799744
+    },
+    {
+      "method": "TRMP-fast",
+      "baseline_provenance": "Published imported sweep, not locally reproduced",
+      "paper_main_figure_comparison": false,
+      "baseline_best_setting": {
+        "method": "TRMP-fast",
+        "knob": "budget",
+        "setting": "K64-B1000",
+        "table1": true,
+        "knobs": {
+          "chains": 64,
+          "budget": 1000,
+          "check_every": 1
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9879333333333333,
+        "solve_rate_sd": 0.002386070689089801,
+        "mean_flop": 354867837652.482,
+        "p99_flop": 6801786580274.667
+      },
+      "fresh_cram_matching_point": {
+        "cap": 17782794100.38923,
+        "solved_per_seed": [
+          0.9899,
+          0.9902,
+          0.9904
+        ],
+        "solved_mean": 0.9901666666666666,
+        "solved_sd": 0.0002516611478423306,
+        "mean_flop_per_seed": [
+          1486768905.5661302,
+          1502912744.5106132,
+          1485130353.3547354
+        ],
+        "mean_flop": 1491604001.1438274,
+        "p99_flop_per_seed": [
+          17782794100.38923,
+          17306290913.56007,
+          17152674128.360008
+        ],
+        "p99_flop": 17413919714.1031
+      },
+      "published_cram_matching_point": {
+        "cap": 17782794100.38923,
+        "solved_per_seed": [
+          0.9907,
+          0.9902,
+          0.9902
+        ],
+        "solved_mean": 0.9903666666666666,
+        "solved_sd": 0.0002886751345948452,
+        "mean_flop_per_seed": [
+          1449949618.4842188,
+          1545625302.983613,
+          1490740117.8524132
+        ],
+        "mean_flop": 1495438346.4400828,
+        "p99_flop_per_seed": [
+          16447376946.640041,
+          17323206473.820023,
+          17208240992.340042
+        ],
+        "p99_flop": 16992941470.93337
+      },
+      "baseline_mean_flops_over_published_cram": 237.30021267493314,
+      "baseline_mean_flops_over_fresh_cram": 237.91022106427292
+    }
+  ],
+  "baseline_frontiers": {
+    "EBR": [
+      {
+        "method": "EBR",
+        "knob": "depth x samples",
+        "setting": "D1-N1",
+        "table1": false,
+        "knobs": {
+          "depth": 1,
+          "samples": 1,
+          "stop": "fixed depth"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.4998666666666667,
+        "solve_rate_sd": 0.019072580667894246,
+        "mean_flop": 12977062550.470278,
+        "p99_flop": 12977062550.470282,
+        "per_seed_solve_rate": [
+          0.4931,
+          0.4851,
+          0.5214
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan1.0-cap2-N1",
+        "table1": false,
+        "knobs": {
+          "depth": 2,
+          "samples": 1,
+          "stop": "|grad_M E| < 1.0",
+          "tau": 1.0
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.661,
+        "solve_rate_sd": 0.024490202122481552,
+        "mean_flop": 20492192283.99773,
+        "p99_flop": 27189994184.87093,
+        "per_seed_solve_rate": [
+          0.6541,
+          0.6407,
+          0.6882
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan0.5-cap2-N1",
+        "table1": false,
+        "knobs": {
+          "depth": 2,
+          "samples": 1,
+          "stop": "|grad_M E| < 0.5",
+          "tau": 0.5
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.6610666666666667,
+        "solve_rate_sd": 0.024462283894463602,
+        "mean_flop": 20726932567.12711,
+        "p99_flop": 27189994184.87093,
+        "per_seed_solve_rate": [
+          0.6543,
+          0.6407,
+          0.6882
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan1.0-cap4-N1",
+        "table1": false,
+        "knobs": {
+          "depth": 4,
+          "samples": 1,
+          "stop": "|grad_M E| < 1.0",
+          "tau": 1.0
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.8134,
+        "solve_rate_sd": 0.01683834908772235,
+        "mean_flop": 28495567072.314484,
+        "p99_flop": 54379988369.74186,
+        "per_seed_solve_rate": [
+          0.8105,
+          0.7982,
+          0.8315
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan0.5-cap4-N1",
+        "table1": false,
+        "knobs": {
+          "depth": 4,
+          "samples": 1,
+          "stop": "|grad_M E| < 0.5",
+          "tau": 0.5
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.8135333333333333,
+        "solve_rate_sd": 0.016767925731387693,
+        "mean_flop": 28873961158.05394,
+        "p99_flop": 54379988369.74186,
+        "per_seed_solve_rate": [
+          0.8108,
+          0.7983,
+          0.8315
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan1.0-cap8-N1",
+        "table1": false,
+        "knobs": {
+          "depth": 8,
+          "samples": 1,
+          "stop": "|grad_M E| < 1.0",
+          "tau": 1.0
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9151666666666666,
+        "solve_rate_sd": 0.006460908088909288,
+        "mean_flop": 35989129303.595604,
+        "p99_flop": 108759976739.48372,
+        "per_seed_solve_rate": [
+          0.9156,
+          0.9085,
+          0.9214
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan0.5-cap8-N1",
+        "table1": false,
+        "knobs": {
+          "depth": 8,
+          "samples": 1,
+          "stop": "|grad_M E| < 0.5",
+          "tau": 0.5
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9153666666666668,
+        "solve_rate_sd": 0.006416645021608535,
+        "mean_flop": 36453625034.70019,
+        "p99_flop": 108759976739.48372,
+        "per_seed_solve_rate": [
+          0.9159,
+          0.9087,
+          0.9215
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan1.0-cap16-N1",
+        "table1": false,
+        "knobs": {
+          "depth": 16,
+          "samples": 1,
+          "stop": "|grad_M E| < 1.0",
+          "tau": 1.0
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9655999999999999,
+        "solve_rate_sd": 0.002971531591620691,
+        "mean_flop": 41869418399.20162,
+        "p99_flop": 217519953478.96744,
+        "per_seed_solve_rate": [
+          0.9677,
+          0.9622,
+          0.9669
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan0.5-cap16-N1",
+        "table1": false,
+        "knobs": {
+          "depth": 16,
+          "samples": 1,
+          "stop": "|grad_M E| < 0.5",
+          "tau": 0.5
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9658000000000001,
+        "solve_rate_sd": 0.0029866369046135806,
+        "mean_flop": 42376058621.0178,
+        "p99_flop": 217519953478.96744,
+        "per_seed_solve_rate": [
+          0.968,
+          0.9624,
+          0.967
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan1.0-cap32-N1",
+        "table1": false,
+        "knobs": {
+          "depth": 32,
+          "samples": 1,
+          "stop": "|grad_M E| < 1.0",
+          "tau": 1.0
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9864666666666667,
+        "solve_rate_sd": 0.0018823743871327816,
+        "mean_flop": 46065740563.966805,
+        "p99_flop": 430508238510.9646,
+        "per_seed_solve_rate": [
+          0.9874,
+          0.9843,
+          0.9877
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan0.5-cap32-N1",
+        "table1": false,
+        "knobs": {
+          "depth": 32,
+          "samples": 1,
+          "stop": "|grad_M E| < 0.5",
+          "tau": 0.5
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9866666666666667,
+        "solve_rate_sd": 0.0018770544300401304,
+        "mean_flop": 46590507449.6727,
+        "p99_flop": 430508238510.9646,
+        "per_seed_solve_rate": [
+          0.9877,
+          0.9845,
+          0.9878
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan1.0-cap64-N1",
+        "table1": false,
+        "knobs": {
+          "depth": 64,
+          "samples": 1,
+          "stop": "|grad_M E| < 1.0",
+          "tau": 1.0
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9929666666666668,
+        "solve_rate_sd": 0.0011015141094572268,
+        "mean_flop": 49057546099.62128,
+        "p99_flop": 462320528792.8042,
+        "per_seed_solve_rate": [
+          0.9935,
+          0.9917,
+          0.9937
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan0.5-cap64-N1",
+        "table1": false,
+        "knobs": {
+          "depth": 64,
+          "samples": 1,
+          "stop": "|grad_M E| < 0.5",
+          "tau": 0.5
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9931666666666666,
+        "solve_rate_sd": 0.0010969655114602963,
+        "mean_flop": 49585485153.24005,
+        "p99_flop": 462320528792.8042,
+        "per_seed_solve_rate": [
+          0.9938,
+          0.9919,
+          0.9938
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan1.0-cap32-N2",
+        "table1": false,
+        "knobs": {
+          "depth": 32,
+          "samples": 2,
+          "stop": "|grad_M E| < 1.0",
+          "tau": 1.0
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9942000000000001,
+        "solve_rate_sd": 0.0005999999999999894,
+        "mean_flop": 92542380843.72282,
+        "p99_flop": 630551217183.2427,
+        "per_seed_solve_rate": [
+          0.9936,
+          0.9942,
+          0.9948
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan1.0-cap64-N2",
+        "table1": false,
+        "knobs": {
+          "depth": 64,
+          "samples": 2,
+          "stop": "|grad_M E| < 1.0",
+          "tau": 1.0
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9964000000000001,
+        "solve_rate_sd": 0.00026457513110649287,
+        "mean_flop": 98714962346.29683,
+        "p99_flop": 852557522424.7096,
+        "per_seed_solve_rate": [
+          0.9961,
+          0.9966,
+          0.9965
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan0.2-cap64-N2",
+        "table1": false,
+        "knobs": {
+          "depth": 64,
+          "samples": 2,
+          "stop": "|grad_M E| < 0.2",
+          "tau": 0.2
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9970333333333333,
+        "solve_rate_sd": 0.0002516611478423306,
+        "mean_flop": 135493504985.44104,
+        "p99_flop": 920532483141.4606,
+        "per_seed_solve_rate": [
+          0.9973,
+          0.997,
+          0.9968
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan0.1-cap64-N2",
+        "table1": false,
+        "knobs": {
+          "depth": 64,
+          "samples": 2,
+          "stop": "|grad_M E| < 0.1",
+          "tau": 0.1
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9971666666666666,
+        "solve_rate_sd": 0.00015275252316517785,
+        "mean_flop": 163498292076.93936,
+        "p99_flop": 1264939087147.7932,
+        "per_seed_solve_rate": [
+          0.9972,
+          0.9973,
+          0.997
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan1.0-cap32-N5",
+        "table1": false,
+        "knobs": {
+          "depth": 32,
+          "samples": 5,
+          "stop": "|grad_M E| < 1.0",
+          "tau": 1.0
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9977333333333332,
+        "solve_rate_sd": 0.00032145502536639643,
+        "mean_flop": 231396056811.34814,
+        "p99_flop": 1415481254170.0496,
+        "per_seed_solve_rate": [
+          0.9975,
+          0.9981,
+          0.9976
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan1.0-cap64-N5",
+        "table1": false,
+        "knobs": {
+          "depth": 64,
+          "samples": 5,
+          "stop": "|grad_M E| < 1.0",
+          "tau": 1.0
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9979999999999999,
+        "solve_rate_sd": 0.00029999999999996696,
+        "mean_flop": 246847223412.4115,
+        "p99_flop": 1891306198266.8147,
+        "per_seed_solve_rate": [
+          0.998,
+          0.9983,
+          0.9977
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan0.5-cap64-N5",
+        "table1": false,
+        "knobs": {
+          "depth": 64,
+          "samples": 5,
+          "stop": "|grad_M E| < 0.5",
+          "tau": 0.5
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9980333333333333,
+        "solve_rate_sd": 0.00011547005383791244,
+        "mean_flop": 249452477987.52322,
+        "p99_flop": 1891351514731.3262,
+        "per_seed_solve_rate": [
+          0.9979,
+          0.9981,
+          0.9981
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan0.2-cap32-N5",
+        "table1": false,
+        "knobs": {
+          "depth": 32,
+          "samples": 5,
+          "stop": "|grad_M E| < 0.2",
+          "tau": 0.2
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9981,
+        "solve_rate_sd": 0.0006557438524302379,
+        "mean_flop": 318209625275.4893,
+        "p99_flop": 1460797938199.8342,
+        "per_seed_solve_rate": [
+          0.9974,
+          0.9987,
+          0.9982
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan0.2-cap64-N5",
+        "table1": false,
+        "knobs": {
+          "depth": 64,
+          "samples": 5,
+          "stop": "|grad_M E| < 0.2",
+          "tau": 0.2
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9984333333333334,
+        "solve_rate_sd": 0.0005507570547286067,
+        "mean_flop": 338541849057.321,
+        "p99_flop": 2068086431071.4636,
+        "per_seed_solve_rate": [
+          0.9979,
+          0.999,
+          0.9984
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan0.5-cap64-N8",
+        "table1": false,
+        "knobs": {
+          "depth": 64,
+          "samples": 8,
+          "stop": "|grad_M E| < 0.5",
+          "tau": 0.5
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9984666666666667,
+        "solve_rate_sd": 0.0005131601439446932,
+        "mean_flop": 399489400127.7093,
+        "p99_flop": 2853016511390.2617,
+        "per_seed_solve_rate": [
+          0.9979,
+          0.9989,
+          0.9986
+        ]
+      },
+      {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan0.2-cap64-N8",
+        "table1": false,
+        "knobs": {
+          "depth": 64,
+          "samples": 8,
+          "stop": "|grad_M E| < 0.2",
+          "tau": 0.2
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9986333333333334,
+        "solve_rate_sd": 0.0007637626158259498,
+        "mean_flop": 541474634138.8077,
+        "p99_flop": 3147620035392.481,
+        "per_seed_solve_rate": [
+          0.9978,
+          0.9993,
+          0.9988
+        ]
+      }
+    ],
+    "EqR": [
+      {
+        "method": "EqR",
+        "knob": "depth (B = 1, single-trajectory pass)",
+        "setting": "D4-B1-n0.01-single",
+        "table1": false,
+        "knobs": {
+          "depth": 4,
+          "breadth": 1,
+          "noise": 0.01,
+          "random_init": true,
+          "answer": "first",
+          "trajectories": "single-trajectory pass"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.6950666666666666,
+        "solve_rate_sd": 0.010925352778438471,
+        "mean_flop": 102833092356.0,
+        "p99_flop": 102833092356.0,
+        "per_seed_solve_rate": [
+          0.7075,
+          0.687,
+          0.6907
+        ]
+      },
+      {
+        "method": "EqR",
+        "knob": "depth (B = 1, single-trajectory pass)",
+        "setting": "D8-B1-n0.01-single",
+        "table1": false,
+        "knobs": {
+          "depth": 8,
+          "breadth": 1,
+          "noise": 0.01,
+          "random_init": true,
+          "answer": "first",
+          "trajectories": "single-trajectory pass"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.8053666666666667,
+        "solve_rate_sd": 0.014739855268398437,
+        "mean_flop": 205666184712.0,
+        "p99_flop": 205666184712.0,
+        "per_seed_solve_rate": [
+          0.8219,
+          0.7936,
+          0.8006
+        ]
+      },
+      {
+        "method": "EqR",
+        "knob": "depth (B = 1, single-trajectory pass)",
+        "setting": "D16-B1-n0.01-single",
+        "table1": false,
+        "knobs": {
+          "depth": 16,
+          "breadth": 1,
+          "noise": 0.01,
+          "random_init": true,
+          "answer": "first",
+          "trajectories": "single-trajectory pass"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.8721333333333332,
+        "solve_rate_sd": 0.011698860343355379,
+        "mean_flop": 411332369424.0,
+        "p99_flop": 411332369424.0,
+        "per_seed_solve_rate": [
+          0.8844,
+          0.8611,
+          0.8709
+        ]
+      },
+      {
+        "method": "EqR",
+        "knob": "depth (B = 1, single-trajectory pass)",
+        "setting": "D32-B1-n0.01-single",
+        "table1": false,
+        "knobs": {
+          "depth": 32,
+          "breadth": 1,
+          "noise": 0.01,
+          "random_init": true,
+          "answer": "first",
+          "trajectories": "single-trajectory pass"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9137000000000001,
+        "solve_rate_sd": 0.008228608630868274,
+        "mean_flop": 822664738848.0,
+        "p99_flop": 822664738848.0,
+        "per_seed_solve_rate": [
+          0.9232,
+          0.9088,
+          0.9091
+        ]
+      },
+      {
+        "method": "EqR",
+        "knob": "depth (B = 1, single-trajectory pass)",
+        "setting": "D64-B1-n0.01-single",
+        "table1": false,
+        "knobs": {
+          "depth": 64,
+          "breadth": 1,
+          "noise": 0.01,
+          "random_init": true,
+          "answer": "first",
+          "trajectories": "single-trajectory pass"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9388,
+        "solve_rate_sd": 0.006919537556802437,
+        "mean_flop": 1645329477696.0,
+        "p99_flop": 1645329477696.0,
+        "per_seed_solve_rate": [
+          0.946,
+          0.9382,
+          0.9322
+        ]
+      },
+      {
+        "method": "EqR",
+        "knob": "depth x breadth",
+        "setting": "D64-B4-n0.5",
+        "table1": false,
+        "knobs": {
+          "depth": 64,
+          "breadth": 4,
+          "noise": 0.5,
+          "random_init": true,
+          "answer": "top1_conv",
+          "trajectories": "first B of 64"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9592666666666667,
+        "solve_rate_sd": 0.023682131097798858,
+        "mean_flop": 6581317944808.0,
+        "p99_flop": 6581317944808.0,
+        "per_seed_solve_rate": [
+          0.9711,
+          0.9747,
+          0.932
+        ]
+      },
+      {
+        "method": "EqR",
+        "knob": "depth x breadth",
+        "setting": "D32-B8-n0.5",
+        "table1": false,
+        "knobs": {
+          "depth": 32,
+          "breadth": 8,
+          "noise": 0.5,
+          "random_init": true,
+          "answer": "top1_conv",
+          "trajectories": "first B of 64"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9613999999999999,
+        "solve_rate_sd": 0.01879042309262887,
+        "mean_flop": 6581317978832.0,
+        "p99_flop": 6581317978832.0,
+        "per_seed_solve_rate": [
+          0.969,
+          0.9752,
+          0.94
+        ]
+      },
+      {
+        "method": "EqR",
+        "knob": "depth x breadth",
+        "setting": "D16-B16-n0.5",
+        "table1": false,
+        "knobs": {
+          "depth": 16,
+          "breadth": 16,
+          "noise": 0.5,
+          "random_init": true,
+          "answer": "top1_conv",
+          "trajectories": "first B of 64"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9623,
+        "solve_rate_sd": 0.014156623891309651,
+        "mean_flop": 6581318046880.0,
+        "p99_flop": 6581318046880.0,
+        "per_seed_solve_rate": [
+          0.9679,
+          0.9728,
+          0.9462
+        ]
+      },
+      {
+        "method": "EqR",
+        "knob": "depth x breadth",
+        "setting": "D64-B8-n0.5",
+        "table1": false,
+        "knobs": {
+          "depth": 64,
+          "breadth": 8,
+          "noise": 0.5,
+          "random_init": true,
+          "answer": "top1_conv",
+          "trajectories": "first B of 64"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9751333333333333,
+        "solve_rate_sd": 0.014816994747023846,
+        "mean_flop": 13162635889616.0,
+        "p99_flop": 13162635889616.0,
+        "per_seed_solve_rate": [
+          0.9809,
+          0.9862,
+          0.9583
+        ]
+      },
+      {
+        "method": "EqR",
+        "knob": "depth x breadth",
+        "setting": "D32-B16-n0.5",
+        "table1": false,
+        "knobs": {
+          "depth": 32,
+          "breadth": 16,
+          "noise": 0.5,
+          "random_init": true,
+          "answer": "top1_conv",
+          "trajectories": "first B of 64"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9760333333333332,
+        "solve_rate_sd": 0.0112646941074018,
+        "mean_flop": 13162635957664.0,
+        "p99_flop": 13162635957664.0,
+        "per_seed_solve_rate": [
+          0.9801,
+          0.9847,
+          0.9633
+        ]
+      },
+      {
+        "method": "EqR",
+        "knob": "depth x breadth",
+        "setting": "D64-B16-n0.5",
+        "table1": false,
+        "knobs": {
+          "depth": 64,
+          "breadth": 16,
+          "noise": 0.5,
+          "random_init": true,
+          "answer": "top1_conv",
+          "trajectories": "first B of 64"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9841666666666665,
+        "solve_rate_sd": 0.009146766277397347,
+        "mean_flop": 26325271779232.0,
+        "p99_flop": 26325271779232.0,
+        "per_seed_solve_rate": [
+          0.9876,
+          0.9911,
+          0.9738
+        ]
+      },
+      {
+        "method": "EqR",
+        "knob": "depth x breadth",
+        "setting": "D32-B32-n0.5",
+        "table1": false,
+        "knobs": {
+          "depth": 32,
+          "breadth": 32,
+          "noise": 0.5,
+          "random_init": true,
+          "answer": "top1_conv",
+          "trajectories": "first B of 64"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9849666666666668,
+        "solve_rate_sd": 0.006115826463637892,
+        "mean_flop": 26325271915328.0,
+        "p99_flop": 26325271915328.0,
+        "per_seed_solve_rate": [
+          0.9866,
+          0.9901,
+          0.9782
+        ]
+      },
+      {
+        "method": "EqR",
+        "knob": "depth x breadth",
+        "setting": "D64-B32-n0.5",
+        "table1": false,
+        "knobs": {
+          "depth": 64,
+          "breadth": 32,
+          "noise": 0.5,
+          "random_init": true,
+          "answer": "top1_conv",
+          "trajectories": "first B of 64"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9891,
+        "solve_rate_sd": 0.0051797683345879645,
+        "mean_flop": 52650543558464.0,
+        "p99_flop": 52650543558464.0,
+        "per_seed_solve_rate": [
+          0.9912,
+          0.9929,
+          0.9832
+        ]
+      },
+      {
+        "method": "EqR",
+        "knob": "depth x breadth",
+        "setting": "D32-B64-n0.5",
+        "table1": false,
+        "knobs": {
+          "depth": 32,
+          "breadth": 64,
+          "noise": 0.5,
+          "random_init": true,
+          "answer": "top1_conv",
+          "trajectories": "first B of 64"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9892666666666666,
+        "solve_rate_sd": 0.0033080709383768512,
+        "mean_flop": 52650543830656.0,
+        "p99_flop": 52650543830656.0,
+        "per_seed_solve_rate": [
+          0.989,
+          0.9927,
+          0.9861
+        ]
+      },
+      {
+        "method": "EqR",
+        "knob": "depth x breadth",
+        "setting": "D64-B64-n0.5",
+        "table1": false,
+        "knobs": {
+          "depth": 64,
+          "breadth": 64,
+          "noise": 0.5,
+          "random_init": true,
+          "answer": "top1_conv",
+          "trajectories": "first B of 64"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9923666666666667,
+        "solve_rate_sd": 0.002746512940681971,
+        "mean_flop": 105301087116928.0,
+        "p99_flop": 105301087116928.0,
+        "per_seed_solve_rate": [
+          0.9932,
+          0.9946,
+          0.9893
+        ]
+      },
+      {
+        "method": "EqR",
+        "knob": "depth x breadth",
+        "setting": "D64-B128-n0.5",
+        "table1": true,
+        "knobs": {
+          "depth": 64,
+          "breadth": 128,
+          "noise": 0.5,
+          "random_init": true,
+          "answer": "top1_conv"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9949,
+        "solve_rate_sd": 0.0014177446878758143,
+        "mean_flop": 210602174233856.0,
+        "p99_flop": 210602174233856.0,
+        "per_seed_solve_rate": [
+          0.9944,
+          0.9965,
+          0.9938
+        ]
+      }
+    ],
+    "FRM": [
+      {
+        "method": "FRM",
+        "knob": "iterations",
+        "setting": "iters8",
+        "table1": false,
+        "knobs": {
+          "held_iters": 8,
+          "nfe": 9,
+          "sampler": "held_t"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.15543333333333334,
+        "solve_rate_sd": 0.014667765110381786,
+        "mean_flop": 8578839825.0,
+        "p99_flop": 8578839825.0,
+        "per_seed_solve_rate": [
+          0.1636,
+          0.1385,
+          0.1642
+        ]
+      },
+      {
+        "method": "FRM",
+        "knob": "iterations",
+        "setting": "iters32",
+        "table1": false,
+        "knobs": {
+          "held_iters": 32,
+          "nfe": 33,
+          "sampler": "held_t"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.3772666666666667,
+        "solve_rate_sd": 0.02009535601409771,
+        "mean_flop": 31455746025.0,
+        "p99_flop": 31455746025.0,
+        "per_seed_solve_rate": [
+          0.3843,
+          0.3546,
+          0.3929
+        ]
+      },
+      {
+        "method": "FRM",
+        "knob": "iterations",
+        "setting": "iters128",
+        "table1": false,
+        "knobs": {
+          "held_iters": 128,
+          "nfe": 129,
+          "sampler": "held_t"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.6318333333333334,
+        "solve_rate_sd": 0.03614102009259468,
+        "mean_flop": 122963370825.0,
+        "p99_flop": 122963370825.0,
+        "per_seed_solve_rate": [
+          0.6463,
+          0.5907,
+          0.6585
+        ]
+      },
+      {
+        "method": "FRM",
+        "knob": "iterations",
+        "setting": "iters512",
+        "table1": false,
+        "knobs": {
+          "held_iters": 512,
+          "nfe": 513,
+          "sampler": "held_t"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.8603,
+        "solve_rate_sd": 0.030635436997046392,
+        "mean_flop": 488993870025.0,
+        "p99_flop": 488993870025.0,
+        "per_seed_solve_rate": [
+          0.8722,
+          0.8255,
+          0.8832
+        ]
+      },
+      {
+        "method": "FRM",
+        "knob": "iterations",
+        "setting": "iters1024",
+        "table1": false,
+        "knobs": {
+          "held_iters": 1024,
+          "nfe": 1025,
+          "sampler": "held_t"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.934,
+        "solve_rate_sd": 0.018981043174704608,
+        "mean_flop": 977034535625.0,
+        "p99_flop": 977034535625.0,
+        "per_seed_solve_rate": [
+          0.9406,
+          0.9126,
+          0.9488
+        ]
+      },
+      {
+        "method": "FRM",
+        "knob": "iterations",
+        "setting": "iters2048",
+        "table1": false,
+        "knobs": {
+          "held_iters": 2048,
+          "nfe": 2049,
+          "sampler": "held_t"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9724,
+        "solve_rate_sd": 0.009355212450821195,
+        "mean_flop": 1953115866825.0,
+        "p99_flop": 1953115866825.0,
+        "per_seed_solve_rate": [
+          0.9776,
+          0.9616,
+          0.978
+        ]
+      },
+      {
+        "method": "FRM",
+        "knob": "iterations",
+        "setting": "iters4096",
+        "table1": true,
+        "knobs": {
+          "held_iters": 4096,
+          "nfe": 4097,
+          "sampler": "held_t"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9875999999999999,
+        "solve_rate_sd": 0.0035552777669262,
+        "mean_flop": 3905278529225.0,
+        "p99_flop": 3905278529225.0,
+        "per_seed_solve_rate": [
+          0.9888,
+          0.9836,
+          0.9904
+        ]
+      },
+      {
+        "method": "FRM",
+        "knob": "iterations",
+        "setting": "iters8192",
+        "table1": false,
+        "knobs": {
+          "held_iters": 8192,
+          "nfe": 8193,
+          "sampler": "held_t"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9942000000000001,
+        "solve_rate_sd": 0.0013453624047073467,
+        "mean_flop": 7809603854025.0,
+        "p99_flop": 7809603854025.0,
+        "per_seed_solve_rate": [
+          0.9946,
+          0.9927,
+          0.9953
+        ]
+      }
+    ],
+    "GRAM": [
+      {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps1-n1",
+        "table1": false,
+        "knobs": {
+          "act_steps": 1,
+          "samples": 1,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.0937,
+        "solve_rate_sd": 0.023423705940777178,
+        "mean_flop": 26597972163.0,
+        "p99_flop": 26597972163.0,
+        "per_seed_solve_rate": [
+          0.0999,
+          0.1134,
+          0.0678
+        ]
+      },
+      {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps2-n1",
+        "table1": false,
+        "knobs": {
+          "act_steps": 2,
+          "samples": 1,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.40063333333333334,
+        "solve_rate_sd": 0.006262853449773,
+        "mean_flop": 53195944326.0,
+        "p99_flop": 53195944326.0,
+        "per_seed_solve_rate": [
+          0.402,
+          0.4061,
+          0.3938
+        ]
+      },
+      {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps4-n1",
+        "table1": false,
+        "knobs": {
+          "act_steps": 4,
+          "samples": 1,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.5983,
+        "solve_rate_sd": 0.012128066622508284,
+        "mean_flop": 106391888652.0,
+        "p99_flop": 106391888652.0,
+        "per_seed_solve_rate": [
+          0.605,
+          0.5843,
+          0.6056
+        ]
+      },
+      {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps8-n1",
+        "table1": false,
+        "knobs": {
+          "act_steps": 8,
+          "samples": 1,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.7136,
+        "solve_rate_sd": 0.015600961508830155,
+        "mean_flop": 212783777304.0,
+        "p99_flop": 212783777304.0,
+        "per_seed_solve_rate": [
+          0.7201,
+          0.6958,
+          0.7249
+        ]
+      },
+      {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps12-n1",
+        "table1": false,
+        "knobs": {
+          "act_steps": 12,
+          "samples": 1,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.7616999999999999,
+        "solve_rate_sd": 0.016798511838850515,
+        "mean_flop": 319175665956.0,
+        "p99_flop": 319175665956.0,
+        "per_seed_solve_rate": [
+          0.7659,
+          0.7432,
+          0.776
+        ]
+      },
+      {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps16-n1",
+        "table1": false,
+        "knobs": {
+          "act_steps": 16,
+          "samples": 1,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.7916,
+        "solve_rate_sd": 0.01702204453054919,
+        "mean_flop": 425567554608.0,
+        "p99_flop": 425567554608.0,
+        "per_seed_solve_rate": [
+          0.7951,
+          0.7731,
+          0.8066
+        ]
+      },
+      {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps24-n1",
+        "table1": false,
+        "knobs": {
+          "act_steps": 24,
+          "samples": 1,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.8260666666666666,
+        "solve_rate_sd": 0.015650026624045507,
+        "mean_flop": 638351331912.0,
+        "p99_flop": 638351331912.0,
+        "per_seed_solve_rate": [
+          0.8261,
+          0.8104,
+          0.8417
+        ]
+      },
+      {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps32-n1",
+        "table1": false,
+        "knobs": {
+          "act_steps": 32,
+          "samples": 1,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.8456666666666667,
+        "solve_rate_sd": 0.015276234265463939,
+        "mean_flop": 851135109216.0,
+        "p99_flop": 851135109216.0,
+        "per_seed_solve_rate": [
+          0.8467,
+          0.8299,
+          0.8604
+        ]
+      },
+      {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps24-n2",
+        "table1": false,
+        "knobs": {
+          "act_steps": 24,
+          "samples": 2,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.8691,
+        "solve_rate_sd": 0.013650274722510162,
+        "mean_flop": 1276702663950.0,
+        "p99_flop": 1276702663950.0,
+        "per_seed_solve_rate": [
+          0.869,
+          0.8555,
+          0.8828
+        ]
+      },
+      {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps12-n5",
+        "table1": false,
+        "knobs": {
+          "act_steps": 12,
+          "samples": 5,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.8741666666666666,
+        "solve_rate_sd": 0.01533373187887844,
+        "mean_flop": 1595878330095.0,
+        "p99_flop": 1595878330095.0,
+        "per_seed_solve_rate": [
+          0.8765,
+          0.8578,
+          0.8882
+        ]
+      },
+      {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps32-n2",
+        "table1": false,
+        "knobs": {
+          "act_steps": 32,
+          "samples": 2,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.8846333333333334,
+        "solve_rate_sd": 0.013587616911487167,
+        "mean_flop": 1702270218558.0,
+        "p99_flop": 1702270218558.0,
+        "per_seed_solve_rate": [
+          0.8858,
+          0.8705,
+          0.8976
+        ]
+      },
+      {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps16-n5",
+        "table1": false,
+        "knobs": {
+          "act_steps": 16,
+          "samples": 5,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.8917333333333334,
+        "solve_rate_sd": 0.013957912928992428,
+        "mean_flop": 2127837773355.0,
+        "p99_flop": 2127837773355.0,
+        "per_seed_solve_rate": [
+          0.8932,
+          0.8771,
+          0.9049
+        ]
+      },
+      {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps24-n5",
+        "table1": false,
+        "knobs": {
+          "act_steps": 24,
+          "samples": 5,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9096666666666667,
+        "solve_rate_sd": 0.012809892010994198,
+        "mean_flop": 3191756659875.0,
+        "p99_flop": 3191756659875.0,
+        "per_seed_solve_rate": [
+          0.9116,
+          0.896,
+          0.9214
+        ]
+      },
+      {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps32-n5",
+        "table1": false,
+        "knobs": {
+          "act_steps": 32,
+          "samples": 5,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9184666666666667,
+        "solve_rate_sd": 0.012297289674287315,
+        "mean_flop": 4255675546395.0,
+        "p99_flop": 4255675546395.0,
+        "per_seed_solve_rate": [
+          0.9213,
+          0.905,
+          0.9291
+        ]
+      },
+      {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps24-n10",
+        "table1": false,
+        "knobs": {
+          "act_steps": 24,
+          "samples": 10,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9301333333333334,
+        "solve_rate_sd": 0.011331519462690504,
+        "mean_flop": 6383513319750.0,
+        "p99_flop": 6383513319750.0,
+        "per_seed_solve_rate": [
+          0.9335,
+          0.9175,
+          0.9394
+        ]
+      },
+      {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps32-n10",
+        "table1": false,
+        "knobs": {
+          "act_steps": 32,
+          "samples": 10,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9357000000000001,
+        "solve_rate_sd": 0.011722201158485568,
+        "mean_flop": 8511351092790.0,
+        "p99_flop": 8511351092790.0,
+        "per_seed_solve_rate": [
+          0.9386,
+          0.9228,
+          0.9457
+        ]
+      },
+      {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps24-n20",
+        "table1": false,
+        "knobs": {
+          "act_steps": 24,
+          "samples": 20,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9428333333333333,
+        "solve_rate_sd": 0.00986373830417925,
+        "mean_flop": 12767026639500.0,
+        "p99_flop": 12767026639500.0,
+        "per_seed_solve_rate": [
+          0.9449,
+          0.9321,
+          0.9515
+        ]
+      },
+      {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps32-n20",
+        "table1": false,
+        "knobs": {
+          "act_steps": 32,
+          "samples": 20,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9473666666666668,
+        "solve_rate_sd": 0.009645897228010136,
+        "mean_flop": 17022702185580.0,
+        "p99_flop": 17022702185580.0,
+        "per_seed_solve_rate": [
+          0.9496,
+          0.9368,
+          0.9557
+        ]
+      }
+    ],
+    "HRM": [
+      {
+        "method": "HRM",
+        "knob": "act_steps",
+        "setting": "act1",
+        "table1": false,
+        "knobs": {
+          "act_steps": 1
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.021433333333333332,
+        "solve_rate_sd": 0.004842864166310399,
+        "mean_flop": 13776643619.0,
+        "p99_flop": 13776643619.0,
+        "per_seed_solve_rate": [
+          0.0235,
+          0.0249,
+          0.0159
+        ]
+      },
+      {
+        "method": "HRM",
+        "knob": "act_steps",
+        "setting": "act2",
+        "table1": false,
+        "knobs": {
+          "act_steps": 2
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.10143333333333333,
+        "solve_rate_sd": 0.04442930714442139,
+        "mean_flop": 27553287238.0,
+        "p99_flop": 27553287238.0,
+        "per_seed_solve_rate": [
+          0.111,
+          0.1403,
+          0.053
+        ]
+      },
+      {
+        "method": "HRM",
+        "knob": "act_steps",
+        "setting": "act3",
+        "table1": false,
+        "knobs": {
+          "act_steps": 3
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.24160000000000004,
+        "solve_rate_sd": 0.0753305382962315,
+        "mean_flop": 41329930857.0,
+        "p99_flop": 41329930857.0,
+        "per_seed_solve_rate": [
+          0.2596,
+          0.3063,
+          0.1589
+        ]
+      },
+      {
+        "method": "HRM",
+        "knob": "act_steps",
+        "setting": "act4",
+        "table1": false,
+        "knobs": {
+          "act_steps": 4
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.3307666666666667,
+        "solve_rate_sd": 0.07632131637578937,
+        "mean_flop": 55106574476.0,
+        "p99_flop": 55106574476.0,
+        "per_seed_solve_rate": [
+          0.3561,
+          0.3912,
+          0.245
+        ]
+      },
+      {
+        "method": "HRM",
+        "knob": "act_steps",
+        "setting": "act6",
+        "table1": false,
+        "knobs": {
+          "act_steps": 6
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.4230333333333333,
+        "solve_rate_sd": 0.06247258065210156,
+        "mean_flop": 82659861714.0,
+        "p99_flop": 82659861714.0,
+        "per_seed_solve_rate": [
+          0.4494,
+          0.468,
+          0.3517
+        ]
+      },
+      {
+        "method": "HRM",
+        "knob": "act_steps",
+        "setting": "act8",
+        "table1": false,
+        "knobs": {
+          "act_steps": 8
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.4689666666666666,
+        "solve_rate_sd": 0.054715658940867495,
+        "mean_flop": 110213148952.0,
+        "p99_flop": 110213148952.0,
+        "per_seed_solve_rate": [
+          0.492,
+          0.5084,
+          0.4065
+        ]
+      },
+      {
+        "method": "HRM",
+        "knob": "act_steps",
+        "setting": "act12",
+        "table1": false,
+        "knobs": {
+          "act_steps": 12
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.5141,
+        "solve_rate_sd": 0.0468491195221426,
+        "mean_flop": 165319723428.0,
+        "p99_flop": 165319723428.0,
+        "per_seed_solve_rate": [
+          0.5361,
+          0.5459,
+          0.4603
+        ]
+      },
+      {
+        "method": "HRM",
+        "knob": "act_steps",
+        "setting": "act16",
+        "table1": true,
+        "knobs": {
+          "act_steps": 16
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.5369666666666667,
+        "solve_rate_sd": 0.04527387031537432,
+        "mean_flop": 220426297904.0,
+        "p99_flop": 220426297904.0,
+        "per_seed_solve_rate": [
+          0.5601,
+          0.566,
+          0.4848
+        ]
+      },
+      {
+        "method": "HRM",
+        "knob": "act_steps",
+        "setting": "act24",
+        "table1": false,
+        "knobs": {
+          "act_steps": 24
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.5593,
+        "solve_rate_sd": 0.04452055704952487,
+        "mean_flop": 330639446856.0,
+        "p99_flop": 330639446856.0,
+        "per_seed_solve_rate": [
+          0.5809,
+          0.5889,
+          0.5081
+        ]
+      },
+      {
+        "method": "HRM",
+        "knob": "act_steps",
+        "setting": "act32",
+        "table1": false,
+        "knobs": {
+          "act_steps": 32
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.5709666666666667,
+        "solve_rate_sd": 0.04452823074559924,
+        "mean_flop": 440852595808.0,
+        "p99_flop": 440852595808.0,
+        "per_seed_solve_rate": [
+          0.5932,
+          0.6,
+          0.5197
+        ]
+      }
+    ],
+    "TRM": [
+      {
+        "method": "TRM",
+        "knob": "act_steps",
+        "setting": "act1",
+        "table1": false,
+        "knobs": {
+          "act_steps": 1
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.15756666666666666,
+        "solve_rate_sd": 0.05776887858815795,
+        "mean_flop": 25703039937.0,
+        "p99_flop": 25703039937.0,
+        "per_seed_solve_rate": [
+          0.222,
+          0.1403,
+          0.1104
+        ]
+      },
+      {
+        "method": "TRM",
+        "knob": "act_steps",
+        "setting": "act2",
+        "table1": false,
+        "knobs": {
+          "act_steps": 2
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.5108333333333334,
+        "solve_rate_sd": 0.006238856732874494,
+        "mean_flop": 51406079874.0,
+        "p99_flop": 51406079874.0,
+        "per_seed_solve_rate": [
+          0.5157,
+          0.513,
+          0.5038
+        ]
+      },
+      {
+        "method": "TRM",
+        "knob": "act_steps",
+        "setting": "act3",
+        "table1": false,
+        "knobs": {
+          "act_steps": 3
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.6261666666666666,
+        "solve_rate_sd": 0.002702468007827903,
+        "mean_flop": 77109119811.0,
+        "p99_flop": 77109119811.0,
+        "per_seed_solve_rate": [
+          0.6272,
+          0.6231,
+          0.6282
+        ]
+      },
+      {
+        "method": "TRM",
+        "knob": "act_steps",
+        "setting": "act4",
+        "table1": false,
+        "knobs": {
+          "act_steps": 4
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.6877666666666666,
+        "solve_rate_sd": 0.0017616280348965348,
+        "mean_flop": 102812159748.0,
+        "p99_flop": 102812159748.0,
+        "per_seed_solve_rate": [
+          0.688,
+          0.6859,
+          0.6894
+        ]
+      },
+      {
+        "method": "TRM",
+        "knob": "act_steps",
+        "setting": "act6",
+        "table1": false,
+        "knobs": {
+          "act_steps": 6
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.7541666666666665,
+        "solve_rate_sd": 0.005953430383680803,
+        "mean_flop": 154218239622.0,
+        "p99_flop": 154218239622.0,
+        "per_seed_solve_rate": [
+          0.7565,
+          0.7474,
+          0.7586
+        ]
+      },
+      {
+        "method": "TRM",
+        "knob": "act_steps",
+        "setting": "act8",
+        "table1": false,
+        "knobs": {
+          "act_steps": 8
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.7918333333333333,
+        "solve_rate_sd": 0.007350056689123811,
+        "mean_flop": 205624319496.0,
+        "p99_flop": 205624319496.0,
+        "per_seed_solve_rate": [
+          0.7918,
+          0.7845,
+          0.7992
+        ]
+      },
+      {
+        "method": "TRM",
+        "knob": "act_steps",
+        "setting": "act12",
+        "table1": false,
+        "knobs": {
+          "act_steps": 12
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.8355666666666667,
+        "solve_rate_sd": 0.009434687770845081,
+        "mean_flop": 308436479244.0,
+        "p99_flop": 308436479244.0,
+        "per_seed_solve_rate": [
+          0.8365,
+          0.8257,
+          0.8445
+        ]
+      },
+      {
+        "method": "TRM",
+        "knob": "act_steps",
+        "setting": "act16",
+        "table1": true,
+        "knobs": {
+          "act_steps": 16
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.8577666666666666,
+        "solve_rate_sd": 0.007552703710151309,
+        "mean_flop": 411248638992.0,
+        "p99_flop": 411248638992.0,
+        "per_seed_solve_rate": [
+          0.858,
+          0.8501,
+          0.8652
+        ]
+      },
+      {
+        "method": "TRM",
+        "knob": "act_steps",
+        "setting": "act24",
+        "table1": false,
+        "knobs": {
+          "act_steps": 24
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.8823666666666666,
+        "solve_rate_sd": 0.00666058055527699,
+        "mean_flop": 616872958488.0,
+        "p99_flop": 616872958488.0,
+        "per_seed_solve_rate": [
+          0.8828,
+          0.8755,
+          0.8888
+        ]
+      },
+      {
+        "method": "TRM",
+        "knob": "act_steps",
+        "setting": "act32",
+        "table1": false,
+        "knobs": {
+          "act_steps": 32
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.8972333333333333,
+        "solve_rate_sd": 0.005961822987420326,
+        "mean_flop": 822497277984.0,
+        "p99_flop": 822497277984.0,
+        "per_seed_solve_rate": [
+          0.8968,
+          0.8915,
+          0.9034
+        ]
+      }
+    ],
+    "TRMP": [
+      {
+        "method": "TRMP",
+        "knob": "rollouts",
+        "setting": "K1",
+        "table1": false,
+        "knobs": {
+          "rollouts": 1,
+          "step_cap": 1024,
+          "rollout_subset": "first K of 64"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9897666666666667,
+        "solve_rate_sd": 0.010530590360152336,
+        "mean_flop": 73777919472.3784,
+        "p99_flop": 1656235348333.8408,
+        "per_seed_solve_rate": [
+          0.9971,
+          0.9945,
+          0.9777
+        ]
+      },
+      {
+        "method": "TRMP",
+        "knob": "rollouts",
+        "setting": "K2",
+        "table1": false,
+        "knobs": {
+          "rollouts": 2,
+          "step_cap": 1024,
+          "rollout_subset": "first K of 64"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9929333333333332,
+        "solve_rate_sd": 0.0075646105870251805,
+        "mean_flop": 148658686756.65842,
+        "p99_flop": 3533630284021.5605,
+        "per_seed_solve_rate": [
+          0.9984,
+          0.9961,
+          0.9843
+        ]
+      },
+      {
+        "method": "TRMP",
+        "knob": "rollouts",
+        "setting": "K4",
+        "table1": false,
+        "knobs": {
+          "rollouts": 4,
+          "step_cap": 1024,
+          "rollout_subset": "first K of 64"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9951333333333333,
+        "solve_rate_sd": 0.005093459858812435,
+        "mean_flop": 296692326964.4888,
+        "p99_flop": 6891771296302.528,
+        "per_seed_solve_rate": [
+          0.9987,
+          0.9974,
+          0.9893
+        ]
+      },
+      {
+        "method": "TRMP",
+        "knob": "rollouts",
+        "setting": "K8",
+        "table1": false,
+        "knobs": {
+          "rollouts": 8,
+          "step_cap": 1024,
+          "rollout_subset": "first K of 64"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9966,
+        "solve_rate_sd": 0.0034219877264537145,
+        "mean_flop": 595491999151.8732,
+        "p99_flop": 12828368215811.494,
+        "per_seed_solve_rate": [
+          0.9991,
+          0.998,
+          0.9927
+        ]
+      },
+      {
+        "method": "TRMP",
+        "knob": "rollouts",
+        "setting": "K16",
+        "table1": false,
+        "knobs": {
+          "rollouts": 16,
+          "step_cap": 1024,
+          "rollout_subset": "first K of 64"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9975999999999999,
+        "solve_rate_sd": 0.0021000000000000224,
+        "mean_flop": 1186598807691.4268,
+        "p99_flop": 25195178094829.355,
+        "per_seed_solve_rate": [
+          0.9991,
+          0.9985,
+          0.9952
+        ]
+      },
+      {
+        "method": "TRMP",
+        "knob": "step_cap",
+        "setting": "cap64",
+        "table1": false,
+        "knobs": {
+          "rollouts": 64,
+          "step_cap": 64
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9976666666666666,
+        "solve_rate_sd": 0.0012858201014657527,
+        "mean_flop": 1643196328784.2383,
+        "p99_flop": 12030172823645.56,
+        "per_seed_solve_rate": [
+          0.9986,
+          0.9982,
+          0.9962
+        ]
+      },
+      {
+        "method": "TRMP",
+        "knob": "step_cap",
+        "setting": "cap128",
+        "table1": false,
+        "knobs": {
+          "rollouts": 64,
+          "step_cap": 128
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9980000000000001,
+        "solve_rate_sd": 0.0012165525060596379,
+        "mean_flop": 2068492591908.1023,
+        "p99_flop": 21288099673594.887,
+        "per_seed_solve_rate": [
+          0.9988,
+          0.9986,
+          0.9966
+        ]
+      },
+      {
+        "method": "TRMP",
+        "knob": "rollouts",
+        "setting": "K32",
+        "table1": false,
+        "knobs": {
+          "rollouts": 32,
+          "step_cap": 1024,
+          "rollout_subset": "first K of 64"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9984000000000001,
+        "solve_rate_sd": 0.0013076696830621854,
+        "mean_flop": 2364140122188.488,
+        "p99_flop": 50521910751044.9,
+        "per_seed_solve_rate": [
+          0.9993,
+          0.999,
+          0.9969
+        ]
+      },
+      {
+        "method": "TRMP",
+        "knob": "step_cap",
+        "setting": "cap512",
+        "table1": false,
+        "knobs": {
+          "rollouts": 64,
+          "step_cap": 512
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9985666666666666,
+        "solve_rate_sd": 0.0011015141094572268,
+        "mean_flop": 3487739780560.4067,
+        "p99_flop": 61999239684831.6,
+        "per_seed_solve_rate": [
+          0.9993,
+          0.9991,
+          0.9973
+        ]
+      },
+      {
+        "method": "TRMP",
+        "knob": "rollouts",
+        "setting": "K64",
+        "table1": true,
+        "knobs": {
+          "rollouts": 64,
+          "step_cap": 1024,
+          "rollout_subset": "first K of 64"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9987,
+        "solve_rate_sd": 0.0008717797887081023,
+        "mean_flop": 4734045979380.171,
+        "p99_flop": 100744967923804.06,
+        "per_seed_solve_rate": [
+          0.9993,
+          0.9991,
+          0.9977
+        ]
+      }
+    ],
+    "TRMP-fast": [
+      {
+        "method": "TRMP-fast",
+        "knob": "budget",
+        "setting": "K64-B1",
+        "table1": false,
+        "knobs": {
+          "chains": 64,
+          "budget": 1,
+          "check_every": 1
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.0287,
+        "solve_rate_sd": 0.0001999999999999988,
+        "mean_flop": 8957576708.0,
+        "p99_flop": 8957576708.0,
+        "per_seed_solve_rate": [
+          0.0287,
+          0.0285,
+          0.0289
+        ]
+      },
+      {
+        "method": "TRMP-fast",
+        "knob": "budget",
+        "setting": "K64-B2",
+        "table1": false,
+        "knobs": {
+          "chains": 64,
+          "budget": 2,
+          "check_every": 1
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.061099999999999995,
+        "solve_rate_sd": 0.009153687781435412,
+        "mean_flop": 17658070964.4804,
+        "p99_flop": 17915153416.0,
+        "per_seed_solve_rate": [
+          0.0638,
+          0.0686,
+          0.0509
+        ]
+      },
+      {
+        "method": "TRMP-fast",
+        "knob": "budget",
+        "setting": "K64-B4",
+        "table1": false,
+        "knobs": {
+          "chains": 64,
+          "budget": 4,
+          "check_every": 1
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.22236666666666668,
+        "solve_rate_sd": 0.027931583079613173,
+        "mean_flop": 33566727197.888397,
+        "p99_flop": 35830306832.0,
+        "per_seed_solve_rate": [
+          0.2329,
+          0.2435,
+          0.1907
+        ]
+      },
+      {
+        "method": "TRMP-fast",
+        "knob": "budget",
+        "setting": "K64-B8",
+        "table1": false,
+        "knobs": {
+          "chains": 64,
+          "budget": 8,
+          "check_every": 1
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.31873333333333337,
+        "solve_rate_sd": 0.031250653326503966,
+        "mean_flop": 60026513035.6496,
+        "p99_flop": 71660613664.0,
+        "per_seed_solve_rate": [
+          0.3501,
+          0.3185,
+          0.2876
+        ]
+      },
+      {
+        "method": "TRMP-fast",
+        "knob": "chains",
+        "setting": "K1-B1000",
+        "table1": false,
+        "knobs": {
+          "chains": 1,
+          "budget": 1000,
+          "check_every": 1
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.6261666666666666,
+        "solve_rate_sd": 0.03011732613186862,
+        "mean_flop": 73342195476.43468,
+        "p99_flop": 139962140000.0,
+        "per_seed_solve_rate": [
+          0.6609,
+          0.6103,
+          0.6073
+        ]
+      },
+      {
+        "method": "TRMP-fast",
+        "knob": "chains",
+        "setting": "K2-B1000",
+        "table1": false,
+        "knobs": {
+          "chains": 2,
+          "budget": 1000,
+          "check_every": 1
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.7725666666666666,
+        "solve_rate_sd": 0.036488674041863074,
+        "mean_flop": 115626370548.1972,
+        "p99_flop": 279924276000.0,
+        "per_seed_solve_rate": [
+          0.8147,
+          0.7516,
+          0.7514
+        ]
+      },
+      {
+        "method": "TRMP-fast",
+        "knob": "chains",
+        "setting": "K4-B1000",
+        "table1": false,
+        "knobs": {
+          "chains": 4,
+          "budget": 1000,
+          "check_every": 1
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.8947333333333333,
+        "solve_rate_sd": 0.0239602448512809,
+        "mean_flop": 161748325997.90945,
+        "p99_flop": 559848548000.0,
+        "per_seed_solve_rate": [
+          0.9224,
+          0.881,
+          0.8808
+        ]
+      },
+      {
+        "method": "TRMP-fast",
+        "knob": "chains",
+        "setting": "K8-B1000",
+        "table1": false,
+        "knobs": {
+          "chains": 8,
+          "budget": 1000,
+          "check_every": 1
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9608666666666666,
+        "solve_rate_sd": 0.011459639319513215,
+        "mean_flop": 200445299520.6372,
+        "p99_flop": 1119697092000.0,
+        "per_seed_solve_rate": [
+          0.974,
+          0.9557,
+          0.9529
+        ]
+      },
+      {
+        "method": "TRMP-fast",
+        "knob": "chains",
+        "setting": "K16-B1000",
+        "table1": false,
+        "knobs": {
+          "chains": 16,
+          "budget": 1000,
+          "check_every": 1
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9841000000000001,
+        "solve_rate_sd": 0.0046861498055440235,
+        "mean_flop": 232477257604.1953,
+        "p99_flop": 2239394180000.0,
+        "per_seed_solve_rate": [
+          0.9895,
+          0.9817,
+          0.9811
+        ]
+      },
+      {
+        "method": "TRMP-fast",
+        "knob": "chains",
+        "setting": "K32-B1000",
+        "table1": false,
+        "knobs": {
+          "chains": 32,
+          "budget": 1000,
+          "check_every": 1
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9876333333333335,
+        "solve_rate_sd": 0.0026083200212652885,
+        "mean_flop": 276927813546.8908,
+        "p99_flop": 3801655273750.8945,
+        "per_seed_solve_rate": [
+          0.9905,
+          0.987,
+          0.9854
+        ]
+      },
+      {
+        "method": "TRMP-fast",
+        "knob": "budget",
+        "setting": "K64-B1000",
+        "table1": true,
+        "knobs": {
+          "chains": 64,
+          "budget": 1000,
+          "check_every": 1
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9879333333333333,
+        "solve_rate_sd": 0.002386070689089801,
+        "mean_flop": 354867837652.482,
+        "p99_flop": 6801786580274.667,
+        "per_seed_solve_rate": [
+          0.9906,
+          0.9872,
+          0.986
+        ]
+      }
+    ]
+  },
+  "fresh_cram": [
+    {
+      "cap": 1000000.0,
+      "solved_per_seed": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "solved_mean": 0.0,
+      "solved_sd": 0.0,
+      "mean_flop_per_seed": [
+        1000000.0,
+        1000000.0,
+        1000000.0
+      ],
+      "mean_flop": 1000000.0,
+      "p99_flop_per_seed": [
+        1000000.0,
+        1000000.0,
+        1000000.0
+      ],
+      "p99_flop": 1000000.0
+    },
+    {
+      "cap": 1333521.432163324,
+      "solved_per_seed": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "solved_mean": 0.0,
+      "solved_sd": 0.0,
+      "mean_flop_per_seed": [
+        1333521.4321632464,
+        1333521.4321632464,
+        1333521.4321632464
+      ],
+      "mean_flop": 1333521.432163324,
+      "p99_flop_per_seed": [
+        1333521.432163324,
+        1333521.432163324,
+        1333521.432163324
+      ],
+      "p99_flop": 1333521.432163324
+    },
+    {
+      "cap": 1778279.410038923,
+      "solved_per_seed": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "solved_mean": 0.0,
+      "solved_sd": 0.0,
+      "mean_flop_per_seed": [
+        1778279.410038455,
+        1778279.410038455,
+        1778279.410038455
+      ],
+      "mean_flop": 1778279.4100389222,
+      "p99_flop_per_seed": [
+        1778279.410038923,
+        1778279.410038923,
+        1778279.410038923
+      ],
+      "p99_flop": 1778279.410038923
+    },
+    {
+      "cap": 2371373.7056616554,
+      "solved_per_seed": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "solved_mean": 0.0,
+      "solved_sd": 0.0,
+      "mean_flop_per_seed": [
+        2371373.705661768,
+        2371373.705661768,
+        2371373.705661768
+      ],
+      "mean_flop": 2371373.7056616545,
+      "p99_flop_per_seed": [
+        2371373.7056616554,
+        2371373.7056616554,
+        2371373.7056616554
+      ],
+      "p99_flop": 2371373.7056616554
+    },
+    {
+      "cap": 3162277.660168379,
+      "solved_per_seed": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "solved_mean": 0.0,
+      "solved_sd": 0.0,
+      "mean_flop_per_seed": [
+        3162277.660167904,
+        3162277.660167904,
+        3162277.660167904
+      ],
+      "mean_flop": 3162277.6601683786,
+      "p99_flop_per_seed": [
+        3162277.660168379,
+        3162277.660168379,
+        3162277.660168379
+      ],
+      "p99_flop": 3162277.660168379
+    },
+    {
+      "cap": 4216965.034285823,
+      "solved_per_seed": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "solved_mean": 0.0,
+      "solved_sd": 0.0,
+      "mean_flop_per_seed": [
+        4216965.034286342,
+        4216965.034286342,
+        4216965.034286342
+      ],
+      "mean_flop": 4216965.034285822,
+      "p99_flop_per_seed": [
+        4216965.034285823,
+        4216965.034285823,
+        4216965.034285823
+      ],
+      "p99_flop": 4216965.034285823
+    },
+    {
+      "cap": 5623413.251903491,
+      "solved_per_seed": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "solved_mean": 0.0,
+      "solved_sd": 0.0,
+      "mean_flop_per_seed": [
+        5623413.251902049,
+        5623413.251902049,
+        5623413.251902049
+      ],
+      "mean_flop": 5623413.251903491,
+      "p99_flop_per_seed": [
+        5623413.251903491,
+        5623413.251903491,
+        5623413.251903491
+      ],
+      "p99_flop": 5623413.251903492
+    },
+    {
+      "cap": 7498942.093324558,
+      "solved_per_seed": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "solved_mean": 0.0,
+      "solved_sd": 0.0,
+      "mean_flop_per_seed": [
+        7498942.093323191,
+        7498942.093323191,
+        7498942.093323191
+      ],
+      "mean_flop": 7498942.093324558,
+      "p99_flop_per_seed": [
+        7498942.093324558,
+        7498942.093324558,
+        7498942.093324558
+      ],
+      "p99_flop": 7498942.093324558
+    },
+    {
+      "cap": 10000000.0,
+      "solved_per_seed": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "solved_mean": 0.0,
+      "solved_sd": 0.0,
+      "mean_flop_per_seed": [
+        10000000.0,
+        10000000.0,
+        10000000.0
+      ],
+      "mean_flop": 10000000.0,
+      "p99_flop_per_seed": [
+        10000000.0,
+        10000000.0,
+        10000000.0
+      ],
+      "p99_flop": 10000000.0
+    },
+    {
+      "cap": 13335214.32163324,
+      "solved_per_seed": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "solved_mean": 0.0,
+      "solved_sd": 0.0,
+      "mean_flop_per_seed": [
+        13335214.321636144,
+        13335214.321636144,
+        13335214.321636144
+      ],
+      "mean_flop": 13335214.32163324,
+      "p99_flop_per_seed": [
+        13335214.32163324,
+        13335214.32163324,
+        13335214.32163324
+      ],
+      "p99_flop": 13335214.32163324
+    },
+    {
+      "cap": 17782794.100389227,
+      "solved_per_seed": [
+        0.0307,
+        0.0299,
+        0.031
+      ],
+      "solved_mean": 0.030533333333333332,
+      "solved_sd": 0.0005686240703077332,
+      "mean_flop_per_seed": [
+        17691274.20910917,
+        17695393.477989472,
+        17691466.320479043
+      ],
+      "mean_flop": 17692711.33585735,
+      "p99_flop_per_seed": [
+        17782794.100389227,
+        17782794.100389227,
+        17782794.100389227
+      ],
+      "p99_flop": 17782794.100389227
+    },
+    {
+      "cap": 23713737.056616552,
+      "solved_per_seed": [
+        0.0449,
+        0.0439,
+        0.0455
+      ],
+      "solved_mean": 0.04476666666666667,
+      "solved_sd": 0.0008082903768654749,
+      "mean_flop_per_seed": [
+        23398180.526770357,
+        23410334.576226972,
+        23398081.176536385
+      ],
+      "mean_flop": 23402198.75984868,
+      "p99_flop_per_seed": [
+        23713737.056616552,
+        23713737.056616552,
+        23713737.056616552
+      ],
+      "p99_flop": 23713737.056616556
+    },
+    {
+      "cap": 31622776.60168379,
+      "solved_per_seed": [
+        0.0563,
+        0.0568,
+        0.0578
+      ],
+      "solved_mean": 0.056966666666666665,
+      "solved_sd": 0.0007637626158259703,
+      "mean_flop_per_seed": [
+        30883255.147809703,
+        30901308.167108864,
+        30879062.177307177
+      ],
+      "mean_flop": 30887875.164074536,
+      "p99_flop_per_seed": [
+        31622776.60168379,
+        31622776.60168379,
+        31622776.60168379
+      ],
+      "p99_flop": 31622776.60168379
+    },
+    {
+      "cap": 42169650.342858225,
+      "solved_per_seed": [
+        0.086,
+        0.0828,
+        0.0852
+      ],
+      "solved_mean": 0.08466666666666667,
+      "solved_sd": 0.0016653327995729038,
+      "mean_flop_per_seed": [
+        40687578.49316839,
+        40724544.60046549,
+        40685109.52524268
+      ],
+      "mean_flop": 40699077.53962955,
+      "p99_flop_per_seed": [
+        42169650.342858225,
+        42169650.342858225,
+        42169650.342858225
+      ],
+      "p99_flop": 42169650.342858225
+    },
+    {
+      "cap": 56234132.51903491,
+      "solved_per_seed": [
+        0.1128,
+        0.1088,
+        0.1111
+      ],
+      "solved_mean": 0.1109,
+      "solved_sd": 0.002007485989988475,
+      "mean_flop_per_seed": [
+        53370482.828092285,
+        53437672.583168454,
+        53348983.34577467
+      ],
+      "mean_flop": 53385712.91900726,
+      "p99_flop_per_seed": [
+        56234132.51903491,
+        56234132.51903491,
+        56234132.51903491
+      ],
+      "p99_flop": 56234132.5190349
+    },
+    {
+      "cap": 74989420.93324558,
+      "solved_per_seed": [
+        0.1494,
+        0.1421,
+        0.1456
+      ],
+      "solved_mean": 0.1457,
+      "solved_sd": 0.0036510272527057372,
+      "mean_flop_per_seed": [
+        69624299.2878112,
+        69778457.54902379,
+        69657283.52055745
+      ],
+      "mean_flop": 69686680.11913836,
+      "p99_flop_per_seed": [
+        74989420.93324558,
+        74989420.93324558,
+        74989420.93324558
+      ],
+      "p99_flop": 74989420.93324558
+    },
+    {
+      "cap": 100000000.0,
+      "solved_per_seed": [
+        0.1951,
+        0.1865,
+        0.1878
+      ],
+      "solved_mean": 0.1898,
+      "solved_sd": 0.004635730794599702,
+      "mean_flop_per_seed": [
+        90295446.7676,
+        90644378.099,
+        90482938.32
+      ],
+      "mean_flop": 90474254.39553334,
+      "p99_flop_per_seed": [
+        100000000.0,
+        100000000.0,
+        100000000.0
+      ],
+      "p99_flop": 100000000.0
+    },
+    {
+      "cap": 133352143.2163324,
+      "solved_per_seed": [
+        0.2384,
+        0.2322,
+        0.2306
+      ],
+      "solved_mean": 0.23373333333333335,
+      "solved_sd": 0.004119870548128103,
+      "mean_flop_per_seed": [
+        116351485.34294583,
+        116938963.606687,
+        116785961.74303305
+      ],
+      "mean_flop": 116692136.89756833,
+      "p99_flop_per_seed": [
+        133352143.2163324,
+        133352143.2163324,
+        133352143.2163324
+      ],
+      "p99_flop": 133352143.21633239
+    },
+    {
+      "cap": 177827941.00389227,
+      "solved_per_seed": [
+        0.2949,
+        0.2828,
+        0.278
+      ],
+      "solved_mean": 0.28523333333333334,
+      "solved_sd": 0.00870880780206643,
+      "mean_flop_per_seed": [
+        148982821.32065326,
+        149909287.13720053,
+        149883220.9428193
+      ],
+      "mean_flop": 149591776.46688202,
+      "p99_flop_per_seed": [
+        177827941.00389227,
+        177827941.00389227,
+        177827941.00389227
+      ],
+      "p99_flop": 177827941.00389227
+    },
+    {
+      "cap": 237137370.56616554,
+      "solved_per_seed": [
+        0.348,
+        0.3345,
+        0.3337
+      ],
+      "solved_mean": 0.33873333333333333,
+      "solved_sd": 0.008035131195776025,
+      "mean_flop_per_seed": [
+        189209480.48513773,
+        190889582.25738093,
+        190938389.29723385
+      ],
+      "mean_flop": 190345817.34658635,
+      "p99_flop_per_seed": [
+        237137370.56616554,
+        237137370.56616554,
+        237137370.56616554
+      ],
+      "p99_flop": 237137370.56616554
+    },
+    {
+      "cap": 316227766.01683795,
+      "solved_per_seed": [
+        0.4013,
+        0.3893,
+        0.3887
+      ],
+      "solved_mean": 0.3931,
+      "solved_sd": 0.007107742257566747,
+      "mean_flop_per_seed": [
+        238706753.17707333,
+        241208310.61587387,
+        241336670.5808839
+      ],
+      "mean_flop": 240417244.79128563,
+      "p99_flop_per_seed": [
+        316227766.01683795,
+        316227766.01683795,
+        316227766.01683795
+      ],
+      "p99_flop": 316227766.01683795
+    },
+    {
+      "cap": 421696503.42858225,
+      "solved_per_seed": [
+        0.459,
+        0.4451,
+        0.4532
+      ],
+      "solved_mean": 0.4524333333333333,
+      "solved_sd": 0.006981642595645632,
+      "mean_flop_per_seed": [
+        298654919.1186595,
+        302681957.0321177,
+        302149742.1455463
+      ],
+      "mean_flop": 301162206.09877735,
+      "p99_flop_per_seed": [
+        421696503.42858225,
+        421696503.42858225,
+        421696503.42858225
+      ],
+      "p99_flop": 421696503.42858225
+    },
+    {
+      "cap": 562341325.1903491,
+      "solved_per_seed": [
+        0.5178,
+        0.5059,
+        0.5146
+      ],
+      "solved_mean": 0.5127666666666667,
+      "solved_sd": 0.006158192375472961,
+      "mean_flop_per_seed": [
+        370363118.3308114,
+        376600635.061577,
+        374721086.3624206
+      ],
+      "mean_flop": 373894946.5849111,
+      "p99_flop_per_seed": [
+        562341325.1903491,
+        562341325.1903491,
+        562341325.1903491
+      ],
+      "p99_flop": 562341325.1903491
+    },
+    {
+      "cap": 749894209.3324559,
+      "solved_per_seed": [
+        0.5829,
+        0.5725,
+        0.5781
+      ],
+      "solved_mean": 0.5778333333333333,
+      "solved_sd": 0.0052051256789181505,
+      "mean_flop_per_seed": [
+        454565441.9459776,
+        462668616.7078327,
+        459691421.1487714
+      ],
+      "mean_flop": 458975159.9341851,
+      "p99_flop_per_seed": [
+        749894209.3324559,
+        749894209.3324559,
+        749894209.3324559
+      ],
+      "p99_flop": 749894209.332456
+    },
+    {
+      "cap": 1000000000.0,
+      "solved_per_seed": [
+        0.648,
+        0.6386,
+        0.646
+      ],
+      "solved_mean": 0.6442,
+      "solved_sd": 0.004951767361256021,
+      "mean_flop_per_seed": [
+        550097644.941,
+        560766234.5568,
+        556048965.321
+      ],
+      "mean_flop": 555637614.9396,
+      "p99_flop_per_seed": [
+        1000000000.0,
+        1000000000.0,
+        1000000000.0
+      ],
+      "p99_flop": 1000000000.0
+    },
+    {
+      "cap": 1333521432.163324,
+      "solved_per_seed": [
+        0.7115,
+        0.703,
+        0.7123
+      ],
+      "solved_mean": 0.7089333333333333,
+      "solved_sd": 0.005153962876596395,
+      "mean_flop_per_seed": [
+        655874364.3454733,
+        669938361.0414602,
+        662250271.8519435
+      ],
+      "mean_flop": 662687665.7463382,
+      "p99_flop_per_seed": [
+        1333521432.163324,
+        1333521432.163324,
+        1333521432.163324
+      ],
+      "p99_flop": 1333521432.163324
+    },
+    {
+      "cap": 1778279410.0389228,
+      "solved_per_seed": [
+        0.769,
+        0.7595,
+        0.7685
+      ],
+      "solved_mean": 0.7656666666666666,
+      "solved_sd": 0.005346338310781835,
+      "mean_flop_per_seed": [
+        770637025.4666117,
+        788650265.7413825,
+        777121322.7686306
+      ],
+      "mean_flop": 778802871.3255209,
+      "p99_flop_per_seed": [
+        1778279410.0389228,
+        1778279410.0389228,
+        1778279410.0389228
+      ],
+      "p99_flop": 1778279410.0389225
+    },
+    {
+      "cap": 2371373705.6616554,
+      "solved_per_seed": [
+        0.8127,
+        0.8122,
+        0.8164
+      ],
+      "solved_mean": 0.8137666666666666,
+      "solved_sd": 0.0022941955743426374,
+      "mean_flop_per_seed": [
+        893626547.1708688,
+        914386116.3187014,
+        899286575.7145195
+      ],
+      "mean_flop": 902433079.7346557,
+      "p99_flop_per_seed": [
+        2371373705.6616554,
+        2371373705.6616554,
+        2371373705.6616554
+      ],
+      "p99_flop": 2371373705.6616554
+    },
+    {
+      "cap": 3162277660.1683793,
+      "solved_per_seed": [
+        0.8682,
+        0.8666,
+        0.8702
+      ],
+      "solved_mean": 0.8683333333333333,
+      "solved_sd": 0.0018036999011291272,
+      "mean_flop_per_seed": [
+        1018899670.479964,
+        1042032497.880033,
+        1023378927.5326283
+      ],
+      "mean_flop": 1028103698.6309032,
+      "p99_flop_per_seed": [
+        3162277660.1683793,
+        3162277660.1683793,
+        3162277660.1683793
+      ],
+      "p99_flop": 3162277660.1683793
+    },
+    {
+      "cap": 4216965034.2858224,
+      "solved_per_seed": [
+        0.9138,
+        0.916,
+        0.9156
+      ],
+      "solved_mean": 0.9151333333333334,
+      "solved_sd": 0.0011718930554165015,
+      "mean_flop_per_seed": [
+        1131240798.298634,
+        1153566020.9562051,
+        1132515869.795921
+      ],
+      "mean_flop": 1139107563.0169234,
+      "p99_flop_per_seed": [
+        4216965034.2858224,
+        4216965034.2858224,
+        4216965034.2858224
+      ],
+      "p99_flop": 4216965034.2858224
+    },
+    {
+      "cap": 5623413251.903491,
+      "solved_per_seed": [
+        0.9437,
+        0.9442,
+        0.9437
+      ],
+      "solved_mean": 0.9438666666666666,
+      "solved_sd": 0.0002886751345948452,
+      "mean_flop_per_seed": [
+        1230151145.1633744,
+        1250974877.3928227,
+        1230924016.532572
+      ],
+      "mean_flop": 1237350013.0295827,
+      "p99_flop_per_seed": [
+        5623413251.903491,
+        5623413251.903491,
+        5623413251.903491
+      ],
+      "p99_flop": 5623413251.903491
+    },
+    {
+      "cap": 7498942093.324558,
+      "solved_per_seed": [
+        0.9656,
+        0.9665,
+        0.9651
+      ],
+      "solved_mean": 0.9657333333333334,
+      "solved_sd": 0.0007094598884597902,
+      "mean_flop_per_seed": [
+        1309624083.6135578,
+        1331088049.8219652,
+        1313013414.2398195
+      ],
+      "mean_flop": 1317908515.891788,
+      "p99_flop_per_seed": [
+        7498942093.324558,
+        7498942093.324558,
+        7498942093.324558
+      ],
+      "p99_flop": 7498942093.324558
+    },
+    {
+      "cap": 10000000000.0,
+      "solved_per_seed": [
+        0.9789,
+        0.9792,
+        0.9794
+      ],
+      "solved_mean": 0.9791666666666666,
+      "solved_sd": 0.0002516611478423821,
+      "mean_flop_per_seed": [
+        1377085150.2448,
+        1397329557.5652,
+        1380008084.839
+      ],
+      "mean_flop": 1384807597.5496666,
+      "p99_flop_per_seed": [
+        10000000000.0,
+        10000000000.0,
+        10000000000.0
+      ],
+      "p99_flop": 10000000000.0
+    },
+    {
+      "cap": 13335214321.63324,
+      "solved_per_seed": [
+        0.9859,
+        0.9865,
+        0.9865
+      ],
+      "solved_mean": 0.9863,
+      "solved_sd": 0.00034641016151380137,
+      "mean_flop_per_seed": [
+        1433673976.8810248,
+        1452809500.101445,
+        1434681222.2170448
+      ],
+      "mean_flop": 1440388233.0665085,
+      "p99_flop_per_seed": [
+        13335214321.63324,
+        13335214321.63324,
+        13335214321.63324
+      ],
+      "p99_flop": 13335214321.63324
+    },
+    {
+      "cap": 17782794100.38923,
+      "solved_per_seed": [
+        0.9899,
+        0.9902,
+        0.9904
+      ],
+      "solved_mean": 0.9901666666666666,
+      "solved_sd": 0.0002516611478423306,
+      "mean_flop_per_seed": [
+        1486768905.5661302,
+        1502912744.5106132,
+        1485130353.3547354
+      ],
+      "mean_flop": 1491604001.1438274,
+      "p99_flop_per_seed": [
+        17782794100.38923,
+        17306290913.56007,
+        17152674128.360008
+      ],
+      "p99_flop": 17413919714.1031
+    },
+    {
+      "cap": 23713737056.61655,
+      "solved_per_seed": [
+        0.9925,
+        0.9918,
+        0.9931
+      ],
+      "solved_mean": 0.9924666666666667,
+      "solved_sd": 0.0006506407098647564,
+      "mean_flop_per_seed": [
+        1538368191.3196254,
+        1557174226.8802574,
+        1532549053.7084558
+      ],
+      "mean_flop": 1542697157.3027782,
+      "p99_flop_per_seed": [
+        17798910077.08001,
+        17306290913.56007,
+        17152674128.360008
+      ],
+      "p99_flop": 17419291706.333363
+    },
+    {
+      "cap": 31622776601.683792,
+      "solved_per_seed": [
+        0.9935,
+        0.9939,
+        0.9948
+      ],
+      "solved_mean": 0.9940666666666668,
+      "solved_sd": 0.0006658328118479271,
+      "mean_flop_per_seed": [
+        1593553117.7019436,
+        1612694660.97567,
+        1580238438.651155
+      ],
+      "mean_flop": 1595495405.7762573,
+      "p99_flop_per_seed": [
+        17798910077.08001,
+        17306290913.56007,
+        17152674128.360008
+      ],
+      "p99_flop": 17419291706.333363
+    },
+    {
+      "cap": 42169650342.85822,
+      "solved_per_seed": [
+        0.9942,
+        0.9954,
+        0.996
+      ],
+      "solved_mean": 0.9952,
+      "solved_sd": 0.0009165151389911761,
+      "mean_flop_per_seed": [
+        1657198529.389376,
+        1667416239.7985466,
+        1627787178.0244312
+      ],
+      "mean_flop": 1650800649.0707862,
+      "p99_flop_per_seed": [
+        17798910077.08001,
+        17306290913.56007,
+        17152674128.360008
+      ],
+      "p99_flop": 17419291706.333363
+    },
+    {
+      "cap": 56234132519.034904,
+      "solved_per_seed": [
+        0.9953,
+        0.9965,
+        0.9969
+      ],
+      "solved_mean": 0.9962333333333334,
+      "solved_sd": 0.0008326663997864858,
+      "mean_flop_per_seed": [
+        1730664113.2282648,
+        1721267433.3338227,
+        1678568740.3224087
+      ],
+      "mean_flop": 1710166762.2948315,
+      "p99_flop_per_seed": [
+        17798910077.08001,
+        17306290913.56007,
+        17152674128.360008
+      ],
+      "p99_flop": 17419291706.333363
+    },
+    {
+      "cap": 74989420933.24557,
+      "solved_per_seed": [
+        0.9967,
+        0.997,
+        0.9974
+      ],
+      "solved_mean": 0.9970333333333333,
+      "solved_sd": 0.00035118845842838596,
+      "mean_flop_per_seed": [
+        1809585496.6055114,
+        1781006052.015737,
+        1731710383.3422387
+      ],
+      "mean_flop": 1774100643.9878287,
+      "p99_flop_per_seed": [
+        17798910077.08001,
+        17306290913.56007,
+        17152674128.360008
+      ],
+      "p99_flop": 17419291706.333363
+    },
+    {
+      "cap": 100000000000.0,
+      "solved_per_seed": [
+        0.9973,
+        0.9976,
+        0.9979
+      ],
+      "solved_mean": 0.9975999999999999,
+      "solved_sd": 0.00030000000000002247,
+      "mean_flop_per_seed": [
+        1883076004.4826,
+        1848191368.3556,
+        1790073729.2074
+      ],
+      "mean_flop": 1840447034.0152,
+      "p99_flop_per_seed": [
+        17798910077.08001,
+        17306290913.56007,
+        17152674128.360008
+      ],
+      "p99_flop": 17419291706.333363
+    },
+    {
+      "cap": 133352143216.3324,
+      "solved_per_seed": [
+        0.9981,
+        0.998,
+        0.9989
+      ],
+      "solved_mean": 0.9983333333333334,
+      "solved_sd": 0.0004932882862316341,
+      "mean_flop_per_seed": [
+        1959867403.685231,
+        1920578433.8210645,
+        1838104593.8385656
+      ],
+      "mean_flop": 1906183477.1149542,
+      "p99_flop_per_seed": [
+        17798910077.08001,
+        17306290913.56007,
+        17152674128.360008
+      ],
+      "p99_flop": 17419291706.333363
+    },
+    {
+      "cap": 177827941003.89227,
+      "solved_per_seed": [
+        0.9988,
+        0.9988,
+        0.999
+      ],
+      "solved_mean": 0.9988666666666667,
+      "solved_sd": 0.00011547005383791244,
+      "mean_flop_per_seed": [
+        2024383347.3714712,
+        1989566480.949471,
+        1883928715.5524921
+      ],
+      "mean_flop": 1965959514.624478,
+      "p99_flop_per_seed": [
+        17798910077.08001,
+        17306290913.56007,
+        17152674128.360008
+      ],
+      "p99_flop": 17419291706.333363
+    },
+    {
+      "cap": 237137370566.16553,
+      "solved_per_seed": [
+        0.9992,
+        0.999,
+        0.9992
+      ],
+      "solved_mean": 0.9991333333333333,
+      "solved_sd": 0.00011547005383791244,
+      "mean_flop_per_seed": [
+        2079638790.6777327,
+        2051823439.1827657,
+        1936937169.7747328
+      ],
+      "mean_flop": 2022799799.87841,
+      "p99_flop_per_seed": [
+        17798910077.08001,
+        17306290913.56007,
+        17152674128.360008
+      ],
+      "p99_flop": 17419291706.333363
+    },
+    {
+      "cap": 316227766016.83795,
+      "solved_per_seed": [
+        0.9995,
+        0.9995,
+        0.9995
+      ],
+      "solved_mean": 0.9994999999999999,
+      "solved_sd": 1.3597399555105182e-16,
+      "mean_flop_per_seed": [
+        2129874265.9404192,
+        2104422968.6188192,
+        1994387383.5108187
+      ],
+      "mean_flop": 2076228206.0233524,
+      "p99_flop_per_seed": [
+        17798910077.08001,
+        17306290913.56007,
+        17152674128.360008
+      ],
+      "p99_flop": 17419291706.333363
+    },
+    {
+      "cap": 421696503428.5823,
+      "solved_per_seed": [
+        0.9997,
+        0.9996,
+        0.9999
+      ],
+      "solved_mean": 0.9997333333333334,
+      "solved_sd": 0.00015275252316517785,
+      "mean_flop_per_seed": [
+        2176689524.1021748,
+        2149170702.525233,
+        2012153026.9920583
+      ],
+      "mean_flop": 2112671084.5398219,
+      "p99_flop_per_seed": [
+        17798910077.08001,
+        17306290913.56007,
+        17152674128.360008
+      ],
+      "p99_flop": 17419291706.333363
+    },
+    {
+      "cap": 562341325190.3491,
+      "solved_per_seed": [
+        0.9998,
+        0.9999,
+        0.9999
+      ],
+      "solved_mean": 0.9998666666666667,
+      "solved_sd": 5.773502691895622e-05,
+      "mean_flop_per_seed": [
+        2208107056.68007,
+        2171897301.216835,
+        2026217509.168235
+      ],
+      "mean_flop": 2135407289.0217133,
+      "p99_flop_per_seed": [
+        17798910077.08001,
+        17306290913.56007,
+        17152674128.360008
+      ],
+      "p99_flop": 17419291706.333363
+    },
+    {
+      "cap": 632296210114.0,
+      "solved_per_seed": [
+        0.9999,
+        1.0,
+        0.9999
+      ],
+      "solved_mean": 0.9999333333333333,
+      "solved_sd": 5.773502691895622e-05,
+      "mean_flop_per_seed": [
+        2219208881.3534,
+        2174774616.4944,
+        2032761665.6508
+      ],
+      "mean_flop": 2142248387.8328667,
+      "p99_flop_per_seed": [
+        17798910077.08001,
+        17306290913.56007,
+        17152674128.360008
+      ],
+      "p99_flop": 17419291706.333363
+    }
+  ]
+}

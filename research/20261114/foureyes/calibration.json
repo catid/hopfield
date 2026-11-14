@@ -1,0 +1,59 @@
+{
+  "id": "H4b-training-only-certificate-calibration",
+  "frozen_utc": "2026-11-14T21:54:44.310083+00:00",
+  "host": "foureyes",
+  "hypothesis": "Using the minimum energy of training solutions as the stopping threshold matches the symbolic validity-gate accuracy within5pp while wrong halts remain below1percent of halted puzzles, on independent dev2560:4608.",
+  "arms": [
+    "energy_max",
+    "energy_min",
+    "energy_p05",
+    "energy_AND_valid"
+  ],
+  "control": "Contemporaneous energy_max and energy_AND_valid onsamehost/cohort; energy_p05 is secondary.",
+  "primary_arm": "energy_min",
+  "secondary_arm": null,
+  "training_k": [
+    17,
+    21
+  ],
+  "training_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "search_seed": "training seed",
+  "split": "dev10k",
+  "rows_half_open": [
+    2560,
+    4608
+  ],
+  "chains": 4,
+  "move_cap_per_chain": 262144,
+  "check": 4096,
+  "anneal": [
+    0.4,
+    0.31,
+    524288
+  ],
+  "theta_hbar": 0.45,
+  "tol": 0.001,
+  "restart": 0,
+  "validity_gate": "Zero equal-digit conflicts across the810unordered row/column/box-neighbor pairs; clues remain clamped. No target labels used by gate or move policy.",
+  "primary_statistic": "Accuracy(min)-accuracy(validitygate), and pooled wronghalts/min halted puzzles. Threshold uses training solutions only.",
+  "uncertainty": "5000pairedtwo-wayseed/puzzlebootstrap, sixseedclusters,2048puzzles, seed20261114. Boundaryzeroerrors additionally reportconservative per-puzzle event bound, repeatedseedsnot independent.",
+  "decision": "Supported iff one-sided95percent lower accuracydifference>=-5pp and upperwronghaltrate<=1percent. Falsified iff upperaccuracydifference<-5pp or lowerwronghaltrate>1percent; otherwiseinconclusive.",
+  "mechanistic_statistic": "Fraction of original wrong-stop puzzles newly solved at same cap; report changes on other puzzles too.",
+  "budget_and_cost": "Same move cap, not equal realized compute. Added rule-check operations and elapsed time retained; legacy FLOPs exclude gate and cannot establish net arithmetic speedup.",
+  "rng_limit": "Same initialseed and move keys before diverging stops/compaction; thereafter paths may diverge.",
+  "scope": "Task-rule validity checker is additional symbolic knowledge; not an unmodified pure CRAM reproduction, not an exact external solver.",
+  "source_commit": "62bbe830c7d6f87f2ba18f30a28039258b986454",
+  "thresholds": {
+    "energy_max": "max training solution energy, released convention",
+    "energy_min": "min training solution energy",
+    "energy_p05": "5percent training solution energy quantile usinglinearinterpolation",
+    "energy_AND_valid": "releasedmax threshold AND exact rule validity"
+  }
+}

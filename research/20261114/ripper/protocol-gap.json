@@ -1,0 +1,161 @@
+{
+  "id": "H1f-largest-coefficient-gap",
+  "frozen_utc": "2026-11-14T22:14:12.888528+00:00",
+  "hypothesis": "Largest-gap pruning raises k10 solve accuracy by at least20percentagepoints versus unpruned canonical repulsion on fresh development puzzles.",
+  "primary_k": [
+    10
+  ],
+  "k": [
+    10,
+    17,
+    21
+  ],
+  "training_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "arms": [
+    "repulsive",
+    "gap_pruned",
+    "gap_uniform"
+  ],
+  "transform": "Sort strictly positive canonical repulsive pair coefficients ascending. Find first maximum adjacent difference (lowest sorted index on ties). Threshold is float64 midpoint of those two float32 values. Retain coefficients strictly above threshold. Uniform arm sets retained coefficients to their float32 mean. No spatial geometry, labels,degree/edge-count target,or newfit used.",
+  "prior_information": "Training-weight inspection of existing18models revealed largest gaps .430to.519 and810retainededges. This informed the rule before new outcome evaluation; not claimed as preregistered graphdiscovery.",
+  "primary_statistic": "Mean paired accuracy difference gap_pruned minus repulsive at k10, averaged across6trainingseeds and2048sharedpuzzles.",
+  "primary_threshold_pp": 20,
+  "secondary": "k17/21 pruning effects and gap_uniform minus gap_pruned across k; false stops and exact geometry match are post-selection diagnostics.",
+  "uncertainty": "5000pairedtwo-waybootstrap draws, trainingseedclusters andsharedpuzzleindices,seed20261114.",
+  "decision": "Supported if95percentinterval lower>=20pp,falsified ifupper<20pp,otherwise inconclusive.",
+  "split": "dev10k",
+  "rows_half_open": [
+    6656,
+    8704
+  ],
+  "chains": 4,
+  "move_cap_per_chain": 262144,
+  "check": 4096,
+  "anneal_period": 524288,
+  "temperature_hi_hbar": 0.4,
+  "temperature_lo_hbar": 0.31,
+  "theta_hbar": 0.45,
+  "tolerance": 0.001,
+  "thermal_scale": "Allarms retain same rawdigitprojected hbar as H1c; each recomputes trainingonlytau andebar.",
+  "backend": "H1d derivedSparse withfloatingfields,hscale1,NOBIASFalse,GeneralSearchrefresh. Eachjob additionally gates25statefieldsandcapturedboards on16puzzlesforinitial+4checks againstGeneralSearch. Noonelevelintegeroptimization.",
+  "source_inputs": [
+    {
+      "k": 10,
+      "seed": 0,
+      "path": "artifacts/research/20261114/ripper/mechanism/jobs/k10-s0-canonical_repulsive/searched_model.pt",
+      "sha256": "fe734f365b1c7c1ddf73d3ab9df25b65ffad05a2aec64df24195faa350d8a2fc"
+    },
+    {
+      "k": 10,
+      "seed": 1,
+      "path": "artifacts/research/20261114/ripper/mechanism/jobs/k10-s1-canonical_repulsive/searched_model.pt",
+      "sha256": "1f2c99be3062fdf3812ab30ed77b00ae68e16ce08196a4176afd4af42b07c6a3"
+    },
+    {
+      "k": 10,
+      "seed": 2,
+      "path": "artifacts/research/20261114/ripper/mechanism/jobs/k10-s2-canonical_repulsive/searched_model.pt",
+      "sha256": "431eb14fe935c7c520d8c077fd97376fcd025e213a01bfa11fe657526f26a41a"
+    },
+    {
+      "k": 10,
+      "seed": 3,
+      "path": "artifacts/research/20261114/ripper/mechanism/jobs/k10-s3-canonical_repulsive/searched_model.pt",
+      "sha256": "c78a4e5140b453a77ecf66ed13a2a9b8d2e10e902367922e4fafec2f189a3295"
+    },
+    {
+      "k": 10,
+      "seed": 4,
+      "path": "artifacts/research/20261114/ripper/mechanism/jobs/k10-s4-canonical_repulsive/searched_model.pt",
+      "sha256": "5a5159f8c8c799efbb3eca5eee01cca41af926144fb9b0809844b8e6e478adb6"
+    },
+    {
+      "k": 10,
+      "seed": 5,
+      "path": "artifacts/research/20261114/ripper/mechanism/jobs/k10-s5-canonical_repulsive/searched_model.pt",
+      "sha256": "ca6abfb7d8c384430a9db23c38acc9a0c782dd5f04208d7dafa57c1a66cb9c02"
+    },
+    {
+      "k": 17,
+      "seed": 0,
+      "path": "artifacts/research/20261114/ripper/mechanism/jobs/k17-s0-canonical_repulsive/searched_model.pt",
+      "sha256": "8ac55b879f266b1617c5983f77c7d435a9ff2effc9df3d4ad100ac3a84c41209"
+    },
+    {
+      "k": 17,
+      "seed": 1,
+      "path": "artifacts/research/20261114/ripper/mechanism/jobs/k17-s1-canonical_repulsive/searched_model.pt",
+      "sha256": "d0bb838ae036767c65db2dfcde7037ae300813b9f9add620ada4d1011b951023"
+    },
+    {
+      "k": 17,
+      "seed": 2,
+      "path": "artifacts/research/20261114/ripper/mechanism/jobs/k17-s2-canonical_repulsive/searched_model.pt",
+      "sha256": "89c78397b8a59f454202a350cfbab13f75c484661a42764092dff67d8cce73db"
+    },
+    {
+      "k": 17,
+      "seed": 3,
+      "path": "artifacts/research/20261114/ripper/mechanism/jobs/k17-s3-canonical_repulsive/searched_model.pt",
+      "sha256": "4f18bb707eac9fdbac953a0169e60eb7c3f79db69f9059ac0a9baaf58d7634cf"
+    },
+    {
+      "k": 17,
+      "seed": 4,
+      "path": "artifacts/research/20261114/ripper/mechanism/jobs/k17-s4-canonical_repulsive/searched_model.pt",
+      "sha256": "1d826c5c1244fd7a8adab7916c474ecb3db40af00480001853ff125f98783737"
+    },
+    {
+      "k": 17,
+      "seed": 5,
+      "path": "artifacts/research/20261114/ripper/mechanism/jobs/k17-s5-canonical_repulsive/searched_model.pt",
+      "sha256": "d2374e030c50c0202087ea97a58f905046308263e10b3c479f7c277fbc5470d6"
+    },
+    {
+      "k": 21,
+      "seed": 0,
+      "path": "artifacts/research/20261114/ripper/mechanism/jobs/k21-s0-canonical_repulsive/searched_model.pt",
+      "sha256": "ea76ef462f17d8246cef170f6cde4b368fb33a604c2c3c85c290d9191b9bfb63"
+    },
+    {
+      "k": 21,
+      "seed": 1,
+      "path": "artifacts/research/20261114/ripper/mechanism/jobs/k21-s1-canonical_repulsive/searched_model.pt",
+      "sha256": "46809e6a06a54e1213a9ce91c8f13dbce7378a8c50fd674cc4ecf56b184a6903"
+    },
+    {
+      "k": 21,
+      "seed": 2,
+      "path": "artifacts/research/20261114/ripper/mechanism/jobs/k21-s2-canonical_repulsive/searched_model.pt",
+      "sha256": "aeedf42b29ac3dadcbf1787b8319c90eb2557d55b5af6f7680a56aec457c8b08"
+    },
+    {
+      "k": 21,
+      "seed": 3,
+      "path": "artifacts/research/20261114/ripper/mechanism/jobs/k21-s3-canonical_repulsive/searched_model.pt",
+      "sha256": "df8f417ac5402ac62d4de5521826efad25b41a2c224c934f5492b729e2dda360"
+    },
+    {
+      "k": 21,
+      "seed": 4,
+      "path": "artifacts/research/20261114/ripper/mechanism/jobs/k21-s4-canonical_repulsive/searched_model.pt",
+      "sha256": "86926831cdb71d731f671b69237ded76f0de3243ad242f7da9da6f1ac8a9f2ba"
+    },
+    {
+      "k": 21,
+      "seed": 5,
+      "path": "artifacts/research/20261114/ripper/mechanism/jobs/k21-s5-canonical_repulsive/searched_model.pt",
+      "sha256": "c8e35740563f61f07d519f0f99e5d7748a9ba94655b859178c7fa50017d22b54"
+    }
+  ],
+  "wrapper_sha256": "fb21340a04cffaa811d20cc4d05e31ae9ede7503ca5f61785749af7bbc241ce7",
+  "backend_sha256": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+  "bp_adamw": "Outside post-training intervention protocol; not run."
+}

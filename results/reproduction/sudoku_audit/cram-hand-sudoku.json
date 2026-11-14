@@ -1,0 +1,309 @@
+{
+ "row": "sudoku-extreme hand-energy (Hand-set energy, focused Gibbs)",
+ "paper_value_old": 108086390.03555353,
+ "search": "cram_sudoku_sparse.SparseSearch: one level (h = 1, w = 1, hscale = 1), no input costs (NOBIAS), focused (MODE 2), D = 20, C = 4, check 4,096, no restarts; kernel _moves_sparse",
+ "counted": {
+  "move_per_chain": {
+   "total": 124,
+   "total_with_compare": 828,
+   "classes": {
+    "matmul": 0.0,
+    "arith": 106.0,
+    "transc": 18.0,
+    "compare": 704.0,
+    "rng": 91.0
+   },
+   "by_op": {
+    "add": {
+     "arith": 32.0
+    },
+    "argmax": {
+     "compare": 90.0
+    },
+    "bitwise_and": {
+     "compare": 203.0
+    },
+    "bitwise_or": {
+     "compare": 20.0
+    },
+    "div": {
+     "arith": 1.0
+    },
+    "eq": {
+     "compare": 60.0
+    },
+    "ge": {
+     "compare": 2.0
+    },
+    "gt": {
+     "compare": 21.0
+    },
+    "le": {
+     "compare": 1.0
+    },
+    "log": {
+     "transc": 18.0
+    },
+    "lt": {
+     "compare": 1.0
+    },
+    "max": {
+     "compare": 81.0
+    },
+    "maximum": {
+     "compare": 9.0
+    },
+    "minimum": {
+     "compare": 1.0
+    },
+    "mul": {
+     "arith": 32.0
+    },
+    "ne": {
+     "compare": 102.0
+    },
+    "neg": {
+     "arith": 19.0
+    },
+    "rand": {
+     "rng": 91.0
+    },
+    "sub": {
+     "arith": 22.0
+    },
+    "where": {
+     "compare": 113.0
+    }
+   }
+  },
+  "move_check_synthetic_state_total": 124,
+  "start_per_puzzle": {
+   "total": 142811,
+   "total_with_compare": 184463,
+   "classes": {
+    "matmul": 116640,
+    "arith": 26171,
+    "transc": 0,
+    "compare": 41652,
+    "rng": 324
+   },
+   "matmul_only_flopcountermode": 116640,
+   "by_op": {
+    "add": {
+     "arith": 13446
+    },
+    "all": {
+     "compare": 1791
+    },
+    "bitwise_and": {
+     "compare": 6885
+    },
+    "bitwise_not": {
+     "compare": 6885
+    },
+    "bmm": {
+     "matmul": 116640
+    },
+    "eq": {
+     "compare": 1791
+    },
+    "gt": {
+     "compare": 324
+    },
+    "max": {
+     "compare": 729
+    },
+    "min": {
+     "compare": 648
+    },
+    "mul": {
+     "arith": 2920
+    },
+    "ne": {
+     "compare": 13122
+    },
+    "nonzero": {
+     "compare": 6561
+    },
+    "randint": {
+     "rng": 324
+    },
+    "sort": {
+     "compare": 2268
+    },
+    "sum": {
+     "arith": 9805
+    },
+    "where": {
+     "compare": 648
+    }
+   },
+   "convention": "baselines/flops/fullcount.py FullCounter: arithmetic only; 1 flop per elementary arithmetic operation per element (add, sub, mul, div, neg, abs; exp/log/sqrt/sigmoid/tanh/erf 1 each), multiply-add 2, matrix products by flop_registry plus bias adds; integer arithmetic counted; comparisons, selections, min/max, argmax and mask logic recorded but not counted; data movement, casts, indexing and random-number generation 0"
+  },
+  "start_per_puzzle_slope": {
+   "total": 123128,
+   "total_with_compare": 128312
+  },
+  "start_note": "start = the SparseSearch constructor on one puzzle (as cram_kernels counts the main row): S = A + A^T twice (SparseSearch and Search, model-level), the first random boards of the 4 chains, their fields (einsum over the 20 neighbours), energies and focus flags. start_per_puzzle_slope = constructor(2 puzzles) - constructor(1): the part that scales with the puzzles of a batch",
+  "check_per_puzzle": {
+   "total": 2,
+   "total_with_compare": 672,
+   "classes": {
+    "matmul": 0,
+    "arith": 2,
+    "transc": 0,
+    "compare": 670,
+    "rng": 0
+   },
+   "matmul_only_flopcountermode": 0,
+   "by_op": {
+    "all": {
+     "compare": 324
+    },
+    "any": {
+     "compare": 1
+    },
+    "eq": {
+     "compare": 324
+    },
+    "ge": {
+     "compare": 4
+    },
+    "gt": {
+     "compare": 1
+    },
+    "lt": {
+     "compare": 2
+    },
+    "mean": {
+     "arith": 2
+    },
+    "min": {
+     "compare": 8
+    },
+    "where": {
+     "compare": 6
+    }
+   },
+   "convention": "baselines/flops/fullcount.py FullCounter: arithmetic only; 1 flop per elementary arithmetic operation per element (add, sub, mul, div, neg, abs; exp/log/sqrt/sigmoid/tanh/erf 1 each), multiply-add 2, matrix products by flop_registry plus bias adds; integer arithmetic counted; comparisons, selections, min/max, argmax and mask logic recorded but not counted; data movement, casts, indexing and random-number generation 0"
+  },
+  "check_no_stop": {
+   "total": 2,
+   "total_with_compare": 672,
+   "classes": {
+    "matmul": 0,
+    "arith": 2,
+    "transc": 0,
+    "compare": 670,
+    "rng": 0
+   },
+   "matmul_only_flopcountermode": 0
+  },
+  "check_with_stop": {
+   "total": 2,
+   "total_with_compare": 1321,
+   "classes": {
+    "matmul": 0,
+    "arith": 2,
+    "transc": 0,
+    "compare": 1319,
+    "rng": 0
+   },
+   "matmul_only_flopcountermode": 0
+  },
+  "check_note": "step_check with the kernel switched off at t = 4,096: one level, so no field refresh; bookkeeping (min, where, stop) only"
+ },
+ "old_constants": {
+  "fl_move": 124.0,
+  "formula": "flops = steps x fl_move x C (Search.result; no restarts)",
+  "fl_move_formula": "4 D + (D + 1) + (2 d + 1) + 4 = 124 at D 20, d 9"
+ },
+ "formula": "per puzzle = steps x C x move + start + ceil(steps / 4096) x check; steps = old flops / (124 x 4) (Search.result: stop_t of the first passing chain, or the moves run at the cap)",
+ "per_seed": [
+  {
+   "seed": 0,
+   "puzzles": 412786,
+   "old_mean": 108795766.13280489,
+   "new_mean": 108938685.2546598,
+   "new_with_compare_mean": 726695746.4429462,
+   "mean_steps": 219346.30268710662,
+   "mean_checks": 54.060927453934966
+  },
+  {
+   "seed": 1,
+   "puzzles": 412786,
+   "old_mean": 107651950.34211431,
+   "new_mean": 107794868.33875665,
+   "new_with_compare_mean": 719057630.672392,
+   "mean_steps": 217040.22246394015,
+   "mean_checks": 53.49832116399296
+  },
+  {
+   "seed": 2,
+   "puzzles": 412786,
+   "old_mean": 108503680.8773941,
+   "new_mean": 108646599.71131773,
+   "new_with_compare_mean": 724745273.9602942,
+   "mean_steps": 218757.42112377842,
+   "mean_checks": 53.91696181556545
+  }
+ ],
+ "old": {
+  "per_seed_mean": [
+   108795766.13280489,
+   107651950.34211431,
+   108503680.8773941
+  ],
+  "mean_over_seeds": 108317132.4507711,
+  "pooled_median": 34475968.0,
+  "pooled_p99": 909685060.1599993,
+  "pooled_max": 89892216272.0
+ },
+ "new": {
+  "per_seed_mean": [
+   108938685.2546598,
+   107794868.33875665,
+   108646599.71131773
+  ],
+  "mean_over_seeds": 108460051.10157806,
+  "pooled_median": 34618813.0,
+  "pooled_p99": 909828767.1599993,
+  "pooled_max": 89892447577.0
+ },
+ "new_with_compare": {
+  "per_seed_mean": [
+   726695746.4429462,
+   719057630.672392,
+   724745273.9602942
+  ],
+  "mean_over_seeds": 723499550.3585442,
+  "pooled_median": 230406383.0,
+  "pooled_p99": 6074834146.519996,
+  "pooled_max": 600277943231.0
+ },
+ "ratio_new_over_old": 1.0013194464031063,
+ "source_records": {
+  "experiments/runs/HAND-E1/sudoku-test-s0.json": "09368776f7f66502a00bb95153db7720f78fb120deedd543cb10b0c1151e46c8",
+  "experiments/runs/HAND-E1/sudoku-test-s1.json": "81fc80878f1834779ca584332790a5439cf0d2bebce7abed54fb49b11055d1f9",
+  "experiments/runs/HAND-E1/sudoku-test-s2.json": "d0c2b2846ad7628d471687ce3b251df4bb5ecdd9704cb360a7fae01b2fa4015d"
+ },
+ "notes": [
+  "The kernel count per move equals the old fl_move (124): the transcription counts the neighbour-field updates (3 D: weight multiply, subtract, add), the Gumbel transform (4 d), the heat-bath logits (2 d + 2) and the energy and certificate (4) plus 2 integer scalar operations; the old count had 4 D + (D + 1) + (2 d + 1) + 4, whose focus comparisons are not counted now.",
+  "Steps are stop_t, the first passing move; the chains run on to the next check (up to 4,095 more moves each). The old formula and this rebuild both charge stop_t only."
+ ],
+ "script": "baselines/flops/cram_kernels_extra.py",
+ "script_sha256": "4a1eae817d45390c78859865800cb2b68cbec1d1188bd0b646ce09a8254bae12",
+ "source_sha256": {
+  "baselines/flops/cram_kernels_extra.py": "4a1eae817d45390c78859865800cb2b68cbec1d1188bd0b646ce09a8254bae12",
+  "baselines/flops/cram_kernels.py": "d7c8c527209a0301a47787c4f563fa4174ac3bfa6294307a23a110335da722cb",
+  "baselines/flops/fullcount.py": "77709eacc6744e79663b034212d16d0aafeb8d799e0de45162622bd6997007ea",
+  "experiments/hand_set.py": "8fc4f15271655ec5b1e17eec29a48d8f11f8489ca0d1df79f0a7df4f37bac136",
+  "cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+  "cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c"
+ },
+ "slurm_job": null,
+ "host": "foureyes",
+ "torch": "2.11.0+cu128",
+ "written": "2026-11-13T19:49:23+00:00",
+ "convention": "baselines/flops/fullcount.py FullCounter: arithmetic only; 1 flop per elementary arithmetic operation per element (add, sub, mul, div, neg, abs; exp/log/sqrt/sigmoid/tanh/erf 1 each), multiply-add 2, matrix products by flop_registry plus bias adds; integer arithmetic counted; comparisons, selections, min/max, argmax and mask logic recorded but not counted; data movement, casts, indexing and random-number generation 0"
+}

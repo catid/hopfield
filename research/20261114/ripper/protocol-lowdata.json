@@ -1,0 +1,152 @@
+{
+  "id": "H1-lowdata-wave2",
+  "frozen_utc": "2026-11-14T21:45:58.455018+00:00",
+  "host": "ripper",
+  "source_commit": "62bbe830c7d6f87f2ba18f30a28039258b986454",
+  "hypothesis": "Exploratory lower-data extension: digit projection improves equalweight k1/3/10 accuracy by>=5pp on first512development rows; identify the per-k effect without tuning.",
+  "arms": [
+    "original",
+    "projected"
+  ],
+  "primary_arms": [
+    "original",
+    "projected"
+  ],
+  "projection": "Each9x9pair table replaced by its mean diagonal and mean off-diagonal; each unary9-vector replaced by its mean. No Sudoku spatial rule graph or held-out labels used.",
+  "mechanistic_control": "projected_original_hbar uses projected energy/tau/ebar but original hbar temperature/focus scale.",
+  "primary_k": [
+    1,
+    3,
+    10
+  ],
+  "secondary_k": [],
+  "training_seeds": [
+    0,
+    1,
+    2
+  ],
+  "search_seed": "same as training seed",
+  "data_split": "dev10k",
+  "rows_half_open": [
+    0,
+    512
+  ],
+  "chains": 4,
+  "move_cap_per_chain": 262144,
+  "check_moves": 4096,
+  "anneal_period": 524288,
+  "temperature_hi_hbar": 0.4,
+  "temperature_lo_hbar": 0.31,
+  "focus_theta_hbar": 0.45,
+  "tau_tolerance": 0.001,
+  "restart": 0,
+  "primary_statistic": "Equal-weight average across k17/21 and training seeds of paired512puzzle solve-percentage differences. Both returned board exactness and stopped exactness retained; primary follows released returned-board solved flag.",
+  "uncertainty": "5000 paired two-way bootstrap draws: resample3trainingseed clusters and512shared puzzle indices, retaining all k cells and both arms; seed20261114. Also report newseeds3to5 separately for confirmation.",
+  "decision_rule": "Supported in this screen if95percent interval lower bound>=5pp; falsified in this screen if upper bound<5pp; otherwise inconclusive. No generalization beyond this frozen screen claimed.",
+  "secondary": "k30/1000 accuracy, wrong stops, independently valid boards, stop/move-cost distributions, wall seconds; no threshold-driven retuning.",
+  "rng_pairing_limit": "Same seeds/initial boards; arm-dependent compaction can make later per-chain random keys differ.",
+  "frozen_inputs": [
+    {
+      "k": 1,
+      "seed": 0,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k1-s0",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k1-s0",
+      "sha256": {
+        "model.pt": "56088573afa21ece305bc71ed67d816dffac967031985eba7c39b8b189664ccc",
+        "train.npz": "ed285f0755136d983546c5d24da2684cb2aef65acbc9e7c8328ec7f5bc656406",
+        "fit.json": "a5c393fa9a8991bda5cb37e85c7afce6111e0ed222a3403ecd0b1cedbd21cf51"
+      }
+    },
+    {
+      "k": 1,
+      "seed": 1,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k1-s1",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k1-s1",
+      "sha256": {
+        "model.pt": "275f777c3f2848e279a486911a4a9a3c915c9f8db9632ed470ce6a0422a448d1",
+        "train.npz": "4be68a9597de5e9d40fbafae9b8fe4f662d6f49241b1e53a4e0221b71497537e",
+        "fit.json": "fec2477bb2beaa45bfa8353437072fb15e5a0d1eadc83833ccdac82e7b35c069"
+      }
+    },
+    {
+      "k": 1,
+      "seed": 2,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k1-s2",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k1-s2",
+      "sha256": {
+        "model.pt": "5bbc72334ab07cb44fe6348ac444a9f70d55051ed7d0b6705048ec3247d587f7",
+        "train.npz": "02017309d596397d27caf8721d2765b46fee1ff9a2315c19a8f44ec9c62e488b",
+        "fit.json": "3469876551dd7d422f01c904142406a811a3ecb6575649882ff038d44d7b5b93"
+      }
+    },
+    {
+      "k": 3,
+      "seed": 0,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k3-s0",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k3-s0",
+      "sha256": {
+        "model.pt": "3e17cb936cfdb7ec73f060f28407b873238900ebd803a979520f3a0d67679b62",
+        "train.npz": "49f42ee1bc22615db7d69944d2e344ada3e35d38786ca151fb839b347445768b",
+        "fit.json": "6dee828d9f7eb8383d51db7a486b8295fa7cf3c10bff11857defe5e3aa82506f"
+      }
+    },
+    {
+      "k": 3,
+      "seed": 1,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k3-s1",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k3-s1",
+      "sha256": {
+        "model.pt": "1e2705e6d753a4becdc79b85b27c5a2224a2b1b562bfd783349132b8cdb93ff4",
+        "train.npz": "16020fe435547403290631e54b65acd22c7743f90023e72d4dea7c57cfc3b087",
+        "fit.json": "41e6e54400d4082ca872a8693370a9cb41c6ffab842857809da9f4bcfcc9c2f2"
+      }
+    },
+    {
+      "k": 3,
+      "seed": 2,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k3-s2",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k3-s2",
+      "sha256": {
+        "model.pt": "7d9a7c73352d61ef05580b1646e1db2e8e061fe01867e125a80076aed6745b9c",
+        "train.npz": "11afb7f6350034e9d8999ec18c7a3bc5d156926f11c984a748a15d5ad78eda41",
+        "fit.json": "109d70295c5e084110b77ab4237e4fcff575a04e2991c593dfc4cfb71d4349d2"
+      }
+    },
+    {
+      "k": 10,
+      "seed": 0,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k10-s0",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k10-s0",
+      "sha256": {
+        "model.pt": "fad6285c0dc39c4e753f01c012b128aa5c972433b59c843e2345a5f37c1874e7",
+        "train.npz": "cb020a4d8912db1e0cc07399872c59a074b6140c942b2d2b4e84291979b6edca",
+        "fit.json": "2b1154d8dcd987a494856624ef27ed8d656ae0a01c9131c01a56769fe2039417"
+      }
+    },
+    {
+      "k": 10,
+      "seed": 1,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k10-s1",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k10-s1",
+      "sha256": {
+        "model.pt": "944722ec1669c362e62d7953784fa5ec67adc411ce2d7f438d185980c7893ec8",
+        "train.npz": "2cc9d23b289b7ecf8124a91465bad056b8a864e90c9f935251352f6e224ebc24",
+        "fit.json": "b51b0de2afe390c5c449a0ba3a538031dc9bd01a21fa89a91bd0f2718bf0a438"
+      }
+    },
+    {
+      "k": 10,
+      "seed": 2,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k10-s2",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k10-s2",
+      "sha256": {
+        "model.pt": "981901de09216fe62e0eefc574365e44c9461ddc5d6b5f098397d4f24555fed3",
+        "train.npz": "7f034264bfbab941f48c5809628baceb2010eafdd14e08030249e7a7e2a4ef2a",
+        "fit.json": "6c489bf1009e0fdf116aae685fbbf089e0b478dee7b88dd658a16118efd39880"
+      }
+    }
+  ],
+  "bp_adamw": "Outside post-training projection protocol; not run; first comparison row explicitly labels this.",
+  "prior_evidence": "Wave1 original-hbar projected arm produced identical boards/stops/moves; hbar differed only by averaging roundoff up to1.48e-7 relative. Omit this redundant control.",
+  "scope": "Exploratory low-data extension after successful higher-k screen; no final confirmation claim."
+}

@@ -1,0 +1,1028 @@
+# Classical Energies Learn to Reason 1,000$\times$ Faster than Looped Models
+
+Benjamin Hoover<sup>1</sup>    Hugh Blayney<sup>1</sup>    James C. R. Whittington<sup>1</sup>
+
+**arXiv:2611.17309v1 [cs.AI], 12 November 2026.**
+
+## Abstract
+
+Looped models have emerged as a prominent paradigm for reasoning, with successes on simple reasoning puzzles such as Sudoku-Extreme and Maze-Unique. However, these models can be unstable, slow to train, and use many parameters and FLOPs to solve simple puzzles. Descent on an energy not only mitigates these issues but also offers advantages: built-in early stopping, compute that adapts to problem difficulty, fast training without differentiating through a solver, and interpretable weights that learn the constraints of the puzzle. Here we demonstrate this with a learned version of Hopfield & Tank’s energy from the 80s, which we term CRAM, solves 99.996% of Sudoku-Extreme and 100% of Maze-Unique test puzzles after 42 ms and 132 ms of training on one GPU, at least 1,000${\times}$ faster than looped models on these tasks. CRAM also matches baseline looped models at their highest accuracy on Sudoku-Extreme using at least 282${\times}$ fewer inference FLOPs. Our work suggests two things. First, that energies are an extremely promising direction for training reasoning from data. Second, a caution against using trivially solvable benchmarks like Sudoku and Maze to test the scalability of looped reasoning techniques.
+
+<sup>1</sup> Prefrontal, London, United Kingdom. Correspondence to Benjamin Hoover `<ben@prefrontal.ai>`, James C.R. Whittington `<james@prefrontal.ai>`
+
+
+<a id="S1"></a>
+
+## 1 Introduction
+
+An emerging new paradigm for reasoning is looping, in which a layer, or block of layers, is repeatedly applied to produce an answer. Small looped models \[[62](#bib.bib62), [38](#bib.bib38)\] (millions of parameters) have had successes on simple benchmarks such as Sudoku and mazes. However, they are slow to train in part due to their use of truncated backprop-through-time (BPTT), and the reasons behind their successes remain unclear \[[2](#bib.bib2), [51](#bib.bib51)\].
+
+Energy minimization is a related framework that offers a principled approach to looping. Here, each loop step corresponds to a gradient descent step on an energy function. Minimizing energy offers many potential benefits, such as guaranteed stability, early stopping, and efficient training methods that bypass the need for BPTT. Indeed, looped reasoners have begun adopting the ideas of energy-based networks without adopting an explicit energy. Some train their updates to converge to attractors or fixed points, a guarantee intrinsic to energy network dynamics \[[36](#bib.bib36), [44](#bib.bib44)\]. Others learn when to stop with a separate halting network \[[28](#bib.bib28), [5](#bib.bib5), [62](#bib.bib62), [38](#bib.bib38)\]. Each of these desirable properties is generally added on top of the looped network through an extra head, loss, or module, and the network is trained by backpropagating through its repeated applications. With looped models rebuilding the desirable properties of an energy one at a time, we ask: why not learn the energy directly?
+
+It’s already known that constraint puzzles like Sudoku have a corresponding energy that, when minimized, solves the puzzle \[[34](#bib.bib34)\]. In the 1980’s, Hopfield and Tank showed how to hand-design an energy function that solves certain classes of logic problems \[[35](#bib.bib35)\]. It is, however, less well understood if an explicit energy can be learned from data to solve a wide array of reasoning problems.
+
+<a id="S1.F1"></a>
+
+![Figure 1](../figures/overview.png)
+
+[Original vector figure](../source/figures/overview.pdf)
+
+Figure 1: **CRAM learns an energy from solved puzzles in seconds, and the energy tells the search when to stop.** *Training* (left) pulls down the energy of each solution and pushes up the energy of negative samples, *without* differentiating through a reasoning trajectory (shown is a pseudolikelihood objective, [Eq. 5](#A4.E5)). On one H200, training takes 42 ms on Sudoku-Extreme and 132 ms on Maze-Unique, at least 1,000${\times}$ faster than the looped models of [Table 2](#S3.T2). *Reasoning* (right) clamps the clues of a new puzzle, starts several chains from random fills of the other cells (light-blue guesses; one board per chain), and minimizes the energy one cell at a time, using at least 282${\times}$ fewer inference FLOPs ([Fig. 2](#S4.F2)) than looped models at matched accuracy. The chains are independent, and the descent can be noisy, which lets a chain escape spurious local minima. The search stops when any chain’s energy falls below a stopping threshold fitted from the training solutions.
+
+Here, we develop a trainable version of the Hopfield-Tank energy and then learn the weights directly from puzzles. We call this tiny trainable energy, together with the recurrent dynamics that descend it at inference time, a Compact Reasoning Associative Memory (CRAM). We call it this because, as in a Hopfield network \[[32](#bib.bib32)\], its weights *memorize associations* between pairs of valid cells, and descent on the energy completes a corrupted pattern (i.e., a puzzle provided with only its clues). CRAM’s energy is a special case of the energies of modern Hopfield networks \[[40](#bib.bib40), [41](#bib.bib41)\].
+
+In this work we: 1) show that CRAM trains at least 1,000${\times}$ faster than modern looped models and reasons with at least 282${\times}$ fewer inference FLOPs on a variety of different puzzles (Sudoku-Extreme \[[62](#bib.bib62)\], Maze-Unique \[[36](#bib.bib36)\], and the N-Queens and graph-coloring sets of [Baek et al. \[3\]](#bib.bib3)); 2) show that CRAM provides a stopping test that allows compute to scale with the difficulty of a puzzle; 3) show that CRAM is data-efficient, learning interpretable weights from Sudoku-Extreme using an order of magnitude fewer training puzzles than looped models; 4) show that local training objectives train fastest compared to other methods of training the same energy — significantly faster than BPTT; and 5) show that a hand-set CRAM energy with few unique weights can solve every test puzzle from every benchmark exactly.
+
+CRAM represents the state of the art on speed and efficiency of looping to solve constraint puzzles, by several orders of magnitude. However, since these puzzles can be solved easily with so few parameters using CRAM, our work suggests that high accuracy on these benchmarks are not indicative of future performance on harder tasks. Indeed, CRAM’s simple energy on its own would struggle to learn more complex reasoning tasks like ARC-AGI \[[12](#bib.bib12)\], though we do show how a simple latent extension of CRAM can solve Maze-Hard near perfectly in [App. F](#A6). Nevertheless, the dramatic speed-up that this energy provides on the presented tasks offers a potential path forward for data-efficient general reasoning capabilities.
+
+<a id="S2"></a>
+
+## 2 Background
+
+CRAM’s energy is a form of **pairwise graphical model** in that it is a sum of costs on and between cells, as in the energy of a Markov random field (MRF) \[[7](#bib.bib7), [61](#bib.bib61)\]. Learning these costs goes by several names, such as constraint programming \[[54](#bib.bib54)\] or constraint acquisition \[[9](#bib.bib9), [6](#bib.bib6), [15](#bib.bib15)\]. Recent methods show that you can learn pairwise costs for Sudoku directly from solved puzzles, using approximate likelihood methods like those studied in this work \[[10](#bib.bib10), [16](#bib.bib16), [17](#bib.bib17)\]. However, to infer solutions to new puzzles, these methods pass the learned constraints to an external solver \[[13](#bib.bib13)\]. CRAM keeps this learning problem but uses neural optimization methods to replace the external solver with recurrent search on its own energy \[[35](#bib.bib35), [47](#bib.bib47)\].
+
+**Energy-based networks** treat an energy over a large search space of possible solutions as the objective of both training and inference. Training shapes the energy to be low at observed data; inference or “reasoning” minimizes the energy to sample low-energy solutions (see [Fig. 1](#S1.F1)) \[[32](#bib.bib32), [42](#bib.bib42)\]. Hopfield and Tank used a version of the Hopfield Network with continuous neurons to solve constraint problems like the Traveling Salesman Problem with hand-set weights \[[33](#bib.bib33), [35](#bib.bib35)\], and later work did the same for Sudoku \[[34](#bib.bib34)\]. CRAM writes these energies in a mean-field free energy form with learnable weights \[[47](#bib.bib47)\]. This form approximates the free energy of a Boltzmann machine, which have similarly been applied to logic and combinatorial problems \[[1](#bib.bib1), [30](#bib.bib30), [14](#bib.bib14), [59](#bib.bib59)\]. However, none of these energies have been trained by observing puzzle solutions alone.
+
+**Modern looped reasoners** use deep, weight-tied networks to learn puzzles directly from data. HRM and TRM popularized this design for Sudoku, mazes and ARC, building on recurrent relational networks and universal transformers \[[62](#bib.bib62), [38](#bib.bib38), [12](#bib.bib12), [46](#bib.bib46), [18](#bib.bib18)\]. Later works varied the architecture but kept the same training approach: backpropagating through the reasoning trajectory of a depth-recurrent model to refine the model’s prediction for a specified input \[[25](#bib.bib25), [3](#bib.bib3), [55](#bib.bib55), [24](#bib.bib24), [64](#bib.bib64), [39](#bib.bib39), [57](#bib.bib57), [52](#bib.bib52)\]. Some approaches use diffusion- and flow-style training to avoid BPTT \[[21](#bib.bib21), [64](#bib.bib64), [39](#bib.bib39), [29](#bib.bib29), [65](#bib.bib65), [57](#bib.bib57)\]. Others engineer fixed point behavior into deep models, training the update loop to converge to stable equilibria \[[36](#bib.bib36), [44](#bib.bib44), [29](#bib.bib29), [65](#bib.bib65), [23](#bib.bib23)\]. This last direction holds promise, since Hopfield & Tank already showed that these reasoning puzzles are naturally suited to fixed-point problems.
+
+**Energy-based looped models** encourage convergence by training an energy on top of a deep network, seeking to combine the best of looped models with advantages of Hopfield Networks and Boltzmann Machines \[[20](#bib.bib20), [21](#bib.bib21), [27](#bib.bib27), [43](#bib.bib43), [49](#bib.bib49), [66](#bib.bib66), [11](#bib.bib11)\]. For example, concurrent work Energy-Based Reasoners (EBR) \[[11](#bib.bib11)\] showcases several advantages of energy for looped model reasoning: it trains an energy on the latent states of a TRM-style transformer, descends it with noisy projected gradient steps, and stops when the gradient norm is small \[[11](#bib.bib11)\]. Though similar in spirit, these networks are much larger and slower than CRAM, and all of them learn through BPTT.
+
+<a id="S3"></a>
+
+## 3 Method
+
+The reasoning tasks studied in this work can be represented via $M$ answer variables called *cells*, each with up to $C$ candidate values. Therefore, an energy is assigned to each $M\times C$ belief array ${\color{#2A78D6}\boldsymbol{p}}$, whose (non-negative) entry ${\color{#2A78D6}p}_{ia}$ gives the probability of candidate value $a$ at cell $i$. Simply, ${\color{#2A78D6}\boldsymbol{p}}_{i}$ is modeled as a softmax distribution over possible answers for cell $i$.
+
+CRAM’s energy can be written as
+
+<a id="S3.E1"></a>
+
+$$
+E_{\boldsymbol{{\color{#EB6834}\theta}}}({\color{#2A78D6}\boldsymbol{p}})=\underbrace{\beta^{-1}\sum_{i}{\color{#2A78D6}\boldsymbol{p}}_{i}^{\!\top}\log{\color{#2A78D6}\boldsymbol{p}}_{i}}_{\mathclap{\text{\scriptsize negative entropy}}}+\underbrace{\frac{1}{2}\sum_{i\neq j}{\color{#2A78D6}\boldsymbol{p}}_{i}^{\!\top}\boldsymbol{{\color{#EB6834}K}}_{ij}{\color{#2A78D6}\boldsymbol{p}}_{j}}_{\mathclap{\text{\scriptsize interaction energy}}}+\underbrace{\sum_{i}\boldsymbol{{\color{#EB6834}B}}_{i}^{\top}{\color{#2A78D6}\boldsymbol{p}}_{i}}_{\mathclap{\text{\scriptsize input}}}, \tag{1}
+$$
+
+Throughout, blue identifies dynamic states and orange learned weights.
+
+with learnable parameters $\boldsymbol{{\color{#EB6834}\theta}}$ and inverse temperature $\beta>0$. For each pair of cells $i,j$, the matrix $\boldsymbol{{\color{#EB6834}K}}_{ij}\in\mathbb{R}^{C\times C}$ contains trainable “costs” for all pairs of candidate values. The vector $\boldsymbol{{\color{#EB6834}B}}_{i}\in\mathbb{R}^{C}$ is a “bias” that describes the cost of each belief at cell $i$. When ${\color{#2A78D6}\boldsymbol{p}}_{i}$ is one-hot, the entropy term is zero, and [Eq. 1](#S3.E1) is simply the sum of the pair and input costs of the chosen values. This energy is a mean-field free energy, which extends the energy of a continuous Hopfield network to $C$-state neurons \[[47](#bib.bib47), [33](#bib.bib33)\].
+
+##### Reasoning as energy minimization.
+
+CRAM infers solutions by recurrently minimizing the energy of [Eq. 1](#S3.E1) with a puzzle’s givens held fixed; this is termed *relaxation*. Each cell has an unconstrained recurrent neuron state ${\color{#2A78D6}\boldsymbol{v}}_{i}\in\mathbb{R}^{C}$ which is used as the logits for the belief ${\color{#2A78D6}\boldsymbol{p}}_{i}=\operatorname{softmax}(\beta{\color{#2A78D6}\boldsymbol{v}}_{i})$ over possible answer states. With time constant $\tau_{i}>0$, free neuron states evolve as the derivative of the energy,
+
+<a id="S3.E2"></a>
+
+$$
+\tau_{i}\frac{d{\color{#2A78D6}\boldsymbol{v}}_{i}}{dt}=-{\color{#2A78D6}\boldsymbol{v}}_{i}-\sum_{j}\boldsymbol{{\color{#EB6834}W}}_{ij}{\color{#2A78D6}\boldsymbol{p}}_{j}-\boldsymbol{{\color{#EB6834}B}}_{i}\simeq-\nabla_{{\color{#2A78D6}\boldsymbol{p}}_{i}}E_{\boldsymbol{{\color{#EB6834}\theta}}}({\color{#2A78D6}\boldsymbol{p}}), \tag{2}
+$$
+
+$\simeq$ denotes equality up to an additive scalar $c$, leaving ${\color{#2A78D6}\boldsymbol{p}}_{i}=\operatorname{softmax}(\beta{\color{#2A78D6}\boldsymbol{v}}_{i}+c)=\operatorname{softmax}(\beta{\color{#2A78D6}\boldsymbol{v}}_{i})$ unchanged.
+
+where $\boldsymbol{{\color{#EB6834}W}}_{ij}=(\boldsymbol{{\color{#EB6834}K}}_{ij}+\boldsymbol{{\color{#EB6834}K}}_{ji}^{\top})/2$ for $i\neq j$ pops out from the energy gradient, and $\boldsymbol{{\color{#EB6834}W}}_{ii}=\boldsymbol{0}$ (because the energy excludes self-interactions). We are able to update ${\color{#2A78D6}\boldsymbol{v}}_{i}$ using the gradient of $E$ w.r.t. ${\color{#2A78D6}\boldsymbol{p}}_{i}$ because the softmax is a monotonic function, so convergence to the same fixed ${\color{#2A78D6}\boldsymbol{p}}_{i}^{\star}$ is still guaranteed. With equal time constants $\tau$ and step size $\eta=\Delta t/\tau$, an Euler step of [Eq. 2](#S3.E2) is:
+
+<a id="S3.E3"></a>
+
+$$
+{\color{#2A78D6}\boldsymbol{v}}_{i}\leftarrow(1-\eta){\color{#2A78D6}\boldsymbol{v}}_{i}-\eta\Big(\sum_{j}\boldsymbol{{\color{#EB6834}W}}_{ij}{\color{#2A78D6}\boldsymbol{p}}_{j}+\boldsymbol{{\color{#EB6834}B}}_{i}\Big). \tag{3}
+$$
+
+With $\eta=1$, this is the one-step update ${\color{#2A78D6}\boldsymbol{v}}_{i}\leftarrow-\sum_{j}\boldsymbol{{\color{#EB6834}W}}_{ij}{\color{#2A78D6}\boldsymbol{p}}_{j}-\boldsymbol{{\color{#EB6834}B}}_{i}$, so each iteration is one layer of recurrence, as in looped models. For fixed parameters and temperature, the deterministic descent of [Eq. 2](#S3.E2) guarantees that the energy never increases in continuous time (i.e., $dE/dt\leq 0$, see [App. E](#A5)). We find that randomness during inference is important to help escape local minima and explore distinct solutions, so for our experiments we use a form of Gibbs sampling known as focused Gibbs search which prioritizes cell updates based on their local energy \[[35](#bib.bib35), [26](#bib.bib26)\]. The energy also provides a natural early-stopping criterion: search can stop either when a board’s energy is at most a threshold fitted from the training solutions, or when no single-cell change lowers the energy ([App. C](#A3)).
+
+##### Training shapes the energy.
+
+A common principle of energy-based learning is to lower the energy of observed solutions ${\color{#18A372}\boldsymbol{x}}\sim P_{\mathrm{data}}$, and raise that of competing answers or *negative samples* ${\color{#2A78D6}\boldsymbol{x}}^{-}\sim P_{\boldsymbol{{\color{#EB6834}\theta}}}$ favored by the model, where $P_{\boldsymbol{{\color{#EB6834}\theta}}}({\color{#2A78D6}\boldsymbol{x}}^{-})\propto\exp[-E_{\boldsymbol{{\color{#EB6834}\theta}}}({\color{#2A78D6}\boldsymbol{x}}^{-})]$ is the Boltzmann distribution induced by the model’s energy \[[1](#bib.bib1), [42](#bib.bib42)\]. This objective is depicted in [Fig. 1](#S1.F1) and mathematically described as
+
+<a id="S3.E4"></a>
+
+$$
+\nabla_{\boldsymbol{{\color{#EB6834}\theta}}}\mathcal{J}_{\mathrm{ML}}(\boldsymbol{{\color{#EB6834}\theta}})=\underbrace{\mathbb{E}_{{\color{#18A372}\boldsymbol{x}}\sim P_{\mathrm{data}}}\!\left[\nabla_{\boldsymbol{{\color{#EB6834}\theta}}}E_{\boldsymbol{{\color{#EB6834}\theta}}}({\color{#18A372}\boldsymbol{x}})\right]}_{\mathclap{\text{\scriptsize lower energy on data}}}-\underbrace{\mathbb{E}_{{\color{#2A78D6}\boldsymbol{x}}^{-}\sim P_{\boldsymbol{{\color{#EB6834}\theta}}}}\!\left[\nabla_{\boldsymbol{{\color{#EB6834}\theta}}}E_{\boldsymbol{{\color{#EB6834}\theta}}}({\color{#2A78D6}\boldsymbol{x}}^{-})\right]}_{\mathclap{\text{\scriptsize raise energy on model samples}}}. \tag{4}
+$$
+
+Throughout, green identifies training labels.
+
+Importantly, these methods *avoid differentiating through relaxation* (i.e., the looping of [Eq. 3](#S3.E3)). This can significantly reduce fitting cost compared to BPTT, which must propagate gradients through a reasoning trajectory.
+
+Raising energy on model samples (the second term of [Eq. 4](#S3.E4)) can be prohibitively expensive, and several methods approximate it with samples from short Markov chains or relaxations \[[31](#bib.bib31), [58](#bib.bib58), [45](#bib.bib45)\]. In this paper, we primarily use a *pseudolikelihood* (PL) objective for its combination of high accuracy, simplicity, and short fitting time on these tasks \[[8](#bib.bib8), [37](#bib.bib37)\], though other methods are similarly effective (see [Table 7](#A4.T7)). See [Apps. C](#A3) and [D.1](#A4.SS1) for training details.
+
+<a id="S3.T1"></a>
+
+Table 1: **Supplied priors by task.** $M{\times}C$ is the shape of the answer grid (num cells${\times}$num values). NParams is the total number of parameters available to train. NChains is the number of independent search chains per input: for N-Queens and graph coloring it is $N$, which varies in [Table 3](#S4.T3) ($N{=}1$ or $N{=}20$). Init is the value ${\color{#2A78D6}x}_{i}$ at the start of a search chain; $\mathcal{U}(C)$ draws it uniformly from the $C$ values.
+
+|  | **Sudoku-Extreme** | **Maze-Unique** | **N-Queens** $8{\times}8$ ($10{\times}10$) | **Graph coloring** 8 (10) |
+|----|----|----|----|----|
+| $M{\times}C$ | $81{\times}9$ | $900{\times}2$ | $64{\times}2$ ($100{\times}2$) | $8{\times}3$ ($10{\times}3$) |
+| $\boldsymbol{{\color{#EB6834}K}}_{ij}$ | $9{\times}9$ per cell pair | $2{\times}2$ per offset in $3{\times}3$ window | one cost per offset | $3{\times}3$ per pair + $3{\times}3$ per edge |
+| $\boldsymbol{{\color{#EB6834}B}}_{i}$ | free per cell | shared by all cells | shared by all cells | free per cell (vertex) |
+| **NParams** | 263K | 18 | 113 (181) | 7.3K (18.7K) |
+| **Priors** | digit augmentation | locality, translation invariance | relative position only | none |
+| **Input** | clues clamped | walls, endpoints clamped | given queens clamped | edges select per-edge tables |
+| **NChains** | 4 | 1 | $N$ | $N$ |
+| **Init** | ${\color{#2A78D6}x}_{i}\sim\mathcal{U}(C)$ | ${\color{#2A78D6}x}_{i}{=}1$ (open cells on) | ${\color{#2A78D6}x}_{i}{=}0$ (no queen) | ${\color{#2A78D6}x}_{i}\sim\mathcal{U}(C)$ |
+
+<a id="S3.T2"></a>
+
+Table 2: **CRAM trains faster and is more accurate and efficient than every looped baseline.** The table reports accuracies and FLOPs at each model’s listed inference setting. Note that we also report a hand-set CRAM energy (gray). Solved: mean $\pm$stdev test accuracy (%) over 3 training seeds. Params: nonzero, contributing params of the evaluated model. FLOPs/puzl: avg inference FLOPs per puzzle, including all search chains and failed searches ([App. C.2](#A3.SS2)). Fit time: wall clock of training seed 0 on one H200 ([App. C.2](#A3.SS2)); one run in a fresh process for each baseline, including initialization and compilation, and for CRAM the median of seven complete runs that follow a first run in the same process. More details in [App. C.1](#A3.SS1).
+
+**Sudoku-Extreme**
+
+| Model | Solved | Params | FLOPs/puzl | Fit time |
+|---|---:|---:|---:|---:|
+| [HRM](https://arxiv.org/abs/2506.21734) \[[62](#bib.bib62)\] | 54.62 ±4.18 | 27.0M | 2.20e11 | 1.2 h |
+| [TRM](https://arxiv.org/abs/2510.04871) \[[38](#bib.bib38)\] | 85.73 ±0.74 | 5.0M | 4.11e11 | 2.5 h |
+| [GRAM](https://arxiv.org/abs/2605.19376) \[[3](#bib.bib3)\] | 96.10† | 9.1M | 8.51e12 | 3.2 h |
+| [EqR](https://arxiv.org/abs/2605.21488) \[[36](#bib.bib36)\] | 99.49 ±0.14 | 5.0M | 2.11e14 | 2.0 h |
+| [FRM](https://arxiv.org/abs/2606.29150) \[[29](#bib.bib29)\] | 99.13 ±0.29 | 7.0M | 3.91e12 | 2.9 h |
+| [TRMP§](https://arxiv.org/abs/2610.18649) \[[52](#bib.bib52)\] | 99.87 ±0.08 | 32.8K | 4.57e12 | 9.0 h |
+| [EBR](https://energy-based-reasoners.github.io/) \[[11](#bib.bib11)\] | 99.85 ±0.05 | 1.8M | 3.37e11 | 2.8 h |
+| **CRAM** | **100.00** ±0.00 | **7.7K** | **2.02e9** | **0.04 s** |
+| (hand-set)‡ | 100.00 ±0.00 | 1 | 1.08e8 | none |
+
+**Maze-Unique**
+
+| Model | Solved | Params | FLOPs/puzl | Fit time |
+|---|---:|---:|---:|---:|
+| [HRM](https://arxiv.org/abs/2506.21734) \[[62](#bib.bib62)\] | 39.97 ±33.90 | 27.0M | 3.01e12 | 7.1 h |
+| [TRM](https://arxiv.org/abs/2510.04871) \[[38](#bib.bib38)\] | 92.23 ±13.37 | 6.8M | 3.84e12 | 15.6 h |
+| [GRAM](https://arxiv.org/abs/2605.19376) \[[3](#bib.bib3)\] | 98.63 ±1.31 | 10.9M | 8.00e13 | 23.2 h |
+| [EqR](https://arxiv.org/abs/2605.21488) \[[36](#bib.bib36)\] | 93.00† | 263.8K | 1.16e14 | 7.2 h |
+| [FRM](https://arxiv.org/abs/2606.29150) \[[29](#bib.bib29)\] | 97.27 ±2.80 | 8.0M | 4.70e12 | 9.7 h |
+| [TRMP§](https://arxiv.org/abs/2610.18649) \[[52](#bib.bib52)\] | 99.23 ±0.31 | 60.7K | 1.80e13 | 7.6 h |
+| [EBR](https://energy-based-reasoners.github.io/) \[[11](#bib.bib11)\] | 89.80 ±6.35 | 1.8M | 1.93e13 | 2.0 h |
+| **CRAM** | **100.00** ±0.00 | **18** | **8.37e5** | **0.13 s** |
+| (hand-set)‡ | 100.00 ±0.00 | 3 | 8.37e5 | none |
+
+† published accuracy, shown where our three-seed reproduction scored lower.\
+‡ Hand-set: CRAM with weights set by hand from the task’s rules. Params counts unique nonzero values.\
+§ TRMP’s abstract also reports a 16k-parameter lattice model that trains in about ten minutes; it pairs the network with a hand-written search (candidate elimination, random commits and restarts). Our reimplementation solves 98.90% of Sudoku-Extreme after a 13m28s fit ([App. C.8](#A3.SS8)).
+
+<a id="S4"></a>
+
+## 4 Experiments
+
+In our experiments, a learned energy loses no accuracy against looped models, trains at least 1,000${\times}$ faster, and uses less inference compute ([Sec. 4.1](#S4.SS1)). Its stopping test lets compute follow the difficulty of a puzzle, and its learned weights can be read as the rules of a puzzle ([Sec. 4.2](#S4.SS2)). It trains fastest with local objectives, and from few training puzzles ([Sec. 4.3](#S4.SS3)). Finally, we show that simple CRAM energies whose weights are set by hand from the rules of each task solves all tested benchmarks at least as accurately as every trained baseline, using at most three unique weights ([Sec. 4.3](#S4.SS3.SSS0.Px3)).
+
+##### Tasks.
+
+We evaluate CRAM on four reasoning tasks: Sudoku-Extreme \[[62](#bib.bib62)\] (a set of hard $9\times 9$ Sudoku puzzles), Maze-Unique \[[36](#bib.bib36)\] (a set of $30\times 30$ mazes whose answer is the unique path between two endpoints), N-Queens, and Graph Coloring \[[3](#bib.bib3), [11](#bib.bib11)\] (tasks that have many valid answers per input). Every task trains the pairwise energy of [Eq. 1](#S3.E1), and we specify how each task informs the structure of CRAM’s weights in [Table 1](#S3.T1). In no task is the energy told the rules of a puzzle.
+
+##### Baselines.
+
+We test against HRM \[[62](#bib.bib62)\], Tiny Recursive Model (TRM) \[[38](#bib.bib38)\], Generative Recursive Reasoning (GRAM) \[[3](#bib.bib3)\], Equilibrium Reasoners (EqR) \[[36](#bib.bib36)\], Flow Reasoning Models (FRM) \[[29](#bib.bib29)\], Tiny Recursive Message Passing (TRMP) \[[52](#bib.bib52)\] and Energy Based Reasoners (EBR) \[[11](#bib.bib11)\]. Where available, we retrain each baseline with its authors’ code and recipe on one H200 for timing and score each baseline with its published inference setting.[^trmp-training] We score every method on the same test set of each task, and no method chooses a setting or a checkpoint on the test set ([App. C.1](#A3.SS1)). CRAM and each baseline trains with three seeds, and we report the mean over the three runs. We compare only against models that produce the answer by their own recurrent computation. Methods that pass learned costs to an external exact solver \[[10](#bib.bib10), [16](#bib.bib16), [17](#bib.bib17)\] are outside the scope of this work.
+
+##### Training CRAM.
+
+CRAM weights are initialized to zero and are trained to minimizes the PL objective of [Eq. 5](#A4.E5) at the labeled solutions using with SGD with momentum and a cosine schedule. The priors of [Table 1](#S3.T1) enter as shared weights or, on Sudoku-Extreme, as digit relabeling of the training boards. We take the final trained model and do not select a best performing checkpoint when reporting CRAM’s results ([App. C](#A3)). Training runs finish by computing the stopping threshold from the training solutions (their highest energy plus a small tolerance); reported fit times include this step.
+
+<a id="S4.F2"></a>
+
+![Figure 2](../figures/compute-couplings.png)
+
+[Original vector figure](../source/figures/compute-couplings.pdf)
+
+Figure 2: **(a) CRAM matches each looped model’s highest accuracy using at least 282${\times}$ fewer inference FLOPs.** Each point is one method showing what fraction of a 10,000 Sudoku-Extreme test puzzle was solved within a given inference budget, reported as the mean accuracy over three training runs with error bars spanning the lowest to the highest run. The arrow joins the most accurate point of EBR, the cheapest looped model, to the cheapest CRAM point that solves at least as many puzzles. The upper panel zooms into the top 2% shaded are of the lower panel. CRAM, TRMP and EBR points include early stopping, and FLOPs include the full reasoning search including every search chain (see [App. C.2](#A3.SS2) for details). **(b) CRAM learns weights that describe the reasoning task.** Maze-Unique learns 3${\times}$3 shared weights, shown in units of the mean coupling to the four side neighbours, that describe a dead-end pruning algorithm for solving Maze-Unique, by exclusively observing valid maze solutions. On Sudoku-Extreme, CRAM learns correct sudoku costs despite receiving no positional constraint graph. Trained weights for sudoku and maze correspond to the CRAM model reported in [Table 2](#S3.T2).
+
+<a id="S4.SS1"></a>
+
+### 4.1 Comparison with looped models
+
+##### High accuracy at small sizes and fast training.
+
+Does a CRAM energy that learns from solved puzzles reach the accuracy of looped models, and at what cost? [Table 2](#S3.T2) compares CRAM with the seven looped baselines on Sudoku-Extreme and Maze-Unique. On both tasks, CRAM is the most accurate method, solving 99.996% of the Sudoku-Extreme test puzzles and every Maze-Unique test maze. The most accurate looped model, TRMP, solves 99.87% and 99.23%. CRAM reaches this accuracy with thousands of times less training time than every looped model. All results are trained from examples except the gray rows of [Table 2](#S3.T2), which are a reference for an optimal CRAM energy that is coded by hand from the puzzles explicit constraints ([Sec. 4.3](#S4.SS3.SSS0.Px3)).
+
+##### Efficient inference.
+
+Each method has a setting that allows us to vary its maximum allowed inference budget: the number of reasoning steps (HRM, TRM, FRM), restarts (EqR), sampled trajectories (GRAM, EBR), rollouts (TRMP), or for CRAM, the number of allowed search moves. By sweeping across allowed inference budgets of each method on 10,000 Sudoku-Extreme test puzzles, we can get a simple “scaling law” plot for inference compute, as shown in [Fig. 2](#S4.F2)a. On this plot, CRAM uses between 282${\times}$ (against EBR) and 128,000${\times}$ (against EqR) fewer FLOPs than the looped models when compared at each baseline’s most accurate setting. CRAM reaches EBR’s top accuracy (99.86%) using $1.9\times 10^{9}$ FLOPs per puzzle vs EBR’s $5.4\times 10^{11}$ FLOPs. At max accuracy, CRAM solves 99.997% of the puzzles with a mean of $2.0\times 10^{9}$ FLOPs per puzzle. Note that CRAM never returns a wrong answer, it only “misses” where a search reaches its budget before any board passes the stopping threshold.
+
+##### Diverse valid solutions.
+
+N-Queens and graph coloring test whether the same energy finds many different answers. Since both have many solutions per input, we follow GRAM and EBR \[[3](#bib.bib3), [11](#bib.bib11)\] and report two scores in [Table 3](#S4.T3): the accuracy of a single answer (out of $N=1$ or $N=20$ chains), and a valid-diversity score over 20 samples (Cov@20). CRAM’s learned energy performs competitively to the best looped baselines across all metrics, despite training in seconds. Note that every Cov@20 value here comes from EBR’s evaluator, since GRAM publishes values from a different normalizer.
+
+<a id="S4.T3"></a>
+
+Table 3: **CRAM matches larger baselines on N-Queens and graph coloring.** Both N-Queens on $8{\times}8$ and $10{\times}10$ boards and graph coloring of graphs with 8 and 10 vertices are evaluated on GRAM’s test sets. All numbers report mean $\pm$stdev over three training seeds; the best learned value of each row is in bold. Acc.: test inputs whose kept answer is correct (%); $N{=}1$ keeps one sample, and $N{=}20$ keeps the majority vote of 20 samples for GRAM and the lowest-energy sample of 20 for EBR and CRAM; TRM and HRM are deterministic, so their two values are equal. Cov@20: share of each input’s solutions found by 20 samples (%). Conflict: conflicting edges of the kept answer, summed over the test graphs. Params: as in [Table 2](#S3.T2); each task trains its own model. Fit time: training seed 0 on one H200; one run for each baseline, and for CRAM the median of seven runs that follow a first run in the same process ([App. C.5](#A3.SS5)).
+
+**N-Queens $8\times8$**
+
+| Metric | [HRM](https://arxiv.org/abs/2506.21734) \[[62](#bib.bib62)\] | [TRM](https://arxiv.org/abs/2510.04871) \[[38](#bib.bib38)\] | [GRAM](https://arxiv.org/abs/2605.19376) \[[3](#bib.bib3)\] | [EBR](https://energy-based-reasoners.github.io/) \[[11](#bib.bib11)\] | **CRAM** | (hand-set)‡ |
+|---|---:|---:|---:|---:|---:|---:|
+| Acc., $N=1$ | 84.41 ±2.2 | 67.39 ±6.8 | 99.44 ±0.2 | **100.00** ±0.0 | 99.95 ±0.0 | 100.00 ±0.0 |
+| Acc., $N=20$ | 84.41 ±2.2 | 67.39 ±6.8 | **100.00** ±0.0 | 99.95 ±0.1 | **100.00** ±0.0 | 100.00 ±0.0 |
+| Cov@20 | 58.8 ±0.6 | 51.4 ±3.1 | 97.9 ±0.2 | **98.1** ±0.2 | 97.9 ±0.1 | 98.4 ±0.0 |
+| Params | 27.3M | 6.8M | 10.9M | 7.1M | **113** | 2 |
+| Fit time | 59 min | 1.3 h | 1.3 h | 3.2 h | **2.9 s** | none |
+
+**N-Queens $10\times10$**
+
+| Metric | [HRM](https://arxiv.org/abs/2506.21734) \[[62](#bib.bib62)\] | [TRM](https://arxiv.org/abs/2510.04871) \[[38](#bib.bib38)\] | [GRAM](https://arxiv.org/abs/2605.19376) \[[3](#bib.bib3)\] | [EBR](https://energy-based-reasoners.github.io/) \[[11](#bib.bib11)\] | **CRAM** | (hand-set)‡ |
+|---|---:|---:|---:|---:|---:|---:|
+| Acc., $N=1$ | 37.80† | 17.50† | 88.91 ±3.1 | 99.31 ±0.3 | **99.45** ±0.1 | 99.99 ±0.0 |
+| Acc., $N=20$ | 37.80† | 17.50† | 99.98 ±0.0 | **99.99** ±0.0 | **99.99** ±0.0 | 100.00 ±0.0 |
+| Cov@20 | 10.7 ±4.0 | 3.3 ±3.6 | 92.9 ±0.3 | 92.5 ±0.7 | **93.6** ±0.1 | 95.5 ±0.0 |
+| Params | 27.3M | 6.8M | 10.9M | 7.1M | **181** | 2 |
+| Fit time | 4.0 h | 5.0 h | 5.2 h | 7.6 h | **6.8 s** | none |
+
+**Graph coloring, 8 vertices**
+
+| Metric | [HRM](https://arxiv.org/abs/2506.21734) \[[62](#bib.bib62)\] | [TRM](https://arxiv.org/abs/2510.04871) \[[38](#bib.bib38)\] | [GRAM](https://arxiv.org/abs/2605.19376) \[[3](#bib.bib3)\] | [EBR](https://energy-based-reasoners.github.io/) \[[11](#bib.bib11)\] | **CRAM** | (hand-set)‡ |
+|---|---:|---:|---:|---:|---:|---:|
+| Conflict, $N=1$ | 139.7 ±10.7 | 118.0 ±15.5 | 3.3 ±2.5 | **0.0** ±0.0 | **0.0** ±0.0 | 0.0 ±0.0 |
+| Conflict, $N=20$ | 139.7 ±10.7 | 118.0 ±15.5 | 3.3 ±1.2 | 2.7 ±4.6 | **0.0** ±0.0 | 0.0 ±0.0 |
+| Cov@20 | 20.6 ±0.4 | 21.8 ±0.8 | 87.9 ±0.6 | **88.9** ±0.1 | **88.9** ±0.5 | 90.6 ±0.6 |
+| Params | 27.3M | 6.8M | 10.9M | 7.1M | **869** | 1 |
+| Fit time | 41 min | 54 min | 53 min | 4.5 h | **1.3 s** | none |
+
+**Graph coloring, 10 vertices**
+
+| Metric | [HRM](https://arxiv.org/abs/2506.21734) \[[62](#bib.bib62)\] | [TRM](https://arxiv.org/abs/2510.04871) \[[38](#bib.bib38)\] | [GRAM](https://arxiv.org/abs/2605.19376) \[[3](#bib.bib3)\] | [EBR](https://energy-based-reasoners.github.io/) \[[11](#bib.bib11)\] | **CRAM** | (hand-set)‡ |
+|---|---:|---:|---:|---:|---:|---:|
+| Conflict, $N=1$ | 182.7 ±17.8 | 169.0 ±20.3 | 52.7 ±82.6 | **0.3** ±0.6 | **0.3** ±0.6 | 0.0 ±0.0 |
+| Conflict, $N=20$ | 182.7 ±17.8 | 169.0 ±20.3 | 52.7 ±83.4 | 0.7 ±1.2 | **0.0** ±0.0 | 0.0 ±0.0 |
+| Cov@20 | 6.2 ±0.9 | 6.9 ±0.5 | 37.8 ±24.7 | **54.8** ±0.2 | 52.6 ±0.6 | 55.2 ±0.4 |
+| Params | 27.3M | 6.8M | 10.9M | 7.1M | **475** | 1 |
+| Fit time | 1.7 h | 2.1 h | 2.2 h | 7.6 h | **0.3 s** | none |
+
+N-Queens Cov@20 follows EBR’s evaluator, normalizing over every valid solution per puzzle. GRAM reports a different normalizer.
+
+† published accuracy, shown where our three-seed reproduction scored lower.
+
+‡ Hand-set: CRAM with weights set by hand from the task’s rules. Params counts unique nonzero values.
+
+<a id="S4.SS2"></a>
+
+### 4.2 Advantages of explicit energy
+
+##### Compute that adapts to difficulty.
+
+CRAM’s search stops at the first board whose energy is at most the threshold fitted from the training solutions, which lets CRAM dynamically adjust its compute to follow problem difficulty. When we bin the 10,000 test puzzles of [Fig. 2](#S4.F2)a by the difficulty rating of the dataset ([Fig. 3](#S4.F3)a), the median compute of CRAM grows 22${\times}$ from the easiest bin to the hardest. In contrast, FRM spends the same compute for every puzzle and EBR, whose gradient-norm stopping rule enables early stopping for Sudoku, barely changes compute needs across puzzle difficulty. Note that the stopping test of CRAM is also reliable: it never stops at an incorrect board, whereas the halting rules of HRM, TRM, EqR, TRMP and EBR each stop at an incorrect board on 0.05–3.54% of the puzzles that they stop on ([Table 4](#A1.T4)).
+
+<a id="S4.F3"></a>
+
+![Figure 3](../figures/difficulty-data-efficiency.png)
+
+[Original vector figure](../source/figures/difficulty-data-efficiency.pdf)
+
+Figure 3: **(a) CRAM’s compute grows gently with puzzle difficulty.** The 10,000 Sudoku-Extreme test puzzles of [Fig. 2](#S4.F2) are binned by difficulty rating provided by the dataset, where each tick gives the lowest rating of its bin (0, 1, 2–3, 4–7, 8–15, 16–31, 32–63, and 64+). FRM uses static compute for every puzzle, whereas both CRAM and EBR implement early stopping. EBR’s early stop barely lowers its compute on easy puzzles: its median stays between 3.3 and $4.2\times 10^{11}$ FLOPs in every bin, near its minimum cost. Top: median FLOPs per puzzle, with bands spanning the 10th to 90th percentiles. Bottom: test accuracy, median over three training runs, with bands spanning the runs. **(b) CRAM is data efficient, learning Sudoku using an order of magnitude fewer examples.** Shown is model accuracy on the same 10,000 test puzzles vs. the number of unique training puzzles seen in the data (each data point is augmented with the same 99 augmentations). Points connect the median value across 6 training runs.
+
+##### Inspectable learned weights.
+
+The nature of these logic puzzles mean we can read the rules of the puzzle directly from CRAM’s learned weights ([Fig. 2](#S4.F2)b). Despite receiving no task-informed constraints for Sudoku, in every training run CRAM learned to put positive equal-digit costs on exactly the 810 cell pairs that share a row, column or box, leaving all other costs zero. On Maze-Unique, the 18 learned costs make each move of the search turn off one dead-end cell, which is dead-end filling \[[50](#bib.bib50)\], a local rule that solves every perfect maze ([App. C.4](#A3.SS4)).
+
+<a id="S4.SS3"></a>
+
+### 4.3 Training the energy
+
+##### Characterizing fast training objectives.
+
+All results above use pseudolikelihood (PL), but the energy of [Eq. 1](#S3.E1) accepts many other training methods. We compare three classes of training methods on Sudoku-Extreme to see which methods train CRAM the fastest (wall-clock time on a single H200). *Local objectives* such as PL are evaluated directly at the labeled solution, with no unrolled trajectory during training. *Sampling-based methods* draw the negative samples of [Eq. 4](#S3.E4) by unrolling the model, but no differentiation is taken through those unrolled trajectories. A third class *differentiates through the relaxation* of [Eq. 2](#S3.E2). This is how looped models are traditionally trained, using truncated or full BPTT, but it also includes methods that approximate BPTT such as implicit differentiation \[[48](#bib.bib48), [4](#bib.bib4)\]. [Fig. 4](#S4.F4) shows that local objectives like pseudolikelihood and min probability flow \[[56](#bib.bib56)\] train fastest, followed by short, truncated BPTT. Contrastive divergence follows, and full BPTT (training through all 10 unrolled relaxation steps) fails to solve more than 48.8% after 5 h of training. Full comparison of results are in [Table 7](#A4.T7) of [App. D](#A4).
+
+##### Data efficient learning.
+
+CRAM is data efficient. [Fig. 3](#S4.F3)b explores how many unique Sudoku-Extreme training puzzles are needed to solve a 10k Sudoku-Extreme test set. Each method is provided the same unique puzzles, symmetrically augmented an additional 99 times. On this dataset, CRAM needs an order of magnitude fewer puzzles to reach 98% accuracy than looped models, using only 30 unique puzzles to EBR’s 700. Interestingly, TRM solves the most test puzzles in the extremely data-limited regime ($<10$ puzzles), but it scales much slower than both energy-based methods. In the low-data regime, CRAM converged to many incorrect solutions.
+
+<a id="S4.SS3.SSS0.Px3"></a>
+
+##### Hand-set energies perform best.
+
+In [Tables 2](#S3.T2) and [3](#S4.T3), we compare a CRAM energy whose weights were set by hand using the rules of a task ([App. C.7](#A3.SS7)). Under the same search as learned CRAM, the hand-set energies solve every Sudoku, Maze, N-Queens, and Graph Coloring test puzzle, using up to 19${\times}$ fewer inference FLOPs than a learned energy on Sudoku. On both N-Queens and Graph Coloring, hand-set CRAM is the top performing model across all metrics and board sizes. A high score on these benchmarks therefore only shows that a model has learned a few pairwise rules between answer cells—a gentle caution against throwing larger looping models at these reasoning problems.
+
+<a id="S4.F4"></a>
+
+![Figure 4](../figures/alt-training.png)
+
+[Original vector figure](../source/figures/alt-training.pdf)
+
+Figure 4: **Local methods that avoid sampling the energy train significantly faster.** We train CRAM with five objectives, the four named below and one-step BPTT \[[62](#bib.bib62)\], and plot the mean solve rate on 512 Sudoku-Extreme development puzzles over 20 training runs against training time. Bands span the 25th to 75th percentile of the runs. The mean reaches 99% (circles) after 48 ms with pseudolikelihood \[[8](#bib.bib8)\] and 0.21 s with minimum probability flow \[[56](#bib.bib56)\], against 4.4 s with one-step BPTT and 33 s with contrastive divergence \[[31](#bib.bib31)\]. Full BPTT \[[63](#bib.bib63)\] ends at a mean of 27% after 245 s, still rising at the end of its schedule; with 3,840,000 updates (about 5 h) it solves 48.8% of test puzzles. Training times include fitting the stopping threshold from the training solutions (24–75 ms) and exclude each run’s one-time start-up (0.08–0.30 s), as do the $T_{99}$ times of [Table 7](#A4.T7), which compares twelve methods on Sudoku-Extreme and Maze-Unique; [App. D](#A4) gives details of each objective.
+
+<a id="S5"></a>
+
+## 5 Discussion
+
+Recent work has suggested the looping provides an alternative to chain-of-thought on reasoning tasks. In this work, we have used the formal framework of energies to provide a concrete basis for looped models, in which convergence is guaranteed, computations can adapt to problem difficulty, and BPTT can be avoided. We introduced a specific trainable energy, CRAM, and have shown that it is able to learn a suite of commonly used reasoning benchmarks three orders of magnitude faster than other looped methods.
+
+We note that all results with fit times are wall-clock times on a shared cluster, so they vary with concurrent work on a node. For any model that trains on the order of seconds or minutes, where compilation could meaningfully affect reported training times, we report warm fit times that avoid one-time startup costs, such as kernel loading and compilation (see [App. C.2](#A3.SS2)). Longer runs report cold-fit times.
+
+The puzzles evaluated in this work—Sudoku-Extreme \[[62](#bib.bib62)\], Maze-Unique \[[36](#bib.bib36)\], and the N-Queens and graph-coloring sets of [Baek et al. \[3\]](#bib.bib3)—belong to a category of logic puzzles that CRAM’s pairwise energy can represent exactly \[[35](#bib.bib35), [34](#bib.bib34)\]. In fact, [Table 2](#S3.T2) shows that a hand-set CRAM energy with one unique weight value solves every Sudoku-Extreme test puzzle, and one with three values solves every Maze-Unique test maze. High accuracy on these logic benchmarks therefore does not indicate that a model can scale to harder tasks such as ARC-AGI-1 \[[62](#bib.bib62), [12](#bib.bib12)\], where the answer depends on quantities that the model must compute from the visible board, such as each cell’s distance to the goal in Maze-Hard. In [App. F](#A6), we show how a simple latent extension of CRAM can learn nearly all of the 1,000 Maze-Hard test mazes, but learning such latent quantities in general and without foreknowledge of the task’s design remains an important open research direction to scale these energies to harder reasoning tasks.
+
+Building efficient reasoning models that are applicable to general tasks is a central challenge in AI research. Our results indicate that energy is a powerful framework for reasoning on constraint puzzles, offering almost 300${\times}$ faster inference and 1,000${\times}$ faster training than looped models with no loss in accuracy. Though the energy studied here is not a final answer for all reasoning tasks, it showcases the incredible benefit that an explicit energy provides, and provides a promising path towards data-efficient general reasoning capabilities.
+
+## Acknowledgments
+
+We thank Ales Kubicek, Kai Sandbrink, Andrea Caciolai, Fraser Greenlee, Liangzu Peng, Zihan Yan, Sukrit Sumant, Alec Helbling, and Adrian Rodriguez for insightful discussions and feedback.
+
+[^trmp-training]: The training code of TRMP is not released, so we reimplement TRMP from the recipe in its paper ([App. C.8](#A3.SS8)).
+
+
+## References
+
+<a id="bib.bib1"></a>
+
+\[1\] David H Ackley, Geoffrey E Hinton, and Terrence J Sejnowski. A learning algorithm for boltzmann machines. *Cognitive science*, 9(1):147–169, 1985.
+  
+<a id="bib.bib2"></a>
+
+\[2\] ARC Prize Team. The hidden drivers of HRM’s performance on ARC-AGI. ARC Prize blog, August 2025. URL <https://arcprize.org/blog/hrm-analysis>.
+  
+<a id="bib.bib3"></a>
+
+\[3\] Junyeob Baek, Mingyu Jo, Minsu Kim, Mengye Ren, Yoshua Bengio, and Sungjin Ahn. Generative recursive reasoning. *arXiv preprint arXiv:2605.19376*, 2026.
+  
+<a id="bib.bib4"></a>
+
+\[4\] Shaojie Bai, J Zico Kolter, and Vladlen Koltun. Deep equilibrium models. *Advances in neural information processing systems*, 32, 2019.
+  
+<a id="bib.bib5"></a>
+
+\[5\] Andrea Banino, Jan Balaguer, and Charles Blundell. Pondernet: Learning to ponder. In *8th ICML Workshop on Automated Machine Learning (AutoML)*, 2021. URL <https://openreview.net/forum?id=1EuxRTe0WN>.
+  
+<a id="bib.bib6"></a>
+
+\[6\] Nicolas Beldiceanu and Helmut Simonis. A model seeker: Extracting global constraint models from positive examples. In *International Conference on Principles and Practice of Constraint Programming*, pages 141–157. Springer, 2012.
+  
+<a id="bib.bib7"></a>
+
+\[7\] Julian Besag. Spatial interaction and the statistical analysis of lattice systems. *Journal of the Royal Statistical Society: Series B (Methodological)*, 36(2):192–225, 1974.
+  
+<a id="bib.bib8"></a>
+
+\[8\] Julian Besag. Statistical analysis of non-lattice data. *Journal of the Royal Statistical Society. Series D (The Statistician)*, 24(3):179–195, 1975. ISSN 00390526, 14679884. URL <http://www.jstor.org/stable/2987782>.
+  
+<a id="bib.bib9"></a>
+
+\[9\] Christian Bessiere, Frédéric Koriche, Nadjib Lazaar, and Barry O’Sullivan. Constraint acquisition. *Artificial Intelligence*, 244:315–342, 2017.
+  
+<a id="bib.bib10"></a>
+
+\[10\] Céline Brouard, Simon de Givry, and Thomas Schiex. Pushing data into CP models using graphical model learning and solving. In *Principles and Practice of Constraint Programming: 26th International Conference, CP 2020, Louvain-La-Neuve, Belgium, September 7–11, 2020, Proceedings*, page 811–827, Berlin, Heidelberg, 2020. Springer-Verlag. ISBN 978-3-030-58474-0. doi: 10.1007/978-3-030-58475-7_47. URL <https://doi.org/10.1007/978-3-030-58475-7_47>.
+  
+<a id="bib.bib11"></a>
+
+\[11\] William Xingxu Chen, Alexi Gladstone, Zeyu Michael Li, Heng Ji, and Yilun Du. Energy-based reasoners: Your recurrent reasoner should be an energy-based model, 2026. URL <https://arxiv.org/abs/2611.08977>.
+  
+<a id="bib.bib12"></a>
+
+\[12\] François Chollet. On the measure of intelligence. *arXiv preprint arXiv:1911.01547*, 2019.
+  
+<a id="bib.bib13"></a>
+
+\[13\] Martin C Cooper, Simon De Givry, Martı Sánchez, Thomas Schiex, Matthias Zytnicki, and Tomas Werner. Soft arc consistency revisited. *Artificial Intelligence*, 174(7-8):449–478, 2010.
+  
+<a id="bib.bib14"></a>
+
+\[14\] Alicia d’Anjou, Manuel Grana, Francisco Javier Torrealdea, and MC Hernandez. Solving satisfiability via boltzmann machines. *IEEE Transactions on pattern analysis and machine intelligence*, 15(5):514–521, 1993.
+  
+<a id="bib.bib15"></a>
+
+\[15\] Luc De Raedt, Andrea Passerini, and Stefano Teso. Learning constraints from examples. In *Proceedings of the AAAI conference on artificial intelligence*, volume 32, 2018.
+  
+<a id="bib.bib16"></a>
+
+\[16\] Marianne Defresne, Sophie Barbe, and Thomas Schiex. Scalable coupling of deep learning with logical reasoning. In Edith Elkind, editor, *Proceedings of the Thirty-Second International Joint Conference on Artificial Intelligence, IJCAI-23*, pages 3615–3623. International Joint Conferences on Artificial Intelligence Organization, 8 2023. doi: 10.24963/ijcai.2023/402. URL <https://doi.org/10.24963/ijcai.2023/402>. Main Track.
+  
+<a id="bib.bib17"></a>
+
+\[17\] Marianne Defresne, Romain Gambardella, Sophie Barbe, and Thomas Schiex. Scaling neuro-symbolic problem solving: Solver-free learning of constraints and objectives. *Journal of Artificial Intelligence Research*, 85, 2026.
+  
+<a id="bib.bib18"></a>
+
+\[18\] Mostafa Dehghani, Stephan Gouws, Oriol Vinyals, Jakob Uszkoreit, and Lukasz Kaiser. Universal transformers. In *International Conference on Learning Representations*, 2019. URL <https://openreview.net/forum?id=HyzdRiR9Y7>.
+  
+<a id="bib.bib19"></a>
+
+\[19\] Yilun Du and Igor Mordatch. Implicit generation and modeling with energy based models. *Advances in neural information processing systems*, 32, 2019.
+  
+<a id="bib.bib20"></a>
+
+\[20\] Yilun Du, Shuang Li, Joshua Tenenbaum, and Igor Mordatch. Learning iterative reasoning through energy minimization. In *International Conference on Machine Learning*, pages 5570–5582. PMLR, 2022.
+  
+<a id="bib.bib21"></a>
+
+\[21\] Yilun Du, Jiayuan Mao, and Joshua B. Tenenbaum. Learning iterative reasoning through energy diffusion. In *Proceedings of the 41st International Conference on Machine Learning*, volume 235 of *Proceedings of Machine Learning Research*, pages 11764–11776. PMLR, 21–27 Jul 2024. URL <https://proceedings.mlr.press/v235/du24f.html>.
+  
+<a id="bib.bib22"></a>
+
+\[22\] Mayalen Etcheverry, Pietro Miotti, Aidan Sirbu, Konstantin Schürholt, Mariia Drozdova, Arna Ghosh, Blaise Agüera y Arcas, James Manyika, Blake Richards, and Eyvind Niklasson. Reasoning with neural cellular automata, 2026. URL <https://arxiv.org/abs/2609.36126>.
+  
+<a id="bib.bib23"></a>
+
+\[23\] Jacob Fein-Ashley and Paria Rashidinejad. Solve the loop: Attractor models for language and reasoning. *arXiv preprint arXiv:2605.12466*, 2026.
+  
+<a id="bib.bib24"></a>
+
+\[24\] Richard Freinschlag, Timo Bertram, Erich Kobler, Andreas Mayr, and Günter Klambauer. Symbol-equivariant recurrent reasoning models. In *Forty-third International Conference on Machine Learning*, 2026. URL <https://openreview.net/forum?id=1YCpxT3t5V>.
+  
+<a id="bib.bib25"></a>
+
+\[25\] Zitian Gao, Lynx Chen, Yihao Xiao, He Xing, Ran Tao, Haoming Luo, Joey Zhou, and Bryan Dai. Universal reasoning model. *arXiv preprint arXiv:2512.14693*, 2025.
+  
+<a id="bib.bib26"></a>
+
+\[26\] Stuart Geman and Donald Geman. Stochastic relaxation, Gibbs distributions, and the Bayesian restoration of images. *IEEE Transactions on pattern analysis and machine intelligence*, (6):721–741, 1984.
+  
+<a id="bib.bib27"></a>
+
+\[27\] Alexi Gladstone, Ganesh Nanduru, Md Mofijul Islam, Peixuan Han, Hyeonjeong Ha, Aman Chadha, Yilun Du, Heng Ji, Jundong Li, and Tariq Iqbal. Energy-based transformers are scalable learners and thinkers, 2025. URL <https://arxiv.org/abs/2507.02092>.
+  
+<a id="bib.bib28"></a>
+
+\[28\] Alex Graves. Adaptive computation time for recurrent neural networks. *arXiv preprint arXiv:1603.08983*, 2016.
+  
+<a id="bib.bib29"></a>
+
+\[29\] Alec Helbling, Andrey Bryutkin, Mauro Martino, Duen Horng Chau, Nima Dehmamy, and Hendrik Strobelt. Flow reasoning models: Turning flows into efficient recurrent reasoners. *arXiv preprint arXiv:2606.29150*, 2026.
+  
+<a id="bib.bib30"></a>
+
+\[30\] Geoffrey E Hinton. Deterministic Boltzmann learning performs steepest descent in weight-space. *Neural computation*, 1(1):143–150, 1989.
+  
+<a id="bib.bib31"></a>
+
+\[31\] Geoffrey E Hinton. Training products of experts by minimizing contrastive divergence. *Neural computation*, 14(8):1771–1800, 2002.
+  
+<a id="bib.bib32"></a>
+
+\[32\] John J Hopfield. Neural networks and physical systems with emergent collective computational abilities. *Proceedings of the national academy of sciences*, 79(8):2554–2558, 1982.
+  
+<a id="bib.bib33"></a>
+
+\[33\] John J Hopfield. Neurons with graded response have collective computational properties like those of two-state neurons. *Proceedings of the national academy of sciences*, 81(10):3088–3092, 1984.
+  
+<a id="bib.bib34"></a>
+
+\[34\] John J Hopfield. Searching for memories, Sudoku, implicit check bits, and the iterative use of not-always-correct rapid neural computation. *Neural computation*, 20(5):1119–1164, 2008.
+  
+<a id="bib.bib35"></a>
+
+\[35\] John J Hopfield and David W Tank. “Neural” computation of decisions in optimization problems. *Biological cybernetics*, 52(3):141–152, 1985.
+  
+<a id="bib.bib36"></a>
+
+\[36\] Benhao Huang, Zhengyang Geng, and Zico Kolter. Equilibrium reasoners: Learning attractors enables scalable reasoning. *arXiv preprint arXiv:2605.21488*, 2026.
+  
+<a id="bib.bib37"></a>
+
+\[37\] Aapo Hyvärinen. Consistency of pseudolikelihood estimation of fully visible Boltzmann machines. *Neural Computation*, 18(10):2283–2292, 2006.
+  
+<a id="bib.bib38"></a>
+
+\[38\] Alexia Jolicoeur-Martineau. Less is more: Recursive reasoning with tiny networks. *arXiv preprint arXiv:2510.04871*, 2025.
+  
+<a id="bib.bib39"></a>
+
+\[39\] Jaeyeon Kim, Kulin Shah, Vasilis Kontonis, Sham M. Kakade, and Sitan Chen. Train for the worst, plan for the best: Understanding token ordering in masked diffusions. In *Proceedings of the 42nd International Conference on Machine Learning*, volume 267 of *Proceedings of Machine Learning Research*, pages 30749–30768. PMLR, 13–19 Jul 2025. URL <https://proceedings.mlr.press/v267/kim25ah.html>.
+  
+<a id="bib.bib40"></a>
+
+\[40\] Dmitry Krotov and John J Hopfield. Dense associative memory for pattern recognition. *Advances in neural information processing systems*, 29, 2016.
+  
+<a id="bib.bib41"></a>
+
+\[41\] Dmitry Krotov, Benjamin Hoover, Parikshit Ram, and Bao Pham. Modern methods in associative memory. *arXiv preprint arXiv:2507.06211*, 2025.
+  
+<a id="bib.bib42"></a>
+
+\[42\] Yann LeCun, Sumit Chopra, Raia Hadsell, M Ranzato, and Fujie Huang. A tutorial on energy-based learning. *Predicting structured data*, 1(0), 2006.
+  
+<a id="bib.bib43"></a>
+
+\[43\] Takeru Miyato, Sindy Löwe, Andreas Geiger, and Max Welling. Artificial Kuramoto oscillatory neurons. In *The Thirteenth International Conference on Learning Representations*, 2025. URL <https://openreview.net/forum?id=nwDRD4AMoN>.
+  
+<a id="bib.bib44"></a>
+
+\[44\] Sajad Movahedi, Vera Milovanović, Shlomo Libo Feigin, Alexander Theus, Thomas Hofmann, Valentina Boeva, T Konstantin Rusch, and Antonio Orvieto. Fixed-point reasoners: Stable and adaptive deep looped transformers. *arXiv preprint arXiv:2606.18206*, 2026.
+  
+<a id="bib.bib45"></a>
+
+\[45\] Javier R Movellan. Contrastive Hebbian learning in the continuous Hopfield model. In *Connectionist models*, pages 10–17. Elsevier, 1991.
+  
+<a id="bib.bib46"></a>
+
+\[46\] Rasmus Palm, Ulrich Paquet, and Ole Winther. Recurrent relational networks. *Advances in neural information processing systems*, 31, 2018.
+  
+<a id="bib.bib47"></a>
+
+\[47\] Carsten Peterson and Bo Soderberg. A New Method for Mapping Optimization Problems Onto Neural Networks. *Int. J. Neural Syst.*, 1:3–22, 1989. doi: 10.1142/S0129065789000414.
+  
+<a id="bib.bib48"></a>
+
+\[48\] Fernando J. Pineda. Generalization of back-propagation to recurrent neural networks. *Phys. Rev. Lett.*, 59:2229–2232, Nov 1987. doi: 10.1103/PhysRevLett.59.2229. URL <https://link.aps.org/doi/10.1103/PhysRevLett.59.2229>.
+  
+<a id="bib.bib49"></a>
+
+\[49\] Connor Pryor, Charles Dickens, Eriq Augustine, Alon Albalak, William Yang Wang, and Lise Getoor. Neupsl: neural probabilistic soft logic. In *Proceedings of the Thirty-Second International Joint Conference on Artificial Intelligence*, IJCAI ’23, 2023. ISBN 978-1-956792-03-4. doi: 10.24963/ijcai.2023/461. URL <https://doi.org/10.24963/ijcai.2023/461>.
+  
+<a id="bib.bib50"></a>
+
+\[50\] Walter D. Pullen. Think Labyrinth: Maze Algorithms. Web page, last updated 2026-08-12; accessed 2026-11-06, 2026. URL <https://www.astrolog.org/labyrnth/algrithm.htm>.
+  
+<a id="bib.bib51"></a>
+
+\[51\] Zirui Ren and Ziming Liu. Are your reasoning models reasoning or guessing? a mechanistic analysis of Hierarchical Reasoning Models. *arXiv preprint arXiv:2601.10679*, 2026.
+  
+<a id="bib.bib52"></a>
+
+\[52\] Tommaso Salvatori, Matteo Forasassi, Alexis Toumi, and Giovanni de Felice. Tiny recursive message passing. *arXiv preprint arXiv:2610.18649*, 2026.
+  
+<a id="bib.bib53"></a>
+
+\[53\] Benjamin Scellier and Yoshua Bengio. Equilibrium propagation: Bridging the gap between energy-based models and backpropagation. *Frontiers in computational neuroscience*, 11:24, 2017.
+  
+<a id="bib.bib54"></a>
+
+\[54\] Thomas Schiex, Hélène Fargier, and Gérard Verfaillie. Valued constraint satisfaction problems: Hard and easy problems. In *Proceedings of the Fourteenth International Joint Conference on Artificial Intelligence*, pages 631–637, 1995. URL <https://www.ijcai.org/Proceedings/95-1/Papers/083.pdf>.
+  
+<a id="bib.bib55"></a>
+
+\[55\] Amin Sghaier, Ali Parviz, and Alexia Jolicoeur-Martineau. Probabilistic tiny recursive model. *arXiv preprint arXiv:2605.19943*, 2026.
+  
+<a id="bib.bib56"></a>
+
+\[56\] Jascha Sohl-Dickstein, Peter Battaglino, and Michael R. DeWeese. Minimum probability flow learning. In *Proceedings of the 28th International Conference on Machine Learning*, ICML’11, page 905–912, Madison, WI, USA, 2011. Omnipress. ISBN 9781450306195.
+  
+<a id="bib.bib57"></a>
+
+\[57\] Ayhan Suleymanzade, Chanhyuk Lee, Floor Eijkelboom, Nicholas M Boffi, Ismail Ilkan Ceylan, and Jinwoo Kim. Thinking with looped flows. *arXiv preprint arXiv:2609.11801*, 2026.
+  
+<a id="bib.bib58"></a>
+
+\[58\] Tijmen Tieleman. Training restricted boltzmann machines using approximations to the likelihood gradient. In *Proceedings of the 25th international conference on Machine learning*, pages 1064–1071, 2008.
+  
+<a id="bib.bib59"></a>
+
+\[59\] Son N. Tran and Artur d’Avila Garcez. Neurosymbolic reasoning and learning with restricted Boltzmann machines. In *Proceedings of the Thirty-Seventh AAAI Conference on Artificial Intelligence and Thirty-Fifth Conference on Innovative Applications of Artificial Intelligence and Thirteenth Symposium on Educational Advances in Artificial Intelligence*, AAAI’23/IAAI’23/EAAI’23. AAAI Press, 2023. ISBN 978-1-57735-880-0. doi: 10.1609/aaai.v37i5.25806. URL <https://doi.org/10.1609/aaai.v37i5.25806>.
+  
+<a id="bib.bib60"></a>
+
+\[60\] Pascal Vincent. A connection between score matching and denoising autoencoders. *Neural computation*, 23(7):1661–1674, 2011.
+  
+<a id="bib.bib61"></a>
+
+\[61\] Martin J. Wainwright and Michael I. Jordan. Graphical models, exponential families, and variational inference. *Found. Trends Mach. Learn.*, 1(1–2):1–305, January 2008. ISSN 1935-8237. doi: 10.1561/2200000001. URL <https://doi.org/10.1561/2200000001>.
+  
+<a id="bib.bib62"></a>
+
+\[62\] Guan Wang, Jin Li, Yuhao Sun, Xing Chen, Changling Liu, Yue Wu, Meng Lu, Sen Song, and Yasin Abbasi Yadkori. Hierarchical reasoning model, 2026. URL <https://arxiv.org/abs/2506.21734>.
+  
+<a id="bib.bib63"></a>
+
+\[63\] P.J. Werbos. Backpropagation through time: what it does and how to do it. *Proceedings of the IEEE*, 78(10):1550–1560, 1990. doi: 10.1109/5.58337.
+  
+<a id="bib.bib64"></a>
+
+\[64\] Jiacheng Ye, Jiahui Gao, Shansan Gong, Lin Zheng, Xin Jiang, Zhenguo Li, and Lingpeng Kong. Beyond autoregression: Discrete diffusion for complex reasoning and planning. In *The Thirteenth International Conference on Learning Representations*, 2025. URL <https://openreview.net/forum?id=NRYgUzSPZz>.
+  
+<a id="bib.bib65"></a>
+
+\[65\] Jaehoon Yoo, Wonjung Kim, Floor Eijkelboom, Chanhyuk Lee, Nicholas M Boffi, Seunghoon Hong, and Jinwoo Kim. Self-conditioned flow map language models via fixed-point flows. *arXiv preprint arXiv:2607.00714*, 2026.
+  
+<a id="bib.bib66"></a>
+
+\[66\] Yifei Zhao and Ying Tang. Energy-guided recursive model. *arXiv preprint arXiv:2607.10128*, 2026.
+
+
+<a id="A1"></a>
+
+## Appendix A Stopping rules of looped models and CRAM
+
+HRM, TRM, EqR and TRMP learn early stopping with a separate network \[[62](#bib.bib62), [38](#bib.bib38), [36](#bib.bib36), [28](#bib.bib28)\]. EBR stops a sample when the norm of its energy gradient falls below 0.2 \[[11](#bib.bib11)\]. CRAM is different, stopping at the first board whose energy is at most a threshold fitted from the training solutions. [Table 4](#A1.T4) shows that only CRAM never stops at an incorrect board — all other early stopping methods do. Note that EBR’s stop does not work on Maze-Unique since its gradient norm stays near 2 even at correct mazes. EBR’s published maze protocol runs a fixed number of segments instead.
+
+<a id="A1.T4"></a>
+
+Table 4: **CRAM never halts at an incorrect board.** Each looped model runs one rollout in its halting mode, capped at its trained depth; EBR’s first sample stops at a gradient norm below 0.2 or after 64 segments, as in its code. Halted: puzzles on which the rule stopped before the cap. Wrong halts: halted puzzles whose board is incorrect (% of halted). Full test sets (412,786 puzzles and 1,000 mazes), pooled over three training runs.
+
+**Sudoku-Extreme**
+
+| Stopping rule | Halted (%) | Wrong halts (%) | Solved (%) |
+|---|---:|---:|---:|
+| HRM (halting head) | 54.5 | 0.62 | 54.7 |
+| TRM (halting head) | 85.8 | 2.37 | 83.8 |
+| EqR (halting head) | 87.5 | 1.61 | 86.1 |
+| TRMP (halting head) | 93.8 | 0.05 | 93.8 |
+| EBR (gradient-norm stop) | 99.35 | 0.21 | 99.31 |
+| CRAM (energy threshold) | 99.996 | 0.00 | 99.996 |
+
+**Maze-Unique**
+
+| Stopping rule | Halted (%) | Wrong halts (%) | Solved (%) |
+|---|---:|---:|---:|
+| HRM (halting head) | 21.4 | 0.16 | 40.3 |
+| TRM (halting head) | 99.9 | 3.54 | 96.4 |
+| EqR (halting head) | 66.0 | 1.06 | 65.3 |
+| TRMP (halting head) | 91.2 | 0.73 | 99.2 |
+| EBR (gradient-norm stop) | no stopping rule | no stopping rule | no stopping rule |
+| CRAM (energy threshold) | 100.00 | 0.00 | 100.00 |
+
+<a id="A2"></a>
+
+## Appendix B Compute
+
+Every experiment in this paper runs on one NVIDIA H200 GPU. Training jobs used GPUs on unreserved nodes of a shared cluster, so other jobs could use a node’s other GPUs and CPU cores which could affect reproducibility of timing a fit. Wherever CPU times are reported, they use one thread of an Intel Xeon Platinum 8468 CPU. CRAM’s search moves run in Triton kernels with one GPU warp per chain. A move changes one cell, so the kernel keeps the field of every cell in memory and updates only the fields of the cells with a nonzero coupling to the moved cell. The code, data preparation, run records and exported results behind every table and figure are at <https://github.com/Prefrontal-AI/CRAM>.
+
+<a id="A3"></a>
+
+## Appendix C Experimental protocols
+
+<a id="A3.SS1"></a>
+
+### C.1 Shared protocol
+
+Every method, CRAM and each baseline, is trained three times under different seeds, and each trained model is scored once on the test set. Where a published accuracy was selected on the test set, we say so. The test sets have 412,786 puzzles (Sudoku-Extreme), 1,000 mazes (Maze-Unique), 1,240 and 18,466 rows (N-Queens, $8\times 8$ and $10\times 10$) and 255 and 192 graphs (graph coloring, 8 and 10 vertices).
+
+When reproducing baselines, whenever our three-seed mean accuracy is more 2 points below their published accuracy, a table shows the published value (dagger), but we still count that baseline’s parameters and FLOPs ourselves. A baseline’s Params is the parameter count of its network: we do not check its weights for zeros, so it is an upper bound on the nonzero parameters that CRAM’s count reports.
+
+CRAM inference is a focused Gibbs search with four chains (Sudoku-Extreme) or with $N$ chains ($N{=}1$ or 20 in [Table 3](#S4.T3); N-Queens and graph coloring), and zero-temperature single-cell moves (Maze-Unique). In general, we use each baseline’s published inference setting when solving a task.
+
+- **TRMP**: the most confident of 64 noisy rollouts (the ACT model in [Table 2](#S3.T2)).
+
+- **TRMP’s lattice model** (the § footnote of [Table 2](#S3.T2)): 64 search chains, each restarted on a detected conflict, for at most 1,000 steps.
+
+- **EqR**: depth 64 with 128 noisy restarts, answer chosen by the model’s convergence score \[[36](#bib.bib36)\].
+
+- **GRAM**: majority vote of 20 sampled trajectories of 16 steps.
+
+- **EBR**: the lowest-energy of five samples; OR when its energy-gradient norm falls below 0.2, or after 64 segments (Sudoku Extreme); OR after 16 updates (Maze-Unique)
+
+<a id="A3.SS2"></a>
+
+### C.2 Operation counts and fit time
+
+**Reported FLOPs** count the operations along all their sampling trajectories, stopping tests, selection amongst samples, and decoding; it excludes losses and metrics computed from labels.
+
+Every FLOP count in this paper, for CRAM and every baseline, uses the following convention:
+
+- A matrix product counts 2 FLOPs per multiply-add.
+
+- Every elementwise addition, subtraction, multiplication (also by a 0/1 mask), division, negation and absolute value counts 1, on floats or integers.
+
+- Every exp, log, square root, sigmoid, tanh and erf counts 1.
+
+- Comparisons, selections, min, max, argmax, mask logic, indexing, data movement, casts and random-number generation count 0. Arithmetic applied to a random number (scaling noise, a Gumbel transform) counts.
+
+For the neural baselines, a PyTorch counter at the operator-dispatch level applies these rules to every operator during inference, including gradient computations. CRAM’s moves use Triton kernels that are invisible to the counter, so count their transcription line by line. CRAM’s code outside the kernels is counted directly. A CRAM search counts FLOPs up until a move first passes its stopping test.
+
+**Reported fit times** are the wall clock of one complete fit. The clock starts when the training data are in host memory and stops when the inference-ready model is read, including its stopping statistics. In total, it includes: transfer to the device, initialization, augmentation, every forward, backward and optimizer step, compilation and CUDA-graph capture with their warm-up, and fitting stopping thresholds and focus statistics from the training solutions. It excludes reading files, evaluation, saving and module imports.
+
+We report the warm time for CRAM, because its one-time start-up (0.2–0.9 s on one H200) is a large part of a fit that takes milliseconds, but a negligible part of a baseline fit that takes hours.
+
+- **Cold**: the first fit in a fresh process, including one-time kernel loading, compilation and graph capture. CUDA context creation (0.4–0.7 s) is measured separately and excluded.
+
+- **Warm**: the median of seven further fits in the same process.
+
+It was not within our compute budget to compute warm-starts for long baseline runs. Thus, each baseline time is one cold fit on one H200 with an empty compilation cache. Its start-up (compilation, kernel loading and the first update) takes 6 s to 16 min, at most 2.2% of the fit (3.5% for TRMP on Maze-Unique).
+
+<a id="A3.SS3"></a>
+
+### C.3 CRAM recipes
+
+[Table 5](#A3.T5) lists the training and search settings of every CRAM fit. Two fits add a step that the table does not list. The Sudoku-Extreme fit applies a fresh random digit relabeling to the training boards at each update. The N-Queens fit divides the gradient of each offset cost by a per-offset preconditioner ([App. C.5](#A3.SS5)).
+
+<a id="A3.T5"></a>
+
+Table 5: **Every CRAM fit is a few dozen to a few thousand SGD updates of pseudolikelihood, and every search is a single-cell local search.** All fits start at zero and use SGD with momentum 0.5 and a cosine schedule; the L1 term is a soft-threshold after each step. Values in parentheses are for the larger N-Queens board or graph. $\bar{h}$: mean positive learned cost; $u$: the N-Queens temperature unit ([App. C.5](#A3.SS5)); $\tau$: highest energy of a training solution.
+
+**Training**
+
+| Setting | Sudoku-Extreme | Maze-Unique | N-Queens $8\times8$ ($10\times10$) | Graph coloring, 8 (10) vertices |
+|---|---|---|---|---|
+| Training rows | 1,000 | 1,000 | 7,224 (108,234) | 7,002 (13,465) |
+| Loss | PL + L1, $\lambda=3.33\times10^{-4}$ | PL | PL | PL + L1, $\lambda=10^{-4}$ ($10^{-3}$) |
+| Updates | 32, full batch | 20, batches of 64 | 4,000, full batch | 1,024 (256), full batch |
+| Learning rate | 540 | 1 | 30 | 10 |
+
+**Search**
+
+| Setting | Sudoku-Extreme | Maze-Unique | N-Queens $8\times8$ ($10\times10$) | Graph coloring, 8 (10) vertices |
+|---|---|---|---|---|
+| Start | uniform random | every open cell on | given queens only | uniform random |
+| Moves | focused Gibbs | $T=0$ single-cell | focused Gibbs | focused Gibbs |
+| Temperature | $0.40\bar{h}\to0.31\bar{h}$ | 0 | $u$ | $2\bar{h}$ ($3\bar{h}$) |
+| Chains | 4 | 1 | 1 or 20 | 1 or 20 |
+| Stopping test | energy $\leq\tau+10^{-3}$ | fixed point | local margin | every term below its training maximum |
+| Budget | $6.3\times10^{11}$ FLOPs | 20,000 moves | 20,000 moves | 10,000 moves |
+
+<a id="A3.SS3.SSS1"></a>
+
+#### C.3.1 Sudoku-Extreme
+
+Sudoku-Extreme \[[62](#bib.bib62)\] (`sapientinc/sudoku-extreme`) has an official training split and a test split of 422,786 puzzles. CRAM trains on the three 1,000-puzzle training splits of FRM \[[29](#bib.bib29)\], one per seed, which FRM draws from the training split balanced over its difficulty-rating bins. Our development set is 10,000 puzzles of the test split, and our test set is the other 412,786. The cells are opaque indices: CRAM is told neither the rows, columns and boxes nor any structure of the digits. Each pair of cells has a free $9\times 9$ cost block $\boldsymbol{\color{#EB6834}{K}}_{ij}=\boldsymbol{\color{#EB6834}{K}}_{ji}^{\top}$ and each cell a free input cost $\boldsymbol{\color{#EB6834}{B}}_{i}\in\mathbb{R}^{9}$ (263,169 parameters), clue cells are clamped, and training follows [Table 5](#A3.T5).
+
+FRM, EqR and TRMP train on the same splits. HRM, TRM, GRAM and EBR keep the data pipeline of their own code: HRM, TRM and GRAM train on one 1,000-puzzle draw from TRM’s data builder (the command of the authors’ README, which fixes no random seed), with 1,000 stored symmetry variants per puzzle, and EBR trains on its own draw (seed 42). [Fig. 3](#S4.F3)b trains CRAM, TRM, EBR and FRM on identical rows.
+
+For CRAM each sudoku puzzle runs four chains from random boards. A move picks a uniformly random free cell whose local energy exceeds its training-solution mean by more than $0.45\bar{h}$ (any free cell if there is none) and samples its digit from its belief. The temperature falls geometrically from $0.40\bar{h}$ to $0.31\bar{h}$ over 524,288 moves and then restarts, and the cached fields are recomputed exactly every 4,096 moves. A puzzle stops at the first board of any chain with energy at most $\tau+10^{-3}$, where $\tau$ is the highest energy of a training solution of its split ($-1.7\times 10^{-4}$ to $-3\times 10^{-6}$), and otherwise returns its lowest-energy board at the budget. We tuned the temperatures and the stopping threshold on development puzzles. On the test set, no search stopped at an incorrect board. 51 of 1,238,358 searches reached the budget.
+
+<a id="A3.SS4"></a>
+
+### C.4 Maze-Unique
+
+Maze-Unique \[[36](#bib.bib36)\] (`locuslab/EqR-data`, subset `maze-30x30-unique-1k`) has 1,000 training and 1,000 test mazes of $30\times 30$ cells, whose answers are a unique path from start to goal. Walls are clamped off, the start and goal on, and PL of the binary path labels is applied at every open cell. We chose the number of updates and the learning rate on 100 held-out training mazes: the fewest updates (10, 20, 50 or 100), then the smallest rate (0.3, 1 or 3), at which every run solves at least 99 of them with focused Gibbs search when trained on nested subsets of 10 to 900 mazes. The final fits use all 1,000 mazes.
+
+Searching a maze starts with every open cell on. Each move sets a uniformly random cell that is not at its lowest-energy value to that value, and the search stops at a fixed point (at most 290 moves were used). From this start, each move turns off one dead-end cell, so the search performs dead-end filling. This choice of start matters since the empty board has lower energy than the solution on every development maze, and explains why exact solvers like toulbar2 can’t find this solution.
+
+<a id="A3.SS5"></a>
+
+### C.5 N-Queens
+
+N-Queens uses GRAM’s data \[[3](#bib.bib3)\] without augmentation. An input is a solution with $k$ queens removed ($k\in\{5,6,7\}$ on $8\times 8$, $\{7,8,9\}$ on $10\times 10$), and an input with $S$ solutions occurs $S$ times, once with each solution as its label (7,224 training and 1,240 test rows on $8\times 8$; 108,234 and 18,466 on $10\times 10$). Accuracy counts the test rows whose answer is a valid board that keeps every given queen. Cov@20 sums, over distinct test inputs, the distinct valid solutions among 20 samples, capped at $\min(S,20)$, and divides by the sum of $\min(S,20)$. This is the rule of EBR’s evaluator, not GRAM’s. Training follows [Table 5](#A3.T5), with the gradient of each $J_{d}$ divided by $m_{d}/\bar{m}$, where $m_{d}$ is the number of cell pairs at offset $d$ and $\bar{m}$ its mean. Without this preconditioner, the long diagonals (2 pairs, against 162 for the shortest) barely train since there is insufficient data to learn long correlations.
+
+Each chain starts from the given queens. A move picks a uniformly random free cell whose current state has the higher field (any free cell if there is none) and draws its state with probability proportional to $\exp(-g_{i}(a)/u)$. A chain stops when every free cell has a margin of at least $\delta-10^{-3}$, or after 20,000 moves with its lowest-energy board; $N{=}1$ is the first chain, and $N{=}20$ the lowest-energy board of 20 chains. A rule fixed before testing chose this recipe on $10\times 10$ validation inputs; we report it at both sizes, a choice made after seeing the test results (on $8\times 8$, the rule’s own choice scores 100.00% and 98.3% Cov@20, against 99.95% and 97.9%). To save GPU kernels, the fit builds the pair-cost matrix from the offset costs as one product with a fixed 0/1 matrix instead of by indexing. We timed this fit and tested the models of an indexing fit, whose parameters agree with it to within $10^{-7}$ of the largest parameter.
+
+<a id="A3.SS6"></a>
+
+### C.6 Graph coloring
+
+Graph coloring uses GRAM’s graphs with chromatic number 3, each labeled with one 3-coloring in canonical order. We score each graph once. Conflict counts the edges whose two vertices share a color, summed over the test graphs. Cov@20 is the number of distinct proper colorings in canonical order that 20 samples find, over the number of such colorings, summed over graphs (GRAM’s definition). For each pair of vertices, the $3\times 3$ cost table is an affine function of all the adjacency tokens of the graph, so CRAM is not told which edge belongs to which pair (7,332 and 18,660 parameters; 869 and 475 are nonzero after training). Training follows [Table 5](#A3.T5).
+
+Each chain starts from a uniformly random coloring and makes the focused moves of Sudoku-Extreme, with focus threshold $0.45\bar{h}$. It stops at the first coloring on which every pair term and input cost is at most its highest value on a training coloring.
+
+<a id="A3.SS7"></a>
+
+### C.7 Hand-set energies
+
+[Tables 2](#S3.T2) and [3](#S4.T3) include CRAM energies whose weights we set by hand from the rules of each task ([Fig. 5](#A3.F5)). Reported numbers use the same search as the learned energy on the task.
+
+<a id="A3.F5"></a>
+
+![Figure 5](../figures/hand-set-energies.png)
+
+[Original vector figure](../source/figures/hand-set-energies.pdf)
+
+Figure 5: **Hand-set weights on CRAM energy.** Each title gives the number of distinct nonzero values. (a) Sudoku: board cell $j$ shows the $9\times 9$ cost block $\boldsymbol{\color{#EB6834}{K}}_{ij}$ between the digits of the chosen cell $i$ (rows) and of cell $j$ (columns), on the color scale of the learned costs in [Fig. 2](#S4.F2)b. It is the identity on the 20 cells that share a row, column or box with $i$. (b) Maze-Unique: change in energy when an open cell turns on; the center is the change with no neighbor on, and each other entry is the change that a neighbor on at that offset adds. (c) N-Queens ($8\times 8$): cost of a queen at each cell together with a queen at the dark cell, 1 when they attack each other. (d) Graph coloring: cost of the colors of the two vertices of an edge; pairs without an edge cost 0.
+
+<a id="A3.SS8"></a>
+
+### C.8 Looped-model baselines
+
+We retrain every baseline on one H200 with its authors’ code and recipe: HRM \[[62](#bib.bib62)\] (commit `ac15626`), TRM \[[38](#bib.bib38)\] (`c011037`), FRM \[[29](#bib.bib29)\] (`6149a01`), EqR \[[36](#bib.bib36)\] (`134c754`), GRAM \[[3](#bib.bib3)\] (`f2e32b9`) and EBR \[[11](#bib.bib11)\] (`8c5271c`). The training code of TRMP \[[52](#bib.bib52)\] is not released, so we reimplement two of its recipes: the adaptive computation time (ACT) model of its Appendix B and Table 9 (row TRMP), its most accurate on Sudoku-Extreme, and the 16k-parameter factor-graph lattice model of its abstract (its Table 4), which the § footnote of [Table 2](#S3.T2) reports. The lattice model trains for 20,000 updates of a 512-board pool, as in that table, and its fit time in the footnote is the median of seven complete fits that follow a first fit in the same process, as for CRAM; the first fit takes 14m46s. GRAM’s paper reports TRM and HRM on N-Queens and graph coloring without a recipe, so we train both in GRAM’s code, which contains both architectures, with GRAM’s per-task settings. Every baseline trains in bf16 with torch.compile, and is scored at its final weights (their exponential moving average where the authors use one), or at a checkpoint chosen on development data (HRM, FRM and TRMP). CRAM fits, in contrast, run as eager PyTorch in single precision, without compilation or CUDA graphs. We change a recipe only where our tests require it:
+
+- **Maze-Unique recipes.** HRM, TRM, GRAM and EBR publish no Maze-Unique basline, so we run their Maze-Hard recipes unchanged. GRAM runs the TRM recipe with GRAM’s settings for its non-Sudoku tasks, at global batch 384 (the largest that fits on one H200).
+
+- **Compilation and optimizer.** We compile the whole model where the authors’ code does not (FRM; EqR on Maze-Unique), which makes training 1.8–2.2 times faster. TRM and EqR use a pure-PyTorch AdamATan2 in place of the authors’ CUDA package, which adds less than 1% to an update. TRMP trains in bf16, where its paper uses single precision for the Sudoku model.
+
+- **Schedules.** HRM trains on Sudoku-Extreme for 40,000 epochs, the schedule of its released checkpoint (though its README states 20,000).
+
+- **Test subset.** At 128 restarts, EqR is scored on the first 10,000 Sudoku-Extreme test puzzles, because the full set would take about 105 GPU-hours per seed.
+
+- **Published accuracies.** Our GRAM runs solve 93.61 $\pm$ 1.21% of Sudoku-Extreme, 2.5 points below the published 96.1%, so [Table 2](#S3.T2) shows the published value. On Maze-Unique, EqR’s repository configuration (hidden size 44) solves 100.0%, 99.6% and 0% with three seeds, so [Table 2](#S3.T2) shows the published 93.0% with the parameters, FLOPs and fit time of the paper’s configuration (hidden size 128). On $10\times 10$ N-Queens, our TRM and HRM runs solve 6.90% and 22.72%, against the published 17.5% and 37.8%, so [Table 3](#S4.T3) shows the published values.
+
+<a id="A3.SS9"></a>
+
+### C.9 Data efficiency
+
+In [Fig. 3](#S4.F3)b, CRAM, TRM, EBR and FRM train on the same data samples and only the number $k$ of unique training puzzles changes.
+
+- **Puzzles.** For $k<1{,}000$, seed $s$ takes the first $k$ puzzles of a seed-$s$ permutation of TRM’s 1,000-puzzle draw, so the subsets of one seed are nested. $k=1{,}000$ is the whole draw, and $k=3{,}000$ to 100,000 add puzzles from the official training split with the same builder.
+
+- **Augmentation.** Each puzzle is augmented with 99 symmetry variants (digit relabeling, transposition, and permutations of bands, stacks, rows and columns). No method adds its own augmentation.
+
+- **CRAM**: Training is deterministic, so at $k=1{,}000$ the six seeds give one model and differ only in the search.
+
+- **TRM**: 65,100 updates of batch 768 at every $k$ (65,117 at $k=30{,}000$).
+
+- **EBR**: 60,000 updates of batch 768, scored as in [Table 2](#S3.T2). Its loader needs at least 768 puzzle groups, so for $k<768$ each group is repeated $\lceil 768/k\rceil$ times.
+
+- **FRM**: Stage A and Stage B of 100,000 updates each at batch 128, checkpoint chosen on 256 development puzzles.
+
+- **Scoring**: six runs (seeds 0–5) per point, on the 10,000 test puzzles of [Fig. 2](#S4.F2)a.
+
+
+<a id="A4"></a>
+
+## Appendix D Training methods for CRAM
+
+As discussed in the paper, there are many ways to train the energy using approximate likelihood methods as per [Eq. 4](#S3.E4). [Table 7](#A4.T7) compares twelve such methods across three classes ([Table 6](#A4.T6)). This section describes pseudolikelihood \[[8](#bib.bib8)\] and characterizes the twelve methods on Sudoku-Extreme and Maze-Unique.
+
+<a id="A4.SS1"></a>
+
+### D.1 Pseudolikelihood, maximum likelihood, and cross-entropy
+
+Pseudolikelihood (PL) replaces the model term of [Eq. 4](#S3.E4) with a comparison between the observed solution ${\color{#18A372}\boldsymbol{x}}$ and its single-cell changes. Let $\mathcal{F}$ be the cells whose answers the input does not give, and let ${\color{#2A78D6}\boldsymbol{x}}^{-}_{i\leftarrow a}$ be ${\color{#18A372}\boldsymbol{x}}$ with cell $i$ set to value $a$. We minimize
+
+<a id="A4.E5"></a>
+
+$$
+\mathcal{J}_{\mathrm{PL}}(\boldsymbol{{\color{#EB6834}\theta}};{\color{#18A372}\boldsymbol{x}})=\underbrace{E_{\boldsymbol{{\color{#EB6834}\theta}}}({\color{#18A372}\boldsymbol{x}})}_{\mathclap{\substack{\text{lower energy}\\\text{on data}}}}+\underbrace{\frac{1}{|\mathcal{F}|}\sum_{i\in\mathcal{F}}\log\sum_{a}\exp\!\left[-E_{\boldsymbol{{\color{#EB6834}\theta}}}({\color{#2A78D6}\boldsymbol{x}}^{-}_{i\leftarrow a})\right]}_{\mathclap{\text{\scriptsize raise energy on model ``samples''}}}, \tag{5}
+$$
+
+where $a$ runs over all permitted values, the labeled one included. Where a task needs it, we add local terms that depend only on the weights and the labeled solution, such as an L1 penalty on the costs. The L1 penalty sets a cost exactly to zero where the examples show no constraint between two cells, so the fitted energy is sparse. Below, we write ${\color{#18A372}\boldsymbol{y}}$ for ${\color{#18A372}\boldsymbol{x}}$ and ${\color{#18A372}\boldsymbol{y}}^{i\leftarrow a}$ for ${\color{#2A78D6}\boldsymbol{x}}^{-}_{i\leftarrow a}$.
+
+At unit temperature, the energy defines a joint distribution $P_{\boldsymbol{{\color{#EB6834}\theta}}}({\color{#2A78D6}\boldsymbol{p}}\mid{\color{#4A3AA7}\boldsymbol{x}})=\exp[-E_{\boldsymbol{{\color{#EB6834}\theta}}}({\color{#2A78D6}\boldsymbol{p}})]/Z_{\boldsymbol{{\color{#EB6834}\theta}}}({\color{#4A3AA7}\boldsymbol{x}})$ over the set $\mathcal{S}({\color{#4A3AA7}\boldsymbol{x}})$ of one-hot answer arrays that respect the givens, and maximum likelihood minimizes $-\log P_{\boldsymbol{{\color{#EB6834}\theta}}}({\color{#18A372}\boldsymbol{y}}\mid{\color{#4A3AA7}\boldsymbol{x}})=E_{\boldsymbol{{\color{#EB6834}\theta}}}({\color{#18A372}\boldsymbol{y}})+\log Z_{\boldsymbol{{\color{#EB6834}\theta}}}({\color{#4A3AA7}\boldsymbol{x}})$ \[[1](#bib.bib1), [42](#bib.bib42)\]. The partition function $Z_{\boldsymbol{{\color{#EB6834}\theta}}}({\color{#4A3AA7}\boldsymbol{x}})=\sum_{{\color{#2A78D6}\boldsymbol{p}}^{\prime}\in\mathcal{S}({\color{#4A3AA7}\boldsymbol{x}})}\exp[-E_{\boldsymbol{{\color{#EB6834}\theta}}}({\color{#2A78D6}\boldsymbol{p}}^{\prime})]$ sums over up to $C^{|\mathcal{F}|}$ assignments, so this objective is intractable for the tasks of this paper.
+
+Conditioning on every labeled cell except $i$ cancels the partition function. With $\boldsymbol{e}_{a}$ the one-hot vector of value $a$, the exact conditional of cell $i$ is a softmax,
+
+<a id="A4.E6"></a>
+
+$$
+q_{i}(a)\equiv P_{\boldsymbol{{\color{#EB6834}\theta}}}({\color{#2A78D6}\boldsymbol{p}}_{i}=\boldsymbol{e}_{a}\mid{\color{#2A78D6}\boldsymbol{p}}_{-i}={\color{#18A372}\boldsymbol{y}}_{-i},{\color{#4A3AA7}\boldsymbol{x}})=\frac{\exp z_{ia}}{\sum_{b}\exp z_{ib}},\qquad z_{ia}=-E_{\boldsymbol{{\color{#EB6834}\theta}}}({\color{#18A372}\boldsymbol{y}}^{i\leftarrow a}), \tag{6}
+$$
+
+over the permitted values. [Eq. 5](#A4.E5) is the mean over free cells of the cross-entropy $\ell_{i}=-\sum_{a}{\color{#18A372}y}_{ia}\log q_{i}(a)$ of the label ${\color{#18A372}\boldsymbol{y}}_{i}=({\color{#18A372}y}_{ia})_{a}$, with the familiar gradient $\partial\ell_{i}/\partial z_{ia}=q_{i}(a)-{\color{#18A372}y}_{ia}$. Every energy term without cell $i$ cancels in $q_{i}$, so the logits need only the pair and input costs of cell $i$, and no inference. Each conditional is exact; the approximation is replacing the joint likelihood with a sum of conditionals \[[8](#bib.bib8), [37](#bib.bib37)\].
+
+### D.2 Comparing twelve objectives
+
+[Table 6](#A4.T6) lists different training objectives and how it relates to [Eq. 4](#S3.E4). A relaxation runs $n$ Euler steps of [Eq. 2](#S3.E2) (step size 0.5) from uniform beliefs, with clues clamped. Each sampling method lowers the energy of the labeled solution and raises the energy of a negative, a board or belief state drawn from the model; no gradient flows through the drawing of the negative. To keep the energies bounded, each also penalizes their squares, as in [Du and Mordatch \[19\]](#bib.bib19).
+
+A few choices are specific to CRAM. Masked pseudolikelihood sets a hidden cell’s state to zero, so that it adds nothing to the other cells’ fields. Denoising score matching uses the clean logits $3({\color{#18A372}\boldsymbol{y}}_{i}-\mathbf{1}/C)$. Contrastive divergence draws its moves at temperature 1, and persistent CD relabels each stored Sudoku chain together with its puzzle. Equilibrium propagation uses $\beta=0.01$, at which its gradient has cosine similarity 0.99999 with the full-BPTT gradient ($\beta=0.5$ diverged). Implicit differentiation runs $n$ forward and $n$ adjoint iterations, without a convergence test, and full BPTT uses $T=10$, selected on both tasks.
+
+<a id="A4.T6"></a>
+
+Table 6: **Local training objective overview.** **L** local objectives, evaluated at the labeled solution. **S** sampling methods, whose negatives get no gradient. **D** methods that differentiate through a relaxation or its fixed point. $k$, $n$, $T$, $q$ and $\sigma$ are tuned ([App. D](#A4)).
+
+| **Training method** | **Compares the labeled solution with** |
+|----|----|
+| **L** Pseudolikelihood \[[8](#bib.bib8)\] | every single-cell change ([Eq. 5](#A4.E5)) |
+| **L** Masked pseudolikelihood \[[17](#bib.bib17)\] | its single-cell changes, with each cell hidden with probability $q$ |
+| **L** Min Probability Flow \[[56](#bib.bib56)\] | every single-cell change, weighted by $\exp(-\Delta E/2)$ |
+| **L** Denoising Score Matching \[[60](#bib.bib60)\] | its own logits plus Gaussian noise of scale $\sigma$ |
+| **S** Contrastive divergence \[[31](#bib.bib31)\] | the board after $k$ heat-bath moves from it |
+| **S** Persistent CD \[[58](#bib.bib58)\] | a stored chain per training board, advanced $k$ moves per visit |
+| **S** Contrastive Hebbian \[[45](#bib.bib45)\] | the state after a relaxation of $n$ steps |
+| **D** Eq Prop \[[53](#bib.bib53)\] | two relaxations nudged toward and away from it |
+| **D** Implicit Diff. \[[4](#bib.bib4)\] | the relaxed state, through its adjoint |
+| **D** Truncated BPTT ($t{=}1$) \[[62](#bib.bib62)\] | the relaxed state, through the last of $T$ steps |
+| **D** Truncated BPTT ($t{=}5$) \[[63](#bib.bib63)\] | the relaxed state, through the last 5 of $T$ steps |
+| **D** BPTT (full) \[[63](#bib.bib63)\] | the relaxed state, through all $T$ steps |
+
+Every method trains the energy of [Table 2](#S3.T2) from the same weight initialization, with SGD (momentum 0.5, cosine schedule) and the L1 penalty as a soft-threshold of $\eta_{k}\lambda$ after each step. All twelve methods run in one shared training harness, so their times compare with each other but **not** with the fit times of [Table 2](#S3.T2). The harness is slower than [Table 2](#S3.T2) because it synchronizes the GPU before and after every update, to time each update and place the development probes.
+
+Each method tunes on seed 0, using development puzzles not in the train or test set:
+
+- the learning rate: 6, 60 or 540 (Sudoku-Extreme); 0.1, 0.3 or 1 (Maze-Unique);
+
+- the L1 strength: 1, 0.1 or 0.01 times that of [Table 2](#S3.T2) (Sudoku-Extreme); 0, 0.003 or 0.03 (Maze-Unique);
+
+- its own setting: $q\in\{0.1,0.3\}$ (masked PL); $\sigma\in\{0.5,1.5\}$ (DSM); $k\in\{81,324\}$ moves on Sudoku-Extreme and $\{256,1024\}$ on Maze-Unique (CD, persistent CD); $n\in\{10,30\}$ on Sudoku-Extreme and $\{30,100\}$ on Maze-Unique (contrastive Hebbian learning, equilibrium propagation, implicit differentiation); $T\in\{10,30\}$ (truncated and full BPTT); and the weight of the [Du and Mordatch \[19\]](#bib.bib19) regularizer, 0 or 1 (class S).
+
+Pseudolikelihood keeps the learning rate and number of updates of [Table 2](#S3.T2) and tunes only its L1 strength; every other method runs 2,000 updates (1,500 for class S on Maze-Unique). The rule takes the highest development solve rate, then the shortest fit time. The settings selected for each method are in the code release.
+
+[Fig. 4](#S4.F4) trains each of its five methods 20 times; its x-axis is the fit time without the one-time start-up, and full BPTT runs 60,000 updates. Four differentiating methods were still improving after 2,000 updates on Sudoku-Extreme, so we gave them longer schedules (footnote of [Table 7](#A4.T7)). Full BPTT, equilibrium propagation and implicit differentiation stop at incorrect boards and fail to train. On Maze-Unique, every method solves every test maze.
+
+Notes on [Table 7](#A4.T7):
+
+- $T_{99}$ is the median over the three runs of the fit time at the first probe where their mean reaches 99%, minus each run’s one-time start-up (0.10–1.83 s on Sudoku-Extreme and 0.64–1.22 s on Maze-Unique), plus the time to fit the stopping threshold and focus statistic (24–75 ms on Sudoku-Extreme; the Maze-Unique search fits none).
+
+- Contrastive divergence runs 324 heat-bath moves per update on Sudoku-Extreme and 256 on Maze-Unique.
+
+- The pseudolikelihood row is the recipe of [Table 2](#S3.T2) under this protocol. Its test solve rates equal those of [Table 2](#S3.T2), but its fit times and FLOPs differ: it tests the checkpoint chosen on the probe (updates 16, 23 and 16 of 32 on Sudoku-Extreme; 6 of 20 on Maze-Unique), tunes the L1 strength (Maze-Unique selects 0.003, where [Table 2](#S3.T2) uses none), trains Maze-Unique on 900 mazes, and tests Sudoku-Extreme on 50,000 puzzles.
+
+<a id="A4.T7"></a>
+
+Table 7: **Nine of the twelve training methods reach at least 99% test accuracy on both tasks, and a local objective is the first to reach 99% on the development probe of each task.** $T_{99}$: training time until the mean development solve rate of three runs first reaches 99% (dash: never). $\mathrm{FLOPs}_{99}$: training arithmetic to that point. Solved: exact test solve rate (%), mean $\pm$ SD over three runs. Classes, protocol and notes in [App. D](#A4); bold: best value of each column. Every method runs in one shared training harness that is slower than the recipes of [Table 2](#S3.T2), so compare these times with each other, not with [Table 2](#S3.T2): a full pseudolikelihood fit on Sudoku-Extreme takes about 70 ms here, against 42 ms there.
+
+| Training method | Sudoku-Extreme: $T_{99}$ | Sudoku-Extreme: $\mathrm{FLOPs}_{99}$ | Sudoku-Extreme: Solved | Maze-Unique: $T_{99}$ | Maze-Unique: $\mathrm{FLOPs}_{99}$ | Maze-Unique: Solved |
+|---|---:|---:|---:|---:|---:|---:|
+| **L** Pseudolikelihood \[[8](#bib.bib8)\] | **50 ms** | **3.42e10** | 100.00 ± 0.00 | 43 ms | 6.15e7 | **100.00 ± 0.00** |
+| **L** Masked pseudolikelihood \[[17](#bib.bib17)\] | 198 ms | 1.95e11 | 99.99 ± 0.00 | **22 ms** | **3.11e7** | **100.00 ± 0.00** |
+| **L** Min Probability Flow \[[56](#bib.bib56)\] | 225 ms | 1.95e11 | 99.99 ± 0.00 | 30 ms | 4.22e7 | **100.00 ± 0.00** |
+| **L** Denoising Score Matching \[[60](#bib.bib60)\] | 1.6 s | 2.20e12 | 99.98 ± 0.01 | 23 ms | 3.44e7 | **100.00 ± 0.00** |
+| **S** Contrastive divergence \[[31](#bib.bib31)\] | 33.7 s | 1.26e14 | 99.99 ± 0.00 | 258 ms | 3.37e9 | **100.00 ± 0.00** |
+| **S** Persistent CD \[[58](#bib.bib58)\] | 30.2 s | 1.26e14 | 99.96 ± 0.06 | 262 ms | 3.37e9 | **100.00 ± 0.00** |
+| **S** Contrastive Hebbian \[[45](#bib.bib45)\] | 348 ms | 1.92e12 | **100.00 ± 0.00** | 111 ms | 2.15e9 | **100.00 ± 0.00** |
+| **D** Eq Prop \[[53](#bib.bib53)\] | — | — | 16.05 ± 8.75<sup>†</sup> | 3.7 s | 6.66e10 | **100.00 ± 0.00** |
+| **D** Implicit Diff. \[[4](#bib.bib4)\] | — | — | 0.45 ± 0.50 | 2.3 s | 4.23e10 | **100.00 ± 0.00** |
+| **D** Truncated BPTT ($t{=}1$) \[[62](#bib.bib62)\] | 4.6 s | 2.35e13 | 99.57 ± 0.29 | 1.1 s | 7.41e9 | **100.00 ± 0.00** |
+| **D** Truncated BPTT ($t{=}5$) \[[63](#bib.bib63)\] | 2.9 min | 1.37e15 | 99.89 ± 0.07<sup>†</sup> | 4.0 s | 1.24e10 | **100.00 ± 0.00** |
+| **D** BPTT (full) \[[63](#bib.bib63)\] | — | — | 48.82 ± 3.73<sup>†</sup> | 7.7 s | 1.86e10 | **100.00 ± 0.00** |
+
+<sup>†</sup> Longer cosine schedules on Sudoku-Extreme, without the one-hour cap, with the learning rate chosen on the seed-0 probe. Truncated BPTT ($t{=}5$): 60,000 updates at learning rate 6 (5.3–5.4 min per run; 98.51 $\pm$ 2.15% with 2,000 updates); Eq Prop: 240,000 updates at learning rate 6 (49–50 min per run; 1.10 $\pm$ 0.72% with 2,000 updates); BPTT (full): 3,840,000 updates at learning rate 2 (4.8–5.0 h per run; 0.72 $\pm$ 0.92% with 2,000 updates, and 46.24 $\pm$ 2.86% after 480,000 updates). Implicit differentiation keeps its 2,000-update cells; with 60,000 updates it solved at most 0.6% of development puzzles.
+
+<a id="A5"></a>
+
+## Appendix E Energy descent
+
+Here we show how deterministic dynamics of [Eq. 2](#S3.E2) never increase the energy. Define the convex logsumexp function as $\mathcal{L}({\color{#2A78D6}\boldsymbol{v}}_{i})=\beta^{-1}\log\sum_{a}\exp(\beta{\color{#2A78D6}v}_{ia})$. Its derivative is the softmax belief, ${\color{#2A78D6}\boldsymbol{p}}_{i}=\partial\mathcal{L}/\partial{\color{#2A78D6}\boldsymbol{v}}_{i}$, and
+
+<a id="A5.E7"></a>
+
+$$
+{\color{#2A78D6}\boldsymbol{v}}_{i}^{\top}{\color{#2A78D6}\boldsymbol{p}}_{i}-\mathcal{L}({\color{#2A78D6}\boldsymbol{v}}_{i})=\beta^{-1}\sum_{a}{\color{#2A78D6}p}_{ia}\log{\color{#2A78D6}p}_{ia}. \tag{7}
+$$
+
+so the negative-entropy term of [Eq. 1](#S3.E1) is the Legendre transform of $\mathcal{L}$. For masked cells, all sums and derivatives run over permitted values only. Inside the simplex, the derivative of the energy with respect to a belief is
+
+<a id="A5.E8"></a>
+
+$$
+\frac{\partial E}{\partial{\color{#2A78D6}\boldsymbol{p}}_{i}}=\beta^{-1}(\log{\color{#2A78D6}\boldsymbol{p}}_{i}+1)+\sum_{j}\boldsymbol{{\color{#EB6834}W}}_{ij}{\color{#2A78D6}\boldsymbol{p}}_{j}+\boldsymbol{{\color{#EB6834}B}}_{i}={\color{#2A78D6}\boldsymbol{v}}_{i}+\sum_{j}\boldsymbol{{\color{#EB6834}W}}_{ij}{\color{#2A78D6}\boldsymbol{p}}_{j}+\boldsymbol{{\color{#EB6834}B}}_{i}+c_{i}, \tag{8}
+$$
+
+where the scalar $c_{i}=\beta^{-1}-\mathcal{L}({\color{#2A78D6}\boldsymbol{v}}_{i})$ is added to every entry. So [Eq. 2](#S3.E2) follows $-\partial E/\partial{\color{#2A78D6}\boldsymbol{p}}_{i}$ up to a constant across values, which leaves the softmax beliefs unchanged. $\mathcal{L}$ is a convex function, so its Hessian is positive semidefinite:
+
+<a id="A5.E9"></a>
+
+$$
+H_{i}=\frac{\partial^{2}\mathcal{L}}{\partial{\color{#2A78D6}\boldsymbol{v}}_{i}\,\partial{\color{#2A78D6}\boldsymbol{v}}_{i}^{\top}}=\beta\big[\operatorname{diag}({\color{#2A78D6}\boldsymbol{p}}_{i})-{\color{#2A78D6}\boldsymbol{p}}_{i}{\color{#2A78D6}\boldsymbol{p}}_{i}^{\top}\big]\succeq 0. \tag{9}
+$$
+
+which is singular along the all-ones direction, because adding a constant to all logits leaves the softmax unchanged. Since $\partial{\color{#2A78D6}\boldsymbol{p}}_{i}/\partial{\color{#2A78D6}\boldsymbol{v}}_{i}=H_{i}$, and $H_{i}$ removes the constant $c_{i}$, the chain rule and [Eq. 2](#S3.E2) give
+
+<a id="A5.E10"></a>
+
+$$
+\frac{dE}{dt}=\sum_{i\in\mathcal{F}}\Big(\frac{\partial E}{\partial{\color{#2A78D6}\boldsymbol{p}}_{i}}\Big)^{\!\top}\frac{\partial{\color{#2A78D6}\boldsymbol{p}}_{i}}{\partial{\color{#2A78D6}\boldsymbol{v}}_{i}}\frac{d{\color{#2A78D6}\boldsymbol{v}}_{i}}{dt}=-\sum_{i\in\mathcal{F}}\tau_{i}\dot{{\color{#2A78D6}\boldsymbol{v}}}_{i}^{\top}H_{i}\dot{{\color{#2A78D6}\boldsymbol{v}}}_{i}\leq 0. \tag{10}
+$$
+
+This holds for fixed inputs, parameters, temperature and clamps, positive time constants, and continuous time. It does not show convergence to a unique minimum, rule out saddles, or say that a minimum is a correct solution. Discrete steps and finite precision need their own analysis.
+
+A board is a single-cell local minimum if no permitted single-cell change lowers its energy. If every labeled cell strictly prefers its label given the other labels, the labeled board is such a minimum. A small average pseudolikelihood loss does not guarantee this for every cell, and it does not say which minimum a search reaches from a puzzle. Focused Gibbs search can pass through higher-energy boards, and it can stop at the energy threshold before it reaches a local minimum.
+
+<a id="A6"></a>
+
+## Appendix F Extending CRAM to Maze-Hard
+
+**Summary.** The Maze-Unique energy, extended with 11 learned parameters and one hidden layer that settles in its own relaxation, solves 99.9% of the Maze-Hard test mazes after **less than 30 seconds of training** on one GPU.
+
+On Maze-Unique, the learned energy fills dead ends from the all-open board until only the unique solution path is left ([App. C.4](#A3.SS4)). Maze-Hard mazes, on the other hand, contain loops that break dead-end filling, because the choice between two sides of a loop depends on distances to the goal. With nowhere in [Eq. 1](#S3.E1) to store these distance calculations, CRAM solves none of the Maze-Hard test mazes.
+
+To solve this, we can add one layer of hidden neurons ${\color{#2A78D6}\boldsymbol{z}}$ whose state falls by a fixed amount with each step away from the goal, and let the pair costs of [Eq. 1](#S3.E1) read it. Training is the pseudolikelihood of [Eq. 5](#A4.E5), as for the other tasks.
+
+<a id="A6.T8"></a>
+
+Table 8: **CRAM+$z$ solves 99.9% of the Maze-Hard test mazes with 29 parameters.** Exact match to the labeled path on the 1,000 test mazes. Baselines: accuracy published by their authors. CRAM+$z$: mean and standard deviation over three training runs (999 of 1,000 in each).
+
+| **Model** | **Solved** | **Params** | **FLOPs/puzl** |
+|----|----|----|----|
+| [HRM](https://arxiv.org/abs/2506.21734)<sup>†</sup> \[[62](#bib.bib62)\] | $74.50$ | 2.70e7 | 3.01e12 |
+| [TRM](https://arxiv.org/abs/2510.04871)<sup>†</sup> \[[38](#bib.bib38)\] | $85.30$ | 6.82e6 | 3.84e12 |
+| [FPRM](https://arxiv.org/abs/2606.18206)<sup>†</sup> \[[44](#bib.bib44)\] | $87.00$ | 6.83e6 | 4.78e14 |
+| [NCA](https://arxiv.org/abs/2609.36126)<sup>†</sup> \[[22](#bib.bib22)\] | $89.20$ | 4.10e4 | 2.00e12 |
+| [EBR](https://energy-based-reasoners.github.io/)<sup>†</sup> \[[11](#bib.bib11)\] | $88.30$ | 1.77e6 | 1.93e13 |
+| **CRAM+$z$** | **99.90 ± 0.00** | **2.90e1** | **1.41e7** |
+
+$\dagger$ Accuracy from the original paper; parameter counts and FLOPs computed locally.
+
+FPRM: its published setting (at most 35,000 iterations per batch of 768 mazes, restart seed 4), which solved 86.9% in our run of the released checkpoint.
+
+NCA: trained and scored on the official A\* targets. EBR: lowest energy of 5 sampled trajectories, its published setting.
+
+##### Data.
+
+Maze-Hard \[[62](#bib.bib62)\] has 1,000 training and 1,000 test mazes of $30\times 30$ cells, with tokens ${\color{#4A3AA7}x}_{i}\in\{\text{wall},\text{open},\text{S},\text{G}\}$ for the start S and the goal G. The label marks one shortest path from S to G, the one that breadth-first search finds with the neighbour order down, left, right, up \[[11](#bib.bib11)\]. Every development training maze has at least 512 shortest paths, so this tie-break decides most labels.
+
+<a id="A6.F6"></a>
+
+![Figure 6](../figures/maze-hard.png)
+
+[Original vector figure](../source/figures/maze-hard.pdf)
+
+Figure 6: **CRAM+$z$ solves a Maze-Hard test maze in two relaxations: the hidden layer settles to a distance-like field, and the answers prune the tree of pointers down to the path.** Left: the hidden layer on test maze 0 (seed-0 model), settled first by [Eq. 13](#A6.E13): $\log{\color{#2A78D6}z}^{\star}_{i}$ (white: not connected to G; dark gray: walls) and each cell’s pointer, a line toward its largest weight in [Eq. 14](#A6.E14); the pointers form a tree rooted at G. Top right: rounded answers of the answer flow, run second with the hidden layer fixed, from the all-on board: leaves switch off first; at the stop the board equals the labeled path. Bottom right: the answer energy ([Eq. 1](#S3.E1), entropy included) decreases at every step of that flow; the lighter line continues the flow for 48 steps after the stop, to its fixed point.
+
+##### The hidden layer.
+
+Each cell is either a wall, empty, the start S or the goal G. A cell is “open” if it is not a wall. Let $\mathcal{N}(i)$ be the set of open side neighbours of an open cell $i$. Each open cell has one hidden neuron with output ${\color{#2A78D6}z}_{i}$ and the identity activation; ${\color{#2A78D6}z}_{\mathrm{G}}$ is the output of the neuron at G. The hidden energy is
+
+<a id="A6.E11"></a>
+
+$$
+E_{z}({\color{#2A78D6}\boldsymbol{z}})=\sum_{i}\Big[\frac{{\color{#EB6834}m}}{2}{\color{#2A78D6}z}_{i}^{2}-\frac{1}{2}\sum_{j\in\mathcal{N}(i)}{\color{#2A78D6}z}_{i}{\color{#2A78D6}z}_{j}\Big]-{\color{#2A78D6}z}_{\mathrm{G}}, \tag{11}
+$$
+
+with one learned mass ${\color{#EB6834}m}$. The maze enters only through which cells are open, in $\mathcal{N}(i)$, and through the position of G. The first term pulls every output toward zero, the second rewards neighbouring outputs that are both large, and the third is a unit input to the neuron at G. A cell has at most four neighbors, requiring that ${\color{#EB6834}m}>4$, (enforced by learning $\log({\color{#EB6834}m}-4)$). In each row of the Hessian $\nabla^{2}_{{\color{#2A78D6}\boldsymbol{z}}}E_{z}$, the diagonal entry ${\color{#EB6834}m}$ is larger than the sum of the other entries, which are at most four entries of size 1, so the Hessian is positive definite. $E_{z}$ is then strictly convex and has one minimum ${\color{#2A78D6}\boldsymbol{z}}^{\star}$, positive on the cells connected to G and zero elsewhere.
+
+The neurons follow the gradient of the energy,
+
+<a id="A6.E12"></a>
+
+$$
+\tau\frac{d{\color{#2A78D6}z}_{i}}{dt}=-\frac{\partial E_{z}}{\partial{\color{#2A78D6}z}_{i}}=\begin{cases}\displaystyle-{\color{#EB6834}m}{\color{#2A78D6}z}_{i}+\sum_{j\in\mathcal{N}(i)}{\color{#2A78D6}z}_{j}+1,&i=\mathrm{G},\\[14.0pt]
+\displaystyle-{\color{#EB6834}m}{\color{#2A78D6}z}_{i}+\sum_{j\in\mathcal{N}(i)}{\color{#2A78D6}z}_{j},&\text{otherwise}.\end{cases} \tag{12}
+$$
+
+The time constant $\tau$ does not affect the fixed point, only the speed of these dynamics. Letting $\tau={\color{#EB6834}m}$, an Euler step of size 1 replaces every output, all at once, by the sum of its neighbours’ outputs (plus 1 at G) divided by ${\color{#EB6834}m}$:
+
+<a id="A6.E13"></a>
+
+$$
+{\color{#2A78D6}z}_{i}\leftarrow\begin{cases}\displaystyle\frac{1}{{\color{#EB6834}m}}\Big(\sum_{j\in\mathcal{N}(i)}{\color{#2A78D6}z}_{j}+1\Big),&i=\mathrm{G},\\[14.0pt]
+\displaystyle\frac{1}{{\color{#EB6834}m}}\sum_{j\in\mathcal{N}(i)}{\color{#2A78D6}z}_{j},&\text{otherwise}.\end{cases} \tag{13}
+$$
+
+So each neuron takes the sum of its neighbours’ outputs, plus the input at G, damped by the factor $1/{\color{#EB6834}m}$. This update converges to ${\color{#2A78D6}\boldsymbol{z}}^{\star}$ from any start. Let the error of a neuron be ${\color{#2A78D6}z}_{i}-{\color{#2A78D6}z}^{\star}_{i}$. One update makes the error of each neuron equal to the sum of its neighbours’ errors, divided by ${\color{#EB6834}m}$. A neuron has at most four neighbours, so each update multiplies the largest error by at most $4/{\color{#EB6834}m}$, which is less than 1. From ${\color{#2A78D6}\boldsymbol{z}}=\boldsymbol{0}$, a cell at distance $d$ from G first becomes nonzero after $d+1$ updates, so the layer settles in about as many updates as the longest distance (at most 152 on the development mazes).
+
+##### Solving a maze.
+
+A maze is solved with two relaxations, one after the other ([Fig. 6](#A6.F6)). First, the hidden layer settles, where [Eq. 13](#A6.E13) updates initial state ${\color{#2A78D6}\boldsymbol{z}}=\boldsymbol{0}$ to fixed point. Then, the answers start with every open cell on and follow [Eq. 2](#S3.E2). The hidden layer is linked to the visible layer via ${\color{#EB6834}L}_{ij}({\color{#2A78D6}\boldsymbol{z}})$ through attention weights $\alpha_{ij}$ over $\mathcal{M}(i)=\mathcal{N}(i)\cup\{i\}$:
+
+<a id="A6.E14"></a>
+
+$$
+\displaystyle\alpha_{ij}({\color{#2A78D6}\boldsymbol{z}}) \displaystyle=\frac{e^{{\color{#EB6834}\beta}_{j-i}}\,{\color{#2A78D6}z}_{j}}{\sum_{k\in\mathcal{M}(i)}e^{{\color{#EB6834}\beta}_{k-i}}\,{\color{#2A78D6}z}_{k}},\qquad{\color{#EB6834}L}_{ij}({\color{#2A78D6}\boldsymbol{z}})={\color{#EB6834}\kappa}_{j-i}\,\alpha_{ij}({\color{#2A78D6}\boldsymbol{z}})+{\color{#EB6834}\kappa}_{i-j}\,\alpha_{ji}({\color{#2A78D6}\boldsymbol{z}}). \tag{14}
+$$
+
+Each answer update of [Eq. 3](#S3.E3) then adds $\eta\sum_{j\in\mathcal{M}(i)}{\color{#EB6834}L}_{ij}({\color{#2A78D6}\boldsymbol{z}})\,{\color{#2A78D6}p}_{j}$ to the Maze-Unique update of cell $i$, and learnable ${\color{#EB6834}\beta}_{\delta}$ (one per direct neighbor, and itself) allows the model to learn Maze-Hard’s preference for direction. The answers ${\color{#2A78D6}p}_{i}\in[0,1]$ have the same Maze-Unique energy as in [App. C.4](#A3.SS4), such that their update is:
+
+<a id="A6.E15"></a>
+
+$$
+\begin{aligned}
+\displaystyle{\color{#2A78D6}\boldsymbol{v}}_{i} & \displaystyle\leftarrow(1-\eta)\,{\color{#2A78D6}\boldsymbol{v}}_{i}-\eta\Big(\sum_{j}\big(\underbrace{\boldsymbol{{\color{#EB6834}W}}_{ij}}_{\mathclap{\text{\scriptsize Maze-Unique}}}-\underbrace{{\color{#EB6834}L}_{ij}({\color{#2A78D6}\boldsymbol{z}})\operatorname{diag}(0,1)}_{\mathclap{\text{\scriptsize links to the hidden layer}}}\big){\color{#2A78D6}\boldsymbol{p}}_{j}+\boldsymbol{{\color{#EB6834}B}}_{i}\Big), \\
+\displaystyle{\color{#2A78D6}\boldsymbol{p}}_{i} & \displaystyle=\operatorname{softmax}({\color{#2A78D6}\boldsymbol{v}}_{i}).
+\end{aligned} \tag{15}
+$$
+
+Here ${\color{#2A78D6}\boldsymbol{v}}_{i}\in\mathbb{R}^{2}$ holds the logits of the off and on states of cell $i$, and $\boldsymbol{{\color{#EB6834}W}}_{ij}$ and $\boldsymbol{{\color{#EB6834}B}}_{i}$ are the $2\times 2$ pair costs and the input cost of the Maze-Unique energy, so with ${\color{#EB6834}L}=0$ this is [Eq. 3](#S3.E3) for Maze-Unique; $\operatorname{diag}(0,1)$ keeps only the on–on entry, so a link lowers the cost of two linked cells being on together. The links raise the on logit of cell $i$ by the on probabilities of itself and its neighbours, weighted by their links. Walls stay off, and S and G stay on.
+
+The fixed point of this optimization is the predicted path.
+
+**Training** uses pseudolikelihood training as in Maze-Unique, and an adjoint solver for the hidden parameters, without differentiating through either relaxation. The model has 29 total learned parameters: the 18 of the Maze-Unique energy, five ${\color{#EB6834}\kappa}$, five ${\color{#EB6834}\beta}$ and ${\color{#EB6834}m}$: with ${\color{#EB6834}\kappa}=0$ it is the Maze-Unique model.
+
+##### Results.
+
+On the development mazes, each of three training runs solves 100 of 100. Trained on all 1,000 training mazes and scored once on the test set, each of three runs solves 999 of 1,000, with one incorrect stop and no exhausted budget ([Table 8](#A6.T8)). All three fail on the same maze, where a dead end of six cells along the maze’s border, next to the path, stays on: its cells support each other through the $3\times 3$ pair costs, so the flow does not prune it. On the development mazes, learning an input per token in place of the input at G solves 0 of 300, and one gate per pair in place of the normalized window weights solves 0 of 100. A fit takes about half a minute on one H200, with the hidden-layer relaxation and its adjoint each run as one fused Triton kernel per maze.

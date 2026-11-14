@@ -1,0 +1,284 @@
+{
+  "updated_utc": "2026-11-14T22:15:18.226853+00:00",
+  "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
+  "status": "six planned studies complete; ongoing research continues separately",
+  "host": "work",
+  "jobs": 105,
+  "run_arm_rows": 123,
+  "model_maze_evaluations": 15936,
+  "hypotheses": [
+    {
+      "campaign": "discovery",
+      "hypothesis": "H2",
+      "outcome": {
+        "success": 348,
+        "n_unique": 384,
+        "accuracy_percent": 90.625,
+        "one_sided95_lower_percent": 87.8080204624788,
+        "one_sided95_upper_percent": 92.96130394495962,
+        "decision": "falsified"
+      }
+    },
+    {
+      "campaign": "discovery",
+      "hypothesis": "H2b",
+      "outcome": {
+        "difference_pp": 0.0,
+        "stratified_paired_bootstrap95_pp": [
+          0.0,
+          0.0
+        ],
+        "decision": "falsified",
+        "zero_discordance_abs_mean_upper95_pp": 0.7771034296354618
+      }
+    },
+    {
+      "campaign": "confirmation",
+      "hypothesis": "H2",
+      "outcome": {
+        "success": 352,
+        "n_unique": 384,
+        "accuracy_percent": 91.66666666666666,
+        "one_sided95_lower_percent": 88.96841295984859,
+        "one_sided95_upper_percent": 93.87028673850723,
+        "decision": "falsified"
+      }
+    },
+    {
+      "campaign": "confirmation",
+      "hypothesis": "H2b",
+      "outcome": {
+        "difference_pp": 0.0,
+        "stratified_paired_bootstrap95_pp": [
+          0.0,
+          0.0
+        ],
+        "decision": "falsified",
+        "zero_discordance_abs_mean_upper95_pp": 0.7771034296354618
+      }
+    },
+    {
+      "campaign": "budget_extension",
+      "hypothesis": "H2c",
+      "outcome": {
+        "success": 256,
+        "n_unique": 256,
+        "accuracy_percent": 100.0,
+        "one_sided95_lower_percent": 98.8366123836834,
+        "one_sided95_upper_percent": 100.0,
+        "decision": "inconclusive"
+      }
+    },
+    {
+      "campaign": "budget_extension",
+      "hypothesis": "H2d",
+      "outcome": {
+        "difference_pp": 20.703125,
+        "stratified_paired_bootstrap95_pp": [
+          16.015625,
+          25.78125
+        ],
+        "decision": "supported"
+      }
+    },
+    {
+      "campaign": "horizon_transfer",
+      "hypothesis": "H2c independent confirmation",
+      "outcome": {
+        "length": 60,
+        "n_unique": 384,
+        "solved_per_seed": [
+          384,
+          384,
+          384
+        ],
+        "joint_success": 384,
+        "joint_percent": 100.0,
+        "one_sided95_lower_percent": 99.22289657036498,
+        "one_sided95_upper_percent": 100.0,
+        "99percent_decision": "supported",
+        "steps_mean": 1575.013888888889,
+        "steps_max": 3530.6666666666665,
+        "predictor_within10percent": 384,
+        "predictor_one_sided95_lower_percent": 99.22289657036498,
+        "predictor_one_sided95_upper_percent": 100.0,
+        "predictor95percent_decision": "supported",
+        "relative_error_mean": 0.015276895831069956,
+        "relative_error_max": 0.08313369496797278
+      }
+    },
+    {
+      "campaign": "horizon_transfer",
+      "hypothesis": "H2f branch-depth forecast90x90",
+      "outcome": {
+        "length": 90,
+        "n_unique": 128,
+        "solved_per_seed": [
+          128,
+          128,
+          128
+        ],
+        "joint_success": 128,
+        "joint_percent": 100.0,
+        "one_sided95_lower_percent": 97.68675947482532,
+        "one_sided95_upper_percent": 100.0,
+        "99percent_decision": "inconclusive",
+        "steps_mean": 3198.625,
+        "steps_max": 7072.0,
+        "predictor_within10percent": 128,
+        "predictor_one_sided95_lower_percent": 97.68675947482532,
+        "predictor_one_sided95_upper_percent": 100.0,
+        "predictor95percent_decision": "supported",
+        "relative_error_mean": 0.012032188320428894,
+        "relative_error_max": 0.04308238479592772
+      }
+    },
+    {
+      "campaign": "causal_comb",
+      "hypothesis": "H2e depth64_minus0",
+      "outcome": {
+        "contrast": "depth64_minus0",
+        "mean_steps": 280.9166666666667,
+        "paired_layout_bootstrap95": [
+          279.25,
+          282.58333333333337
+        ],
+        "threshold": 200,
+        "decision": "supported"
+      }
+    },
+    {
+      "campaign": "causal_comb",
+      "hypothesis": "H2e spine64_minus16",
+      "outcome": {
+        "contrast": "spine64_minus16",
+        "mean_steps": 0.0,
+        "paired_layout_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "threshold": 32,
+        "decision": "supported"
+      }
+    },
+    {
+      "campaign": "eta",
+      "hypothesis": "H2g eta0.5 speed and accuracy at 60",
+      "outcome": {
+        "length": 60,
+        "n_unique": 384,
+        "model_repeats": 3,
+        "median_steps_eta02": 762.6666666666666,
+        "median_steps_eta05": 320.0,
+        "ratio_of_medians": 2.3833333333333333,
+        "paired_stratified_bootstrap95_ratio": [
+          2.35,
+          2.473684210526316
+        ],
+        "speed_threshold2x_decision": "supported",
+        "joint_solved_eta02": 384,
+        "joint_solved_eta05": 384,
+        "lost_joint_solves": 0,
+        "gained_joint_solves": 0,
+        "one_sided95_loss_upper_pp": 0.7771034296354586,
+        "accuracy_decision": "supported",
+        "combined_hypothesis": "supported",
+        "joint_solved2048_eta02": 351,
+        "joint_solved2048_eta05": 384,
+        "answer_seconds_eta02": 18.17545698682079,
+        "answer_seconds_eta05": 7.428878179052845,
+        "native_answer_runtime_ratio": 2.446595104772346,
+        "hidden_plus_answer_runtime_ratio": 2.089730893354554,
+        "censored_model_maze_arms": 0
+      }
+    },
+    {
+      "campaign": "eta",
+      "hypothesis": "H2g eta0.5 speed and accuracy at 90",
+      "outcome": {
+        "length": 90,
+        "n_unique": 384,
+        "model_repeats": 3,
+        "median_steps_eta02": 1192.0,
+        "median_steps_eta05": 493.33333333333337,
+        "ratio_of_medians": 2.416216216216216,
+        "paired_stratified_bootstrap95_ratio": [
+          2.3958333333333335,
+          2.459770114942529
+        ],
+        "speed_threshold2x_decision": "supported",
+        "joint_solved_eta02": 384,
+        "joint_solved_eta05": 384,
+        "lost_joint_solves": 0,
+        "gained_joint_solves": 0,
+        "one_sided95_loss_upper_pp": 0.7771034296354586,
+        "accuracy_decision": "supported",
+        "combined_hypothesis": "supported",
+        "joint_solved2048_eta02": 285,
+        "joint_solved2048_eta05": 370,
+        "answer_seconds_eta02": 31.48857366212178,
+        "answer_seconds_eta05": 12.914443830028176,
+        "native_answer_runtime_ratio": 2.4382446566460523,
+        "hidden_plus_answer_runtime_ratio": 2.205781572969326,
+        "censored_model_maze_arms": 0
+      }
+    }
+  ],
+  "protocols": {
+    "protocol": {
+      "sha256": "724d29ca5deae8f35ceba92f48ccd0fd21dd87fc1af1cc05621d88ce00e867f8",
+      "frozen_utc": "2026-11-14T21:44:07.679083+00:00"
+    },
+    "confirmation-protocol": {
+      "sha256": "b5e19457dddc0c16ee0422b4326a19ebc10fc92e528b444158550950bbbb53e9",
+      "frozen_utc": "2026-11-14T21:47:52.833222+00:00"
+    },
+    "budget_extension-protocol": {
+      "sha256": "1765d887c2d40ae433284aafbfa5838e5803cd93c9210afdb90731cdfb326278",
+      "frozen_utc": "2026-11-14T21:47:52.833608+00:00"
+    },
+    "horizon_transfer-protocol": {
+      "sha256": "ed5309a957c9d181adf77245bfbf2427903337ce705191d4f11a8c75d1e704fb",
+      "frozen_utc": "2026-11-14T21:54:19.991390+00:00"
+    },
+    "causal_comb-protocol": {
+      "sha256": "48691eabc8b07110bdf424037c9b55ef96c61e705419da59a9608e07b1a1199a",
+      "frozen_utc": "2026-11-14T21:56:39.293007+00:00"
+    },
+    "eta-protocol": {
+      "sha256": "f1d9b66084702d0d432b1d2c4c126709e1c3d0ef17037ea1a682637d0e44c68a",
+      "frozen_utc": "2026-11-14T22:06:12.225464+00:00"
+    }
+  },
+  "audit_sha256": {
+    "artifacts/research/20261114/work/audit.json": "8ef1a49946d019b81d4a65fd2c9752fb61e7e214d95df43a65a319578002ce7b",
+    "artifacts/research/20261114/work/confirmation/audit.json": "e2326ee8b9b816f0a6c7d5f54de83784f6196c952355b2072328f45ae50d7c7f",
+    "artifacts/research/20261114/work/budget_extension/audit.json": "d32835ba3e58366cfab4611b1a91cf52459fcd3a3e3a0aa06970124e040defbf",
+    "artifacts/research/20261114/work/horizon_transfer/audit.json": "237d32f37c07ae74af4d575ae1ac0da442970e99f6734dc1506c74c7e5426989",
+    "artifacts/research/20261114/work/causal_comb/audit.json": "8126dc65fd73342b0efae37ea18de15c9071c90b38fdb540be9babc0d1487928",
+    "artifacts/research/20261114/work/eta/audit.json": "08a1bd6b975582c3032dd72099d6b0495398d1406d1b24017f84d6e7b67c20c1"
+  },
+  "model_sha256": {
+    "0": {
+      "path": "artifacts/research/20261114/work/models/seed0.pt",
+      "sha256": "84d694828c90cbf55bcf2eb84136324e2a5d482e4847e50d7b9f67b39c8aa230"
+    },
+    "1": {
+      "path": "artifacts/research/20261114/work/models/seed1.pt",
+      "sha256": "21004b8bca2fde7ae23825e874a30e15d28174ae5da16382420a1743d8ad2881"
+    },
+    "2": {
+      "path": "artifacts/research/20261114/work/models/seed2.pt",
+      "sha256": "5f350d5de1f42ef627a2dd6052bcdcb722bd965d1ef940863ed4f6955e4a73e3"
+    }
+  },
+  "limits": [
+    "Generated DFS-tree/loopy/comb distributions differ from official Maze-Hard.",
+    "Training seeds are repeated frozen models, not independent maze samples.",
+    "Oracle S-G paths enter correctness and offline topology diagnostics only, never model inference.",
+    "Instrumented Blackwell wall clocks are not H200 speed comparisons or matched baseline training.",
+    "BP AdamW outside post-training inference protocol; negative and inconclusive outcomes retained."
+  ],
+  "report": "research/20261114/work/REPORT.md",
+  "source": "research/20261114/work/"
+}

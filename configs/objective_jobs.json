@@ -1,0 +1,4927 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-11-13T19:31:11.716079+00:00",
+  "paper": "arXiv:2611.17309v1",
+  "source_commit": "62bbe830c7d6f87f2ba18f30a28039258b986454",
+  "manifest_sha256": "c69b9ffce2d74b7d0172e6f9659d443a49227b4450d42a54a7abf0cdf239e096",
+  "workspace": "/home/catid/hopfield",
+  "source": "/home/catid/hopfield/objective_source",
+  "python": "/home/catid/hopfield/upstream/.venv/bin/python",
+  "data": "/home/catid/hopfield/upstream/data",
+  "source_sha256": {
+    "cram/__init__.py": "ada20986bead2aa2d77dcc358af07dbc01b569b1765c83560e917d5cc2bd032f",
+    "cram/cram_graph_coloring.py": "ed6158d983be48082f851dcdb5175bad7aab6408ac73f14659825e90c67f5275",
+    "cram/cram_maze.py": "c9f9fa5718fdf7ce1f8ad33dc7dc9481e43c6084a31516ac1c88451dba03ead8",
+    "cram/cram_maze_hard_graph.py": "967c573a3b3dee6c015bf373b7858b856ae0e639bdfa1a8c302b65af87a19717",
+    "cram/cram_maze_hard_simple.py": "07e64a9383c4b2b1ea30021063d93e302a794023accbf6effbf188892220b2a8",
+    "cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "cram/cram_sudoku.py": "2c6b53d1b81d54e35c484a3565abd60e778716d6e6121e424aede826a5ab0ed2",
+    "cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "cram/graph_coloring_data.py": "b04e61911aa55d437ab3c9d602832c3df09f285f2605aba2e9a3d78c18d9cb04",
+    "cram/latent_settle_triton.py": "7eca3fdf03ec6d5eb847e0dcbcdad61c74b56c084c363190d2c32a1737f19072",
+    "cram/maze_h3.py": "dd13a3038830bf1e2db83854704fcb39167a3f76ee9de01832de9b3187ee7acd",
+    "cram/maze_h3p.py": "dd26d260efea3a84f224743e14ae8383d967dfdafb0b4409bd05e864fe7ce92a",
+    "cram/maze_learned.py": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "cram/maze_unique.py": "3ceb56a61d92c3fa52a7d84876314abe31909780159fa53560692c19b306d213",
+    "cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623",
+    "cram/opcount.py": "2ddf7373d227f50f43b06cf8e129cb727a85a3e2e86065e7081ba477997e924d",
+    "cram/paths.py": "d3af83d2c75e9165b88fbaf09d35ee352523fa79e5b3b02163d0dfbaae8602b8",
+    "cram/table.py": "bbf1fdce8a9e2fa836f5a3800746671b62f740e28c1986029bb53b608ebd0493",
+    "experiments/compute_curve_export.py": "951515d262bab6599bee08af08343d039ddc57a3da5b8f38841bccccdb1b47d2",
+    "experiments/data_efficiency.py": "5f16479ed5428a192ce431e1ebc8715a5ffabeae4aeaefc9448dd4d038495c22",
+    "experiments/data_efficiency_baselines.py": "08fb19aaf0eff7ddd02fffee3a6e552c7f14e3990384806f75ec3b515f76f383",
+    "experiments/data_efficiency_common.py": "fd9736215f5268f445f089eaedc84360edbe0aa00abc8af861bf03b98eb1ba01",
+    "experiments/difficulty_export.py": "946e006435e75bdf36793f0f6dd15a830b44fc076f1ef60f27e492809eb8f051",
+    "experiments/graph_coloring.py": "156b3c5c4dd377870c10ef6caca20e5ccbf0a6921e0bec997a52d6a03443a972",
+    "experiments/graph_coloring_export.py": "6823486a862b19e0109ae9df4fca983ba43688daeeef24686450cd1c36a4541d",
+    "experiments/graph_coloring_hand_set.py": "c0dbce040824dd42d9195305ec8bc5cce581c55143cdf330b7cac8fda3586cdf",
+    "experiments/hand_set.py": "8fc4f15271655ec5b1e17eec29a48d8f11f8489ca0d1df79f0a7df4f37bac136",
+    "experiments/maze_hard_figure_export.py": "02e17d0728a458d69428a6e215a33c9d3d5f1f68bb5d49a02a5fac59bb8b037e",
+    "experiments/maze_hard_latent.py": "fad4c9c05c41ab2e3dcd997c666a2bbf0fdcca5ae894e2e90f1540d6d2cb4d77",
+    "experiments/maze_hard_support.py": "936caed5f90ef275199c73e26a437b4b6e6dc814b11e6955bb741b33e30b5c49",
+    "experiments/maze_unique.py": "042e1b0d0c760bfb7b3c4c9a6cd30785e95255ab570a5810bd80cfbf1ac651eb",
+    "experiments/maze_unique_fit_time.py": "07f0d25ea1f9a244dfba9ce031523400ba6cafa3ecb339ab8a84ade2ac3b31d6",
+    "experiments/multi_solution_export.py": "7462da58650d6b3c416e7a58b8526899543ae18fe9c05ed0ebd671875cb3317c",
+    "experiments/nqueens_coverage.py": "2694c01cb6b37b714dcb70b040317aed2789b9ae3207eb2b2c6c54254d41910c",
+    "experiments/nqueens_emptied.py": "e5d01938ef08469198028547e27cc9789336d3bec7a41cdf88bb2fec37ebeb6e",
+    "experiments/nqueens_export.py": "79bf0074e470bc6a2bfe1f2dfe5c376b38e96ef98f527a733f01f0b44ce76c96",
+    "experiments/nqueens_free.py": "67b4f3fd4188714cf04c50f0ecd6b73754c8132e3ed10e7877e17a225e875f08",
+    "experiments/nqueens_free_export.py": "6bbf21ad9d9864a21dd9f4dda8417a832f4008e7940a5c1b2d8f61162c13156d",
+    "experiments/nqueens_offset.py": "f9f0641aa33f5a6f80161f20ef55c5bfd6cb28b439439e0162176428a30df0f3",
+    "experiments/nqueens_offset_export.py": "85a2b6f5bd0d3d56b6ec52b30d22e15d08d8c70f5dca3da9039b3b99f4641127",
+    "experiments/sudoku.py": "b73f72c8e874711d0d05fa75de0043442a20297618de62e5bb714b76aa09f20b",
+    "experiments/training_curves.py": "f9c577da0d83a13a53e33ad859d9abe37fbb1cef52c42efb54424f94b6cb2e07",
+    "experiments/training_methods.py": "13ee258293c6b0883d8dbf93b14533460d402e8bd9d61f306c7d6832f46919e9",
+    "experiments/training_methods_export.py": "d60a18693e9cc488c239955b952d4f2f34c76eb3f1ed195b793ec4af35341561"
+  },
+  "data_manifest": [
+    {
+      "path": "eqr/maze-30x30-unique-1k/test/all__inputs.npy",
+      "bytes": 900128,
+      "sha256": "c501b3f75ec018e27fd6d00534b6738ebcc555da50536909e530787d16b1ce0f"
+    },
+    {
+      "path": "eqr/maze-30x30-unique-1k/test/all__labels.npy",
+      "bytes": 900128,
+      "sha256": "20b21168459847fb260d986394098addf7cca94becc7e682dcb358967d5993dc"
+    },
+    {
+      "path": "eqr/maze-30x30-unique-1k/train/all__inputs.npy",
+      "bytes": 900128,
+      "sha256": "2922455815232dcb636ee45f335e7ce834aa45d4fab743b96ac97c17284ca7e2"
+    },
+    {
+      "path": "eqr/maze-30x30-unique-1k/train/all__labels.npy",
+      "bytes": 900128,
+      "sha256": "6b1a99761606b78f85fe43085b158457f22a3d6274b1e09f12f7b16814fdb5e4"
+    },
+    {
+      "path": "frm/dev10k/dev.npz",
+      "bytes": 1660768,
+      "sha256": "a2a215547ed74ff013db09841392c55472a113713f1484235af3e14a4ed45a35"
+    },
+    {
+      "path": "frm/split/train-s0.npz",
+      "bytes": 1304768,
+      "sha256": "2c5d1c8d0e462dfedb0d9c824a1239aeb145e77d1c05342877e982d25076930c"
+    },
+    {
+      "path": "frm/split/train-s1.npz",
+      "bytes": 1304768,
+      "sha256": "db92bf226ce42bde47435b5ad27e653d3680140fd63c85ae748ec0dc30082afb"
+    },
+    {
+      "path": "frm/split/train-s2.npz",
+      "bytes": 1304768,
+      "sha256": "4d5d1fe725944a3e2ea15f52bfe7ba708cb2beb034d6cd3f1e1d985595ad9c0d"
+    },
+    {
+      "path": "full-test/full-all.npz",
+      "bytes": 551313712,
+      "sha256": "2fdc470ee042f11ffa61c89f606f39004d8914fca3312c88602d9f68212dec6c"
+    }
+  ],
+  "fresh_hbar_prerequisite_sha256": {
+    "experiments/runs/CRAM-S/full/full-aug-s0/model.pt": "4fad7152714b5b684fc0bee337c52e10d95d455efdb97d114300ea8d3f122136",
+    "experiments/runs/CRAM-S/full/full-aug-s1/model.pt": "ff86fe5d6cc86140e780de2f5b040e17edc8d0883db5e92327e9186fec8e136d",
+    "experiments/runs/CRAM-S/full/full-aug-s2/model.pt": "f3d99b7a037a1d7140b9f1199c06456d22cdc57e10b4f4618eb17edca7ace55c"
+  },
+  "lanes": [
+    "loki:1",
+    "loki:0",
+    "work:0",
+    "work:1"
+  ],
+  "jobs": [
+    {
+      "id": "objective-maze-pl-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "pl",
+          "--lr",
+          "1.0",
+          "--l1",
+          "0.003",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT-sgd/final/maze-pl-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-pl-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:1",
+      "run_relative": "runs/ALT-sgd/final/maze-pl-s0",
+      "task": "maze",
+      "method": "pl",
+      "seed": 0
+    },
+    {
+      "id": "objective-maze-bptt-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "bptt",
+          "--lr",
+          "0.3",
+          "--knob",
+          "10",
+          "--l1",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT-sgd/final/maze-bptt-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-bptt-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:0",
+      "run_relative": "runs/ALT-sgd/final/maze-bptt-s0",
+      "task": "maze",
+      "method": "bptt",
+      "seed": 0
+    },
+    {
+      "id": "objective-maze-pl-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "pl",
+          "--lr",
+          "1.0",
+          "--l1",
+          "0.003",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT-sgd/final/maze-pl-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-pl-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:0",
+      "run_relative": "runs/ALT-sgd/final/maze-pl-s1",
+      "task": "maze",
+      "method": "pl",
+      "seed": 1
+    },
+    {
+      "id": "objective-maze-pl-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "pl",
+          "--lr",
+          "1.0",
+          "--l1",
+          "0.003",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT-sgd/final/maze-pl-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-pl-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:1",
+      "run_relative": "runs/ALT-sgd/final/maze-pl-s2",
+      "task": "maze",
+      "method": "pl",
+      "seed": 2
+    },
+    {
+      "id": "objective-maze-mpl-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "mpl",
+          "--lr",
+          "1.0",
+          "--knob",
+          "0.3",
+          "--l1",
+          "0.03",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT-sgd/final/maze-mpl-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-mpl-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:1",
+      "run_relative": "runs/ALT-sgd/final/maze-mpl-s0",
+      "task": "maze",
+      "method": "mpl",
+      "seed": 0
+    },
+    {
+      "id": "objective-maze-mpl-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "mpl",
+          "--lr",
+          "1.0",
+          "--knob",
+          "0.3",
+          "--l1",
+          "0.03",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT-sgd/final/maze-mpl-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-mpl-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:0",
+      "run_relative": "runs/ALT-sgd/final/maze-mpl-s1",
+      "task": "maze",
+      "method": "mpl",
+      "seed": 1
+    },
+    {
+      "id": "objective-maze-mpl-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "mpl",
+          "--lr",
+          "1.0",
+          "--knob",
+          "0.3",
+          "--l1",
+          "0.03",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT-sgd/final/maze-mpl-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-mpl-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:0",
+      "run_relative": "runs/ALT-sgd/final/maze-mpl-s2",
+      "task": "maze",
+      "method": "mpl",
+      "seed": 2
+    },
+    {
+      "id": "objective-maze-mpf-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "mpf",
+          "--lr",
+          "0.3",
+          "--l1",
+          "0.003",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT-sgd/final/maze-mpf-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-mpf-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:1",
+      "run_relative": "runs/ALT-sgd/final/maze-mpf-s0",
+      "task": "maze",
+      "method": "mpf",
+      "seed": 0
+    },
+    {
+      "id": "objective-maze-mpf-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "mpf",
+          "--lr",
+          "0.3",
+          "--l1",
+          "0.003",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT-sgd/final/maze-mpf-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-mpf-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:1",
+      "run_relative": "runs/ALT-sgd/final/maze-mpf-s1",
+      "task": "maze",
+      "method": "mpf",
+      "seed": 1
+    },
+    {
+      "id": "objective-maze-mpf-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "mpf",
+          "--lr",
+          "0.3",
+          "--l1",
+          "0.003",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT-sgd/final/maze-mpf-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-mpf-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:0",
+      "run_relative": "runs/ALT-sgd/final/maze-mpf-s2",
+      "task": "maze",
+      "method": "mpf",
+      "seed": 2
+    },
+    {
+      "id": "objective-maze-dsm-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "dsm",
+          "--lr",
+          "0.1",
+          "--knob",
+          "0.5",
+          "--l1",
+          "0.03",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT-sgd/final/maze-dsm-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-dsm-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:0",
+      "run_relative": "runs/ALT-sgd/final/maze-dsm-s0",
+      "task": "maze",
+      "method": "dsm",
+      "seed": 0
+    },
+    {
+      "id": "objective-maze-dsm-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "dsm",
+          "--lr",
+          "0.1",
+          "--knob",
+          "0.5",
+          "--l1",
+          "0.03",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT-sgd/final/maze-dsm-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-dsm-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:1",
+      "run_relative": "runs/ALT-sgd/final/maze-dsm-s1",
+      "task": "maze",
+      "method": "dsm",
+      "seed": 1
+    },
+    {
+      "id": "objective-maze-dsm-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "dsm",
+          "--lr",
+          "0.1",
+          "--knob",
+          "0.5",
+          "--l1",
+          "0.03",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT-sgd/final/maze-dsm-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-dsm-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:1",
+      "run_relative": "runs/ALT-sgd/final/maze-dsm-s2",
+      "task": "maze",
+      "method": "dsm",
+      "seed": 2
+    },
+    {
+      "id": "objective-maze-bptt1-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "bptt1",
+          "--lr",
+          "1.0",
+          "--knob",
+          "10",
+          "--l1",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT-sgd/final/maze-bptt1-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-bptt1-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:0",
+      "run_relative": "runs/ALT-sgd/final/maze-bptt1-s0",
+      "task": "maze",
+      "method": "bptt1",
+      "seed": 0
+    },
+    {
+      "id": "objective-maze-bptt1-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "bptt1",
+          "--lr",
+          "1.0",
+          "--knob",
+          "10",
+          "--l1",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT-sgd/final/maze-bptt1-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-bptt1-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:0",
+      "run_relative": "runs/ALT-sgd/final/maze-bptt1-s1",
+      "task": "maze",
+      "method": "bptt1",
+      "seed": 1
+    },
+    {
+      "id": "objective-maze-bptt1-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "bptt1",
+          "--lr",
+          "1.0",
+          "--knob",
+          "10",
+          "--l1",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT-sgd/final/maze-bptt1-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-bptt1-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:1",
+      "run_relative": "runs/ALT-sgd/final/maze-bptt1-s2",
+      "task": "maze",
+      "method": "bptt1",
+      "seed": 2
+    },
+    {
+      "id": "objective-maze-bptt5-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "bptt5",
+          "--lr",
+          "0.3",
+          "--knob",
+          "10",
+          "--l1",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT-sgd/final/maze-bptt5-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-bptt5-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:1",
+      "run_relative": "runs/ALT-sgd/final/maze-bptt5-s0",
+      "task": "maze",
+      "method": "bptt5",
+      "seed": 0
+    },
+    {
+      "id": "objective-maze-bptt5-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "bptt5",
+          "--lr",
+          "0.3",
+          "--knob",
+          "10",
+          "--l1",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT-sgd/final/maze-bptt5-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-bptt5-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:0",
+      "run_relative": "runs/ALT-sgd/final/maze-bptt5-s1",
+      "task": "maze",
+      "method": "bptt5",
+      "seed": 1
+    },
+    {
+      "id": "objective-maze-bptt5-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "bptt5",
+          "--lr",
+          "0.3",
+          "--knob",
+          "10",
+          "--l1",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT-sgd/final/maze-bptt5-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-bptt5-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:0",
+      "run_relative": "runs/ALT-sgd/final/maze-bptt5-s2",
+      "task": "maze",
+      "method": "bptt5",
+      "seed": 2
+    },
+    {
+      "id": "objective-maze-bptt-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "bptt",
+          "--lr",
+          "0.3",
+          "--knob",
+          "10",
+          "--l1",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT-sgd/final/maze-bptt-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-bptt-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:1",
+      "run_relative": "runs/ALT-sgd/final/maze-bptt-s1",
+      "task": "maze",
+      "method": "bptt",
+      "seed": 1
+    },
+    {
+      "id": "objective-maze-bptt-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "bptt",
+          "--lr",
+          "0.3",
+          "--knob",
+          "10",
+          "--l1",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT-sgd/final/maze-bptt-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-bptt-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:1",
+      "run_relative": "runs/ALT-sgd/final/maze-bptt-s2",
+      "task": "maze",
+      "method": "bptt",
+      "seed": 2
+    },
+    {
+      "id": "objective-maze-chl-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "chl",
+          "--lr",
+          "0.3",
+          "--knob",
+          "100",
+          "--l1",
+          "0.0",
+          "--reg",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT-sgd/final/maze-chl-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-chl-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:0",
+      "run_relative": "runs/ALT-sgd/final/maze-chl-s0",
+      "task": "maze",
+      "method": "chl",
+      "seed": 0
+    },
+    {
+      "id": "objective-maze-chl-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "chl",
+          "--lr",
+          "0.3",
+          "--knob",
+          "100",
+          "--l1",
+          "0.0",
+          "--reg",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT-sgd/final/maze-chl-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-chl-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:0",
+      "run_relative": "runs/ALT-sgd/final/maze-chl-s1",
+      "task": "maze",
+      "method": "chl",
+      "seed": 1
+    },
+    {
+      "id": "objective-maze-chl-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "chl",
+          "--lr",
+          "0.3",
+          "--knob",
+          "100",
+          "--l1",
+          "0.0",
+          "--reg",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT-sgd/final/maze-chl-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-chl-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:1",
+      "run_relative": "runs/ALT-sgd/final/maze-chl-s2",
+      "task": "maze",
+      "method": "chl",
+      "seed": 2
+    },
+    {
+      "id": "objective-maze-imp-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "imp",
+          "--lr",
+          "0.3",
+          "--knob",
+          "30",
+          "--l1",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT-sgd/final/maze-imp-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-imp-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:1",
+      "run_relative": "runs/ALT-sgd/final/maze-imp-s0",
+      "task": "maze",
+      "method": "imp",
+      "seed": 0
+    },
+    {
+      "id": "objective-maze-imp-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "imp",
+          "--lr",
+          "0.3",
+          "--knob",
+          "30",
+          "--l1",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT-sgd/final/maze-imp-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-imp-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:0",
+      "run_relative": "runs/ALT-sgd/final/maze-imp-s1",
+      "task": "maze",
+      "method": "imp",
+      "seed": 1
+    },
+    {
+      "id": "objective-maze-imp-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "imp",
+          "--lr",
+          "0.3",
+          "--knob",
+          "30",
+          "--l1",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT-sgd/final/maze-imp-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-imp-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:0",
+      "run_relative": "runs/ALT-sgd/final/maze-imp-s2",
+      "task": "maze",
+      "method": "imp",
+      "seed": 2
+    },
+    {
+      "id": "objective-maze-eqp-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "eqp",
+          "--lr",
+          "0.3",
+          "--knob",
+          "30",
+          "--l1",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT-sgd/final/maze-eqp-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-eqp-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:1",
+      "run_relative": "runs/ALT-sgd/final/maze-eqp-s0",
+      "task": "maze",
+      "method": "eqp",
+      "seed": 0
+    },
+    {
+      "id": "objective-maze-eqp-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "eqp",
+          "--lr",
+          "0.3",
+          "--knob",
+          "30",
+          "--l1",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT-sgd/final/maze-eqp-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-eqp-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:1",
+      "run_relative": "runs/ALT-sgd/final/maze-eqp-s1",
+      "task": "maze",
+      "method": "eqp",
+      "seed": 1
+    },
+    {
+      "id": "objective-maze-eqp-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "eqp",
+          "--lr",
+          "0.3",
+          "--knob",
+          "30",
+          "--l1",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT-sgd/final/maze-eqp-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-eqp-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:0",
+      "run_relative": "runs/ALT-sgd/final/maze-eqp-s2",
+      "task": "maze",
+      "method": "eqp",
+      "seed": 2
+    },
+    {
+      "id": "objective-maze-cd-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "cd",
+          "--lr",
+          "1.0",
+          "--knob",
+          "256",
+          "--l1",
+          "0.003",
+          "--reg",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT-sgd/final/maze-cd-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-cd-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:0",
+      "run_relative": "runs/ALT-sgd/final/maze-cd-s0",
+      "task": "maze",
+      "method": "cd",
+      "seed": 0
+    },
+    {
+      "id": "objective-maze-cd-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "cd",
+          "--lr",
+          "1.0",
+          "--knob",
+          "256",
+          "--l1",
+          "0.003",
+          "--reg",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT-sgd/final/maze-cd-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-cd-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:1",
+      "run_relative": "runs/ALT-sgd/final/maze-cd-s1",
+      "task": "maze",
+      "method": "cd",
+      "seed": 1
+    },
+    {
+      "id": "objective-maze-cd-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "cd",
+          "--lr",
+          "1.0",
+          "--knob",
+          "256",
+          "--l1",
+          "0.003",
+          "--reg",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT-sgd/final/maze-cd-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-cd-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:1",
+      "run_relative": "runs/ALT-sgd/final/maze-cd-s2",
+      "task": "maze",
+      "method": "cd",
+      "seed": 2
+    },
+    {
+      "id": "objective-maze-pcd-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "pcd",
+          "--lr",
+          "1.0",
+          "--knob",
+          "256",
+          "--l1",
+          "0.0",
+          "--reg",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT-sgd/final/maze-pcd-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-pcd-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:0",
+      "run_relative": "runs/ALT-sgd/final/maze-pcd-s0",
+      "task": "maze",
+      "method": "pcd",
+      "seed": 0
+    },
+    {
+      "id": "objective-maze-pcd-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "pcd",
+          "--lr",
+          "1.0",
+          "--knob",
+          "256",
+          "--l1",
+          "0.0",
+          "--reg",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT-sgd/final/maze-pcd-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-pcd-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:0",
+      "run_relative": "runs/ALT-sgd/final/maze-pcd-s1",
+      "task": "maze",
+      "method": "pcd",
+      "seed": 1
+    },
+    {
+      "id": "objective-maze-pcd-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "maze",
+          "--method",
+          "pcd",
+          "--lr",
+          "1.0",
+          "--knob",
+          "256",
+          "--l1",
+          "0.0",
+          "--reg",
+          "0.0",
+          "--maze-kernel",
+          "free",
+          "--maze-opt",
+          "sgd-cosine",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT-sgd/final/maze-pcd-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT-sgd/final/maze-pcd-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {
+        "ALT_MAZE_KERNEL": "free",
+        "ALT_MAZE_OPT": "sgd-cosine"
+      },
+      "outputs": [],
+      "n": 1000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:1",
+      "run_relative": "runs/ALT-sgd/final/maze-pcd-s2",
+      "task": "maze",
+      "method": "pcd",
+      "seed": 2
+    },
+    {
+      "id": "objective-sudoku-pl-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "pl",
+          "--lr",
+          "540.0",
+          "--l1",
+          "1.0",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT/final/sudoku-pl-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-pl-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:1",
+      "run_relative": "runs/ALT/final/sudoku-pl-s0",
+      "task": "sudoku",
+      "method": "pl",
+      "seed": 0
+    },
+    {
+      "id": "objective-sudoku-pl-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "pl",
+          "--lr",
+          "540.0",
+          "--l1",
+          "1.0",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT/final/sudoku-pl-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-pl-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:0",
+      "run_relative": "runs/ALT/final/sudoku-pl-s1",
+      "task": "sudoku",
+      "method": "pl",
+      "seed": 1
+    },
+    {
+      "id": "objective-sudoku-pl-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "pl",
+          "--lr",
+          "540.0",
+          "--l1",
+          "1.0",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT/final/sudoku-pl-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-pl-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:0",
+      "run_relative": "runs/ALT/final/sudoku-pl-s2",
+      "task": "sudoku",
+      "method": "pl",
+      "seed": 2
+    },
+    {
+      "id": "objective-sudoku-mpl-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "mpl",
+          "--lr",
+          "60.0",
+          "--knob",
+          "0.1",
+          "--l1",
+          "1.0",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT/final/sudoku-mpl-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-mpl-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:1",
+      "run_relative": "runs/ALT/final/sudoku-mpl-s0",
+      "task": "sudoku",
+      "method": "mpl",
+      "seed": 0
+    },
+    {
+      "id": "objective-sudoku-mpl-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "mpl",
+          "--lr",
+          "60.0",
+          "--knob",
+          "0.1",
+          "--l1",
+          "1.0",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT/final/sudoku-mpl-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-mpl-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:1",
+      "run_relative": "runs/ALT/final/sudoku-mpl-s1",
+      "task": "sudoku",
+      "method": "mpl",
+      "seed": 1
+    },
+    {
+      "id": "objective-sudoku-mpl-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "mpl",
+          "--lr",
+          "60.0",
+          "--knob",
+          "0.1",
+          "--l1",
+          "1.0",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT/final/sudoku-mpl-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-mpl-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:0",
+      "run_relative": "runs/ALT/final/sudoku-mpl-s2",
+      "task": "sudoku",
+      "method": "mpl",
+      "seed": 2
+    },
+    {
+      "id": "objective-sudoku-mpf-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "mpf",
+          "--lr",
+          "60.0",
+          "--l1",
+          "1.0",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT/final/sudoku-mpf-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-mpf-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:0",
+      "run_relative": "runs/ALT/final/sudoku-mpf-s0",
+      "task": "sudoku",
+      "method": "mpf",
+      "seed": 0
+    },
+    {
+      "id": "objective-sudoku-mpf-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "mpf",
+          "--lr",
+          "60.0",
+          "--l1",
+          "1.0",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT/final/sudoku-mpf-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-mpf-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:1",
+      "run_relative": "runs/ALT/final/sudoku-mpf-s1",
+      "task": "sudoku",
+      "method": "mpf",
+      "seed": 1
+    },
+    {
+      "id": "objective-sudoku-mpf-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "mpf",
+          "--lr",
+          "60.0",
+          "--l1",
+          "1.0",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT/final/sudoku-mpf-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-mpf-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:1",
+      "run_relative": "runs/ALT/final/sudoku-mpf-s2",
+      "task": "sudoku",
+      "method": "mpf",
+      "seed": 2
+    },
+    {
+      "id": "objective-sudoku-dsm-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "dsm",
+          "--lr",
+          "6.0",
+          "--knob",
+          "0.5",
+          "--l1",
+          "0.01",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT/final/sudoku-dsm-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-dsm-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:0",
+      "run_relative": "runs/ALT/final/sudoku-dsm-s0",
+      "task": "sudoku",
+      "method": "dsm",
+      "seed": 0
+    },
+    {
+      "id": "objective-sudoku-dsm-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "dsm",
+          "--lr",
+          "6.0",
+          "--knob",
+          "0.5",
+          "--l1",
+          "0.01",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT/final/sudoku-dsm-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-dsm-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:0",
+      "run_relative": "runs/ALT/final/sudoku-dsm-s1",
+      "task": "sudoku",
+      "method": "dsm",
+      "seed": 1
+    },
+    {
+      "id": "objective-sudoku-dsm-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "dsm",
+          "--lr",
+          "6.0",
+          "--knob",
+          "0.5",
+          "--l1",
+          "0.01",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT/final/sudoku-dsm-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-dsm-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:1",
+      "run_relative": "runs/ALT/final/sudoku-dsm-s2",
+      "task": "sudoku",
+      "method": "dsm",
+      "seed": 2
+    },
+    {
+      "id": "objective-sudoku-bptt1-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "bptt1",
+          "--lr",
+          "60.0",
+          "--knob",
+          "10",
+          "--l1",
+          "0.01",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT/final/sudoku-bptt1-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-bptt1-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:1",
+      "run_relative": "runs/ALT/final/sudoku-bptt1-s0",
+      "task": "sudoku",
+      "method": "bptt1",
+      "seed": 0
+    },
+    {
+      "id": "objective-sudoku-bptt1-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "bptt1",
+          "--lr",
+          "60.0",
+          "--knob",
+          "10",
+          "--l1",
+          "0.01",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT/final/sudoku-bptt1-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-bptt1-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:0",
+      "run_relative": "runs/ALT/final/sudoku-bptt1-s1",
+      "task": "sudoku",
+      "method": "bptt1",
+      "seed": 1
+    },
+    {
+      "id": "objective-sudoku-bptt1-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "bptt1",
+          "--lr",
+          "60.0",
+          "--knob",
+          "10",
+          "--l1",
+          "0.01",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT/final/sudoku-bptt1-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-bptt1-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:0",
+      "run_relative": "runs/ALT/final/sudoku-bptt1-s2",
+      "task": "sudoku",
+      "method": "bptt1",
+      "seed": 2
+    },
+    {
+      "id": "objective-sudoku-bptt5-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "bptt5",
+          "--lr",
+          "60.0",
+          "--knob",
+          "30",
+          "--l1",
+          "0.1",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT/final/sudoku-bptt5-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-bptt5-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:1",
+      "run_relative": "runs/ALT/final/sudoku-bptt5-s0",
+      "task": "sudoku",
+      "method": "bptt5",
+      "seed": 0
+    },
+    {
+      "id": "objective-sudoku-bptt5-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "bptt5",
+          "--lr",
+          "60.0",
+          "--knob",
+          "30",
+          "--l1",
+          "0.1",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT/final/sudoku-bptt5-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-bptt5-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:1",
+      "run_relative": "runs/ALT/final/sudoku-bptt5-s1",
+      "task": "sudoku",
+      "method": "bptt5",
+      "seed": 1
+    },
+    {
+      "id": "objective-sudoku-bptt5-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "bptt5",
+          "--lr",
+          "60.0",
+          "--knob",
+          "30",
+          "--l1",
+          "0.1",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT/final/sudoku-bptt5-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-bptt5-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:0",
+      "run_relative": "runs/ALT/final/sudoku-bptt5-s2",
+      "task": "sudoku",
+      "method": "bptt5",
+      "seed": 2
+    },
+    {
+      "id": "objective-sudoku-bptt-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "bptt",
+          "--lr",
+          "60.0",
+          "--knob",
+          "10",
+          "--l1",
+          "0.1",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT/final/sudoku-bptt-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-bptt-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:0",
+      "run_relative": "runs/ALT/final/sudoku-bptt-s0",
+      "task": "sudoku",
+      "method": "bptt",
+      "seed": 0
+    },
+    {
+      "id": "objective-sudoku-bptt-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "bptt",
+          "--lr",
+          "60.0",
+          "--knob",
+          "10",
+          "--l1",
+          "0.1",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT/final/sudoku-bptt-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-bptt-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:1",
+      "run_relative": "runs/ALT/final/sudoku-bptt-s1",
+      "task": "sudoku",
+      "method": "bptt",
+      "seed": 1
+    },
+    {
+      "id": "objective-sudoku-bptt-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "bptt",
+          "--lr",
+          "60.0",
+          "--knob",
+          "10",
+          "--l1",
+          "0.1",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT/final/sudoku-bptt-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-bptt-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:1",
+      "run_relative": "runs/ALT/final/sudoku-bptt-s2",
+      "task": "sudoku",
+      "method": "bptt",
+      "seed": 2
+    },
+    {
+      "id": "objective-sudoku-chl-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "chl",
+          "--lr",
+          "60.0",
+          "--knob",
+          "10",
+          "--l1",
+          "1.0",
+          "--reg",
+          "0.0",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT/final/sudoku-chl-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-chl-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:0",
+      "run_relative": "runs/ALT/final/sudoku-chl-s0",
+      "task": "sudoku",
+      "method": "chl",
+      "seed": 0
+    },
+    {
+      "id": "objective-sudoku-chl-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "chl",
+          "--lr",
+          "60.0",
+          "--knob",
+          "10",
+          "--l1",
+          "1.0",
+          "--reg",
+          "0.0",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT/final/sudoku-chl-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-chl-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:0",
+      "run_relative": "runs/ALT/final/sudoku-chl-s1",
+      "task": "sudoku",
+      "method": "chl",
+      "seed": 1
+    },
+    {
+      "id": "objective-sudoku-chl-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "chl",
+          "--lr",
+          "60.0",
+          "--knob",
+          "10",
+          "--l1",
+          "1.0",
+          "--reg",
+          "0.0",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT/final/sudoku-chl-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-chl-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:1",
+      "run_relative": "runs/ALT/final/sudoku-chl-s2",
+      "task": "sudoku",
+      "method": "chl",
+      "seed": 2
+    },
+    {
+      "id": "objective-sudoku-imp-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "imp",
+          "--lr",
+          "60.0",
+          "--knob",
+          "10",
+          "--l1",
+          "0.01",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT/final/sudoku-imp-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-imp-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:1",
+      "run_relative": "runs/ALT/final/sudoku-imp-s0",
+      "task": "sudoku",
+      "method": "imp",
+      "seed": 0
+    },
+    {
+      "id": "objective-sudoku-imp-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "imp",
+          "--lr",
+          "60.0",
+          "--knob",
+          "10",
+          "--l1",
+          "0.01",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT/final/sudoku-imp-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-imp-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:0",
+      "run_relative": "runs/ALT/final/sudoku-imp-s1",
+      "task": "sudoku",
+      "method": "imp",
+      "seed": 1
+    },
+    {
+      "id": "objective-sudoku-imp-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "imp",
+          "--lr",
+          "60.0",
+          "--knob",
+          "10",
+          "--l1",
+          "0.01",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT/final/sudoku-imp-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-imp-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:0",
+      "run_relative": "runs/ALT/final/sudoku-imp-s2",
+      "task": "sudoku",
+      "method": "imp",
+      "seed": 2
+    },
+    {
+      "id": "objective-sudoku-eqp-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "eqp",
+          "--lr",
+          "60.0",
+          "--knob",
+          "30",
+          "--l1",
+          "0.1",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT/final/sudoku-eqp-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-eqp-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:1",
+      "run_relative": "runs/ALT/final/sudoku-eqp-s0",
+      "task": "sudoku",
+      "method": "eqp",
+      "seed": 0
+    },
+    {
+      "id": "objective-sudoku-eqp-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "eqp",
+          "--lr",
+          "60.0",
+          "--knob",
+          "30",
+          "--l1",
+          "0.1",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT/final/sudoku-eqp-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-eqp-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:1",
+      "run_relative": "runs/ALT/final/sudoku-eqp-s1",
+      "task": "sudoku",
+      "method": "eqp",
+      "seed": 1
+    },
+    {
+      "id": "objective-sudoku-eqp-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "eqp",
+          "--lr",
+          "60.0",
+          "--knob",
+          "30",
+          "--l1",
+          "0.1",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT/final/sudoku-eqp-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-eqp-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:0",
+      "run_relative": "runs/ALT/final/sudoku-eqp-s2",
+      "task": "sudoku",
+      "method": "eqp",
+      "seed": 2
+    },
+    {
+      "id": "objective-sudoku-cd-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "cd",
+          "--lr",
+          "6.0",
+          "--knob",
+          "324",
+          "--l1",
+          "1.0",
+          "--reg",
+          "0.0",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT/final/sudoku-cd-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-cd-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:0",
+      "run_relative": "runs/ALT/final/sudoku-cd-s0",
+      "task": "sudoku",
+      "method": "cd",
+      "seed": 0
+    },
+    {
+      "id": "objective-sudoku-cd-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "cd",
+          "--lr",
+          "6.0",
+          "--knob",
+          "324",
+          "--l1",
+          "1.0",
+          "--reg",
+          "0.0",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT/final/sudoku-cd-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-cd-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:1",
+      "run_relative": "runs/ALT/final/sudoku-cd-s1",
+      "task": "sudoku",
+      "method": "cd",
+      "seed": 1
+    },
+    {
+      "id": "objective-sudoku-cd-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "cd",
+          "--lr",
+          "6.0",
+          "--knob",
+          "324",
+          "--l1",
+          "1.0",
+          "--reg",
+          "0.0",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT/final/sudoku-cd-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-cd-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:1",
+      "run_relative": "runs/ALT/final/sudoku-cd-s2",
+      "task": "sudoku",
+      "method": "cd",
+      "seed": 2
+    },
+    {
+      "id": "objective-sudoku-pcd-s0",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "pcd",
+          "--lr",
+          "6.0",
+          "--knob",
+          "324",
+          "--l1",
+          "1.0",
+          "--reg",
+          "0.0",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT/final/sudoku-pcd-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-pcd-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "loki:0",
+      "run_relative": "runs/ALT/final/sudoku-pcd-s0",
+      "task": "sudoku",
+      "method": "pcd",
+      "seed": 0
+    },
+    {
+      "id": "objective-sudoku-pcd-s1",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "pcd",
+          "--lr",
+          "6.0",
+          "--knob",
+          "324",
+          "--l1",
+          "1.0",
+          "--reg",
+          "0.0",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT/final/sudoku-pcd-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-pcd-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:0",
+      "run_relative": "runs/ALT/final/sudoku-pcd-s1",
+      "task": "sudoku",
+      "method": "pcd",
+      "seed": 1
+    },
+    {
+      "id": "objective-sudoku-pcd-s2",
+      "family": "table7_objectives",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "pcd",
+          "--lr",
+          "6.0",
+          "--knob",
+          "324",
+          "--l1",
+          "1.0",
+          "--reg",
+          "0.0",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT/final/sudoku-pcd-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/final/sudoku-pcd-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "data-maze_unique",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-training.json",
+      "test_once": true,
+      "lane": "work:1",
+      "run_relative": "runs/ALT/final/sudoku-pcd-s2",
+      "task": "sudoku",
+      "method": "pcd",
+      "seed": 2
+    },
+    {
+      "id": "objective-long-bptt5-60000-s0",
+      "family": "table7_long_schedules",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "bptt5",
+          "--lr",
+          "6.0",
+          "--knob",
+          "30",
+          "--l1",
+          "0.1",
+          "--updates",
+          "60000",
+          "--cap-s",
+          "36000",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT/longD/sudoku-bptt5-lr6-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/longD/sudoku-bptt5-lr6-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "note": "480000 update fullBPTT is intermediate footnote evidence; final displayed fullBPTT uses3840000. Raised cap preserves declared full schedule, does not change update budget.",
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-long.json",
+      "lane": "loki:1",
+      "run_relative": "runs/ALT/longD/sudoku-bptt5-lr6-s0",
+      "task": "sudoku",
+      "method": "bptt5",
+      "seed": 0
+    },
+    {
+      "id": "objective-long-bptt5-60000-s1",
+      "family": "table7_long_schedules",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "bptt5",
+          "--lr",
+          "6.0",
+          "--knob",
+          "30",
+          "--l1",
+          "0.1",
+          "--updates",
+          "60000",
+          "--cap-s",
+          "36000",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT/longD/sudoku-bptt5-lr6-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/longD/sudoku-bptt5-lr6-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "note": "480000 update fullBPTT is intermediate footnote evidence; final displayed fullBPTT uses3840000. Raised cap preserves declared full schedule, does not change update budget.",
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-long.json",
+      "lane": "loki:0",
+      "run_relative": "runs/ALT/longD/sudoku-bptt5-lr6-s1",
+      "task": "sudoku",
+      "method": "bptt5",
+      "seed": 1
+    },
+    {
+      "id": "objective-long-bptt5-60000-s2",
+      "family": "table7_long_schedules",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "bptt5",
+          "--lr",
+          "6.0",
+          "--knob",
+          "30",
+          "--l1",
+          "0.1",
+          "--updates",
+          "60000",
+          "--cap-s",
+          "36000",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT/longD/sudoku-bptt5-lr6-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/longD/sudoku-bptt5-lr6-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "note": "480000 update fullBPTT is intermediate footnote evidence; final displayed fullBPTT uses3840000. Raised cap preserves declared full schedule, does not change update budget.",
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-long.json",
+      "lane": "work:0",
+      "run_relative": "runs/ALT/longD/sudoku-bptt5-lr6-s2",
+      "task": "sudoku",
+      "method": "bptt5",
+      "seed": 2
+    },
+    {
+      "id": "objective-long-bptt-480000-s0",
+      "family": "table7_long_schedules",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "bptt",
+          "--lr",
+          "2.0",
+          "--knob",
+          "10",
+          "--l1",
+          "0.1",
+          "--updates",
+          "480000",
+          "--cap-s",
+          "36000",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT/longD2/sudoku-bptt-lr2-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/longD2/sudoku-bptt-lr2-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "note": "480000 update fullBPTT is intermediate footnote evidence; final displayed fullBPTT uses3840000. Raised cap preserves declared full schedule, does not change update budget.",
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-long.json",
+      "lane": "work:1",
+      "run_relative": "runs/ALT/longD2/sudoku-bptt-lr2-s0",
+      "task": "sudoku",
+      "method": "bptt",
+      "seed": 0
+    },
+    {
+      "id": "objective-long-bptt-480000-s1",
+      "family": "table7_long_schedules",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "bptt",
+          "--lr",
+          "2.0",
+          "--knob",
+          "10",
+          "--l1",
+          "0.1",
+          "--updates",
+          "480000",
+          "--cap-s",
+          "36000",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT/longD2/sudoku-bptt-lr2-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/longD2/sudoku-bptt-lr2-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "note": "480000 update fullBPTT is intermediate footnote evidence; final displayed fullBPTT uses3840000. Raised cap preserves declared full schedule, does not change update budget.",
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-long.json",
+      "lane": "loki:1",
+      "run_relative": "runs/ALT/longD2/sudoku-bptt-lr2-s1",
+      "task": "sudoku",
+      "method": "bptt",
+      "seed": 1
+    },
+    {
+      "id": "objective-long-bptt-480000-s2",
+      "family": "table7_long_schedules",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "bptt",
+          "--lr",
+          "2.0",
+          "--knob",
+          "10",
+          "--l1",
+          "0.1",
+          "--updates",
+          "480000",
+          "--cap-s",
+          "36000",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT/longD2/sudoku-bptt-lr2-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/longD2/sudoku-bptt-lr2-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "note": "480000 update fullBPTT is intermediate footnote evidence; final displayed fullBPTT uses3840000. Raised cap preserves declared full schedule, does not change update budget.",
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-long.json",
+      "lane": "loki:0",
+      "run_relative": "runs/ALT/longD2/sudoku-bptt-lr2-s2",
+      "task": "sudoku",
+      "method": "bptt",
+      "seed": 2
+    },
+    {
+      "id": "objective-long-eqp-240000-s0",
+      "family": "table7_long_schedules",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "eqp",
+          "--lr",
+          "6.0",
+          "--knob",
+          "30",
+          "--l1",
+          "0.1",
+          "--updates",
+          "240000",
+          "--cap-s",
+          "36000",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT/longD2/sudoku-eqp-lr6-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/longD2/sudoku-eqp-lr6-s0"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "note": "480000 update fullBPTT is intermediate footnote evidence; final displayed fullBPTT uses3840000. Raised cap preserves declared full schedule, does not change update budget.",
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-long.json",
+      "lane": "work:0",
+      "run_relative": "runs/ALT/longD2/sudoku-eqp-lr6-s0",
+      "task": "sudoku",
+      "method": "eqp",
+      "seed": 0
+    },
+    {
+      "id": "objective-long-eqp-240000-s1",
+      "family": "table7_long_schedules",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "eqp",
+          "--lr",
+          "6.0",
+          "--knob",
+          "30",
+          "--l1",
+          "0.1",
+          "--updates",
+          "240000",
+          "--cap-s",
+          "36000",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT/longD2/sudoku-eqp-lr6-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/longD2/sudoku-eqp-lr6-s1"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "note": "480000 update fullBPTT is intermediate footnote evidence; final displayed fullBPTT uses3840000. Raised cap preserves declared full schedule, does not change update budget.",
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-long.json",
+      "lane": "work:1",
+      "run_relative": "runs/ALT/longD2/sudoku-eqp-lr6-s1",
+      "task": "sudoku",
+      "method": "eqp",
+      "seed": 1
+    },
+    {
+      "id": "objective-long-eqp-240000-s2",
+      "family": "table7_long_schedules",
+      "status": "pending",
+      "cwd": "{SOURCE}/experiments",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "eqp",
+          "--lr",
+          "6.0",
+          "--knob",
+          "30",
+          "--l1",
+          "0.1",
+          "--updates",
+          "240000",
+          "--cap-s",
+          "36000",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT/longD2/sudoku-eqp-lr6-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/longD2/sudoku-eqp-lr6-s2"
+        ]
+      ],
+      "depends_on": [
+        "sudoku-fit",
+        "validate"
+      ],
+      "resources": {
+        "gpus": 1,
+        "exclusive_gpu": true,
+        "cpu_threads": 8
+      },
+      "env": {},
+      "outputs": [],
+      "note": "480000 update fullBPTT is intermediate footnote evidence; final displayed fullBPTT uses3840000. Raised cap preserves declared full schedule, does not change update budget.",
+      "n": 50000,
+      "configuration_source": "upstream/results/alt-training/alt-long.json",
+      "lane": "loki:1",
+      "run_relative": "runs/ALT/longD2/sudoku-eqp-lr6-s2",
+      "task": "sudoku",
+      "method": "eqp",
+      "seed": 2
+    }
+  ],
+  "external_jobs": [
+    {
+      "id": "objective-long-bptt-3840000-s0",
+      "owner": "root",
+      "reason": "Already running; do not duplicate",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "bptt",
+          "--lr",
+          "2.0",
+          "--knob",
+          "10",
+          "--l1",
+          "0.1",
+          "--updates",
+          "3840000",
+          "--cap-s",
+          "36000",
+          "--seed",
+          "0",
+          "--out",
+          "runs/ALT/longD3/sudoku-bptt-lr2-s0"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/longD3/sudoku-bptt-lr2-s0"
+        ]
+      ]
+    },
+    {
+      "id": "objective-long-bptt-3840000-s1",
+      "owner": "root",
+      "reason": "Already running; do not duplicate",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "bptt",
+          "--lr",
+          "2.0",
+          "--knob",
+          "10",
+          "--l1",
+          "0.1",
+          "--updates",
+          "3840000",
+          "--cap-s",
+          "36000",
+          "--seed",
+          "1",
+          "--out",
+          "runs/ALT/longD3/sudoku-bptt-lr2-s1"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/longD3/sudoku-bptt-lr2-s1"
+        ]
+      ]
+    },
+    {
+      "id": "objective-long-bptt-3840000-s2",
+      "owner": "root",
+      "reason": "Already running; do not duplicate",
+      "commands": [
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "train",
+          "--task",
+          "sudoku",
+          "--method",
+          "bptt",
+          "--lr",
+          "2.0",
+          "--knob",
+          "10",
+          "--l1",
+          "0.1",
+          "--updates",
+          "3840000",
+          "--cap-s",
+          "36000",
+          "--seed",
+          "2",
+          "--out",
+          "runs/ALT/longD3/sudoku-bptt-lr2-s2"
+        ],
+        [
+          "{PYTHON}",
+          "training_methods.py",
+          "test",
+          "--run",
+          "runs/ALT/longD3/sudoku-bptt-lr2-s2"
+        ]
+      ]
+    }
+  ],
+  "protocol": {
+    "methods": [
+      "pl",
+      "mpl",
+      "mpf",
+      "dsm",
+      "bptt1",
+      "bptt5",
+      "bptt",
+      "chl",
+      "imp",
+      "eqp",
+      "cd",
+      "pcd"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "sudoku_test_n": 50000,
+    "maze_test_n": 1000,
+    "sudoku_probe_n": 512,
+    "maze_train_n": 900,
+    "maze_dev_n": 100,
+    "temperature_selection": "Sudoku dev10k rows512:2560 only",
+    "selection": "Highest development probe accuracy, earliest update on ties",
+    "timing": "Cold fits on Blackwell; no direct H200 timing equivalence",
+    "control": "Paper BPTT uses SGD; this is not a BP AdamW control experiment"
+  }
+}

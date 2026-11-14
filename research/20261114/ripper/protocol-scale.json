@@ -1,0 +1,166 @@
+{
+  "id": "H1g-fixed-graph-scale-normalization",
+  "frozen_utc": "2026-11-14T22:18:05.270549+00:00",
+  "hypothesis": "For k10 uniformized models, using the retained coefficient level as the temperature/focus unit raises mean accuracy by at least20points versus inherited raw-projection hbar.",
+  "k": [
+    10,
+    17,
+    21
+  ],
+  "training_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "arms": [
+    "inherited_unit",
+    "normalized_unit"
+  ],
+  "primary_k": [
+    10
+  ],
+  "primary_threshold_pp": 20,
+  "secondary_equivalence_k": [
+    17,
+    21
+  ],
+  "secondary_equivalence_margin_pp": 5,
+  "secondary_decision": "Equivalent at eachk only ifpaired95percentinterval whollyinside[-5,+5]pp. Non-equivalent ifinterval whollyoutside;otherwise inconclusive.",
+  "transform": "Use exact frozen H1f gap_uniform W/B unchanged. Inherited arm unit=its prior raw-projectionhbar; normalized arm unit=the common nonzero retained coefficient. Only high/lowtemperature andfocus threshold change.",
+  "prior_evidence": "Training-weight inspection shows inheritedunit/retainedlevel=.671to.729 at k10 and~.99to1 at k17/21. H1f found uniformization helps yet k10 trails. No newcohortoutcome known atfreeze.",
+  "primary_statistic": "Equalweight paired k10 normalized-minus-inherited accuracy across6seeds and1296sharedpuzzles.",
+  "uncertainty": "5000pairedtwo-waybootstrap draws, trainingseedclusters andsharedpuzzleindices; seed20261114.",
+  "decision": "Primary supported if95percentinterval lower>=20pp,falsified ifupper<20pp,otherwise inconclusive.",
+  "split": "dev10k",
+  "rows_half_open": [
+    8704,
+    10000
+  ],
+  "row_audit": "Earlier studies used0:512,512:2560,2560:4608,4608:6656,6656:8704. Onlythis1296rowdevelopmentblockwasuntouched.",
+  "chains": 4,
+  "move_cap_per_chain": 262144,
+  "check": 4096,
+  "anneal_period": 524288,
+  "temperature_hi_unit": 0.4,
+  "temperature_lo_unit": 0.31,
+  "theta_unit": 0.45,
+  "tolerance": 0.001,
+  "training_statistics": "Recompute unchangedmodel trainingtau andebar; no geometry supplied.",
+  "backend": "H1d derivedSparse fixedfloatingfields,Generalrefresh,unit hscale,NOBIASFalse. Bothsettings pass16puzzle initial+4check25field parity.",
+  "source_inputs": [
+    {
+      "k": 10,
+      "seed": 0,
+      "path": "artifacts/research/20261114/ripper/gap/jobs/k10-s0-gap_uniform/searched_model.pt",
+      "sha256": "7fbff830810d8a62253cd4716873abe5763105369a2721abd8a30315406874a7"
+    },
+    {
+      "k": 10,
+      "seed": 1,
+      "path": "artifacts/research/20261114/ripper/gap/jobs/k10-s1-gap_uniform/searched_model.pt",
+      "sha256": "8a875b6cbcd09d7243402f3bcf2a4ef12b24d97e4053c28e6798b68153fba38c"
+    },
+    {
+      "k": 10,
+      "seed": 2,
+      "path": "artifacts/research/20261114/ripper/gap/jobs/k10-s2-gap_uniform/searched_model.pt",
+      "sha256": "61c569b39b404187e20ade4741f362b5f177f14d4f284beabfbe45043a7a417d"
+    },
+    {
+      "k": 10,
+      "seed": 3,
+      "path": "artifacts/research/20261114/ripper/gap/jobs/k10-s3-gap_uniform/searched_model.pt",
+      "sha256": "511e609d31acacb6cc2675bb36b62e25342673a6a861423f0f97c7abb6b2c0f8"
+    },
+    {
+      "k": 10,
+      "seed": 4,
+      "path": "artifacts/research/20261114/ripper/gap/jobs/k10-s4-gap_uniform/searched_model.pt",
+      "sha256": "848d788e019acfc6a71f8fdb99a21d831340371b13f01bfdc8f37f55e87b2245"
+    },
+    {
+      "k": 10,
+      "seed": 5,
+      "path": "artifacts/research/20261114/ripper/gap/jobs/k10-s5-gap_uniform/searched_model.pt",
+      "sha256": "dd1c2bf2e264ea92827704721fa5c1d9fd3755521358c649ea412ec95a622bca"
+    },
+    {
+      "k": 17,
+      "seed": 0,
+      "path": "artifacts/research/20261114/ripper/gap/jobs/k17-s0-gap_uniform/searched_model.pt",
+      "sha256": "6306c92d7eba4372468c4f439d6749e9fa7eaf0bfa58a2a03c11e24a8a09c5cb"
+    },
+    {
+      "k": 17,
+      "seed": 1,
+      "path": "artifacts/research/20261114/ripper/gap/jobs/k17-s1-gap_uniform/searched_model.pt",
+      "sha256": "2980b0de7b250bc1bac0280c4f9b6b8b3c8b14ea3ce3ecc934979ca7a62e0cf6"
+    },
+    {
+      "k": 17,
+      "seed": 2,
+      "path": "artifacts/research/20261114/ripper/gap/jobs/k17-s2-gap_uniform/searched_model.pt",
+      "sha256": "2362b7c1f4bb8e0ab3baf7a9a9b5f0d62770d4193ad5dc39b44670ab1c289172"
+    },
+    {
+      "k": 17,
+      "seed": 3,
+      "path": "artifacts/research/20261114/ripper/gap/jobs/k17-s3-gap_uniform/searched_model.pt",
+      "sha256": "40c8048674525a3f68d71e64b966a7a1c9fdba7ca8fa14d5dfa23930e4c14771"
+    },
+    {
+      "k": 17,
+      "seed": 4,
+      "path": "artifacts/research/20261114/ripper/gap/jobs/k17-s4-gap_uniform/searched_model.pt",
+      "sha256": "3a21eed138222c7930694743c0ea6a963ad42aedf15ed5436df44935e25d1b2a"
+    },
+    {
+      "k": 17,
+      "seed": 5,
+      "path": "artifacts/research/20261114/ripper/gap/jobs/k17-s5-gap_uniform/searched_model.pt",
+      "sha256": "6f1df98e825740e14a50bde7a2c18921a49090d48496849335a65d13bd7f0805"
+    },
+    {
+      "k": 21,
+      "seed": 0,
+      "path": "artifacts/research/20261114/ripper/gap/jobs/k21-s0-gap_uniform/searched_model.pt",
+      "sha256": "c398a883b286bbba9a19d1acb24a68b5d34eb76ea1317cd496e1ccb297a9806e"
+    },
+    {
+      "k": 21,
+      "seed": 1,
+      "path": "artifacts/research/20261114/ripper/gap/jobs/k21-s1-gap_uniform/searched_model.pt",
+      "sha256": "51a7d2bb883c92f33e41f93e3d47d27b5b545935d428661f46bd817930afb1fa"
+    },
+    {
+      "k": 21,
+      "seed": 2,
+      "path": "artifacts/research/20261114/ripper/gap/jobs/k21-s2-gap_uniform/searched_model.pt",
+      "sha256": "bcfb5044d19b0f91bf4e5e8eb6d2cee9814830e56b8bc5ff69e81b82ec74d4f2"
+    },
+    {
+      "k": 21,
+      "seed": 3,
+      "path": "artifacts/research/20261114/ripper/gap/jobs/k21-s3-gap_uniform/searched_model.pt",
+      "sha256": "652fff1eeb772e0d213acf3bb6d3ae8f1c36e02e4f26dd948ee98292b6228286"
+    },
+    {
+      "k": 21,
+      "seed": 4,
+      "path": "artifacts/research/20261114/ripper/gap/jobs/k21-s4-gap_uniform/searched_model.pt",
+      "sha256": "290c1c6c2d33e51244c2aaf199af7bce9a53bf7488d317f47f9af1cf09dbf4f2"
+    },
+    {
+      "k": 21,
+      "seed": 5,
+      "path": "artifacts/research/20261114/ripper/gap/jobs/k21-s5-gap_uniform/searched_model.pt",
+      "sha256": "64199d5ef112077015ad9f8e47d75533a1a9bc8efe92fea0ad4129e0db32e54c"
+    }
+  ],
+  "wrapper_sha256": "5ba3779729974acaf18bfaab11f9d89fd4894a823f01b869fe3c8ab31fd011c5",
+  "backend_sha256": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+  "bp_adamw": "Outside post-training intervention protocol; not run."
+}

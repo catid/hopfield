@@ -1,0 +1,301 @@
+{
+  "method": "trained CRAM",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "complete": true,
+  "unique_test_puzzles": 412786,
+  "seed_puzzle_evaluations": 1238358,
+  "counts_pooled_over_seeds": {
+    "solved": 1238317,
+    "stopped": 1238317,
+    "wrong_stops": 0,
+    "budget_failures": 41,
+    "unstopped_but_right": 0
+  },
+  "solved_percent": {
+    "mean": 99.99668916419971,
+    "sd": 0.0007787449801243936,
+    "per_seed": [
+      99.99757743721929,
+      99.99636615582894,
+      99.99612389955087
+    ]
+  },
+  "raw_proxy_mean_flops": {
+    "mean": 1283524312.5382314,
+    "sd": 32761824.263911895,
+    "per_seed": [
+      1245717115.3204057,
+      1301288170.826383,
+      1303567651.4679055
+    ]
+  },
+  "paper_mean_flops": {
+    "mean": 2029803113.675265,
+    "sd": 43310405.89182897,
+    "per_seed": [
+      1979835271.492478,
+      2052997532.262601,
+      2056576537.2707164
+    ]
+  },
+  "paper_p99_flops_mean_of_seed_quantiles": {
+    "mean": 17021155250.100143,
+    "sd": 540551568.411255,
+    "per_seed": [
+      16401026415.000061,
+      17392670208.900265,
+      17269769126.40011
+    ]
+  },
+  "paper_pooled_distribution": {
+    "mean": 2029803113.675265,
+    "median": 555158263.0,
+    "p99": 17014009129.959995,
+    "p999": 158792634326.7497,
+    "max": 632296210114.0
+  },
+  "counter_record": "artifacts/sudoku_operation_counts.json",
+  "counter_record_sha256": "ba1567aa6ec0720529d1cb47a153c6def950f976bd0a63b2b466579b27c815cc",
+  "published_reference": {
+    "file": "upstream/results/op-counts.json",
+    "sha256": "19386087459ba516f9a23c543434faa77c2bc9d236be449fd3a0c7c583f0765e",
+    "row": "cram-0-fit",
+    "paper_mean_flops": 2015770227.8755887,
+    "provenance": "Imported published result, not a local measurement."
+  },
+  "paper_mean_flops_relative_difference_percent": 0.6961550282675644,
+  "formula": "steps = raw_flops / (C * fl_move); paper = steps * C * move + start + ceil(steps / 4096) * check",
+  "convention": "Arithmetic-only FullCounter: multiply-add 2, elementary arithmetic/transcendentals 1; comparison/selection/mask/movement/indexing/RNG excluded. Logical counts charge the first passing move, although kernels finish the current check chunk.",
+  "scope": "Recomputes aggregate correctness flags and counts from saved records, not independent board verification. Seed evaluations reuse the same 412786 puzzles; only seeds0,1,2 together are the complete three-seed result.",
+  "per_seed": [
+    {
+      "seed": 0,
+      "record": "upstream/experiments/runs/CRAM-S/full/test/cram0-hb-fit-s0.json",
+      "record_sha256": "b17aecefd0b78069bdac63f3af0634cf1eb179eca3bc13b279187d84ce9ce825",
+      "dev_record_sha256": "a2879bb1dae01eb43ad26b6ceddd89af9bae2bbd7625602676c5ec10c81802ab",
+      "signature": {
+        "model": "full-aug",
+        "split": 0,
+        "model_sha256": "4fad7152714b5b684fc0bee337c52e10d95d455efdb97d114300ea8d3f122136",
+        "data": "full-all",
+        "lo": 10000,
+        "n": 412786,
+        "g": 3.895523272553789,
+        "ebar": -0.000601624371483922,
+        "D": 30,
+        "fl_move": 746.1083984375,
+        "test": "fit",
+        "seed": 0,
+        "C": 4,
+        "cap": 400000000000.0,
+        "check": 4096,
+        "tol": 0.001,
+        "theta": 0.372074156999588,
+        "anneal": [
+          0.3307325839996338,
+          0.2563177525997162,
+          524288
+        ],
+        "scale": "hbar",
+        "hbar": 0.8268314599990845,
+        "rel": [
+          0.4,
+          0.31,
+          0.45
+        ],
+        "tau": -4.93053812533617e-06
+      },
+      "n": 412786,
+      "solved": 412776,
+      "stopped": 412776,
+      "wrong_stops": 0,
+      "budget_failures": 10,
+      "unstopped_but_right": 0,
+      "solved_percent": 99.99757743721929,
+      "raw_proxy_flops": {
+        "mean": 1245717115.3204057,
+        "median": 339154018.02734375,
+        "p99": 10368021537.104542,
+        "p999": 96542013243.11862,
+        "max": 400001581280.0
+      },
+      "paper_flops": {
+        "mean": 1979835271.492478,
+        "median": 545741626.0,
+        "p99": 16401026415.000061,
+        "p999": 152614635181.59644,
+        "max": 632296210114.0
+      },
+      "move_count": {
+        "mean": 417404.86969761574,
+        "max": 134029312,
+        "T_cap": 134028782,
+        "rounded_endpoint": 134029312
+      },
+      "paper_cap": 632296210114.0,
+      "counted_move_per_chain": 919,
+      "counted_start_per_puzzle": 8546006,
+      "counted_check_per_puzzle": 4266118,
+      "seconds": 3078.8,
+      "resumes": 0,
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+      "ids_complete_unique": true,
+      "summary_recomputed_from_per_puzzle_flags": true,
+      "all_test_settings_match_passed_dev": true
+    },
+    {
+      "seed": 1,
+      "record": "upstream/experiments/runs/CRAM-S/full/test/cram0-hb-fit-s1.json",
+      "record_sha256": "0913bd0d359a473cf97ad3eac3a42e3a2b4466d15f37f361138b78e15b0eb25a",
+      "dev_record_sha256": "dbcd9ffa10b205837d47ff751b4e9ba2e2267d4be22e366c9c1fab90b6359227",
+      "signature": {
+        "model": "full-aug",
+        "split": 1,
+        "model_sha256": "ff86fe5d6cc86140e780de2f5b040e17edc8d0883db5e92327e9186fec8e136d",
+        "data": "full-all",
+        "lo": 10000,
+        "n": 412786,
+        "g": 3.8855140543197737,
+        "ebar": -0.0006802664720453322,
+        "D": 31,
+        "fl_move": 769.31201171875,
+        "test": "fit",
+        "seed": 1,
+        "C": 4,
+        "cap": 400000000000.0,
+        "check": 4096,
+        "tol": 0.001,
+        "theta": 0.3719751298427582,
+        "anneal": [
+          0.3306445598602295,
+          0.25624953389167787,
+          524288
+        ],
+        "scale": "hbar",
+        "hbar": 0.8266113996505737,
+        "rel": [
+          0.4,
+          0.31,
+          0.45
+        ],
+        "tau": -3.1055533327162266e-06
+      },
+      "n": 412786,
+      "solved": 412771,
+      "stopped": 412771,
+      "wrong_stops": 0,
+      "budget_failures": 15,
+      "unstopped_but_right": 0,
+      "solved_percent": 99.99636615582894,
+      "raw_proxy_flops": {
+        "mean": 1301288170.826383,
+        "median": 349144563.3984375,
+        "p99": 11075466229.817324,
+        "p999": 103807739259.37929,
+        "max": 400000887880.0
+      },
+      "paper_flops": {
+        "mean": 2052997532.262601,
+        "median": 557783790.0,
+        "p99": 17392670208.900265,
+        "p999": 162928953639.1338,
+        "max": 627782890016.0
+      },
+      "move_count": {
+        "mean": 422873.99358263117,
+        "max": 129986560,
+        "T_cap": 129986271,
+        "rounded_endpoint": 129986560
+      },
+      "paper_cap": 627782890016.0,
+      "counted_move_per_chain": 947,
+      "counted_start_per_puzzle": 8546006,
+      "counted_check_per_puzzle": 4266118,
+      "seconds": 2802.1,
+      "resumes": 0,
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+      "ids_complete_unique": true,
+      "summary_recomputed_from_per_puzzle_flags": true,
+      "all_test_settings_match_passed_dev": true
+    },
+    {
+      "seed": 2,
+      "record": "upstream/experiments/runs/CRAM-S/full/test/cram0-hb-fit-s2.json",
+      "record_sha256": "a4858cdc62f4ce9e5e8ae133ef4b89a08db2fc9f85f215579450398469db6b58",
+      "dev_record_sha256": "dda645137b5463bba0241bb4651744091bd4c5591b8ba39910f616f174442b9e",
+      "signature": {
+        "model": "full-aug",
+        "split": 2,
+        "model_sha256": "f3d99b7a037a1d7140b9f1199c06456d22cdc57e10b4f4618eb17edca7ace55c",
+        "data": "full-all",
+        "lo": 10000,
+        "n": 412786,
+        "g": 3.890575976119104,
+        "ebar": -0.0008015378261916339,
+        "D": 31,
+        "fl_move": 769.31201171875,
+        "test": "fit",
+        "seed": 2,
+        "C": 4,
+        "cap": 400000000000.0,
+        "check": 4096,
+        "tol": 0.001,
+        "theta": 0.37192599177360536,
+        "anneal": [
+          0.3306008815765381,
+          0.25621568322181704,
+          524288
+        ],
+        "scale": "hbar",
+        "hbar": 0.8265022039413452,
+        "rel": [
+          0.4,
+          0.31,
+          0.45
+        ],
+        "tau": -0.00016508306725881994
+      },
+      "n": 412786,
+      "solved": 412770,
+      "stopped": 412770,
+      "wrong_stops": 0,
+      "budget_failures": 16,
+      "unstopped_but_right": 0,
+      "solved_percent": 99.99612389955087,
+      "raw_proxy_flops": {
+        "mean": 1303567651.4679055,
+        "median": 349198415.2392578,
+        "p99": 10996939167.80829,
+        "p999": 103654231079.04956,
+        "max": 400000887880.0
+      },
+      "paper_flops": {
+        "mean": 2056576537.2707164,
+        "median": 557850080.0,
+        "p99": 17269769126.40011,
+        "p999": 162689628152.81018,
+        "max": 627782890016.0
+      },
+      "move_count": {
+        "mean": 423614.746556327,
+        "max": 129986560,
+        "T_cap": 129986271,
+        "rounded_endpoint": 129986560
+      },
+      "paper_cap": 627782890016.0,
+      "counted_move_per_chain": 947,
+      "counted_start_per_puzzle": 8546006,
+      "counted_check_per_puzzle": 4266118,
+      "seconds": 3005.0,
+      "resumes": 0,
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+      "ids_complete_unique": true,
+      "summary_recomputed_from_per_puzzle_flags": true,
+      "all_test_settings_match_passed_dev": true
+    }
+  ]
+}

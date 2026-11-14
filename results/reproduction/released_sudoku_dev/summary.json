@@ -1,0 +1,106 @@
+{
+  "scope": "Released checkpoints, development split only. Fresh training and full test results are separate.",
+  "source_commit": "62bbe830c7d6f87f2ba18f30a28039258b986454",
+  "evaluator_sha256": "a61cd6852164430a1d93459f456f91067c593edd7025320f9f85baf36673efa4",
+  "runtime_provenance": [
+    "artifacts/deployment/work-runtime.json",
+    "artifacts/deployment/loki-runtime.json"
+  ],
+  "data_provenance": [
+    "artifacts/deployment/work-data-verified.json",
+    "artifacts/deployment/loki-data-verified.json"
+  ],
+  "records": [
+    {
+      "seed": 0,
+      "host": "work",
+      "gpu_index": 0,
+      "split": "dev10k",
+      "checkpoint_sha256": "8ec939cd02c31bc39afde211b0a46f3b7fa9934ef358f291fbf2327ddc11f911",
+      "remote_checkpoint_hash_verified_equal_local": true,
+      "command": "CUDA_VISIBLE_DEVICES=0 CRAM_DATA=/home/catid/hopfield/upstream/data OMP_NUM_THREADS=1 .venv/bin/python -u checkpoints/evaluate.py --tasks sudoku-extreme --seeds 0",
+      "fresh": {
+        "set": "dev",
+        "n": 10000,
+        "solved": 10000,
+        "wrong_stops": 0,
+        "budget_failures": 0,
+        "mean_flop": 1184309561.9086347
+      },
+      "recorded": {
+        "set": "dev",
+        "n": 10000,
+        "solved": 10000,
+        "wrong_stops": 0,
+        "budget_failures": 0,
+        "mean_flop": 1130530631.4134355
+      },
+      "differing_fields": [
+        "mean_flop"
+      ],
+      "flop_relative_difference": 0.04756963588678942,
+      "log_sha256": "fca4ae1217edeed2aebefcd6c8c8fd5822df9291855a7a4d8cceb5dccae7ac17"
+    },
+    {
+      "seed": 1,
+      "host": "work",
+      "gpu_index": 1,
+      "split": "dev10k",
+      "checkpoint_sha256": "e1f54405d05a93f2d86097546b2ba03a83ff46739cfedfef8144e351b6b05d5a",
+      "remote_checkpoint_hash_verified_equal_local": true,
+      "command": "CUDA_VISIBLE_DEVICES=1 CRAM_DATA=/home/catid/hopfield/upstream/data OMP_NUM_THREADS=1 .venv/bin/python -u checkpoints/evaluate.py --tasks sudoku-extreme --seeds 1",
+      "fresh": {
+        "set": "dev",
+        "n": 10000,
+        "solved": 10000,
+        "wrong_stops": 0,
+        "budget_failures": 0,
+        "mean_flop": 1248530718.8622117
+      },
+      "recorded": {
+        "set": "dev",
+        "n": 10000,
+        "solved": 10000,
+        "wrong_stops": 0,
+        "budget_failures": 0,
+        "mean_flop": 1297379693.2055616
+      },
+      "differing_fields": [
+        "mean_flop"
+      ],
+      "flop_relative_difference": -0.037652026310550646,
+      "log_sha256": "0675904f1ef216e49f5d8a013a66d99997a6d4ba3627f481bb3feedff11e13ef"
+    },
+    {
+      "seed": 2,
+      "host": "loki",
+      "gpu_index": 0,
+      "split": "dev10k",
+      "checkpoint_sha256": "c7370fb815fef4a3ed4153fb2dc0b76954610e94a9b1af4be7ef7c8a68b5da8b",
+      "remote_checkpoint_hash_verified_equal_local": true,
+      "command": "CUDA_VISIBLE_DEVICES=0 CRAM_DATA=/home/catid/hopfield/upstream/data OMP_NUM_THREADS=1 .venv/bin/python -u checkpoints/evaluate.py --tasks sudoku-extreme --seeds 2",
+      "fresh": {
+        "set": "dev",
+        "n": 10000,
+        "solved": 10000,
+        "wrong_stops": 0,
+        "budget_failures": 0,
+        "mean_flop": 1241925010.5032206
+      },
+      "recorded": {
+        "set": "dev",
+        "n": 10000,
+        "solved": 10000,
+        "wrong_stops": 0,
+        "budget_failures": 0,
+        "mean_flop": 1280927295.4575253
+      },
+      "differing_fields": [
+        "mean_flop"
+      ],
+      "flop_relative_difference": -0.030448476734484586,
+      "log_sha256": "07e754e410508fbe3447818d595b958f049f79cc3e7ddf62925ce476c0f410e0"
+    }
+  ],
+  "conclusion": "All 30000 development seed-puzzle evaluations solved, zero wrong stops or budget failures. Exact-record check differs on mean_flop for every seed; no numerical root cause is established here."
+}

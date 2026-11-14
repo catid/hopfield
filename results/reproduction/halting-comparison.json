@@ -1,0 +1,155 @@
+{
+  "paper": "arXiv:2611.17309v1",
+  "table": 4,
+  "complete": true,
+  "published": [
+    {
+      "task": "Sudoku-Extreme",
+      "method": "HRM (halting head)",
+      "provenance": "published_only",
+      "halted_percent": "54.5",
+      "wrong_halts_percent": "0.62",
+      "solved_percent": "54.7"
+    },
+    {
+      "task": "Sudoku-Extreme",
+      "method": "TRM (halting head)",
+      "provenance": "published_only",
+      "halted_percent": "85.8",
+      "wrong_halts_percent": "2.37",
+      "solved_percent": "83.8"
+    },
+    {
+      "task": "Sudoku-Extreme",
+      "method": "EqR (halting head)",
+      "provenance": "published_only",
+      "halted_percent": "87.5",
+      "wrong_halts_percent": "1.61",
+      "solved_percent": "86.1"
+    },
+    {
+      "task": "Sudoku-Extreme",
+      "method": "TRMP (halting head)",
+      "provenance": "published_only",
+      "halted_percent": "93.8",
+      "wrong_halts_percent": "0.05",
+      "solved_percent": "93.8"
+    },
+    {
+      "task": "Sudoku-Extreme",
+      "method": "EBR (gradient-norm stop)",
+      "provenance": "published_only",
+      "halted_percent": "99.35",
+      "wrong_halts_percent": "0.21",
+      "solved_percent": "99.31"
+    },
+    {
+      "task": "Sudoku-Extreme",
+      "method": "CRAM (energy threshold)",
+      "provenance": "published_only",
+      "halted_percent": "99.996",
+      "wrong_halts_percent": "0.00",
+      "solved_percent": "99.996"
+    },
+    {
+      "task": "Maze-Unique",
+      "method": "HRM (halting head)",
+      "provenance": "published_only",
+      "halted_percent": "21.4",
+      "wrong_halts_percent": "0.16",
+      "solved_percent": "40.3"
+    },
+    {
+      "task": "Maze-Unique",
+      "method": "TRM (halting head)",
+      "provenance": "published_only",
+      "halted_percent": "99.9",
+      "wrong_halts_percent": "3.54",
+      "solved_percent": "96.4"
+    },
+    {
+      "task": "Maze-Unique",
+      "method": "EqR (halting head)",
+      "provenance": "published_only",
+      "halted_percent": "66.0",
+      "wrong_halts_percent": "1.06",
+      "solved_percent": "65.3"
+    },
+    {
+      "task": "Maze-Unique",
+      "method": "TRMP (halting head)",
+      "provenance": "published_only",
+      "halted_percent": "91.2",
+      "wrong_halts_percent": "0.73",
+      "solved_percent": "99.2"
+    },
+    {
+      "task": "Maze-Unique",
+      "method": "EBR (gradient-norm stop)",
+      "provenance": "published_only",
+      "halted_percent": "no stopping rule",
+      "wrong_halts_percent": "no stopping rule",
+      "solved_percent": "no stopping rule"
+    },
+    {
+      "task": "Maze-Unique",
+      "method": "CRAM (energy threshold)",
+      "provenance": "published_only",
+      "halted_percent": "100.00",
+      "wrong_halts_percent": "0.00",
+      "solved_percent": "100.00"
+    }
+  ],
+  "local": [
+    {
+      "task": "Sudoku-Extreme",
+      "method": "CRAM (energy threshold)",
+      "n": 1238358,
+      "distinct_inputs": 412786,
+      "halted": 1238317,
+      "wrong_halts": 0,
+      "solved": 1238317,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "provenance": "fresh_local_saved_results",
+      "halted_percent": 99.9966891641997,
+      "wrong_halts_percent": 0.0,
+      "solved_percent": 99.9966891641997
+    },
+    {
+      "task": "Maze-Unique",
+      "method": "CRAM (fixed-point stop)",
+      "n": 3000,
+      "distinct_inputs": 1000,
+      "halted": 3000,
+      "wrong_halts": 0,
+      "solved": 3000,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "provenance": "fresh_local_saved_results",
+      "halted_percent": 100.0,
+      "wrong_halts_percent": 0.0,
+      "solved_percent": 100.0
+    }
+  ],
+  "sources": {
+    "references/2611.17309v1.md": "bc273e0bf2581a75e6a95b19886ee704eff21c8b3681dd1f1074c47b8b703673",
+    "artifacts/sudoku_audit/learned-full-test-audit.json": "f7571dffe9372e91eddf41b741e22f161da4ef678a67630115788416bae7eb77",
+    "artifacts/fresh_maze/reproduction_summary.json": "92f1afbf2a36fa2994e2959e2fa4d3b834c96d24138046b3f9033d1a7f213ebd"
+  },
+  "definitions": {
+    "wrong_halts_percent": "Incorrect halted boards / all halted boards, pooled across seeds",
+    "sample_count": "Each seed uses the same full test inputs; seed evaluations are not distinct puzzles",
+    "maze_stop": "The released Maze-Unique solver stops at a fixed point, despite Table 4's generic energy-threshold label"
+  },
+  "limitations": [
+    "Published baseline halting runs are not local measurements",
+    "These results do not imply zero incorrect stops for CRAM+z on Maze-Hard: its fresh runs each halt incorrectly on maze 106"
+  ]
+}

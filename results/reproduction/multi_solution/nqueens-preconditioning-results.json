@@ -1,0 +1,1983 @@
+{
+  "reference_file": "upstream/results/nqueens-results.json",
+  "reference_sha256": "16a169707ee09013c2cbec3771d8a3e49d2f028e0e2284162f0a8f3bfb014118",
+  "rows": [
+    {
+      "n": 8,
+      "method": "mpl",
+      "arm": "table",
+      "preconditioned": true,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "complete_seeds": true,
+      "test_rows": 1240,
+      "distinct_test_inputs": 772,
+      "metrics": {
+        "acc_n1": {
+          "mean": 100.0,
+          "sd": 0.0,
+          "per_seed": [
+            100.0,
+            100.0,
+            100.0
+          ]
+        },
+        "acc_n20_lowest_energy": {
+          "mean": 100.0,
+          "sd": 0.0,
+          "per_seed": [
+            100.0,
+            100.0,
+            100.0
+          ]
+        },
+        "cov20_per_puzzle": {
+          "mean": 98.2160564942823,
+          "sd": 0.0942521023408694,
+          "per_seed": [
+            98.12483998975935,
+            98.31307603686638,
+            98.21025345622118
+          ]
+        },
+        "diagnostic_acc_majority20": {
+          "mean": 100.0,
+          "sd": 0.0,
+          "per_seed": [
+            100.0,
+            100.0,
+            100.0
+          ]
+        },
+        "diagnostic_gram_row_mean_cov20": {
+          "mean": 98.21605649428231,
+          "sd": 0.09425210234086853,
+          "per_seed": [
+            98.12483998975935,
+            98.31307603686638,
+            98.21025345622121
+          ]
+        },
+        "wrong_stops_20chains": {
+          "mean": 0,
+          "sd": 0.0,
+          "per_seed": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cap_failures_20chains": {
+          "mean": 1,
+          "sd": 0.0,
+          "per_seed": [
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "paper_reference": {
+        "acc_n1": {
+          "mean": 100.0,
+          "sd": 0.0,
+          "per_seed": [
+            100.0,
+            100.0,
+            100.0
+          ]
+        },
+        "diagnostic_acc_majority20": {
+          "mean": 100.0,
+          "sd": 0.0,
+          "per_seed": [
+            100.0,
+            100.0,
+            100.0
+          ]
+        },
+        "diagnostic_gram_row_mean_cov20": {
+          "mean": 98.26270481310804,
+          "sd": 0.11781782091061294,
+          "per_seed": [
+            98.36162314388122,
+            98.13236047107016,
+            98.29413082437276
+          ]
+        },
+        "wrong_stops_20chains": {
+          "mean": 0,
+          "sd": 0.0,
+          "per_seed": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cap_failures_20chains": {
+          "mean": 0.6666666666666666,
+          "sd": 0.5773502691896257,
+          "per_seed": [
+            1,
+            0,
+            1
+          ]
+        }
+      },
+      "mean_differences_against_paper": {
+        "acc_n1": 0.0,
+        "diagnostic_acc_majority20": 0.0,
+        "diagnostic_gram_row_mean_cov20": -0.046648318825731394,
+        "wrong_stops_20chains": 0,
+        "cap_failures_20chains": 0.33333333333333337
+      },
+      "metric_scope": "Published ablation records retain majority-vote N20 and GRAM row-mean Cov20; compare these only with matching diagnostic columns. Lowest-energy N20 and per-puzzle coverage are additionally recomputed from saved chains.",
+      "size8_scope": "Matched local MPL/table control and ablation. The Table3 headline instead transfers the n10 PL/Ising recipe.",
+      "per_seed": [
+        {
+          "seed": 0,
+          "source": "upstream/experiments/runs/NQ/nq11/n8/final/mpl-table-s0",
+          "model_sha256": "a91ea3482284212f1f41e955c211584cda3bb5dcf9bbb001a3842334e659dd59",
+          "records_sha256": "6268cd9bdfc0ccf67d9307137bce9f53155049d8645534f720ffd0b7b6cdd60c",
+          "acc_n1": 100.0,
+          "acc_n20_lowest_energy": 100.0,
+          "cov20_per_puzzle": 98.12483998975935,
+          "diagnostic_acc_majority20": 100.0,
+          "diagnostic_gram_row_mean_cov20": 98.12483998975935,
+          "wrong_stops_20chains": 0,
+          "cap_failures_20chains": 1,
+          "fit_cold_seconds": 3.49598862498533,
+          "parameters_learned": 450,
+          "parameters_nonzero": 450,
+          "selection": {
+            "config": {
+              "method": "mpl",
+              "arm": "table",
+              "lr": 30.0,
+              "knob": 0.3,
+              "lam": 0.0,
+              "precond": true
+            },
+            "stop": "energy",
+            "temperature": 1.0,
+            "cap": 20000,
+            "val_acc_n1": 1.0,
+            "val_cov20_group_mean": 0.9340733609148787,
+            "val_cov20": 0.9860671768707482,
+            "val_wrong_stops": 0,
+            "val_budget_failures": 2,
+            "val_flop_all_chains": 1679745.3714285714,
+            "tune_fit_seconds": 4.1025662501342595,
+            "val_best_acc_n1": 1.0
+          },
+          "diagonal_offset_contrast": [
+            {
+              "distance": 1,
+              "unordered_pairs_per_offset": 49,
+              "directed_pairs_per_offset": 98,
+              "contrast_mean": 19.868905067443848,
+              "contrast_both_signs": [
+                19.8599853515625,
+                19.877824783325195
+              ]
+            },
+            {
+              "distance": 2,
+              "unordered_pairs_per_offset": 36,
+              "directed_pairs_per_offset": 72,
+              "contrast_mean": 21.17166233062744,
+              "contrast_both_signs": [
+                21.182039260864258,
+                21.161285400390625
+              ]
+            },
+            {
+              "distance": 3,
+              "unordered_pairs_per_offset": 25,
+              "directed_pairs_per_offset": 50,
+              "contrast_mean": 20.643863677978516,
+              "contrast_both_signs": [
+                20.635025024414062,
+                20.65270233154297
+              ]
+            },
+            {
+              "distance": 4,
+              "unordered_pairs_per_offset": 16,
+              "directed_pairs_per_offset": 32,
+              "contrast_mean": 21.98358726501465,
+              "contrast_both_signs": [
+                21.980045318603516,
+                21.98712921142578
+              ]
+            },
+            {
+              "distance": 5,
+              "unordered_pairs_per_offset": 9,
+              "directed_pairs_per_offset": 18,
+              "contrast_mean": 19.441309928894043,
+              "contrast_both_signs": [
+                19.43861198425293,
+                19.444007873535156
+              ]
+            },
+            {
+              "distance": 6,
+              "unordered_pairs_per_offset": 4,
+              "directed_pairs_per_offset": 8,
+              "contrast_mean": 21.18221378326416,
+              "contrast_both_signs": [
+                21.187904357910156,
+                21.176523208618164
+              ]
+            },
+            {
+              "distance": 7,
+              "unordered_pairs_per_offset": 1,
+              "directed_pairs_per_offset": 2,
+              "contrast_mean": 15.117640018463135,
+              "contrast_both_signs": [
+                15.106785774230957,
+                15.128494262695312
+              ]
+            }
+          ]
+        },
+        {
+          "seed": 1,
+          "source": "upstream/experiments/runs/NQ/nq11/n8/final/mpl-table-s1",
+          "model_sha256": "c7f035e709e7fa7e818ca99c249fe8957172bc2207c556e46d83936e6867c25a",
+          "records_sha256": "57e876ba72e86b2324a87c58c9e65fa4ee76a26499d28816dd59ba1264b72574",
+          "acc_n1": 100.0,
+          "acc_n20_lowest_energy": 100.0,
+          "cov20_per_puzzle": 98.31307603686638,
+          "diagnostic_acc_majority20": 100.0,
+          "diagnostic_gram_row_mean_cov20": 98.31307603686638,
+          "wrong_stops_20chains": 0,
+          "cap_failures_20chains": 1,
+          "fit_cold_seconds": 3.8681657109991647,
+          "parameters_learned": 450,
+          "parameters_nonzero": 450,
+          "selection": {
+            "config": {
+              "method": "mpl",
+              "arm": "table",
+              "lr": 30.0,
+              "knob": 0.3,
+              "lam": 0.0,
+              "precond": true
+            },
+            "stop": "energy",
+            "temperature": 1.0,
+            "cap": 20000,
+            "val_acc_n1": 1.0,
+            "val_cov20_group_mean": 0.9340733609148787,
+            "val_cov20": 0.9860671768707482,
+            "val_wrong_stops": 0,
+            "val_budget_failures": 2,
+            "val_flop_all_chains": 1679745.3714285714,
+            "tune_fit_seconds": 4.1025662501342595,
+            "val_best_acc_n1": 1.0
+          },
+          "diagonal_offset_contrast": [
+            {
+              "distance": 1,
+              "unordered_pairs_per_offset": 49,
+              "directed_pairs_per_offset": 98,
+              "contrast_mean": 18.36489772796631,
+              "contrast_both_signs": [
+                18.376514434814453,
+                18.353281021118164
+              ]
+            },
+            {
+              "distance": 2,
+              "unordered_pairs_per_offset": 36,
+              "directed_pairs_per_offset": 72,
+              "contrast_mean": 19.629130363464355,
+              "contrast_both_signs": [
+                19.657039642333984,
+                19.601221084594727
+              ]
+            },
+            {
+              "distance": 3,
+              "unordered_pairs_per_offset": 25,
+              "directed_pairs_per_offset": 50,
+              "contrast_mean": 19.11626625061035,
+              "contrast_both_signs": [
+                19.145557403564453,
+                19.08697509765625
+              ]
+            },
+            {
+              "distance": 4,
+              "unordered_pairs_per_offset": 16,
+              "directed_pairs_per_offset": 32,
+              "contrast_mean": 20.41598606109619,
+              "contrast_both_signs": [
+                20.409332275390625,
+                20.422639846801758
+              ]
+            },
+            {
+              "distance": 5,
+              "unordered_pairs_per_offset": 9,
+              "directed_pairs_per_offset": 18,
+              "contrast_mean": 18.00279140472412,
+              "contrast_both_signs": [
+                18.058940887451172,
+                17.94664192199707
+              ]
+            },
+            {
+              "distance": 6,
+              "unordered_pairs_per_offset": 4,
+              "directed_pairs_per_offset": 8,
+              "contrast_mean": 19.469857215881348,
+              "contrast_both_signs": [
+                19.490692138671875,
+                19.44902229309082
+              ]
+            },
+            {
+              "distance": 7,
+              "unordered_pairs_per_offset": 1,
+              "directed_pairs_per_offset": 2,
+              "contrast_mean": 13.816049098968506,
+              "contrast_both_signs": [
+                13.848644256591797,
+                13.783453941345215
+              ]
+            }
+          ]
+        },
+        {
+          "seed": 2,
+          "source": "upstream/experiments/runs/NQ/nq11/n8/final/mpl-table-s2",
+          "model_sha256": "8dbf78171caf6a30824f5b6e6715f7658174082c212c2274df869203e99c9224",
+          "records_sha256": "da4ed1391b8491ad3eb0795d3020cba8ebbbbdc4181dfb75879d5a9dd77c5ca2",
+          "acc_n1": 100.0,
+          "acc_n20_lowest_energy": 100.0,
+          "cov20_per_puzzle": 98.21025345622118,
+          "diagnostic_acc_majority20": 100.0,
+          "diagnostic_gram_row_mean_cov20": 98.21025345622121,
+          "wrong_stops_20chains": 0,
+          "cap_failures_20chains": 1,
+          "fit_cold_seconds": 2.9341886910260655,
+          "parameters_learned": 450,
+          "parameters_nonzero": 450,
+          "selection": {
+            "config": {
+              "method": "mpl",
+              "arm": "table",
+              "lr": 30.0,
+              "knob": 0.3,
+              "lam": 0.0,
+              "precond": true
+            },
+            "stop": "energy",
+            "temperature": 1.0,
+            "cap": 20000,
+            "val_acc_n1": 1.0,
+            "val_cov20_group_mean": 0.9340733609148787,
+            "val_cov20": 0.9860671768707482,
+            "val_wrong_stops": 0,
+            "val_budget_failures": 2,
+            "val_flop_all_chains": 1679745.3714285714,
+            "tune_fit_seconds": 4.1025662501342595,
+            "val_best_acc_n1": 1.0
+          },
+          "diagonal_offset_contrast": [
+            {
+              "distance": 1,
+              "unordered_pairs_per_offset": 49,
+              "directed_pairs_per_offset": 98,
+              "contrast_mean": 18.73295021057129,
+              "contrast_both_signs": [
+                18.73007583618164,
+                18.735824584960938
+              ]
+            },
+            {
+              "distance": 2,
+              "unordered_pairs_per_offset": 36,
+              "directed_pairs_per_offset": 72,
+              "contrast_mean": 19.92049789428711,
+              "contrast_both_signs": [
+                19.91714859008789,
+                19.923847198486328
+              ]
+            },
+            {
+              "distance": 3,
+              "unordered_pairs_per_offset": 25,
+              "directed_pairs_per_offset": 50,
+              "contrast_mean": 19.410825729370117,
+              "contrast_both_signs": [
+                19.434314727783203,
+                19.38733673095703
+              ]
+            },
+            {
+              "distance": 4,
+              "unordered_pairs_per_offset": 16,
+              "directed_pairs_per_offset": 32,
+              "contrast_mean": 20.59346294403076,
+              "contrast_both_signs": [
+                20.57077407836914,
+                20.616151809692383
+              ]
+            },
+            {
+              "distance": 5,
+              "unordered_pairs_per_offset": 9,
+              "directed_pairs_per_offset": 18,
+              "contrast_mean": 18.19386863708496,
+              "contrast_both_signs": [
+                18.204233169555664,
+                18.183504104614258
+              ]
+            },
+            {
+              "distance": 6,
+              "unordered_pairs_per_offset": 4,
+              "directed_pairs_per_offset": 8,
+              "contrast_mean": 19.71677589416504,
+              "contrast_both_signs": [
+                19.666460037231445,
+                19.767091751098633
+              ]
+            },
+            {
+              "distance": 7,
+              "unordered_pairs_per_offset": 1,
+              "directed_pairs_per_offset": 2,
+              "contrast_mean": 14.179516792297363,
+              "contrast_both_signs": [
+                14.181642532348633,
+                14.177391052246094
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": 8,
+      "method": "mpl",
+      "arm": "table",
+      "preconditioned": false,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "complete_seeds": true,
+      "test_rows": 1240,
+      "distinct_test_inputs": 772,
+      "metrics": {
+        "acc_n1": {
+          "mean": 100.0,
+          "sd": 0.0,
+          "per_seed": [
+            100.0,
+            100.0,
+            100.0
+          ]
+        },
+        "acc_n20_lowest_energy": {
+          "mean": 100.0,
+          "sd": 0.0,
+          "per_seed": [
+            100.0,
+            100.0,
+            100.0
+          ]
+        },
+        "cov20_per_puzzle": {
+          "mean": 98.26654505888376,
+          "sd": 0.03986403305682071,
+          "per_seed": [
+            98.2912826420891,
+            98.22055811571941,
+            98.2877944188428
+          ]
+        },
+        "diagnostic_acc_majority20": {
+          "mean": 100.0,
+          "sd": 0.0,
+          "per_seed": [
+            100.0,
+            100.0,
+            100.0
+          ]
+        },
+        "diagnostic_gram_row_mean_cov20": {
+          "mean": 98.26654505888376,
+          "sd": 0.03986403305682071,
+          "per_seed": [
+            98.2912826420891,
+            98.22055811571941,
+            98.2877944188428
+          ]
+        },
+        "wrong_stops_20chains": {
+          "mean": 0,
+          "sd": 0.0,
+          "per_seed": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cap_failures_20chains": {
+          "mean": 1,
+          "sd": 1.0,
+          "per_seed": [
+            0,
+            1,
+            2
+          ]
+        }
+      },
+      "paper_reference": {
+        "acc_n1": {
+          "mean": 100.0,
+          "sd": 0.0,
+          "per_seed": [
+            100.0,
+            100.0,
+            100.0
+          ]
+        },
+        "diagnostic_acc_majority20": {
+          "mean": 100.0,
+          "sd": 0.0,
+          "per_seed": [
+            100.0,
+            100.0,
+            100.0
+          ]
+        },
+        "diagnostic_gram_row_mean_cov20": {
+          "mean": 98.35834826762247,
+          "sd": 0.033633168049095476,
+          "per_seed": [
+            98.35215053763442,
+            98.32824500768051,
+            98.39464925755249
+          ]
+        },
+        "wrong_stops_20chains": {
+          "mean": 0,
+          "sd": 0.0,
+          "per_seed": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cap_failures_20chains": {
+          "mean": 4.333333333333333,
+          "sd": 1.1547005383792515,
+          "per_seed": [
+            3,
+            5,
+            5
+          ]
+        }
+      },
+      "mean_differences_against_paper": {
+        "acc_n1": 0.0,
+        "diagnostic_acc_majority20": 0.0,
+        "diagnostic_gram_row_mean_cov20": -0.0918032087387104,
+        "wrong_stops_20chains": 0,
+        "cap_failures_20chains": -3.333333333333333
+      },
+      "metric_scope": "Published ablation records retain majority-vote N20 and GRAM row-mean Cov20; compare these only with matching diagnostic columns. Lowest-energy N20 and per-puzzle coverage are additionally recomputed from saved chains.",
+      "size8_scope": "Matched local MPL/table control and ablation. The Table3 headline instead transfers the n10 PL/Ising recipe.",
+      "per_seed": [
+        {
+          "seed": 0,
+          "source": "upstream/experiments/runs/NQ/nq11/n8/ablation/mpl-table-noprecond-s0",
+          "model_sha256": "98ca01fa3c552a9661412bc7ac5fb8759da201270ce1148c8a945f8083deaab5",
+          "records_sha256": "edfc1572049be427b64e3bc99b6be0db44998d40f7be0b521a2be4f3cdc5f3a3",
+          "acc_n1": 100.0,
+          "acc_n20_lowest_energy": 100.0,
+          "cov20_per_puzzle": 98.2912826420891,
+          "diagnostic_acc_majority20": 100.0,
+          "diagnostic_gram_row_mean_cov20": 98.2912826420891,
+          "wrong_stops_20chains": 0,
+          "cap_failures_20chains": 0,
+          "fit_cold_seconds": 2.5576544029754587,
+          "parameters_learned": 450,
+          "parameters_nonzero": 450,
+          "selection": {
+            "config": {
+              "method": "mpl",
+              "arm": "table",
+              "lr": 30.0,
+              "knob": 0.3,
+              "lam": 0.0,
+              "precond": false
+            },
+            "stop": "energy",
+            "temperature": 1.0,
+            "cap": 20000,
+            "val_acc_n1": 1.0,
+            "val_cov20_group_mean": 0.9340733609148787,
+            "val_cov20": 0.9860671768707482,
+            "val_wrong_stops": 0,
+            "val_budget_failures": 2,
+            "val_flop_all_chains": 1679745.3714285714,
+            "tune_fit_seconds": 4.1025662501342595,
+            "val_best_acc_n1": 1.0
+          },
+          "diagonal_offset_contrast": [
+            {
+              "distance": 1,
+              "unordered_pairs_per_offset": 49,
+              "directed_pairs_per_offset": 98,
+              "contrast_mean": 38.05488967895508,
+              "contrast_both_signs": [
+                38.039306640625,
+                38.070472717285156
+              ]
+            },
+            {
+              "distance": 2,
+              "unordered_pairs_per_offset": 36,
+              "directed_pairs_per_offset": 72,
+              "contrast_mean": 34.052547454833984,
+              "contrast_both_signs": [
+                34.00481414794922,
+                34.10028076171875
+              ]
+            },
+            {
+              "distance": 3,
+              "unordered_pairs_per_offset": 25,
+              "directed_pairs_per_offset": 50,
+              "contrast_mean": 28.691229820251465,
+              "contrast_both_signs": [
+                28.73519515991211,
+                28.64726448059082
+              ]
+            },
+            {
+              "distance": 4,
+              "unordered_pairs_per_offset": 16,
+              "directed_pairs_per_offset": 32,
+              "contrast_mean": 25.10367774963379,
+              "contrast_both_signs": [
+                25.12743377685547,
+                25.07992172241211
+              ]
+            },
+            {
+              "distance": 5,
+              "unordered_pairs_per_offset": 9,
+              "directed_pairs_per_offset": 18,
+              "contrast_mean": 17.171847343444824,
+              "contrast_both_signs": [
+                17.19717788696289,
+                17.146516799926758
+              ]
+            },
+            {
+              "distance": 6,
+              "unordered_pairs_per_offset": 4,
+              "directed_pairs_per_offset": 8,
+              "contrast_mean": 13.036077499389648,
+              "contrast_both_signs": [
+                13.032281875610352,
+                13.039873123168945
+              ]
+            },
+            {
+              "distance": 7,
+              "unordered_pairs_per_offset": 1,
+              "directed_pairs_per_offset": 2,
+              "contrast_mean": 2.7976977825164795,
+              "contrast_both_signs": [
+                2.7891488075256348,
+                2.806246757507324
+              ]
+            }
+          ]
+        },
+        {
+          "seed": 1,
+          "source": "upstream/experiments/runs/NQ/nq11/n8/ablation/mpl-table-noprecond-s1",
+          "model_sha256": "5a9b422374010fa2d49b57d7ed99d04bc7591a791d51b679d7698560d833d1ce",
+          "records_sha256": "8bddbb533c1a324703bf9fe5d28ab88ba47d7d9220ecbafddd6c790627e09d90",
+          "acc_n1": 100.0,
+          "acc_n20_lowest_energy": 100.0,
+          "cov20_per_puzzle": 98.22055811571941,
+          "diagnostic_acc_majority20": 100.0,
+          "diagnostic_gram_row_mean_cov20": 98.22055811571941,
+          "wrong_stops_20chains": 0,
+          "cap_failures_20chains": 1,
+          "fit_cold_seconds": 2.934732442954555,
+          "parameters_learned": 450,
+          "parameters_nonzero": 450,
+          "selection": {
+            "config": {
+              "method": "mpl",
+              "arm": "table",
+              "lr": 30.0,
+              "knob": 0.3,
+              "lam": 0.0,
+              "precond": false
+            },
+            "stop": "energy",
+            "temperature": 1.0,
+            "cap": 20000,
+            "val_acc_n1": 1.0,
+            "val_cov20_group_mean": 0.9340733609148787,
+            "val_cov20": 0.9860671768707482,
+            "val_wrong_stops": 0,
+            "val_budget_failures": 2,
+            "val_flop_all_chains": 1679745.3714285714,
+            "tune_fit_seconds": 4.1025662501342595,
+            "val_best_acc_n1": 1.0
+          },
+          "diagonal_offset_contrast": [
+            {
+              "distance": 1,
+              "unordered_pairs_per_offset": 49,
+              "directed_pairs_per_offset": 98,
+              "contrast_mean": 40.33630180358887,
+              "contrast_both_signs": [
+                40.352325439453125,
+                40.32027816772461
+              ]
+            },
+            {
+              "distance": 2,
+              "unordered_pairs_per_offset": 36,
+              "directed_pairs_per_offset": 72,
+              "contrast_mean": 35.36977005004883,
+              "contrast_both_signs": [
+                35.412940979003906,
+                35.32659912109375
+              ]
+            },
+            {
+              "distance": 3,
+              "unordered_pairs_per_offset": 25,
+              "directed_pairs_per_offset": 50,
+              "contrast_mean": 28.808231353759766,
+              "contrast_both_signs": [
+                28.787288665771484,
+                28.829174041748047
+              ]
+            },
+            {
+              "distance": 4,
+              "unordered_pairs_per_offset": 16,
+              "directed_pairs_per_offset": 32,
+              "contrast_mean": 24.883456230163574,
+              "contrast_both_signs": [
+                24.86029052734375,
+                24.9066219329834
+              ]
+            },
+            {
+              "distance": 5,
+              "unordered_pairs_per_offset": 9,
+              "directed_pairs_per_offset": 18,
+              "contrast_mean": 16.99013900756836,
+              "contrast_both_signs": [
+                17.035106658935547,
+                16.945171356201172
+              ]
+            },
+            {
+              "distance": 6,
+              "unordered_pairs_per_offset": 4,
+              "directed_pairs_per_offset": 8,
+              "contrast_mean": 13.03185510635376,
+              "contrast_both_signs": [
+                13.047852516174316,
+                13.015857696533203
+              ]
+            },
+            {
+              "distance": 7,
+              "unordered_pairs_per_offset": 1,
+              "directed_pairs_per_offset": 2,
+              "contrast_mean": 2.8243058919906616,
+              "contrast_both_signs": [
+                2.811091184616089,
+                2.8375205993652344
+              ]
+            }
+          ]
+        },
+        {
+          "seed": 2,
+          "source": "upstream/experiments/runs/NQ/nq11/n8/ablation/mpl-table-noprecond-s2",
+          "model_sha256": "c8c8f1a8c782a0580e8aa5b48cb737da56ccfd240f4e3d6e2778cc8daf077f3d",
+          "records_sha256": "659ff2d83c39f91612468db8a6103c559c091938b38aae868bf19bfdde1faf48",
+          "acc_n1": 100.0,
+          "acc_n20_lowest_energy": 100.0,
+          "cov20_per_puzzle": 98.2877944188428,
+          "diagnostic_acc_majority20": 100.0,
+          "diagnostic_gram_row_mean_cov20": 98.2877944188428,
+          "wrong_stops_20chains": 0,
+          "cap_failures_20chains": 2,
+          "fit_cold_seconds": 2.837050753994845,
+          "parameters_learned": 450,
+          "parameters_nonzero": 450,
+          "selection": {
+            "config": {
+              "method": "mpl",
+              "arm": "table",
+              "lr": 30.0,
+              "knob": 0.3,
+              "lam": 0.0,
+              "precond": false
+            },
+            "stop": "energy",
+            "temperature": 1.0,
+            "cap": 20000,
+            "val_acc_n1": 1.0,
+            "val_cov20_group_mean": 0.9340733609148787,
+            "val_cov20": 0.9860671768707482,
+            "val_wrong_stops": 0,
+            "val_budget_failures": 2,
+            "val_flop_all_chains": 1679745.3714285714,
+            "tune_fit_seconds": 4.1025662501342595,
+            "val_best_acc_n1": 1.0
+          },
+          "diagonal_offset_contrast": [
+            {
+              "distance": 1,
+              "unordered_pairs_per_offset": 49,
+              "directed_pairs_per_offset": 98,
+              "contrast_mean": 39.903133392333984,
+              "contrast_both_signs": [
+                39.882568359375,
+                39.92369842529297
+              ]
+            },
+            {
+              "distance": 2,
+              "unordered_pairs_per_offset": 36,
+              "directed_pairs_per_offset": 72,
+              "contrast_mean": 36.05019569396973,
+              "contrast_both_signs": [
+                36.048011779785156,
+                36.0523796081543
+              ]
+            },
+            {
+              "distance": 3,
+              "unordered_pairs_per_offset": 25,
+              "directed_pairs_per_offset": 50,
+              "contrast_mean": 29.867979049682617,
+              "contrast_both_signs": [
+                29.87122344970703,
+                29.864734649658203
+              ]
+            },
+            {
+              "distance": 4,
+              "unordered_pairs_per_offset": 16,
+              "directed_pairs_per_offset": 32,
+              "contrast_mean": 25.809962272644043,
+              "contrast_both_signs": [
+                25.840042114257812,
+                25.779882431030273
+              ]
+            },
+            {
+              "distance": 5,
+              "unordered_pairs_per_offset": 9,
+              "directed_pairs_per_offset": 18,
+              "contrast_mean": 17.412818908691406,
+              "contrast_both_signs": [
+                17.397979736328125,
+                17.427658081054688
+              ]
+            },
+            {
+              "distance": 6,
+              "unordered_pairs_per_offset": 4,
+              "directed_pairs_per_offset": 8,
+              "contrast_mean": 13.068440437316895,
+              "contrast_both_signs": [
+                13.052952766418457,
+                13.083928108215332
+              ]
+            },
+            {
+              "distance": 7,
+              "unordered_pairs_per_offset": 1,
+              "directed_pairs_per_offset": 2,
+              "contrast_mean": 2.759085178375244,
+              "contrast_both_signs": [
+                2.744889736175537,
+                2.773280620574951
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": 10,
+      "method": "pl",
+      "arm": "ising",
+      "preconditioned": true,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "complete_seeds": true,
+      "test_rows": 18466,
+      "distinct_test_inputs": 6513,
+      "metrics": {
+        "acc_n1": {
+          "mean": 99.45124372721037,
+          "sd": 0.08147069638901092,
+          "per_seed": [
+            99.36640311924619,
+            99.528863857901,
+            99.45846420448392
+          ]
+        },
+        "acc_n20_lowest_energy": {
+          "mean": 99.99458464204484,
+          "sd": 0.0,
+          "per_seed": [
+            99.99458464204484,
+            99.99458464204484,
+            99.99458464204484
+          ]
+        },
+        "cov20_per_puzzle": {
+          "mean": 93.5682724300783,
+          "sd": 0.041092196314199005,
+          "per_seed": [
+            93.61329914784977,
+            93.55872111628469,
+            93.53279702610043
+          ]
+        },
+        "diagnostic_acc_majority20": {
+          "mean": 99.98194880681613,
+          "sd": 0.003126558373176932,
+          "per_seed": [
+            99.97833856817935,
+            99.98375392613453,
+            99.98375392613453
+          ]
+        },
+        "diagnostic_gram_row_mean_cov20": {
+          "mean": 90.92522590607264,
+          "sd": 0.03874913213067312,
+          "per_seed": [
+            90.96996348581199,
+            90.9022191818964,
+            90.90349505050953
+          ]
+        },
+        "wrong_stops_20chains": {
+          "mean": 0,
+          "sd": 0.0,
+          "per_seed": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cap_failures_20chains": {
+          "mean": 2039.6666666666667,
+          "sd": 48.232077845903895,
+          "per_seed": [
+            2069,
+            1984,
+            2066
+          ]
+        }
+      },
+      "paper_reference": {
+        "acc_n1": {
+          "mean": 99.44582836925521,
+          "sd": 0.05203630205205378,
+          "per_seed": [
+            99.39889526697715,
+            99.43680277266327,
+            99.5017870681252
+          ]
+        },
+        "diagnostic_acc_majority20": {
+          "mean": 99.97653344886098,
+          "sd": 0.008272095914937334,
+          "per_seed": [
+            99.97833856817935,
+            99.98375392613453,
+            99.96750785226904
+          ]
+        },
+        "diagnostic_gram_row_mean_cov20": {
+          "mean": 90.91646222049613,
+          "sd": 0.06524147057541478,
+          "per_seed": [
+            90.95424162439342,
+            90.84112797085936,
+            90.95401706623561
+          ]
+        },
+        "wrong_stops_20chains": {
+          "mean": 0,
+          "sd": 0.0,
+          "per_seed": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cap_failures_20chains": {
+          "mean": 2076.3333333333335,
+          "sd": 39.576929306520654,
+          "per_seed": [
+            2031,
+            2094,
+            2104
+          ]
+        }
+      },
+      "mean_differences_against_paper": {
+        "acc_n1": 0.005415357955158129,
+        "diagnostic_acc_majority20": 0.005415357955158129,
+        "diagnostic_gram_row_mean_cov20": 0.008763685576511193,
+        "wrong_stops_20chains": 0,
+        "cap_failures_20chains": -36.66666666666674
+      },
+      "metric_scope": "Published ablation records retain majority-vote N20 and GRAM row-mean Cov20; compare these only with matching diagnostic columns. Lowest-energy N20 and per-puzzle coverage are additionally recomputed from saved chains.",
+      "size8_scope": "Matched local MPL/table control and ablation. The Table3 headline instead transfers the n10 PL/Ising recipe.",
+      "per_seed": [
+        {
+          "seed": 0,
+          "source": "upstream/experiments/runs/NQ/nq11/n10/final/pl-ising-s0",
+          "model_sha256": "4c035162cc6e9e7a6b7d8c6ed57f321b85e29e48a549f185ffbca917cbd9357f",
+          "records_sha256": "0cbf0829e2bbc182a02928ae6a38ad3d0429cdb11b56d7add1532f026fb37433",
+          "acc_n1": 99.36640311924619,
+          "acc_n20_lowest_energy": 99.99458464204484,
+          "cov20_per_puzzle": 93.61329914784977,
+          "diagnostic_acc_majority20": 99.97833856817935,
+          "diagnostic_gram_row_mean_cov20": 90.96996348581199,
+          "wrong_stops_20chains": 0,
+          "cap_failures_20chains": 2069,
+          "fit_cold_seconds": 10.187004016013816,
+          "parameters_learned": 181,
+          "parameters_nonzero": 181,
+          "selection": {
+            "config": {
+              "method": "pl",
+              "arm": "ising",
+              "lr": 30.0,
+              "knob": null,
+              "lam": 0.0,
+              "precond": true
+            },
+            "stop": "local",
+            "temperature": 1.0,
+            "cap": 20000,
+            "val_acc_n1": 0.9943820224719101,
+            "val_cov20_group_mean": 0.806330876482335,
+            "val_cov20": 0.88189006288808,
+            "val_wrong_stops": 0,
+            "val_budget_failures": 1169,
+            "val_flop_all_chains": 21297574.90973783,
+            "tune_fit_seconds": 6.478512741625309,
+            "val_best_acc_n1": 0.9975655430711611
+          },
+          "diagonal_offset_contrast": [
+            {
+              "distance": 1,
+              "unordered_pairs_per_offset": 81,
+              "directed_pairs_per_offset": 162,
+              "contrast_mean": 2.3699002265930176,
+              "contrast_both_signs": [
+                2.369518756866455,
+                2.37028169631958
+              ]
+            },
+            {
+              "distance": 2,
+              "unordered_pairs_per_offset": 64,
+              "directed_pairs_per_offset": 128,
+              "contrast_mean": 2.4925215244293213,
+              "contrast_both_signs": [
+                2.492983102798462,
+                2.4920599460601807
+              ]
+            },
+            {
+              "distance": 3,
+              "unordered_pairs_per_offset": 49,
+              "directed_pairs_per_offset": 98,
+              "contrast_mean": 2.6511813402175903,
+              "contrast_both_signs": [
+                2.650952100753784,
+                2.6514105796813965
+              ]
+            },
+            {
+              "distance": 4,
+              "unordered_pairs_per_offset": 36,
+              "directed_pairs_per_offset": 72,
+              "contrast_mean": 2.530285358428955,
+              "contrast_both_signs": [
+                2.5292508602142334,
+                2.5313198566436768
+              ]
+            },
+            {
+              "distance": 5,
+              "unordered_pairs_per_offset": 25,
+              "directed_pairs_per_offset": 50,
+              "contrast_mean": 2.9012950658798218,
+              "contrast_both_signs": [
+                2.9019112586975098,
+                2.900678873062134
+              ]
+            },
+            {
+              "distance": 6,
+              "unordered_pairs_per_offset": 16,
+              "directed_pairs_per_offset": 32,
+              "contrast_mean": 2.9753246307373047,
+              "contrast_both_signs": [
+                2.9758336544036865,
+                2.974815607070923
+              ]
+            },
+            {
+              "distance": 7,
+              "unordered_pairs_per_offset": 9,
+              "directed_pairs_per_offset": 18,
+              "contrast_mean": 2.822563886642456,
+              "contrast_both_signs": [
+                2.8206493854522705,
+                2.8244783878326416
+              ]
+            },
+            {
+              "distance": 8,
+              "unordered_pairs_per_offset": 4,
+              "directed_pairs_per_offset": 8,
+              "contrast_mean": 2.5516865253448486,
+              "contrast_both_signs": [
+                2.55043363571167,
+                2.5529394149780273
+              ]
+            },
+            {
+              "distance": 9,
+              "unordered_pairs_per_offset": 1,
+              "directed_pairs_per_offset": 2,
+              "contrast_mean": 2.5288498401641846,
+              "contrast_both_signs": [
+                2.525130271911621,
+                2.532569408416748
+              ]
+            }
+          ]
+        },
+        {
+          "seed": 1,
+          "source": "upstream/experiments/runs/NQ/nq11/n10/final/pl-ising-s1",
+          "model_sha256": "4f21b03748afc55a6682236526f049a6cfa1bef41d3b072f543c507dd107467d",
+          "records_sha256": "1c46a90437e8e895916d4a411ba69b3e637ac12ab71558e19a74305f370b61b4",
+          "acc_n1": 99.528863857901,
+          "acc_n20_lowest_energy": 99.99458464204484,
+          "cov20_per_puzzle": 93.55872111628469,
+          "diagnostic_acc_majority20": 99.98375392613453,
+          "diagnostic_gram_row_mean_cov20": 90.9022191818964,
+          "wrong_stops_20chains": 0,
+          "cap_failures_20chains": 1984,
+          "fit_cold_seconds": 10.761748082004488,
+          "parameters_learned": 181,
+          "parameters_nonzero": 181,
+          "selection": {
+            "config": {
+              "method": "pl",
+              "arm": "ising",
+              "lr": 30.0,
+              "knob": null,
+              "lam": 0.0,
+              "precond": true
+            },
+            "stop": "local",
+            "temperature": 1.0,
+            "cap": 20000,
+            "val_acc_n1": 0.9943820224719101,
+            "val_cov20_group_mean": 0.806330876482335,
+            "val_cov20": 0.88189006288808,
+            "val_wrong_stops": 0,
+            "val_budget_failures": 1169,
+            "val_flop_all_chains": 21297574.90973783,
+            "tune_fit_seconds": 6.478512741625309,
+            "val_best_acc_n1": 0.9975655430711611
+          },
+          "diagonal_offset_contrast": [
+            {
+              "distance": 1,
+              "unordered_pairs_per_offset": 81,
+              "directed_pairs_per_offset": 162,
+              "contrast_mean": 2.3699002265930176,
+              "contrast_both_signs": [
+                2.369518756866455,
+                2.37028169631958
+              ]
+            },
+            {
+              "distance": 2,
+              "unordered_pairs_per_offset": 64,
+              "directed_pairs_per_offset": 128,
+              "contrast_mean": 2.4925215244293213,
+              "contrast_both_signs": [
+                2.492983102798462,
+                2.4920599460601807
+              ]
+            },
+            {
+              "distance": 3,
+              "unordered_pairs_per_offset": 49,
+              "directed_pairs_per_offset": 98,
+              "contrast_mean": 2.6511813402175903,
+              "contrast_both_signs": [
+                2.650952100753784,
+                2.6514105796813965
+              ]
+            },
+            {
+              "distance": 4,
+              "unordered_pairs_per_offset": 36,
+              "directed_pairs_per_offset": 72,
+              "contrast_mean": 2.530285358428955,
+              "contrast_both_signs": [
+                2.5292508602142334,
+                2.5313198566436768
+              ]
+            },
+            {
+              "distance": 5,
+              "unordered_pairs_per_offset": 25,
+              "directed_pairs_per_offset": 50,
+              "contrast_mean": 2.9012950658798218,
+              "contrast_both_signs": [
+                2.9019112586975098,
+                2.900678873062134
+              ]
+            },
+            {
+              "distance": 6,
+              "unordered_pairs_per_offset": 16,
+              "directed_pairs_per_offset": 32,
+              "contrast_mean": 2.9753246307373047,
+              "contrast_both_signs": [
+                2.9758336544036865,
+                2.974815607070923
+              ]
+            },
+            {
+              "distance": 7,
+              "unordered_pairs_per_offset": 9,
+              "directed_pairs_per_offset": 18,
+              "contrast_mean": 2.822563886642456,
+              "contrast_both_signs": [
+                2.8206493854522705,
+                2.8244783878326416
+              ]
+            },
+            {
+              "distance": 8,
+              "unordered_pairs_per_offset": 4,
+              "directed_pairs_per_offset": 8,
+              "contrast_mean": 2.5516865253448486,
+              "contrast_both_signs": [
+                2.55043363571167,
+                2.5529394149780273
+              ]
+            },
+            {
+              "distance": 9,
+              "unordered_pairs_per_offset": 1,
+              "directed_pairs_per_offset": 2,
+              "contrast_mean": 2.5288498401641846,
+              "contrast_both_signs": [
+                2.525130271911621,
+                2.532569408416748
+              ]
+            }
+          ]
+        },
+        {
+          "seed": 2,
+          "source": "upstream/experiments/runs/NQ/nq11/n10/final/pl-ising-s2",
+          "model_sha256": "64438d82e78a1e67c0646b81a880ab44599441bc0550f715f918b8470855a456",
+          "records_sha256": "d28febd3f9ba2b1d87226490badbbe0640ee92a075dbfdd4f65b4871128b3f91",
+          "acc_n1": 99.45846420448392,
+          "acc_n20_lowest_energy": 99.99458464204484,
+          "cov20_per_puzzle": 93.53279702610043,
+          "diagnostic_acc_majority20": 99.98375392613453,
+          "diagnostic_gram_row_mean_cov20": 90.90349505050953,
+          "wrong_stops_20chains": 0,
+          "cap_failures_20chains": 2066,
+          "fit_cold_seconds": 10.53910883096978,
+          "parameters_learned": 181,
+          "parameters_nonzero": 181,
+          "selection": {
+            "config": {
+              "method": "pl",
+              "arm": "ising",
+              "lr": 30.0,
+              "knob": null,
+              "lam": 0.0,
+              "precond": true
+            },
+            "stop": "local",
+            "temperature": 1.0,
+            "cap": 20000,
+            "val_acc_n1": 0.9943820224719101,
+            "val_cov20_group_mean": 0.806330876482335,
+            "val_cov20": 0.88189006288808,
+            "val_wrong_stops": 0,
+            "val_budget_failures": 1169,
+            "val_flop_all_chains": 21297574.90973783,
+            "tune_fit_seconds": 6.478512741625309,
+            "val_best_acc_n1": 0.9975655430711611
+          },
+          "diagonal_offset_contrast": [
+            {
+              "distance": 1,
+              "unordered_pairs_per_offset": 81,
+              "directed_pairs_per_offset": 162,
+              "contrast_mean": 2.3699002265930176,
+              "contrast_both_signs": [
+                2.369518756866455,
+                2.37028169631958
+              ]
+            },
+            {
+              "distance": 2,
+              "unordered_pairs_per_offset": 64,
+              "directed_pairs_per_offset": 128,
+              "contrast_mean": 2.4925215244293213,
+              "contrast_both_signs": [
+                2.492983102798462,
+                2.4920599460601807
+              ]
+            },
+            {
+              "distance": 3,
+              "unordered_pairs_per_offset": 49,
+              "directed_pairs_per_offset": 98,
+              "contrast_mean": 2.6511813402175903,
+              "contrast_both_signs": [
+                2.650952100753784,
+                2.6514105796813965
+              ]
+            },
+            {
+              "distance": 4,
+              "unordered_pairs_per_offset": 36,
+              "directed_pairs_per_offset": 72,
+              "contrast_mean": 2.530285358428955,
+              "contrast_both_signs": [
+                2.5292508602142334,
+                2.5313198566436768
+              ]
+            },
+            {
+              "distance": 5,
+              "unordered_pairs_per_offset": 25,
+              "directed_pairs_per_offset": 50,
+              "contrast_mean": 2.9012950658798218,
+              "contrast_both_signs": [
+                2.9019112586975098,
+                2.900678873062134
+              ]
+            },
+            {
+              "distance": 6,
+              "unordered_pairs_per_offset": 16,
+              "directed_pairs_per_offset": 32,
+              "contrast_mean": 2.9753246307373047,
+              "contrast_both_signs": [
+                2.9758336544036865,
+                2.974815607070923
+              ]
+            },
+            {
+              "distance": 7,
+              "unordered_pairs_per_offset": 9,
+              "directed_pairs_per_offset": 18,
+              "contrast_mean": 2.822563886642456,
+              "contrast_both_signs": [
+                2.8206493854522705,
+                2.8244783878326416
+              ]
+            },
+            {
+              "distance": 8,
+              "unordered_pairs_per_offset": 4,
+              "directed_pairs_per_offset": 8,
+              "contrast_mean": 2.5516865253448486,
+              "contrast_both_signs": [
+                2.55043363571167,
+                2.5529394149780273
+              ]
+            },
+            {
+              "distance": 9,
+              "unordered_pairs_per_offset": 1,
+              "directed_pairs_per_offset": 2,
+              "contrast_mean": 2.5288498401641846,
+              "contrast_both_signs": [
+                2.525130271911621,
+                2.532569408416748
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": 10,
+      "method": "pl",
+      "arm": "ising",
+      "preconditioned": false,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "complete_seeds": true,
+      "test_rows": 18466,
+      "distinct_test_inputs": 6513,
+      "metrics": {
+        "acc_n1": {
+          "mean": 73.7968879742951,
+          "sd": 0.3132181122314031,
+          "per_seed": [
+            73.73551391746994,
+            74.13625040615185,
+            73.5188995992635
+          ]
+        },
+        "acc_n20_lowest_energy": {
+          "mean": 97.53240189176505,
+          "sd": 0.027789458677823436,
+          "per_seed": [
+            97.50893534062601,
+            97.5251814144915,
+            97.56308892017762
+          ]
+        },
+        "cov20_per_puzzle": {
+          "mean": 89.07237792886595,
+          "sd": 0.06519639603685556,
+          "per_seed": [
+            89.07407940971643,
+            89.13670693052657,
+            89.00634744635482
+          ]
+        },
+        "diagnostic_acc_majority20": {
+          "mean": 86.43091808368533,
+          "sd": 0.12209600760378551,
+          "per_seed": [
+            86.43994368027727,
+            86.54825083938049,
+            86.30455973139824
+          ]
+        },
+        "diagnostic_gram_row_mean_cov20": {
+          "mean": 86.48883152286906,
+          "sd": 0.06152390815730709,
+          "per_seed": [
+            86.49732008861342,
+            86.54567037566993,
+            86.42350410432384
+          ]
+        },
+        "wrong_stops_20chains": {
+          "mean": 96632,
+          "sd": 100.14489502715553,
+          "per_seed": [
+            96564,
+            96585,
+            96747
+          ]
+        },
+        "cap_failures_20chains": {
+          "mean": 640.6666666666666,
+          "sd": 49.54122862155654,
+          "per_seed": [
+            695,
+            598,
+            629
+          ]
+        }
+      },
+      "paper_reference": {
+        "acc_n1": {
+          "mean": 73.71926784360446,
+          "sd": 0.314650472139801,
+          "per_seed": [
+            73.7409292754251,
+            74.02252788909347,
+            73.39434636629481
+          ]
+        },
+        "diagnostic_acc_majority20": {
+          "mean": 86.66197335643885,
+          "sd": 0.10317642631462542,
+          "per_seed": [
+            86.7811112314524,
+            86.60240441893208,
+            86.60240441893208
+          ]
+        },
+        "diagnostic_gram_row_mean_cov20": {
+          "mean": 86.49786051838909,
+          "sd": 0.07699723169422855,
+          "per_seed": [
+            86.48744851961357,
+            86.57953393828845,
+            86.42659909726524
+          ]
+        },
+        "wrong_stops_20chains": {
+          "mean": 96464.66666666667,
+          "sd": 131.12716474222012,
+          "per_seed": [
+            96527,
+            96314,
+            96553
+          ]
+        },
+        "cap_failures_20chains": {
+          "mean": 606.3333333333334,
+          "sd": 23.028967265887832,
+          "per_seed": [
+            630,
+            605,
+            584
+          ]
+        }
+      },
+      "mean_differences_against_paper": {
+        "acc_n1": 0.07762013069064722,
+        "diagnostic_acc_majority20": -0.23105527275352244,
+        "diagnostic_gram_row_mean_cov20": -0.009028995520026228,
+        "wrong_stops_20chains": 167.33333333332848,
+        "cap_failures_20chains": 34.33333333333326
+      },
+      "metric_scope": "Published ablation records retain majority-vote N20 and GRAM row-mean Cov20; compare these only with matching diagnostic columns. Lowest-energy N20 and per-puzzle coverage are additionally recomputed from saved chains.",
+      "size8_scope": "Matched local MPL/table control and ablation. The Table3 headline instead transfers the n10 PL/Ising recipe.",
+      "per_seed": [
+        {
+          "seed": 0,
+          "source": "upstream/experiments/runs/NQ/nq11/n10/ablation/pl-ising-noprecond-s0",
+          "model_sha256": "62ef69f3a9f0410e104610285faf014d336824ff2fe1732cc2e5c70a121f4392",
+          "records_sha256": "f1f67535bb487a6e498514098b787afbe66dae9a55b9ea1fd2c76904d24ad4e9",
+          "acc_n1": 73.73551391746994,
+          "acc_n20_lowest_energy": 97.50893534062601,
+          "cov20_per_puzzle": 89.07407940971643,
+          "diagnostic_acc_majority20": 86.43994368027727,
+          "diagnostic_gram_row_mean_cov20": 86.49732008861342,
+          "wrong_stops_20chains": 96564,
+          "cap_failures_20chains": 695,
+          "fit_cold_seconds": 10.412853260990232,
+          "parameters_learned": 181,
+          "parameters_nonzero": 181,
+          "selection": {
+            "config": {
+              "method": "pl",
+              "arm": "ising",
+              "lr": 30.0,
+              "knob": null,
+              "lam": 0.0,
+              "precond": false
+            },
+            "stop": "local",
+            "temperature": 1.0,
+            "cap": 20000,
+            "val_acc_n1": 0.9943820224719101,
+            "val_cov20_group_mean": 0.806330876482335,
+            "val_cov20": 0.88189006288808,
+            "val_wrong_stops": 0,
+            "val_budget_failures": 1169,
+            "val_flop_all_chains": 21297574.90973783,
+            "tune_fit_seconds": 6.478512741625309,
+            "val_best_acc_n1": 0.9975655430711611
+          },
+          "diagonal_offset_contrast": [
+            {
+              "distance": 1,
+              "unordered_pairs_per_offset": 81,
+              "directed_pairs_per_offset": 162,
+              "contrast_mean": 5.031327962875366,
+              "contrast_both_signs": [
+                5.0310444831848145,
+                5.031611442565918
+              ]
+            },
+            {
+              "distance": 2,
+              "unordered_pairs_per_offset": 64,
+              "directed_pairs_per_offset": 128,
+              "contrast_mean": 4.021880388259888,
+              "contrast_both_signs": [
+                4.022017955780029,
+                4.021742820739746
+              ]
+            },
+            {
+              "distance": 3,
+              "unordered_pairs_per_offset": 49,
+              "directed_pairs_per_offset": 98,
+              "contrast_mean": 3.2129085063934326,
+              "contrast_both_signs": [
+                3.2126386165618896,
+                3.2131783962249756
+              ]
+            },
+            {
+              "distance": 4,
+              "unordered_pairs_per_offset": 36,
+              "directed_pairs_per_offset": 72,
+              "contrast_mean": 2.5778234004974365,
+              "contrast_both_signs": [
+                2.576627016067505,
+                2.579019784927368
+              ]
+            },
+            {
+              "distance": 5,
+              "unordered_pairs_per_offset": 25,
+              "directed_pairs_per_offset": 50,
+              "contrast_mean": 2.3392056226730347,
+              "contrast_both_signs": [
+                2.3394291400909424,
+                2.338982105255127
+              ]
+            },
+            {
+              "distance": 6,
+              "unordered_pairs_per_offset": 16,
+              "directed_pairs_per_offset": 32,
+              "contrast_mean": 1.8951086401939392,
+              "contrast_both_signs": [
+                1.8969637155532837,
+                1.8932535648345947
+              ]
+            },
+            {
+              "distance": 7,
+              "unordered_pairs_per_offset": 9,
+              "directed_pairs_per_offset": 18,
+              "contrast_mean": 1.2710370421409607,
+              "contrast_both_signs": [
+                1.26884925365448,
+                1.2732248306274414
+              ]
+            },
+            {
+              "distance": 8,
+              "unordered_pairs_per_offset": 4,
+              "directed_pairs_per_offset": 8,
+              "contrast_mean": 0.596800684928894,
+              "contrast_both_signs": [
+                0.5963640213012695,
+                0.5972373485565186
+              ]
+            },
+            {
+              "distance": 9,
+              "unordered_pairs_per_offset": 1,
+              "directed_pairs_per_offset": 2,
+              "contrast_mean": 0.14021995663642883,
+              "contrast_both_signs": [
+                0.13981087505817413,
+                0.14062903821468353
+              ]
+            }
+          ]
+        },
+        {
+          "seed": 1,
+          "source": "upstream/experiments/runs/NQ/nq11/n10/ablation/pl-ising-noprecond-s1",
+          "model_sha256": "8431640b0c51c10516335c2cc70f58634946169a6830ab2911075a5b6200c5f0",
+          "records_sha256": "9e47771bfbaa402a7252bb5fe7185e9056cc0c43263460cbcdf16070b23d065f",
+          "acc_n1": 74.13625040615185,
+          "acc_n20_lowest_energy": 97.5251814144915,
+          "cov20_per_puzzle": 89.13670693052657,
+          "diagnostic_acc_majority20": 86.54825083938049,
+          "diagnostic_gram_row_mean_cov20": 86.54567037566993,
+          "wrong_stops_20chains": 96585,
+          "cap_failures_20chains": 598,
+          "fit_cold_seconds": 10.103946041956078,
+          "parameters_learned": 181,
+          "parameters_nonzero": 181,
+          "selection": {
+            "config": {
+              "method": "pl",
+              "arm": "ising",
+              "lr": 30.0,
+              "knob": null,
+              "lam": 0.0,
+              "precond": false
+            },
+            "stop": "local",
+            "temperature": 1.0,
+            "cap": 20000,
+            "val_acc_n1": 0.9943820224719101,
+            "val_cov20_group_mean": 0.806330876482335,
+            "val_cov20": 0.88189006288808,
+            "val_wrong_stops": 0,
+            "val_budget_failures": 1169,
+            "val_flop_all_chains": 21297574.90973783,
+            "tune_fit_seconds": 6.478512741625309,
+            "val_best_acc_n1": 0.9975655430711611
+          },
+          "diagonal_offset_contrast": [
+            {
+              "distance": 1,
+              "unordered_pairs_per_offset": 81,
+              "directed_pairs_per_offset": 162,
+              "contrast_mean": 5.031327962875366,
+              "contrast_both_signs": [
+                5.0310444831848145,
+                5.031611442565918
+              ]
+            },
+            {
+              "distance": 2,
+              "unordered_pairs_per_offset": 64,
+              "directed_pairs_per_offset": 128,
+              "contrast_mean": 4.021880388259888,
+              "contrast_both_signs": [
+                4.022017955780029,
+                4.021742820739746
+              ]
+            },
+            {
+              "distance": 3,
+              "unordered_pairs_per_offset": 49,
+              "directed_pairs_per_offset": 98,
+              "contrast_mean": 3.2129085063934326,
+              "contrast_both_signs": [
+                3.2126386165618896,
+                3.2131783962249756
+              ]
+            },
+            {
+              "distance": 4,
+              "unordered_pairs_per_offset": 36,
+              "directed_pairs_per_offset": 72,
+              "contrast_mean": 2.5778234004974365,
+              "contrast_both_signs": [
+                2.576627016067505,
+                2.579019784927368
+              ]
+            },
+            {
+              "distance": 5,
+              "unordered_pairs_per_offset": 25,
+              "directed_pairs_per_offset": 50,
+              "contrast_mean": 2.3392056226730347,
+              "contrast_both_signs": [
+                2.3394291400909424,
+                2.338982105255127
+              ]
+            },
+            {
+              "distance": 6,
+              "unordered_pairs_per_offset": 16,
+              "directed_pairs_per_offset": 32,
+              "contrast_mean": 1.8951086401939392,
+              "contrast_both_signs": [
+                1.8969637155532837,
+                1.8932535648345947
+              ]
+            },
+            {
+              "distance": 7,
+              "unordered_pairs_per_offset": 9,
+              "directed_pairs_per_offset": 18,
+              "contrast_mean": 1.2710370421409607,
+              "contrast_both_signs": [
+                1.26884925365448,
+                1.2732248306274414
+              ]
+            },
+            {
+              "distance": 8,
+              "unordered_pairs_per_offset": 4,
+              "directed_pairs_per_offset": 8,
+              "contrast_mean": 0.596800684928894,
+              "contrast_both_signs": [
+                0.5963640213012695,
+                0.5972373485565186
+              ]
+            },
+            {
+              "distance": 9,
+              "unordered_pairs_per_offset": 1,
+              "directed_pairs_per_offset": 2,
+              "contrast_mean": 0.14021995663642883,
+              "contrast_both_signs": [
+                0.13981087505817413,
+                0.14062903821468353
+              ]
+            }
+          ]
+        },
+        {
+          "seed": 2,
+          "source": "upstream/experiments/runs/NQ/nq11/n10/ablation/pl-ising-noprecond-s2",
+          "model_sha256": "a0c9b8d76df6428fb684cd4ce3512db568f920fa05dc8ef77b06dfaa36c05b35",
+          "records_sha256": "a5793d1cb1ee4ffe9fcd11b27167223ced2c8473e9d65d5fef7101ea0a7d3045",
+          "acc_n1": 73.5188995992635,
+          "acc_n20_lowest_energy": 97.56308892017762,
+          "cov20_per_puzzle": 89.00634744635482,
+          "diagnostic_acc_majority20": 86.30455973139824,
+          "diagnostic_gram_row_mean_cov20": 86.42350410432384,
+          "wrong_stops_20chains": 96747,
+          "cap_failures_20chains": 629,
+          "fit_cold_seconds": 10.418629178020637,
+          "parameters_learned": 181,
+          "parameters_nonzero": 181,
+          "selection": {
+            "config": {
+              "method": "pl",
+              "arm": "ising",
+              "lr": 30.0,
+              "knob": null,
+              "lam": 0.0,
+              "precond": false
+            },
+            "stop": "local",
+            "temperature": 1.0,
+            "cap": 20000,
+            "val_acc_n1": 0.9943820224719101,
+            "val_cov20_group_mean": 0.806330876482335,
+            "val_cov20": 0.88189006288808,
+            "val_wrong_stops": 0,
+            "val_budget_failures": 1169,
+            "val_flop_all_chains": 21297574.90973783,
+            "tune_fit_seconds": 6.478512741625309,
+            "val_best_acc_n1": 0.9975655430711611
+          },
+          "diagonal_offset_contrast": [
+            {
+              "distance": 1,
+              "unordered_pairs_per_offset": 81,
+              "directed_pairs_per_offset": 162,
+              "contrast_mean": 5.031327962875366,
+              "contrast_both_signs": [
+                5.0310444831848145,
+                5.031611442565918
+              ]
+            },
+            {
+              "distance": 2,
+              "unordered_pairs_per_offset": 64,
+              "directed_pairs_per_offset": 128,
+              "contrast_mean": 4.021880388259888,
+              "contrast_both_signs": [
+                4.022017955780029,
+                4.021742820739746
+              ]
+            },
+            {
+              "distance": 3,
+              "unordered_pairs_per_offset": 49,
+              "directed_pairs_per_offset": 98,
+              "contrast_mean": 3.2129085063934326,
+              "contrast_both_signs": [
+                3.2126386165618896,
+                3.2131783962249756
+              ]
+            },
+            {
+              "distance": 4,
+              "unordered_pairs_per_offset": 36,
+              "directed_pairs_per_offset": 72,
+              "contrast_mean": 2.5778234004974365,
+              "contrast_both_signs": [
+                2.576627016067505,
+                2.579019784927368
+              ]
+            },
+            {
+              "distance": 5,
+              "unordered_pairs_per_offset": 25,
+              "directed_pairs_per_offset": 50,
+              "contrast_mean": 2.3392056226730347,
+              "contrast_both_signs": [
+                2.3394291400909424,
+                2.338982105255127
+              ]
+            },
+            {
+              "distance": 6,
+              "unordered_pairs_per_offset": 16,
+              "directed_pairs_per_offset": 32,
+              "contrast_mean": 1.8951086401939392,
+              "contrast_both_signs": [
+                1.8969637155532837,
+                1.8932535648345947
+              ]
+            },
+            {
+              "distance": 7,
+              "unordered_pairs_per_offset": 9,
+              "directed_pairs_per_offset": 18,
+              "contrast_mean": 1.2710370421409607,
+              "contrast_both_signs": [
+                1.26884925365448,
+                1.2732248306274414
+              ]
+            },
+            {
+              "distance": 8,
+              "unordered_pairs_per_offset": 4,
+              "directed_pairs_per_offset": 8,
+              "contrast_mean": 0.596800684928894,
+              "contrast_both_signs": [
+                0.5963640213012695,
+                0.5972373485565186
+              ]
+            },
+            {
+              "distance": 9,
+              "unordered_pairs_per_offset": 1,
+              "directed_pairs_per_offset": 2,
+              "contrast_mean": 0.14021995663642883,
+              "contrast_both_signs": [
+                0.13981087505817413,
+                0.14062903821468353
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "complete": true
+}
