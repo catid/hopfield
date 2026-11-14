@@ -1,0 +1,60 @@
+{
+  "id": "H4f-fixed-restart-Sudoku",
+  "frozen_utc": "2026-11-14T23:06:11.272758+00:00",
+  "hypothesis": "Restarting activechains every524288moves improvesmeanaccuracybyatleast0.1percentagepoint overnorestarts at4194304moves/chain onnewfollowup testrows70000:80000, withzero wrongstops.",
+  "primary_endpoint": 4194304,
+  "primary_gain_pp": 0.1,
+  "secondary_endpoint": 16777216,
+  "checkpoints": [
+    0,
+    262144,
+    524288,
+    1048576,
+    2097152,
+    4194304,
+    8388608,
+    16777216
+  ],
+  "arms": [
+    "no_restart",
+    "restart524288"
+  ],
+  "search_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "split": "full-all",
+  "rows_half_open": [
+    70000,
+    80000
+  ],
+  "chains": 4,
+  "check": 4096,
+  "temperature_hi": 0.4,
+  "temperature_lo": 0.31,
+  "focus_threshold": 0.45,
+  "anneal_period": 524288,
+  "restart_growth": 1.0,
+  "energy_threshold": 0,
+  "tol": 0.001,
+  "model": "Fixedtraining-onlynever-equalgraphk10seed0,unitweights1,B0. Samegraph/constructorasH4e; nooptimizerornewtaskgeometry.",
+  "restart": "PinnedSearch restartbranch, randomizeallunfoundchains atperiodboundary, retainbestboards andcertifiedstops. NoRNGreseeding; clampedclues unchanged.",
+  "primary_statistic": "Pairedreturned-boardaccuracydifferenceaveragedover6searchseedsand10000sharedpuzzles.",
+  "uncertainty": "5000pairedtwo-waybootstrapdraws of6seedclustersand10000puzzles,seed20261114; two-sided95%percentileinterval.",
+  "decision": "Supportedif95%lower>=0.1ppandzero wrongstops;falsifiedifupper<0.1pporwrongstop;otherwiseinconclusive. Secondary16Mendpoint reportedseparately.",
+  "validation": "Beforeproduction requirecapturedgeneral andcapturedsparse stateparity withpinnedGeneralSearch atmultipleforcedrestarts; samecompiledbackendaspriorcountmodel; integerenergy/fields independentlyrecomputed atallbudgetpoints; preserve every earlierstoppedboard/move.",
+  "limits": [
+    "Fixedmovecap isnotexactlyequalcompute:restartfieldrecomputations costextra andaredescribed separately.",
+    "Followingobservedlongtails butnewfollowupcohort; originalpaperreproductionusedwholecorpus.",
+    "No restartperiodtuning oradaptivebudgetchanges.",
+    "Sixsearchseeds,onefixedenergy,nottrainedmodelreplication."
+  ],
+  "frozen_inputs": {
+    "artifacts/research/20261114/ripper/count/k10-s0/counts.npz": "ef22845a4964d21d14a3a776c142f6fff4a2332ab01f8981592ab4ab78a9d2d5",
+    "artifacts/research/20261114/ripper/inputs/k10-s0/train.npz": "cb020a4d8912db1e0cc07399872c59a074b6140c942b2d2b4e84291979b6edca"
+  }
+}

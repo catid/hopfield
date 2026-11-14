@@ -1,0 +1,73 @@
+{
+  "id": "H4g-chain-budget-Sudoku",
+  "frozen_utc": "2026-11-14T23:18:17.577799+00:00",
+  "hypothesis": "Sixteen chains improve mean returned-board accuracy by at least 0.1 percentage point over four chains at a fixed maximum envelope of 16777216 chain moves per puzzle.",
+  "primary_endpoint": 16777216,
+  "primary_gain_pp": 0.1,
+  "secondary_endpoint": null,
+  "checkpoints": [
+    0,
+    1048576,
+    4194304,
+    16777216
+  ],
+  "arms": [
+    "c1",
+    "c4",
+    "c16"
+  ],
+  "search_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "split": "full-all",
+  "rows_half_open": [
+    80000,
+    90000
+  ],
+  "check": 4096,
+  "temperature_hi": 0.4,
+  "temperature_lo": 0.31,
+  "focus_threshold": 0.45,
+  "anneal_period": 524288,
+  "energy_threshold": 0,
+  "tol": 0.001,
+  "model": "Fixedtraining-onlynever-equalgraphk10seed0,unitweights1,B0. Samegraph/constructorasH4e; nooptimizerornewtaskgeometry.",
+  "restart": "No restarts in any arm.",
+  "primary_statistic": "Paired returned-board accuracy difference c16 minus c4, averaged over six search seeds and 10000 shared puzzles at the final maximum chain-move envelope.",
+  "uncertainty": "5000pairedtwo-waybootstrapdraws of6seedclustersand10000puzzles,seed20261114; two-sided95%percentileinterval.",
+  "decision": "Supported if paired two-sided 95% lower endpoint is at least +0.1 pp and zero wrong stops; falsified if upper endpoint is below +0.1 pp or a wrong stop occurs; otherwise inconclusive.",
+  "validation": "Eight native general, captured general and captured sparse parity checks per job with its assigned chain count. Recompute integer fields and energies at all checkpoints and audit saved boards independently.",
+  "limits": [
+    "Equal maximum chain-move envelope is not equal actual work: early stopping, compaction and check granularity differ; record wall time descriptively.",
+    "Annealing period is fixed at 524288 moves per chain; cycle counts differ as part of the resource allocation intervention.",
+    "Follow-up slice was unused in the preceding research experiments but belongs to the corpus used by the original reproduction.",
+    "Six search seeds, one fixed count graph, no independent training replication.",
+    "The 1-chain arm and earlier envelope checkpoints are descriptive; only the final 16-versus-4 comparison is primary.",
+    "Random streams are not trajectory-matched across chain counts; comparisons pair common input identities and seed labels."
+  ],
+  "frozen_inputs": {
+    "artifacts/research/20261114/ripper/count/k10-s0/counts.npz": "ef22845a4964d21d14a3a776c142f6fff4a2332ab01f8981592ab4ab78a9d2d5",
+    "artifacts/research/20261114/ripper/inputs/k10-s0/train.npz": "cb020a4d8912db1e0cc07399872c59a074b6140c942b2d2b4e84291979b6edca"
+  },
+  "chains_by_arm": {
+    "c1": 1,
+    "c4": 4,
+    "c16": 16
+  },
+  "budget_unit": "All checkpoints and endpoints specify maximum chains times moves per chain, not moves per chain.",
+  "planned_jobs": 18,
+  "source_sha256": {
+    "research/20261114/foureyes/restart_backend.py": "fd02c4f71574a6e0545c4f7aae54f3ddfeb9321f4c4f840c02ee5a213d814c0e",
+    "research/20261114/foureyes/restart_capture.py": "801f17ab24fe6d8d7f7fe381f7829ab65bed56625413bd7d1b1461b95ef7c7a4",
+    "research/20261114/ripper/run.py": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+    "research/20261114/ripper/sparse_backend.py": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871"
+  }
+}

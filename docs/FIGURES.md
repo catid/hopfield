@@ -5,9 +5,11 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 | Figure | Public data | Renderer |
 |---|---|---|
 | No-optimizer Sudoku and budget curve | [Count and learned exports](../results/research/foureyes/) | [plot_count_results.py](../scripts/plot_count_results.py) |
+| Sudoku fixed-restart control | [Restart exports](../results/research/foureyes/restart/) | [plot_restart_results.py](../scripts/plot_restart_results.py) |
 | Reserved Sudoku test and sparse speed | [Ripper](../results/research/ripper/), [stopping rules](../results/research/foureyes/) | [plot_public_results.py](../scripts/plot_public_results.py) |
 | Maze size transfer, branch depth and step size | [Work exports](../results/research/work/) | [public renderer](../research/20261114/work/) |
 | N-Queens optimizer and update budget | [Loki exports](../results/research/loki/) | [Loki scripts](../research/20261114/loki/) |
+| N-Queens unseen complete patterns | [Pattern holdout exports](../results/research/loki/h3g/) | [plot_public.py](../research/20261114/loki/h3g/plot_public.py) |
 | Original data-efficiency reproduction | [102 measured rows](../results/reproduction/data_efficiency/rows.csv), [collection](../results/reproduction/data_efficiency/collection.json) | [original renderer](../scripts/plot_data_efficiency.py) |
 
 Regenerate the first two README figures from a public checkout:

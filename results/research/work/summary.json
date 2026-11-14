@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-14T22:46:01.123737+00:00",
+  "updated_utc": "2026-11-14T23:18:23.733513+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
-  "status": "ten planned studies and one selected-case intervention complete; ongoing research continues separately",
+  "status": "eleven planned studies and two selected-case interventions complete; ongoing research continues separately",
   "host": "work",
-  "jobs": 195,
-  "run_arm_rows": 255,
-  "model_maze_evaluations": 42150,
+  "jobs": 216,
+  "run_arm_rows": 303,
+  "model_maze_evaluations": 44484,
   "hypotheses": [
     {
       "campaign": "discovery",
@@ -362,6 +362,26 @@
         "long_minus_route28_difference_pp": 0.0,
         "zero_discordance_one_sided95_cluster_upper_pp": 2.3132405251746757
       }
+    },
+    {
+      "campaign": "fork_angle",
+      "hypothesis": "H2l right-angle forks lose >=10pp joint success",
+      "outcome": {
+        "n_layout_clusters": 128,
+        "opposite_minus_corner_joint_success_pp": 0.0,
+        "paired_cluster_bootstrap95_pp": [
+          0.0,
+          0.0
+        ],
+        "decision": "falsified",
+        "discordant_clusters": 0,
+        "per_route_difference_pp": {
+          "28": 0.0,
+          "42": 0.0,
+          "64": 0.0
+        },
+        "zero_discordance_one_sided95_cluster_upper_pp": 2.3132405251746757
+      }
     }
   ],
   "run_tables": [
@@ -370,7 +390,9 @@
     "eta-boundary-runs.csv",
     "tie_controls-runs.csv",
     "long_ties-runs.csv",
-    "forensic-edits-runs.csv"
+    "forensic-edits-runs.csv",
+    "coupling-swap-corrected-arms.csv",
+    "fork-angle-runs.csv"
   ],
   "protocols": {
     "protocol": {
@@ -417,6 +439,15 @@
       "sha256": "1868435a8fb86a8bfd33e8f9e6b2a8e87892fabf336295b4ad50e9f34b55fa79",
       "frozen_utc": "2026-11-14T22:38:42.976757+00:00",
       "post_outcome_descriptive": true
+    },
+    "coupling_swap_corrected-protocol": {
+      "sha256": "0ce3ca4b896f38b41addb6ad9c9af921e6c0130ab996145a26136d770b4d7033",
+      "frozen_utc": "2026-11-14T22:56:05.661052+00:00",
+      "post_outcome_descriptive": true
+    },
+    "fork_angle-protocol": {
+      "sha256": "b05689eec557c3f81751710675bf335d55aa4f3f003f6af88facdb469a81e7f7",
+      "frozen_utc": "2026-11-14T23:02:59.106383+00:00"
     }
   },
   "audit_sha256": {
@@ -429,7 +460,9 @@
     "artifacts/research/20261114/work/eta_comb/audit.json": "4e0596bcc337b29bd6dee40eea0f01be8bf6d2402bfedd8781361f609f13d88f",
     "artifacts/research/20261114/work/eta_boundary/audit.json": "fb5e72de64f2420f5e56e0d0ce02b8fe8fe04b14973cf881d0d71510626c07f6",
     "artifacts/research/20261114/work/tie_controls/audit.json": "391012a70f59ac22ea1e3991e649ecca6080531487e26868104502f94bc85432",
-    "artifacts/research/20261114/work/long_ties/audit.json": "f05b01db6090d9115b8b98fb2f7677625be881bdcca6449b578b4cbf9acc1b40"
+    "artifacts/research/20261114/work/long_ties/audit.json": "f05b01db6090d9115b8b98fb2f7677625be881bdcca6449b578b4cbf9acc1b40",
+    "artifacts/research/20261114/work/coupling_swap_corrected/audit.json": "9bf97a30f41c5da511444a785df6fe3a76d9d694cbe311d172782d5aa3970ae3",
+    "artifacts/research/20261114/work/fork_angle/audit.json": "33caec388f6e7cfe1d867930f2048717222dd9140f9188508d4c5b55ea771567"
   },
   "model_sha256": {
     "0": {
@@ -462,10 +495,10 @@
     "case": "cyclic-failure-classification.json",
     "scope": "The same cyclic maze fails for model seeds1and2; these are true invalid fixed points or a period-two timeout, not hidden/nonfinite failures."
   },
-  "primary_jobs": 192,
-  "primary_model_maze_evaluations": 42048,
-  "descriptive_jobs": 3,
-  "descriptive_model_maze_evaluations": 102,
+  "primary_jobs": 210,
+  "primary_model_maze_evaluations": 44352,
+  "descriptive_jobs": 6,
+  "descriptive_model_maze_evaluations": 132,
   "selected_case_interventions": {
     "dataset_index": 38,
     "summary": "forensic-edits-summary.json",
@@ -474,5 +507,18 @@
     "matched_joint_successes": 0,
     "matched_edits": 32,
     "scope": "One selected graph; no population inference."
+  },
+  "descriptive_includes_baseline_arms": 12,
+  "excluded_diagnostic": {
+    "jobs": 3,
+    "arms": 30,
+    "reason": "Attention self/support masking confound; no causal conclusion retained.",
+    "receipt": "coupling-swap-excluded-v1.json"
+  },
+  "corrected_coupling_swap": {
+    "summary": "coupling-swap-corrected-summary.json",
+    "identity_checks": 12,
+    "arms": 30,
+    "conclusion": "Readout from either targeted deletion restores the original geometry for all3models; original readout on edited geometry fails. Matchednoncritical readout doesnot restore failedmodels. Selected-case result only."
   }
 }

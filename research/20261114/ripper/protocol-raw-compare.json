@@ -1,0 +1,109 @@
+{
+  "id": "H1o-raw-board-count-versus-pseudolikelihood",
+  "frozen_utc": "2026-11-14T23:09:01.926588+00:00",
+  "hypothesis": "At N100 andN300rawdistinctcompleteboards, directcount is noninferior within5percentagepoints tobothunchanged32-updatePLrecipes, onewithoutaugmentation andonewithper-updatedigitrelabeling.",
+  "k": [
+    30,
+    100,
+    300
+  ],
+  "training_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "arms": [
+    "count",
+    "pl_raw",
+    "pl_digit"
+  ],
+  "training_inputs": [
+    {
+      "seed": 0,
+      "path": "artifacts/research/20261114/ripper/raw/inputs/s0/train.npz",
+      "sha256": "afa0de1acf4183e3079d36067e7a7c8131c876053b17d2c0798c2c32f0622f74",
+      "n": 1000
+    },
+    {
+      "seed": 1,
+      "path": "artifacts/research/20261114/ripper/raw/inputs/s1/train.npz",
+      "sha256": "775349ea7f9668303fc9ebe86907b1ebe3e50d28f5d9a78e09ebc52de854c308",
+      "n": 1000
+    },
+    {
+      "seed": 2,
+      "path": "artifacts/research/20261114/ripper/raw/inputs/s2/train.npz",
+      "sha256": "afbdc5341064cf26cc9d87dcdee346ceff75aa7cbf0ff1ee92501e07e54e499c",
+      "n": 1000
+    },
+    {
+      "seed": 3,
+      "path": "artifacts/research/20261114/ripper/raw/inputs/s3/train.npz",
+      "sha256": "d66edeffc472c117f7289faa0a9badd797eb2d09e2440fe75a3d094b698fb1d5",
+      "n": 1000
+    },
+    {
+      "seed": 4,
+      "path": "artifacts/research/20261114/ripper/raw/inputs/s4/train.npz",
+      "sha256": "30e64fd84c9a0d24af6204c12d6e51ceb684c821e615b1adc90e1174393d925b",
+      "n": 1000
+    },
+    {
+      "seed": 5,
+      "path": "artifacts/research/20261114/ripper/raw/inputs/s5/train.npz",
+      "sha256": "a0b16c13e542e74a6b2d2be5d7efab0e25fab6436a8a13de9a4bccd8257aff48",
+      "n": 1000
+    }
+  ],
+  "training_input_manifest_sha256": "28f1f8fde6790c9fa4e41a421737618fa5093dffb2a2544ab9d4ea06c263b4b2",
+  "mask_policy": "Preserveofficialquestionfree-cellmask associatedwith eachselectedcompleteboard firstCSVrow. No all-free substitution; cluesverifiedduringpreparation.",
+  "PL_recipe": "Original FullConfig:lam3e-3/9,lr540,momentum.5,updates32,zero initialization,seed/split=s. pl_raw augFalse;pl_digit augTrue per-updatedigitrelabeling. No spatialaugmentation orpostfitweighttransform.",
+  "count_recipe": "Never-equal supports fromfrozenrawprefixes;W=unit1equal-digitpairweights,B0,tau0,ebar0,unit1.",
+  "primary_contrasts": [
+    {
+      "N": 100,
+      "count_minus": "pl_raw"
+    },
+    {
+      "N": 100,
+      "count_minus": "pl_digit"
+    },
+    {
+      "N": 300,
+      "count_minus": "pl_raw"
+    },
+    {
+      "N": 300,
+      "count_minus": "pl_digit"
+    }
+  ],
+  "noninferiority_margin_pp": 5,
+  "uncertainty": "5000pairedtwo-waybootstrap draws overseedclusters andsharedpuzzleindices,seed20261114; simultaneous familyviaBonferroni98.75percentintervals for4primarycontrasts. N30descriptive95percentintervals,notconfirmatory.",
+  "decision": "Joint noninferiority supportedifallfour98.75percentCI lowerbounds>=-5pp; falsifiedifany correspondingupperbound<-5pp;otherwiseinconclusive.",
+  "secondary": "N30comparisons,wrongstops,budgetfailures,training-onlymodelproperties.",
+  "oracle_diagnostic": "Forcountgraphs recordfractionoffixedtesttargets withzeroenergy. Thisupperbounds correctCERTIFIEDstops, notallreturnedboard accuracy. Model isfixedbeforediagnostic;nofeedbacktotrainingorsearchsettings.",
+  "split": "full-all",
+  "rows_half_open": [
+    60000,
+    70000
+  ],
+  "chains": 4,
+  "move_cap_per_chain": 262144,
+  "check": 4096,
+  "temperature_hi_unit": 0.4,
+  "temperature_lo_unit": 0.31,
+  "theta_unit": 0.45,
+  "anneal_period": 524288,
+  "tolerance": 0.001,
+  "thermal_scale": "PLusesownoriginalfittedpositiveweightmean hbar andtrainingtau/ebar;countusesunit1/tau0/ebar0.",
+  "deduplication": "N100/N300countsupports exactlybyteidentical forallseeds;sameS/B/unit/statistics/seed/puzzles/cap. ExecuteN100count onceperseed andexplicitlyreuseatN300. N30countgraphs distinct.36PL+12count=48searches.",
+  "performance": "Load fixedtestcohortonceperworker; sharednumpyarrays areinput-only.",
+  "fit_source_sha256": "b73f72c8e874711d0d05fa75de0043442a20297618de62e5bb714b76aa09f20b",
+  "wrapper_sha256": "4aaaaa6d4ac6f609a3c0dd37efa2f94474c51de11bdba52fae80891e7cd1ae6e",
+  "backend_sha256": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+  "prior_selection": "N30/100/300selectedafterdeclaredexploratorytraining-only rawstructurecurve; no heldoutoutcomes inspected. Largestgap heuristic isnotusedorretuned.",
+  "baseline": "BP AdamW outside thisfixedPLrecipe comparison;notrun."
+}

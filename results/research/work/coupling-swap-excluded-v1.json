@@ -1,0 +1,14 @@
+{
+  "status": "excluded_from_causal_interpretation",
+  "utc": "2026-11-14T22:56:04.955360+00:00",
+  "affected_protocol_sha256": "23d9130d800b08469dfee8be204569c5d20732ea9994e14b698bf30c185d4ac1",
+  "affected_arms": 30,
+  "issues": [
+    "Assumed edge gates despite frozen recipe using attention; blanket self-offset zeroing removed nonzero self coefficients.",
+    "Edited-to-original masking used only recipient topology, so donor wall-query outgoing coefficients were not fully zeroed at deleted node.",
+    "Nonincident coefficient L1 counted irrelevant wall-query terms."
+  ],
+  "why_native_parity_missed_it": "The captured descent and native solver received the same already-modified coupling tensor, so parity verified solver implementation but could not detect a scientifically wrong coupling intervention.",
+  "required_fix": "Freeze corrected transfer and require original-to-itself identity transfer to match native full logits, stopping steps and boards for every source graph and all models before any corrected swap; assert donor/recipient support masking and preserve valid self coefficients.",
+  "preservation": "All flawed protocols, raw states, predictions, logs and audit receipts are retained unchanged."
+}

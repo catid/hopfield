@@ -16,7 +16,9 @@ On a reserved **10,000-puzzle official test slice**, the count energy solves **5
 
 **The augmentation prior matters.** These training counts use ten unique base solutions **plus 99 stored Sudoku-symmetry variants per base**. The transformations supply task knowledge. A larger one-base-solution study recovered the exact graph in **8,105/8,192 fresh trials** with 99 spatial variants. This uses augmentation-group knowledge; it is not one unaugmented example learning Sudoku. [Coverage theorem and fresh-RNG validation →](research/20261114/ripper/REPORT-coverage.md) The count comparison also reuses the official corpus and a follow-up cohort. [Protocols, full budget curve, stopping proof and limitations →](research/20261114/foureyes/REPORT-budget.md) · [Count and augmentation controls →](research/20261114/ripper/REPORT-count.md)
 
-The earlier intervention result remains useful: digit symmetry and repulsion increased low-data accuracy by **47.83 points** on a separate reserved slice. But the count control shows that optimizer training is unnecessary for recovering this graph from these augmented datasets. [Earlier matched results →](research/20261114/ripper/REPORT-heldout.md)
+**Spatial augmentation is not required with more raw solutions.** A separate study recovered the exact same graph from **100 distinct, unaugmented training solutions in all six samples**. On another 10,000-puzzle slice, that count energy solved 80.40% at 262,144 moves per chain, with zero wrong stops. The paper's fixed 32-update pseudolikelihood recipes performed worse at these raw-data sizes; this is a comparison of those frozen recipes, not all possible optimizer training. [Raw-data control and audited comparisons →](research/20261114/ripper/REPORT-raw-compare.md)
+
+The earlier intervention result remains useful: digit symmetry and repulsion increased low-data accuracy by **47.83 points** on a separate reserved slice. Counting explains why the transformed models recover the same graph. [Earlier matched results →](research/20261114/ripper/REPORT-heldout.md)
 
 ## The same transformed model, faster inference
 
@@ -32,13 +34,17 @@ Changing the inference step size from **0.2 to 0.5**, with the learned 29-parame
 
 At a tighter 2,048-update cap, joint success rises from **351/384 to 384/384** at 60×60 and **285/384 to 370/384** at 90×90. These generated tree/loopy mazes differ from the original Maze-Hard distribution. [Frozen protocol, confidence intervals and causal branch-depth experiments →](research/20261114/work/REPORT.md)
 
-## N-Queens: stronger controls change the interpretation
+## N-Queens: unseen solutions from training counts
 
-![N-Queens-12 coverage and accuracy: optimizers, count energy and compatible training-bank control](results/research/loki/h3f/count-and-bank-controls.png)
+![N-Queens-12 accuracy and solution coverage on inputs incompatible with every training pattern](results/research/loki/h3g/pattern-holdout.png)
 
-On **8,192 N-Queens-12 partial inputs**, a training-count exclusion energy reaches **100% accuracy and 75.95% solution coverage**, versus **100% and 71.57%** for Adam at 250 updates. It uses no optimizer, but combines inferred exclusions with a declared fixed energy design and the supplied offset architecture. Ordinary BP AdamW at 4,000 updates reaches 99.7884% accuracy and 54.17% coverage; preconditioned SGD reaches 99.9268% and 72.49%.
+With **512 complete training patterns**, a count-based exclusion energy reaches **100% accuracy and 76.86% solution coverage** on 8,192 new N-Queens-12 partial inputs. Every valid completion lies outside the training bank, so retrieving compatible training examples cannot solve any of these inputs. Adam at 250 updates reaches 99.9919% accuracy and 67.93% coverage. The count method gains **8.94 coverage points**; the paired one-sided 95% lower bound is +8.78 points. Ordinary BP AdamW at 4,000 updates reaches 99.5321% accuracy and 53.10% coverage.
 
-**All 14,200 complete solution patterns occur in the training labels.** Inputs are held out; complete patterns are not. A compatible-training-bank control also reaches 100% accuracy and 76.38% coverage. These controls prevent interpreting the result as generalization to unseen solution patterns. [Exact data split, energy design, counts and controls →](research/20261114/loki/h3f/REPORT.md)
+These measurements use 20 search chains and three search seeds, with a certificate-first output rule. The count method uses no optimizer, but retains a fixed energy design and displacement-sharing architecture. The test distribution is conditioned on incompatibility with the training bank and consists almost entirely of three-clue inputs; it differs from the original benchmark. The 512 patterns expand into 152,576 labeled training examples. [Frozen split, all controls and independent 4.9-million-board audit →](research/20261114/loki/h3g/REPORT.md)
+
+Sharing is consequential: with 32 training patterns, removing displacement sharing drops accuracy from 97.39% to 0%. False exclusions can also make invalid initial boards pass the learned certificate. [Matched architecture ablation and certificate audit →](research/20261114/loki/h3h/REPORT.md)
+
+The earlier study included every complete pattern in training, where simple bank retrieval was already competitive. That control motivated this stricter follow-up. [Full-bank controls and limitations →](research/20261114/loki/h3f/REPORT.md)
 
 Earlier N-Queens-10 experiments showed faster fitting with Adam and a weight-decay gap. A learned-certificate-first output policy then fixed all 77 failed AdamW input–seed cases without extra search, showing that the gap depends on output selection. [Optimizer experiments →](research/20261114/loki/h3c/REPORT.md) · [Selection control →](research/20261114/loki/h3d/REPORT.md)
 
@@ -47,6 +53,8 @@ Earlier N-Queens-10 experiments showed faster fitting with Adam and a weight-dec
 The maze step-size benefit has a limit: a new maze with many tied shortest paths produces certified branched or disconnected answers for two models. Simple tied-cycle controls still solve perfectly, so ties alone do not explain the failure. [Saved graph, boards and causal controls →](research/20261114/work/REPORT.md)
 
 The learned Sudoku pipeline's four-million-move **99% all-seed joint-success hypothesis was inconclusive**, despite 99.635% mean accuracy. The sixteen-million-move secondary endpoint passed. Projection still fails at extremely low data; largest-gap pruning collapses without spatial augmentation; and maze mass rescaling gives no improvement. [All hypotheses, including negative and inconclusive outcomes →](results/README.md)
+
+Fixed Sudoku restarts also failed their frozen +0.1-point improvement target: the gain was +0.012 points, with a paired 95% interval [−0.068, +0.093]. [Restart control and full curve →](research/20261114/foureyes/REPORT-restart.md)
 
 ## What was reproduced?
 
