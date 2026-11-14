@@ -1,0 +1,1 @@
+The [long-budget report](../../../../research/20261114/foureyes/REPORT-budget.md) explains this learned-energy continuation. Its frozen four-million-move joint-success primary hypothesis is **inconclusive**; the separately prespecified sixteen-million-move secondary endpoint is supported. [Summary and hashes](summary.json) · [Per-seed CSV](per_seed.csv).

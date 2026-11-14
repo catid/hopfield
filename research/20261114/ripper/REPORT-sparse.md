@@ -21,3 +21,5 @@ Stock SparseSearch fails its uniform-degree assertion on these learned graphs. T
 Timing uses the same exclusive GPU for paired backends, alternating order across six repetitions after one warmup per backend. Each search uses262144moves per chain and fourchains. Reports include constructor/conversion setup separately. Loading input files and constructing the shared dense S tensor are outside timing. Capture, compaction and periodic refresh are included. CUDAevent move-call timings include device preparation.
 
 [Frozen protocol](protocol-sparse.json) · [Backend](sparse_backend.py) · [Preflight](sparse_preflight.py) · [Benchmark](sparse_benchmark.py) · [Public evidence](../../../results/research/ripper/sparse.json)
+
+Training-size convention: k counts unique base puzzles. Each base puzzle was fitted with the original and 99 stored symmetry variants, so k10 uses 1,000 training boards. Those inherited variants include digit relabeling, transposition, and valid band/stack/row/column permutations. The post-training transforms and search receive no additional Sudoku peer graph; the original augmentation pipeline already uses Sudoku symmetries.

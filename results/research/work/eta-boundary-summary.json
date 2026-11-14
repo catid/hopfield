@@ -1,0 +1,460 @@
+{
+  "status": "validated",
+  "utc": "2026-11-14T22:25:18.205350+00:00",
+  "campaign": "eta_boundary",
+  "jobs": 9,
+  "evaluated_arms": 36,
+  "saved_board_checks": 18432,
+  "protocol_sha256": "52e2e399a41efc93863265aa8c5c079b1110cfec2600d57599467fa9ab0a5c0c",
+  "primary": {
+    "n_unique": 1536,
+    "losses": 0,
+    "gains": 0,
+    "lost_fraction_pp": 0.0,
+    "one_sided95_mixture_lower_pp": 0.0,
+    "one_sided95_mixture_upper_pp": 0.796487764386979,
+    "bound_method": "Equal average of stratum Clopper-Pearson bounds, alpha=.05/3 each; Bonferroni simultaneous bound.",
+    "paired_stratified_bootstrap95_loss_pp": [
+      0.0,
+      0.0
+    ],
+    "decision": "falsified",
+    "strata": [
+      {
+        "stratum": "tree",
+        "n_unique": 512,
+        "losses": 0,
+        "gains": 0,
+        "one_sided98_333_lower_pp": 0.0,
+        "one_sided98_333_upper_pp": 0.796487764386979
+      },
+      {
+        "stratum": "loops20",
+        "n_unique": 512,
+        "losses": 0,
+        "gains": 0,
+        "one_sided98_333_lower_pp": 0.0,
+        "one_sided98_333_upper_pp": 0.796487764386979
+      },
+      {
+        "stratum": "comb",
+        "n_unique": 512,
+        "losses": 0,
+        "gains": 0,
+        "one_sided98_333_lower_pp": 0.0,
+        "one_sided98_333_upper_pp": 0.796487764386979
+      }
+    ]
+  },
+  "summaries": [
+    {
+      "eta": 0.2,
+      "n_unique": 1536,
+      "joint_solved": 1535,
+      "joint_accuracy_percent": 99.93489583333334,
+      "median_steps_including_caps": 752.0,
+      "median_steps_joint_successes_only": 752.0,
+      "checked_answer_seconds": 112.6658882558113,
+      "hidden_plus_checked_answer_seconds": 122.53565494896611,
+      "wrong_stops": 2,
+      "budget_failures": 0,
+      "nonfinite_failures": 0,
+      "hidden_failures": 0
+    },
+    {
+      "eta": 0.5,
+      "n_unique": 1536,
+      "joint_solved": 1535,
+      "joint_accuracy_percent": 99.93489583333334,
+      "median_steps_including_caps": 304.0,
+      "median_steps_joint_successes_only": 304.0,
+      "checked_answer_seconds": 46.17132739647059,
+      "hidden_plus_checked_answer_seconds": 56.0410940896254,
+      "wrong_stops": 2,
+      "budget_failures": 0,
+      "nonfinite_failures": 0,
+      "hidden_failures": 0
+    },
+    {
+      "eta": 0.8,
+      "n_unique": 1536,
+      "joint_solved": 1535,
+      "joint_accuracy_percent": 99.93489583333334,
+      "median_steps_including_caps": 176.0,
+      "median_steps_joint_successes_only": 176.0,
+      "checked_answer_seconds": 25.99338191258721,
+      "hidden_plus_checked_answer_seconds": 35.863148605742026,
+      "wrong_stops": 2,
+      "budget_failures": 0,
+      "nonfinite_failures": 0,
+      "hidden_failures": 0
+    },
+    {
+      "eta": 1.0,
+      "n_unique": 1536,
+      "joint_solved": 1535,
+      "joint_accuracy_percent": 99.93489583333334,
+      "median_steps_including_caps": 176.0,
+      "median_steps_joint_successes_only": 176.0,
+      "checked_answer_seconds": 30.726758026285097,
+      "hidden_plus_checked_answer_seconds": 40.59652471943991,
+      "wrong_stops": 0,
+      "budget_failures": 2,
+      "nonfinite_failures": 0,
+      "hidden_failures": 0
+    }
+  ],
+  "cells": [
+    {
+      "stratum": "tree",
+      "eta": 0.2,
+      "n_unique": 512,
+      "solved_per_seed": [
+        512,
+        512,
+        512
+      ],
+      "joint_solved": 512,
+      "median_steps_including_caps": 3200.0,
+      "wrong_stops": 0,
+      "budget_failures": 0,
+      "nonfinite_failures": 0,
+      "hidden_failures": 0,
+      "checked_answer_seconds": 88.99428734183311
+    },
+    {
+      "stratum": "tree",
+      "eta": 0.5,
+      "n_unique": 512,
+      "solved_per_seed": [
+        512,
+        512,
+        512
+      ],
+      "joint_solved": 512,
+      "median_steps_including_caps": 1312.0,
+      "wrong_stops": 0,
+      "budget_failures": 0,
+      "nonfinite_failures": 0,
+      "hidden_failures": 0,
+      "checked_answer_seconds": 36.44018031010637
+    },
+    {
+      "stratum": "tree",
+      "eta": 0.8,
+      "n_unique": 512,
+      "solved_per_seed": [
+        512,
+        512,
+        512
+      ],
+      "joint_solved": 512,
+      "median_steps_including_caps": 752.0,
+      "wrong_stops": 0,
+      "budget_failures": 0,
+      "nonfinite_failures": 0,
+      "hidden_failures": 0,
+      "checked_answer_seconds": 20.746411730884574
+    },
+    {
+      "stratum": "tree",
+      "eta": 1.0,
+      "n_unique": 512,
+      "solved_per_seed": [
+        512,
+        512,
+        512
+      ],
+      "joint_solved": 512,
+      "median_steps_including_caps": 736.0,
+      "wrong_stops": 0,
+      "budget_failures": 0,
+      "nonfinite_failures": 0,
+      "hidden_failures": 0,
+      "checked_answer_seconds": 20.62283549993299
+    },
+    {
+      "stratum": "loops20",
+      "eta": 0.2,
+      "n_unique": 512,
+      "solved_per_seed": [
+        512,
+        511,
+        511
+      ],
+      "joint_solved": 511,
+      "median_steps_including_caps": 752.0,
+      "wrong_stops": 2,
+      "budget_failures": 0,
+      "nonfinite_failures": 0,
+      "hidden_failures": 0,
+      "checked_answer_seconds": 14.337104957026895
+    },
+    {
+      "stratum": "loops20",
+      "eta": 0.5,
+      "n_unique": 512,
+      "solved_per_seed": [
+        512,
+        511,
+        511
+      ],
+      "joint_solved": 511,
+      "median_steps_including_caps": 304.0,
+      "wrong_stops": 2,
+      "budget_failures": 0,
+      "nonfinite_failures": 0,
+      "hidden_failures": 0,
+      "checked_answer_seconds": 5.894651617971249
+    },
+    {
+      "stratum": "loops20",
+      "eta": 0.8,
+      "n_unique": 512,
+      "solved_per_seed": [
+        512,
+        511,
+        511
+      ],
+      "joint_solved": 511,
+      "median_steps_including_caps": 176.0,
+      "wrong_stops": 2,
+      "budget_failures": 0,
+      "nonfinite_failures": 0,
+      "hidden_failures": 0,
+      "checked_answer_seconds": 3.315635575854685
+    },
+    {
+      "stratum": "loops20",
+      "eta": 1.0,
+      "n_unique": 512,
+      "solved_per_seed": [
+        512,
+        511,
+        511
+      ],
+      "joint_solved": 511,
+      "median_steps_including_caps": 176.0,
+      "wrong_stops": 0,
+      "budget_failures": 2,
+      "nonfinite_failures": 0,
+      "hidden_failures": 0,
+      "checked_answer_seconds": 8.171776181203313
+    },
+    {
+      "stratum": "comb",
+      "eta": 0.2,
+      "n_unique": 512,
+      "solved_per_seed": [
+        512,
+        512,
+        512
+      ],
+      "joint_solved": 512,
+      "median_steps_including_caps": 597.3333333333334,
+      "wrong_stops": 0,
+      "budget_failures": 0,
+      "nonfinite_failures": 0,
+      "hidden_failures": 0,
+      "checked_answer_seconds": 9.334495956951287
+    },
+    {
+      "stratum": "comb",
+      "eta": 0.5,
+      "n_unique": 512,
+      "solved_per_seed": [
+        512,
+        512,
+        512
+      ],
+      "joint_solved": 512,
+      "median_steps_including_caps": 240.0,
+      "wrong_stops": 0,
+      "budget_failures": 0,
+      "nonfinite_failures": 0,
+      "hidden_failures": 0,
+      "checked_answer_seconds": 3.836495468392968
+    },
+    {
+      "stratum": "comb",
+      "eta": 0.8,
+      "n_unique": 512,
+      "solved_per_seed": [
+        512,
+        512,
+        512
+      ],
+      "joint_solved": 512,
+      "median_steps_including_caps": 128.0,
+      "wrong_stops": 0,
+      "budget_failures": 0,
+      "nonfinite_failures": 0,
+      "hidden_failures": 0,
+      "checked_answer_seconds": 1.931334605847951
+    },
+    {
+      "stratum": "comb",
+      "eta": 1.0,
+      "n_unique": 512,
+      "solved_per_seed": [
+        512,
+        512,
+        512
+      ],
+      "joint_solved": 512,
+      "median_steps_including_caps": 128.0,
+      "wrong_stops": 0,
+      "budget_failures": 0,
+      "nonfinite_failures": 0,
+      "hidden_failures": 0,
+      "checked_answer_seconds": 1.9321463451487944
+    }
+  ],
+  "diagnostics": [
+    {
+      "stratum": "tree",
+      "eta": 0.2,
+      "n_traces": 8,
+      "replay_main_parity": true,
+      "recorded_energy_transitions": 2704,
+      "positive_energy_changes": 0,
+      "maximum_energy_increase": 0.0,
+      "nonfinite_energy_values": 0,
+      "two_cycle_flags": 0
+    },
+    {
+      "stratum": "tree",
+      "eta": 0.5,
+      "n_traces": 8,
+      "replay_main_parity": true,
+      "recorded_energy_transitions": 1112,
+      "positive_energy_changes": 0,
+      "maximum_energy_increase": 0.0,
+      "nonfinite_energy_values": 0,
+      "two_cycle_flags": 0
+    },
+    {
+      "stratum": "tree",
+      "eta": 0.8,
+      "n_traces": 8,
+      "replay_main_parity": true,
+      "recorded_energy_transitions": 632,
+      "positive_energy_changes": 0,
+      "maximum_energy_increase": 0.0,
+      "nonfinite_energy_values": 0,
+      "two_cycle_flags": 0
+    },
+    {
+      "stratum": "tree",
+      "eta": 1.0,
+      "n_traces": 8,
+      "replay_main_parity": true,
+      "recorded_energy_transitions": 632,
+      "positive_energy_changes": 0,
+      "maximum_energy_increase": 0.0,
+      "nonfinite_energy_values": 0,
+      "two_cycle_flags": 0
+    },
+    {
+      "stratum": "loops20",
+      "eta": 1.0,
+      "n_traces": 8,
+      "replay_main_parity": true,
+      "recorded_energy_transitions": 104,
+      "positive_energy_changes": 0,
+      "maximum_energy_increase": 0.0,
+      "nonfinite_energy_values": 0,
+      "two_cycle_flags": 0
+    },
+    {
+      "stratum": "loops20",
+      "eta": 0.2,
+      "n_traces": 8,
+      "replay_main_parity": true,
+      "recorded_energy_transitions": 440,
+      "positive_energy_changes": 0,
+      "maximum_energy_increase": 0.0,
+      "nonfinite_energy_values": 0,
+      "two_cycle_flags": 0
+    },
+    {
+      "stratum": "loops20",
+      "eta": 0.5,
+      "n_traces": 8,
+      "replay_main_parity": true,
+      "recorded_energy_transitions": 184,
+      "positive_energy_changes": 0,
+      "maximum_energy_increase": 0.0,
+      "nonfinite_energy_values": 0,
+      "two_cycle_flags": 0
+    },
+    {
+      "stratum": "loops20",
+      "eta": 0.8,
+      "n_traces": 8,
+      "replay_main_parity": true,
+      "recorded_energy_transitions": 104,
+      "positive_energy_changes": 0,
+      "maximum_energy_increase": 0.0,
+      "nonfinite_energy_values": 0,
+      "two_cycle_flags": 0
+    },
+    {
+      "stratum": "comb",
+      "eta": 0.8,
+      "n_traces": 8,
+      "replay_main_parity": true,
+      "recorded_energy_transitions": 64,
+      "positive_energy_changes": 0,
+      "maximum_energy_increase": 0.0,
+      "nonfinite_energy_values": 0,
+      "two_cycle_flags": 0
+    },
+    {
+      "stratum": "comb",
+      "eta": 1.0,
+      "n_traces": 8,
+      "replay_main_parity": true,
+      "recorded_energy_transitions": 64,
+      "positive_energy_changes": 0,
+      "maximum_energy_increase": 0.0,
+      "nonfinite_energy_values": 0,
+      "two_cycle_flags": 0
+    },
+    {
+      "stratum": "comb",
+      "eta": 0.2,
+      "n_traces": 8,
+      "replay_main_parity": true,
+      "recorded_energy_transitions": 312,
+      "positive_energy_changes": 0,
+      "maximum_energy_increase": 0.0,
+      "nonfinite_energy_values": 0,
+      "two_cycle_flags": 0
+    },
+    {
+      "stratum": "comb",
+      "eta": 0.5,
+      "n_traces": 8,
+      "replay_main_parity": true,
+      "recorded_energy_transitions": 128,
+      "positive_energy_changes": 0,
+      "maximum_energy_increase": 0.0,
+      "nonfinite_energy_values": 0,
+      "two_cycle_flags": 0
+    }
+  ],
+  "hashed_files": 113,
+  "oracle_unique_board_checks": 1539,
+  "oracle_identical_board_cache_hits": 16893,
+  "audit_seconds": 6.905208911048248,
+  "new_inference": false,
+  "limits": [
+    "No extrapolation to arbitrary eta, inputs or models; failure to find instability is not a stability theorem.",
+    "Joint success counts each input once, requiring all three fixed models to succeed.",
+    "Checked timing includes identical finite checks, with sameGPU per job and shared hidden preparation; it is not native solver timing.",
+    "Energy/cycle traces cover the prespecified24unique inputs per eta at modelseed0 only; periodic energy samples do not establish monotonicity between samples.",
+    "Unchanged weights and energies; no adaptive eta rescue or selected new eta."
+  ],
+  "full_local_audit_sha256": "fb5e72de64f2420f5e56e0d0ce02b8fe8fe04b14973cf881d0d71510626c07f6"
+}

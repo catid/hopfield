@@ -1,0 +1,185 @@
+"""Resume frozen normalized Sudoku trajectories; one worker per local GPU."""
+from pathlib import Path
+import argparse
+import fcntl
+import hashlib
+import json
+import os
+import platform
+import subprocess
+import sys
+import time
+
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[2]
+UP = ROOT / 'upstream'
+RIPPER = ROOT / 'research/20261114/ripper'
+BASE = ROOT / 'artifacts/research/20261114/ripper'
+OUT = ROOT / 'artifacts/research/20261114/foureyes/budget'
+PROTOCOL = HERE / 'budget.json'
+sys.path.insert(0, str(RIPPER))
+from run import sha, save, now, independent_validity
+
+
+def queue(gpu=None, seed=None, status=None):
+    with (OUT / 'queue.lock').open('a') as f:
+        fcntl.flock(f, fcntl.LOCK_EX)
+        jobs = json.loads((OUT / 'queue.json').read_text())
+        if seed is None:
+            j = next((j for j in jobs if j['status'] == 'pending'), None)
+            if j is not None:
+                j.update(status='running', gpu=gpu, pid=os.getpid(), started_utc=now())
+        else:
+            j = next(j for j in jobs if j['seed'] == seed)
+            j.update(status=status, updated_utc=now())
+        save(OUT / 'queue.json', jobs)
+        return j
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--gpu', type=int)
+    parser.add_argument('--initialize', action='store_true')
+    args = parser.parse_args()
+    assert platform.node() == 'foureyes'
+    p = json.loads(PROTOCOL.read_text())
+    if args.initialize:
+        OUT.mkdir(parents=True, exist_ok=True)
+        assert not (OUT / 'queue.json').exists()
+        for seed in p['training_seeds']:
+            assert (BASE / f'finaltest/resume_proof/k10-s{seed}/receipt.json').is_file()
+        save(OUT / 'queue.json', [dict(seed=s, status='pending') for s in p['training_seeds']])
+        return
+    lock = (ROOT / f'artifacts/gpu{args.gpu}.lock').open('a')
+    fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    gpu = subprocess.check_output(['nvidia-smi', f'--id={args.gpu}', '--query-gpu=uuid,name', '--format=csv,noheader'], text=True).strip()
+    owners = subprocess.check_output(['nvidia-smi', '--query-compute-apps=gpu_uuid', '--format=csv,noheader'], text=True)
+    assert gpu.split(',')[0] not in owners, 'Unrelated GPU owner'
+    os.environ.update(CUDA_VISIBLE_DEVICES=str(args.gpu), CRAM_DATA=str(UP / 'data'),
+                      OMP_NUM_THREADS='1', MKL_NUM_THREADS='1', OPENBLAS_NUM_THREADS='1')
+    sys.path[:0] = [str(UP), str(UP / 'experiments')]
+    import torch
+    import numpy as np
+    import sudoku as CF
+    from cram import cram_sudoku_general as GS, cram_sudoku_search as SS, cram_sudoku_sparse as SP
+    from sparse_backend import sparse_search_class
+    torch.set_num_threads(1)
+    torch.backends.cuda.matmul.allow_tf32 = False
+    klass = sparse_search_class(GS, SP)
+    sources = {str(f.relative_to(ROOT)): sha(f) for f in [Path(__file__), PROTOCOL, RIPPER / 'run.py', RIPPER / 'sparse_backend.py', UP / 'cram/cram_sudoku_general.py', UP / 'cram/cram_sudoku_search.py', UP / 'cram/cram_sudoku_sparse.py']}
+    sol, free, idx = SS.load_puzzles(p['split'], p['rows_half_open'][0], p['rows_half_open'][1] - p['rows_half_open'][0])
+
+    def same(a, b):
+        assert a.keys() == b.keys()
+        for key in a:
+            if key == 'elapsed':
+                continue
+            assert torch.equal(a[key].cpu(), b[key].cpu()) if torch.is_tensor(a[key]) else a[key] == b[key], key
+
+    def execute(seed):
+        dest = OUT / f'k10-s{seed}'
+        dest.mkdir(parents=True, exist_ok=False)
+        src = BASE / f'finaltest/jobs/k10-s{seed}-normalized_sparse'
+        proofdir = BASE / f'finaltest/resume_proof/k10-s{seed}'
+        model = BASE / f'scale/jobs/k10-s{seed}-normalized_unit/searched_model.pt'
+        proof = json.loads((proofdir / 'receipt.json').read_text())
+        previous = json.loads((src / 'receipt.json').read_text())
+        assert previous['status'] == 'complete' and previous['terminal_move'] == 262144
+        assert sha(src / 'final_state.pt') == proof['input_state_sha256']
+        assert sha(src / 'capture_state.pt') == proof['input_capture_sha256']
+        assert sha(model) == proof['input_model_sha256'] == previous['model_sha256']
+        for name, expected in proof['output_sha256'].items():
+            assert sha(proofdir / name) == expected
+        for name, expected in previous['output_sha256'].items():
+            assert sha(src / name) == expected
+        state = torch.load(src / 'final_state.pt', weights_only=False, map_location='cpu')
+        captures = torch.load(src / 'capture_state.pt', weights_only=True, map_location='cpu')
+        sd = torch.load(model, weights_only=True, map_location='cuda')
+        m, unit = previous['statistics'], previous['used_hbar']
+        ss = klass(CF.full_S(sd['W'], CF.pair_index('cuda')), sd['B'], sol, free,
+                   temp=.4 * unit, theta=.45 * unit, focused=True, C=4,
+                   tau=m['tau_train'], tol=.001, ebar=m['ebar'], cap=4e11,
+                   check=4096, seed=seed, anneal=(.4 * unit, .31 * unit, 524288))
+
+        def restore():
+            ss.load_state_dict(state)
+            ss.best_boards = captures['best_boards'].to(ss.dev)
+            ss.cert_boards = captures['cert_boards'].to(ss.dev)
+
+        restore()
+        same(ss.state_dict(), state)
+        same(dict(best_boards=ss.best_boards, cert_boards=ss.cert_boards), captures)
+        prefix = np.load(src / 'boards.npz')
+        assert np.array_equal(prefix['solutions'], sol) and np.array_equal(prefix['free'], free) and np.array_equal(prefix['puzzle'], idx)
+        assert np.array_equal(ss.boards().cpu().numpy(), prefix['boards'])
+        # One discarded next-check replay establishes exact Ripper/Foureyes handoff.
+        ss.step_check()
+        same(ss.state_dict(), torch.load(proofdir / 'next_state.pt', weights_only=False, map_location='cpu'))
+        same(dict(best_boards=ss.best_boards, cert_boards=ss.cert_boards), torch.load(proofdir / 'next_capture.pt', weights_only=True, map_location='cpu'))
+        restore()
+        same(ss.state_dict(), state)
+        assert ss.t == 262144
+        inputs = {str(f.relative_to(ROOT)): sha(f) for f in [src / 'receipt.json', src / 'boards.npz', src / 'final_state.pt', src / 'capture_state.pt', model, proofdir / 'receipt.json', proofdir / 'next_state.pt', proofdir / 'next_capture.pt']}
+        rec = dict(status='running', seed=seed, k=10, gpu=gpu, host=platform.node(), pid=os.getpid(),
+                   started_utc=now(), source_sha256=sources, input_sha256=inputs,
+                   cross_host_next_check_exact=True, state_fields=len(state) - 1,
+                   capture_fields=2, prefix_moves=ss.t, torch=torch.__version__, cuda=torch.version.cuda,
+                   cumulative_prefix_search_seconds=ss.elapsed, checkpoints=[])
+        save(dest / 'receipt.json', rec)
+        last = [time.monotonic()]
+        total_wall = 0.0
+        prefix_stopped = prefix['stopped'].copy()
+        prefix_boards, prefix_moves = prefix['boards'].copy(), prefix['moves'].copy()
+        for cap in p['checkpoints'][1:]:
+            ss.T_cap = cap
+            ss.cap = cap * ss.fl_move * ss.C
+            def progress(s):
+                if time.monotonic() - last[0] > 2 or s.done():
+                    save(dest / 'progress.json', dict(utc=now(), pid=os.getpid(), seed=seed, move=s.t, cap=s.T_cap, active=len(s.act), elapsed_s=s.elapsed))
+                    last[0] = time.monotonic()
+            start = time.monotonic()
+            result = ss.run(progress, log_every=1 << 20)
+            torch.cuda.synchronize()
+            wall = time.monotonic() - start
+            total_wall += wall
+            boards = ss.boards().cpu().numpy().astype(np.int8)
+            stopped = ss.stopped.cpu().numpy()
+            exact = (boards == sol).all(1)
+            valid = independent_validity(boards, sol, free)
+            moves = torch.where(ss.stopped, ss.stop_t, torch.full_like(ss.stop_t, ss.t)).cpu().numpy()
+            assert np.array_equal(exact, result['solved']) and np.array_equal(exact, valid)
+            assert not (stopped & ~valid).any()
+            assert stopped[prefix_stopped].all()
+            assert np.array_equal(boards[prefix_stopped], prefix_boards[prefix_stopped])
+            assert np.array_equal(moves[prefix_stopped], prefix_moves[prefix_stopped])
+            target = dest / f'moves-{cap}'
+            target.mkdir()
+            np.savez_compressed(target / 'boards.npz', boards=boards, solutions=sol.astype(np.int8), free=free, puzzle=idx,
+                                stopped=stopped, exact=exact, valid=valid, moves=moves)
+            torch.save(ss.state_dict(), target / 'state.pt')
+            torch.save(dict(best_boards=ss.best_boards.cpu(), cert_boards=ss.cert_boards.cpu()), target / 'capture.pt')
+            save(target / 'result.json', dict(summary=SS.summarize(result), per_puzzle=result))
+            point = dict(cap=cap, terminal_move=ss.t, solved=int(exact.sum()), stopped=int(stopped.sum()), wrong_stops=int((stopped & ~valid).sum()),
+                         n=len(sol), mean_moves=float(moves.mean()), segment_wall_s=wall, continuation_wall_s=total_wall,
+                         cumulative_search_seconds=ss.elapsed, output_sha256={name: sha(target / name) for name in ['boards.npz', 'state.pt', 'capture.pt', 'result.json']})
+            rec['checkpoints'].append(point)
+            save(dest / 'receipt.json', rec)
+            print(json.dumps(dict(seed=seed, **point)), flush=True)
+            prefix_stopped, prefix_boards, prefix_moves = stopped.copy(), boards.copy(), moves.copy()
+        rec.update(status='complete', completed_utc=now())
+        save(dest / 'receipt.json', rec)
+
+    while True:
+        job = queue(gpu=args.gpu)
+        if job is None:
+            break
+        try:
+            execute(job['seed'])
+        except BaseException:
+            queue(seed=job['seed'], status='failed')
+            raise
+        queue(seed=job['seed'], status='complete')
+
+
+if __name__ == '__main__':
+    main()

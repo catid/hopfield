@@ -15,3 +15,5 @@ Development rows[0, 512], 512 puzzles per run, seeds[0, 1, 2], fixed262144moves/
 | 10 | projected | 143 / 115 / 135 | 25.5859 | 159 |
 
 Intervals are exploratory with few model seeds; these results do not establish performance on an untouched external distribution. Search RNG streams can diverge after model-specific compaction. The saved boards permit full independent validity checks.
+
+Training-size convention: k counts unique base puzzles. Each base puzzle was fitted with the original and 99 stored symmetry variants, so k10 uses 1,000 training boards. Those inherited variants include digit relabeling, transposition, and valid band/stack/row/column permutations. The post-training transforms and search receive no additional Sudoku peer graph; the original augmentation pipeline already uses Sudoku symmetries.

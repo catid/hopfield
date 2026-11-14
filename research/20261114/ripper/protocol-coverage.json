@@ -1,0 +1,101 @@
+{
+  "id": "H1m-source-specific-orbit-coverage-validation",
+  "frozen_utc": "2026-11-14T22:53:05.077557+00:00",
+  "ideal_theorem": "Under independent uniform draws of the pinned Sudoku spatial group, nonpeerorbitsA(sameband orstack) andB(differentband ANDstack) have equalityprobabilities1/6and1/9. Their sizes972/1458 andoriginalequalcounts162/162 yield exact expectedextraedges E(V)=810*(5/6)^V+1296*(8/9)^V. Pr(anyextra)<=min(1,E(V)); no independencebetweenedges assumed.",
+  "bases": 32,
+  "streams_per_base": 256,
+  "variants_grid": [
+    0,
+    1,
+    3,
+    7,
+    15,
+    31,
+    63,
+    99,
+    127
+  ],
+  "max_variants": 127,
+  "rng": "np.random.seed(2026111500+10000*base_index+stream_index); execute unchanged official shuffle_sudoku AST with numpy2.3.4. Seeds unique.",
+  "source_base_selection": "First32originalgroups ofseededreference42 TRMtrainingdataset. Fixed beforefreshaugmentationoutcomes.",
+  "inputs": {
+    "bases.npz": "28f28dfa2461fdf53a403043a08cb52c08c66419593c6498bd5960d3912cc425",
+    "builder.py": "9cd1c28c4b186d990b9d671f82e4697eac19ae63ac58c3c29a54c662f2da1ea4",
+    "shuffle_sudoku_source.txt": "c72886144d1203d809a0d2230a6b0018deeb20657b9ae1f9944100a150b51ff8"
+  },
+  "source_labels_sha256": "2cadc1ce68611ab0cd0fde95cc3e3c87769080d076739de6dd4a0a67ad644a12",
+  "source_group_indices_sha256": "ecc663b22fbfa835a00f31d9898bd9de7603fb1b38fc910a830b9bada36a8965",
+  "representative_pairs": {
+    "orbit_A": [
+      0,
+      12
+    ],
+    "orbit_B": [
+      0,
+      30
+    ]
+  },
+  "probability_tests": "For eachbase andeachoftworepresentativepairs, count equalities acrossall256*127independentidealdraws. Two-sided exactbinomial test against1/6or1/9;64tests.",
+  "coverage_tests": "AtV63,99,127 foreachbase, test observedstreamfailurecount againstupperbound min(1,E(V)) usingone-sidedgreater exactbinomial;96tests. Differentbases mayhavedifferent jointcoverageprobability, so testperbase.",
+  "multiplicity": "Single160-test Bonferronifamily,alpha.05. Publish rawp,adjustedp,two-sidedClopperPearson intervals at1-.05/160 fororbitprobabilities andone-sided lowerconfidencebounds forfailureprobabilities.",
+  "decision": "Record contradiction ifany adjustedp<.05;absenceofcontradiction isonlyempiricalvalidation,notproofofidealuniformindependence. The theorem relieson separatelyauditedgroupsampling assumptions.",
+  "expected_curve": [
+    {
+      "variants": 0,
+      "expected_extra_edges": 2106.0,
+      "failure_upper_bound": 1.0
+    },
+    {
+      "variants": 1,
+      "expected_extra_edges": 1827.0,
+      "failure_upper_bound": 1.0
+    },
+    {
+      "variants": 3,
+      "expected_extra_edges": 1378.9722222222222,
+      "failure_upper_bound": 1.0
+    },
+    {
+      "variants": 7,
+      "expected_extra_edges": 794.3033865412622,
+      "failure_upper_bound": 1.0
+    },
+    {
+      "variants": 15,
+      "expected_extra_edges": 274.04458400576584,
+      "failure_upper_bound": 1.0
+    },
+    {
+      "variants": 31,
+      "expected_extra_edges": 36.48519877848578,
+      "failure_upper_bound": 1.0
+    },
+    {
+      "variants": 63,
+      "expected_extra_edges": 0.784559035050007,
+      "failure_upper_bound": 0.784559035050007
+    },
+    {
+      "variants": 99,
+      "expected_extra_edges": 0.011193370750548966,
+      "failure_upper_bound": 0.011193370750548966
+    },
+    {
+      "variants": 127,
+      "expected_extra_edges": 0.0004133419310282244,
+      "failure_upper_bound": 0.0004133419310282244
+    }
+  ],
+  "count_algorithm": "Counteraccumulates equality events beforeanygeometrydiagnostic; allprefixsupportsincludealltruepeers forvalidinputs.",
+  "runtime": "CPUonly,8workerprocesses onRipper. No GPUsearches.",
+  "software": {
+    "python": "3.13.13",
+    "numpy": "2.3.4",
+    "scipy_analysis": "1.16.3"
+  },
+  "caveats": [
+    "Idealindependentrandomgroup theorem distinctfromdeterministicpseudorandomvalidation.",
+    "Storedtrainingvariants andnewfreshstreams aredifferentexperiments.",
+    "No independentstructurallearningclaim; augmentation embedsSudoku symmetries."
+  ]
+}

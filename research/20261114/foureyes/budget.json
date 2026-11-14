@@ -1,0 +1,53 @@
+{
+  "id": "H4d-normalized-Sudoku-budget-curve",
+  "frozen_utc": "2026-11-14T22:26:12.350114+00:00",
+  "hypothesis": "The fixed normalized model learned from ten training puzzles solves at least99% of the reserved10000test puzzles jointly across all six search/model seeds by4194304moves per chain, with no wrong stops.",
+  "primary_endpoint": 4194304,
+  "primary_accuracy_fraction": 0.99,
+  "secondary_endpoint": 16777216,
+  "secondary_hypothesis": "Report joint solve fraction and whether its exact one-sided95%lower bound exceeds99% at16777216moves; this cannot rescue a failed primary endpoint.",
+  "checkpoints": [
+    262144,
+    524288,
+    1048576,
+    2097152,
+    4194304,
+    8388608,
+    16777216
+  ],
+  "training_k": 10,
+  "training_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "split": "full-all",
+  "rows_half_open": [
+    30000,
+    40000
+  ],
+  "chains": 4,
+  "check": 4096,
+  "restart": 0,
+  "temperature_hi_unit": 0.4,
+  "temperature_lo_unit": 0.31,
+  "theta_unit": 0.45,
+  "anneal_period": 524288,
+  "tol": 0.001,
+  "method": "Unchanged frozen gap-pruned uniform weights with thermal/focus scale equal to their coefficient. No changes to model, stop threshold, RNG, clue masks, refresh or search policy.",
+  "continuation": "Resume H1h262144move checkpoint including all state_dict fields and separately archived best_boards/cert_boards; extend only T_cap andderivedcap. Never rerun completed prefix for production.",
+  "validation": "Hash all source checkpoints; compare loaded tensors and capture arrays exactly, preserve prefix boards/stops/moves, check bounded local save/restore continuation parity. Cross-host next-check state comparison required before main continuation. Independently validate every saved board and all stopped-prefix preservation.",
+  "primary_unit": "One unique test puzzle, joint success only if all six returned boards are valid and exact. Six identical recovered graphs up to global scale are not six independent structural replications.",
+  "uncertainty": "Exact one-sided95%Clopper-Pearson bounds for10000paired puzzle joint-success indicators. Per-seed accuracy and mean are secondary descriptive statistics.",
+  "decision": "Primary supported iff lower bound>=99% andzero wrongstops; falsified iff upper bound<99% or any wrongstop; otherwise inconclusive. Secondaryendpoint reported separately.",
+  "limits": [
+    "Same official corpus used in original reproduction; reserved follow-up slice, not new external distribution.",
+    "Longer search is extra compute, not same-budget accuracy improvement.",
+    "Retain original short-budget metrics; no test-based tuning.",
+    "Timing excludes prior prefix and transfers; cumulative search clock recorded separately."
+  ],
+  "source_protocol_sha256": "44699f6ed5577105c3d48f22739acc55e6b72351e7d229d85f50a2d585314f07"
+}

@@ -3,6 +3,7 @@
 These compact exports contain the measurements and provenance used by the repository's figures. They do not contain the full raw datasets, checkpoints, or predicted-board archives.
 
 - [Sudoku projection, sparsity and held-out tests](research/ripper/README.md)
+- [Sudoku count-energy and long-budget study](../research/20261114/foureyes/REPORT-budget.md)
 - [Sudoku stopping interventions](research/foureyes/README.md)
 - [Maze transfer and inference acceleration](../research/20261114/work/REPORT.md)
 - [N-Queens optimizer controls](research/loki/README.md)

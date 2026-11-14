@@ -20,3 +20,5 @@ Secondary canonical-versus-raw-projection effect: **-0.2414pp**, interval[-0.862
 No Sudoku spatial peer graph enters any intervention. The canonical transformation is explicit; broad invariance under arbitrary original pair/unary gauge changes is not claimed. Paired seeds use the same initialization but model-specific compaction may change later random streams.
 
 [Frozen protocol](protocol-mechanism.json) · [Runner](mechanism.py) · [CPU audit](audit_mechanism.py) · [Receipt](../../../results/research/ripper/audit-mechanism.json)
+
+Training-size convention: k counts unique base puzzles. Each base puzzle was fitted with the original and 99 stored symmetry variants, so k10 uses 1,000 training boards. Those inherited variants include digit relabeling, transposition, and valid band/stack/row/column permutations. The post-training transforms and search receive no additional Sudoku peer graph; the original augmentation pipeline already uses Sudoku symmetries.

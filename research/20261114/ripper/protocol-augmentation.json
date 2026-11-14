@@ -1,0 +1,193 @@
+{
+  "id": "H1k-spatial-augmentation-ablation",
+  "frozen_utc": "2026-11-14T22:35:56.551578+00:00",
+  "hypothesis": "On a fixed new test cohort, the fullspatial-augmentation normalized pipeline exceeds digit-only augmentation by at least20percentagepoints at k10.",
+  "k": [
+    10
+  ],
+  "training_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "arms": [
+    "base_only",
+    "digit_only",
+    "full_spatial"
+  ],
+  "training_inputs": [
+    {
+      "seed": 0,
+      "arm": "base_only",
+      "path": "artifacts/research/20261114/ripper/augmentation/inputs/s0-base_only/train.npz",
+      "sha256": "1fc787b9c84337411a45f7bd083a2cce4b1b9c07ae0b90285df404ac5770c224",
+      "source_sha256": "cb020a4d8912db1e0cc07399872c59a074b6140c942b2d2b4e84291979b6edca",
+      "n": 10
+    },
+    {
+      "seed": 0,
+      "arm": "digit_only",
+      "path": "artifacts/research/20261114/ripper/augmentation/inputs/s0-digit_only/train.npz",
+      "sha256": "477813eff4513c21ca074176f84904924518cf22b7aaad53dc18c581cccaf024",
+      "source_sha256": "cb020a4d8912db1e0cc07399872c59a074b6140c942b2d2b4e84291979b6edca",
+      "n": 1000
+    },
+    {
+      "seed": 0,
+      "arm": "full_spatial",
+      "path": "artifacts/research/20261114/ripper/augmentation/inputs/s0-full_spatial/train.npz",
+      "sha256": "cb020a4d8912db1e0cc07399872c59a074b6140c942b2d2b4e84291979b6edca",
+      "source_sha256": "cb020a4d8912db1e0cc07399872c59a074b6140c942b2d2b4e84291979b6edca",
+      "n": 1000
+    },
+    {
+      "seed": 1,
+      "arm": "base_only",
+      "path": "artifacts/research/20261114/ripper/augmentation/inputs/s1-base_only/train.npz",
+      "sha256": "44bd7cd8bc38a3826986368e099d0882ee0910b6b94140ccdc7f598aa8d7d4a8",
+      "source_sha256": "2cc9d23b289b7ecf8124a91465bad056b8a864e90c9f935251352f6e224ebc24",
+      "n": 10
+    },
+    {
+      "seed": 1,
+      "arm": "digit_only",
+      "path": "artifacts/research/20261114/ripper/augmentation/inputs/s1-digit_only/train.npz",
+      "sha256": "0f511a92bf45e0a763c164a8e483926f3937415f6e0fc933917887b7ab46eba4",
+      "source_sha256": "2cc9d23b289b7ecf8124a91465bad056b8a864e90c9f935251352f6e224ebc24",
+      "n": 1000
+    },
+    {
+      "seed": 1,
+      "arm": "full_spatial",
+      "path": "artifacts/research/20261114/ripper/augmentation/inputs/s1-full_spatial/train.npz",
+      "sha256": "2cc9d23b289b7ecf8124a91465bad056b8a864e90c9f935251352f6e224ebc24",
+      "source_sha256": "2cc9d23b289b7ecf8124a91465bad056b8a864e90c9f935251352f6e224ebc24",
+      "n": 1000
+    },
+    {
+      "seed": 2,
+      "arm": "base_only",
+      "path": "artifacts/research/20261114/ripper/augmentation/inputs/s2-base_only/train.npz",
+      "sha256": "f5bd018bedf4a8cc006033fb3c205e4199f1f55d74ca85edc8ac75cbf66f44a9",
+      "source_sha256": "7f034264bfbab941f48c5809628baceb2010eafdd14e08030249e7a7e2a4ef2a",
+      "n": 10
+    },
+    {
+      "seed": 2,
+      "arm": "digit_only",
+      "path": "artifacts/research/20261114/ripper/augmentation/inputs/s2-digit_only/train.npz",
+      "sha256": "01e7b2ca9e03a14c76a672afd883b27d9fa423b34ddf335e1dc997017ba10415",
+      "source_sha256": "7f034264bfbab941f48c5809628baceb2010eafdd14e08030249e7a7e2a4ef2a",
+      "n": 1000
+    },
+    {
+      "seed": 2,
+      "arm": "full_spatial",
+      "path": "artifacts/research/20261114/ripper/augmentation/inputs/s2-full_spatial/train.npz",
+      "sha256": "7f034264bfbab941f48c5809628baceb2010eafdd14e08030249e7a7e2a4ef2a",
+      "source_sha256": "7f034264bfbab941f48c5809628baceb2010eafdd14e08030249e7a7e2a4ef2a",
+      "n": 1000
+    },
+    {
+      "seed": 3,
+      "arm": "base_only",
+      "path": "artifacts/research/20261114/ripper/augmentation/inputs/s3-base_only/train.npz",
+      "sha256": "0c04a3a665d83fd8d63de93d4deb82fe8b56aa9f689fbd0f047652fd33d65f5b",
+      "source_sha256": "be8efd7d87dab678eb74ef006d57e5a141ba12c9afae177d23132213be3c1be4",
+      "n": 10
+    },
+    {
+      "seed": 3,
+      "arm": "digit_only",
+      "path": "artifacts/research/20261114/ripper/augmentation/inputs/s3-digit_only/train.npz",
+      "sha256": "53f28df8b9f8438deac19e91c7e572d45a9457c1cc1319f9a507e0cb4a0fd7d5",
+      "source_sha256": "be8efd7d87dab678eb74ef006d57e5a141ba12c9afae177d23132213be3c1be4",
+      "n": 1000
+    },
+    {
+      "seed": 3,
+      "arm": "full_spatial",
+      "path": "artifacts/research/20261114/ripper/augmentation/inputs/s3-full_spatial/train.npz",
+      "sha256": "be8efd7d87dab678eb74ef006d57e5a141ba12c9afae177d23132213be3c1be4",
+      "source_sha256": "be8efd7d87dab678eb74ef006d57e5a141ba12c9afae177d23132213be3c1be4",
+      "n": 1000
+    },
+    {
+      "seed": 4,
+      "arm": "base_only",
+      "path": "artifacts/research/20261114/ripper/augmentation/inputs/s4-base_only/train.npz",
+      "sha256": "4a73a15dd58a99a072e3fdafe2834f4471b9c3e0ac34cea3571074c8dee5fb0a",
+      "source_sha256": "62524f1890caa1c8e738c7a8edfd63c077297ab06ccfd1a79f0320f470601fe1",
+      "n": 10
+    },
+    {
+      "seed": 4,
+      "arm": "digit_only",
+      "path": "artifacts/research/20261114/ripper/augmentation/inputs/s4-digit_only/train.npz",
+      "sha256": "7383b131ad5d5e65e4e8c4657538f94fda74176b88b40d1cfb707826995fe336",
+      "source_sha256": "62524f1890caa1c8e738c7a8edfd63c077297ab06ccfd1a79f0320f470601fe1",
+      "n": 1000
+    },
+    {
+      "seed": 4,
+      "arm": "full_spatial",
+      "path": "artifacts/research/20261114/ripper/augmentation/inputs/s4-full_spatial/train.npz",
+      "sha256": "62524f1890caa1c8e738c7a8edfd63c077297ab06ccfd1a79f0320f470601fe1",
+      "source_sha256": "62524f1890caa1c8e738c7a8edfd63c077297ab06ccfd1a79f0320f470601fe1",
+      "n": 1000
+    },
+    {
+      "seed": 5,
+      "arm": "base_only",
+      "path": "artifacts/research/20261114/ripper/augmentation/inputs/s5-base_only/train.npz",
+      "sha256": "fb93686136f3a9f0ac29db0ac5691afe33ac932148dac52a6b5932bdfedf86a7",
+      "source_sha256": "3294a35c182c72ade8af3d8d6524794a024b895029f9676e1f46b13f0dbcd73b",
+      "n": 10
+    },
+    {
+      "seed": 5,
+      "arm": "digit_only",
+      "path": "artifacts/research/20261114/ripper/augmentation/inputs/s5-digit_only/train.npz",
+      "sha256": "8de64e26ec0836735d7dc59285e20c6221a0e805c0e9d2b73b532de472997c2a",
+      "source_sha256": "3294a35c182c72ade8af3d8d6524794a024b895029f9676e1f46b13f0dbcd73b",
+      "n": 1000
+    },
+    {
+      "seed": 5,
+      "arm": "full_spatial",
+      "path": "artifacts/research/20261114/ripper/augmentation/inputs/s5-full_spatial/train.npz",
+      "sha256": "3294a35c182c72ade8af3d8d6524794a024b895029f9676e1f46b13f0dbcd73b",
+      "source_sha256": "3294a35c182c72ade8af3d8d6524794a024b895029f9676e1f46b13f0dbcd73b",
+      "n": 1000
+    }
+  ],
+  "data_generation": "Use originals atrows0,100,...900 of each archived1000row k10trainingarray. Base-only uses those10boards. Digit-only uses originals+99independent digitpermutations/base,default_rng(20261114+seed),preservingcellpositionsandfreemasks. Fullspatial reusesexact archived1000rows.",
+  "fit_recipe": "Identical original32updatefullbatch proximalL1 pseudolikelihood recipe: augFalse,lam3e-3/9,lr540,momentum.5,zero start,split=seed,seed=seed. Base-only has10rows; digit-only/fullspatial each1000rows.",
+  "full_model_control": "Reuse frozen originalfullspatial fit andnormalizedweights; currentfitcode SHA matches frozen fitcode. Recompute one fullspatial seed0fit andrequire byte-equal W/B before queue launch.",
+  "transform": "Fornewfits, use frozen digitprojection\u2192canonical nonnegativeJ\u2192largestadjacentpositivegap cutoff\u2192retainedmeanweight uniformization\u2192temperature/focusunitthatweight. Recompute trainingtau/ebar. No geometry supplied to fit ortransform. Ifgap cannotbeconstructed,reportpipelinefailure andprimaryinconclusive ratherthan adaptivethreshold.",
+  "primary_statistic": "Equalweight full_spatial-minus-digit_only accuracy across6seeds and10000sharedpuzzles.",
+  "threshold_pp": 20,
+  "uncertainty": "5000pairedtwo-waybootstrap draws,seedclusters andsharedpuzzleindices,seed20261114.",
+  "decision": "Supported if95percentinterval lower>=20pp,falsified ifupper<20pp,otherwiseinconclusive.",
+  "secondary": "Base-only solveaccuracy; learnedgraph andnever-equal-countgraph postselectiongeometrydiagnostics; false stops. No redundant digit-onlycountgraph GPUsearch because digitpermutations preserve equalityevents analytically.",
+  "split": "full-all",
+  "rows_half_open": [
+    50000,
+    60000
+  ],
+  "chains": 4,
+  "move_cap_per_chain": 262144,
+  "check": 4096,
+  "anneal_period": 524288,
+  "temperature_hi_unit": 0.4,
+  "temperature_lo_unit": 0.31,
+  "theta_unit": 0.45,
+  "tolerance": 0.001,
+  "scope": "Spatialaugmentation changes cell/cluemask coverage aswellas symmetrycoverage; thisdoesnotisolatemathematical necessityofgeometry priors.",
+  "bp_adamw": "Outside this fixed-fitrecipe augmentationablation;notrun.",
+  "fit_source_sha256": "b73f72c8e874711d0d05fa75de0043442a20297618de62e5bb714b76aa09f20b",
+  "backend_sha256": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96"
+}

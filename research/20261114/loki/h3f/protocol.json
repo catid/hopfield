@@ -1,0 +1,273 @@
+{
+  "id": "H3f-exclusion-control",
+  "frozen_utc": "2026-11-14T22:40:42.378151+00:00",
+  "hypothesis": "A no-optimizer energy based on training-only never-observed offsets, J=q*forbidden-1 with unary0, is noninferior to learned Adam250 in certificate-first N20 accuracy within0.1pp and distinct-completion coverage within2pp.",
+  "antecedent": "H3e confirmed the fixed early-Adam recipe on n12. This adaptive control tests whether training support statistics and a fixed energy design suffice; its outcomes were not inspected before freeze.",
+  "construction": "Take only fit complete labels with positive expanded-row multiplicity. Infer q from their common queen count (require a single value). Count weighted queen-queen co-occurrences per offset using the existing offset architecture. An offset is forbidden iff its count is zero. Set every J_d=q*forbidden_d-1 and unary0. No row/column/diagonal attack rule or held-out label enters construction.",
+  "added_prior": "Rewarding every observed/allowed pair by-1 and penalizing every never-observed pair byq-1 is an explicitly added fixed energy design prior. It is not learned-weight recovery or evidence that support inference alone chooses these coefficients.",
+  "calibration": "As in the learned models: tau=max training solution energy, delta=min training solution single-cell margin, unit=mean absolute field weighted by the exact fit expanded-row multiplicities. Require strictly positive training minima margins. No settings selected from test outcomes.",
+  "geometry": "The fixed offset parameterization shares pairs by 2D displacement. This supplied geometry remains present; attack categories are used only in a separately labeled post hoc support audit.",
+  "primary": {
+    "arm": "exclusion",
+    "control": "adam-nodecay",
+    "control_updates": 250,
+    "accuracy_margin_pp": 0.1,
+    "coverage_margin_pp": 2.0,
+    "selection": "certificate-first with exact original fallback"
+  },
+  "search": {
+    "n": 12,
+    "unique_inputs": 8192,
+    "chains": 20,
+    "cap": 20000,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "temperature": 1.0,
+    "stop": "local",
+    "margin": 0.001,
+    "validation": "Search uses learned weights/statistics only. Exact completion set and puzzle rules are evaluation-only."
+  },
+  "decision": {
+    "rule": "Support only if exact one-sided95% bound on input fraction with any paired accuracy regression <0.001 and paired-input bootstrap lower coverage difference>-2pp. Falsify if bootstrap upper accuracy difference<-.1pp or upper coverage difference<-2pp; otherwise inconclusive.",
+    "bootstrap": "2000 unique-input resamples, retain all three search seeds per input, RNG20261114",
+    "secondary": "Original output selection, all other frozen checkpoints, N1, stopped/capped counts, per-clue metrics, selector/certificate audits and compute. No setting or checkpoint selected from held-out results."
+  },
+  "bank": {
+    "source": "The unique complete boards with positive fit multiplicity, packed bitwise; count and report overlap with the full completion universe.",
+    "inference": "For each held-out partial input, filter training-bank boards that contain every given queen, then draw20 independent uniform samples WITH replacement from those compatible boards. No puzzle rule or held-out solution label is queried.",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "rng": "NumPy default_rng(seed), shared stream across canonical input order",
+    "purpose": "Transparent memorized-solution/template control, not an optimizer or a solution-pattern-held-out test.",
+    "timing": "CPU bank construction and per-seed matching+sampling recorded separately; no CPU-vs-GPU speedup claim."
+  },
+  "audit": "Recheck every saved board and chosen identity. Report wrong stops, including invalid occupancies belowq, equalq and aboveq; distinguish all returned/capped/stopped strata. Recompute stopped-chain learned margins in float64. Preserve original-selection scores. Support recovery compared with rule-derived offsets only after construction.",
+  "source_sha256": {
+    "research/20261114/loki/h3f/driver.py": "d6e09c27fd975901d95c9dd8ecc25ba6bf3033f92ca17051725daed8a8ff2c07",
+    "research/20261114/loki/study.py": "7c48de391879dc2f4b4f14459698afbc84c82cb3e89030e0ba4814d4fd74b552",
+    "upstream/cram/__init__.py": "ada20986bead2aa2d77dcc358af07dbc01b569b1765c83560e917d5cc2bd032f",
+    "upstream/cram/cram_graph_coloring.py": "ed6158d983be48082f851dcdb5175bad7aab6408ac73f14659825e90c67f5275",
+    "upstream/cram/cram_maze.py": "c9f9fa5718fdf7ce1f8ad33dc7dc9481e43c6084a31516ac1c88451dba03ead8",
+    "upstream/cram/cram_maze_hard_graph.py": "967c573a3b3dee6c015bf373b7858b856ae0e639bdfa1a8c302b65af87a19717",
+    "upstream/cram/cram_maze_hard_simple.py": "07e64a9383c4b2b1ea30021063d93e302a794023accbf6effbf188892220b2a8",
+    "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "upstream/cram/cram_sudoku.py": "2c6b53d1b81d54e35c484a3565abd60e778716d6e6121e424aede826a5ab0ed2",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "upstream/cram/graph_coloring_data.py": "b04e61911aa55d437ab3c9d602832c3df09f285f2605aba2e9a3d78c18d9cb04",
+    "upstream/cram/latent_settle_triton.py": "7eca3fdf03ec6d5eb847e0dcbcdad61c74b56c084c363190d2c32a1737f19072",
+    "upstream/cram/maze_h3.py": "dd13a3038830bf1e2db83854704fcb39167a3f76ee9de01832de9b3187ee7acd",
+    "upstream/cram/maze_h3p.py": "dd26d260efea3a84f224743e14ae8383d967dfdafb0b4409bd05e864fe7ce92a",
+    "upstream/cram/maze_learned.py": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "upstream/cram/maze_unique.py": "3ceb56a61d92c3fa52a7d84876314abe31909780159fa53560692c19b306d213",
+    "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623",
+    "upstream/cram/opcount.py": "2ddf7373d227f50f43b06cf8e129cb727a85a3e2e86065e7081ba477997e924d",
+    "upstream/cram/paths.py": "d3af83d2c75e9165b88fbaf09d35ee352523fa79e5b3b02163d0dfbaae8602b8",
+    "upstream/cram/table.py": "bbf1fdce8a9e2fa836f5a3800746671b62f740e28c1986029bb53b608ebd0493",
+    "upstream/experiments/compute_curve_export.py": "951515d262bab6599bee08af08343d039ddc57a3da5b8f38841bccccdb1b47d2",
+    "upstream/experiments/data_efficiency.py": "5f16479ed5428a192ce431e1ebc8715a5ffabeae4aeaefc9448dd4d038495c22",
+    "upstream/experiments/data_efficiency_baselines.py": "08fb19aaf0eff7ddd02fffee3a6e552c7f14e3990384806f75ec3b515f76f383",
+    "upstream/experiments/data_efficiency_common.py": "fd9736215f5268f445f089eaedc84360edbe0aa00abc8af861bf03b98eb1ba01",
+    "upstream/experiments/difficulty_export.py": "946e006435e75bdf36793f0f6dd15a830b44fc076f1ef60f27e492809eb8f051",
+    "upstream/experiments/graph_coloring.py": "156b3c5c4dd377870c10ef6caca20e5ccbf0a6921e0bec997a52d6a03443a972",
+    "upstream/experiments/graph_coloring_export.py": "6823486a862b19e0109ae9df4fca983ba43688daeeef24686450cd1c36a4541d",
+    "upstream/experiments/graph_coloring_hand_set.py": "c0dbce040824dd42d9195305ec8bc5cce581c55143cdf330b7cac8fda3586cdf",
+    "upstream/experiments/hand_set.py": "8fc4f15271655ec5b1e17eec29a48d8f11f8489ca0d1df79f0a7df4f37bac136",
+    "upstream/experiments/maze_hard_figure_export.py": "02e17d0728a458d69428a6e215a33c9d3d5f1f68bb5d49a02a5fac59bb8b037e",
+    "upstream/experiments/maze_hard_latent.py": "fad4c9c05c41ab2e3dcd997c666a2bbf0fdcca5ae894e2e90f1540d6d2cb4d77",
+    "upstream/experiments/maze_hard_support.py": "936caed5f90ef275199c73e26a437b4b6e6dc814b11e6955bb741b33e30b5c49",
+    "upstream/experiments/maze_unique.py": "042e1b0d0c760bfb7b3c4c9a6cd30785e95255ab570a5810bd80cfbf1ac651eb",
+    "upstream/experiments/maze_unique_fit_time.py": "07f0d25ea1f9a244dfba9ce031523400ba6cafa3ecb339ab8a84ade2ac3b31d6",
+    "upstream/experiments/multi_solution_export.py": "7462da58650d6b3c416e7a58b8526899543ae18fe9c05ed0ebd671875cb3317c",
+    "upstream/experiments/nqueens_coverage.py": "2694c01cb6b37b714dcb70b040317aed2789b9ae3207eb2b2c6c54254d41910c",
+    "upstream/experiments/nqueens_emptied.py": "e5d01938ef08469198028547e27cc9789336d3bec7a41cdf88bb2fec37ebeb6e",
+    "upstream/experiments/nqueens_export.py": "79bf0074e470bc6a2bfe1f2dfe5c376b38e96ef98f527a733f01f0b44ce76c96",
+    "upstream/experiments/nqueens_free.py": "67b4f3fd4188714cf04c50f0ecd6b73754c8132e3ed10e7877e17a225e875f08",
+    "upstream/experiments/nqueens_free_export.py": "6bbf21ad9d9864a21dd9f4dda8417a832f4008e7940a5c1b2d8f61162c13156d",
+    "upstream/experiments/nqueens_offset.py": "f9f0641aa33f5a6f80161f20ef55c5bfd6cb28b439439e0162176428a30df0f3",
+    "upstream/experiments/nqueens_offset_export.py": "85a2b6f5bd0d3d56b6ec52b30d22e15d08d8c70f5dca3da9039b3b99f4641127",
+    "upstream/experiments/sudoku.py": "b73f72c8e874711d0d05fa75de0043442a20297618de62e5bb714b76aa09f20b",
+    "upstream/experiments/training_curves.py": "f9c577da0d83a13a53e33ad859d9abe37fbb1cef52c42efb54424f94b6cb2e07",
+    "upstream/experiments/training_methods.py": "13ee258293c6b0883d8dbf93b14533460d402e8bd9d61f306c7d6832f46919e9",
+    "upstream/experiments/training_methods_export.py": "d60a18693e9cc488c239955b952d4f2f34c76eb3f1ed195b793ec4af35341561"
+  },
+  "data_sha256": {
+    "artifacts/research/20261114/loki/h3e/data.npz": "c3b1d31a9015f3767c8e070e35c2fc36b76fca906bfb773ccc669f741a710afd",
+    "artifacts/research/20261114/loki/h3e/dataset.json": "e3c43a99530f3ea7d586aca4c020c7a4ae7cac21caccef024b1b15ddb8892b68"
+  },
+  "cached_comparisons": [
+    {
+      "arm": "adamw-decay",
+      "updates": 4000,
+      "seed": 0,
+      "path": "artifacts/research/20261114/loki/h3e/search/adamw-decay/u4000/s0/result.json",
+      "sha256": "667ebb9f480816b620eddf43b79651f44eea969431a8dc78f2be4993cdb8af6d",
+      "records_sha256": "e264f9d96f03c386a6d1d453459d5e59a7803eecac0a29104d992912eaa5b659",
+      "model_path": "artifacts/research/20261114/loki/h3e/fits/adamw-decay/u4000/model.pt",
+      "model_sha256": "10142e2614b0fb9580f1f520d67f6c01a5953f101e73e1037bacce9dfd92b544"
+    },
+    {
+      "arm": "adamw-decay",
+      "updates": 4000,
+      "seed": 1,
+      "path": "artifacts/research/20261114/loki/h3e/search/adamw-decay/u4000/s1/result.json",
+      "sha256": "ad26034ec7e6dd53cc55ac9d88a3adb247cd8361dd5398a07ba65f339cab3683",
+      "records_sha256": "27933189b2de601070eeec12d4fa8444bc79c641aa3810287dbac1145e6bbd18",
+      "model_path": "artifacts/research/20261114/loki/h3e/fits/adamw-decay/u4000/model.pt",
+      "model_sha256": "10142e2614b0fb9580f1f520d67f6c01a5953f101e73e1037bacce9dfd92b544"
+    },
+    {
+      "arm": "adamw-decay",
+      "updates": 4000,
+      "seed": 2,
+      "path": "artifacts/research/20261114/loki/h3e/search/adamw-decay/u4000/s2/result.json",
+      "sha256": "a917b5d5d71a493e72fd56589de3cca278dd221fcc288e22d64691c5db3a0fb1",
+      "records_sha256": "aa389acf31bf07fc50efa58f819de3c686599cb5b16ba243ad24cd502b462cb8",
+      "model_path": "artifacts/research/20261114/loki/h3e/fits/adamw-decay/u4000/model.pt",
+      "model_sha256": "10142e2614b0fb9580f1f520d67f6c01a5953f101e73e1037bacce9dfd92b544"
+    },
+    {
+      "arm": "adam-nodecay",
+      "updates": 250,
+      "seed": 0,
+      "path": "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u250/s0/result.json",
+      "sha256": "8007a1b4e9ac0127588900a86b7c16522d8c47801b09bf14bbcd928a9898fff0",
+      "records_sha256": "2302d1075b93e0d54240774f253d15f43a1d3edce5d76103d90ba29eb81cb8bb",
+      "model_path": "artifacts/research/20261114/loki/h3e/fits/adam-nodecay/u250/model.pt",
+      "model_sha256": "75a5eeee2a035ce3d23ca000c1dd693127b7ee467e9c72247f8527de5ea2c2d6"
+    },
+    {
+      "arm": "adam-nodecay",
+      "updates": 250,
+      "seed": 1,
+      "path": "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u250/s1/result.json",
+      "sha256": "331728d4dbe693fd139ea0d1fd6d840876730290eae2565b634b9b585b17f110",
+      "records_sha256": "866a96aebf4f4ae23f521bbd0ef0fbb5ac7336e0ef94d3c7de4b65d273053a19",
+      "model_path": "artifacts/research/20261114/loki/h3e/fits/adam-nodecay/u250/model.pt",
+      "model_sha256": "75a5eeee2a035ce3d23ca000c1dd693127b7ee467e9c72247f8527de5ea2c2d6"
+    },
+    {
+      "arm": "adam-nodecay",
+      "updates": 250,
+      "seed": 2,
+      "path": "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u250/s2/result.json",
+      "sha256": "fced87dd4ff9cda045c1f439f81c270575874fde969129d0f942412fdce6674a",
+      "records_sha256": "68432d4ab918a7eb364f4f7d8868dcae1fb391707f1625f7df5f2c81aa63c7da",
+      "model_path": "artifacts/research/20261114/loki/h3e/fits/adam-nodecay/u250/model.pt",
+      "model_sha256": "75a5eeee2a035ce3d23ca000c1dd693127b7ee467e9c72247f8527de5ea2c2d6"
+    },
+    {
+      "arm": "adam-nodecay",
+      "updates": 1000,
+      "seed": 0,
+      "path": "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u1000/s0/result.json",
+      "sha256": "13fe9b780a14d9036014699c8a4bc10202934cc6e809b2656fc1a26c06c98dec",
+      "records_sha256": "9c3060c7589f51b29a560083671255fe6dd5eae4d1ee8462a8b417116ed2ac2b",
+      "model_path": "artifacts/research/20261114/loki/h3e/fits/adam-nodecay/u1000/model.pt",
+      "model_sha256": "942fc1260d86dca062ba047c110d2d930344a89f85abe9a5574750f6dd3b1218"
+    },
+    {
+      "arm": "adam-nodecay",
+      "updates": 1000,
+      "seed": 1,
+      "path": "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u1000/s1/result.json",
+      "sha256": "35d84aff143f492670c22123816009feb1a16ddc7fb288e1ae0a20a7009af391",
+      "records_sha256": "d91d2da4bb919c108e90bbe244f3f7e889373b96e2e1e808b43710c4706e0e78",
+      "model_path": "artifacts/research/20261114/loki/h3e/fits/adam-nodecay/u1000/model.pt",
+      "model_sha256": "942fc1260d86dca062ba047c110d2d930344a89f85abe9a5574750f6dd3b1218"
+    },
+    {
+      "arm": "adam-nodecay",
+      "updates": 1000,
+      "seed": 2,
+      "path": "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u1000/s2/result.json",
+      "sha256": "38a312d39729fcf43795243c667231b16baa38328a6198562502b2588b126474",
+      "records_sha256": "c29ae2ec1967d0a2a9e085db90dc87d03153002984433070cd1abf0c34d40724",
+      "model_path": "artifacts/research/20261114/loki/h3e/fits/adam-nodecay/u1000/model.pt",
+      "model_sha256": "942fc1260d86dca062ba047c110d2d930344a89f85abe9a5574750f6dd3b1218"
+    },
+    {
+      "arm": "adam-nodecay",
+      "updates": 4000,
+      "seed": 0,
+      "path": "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u4000/s0/result.json",
+      "sha256": "628954d52f8f9194c658921741c90647c47609a13301ce15546944a6484ced62",
+      "records_sha256": "fe0c96a97910fbe2f399f6b95e931ac66e82b034b465a33d73d85126d0147289",
+      "model_path": "artifacts/research/20261114/loki/h3e/fits/adam-nodecay/u4000/model.pt",
+      "model_sha256": "919294200c06b6afff037887ec2d36f0a5990a8cbdffb7b62dfc86ec12247a7e"
+    },
+    {
+      "arm": "adam-nodecay",
+      "updates": 4000,
+      "seed": 1,
+      "path": "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u4000/s1/result.json",
+      "sha256": "3b6746f8fd710efb28197bafbec9a363f70cedbf15bb83dff3aab8fc01b12276",
+      "records_sha256": "92d6919f25565cfc3488e590b28784587ee3b1a2a4b6f4f28563b702f01d07ff",
+      "model_path": "artifacts/research/20261114/loki/h3e/fits/adam-nodecay/u4000/model.pt",
+      "model_sha256": "919294200c06b6afff037887ec2d36f0a5990a8cbdffb7b62dfc86ec12247a7e"
+    },
+    {
+      "arm": "adam-nodecay",
+      "updates": 4000,
+      "seed": 2,
+      "path": "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u4000/s2/result.json",
+      "sha256": "11308523bdea2f9077bf8b373312e6f42484c5995774d866fcf0f1138f4dd30a",
+      "records_sha256": "53012a7168122727f8e19b2b64f213776c638776e760e377cf4b83e09da95a3c",
+      "model_path": "artifacts/research/20261114/loki/h3e/fits/adam-nodecay/u4000/model.pt",
+      "model_sha256": "919294200c06b6afff037887ec2d36f0a5990a8cbdffb7b62dfc86ec12247a7e"
+    },
+    {
+      "arm": "sgd-pre",
+      "updates": 4000,
+      "seed": 0,
+      "path": "artifacts/research/20261114/loki/h3e/search/sgd-pre/u4000/s0/result.json",
+      "sha256": "91bc2abca471f5979803e00b5725987561047efcb305e7ec6e8af2e6d462e841",
+      "records_sha256": "e9d54f79119ff3f5cfe9319b6072a42690153ae89a0f55da54bc5b0ac738d2da",
+      "model_path": "artifacts/research/20261114/loki/h3e/fits/sgd-pre/u4000/model.pt",
+      "model_sha256": "04664289db3ecaa9f632be994bb073ca9db8eae9595a7ef9d1bb7a87823d7769"
+    },
+    {
+      "arm": "sgd-pre",
+      "updates": 4000,
+      "seed": 1,
+      "path": "artifacts/research/20261114/loki/h3e/search/sgd-pre/u4000/s1/result.json",
+      "sha256": "52f1bb3b4b360060d875750dc5dfd249e4cdf70653bf160784e13b40622f06ff",
+      "records_sha256": "6447c1cce891d3a4e184ab47147f48832e2a70b45846e9a300b43e9e7a79ee2d",
+      "model_path": "artifacts/research/20261114/loki/h3e/fits/sgd-pre/u4000/model.pt",
+      "model_sha256": "04664289db3ecaa9f632be994bb073ca9db8eae9595a7ef9d1bb7a87823d7769"
+    },
+    {
+      "arm": "sgd-pre",
+      "updates": 4000,
+      "seed": 2,
+      "path": "artifacts/research/20261114/loki/h3e/search/sgd-pre/u4000/s2/result.json",
+      "sha256": "198d4fea8903b9abc1f067689a9988d4009a6791201675fe119b9d601e9e1382",
+      "records_sha256": "cdfacb840fd62c7b484d0bf4aab9c09fc9936246445b9cbbfa2e2248b86bae2e",
+      "model_path": "artifacts/research/20261114/loki/h3e/fits/sgd-pre/u4000/model.pt",
+      "model_sha256": "04664289db3ecaa9f632be994bb073ca9db8eae9595a7ef9d1bb7a87823d7769"
+    }
+  ],
+  "parent_protocol_sha256": "906a6ed96ac61e4b9bf31fd03d5de3029f21bbe272a09656495b71df7d9b39d7",
+  "budget": {
+    "new_gpu_search_jobs": 3,
+    "chains_per_job": 163840,
+    "cap": 20000,
+    "gpu_minutes_envelope": 10,
+    "new_optimizer_fits": 0
+  },
+  "limits": [
+    "Adaptive reuse of H3e held-out inputs; not fresh confirmation.",
+    "Input groups are held out but all14200complete solution patterns may occur in training; measured overlap is reported prominently.",
+    "Fixed energy-design and offset-sharing priors remain explicit even though there is no optimizer.",
+    "Bank control stores full complete training boards; its success is retrieval and does not imply learned constraint generalization.",
+    "Three repeated search or sampling seeds per fixed construction, not independent training samples."
+  ],
+  "prelaunch_amendment": "Construction wrote valid files, then logging failed from duplicate utc keyword. Remove the duplicate logging key only. No search, bank sampling or accuracy outcome occurred. Original source and protocol retained under prelaunch-v1."
+}

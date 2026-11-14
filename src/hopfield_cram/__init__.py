@@ -4,11 +4,13 @@ from .inference import (ColoringThresholds, GeometricTemperature, RelaxationResu
                         TrainingStatistics, euler_step, fit_coloring_thresholds, fit_statistics,
                         focused_gibbs, relax)
 from .training import TrainingConfig, fit_pseudolikelihood, pseudolikelihood
+from .counting import fit_never_equal
 
 __all__ = ["PairwiseEnergy", "DensePairwiseEnergy", "SudokuEnergy", "MazeEnergy", "NQueensEnergy",
            "GraphColoringEnergy", "pseudolikelihood", "TrainingConfig", "fit_pseudolikelihood",
            "euler_step", "relax", "focused_gibbs", "fit_statistics", "fit_coloring_thresholds",
-           "ColoringThresholds", "GeometricTemperature", "TrainingStatistics", "SearchResult", "RelaxationResult"]
+           "ColoringThresholds", "GeometricTemperature", "TrainingStatistics", "SearchResult", "RelaxationResult",
+           "fit_never_equal"]
 
 from .latent import MazeHardContext, MazeHardEnergy, MazeHardSearchResult, fit_maze_hard, solve_maze_hard
 __all__ += ["MazeHardContext", "MazeHardEnergy", "MazeHardSearchResult", "fit_maze_hard", "solve_maze_hard"]

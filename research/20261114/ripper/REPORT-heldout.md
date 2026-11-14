@@ -15,3 +15,5 @@ All250000saved boards were independently checked by digit counts in rows, column
 This uses fixed full-all rows[20000,30000), k17/21, six model/search seeds0–5,262144moves perchain,fourchains. Models, transformations, temperatures and stopping parameters were frozen before cohort results. This cohort is held out from this research development sequence, not claimed to be a pristine external distribution. No test tuning or modelselection occurred.
 
 [Frozen protocol](protocol-heldout.json) · [Runner](heldout.py) · [Audit](audit_heldout.py) · [Public results](../../../results/research/ripper/heldout.json)
+
+Training-size convention: k counts unique base puzzles. Each base puzzle was fitted with the original and 99 stored symmetry variants, so k10 uses 1,000 training boards. Those inherited variants include digit relabeling, transposition, and valid band/stack/row/column permutations. The post-training transforms and search receive no additional Sudoku peer graph; the original augmentation pipeline already uses Sudoku symmetries.

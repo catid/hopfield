@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-14T22:18:34.015562+00:00",
+  "updated_utc": "2026-11-14T22:46:01.123737+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
-  "status": "seven planned studies complete; ongoing research continues separately",
+  "status": "ten planned studies and one selected-case intervention complete; ongoing research continues separately",
   "host": "work",
-  "jobs": 120,
-  "run_arm_rows": 153,
-  "model_maze_evaluations": 17856,
+  "jobs": 195,
+  "run_arm_rows": 255,
+  "model_maze_evaluations": 42150,
   "hypotheses": [
     {
       "campaign": "discovery",
@@ -276,11 +276,101 @@
         ],
         "decision": "supported"
       }
+    },
+    {
+      "campaign": "eta_boundary",
+      "hypothesis": "H2i eta1 loses >=1pp joint solves versus eta0.5",
+      "outcome": {
+        "n_unique": 1536,
+        "losses": 0,
+        "gains": 0,
+        "lost_fraction_pp": 0.0,
+        "one_sided95_mixture_lower_pp": 0.0,
+        "one_sided95_mixture_upper_pp": 0.796487764386979,
+        "bound_method": "Equal average of stratum Clopper-Pearson bounds, alpha=.05/3 each; Bonferroni simultaneous bound.",
+        "paired_stratified_bootstrap95_loss_pp": [
+          0.0,
+          0.0
+        ],
+        "decision": "falsified",
+        "strata": [
+          {
+            "stratum": "tree",
+            "n_unique": 512,
+            "losses": 0,
+            "gains": 0,
+            "one_sided98_333_lower_pp": 0.0,
+            "one_sided98_333_upper_pp": 0.796487764386979
+          },
+          {
+            "stratum": "loops20",
+            "n_unique": 512,
+            "losses": 0,
+            "gains": 0,
+            "one_sided98_333_lower_pp": 0.0,
+            "one_sided98_333_upper_pp": 0.796487764386979
+          },
+          {
+            "stratum": "comb",
+            "n_unique": 512,
+            "losses": 0,
+            "gains": 0,
+            "one_sided98_333_lower_pp": 0.0,
+            "one_sided98_333_upper_pp": 0.796487764386979
+          }
+        ]
+      }
+    },
+    {
+      "campaign": "tie_controls",
+      "hypothesis": "H2j tie multiplicity loses >=10pp",
+      "outcome": {
+        "n_layout_clusters": 64,
+        "equal_weight_cycle_counts": [
+          1,
+          4,
+          8,
+          12
+        ],
+        "unequal_minus_tied_joint_success_pp": 0.0,
+        "paired_cluster_bootstrap95_pp": [
+          0.0,
+          0.0
+        ],
+        "decision": "falsified",
+        "discordant_clusters": 0,
+        "zero_discordance_one_sided95_cluster_upper_pp": 4.572970233076246
+      }
+    },
+    {
+      "campaign": "long_ties",
+      "hypothesis": "H2k long tied routes lose >=10pp",
+      "outcome": {
+        "n_layout_clusters": 128,
+        "equal_weight_long_routes": [
+          42,
+          64
+        ],
+        "unequal_minus_tied_joint_success_pp": 0.0,
+        "paired_cluster_bootstrap95_pp": [
+          0.0,
+          0.0
+        ],
+        "decision": "falsified",
+        "discordant_clusters": 0,
+        "route28_control_difference_pp": 0.0,
+        "long_minus_route28_difference_pp": 0.0,
+        "zero_discordance_one_sided95_cluster_upper_pp": 2.3132405251746757
+      }
     }
   ],
   "run_tables": [
     "runs.csv",
-    "eta-comb-runs.csv"
+    "eta-comb-runs.csv",
+    "eta-boundary-runs.csv",
+    "tie_controls-runs.csv",
+    "long_ties-runs.csv",
+    "forensic-edits-runs.csv"
   ],
   "protocols": {
     "protocol": {
@@ -310,6 +400,23 @@
     "eta_comb-protocol": {
       "sha256": "2b69362c03128b42a07bba39cfb34d6637be2103a1afbe9fb8249034c7ee78f9",
       "frozen_utc": "2026-11-14T22:11:56.945131+00:00"
+    },
+    "eta_boundary-protocol": {
+      "sha256": "52e2e399a41efc93863265aa8c5c079b1110cfec2600d57599467fa9ab0a5c0c",
+      "frozen_utc": "2026-11-14T22:20:54.800497+00:00"
+    },
+    "tie_controls-protocol": {
+      "sha256": "21269f6090063015fbb2517b47677716f872a2176a1ffbcfa89314dc06ed349c",
+      "frozen_utc": "2026-11-14T22:33:19.418316+00:00"
+    },
+    "long_ties-protocol": {
+      "sha256": "3c70d35e451bf0a37e70747dcc8b17124955e3e914982e7252ee609339663b5b",
+      "frozen_utc": "2026-11-14T22:40:16.534727+00:00"
+    },
+    "forensic_edits-protocol": {
+      "sha256": "1868435a8fb86a8bfd33e8f9e6b2a8e87892fabf336295b4ad50e9f34b55fa79",
+      "frozen_utc": "2026-11-14T22:38:42.976757+00:00",
+      "post_outcome_descriptive": true
     }
   },
   "audit_sha256": {
@@ -319,7 +426,10 @@
     "artifacts/research/20261114/work/horizon_transfer/audit.json": "237d32f37c07ae74af4d575ae1ac0da442970e99f6734dc1506c74c7e5426989",
     "artifacts/research/20261114/work/causal_comb/audit.json": "8126dc65fd73342b0efae37ea18de15c9071c90b38fdb540be9babc0d1487928",
     "artifacts/research/20261114/work/eta/audit.json": "08a1bd6b975582c3032dd72099d6b0495398d1406d1b24017f84d6e7b67c20c1",
-    "artifacts/research/20261114/work/eta_comb/audit.json": "4e0596bcc337b29bd6dee40eea0f01be8bf6d2402bfedd8781361f609f13d88f"
+    "artifacts/research/20261114/work/eta_comb/audit.json": "4e0596bcc337b29bd6dee40eea0f01be8bf6d2402bfedd8781361f609f13d88f",
+    "artifacts/research/20261114/work/eta_boundary/audit.json": "fb5e72de64f2420f5e56e0d0ce02b8fe8fe04b14973cf881d0d71510626c07f6",
+    "artifacts/research/20261114/work/tie_controls/audit.json": "391012a70f59ac22ea1e3991e649ecca6080531487e26868104502f94bc85432",
+    "artifacts/research/20261114/work/long_ties/audit.json": "f05b01db6090d9115b8b98fb2f7677625be881bdcca6449b578b4cbf9acc1b40"
   },
   "model_sha256": {
     "0": {
@@ -343,5 +453,26 @@
     "BP AdamW outside post-training inference protocol; negative and inconclusive outcomes retained."
   ],
   "report": "research/20261114/work/REPORT.md",
-  "source": "research/20261114/work/"
+  "source": "research/20261114/work/",
+  "absolute_reliability_exception": {
+    "joint_solved_each_arm": 1535,
+    "n_unique": 1536,
+    "wrong_stops_per_arm_eta02_eta05_eta08": 2,
+    "timeouts_eta1": 2,
+    "case": "cyclic-failure-classification.json",
+    "scope": "The same cyclic maze fails for model seeds1and2; these are true invalid fixed points or a period-two timeout, not hidden/nonfinite failures."
+  },
+  "primary_jobs": 192,
+  "primary_model_maze_evaluations": 42048,
+  "descriptive_jobs": 3,
+  "descriptive_model_maze_evaluations": 102,
+  "selected_case_interventions": {
+    "dataset_index": 38,
+    "summary": "forensic-edits-summary.json",
+    "targeted_joint_successes": 2,
+    "targeted_edits": 2,
+    "matched_joint_successes": 0,
+    "matched_edits": 32,
+    "scope": "One selected graph; no population inference."
+  }
 }

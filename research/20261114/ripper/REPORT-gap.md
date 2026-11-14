@@ -22,3 +22,5 @@ Post-selection graph audit: all18/18 pruned models recover the exact810-edge Sud
 Fresh development rows[6656,8704), allsix model/search seeds0–5, k10/17/21,262144moves perchain,fourchains. New transformedmodels additionally passed initial+4check exact25field/capturedboard parity gates against GeneralSearch.
 
 [Frozen protocol](protocol-gap.json) · [Runner](gap.py) · [Audit](audit_gap.py) · [Tracked evidence](../../../results/research/ripper/gap.json)
+
+Training-size convention: k counts unique base puzzles. Each base puzzle was fitted with the original and 99 stored symmetry variants, so k10 uses 1,000 training boards. Those inherited variants include digit relabeling, transposition, and valid band/stack/row/column permutations. The post-training transforms and search receive no additional Sudoku peer graph; the original augmentation pipeline already uses Sudoku symmetries.

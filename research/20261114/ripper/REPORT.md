@@ -31,3 +31,5 @@ Capture parity: initial proof mislabeled the number of STATE tensors; the supple
 The k=1000 archived fitted tensors are identical across seed identifiers; that secondary cell varies only the inference seed. The primary k17/21 cells use distinct training subsets/checkpoints.
 
 Follow-up [confirmation](REPORT-confirmation.md) uses2,048disjoint development rows andsixtrainingseeds; [low-data extension](REPORT-lowdata.md) evaluatesk1/3/10. These reports distinguish the new measurements from the initialscreen.
+
+Training-size convention: k counts unique base puzzles. Each base puzzle was fitted with the original and 99 stored symmetry variants, so k10 uses 1,000 training boards. Those inherited variants include digit relabeling, transposition, and valid band/stack/row/column permutations. The post-training transforms and search receive no additional Sudoku peer graph; the original augmentation pipeline already uses Sudoku symmetries.

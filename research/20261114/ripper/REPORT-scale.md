@@ -20,3 +20,5 @@ At k21, the effect is 0.7973 points,95% interval[-0.8359, 2.4566], decision: **e
 The fresh development interval was[8704,10000),1296puzzles permodel. All development rows have now been used across the research sequence.
 
 [Frozen protocol](protocol-scale.json) · [Runner](scale.py) · [Audit](audit_scale.py) · [Tracked results](../../../results/research/ripper/scale.json)
+
+Training-size convention: k counts unique base puzzles. Each base puzzle was fitted with the original and 99 stored symmetry variants, so k10 uses 1,000 training boards. Those inherited variants include digit relabeling, transposition, and valid band/stack/row/column permutations. The post-training transforms and search receive no additional Sudoku peer graph; the original augmentation pipeline already uses Sudoku symmetries.

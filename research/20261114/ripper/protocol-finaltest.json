@@ -1,0 +1,260 @@
+{
+  "id": "H1h-normalized-independent-confirmation",
+  "frozen_utc": "2026-11-14T22:23:04.023304+00:00",
+  "hypothesis": "On a fixed new test cohort, gap+uniform+normalized models gain at least30pp versus canonical repulsive at k10; secondary gains at k17/21 are at least5pp; no wrong stops.",
+  "primary_k": [
+    10
+  ],
+  "primary_threshold_pp": 30,
+  "secondary_k": [
+    17,
+    21
+  ],
+  "secondary_threshold_pp": 5,
+  "k": [
+    10,
+    17,
+    21
+  ],
+  "training_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "arms": [
+    "original_general",
+    "canonical_repulsive_sparse",
+    "normalized_sparse"
+  ],
+  "primary_contrast": [
+    "normalized_sparse",
+    "canonical_repulsive_sparse"
+  ],
+  "split": "full-all",
+  "rows_half_open": [
+    30000,
+    40000
+  ],
+  "move_cap_per_chain": 262144,
+  "chains": 4,
+  "check": 4096,
+  "temperature_hi_unit": 0.4,
+  "temperature_lo_unit": 0.31,
+  "theta_unit": 0.45,
+  "anneal_period": 524288,
+  "tolerance": 0.001,
+  "statistics": "Original uses originalfit hbar/tau/ebar; repulsive uses frozenH1c rawprojectionhbar andowntrainingtau/ebar; normalized uses frozenH1g uniformcoefficientlevel andunchangedtau/ebar.",
+  "selection": "Allmethods/parameters/inputs fixed before reading cohort results. No test tuning.",
+  "structural_caveat": "All18 recovered graphs are identical up to globalweightscale. Repeated source fits do not supply independent structural evidence; transformed variation is largely searchseed/numerical.",
+  "primary_statistic": "Equalweight normalized-minus-repulsive accuracy at k10 across6search/model seeds and10000sharedpuzzles.",
+  "uncertainty": "5000pairedtwo-waybootstrap draws,seedclusters andsharedpuzzleindices; seed20261114.",
+  "decision": "At each k supported if95percentinterval lower>=frozenthreshold, falsified ifupper<threshold,otherwiseinconclusive. Zero-wrong-stop component fails ifany normalizedwrongstop.",
+  "backend": "Fixed H1d derivedSparse fortransformedarms;unchangedGeneralSearch fororiginal. Prior exactparitygatespreserved.",
+  "frozen_inputs": [
+    {
+      "k": 10,
+      "seed": 0,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k10-s0",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k10-s0",
+      "sha256": {
+        "model.pt": "fad6285c0dc39c4e753f01c012b128aa5c972433b59c843e2345a5f37c1874e7",
+        "train.npz": "cb020a4d8912db1e0cc07399872c59a074b6140c942b2d2b4e84291979b6edca",
+        "fit.json": "2b1154d8dcd987a494856624ef27ed8d656ae0a01c9131c01a56769fe2039417"
+      }
+    },
+    {
+      "k": 10,
+      "seed": 1,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k10-s1",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k10-s1",
+      "sha256": {
+        "model.pt": "944722ec1669c362e62d7953784fa5ec67adc411ce2d7f438d185980c7893ec8",
+        "train.npz": "2cc9d23b289b7ecf8124a91465bad056b8a864e90c9f935251352f6e224ebc24",
+        "fit.json": "b51b0de2afe390c5c449a0ba3a538031dc9bd01a21fa89a91bd0f2718bf0a438"
+      }
+    },
+    {
+      "k": 10,
+      "seed": 2,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k10-s2",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k10-s2",
+      "sha256": {
+        "model.pt": "981901de09216fe62e0eefc574365e44c9461ddc5d6b5f098397d4f24555fed3",
+        "train.npz": "7f034264bfbab941f48c5809628baceb2010eafdd14e08030249e7a7e2a4ef2a",
+        "fit.json": "6c489bf1009e0fdf116aae685fbbf089e0b478dee7b88dd658a16118efd39880"
+      }
+    },
+    {
+      "k": 10,
+      "seed": 3,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k10-s3",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k10-s3",
+      "sha256": {
+        "model.pt": "e6c7981570b50ea66a14ece1b85f407f49d910eb263488998896cdc14a02dca2",
+        "train.npz": "be8efd7d87dab678eb74ef006d57e5a141ba12c9afae177d23132213be3c1be4",
+        "fit.json": "dd7c1bbeb5b97730f12e53528ac8aea3ce404f9a4f9cf5e6cbc2d90a42e57874"
+      }
+    },
+    {
+      "k": 10,
+      "seed": 4,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k10-s4",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k10-s4",
+      "sha256": {
+        "model.pt": "ec2bbc8468d4bfbc959aeebe089d34777a3c56923aa22d0fb7890379c061bd3c",
+        "train.npz": "62524f1890caa1c8e738c7a8edfd63c077297ab06ccfd1a79f0320f470601fe1",
+        "fit.json": "990f13f63535adba029633c0f50efa58d33f2c9ca9b6b2d5958e65303098a381"
+      }
+    },
+    {
+      "k": 10,
+      "seed": 5,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k10-s5",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k10-s5",
+      "sha256": {
+        "model.pt": "e1825c92ceac88495b11635245834dc75d5d23c8a23b6f0840ea7649a6d91104",
+        "train.npz": "3294a35c182c72ade8af3d8d6524794a024b895029f9676e1f46b13f0dbcd73b",
+        "fit.json": "df3c1994920faa51ea2f46a003d4b1d37f47b4950c8f4f920ae0db31a7542114"
+      }
+    },
+    {
+      "k": 17,
+      "seed": 0,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k17-s0",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k17-s0",
+      "sha256": {
+        "model.pt": "73f45ea0c061aaacadd6d381595de27b224cd0b3968e0859892da1dad7da9d44",
+        "train.npz": "b8dce349893448e7a785a6632acc8ac6f84bf868b89ab1d7659605e093a1e741",
+        "fit.json": "1f1061345f6208351597c0943879e4a0774c0889968a6117386939eb77f15b85"
+      }
+    },
+    {
+      "k": 17,
+      "seed": 1,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k17-s1",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k17-s1",
+      "sha256": {
+        "model.pt": "0fd342c71a3a48d4100bcdc1004eab79c8dd191aab0112645490fc178a26951c",
+        "train.npz": "fe36c59b7e6d1c7f0462d96d9dcbeb9592462374e0533c31e224f8489522eb96",
+        "fit.json": "838b230d04e11b65373385ac4258194d008dc8086daa0cb4803393cbae0be7f4"
+      }
+    },
+    {
+      "k": 17,
+      "seed": 2,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k17-s2",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k17-s2",
+      "sha256": {
+        "model.pt": "f6dd31e2c9fc7d12a9ce37facefb096bad3d1972b2811b5b50af31dcccb9ac78",
+        "train.npz": "cabef3cddc9c6cfca34964eda003a22b72f1dfc77b802b62f98203e8135286fb",
+        "fit.json": "03d3c0d2f3808aa1e5e99f061e320b9af716c966a8f12ff797119ea1625702d1"
+      }
+    },
+    {
+      "k": 17,
+      "seed": 3,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k17-s3",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k17-s3",
+      "sha256": {
+        "model.pt": "f54640afe66bc6f7385007ecdf306bf68908c98a20261f8e0b8754560d45f897",
+        "train.npz": "aa336ce626d2b4d75482b22946f9b5192df92fa58b15d925cb21a41b9c3f568a",
+        "fit.json": "f7cdb9d526cd5bc3b45bbae3a11329ce47310dac0364801210eaa1f9e3e2da1b"
+      }
+    },
+    {
+      "k": 17,
+      "seed": 4,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k17-s4",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k17-s4",
+      "sha256": {
+        "model.pt": "3df6cfe1d20752857b18e2e3d8a86fd52aac0ac3d0cae27f27355fc1bb519e58",
+        "train.npz": "97bcca1105c326a9df9ce615fb8ce5c608a14daaffbc372c2e3fe43e522953d8",
+        "fit.json": "0642674cb3ae387ecb1701eb26e3ea8faf0c508adc56a14a7e8c854b259dfdf1"
+      }
+    },
+    {
+      "k": 17,
+      "seed": 5,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k17-s5",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k17-s5",
+      "sha256": {
+        "model.pt": "8d8374bc9771d740cd314724ae0e40acf9645771f2dea911f35eadd7cde35b71",
+        "train.npz": "45a3438ddd4805fc4b9b30be57a77798e48abf1badff0f19e5aaf441e94d98c5",
+        "fit.json": "1ca9e1906fceae6e1b9b918d8166ef8e18f9a2b39893e844e2f4de892fb83f7d"
+      }
+    },
+    {
+      "k": 21,
+      "seed": 0,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k21-s0",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k21-s0",
+      "sha256": {
+        "model.pt": "ae408df1321b5f25ffb069c10275a79abff902b8485f58a1ab16682a16680f6e",
+        "train.npz": "854cf7324deb6d7954ef0634ddccbad401828ed8075ac70cfb1e9f318d3ca597",
+        "fit.json": "514ac7c9c79d3d8f9fc7f0d1255bdd541427595216951f16f50d6df41dc98e6a"
+      }
+    },
+    {
+      "k": 21,
+      "seed": 1,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k21-s1",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k21-s1",
+      "sha256": {
+        "model.pt": "c0764d82af9c20dd3d553ba47d1ef909d262c5bbcadf8c9d2822e186029029f5",
+        "train.npz": "bfae7799cc4e3033b6a065fad80c074840f788b92f33b084b86f439b91c5d9f6",
+        "fit.json": "890bd08aa3df84c7c16d8bb1d30a1c9490adc8b1e6ecb74ac044e2371b4d7f35"
+      }
+    },
+    {
+      "k": 21,
+      "seed": 2,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k21-s2",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k21-s2",
+      "sha256": {
+        "model.pt": "bbbe0edc5068ebe2e75c3ad6c7eca1e55b21266747c4532d7c343588caa74b10",
+        "train.npz": "1966280afa017945efcfd695d8ca0cbc25eb4f4087ce09610dca20b4e2026d4e",
+        "fit.json": "a184afb741aaceef74a6e1dfe1d54c38b02f1ab81d02b8d9c39e09b20af5c9ee"
+      }
+    },
+    {
+      "k": 21,
+      "seed": 3,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k21-s3",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k21-s3",
+      "sha256": {
+        "model.pt": "13afacfdd19091293373ddcc0011d428e99106160df6ea9c52e3c36b01f86ac2",
+        "train.npz": "f3373a7c4531dd2718c619fc087ca1e9063a6334ef0f6374f8cc7bc9c7a3607f",
+        "fit.json": "a73a763085a5e8e9a53632bee9d10e4054bf679a7c1a1ede8ec1e420f42b5fe6"
+      }
+    },
+    {
+      "k": 21,
+      "seed": 4,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k21-s4",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k21-s4",
+      "sha256": {
+        "model.pt": "a0074134919be132a432804f0b36cffc25716f4cf0e76ebbefa91708d3e0be3d",
+        "train.npz": "c9bb782c9a54d731fa3b6634b6c5efcad99f23137f75319ba095ceacdcaea42d",
+        "fit.json": "9fb04232c8fb3fda96ab3f9297d1e461c18326d77a6170a50ff7a95b2c92e83a"
+      }
+    },
+    {
+      "k": 21,
+      "seed": 5,
+      "input_dir": "artifacts/research/20261114/ripper/inputs/k21-s5",
+      "source_dir": "dataeff_source/experiments/runs/CRAM-E/DE2-v99-recreated42/k21-s5",
+      "sha256": {
+        "model.pt": "d242e73d825c371652ac386c465ae67e1510fcc6d86088e2636dbf35099d2112",
+        "train.npz": "d5efaae5899d4b04e7db86e0f12877e58a06355d4c833e99c4f6a7e65c8f4d4d",
+        "fit.json": "a86c411f762ce2c34d7d60ed07cc7318fa1cd23bd04dee45d5fc5e8ecba03bc3"
+      }
+    }
+  ],
+  "checkpoint_continuation": "Save complete normalized finalstate pluscapturestate to permit a future same-trajectory budgetcurve without repeatedprefix. No longerbudget run is authorized by this protocol itself.",
+  "wrapper_sha256": "4334d2fe60d03238ec6aaf2621197eed9785a2cd9ebda5db3663df11a015eea3",
+  "backend_sha256": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+  "bp_adamw": "Outside post-training intervention protocol; not run."
+}

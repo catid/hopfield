@@ -1,0 +1,173 @@
+{
+  "id": "H1i-training-only-never-equal-control",
+  "frozen_utc": "2026-11-14T22:31:42.651629+00:00",
+  "hypothesis": "The graph connecting cellpairs that never share a digit in allstoredtraining solutions is exactly equal to the learnedlargestgap graph on all18existing k10/17/21 datasets.",
+  "datasets": {
+    "k": [
+      10,
+      17,
+      21
+    ],
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "variants_per_unique_base": 99
+  },
+  "algorithm": "For each unordered cellpair(i,j),count whether any trainingrow has solution_i==solution_j. Set edge1 iff countzero. No peergraph,positionfeatures,optimizer,clue masks,orheldoutlabels enter selection.",
+  "decision": "Support the finitecohort equality claim only ifall18supportarrays exactlymatch the frozen learnedgap arrays; anymismatchfalsifiesit for thiscohort. No samplingCI for thiscomplete finiteinput audit.",
+  "geometry": "Only after supportconstruction, compare totrueSudokupeergraph aspostselectiondiagnostic.",
+  "inference": "Separate protocol must freeze before anynewcohortsearch. Unit1 never-equal graph is not automatically byte-identical to learnednormalizedweights; only deduplicate identical S/B,thermal,stopping,seed,andpuzzleargs.",
+  "inputs": [
+    {
+      "k": 10,
+      "seed": 0,
+      "train_path": "artifacts/research/20261114/ripper/inputs/k10-s0/train.npz",
+      "train_sha256": "cb020a4d8912db1e0cc07399872c59a074b6140c942b2d2b4e84291979b6edca",
+      "learned_gap_path": "artifacts/research/20261114/ripper/gap/jobs/k10-s0-gap_pruned/searched_model.pt",
+      "learned_gap_sha256": "eb082ab0e17c5c4511187be1edc27b4f813bba4134bcc08830af84286b45e8bf"
+    },
+    {
+      "k": 10,
+      "seed": 1,
+      "train_path": "artifacts/research/20261114/ripper/inputs/k10-s1/train.npz",
+      "train_sha256": "2cc9d23b289b7ecf8124a91465bad056b8a864e90c9f935251352f6e224ebc24",
+      "learned_gap_path": "artifacts/research/20261114/ripper/gap/jobs/k10-s1-gap_pruned/searched_model.pt",
+      "learned_gap_sha256": "c9932638fafb33dfaec374f7f1b8d56ff354097da51c6ad327e13f2ef95c9e9a"
+    },
+    {
+      "k": 10,
+      "seed": 2,
+      "train_path": "artifacts/research/20261114/ripper/inputs/k10-s2/train.npz",
+      "train_sha256": "7f034264bfbab941f48c5809628baceb2010eafdd14e08030249e7a7e2a4ef2a",
+      "learned_gap_path": "artifacts/research/20261114/ripper/gap/jobs/k10-s2-gap_pruned/searched_model.pt",
+      "learned_gap_sha256": "c992d607fd5aa26a63f21ad254933eaffbf2aed622b3e113e184f1d75689143b"
+    },
+    {
+      "k": 10,
+      "seed": 3,
+      "train_path": "artifacts/research/20261114/ripper/inputs/k10-s3/train.npz",
+      "train_sha256": "be8efd7d87dab678eb74ef006d57e5a141ba12c9afae177d23132213be3c1be4",
+      "learned_gap_path": "artifacts/research/20261114/ripper/gap/jobs/k10-s3-gap_pruned/searched_model.pt",
+      "learned_gap_sha256": "6fb9ccaaa3d2166c0748261fbc6b118518853e749780a1fa2f419092b2e06f06"
+    },
+    {
+      "k": 10,
+      "seed": 4,
+      "train_path": "artifacts/research/20261114/ripper/inputs/k10-s4/train.npz",
+      "train_sha256": "62524f1890caa1c8e738c7a8edfd63c077297ab06ccfd1a79f0320f470601fe1",
+      "learned_gap_path": "artifacts/research/20261114/ripper/gap/jobs/k10-s4-gap_pruned/searched_model.pt",
+      "learned_gap_sha256": "a7a5433355e3874ded57ec949dccf97d61ceba42abbe303a6092dcfc85672437"
+    },
+    {
+      "k": 10,
+      "seed": 5,
+      "train_path": "artifacts/research/20261114/ripper/inputs/k10-s5/train.npz",
+      "train_sha256": "3294a35c182c72ade8af3d8d6524794a024b895029f9676e1f46b13f0dbcd73b",
+      "learned_gap_path": "artifacts/research/20261114/ripper/gap/jobs/k10-s5-gap_pruned/searched_model.pt",
+      "learned_gap_sha256": "469c7b6197375418f7ec4b4180fc68291370b1e9ee19f2fa87136209ea1a4221"
+    },
+    {
+      "k": 17,
+      "seed": 0,
+      "train_path": "artifacts/research/20261114/ripper/inputs/k17-s0/train.npz",
+      "train_sha256": "b8dce349893448e7a785a6632acc8ac6f84bf868b89ab1d7659605e093a1e741",
+      "learned_gap_path": "artifacts/research/20261114/ripper/gap/jobs/k17-s0-gap_pruned/searched_model.pt",
+      "learned_gap_sha256": "e9450dc21df839f286f3bd9fab6fe7500fac3685072f26da6c6ae6bdb09653a5"
+    },
+    {
+      "k": 17,
+      "seed": 1,
+      "train_path": "artifacts/research/20261114/ripper/inputs/k17-s1/train.npz",
+      "train_sha256": "fe36c59b7e6d1c7f0462d96d9dcbeb9592462374e0533c31e224f8489522eb96",
+      "learned_gap_path": "artifacts/research/20261114/ripper/gap/jobs/k17-s1-gap_pruned/searched_model.pt",
+      "learned_gap_sha256": "36324d067a177d2489f136b2199f6eca59a23bda0adaff3d60be0df144ac028e"
+    },
+    {
+      "k": 17,
+      "seed": 2,
+      "train_path": "artifacts/research/20261114/ripper/inputs/k17-s2/train.npz",
+      "train_sha256": "cabef3cddc9c6cfca34964eda003a22b72f1dfc77b802b62f98203e8135286fb",
+      "learned_gap_path": "artifacts/research/20261114/ripper/gap/jobs/k17-s2-gap_pruned/searched_model.pt",
+      "learned_gap_sha256": "450871974fa3eed8e493ead74c684ec7aec708b02b08c48049a9668477040b53"
+    },
+    {
+      "k": 17,
+      "seed": 3,
+      "train_path": "artifacts/research/20261114/ripper/inputs/k17-s3/train.npz",
+      "train_sha256": "aa336ce626d2b4d75482b22946f9b5192df92fa58b15d925cb21a41b9c3f568a",
+      "learned_gap_path": "artifacts/research/20261114/ripper/gap/jobs/k17-s3-gap_pruned/searched_model.pt",
+      "learned_gap_sha256": "1676f0c644134c2049e306a3cc42fcd187691d8d93c46b0d3fe682125a40c575"
+    },
+    {
+      "k": 17,
+      "seed": 4,
+      "train_path": "artifacts/research/20261114/ripper/inputs/k17-s4/train.npz",
+      "train_sha256": "97bcca1105c326a9df9ce615fb8ce5c608a14daaffbc372c2e3fe43e522953d8",
+      "learned_gap_path": "artifacts/research/20261114/ripper/gap/jobs/k17-s4-gap_pruned/searched_model.pt",
+      "learned_gap_sha256": "fbc037c303eaff4feea40bb3c7a10e9fe57e3bcf0ff9909f93c5a24c593adef9"
+    },
+    {
+      "k": 17,
+      "seed": 5,
+      "train_path": "artifacts/research/20261114/ripper/inputs/k17-s5/train.npz",
+      "train_sha256": "45a3438ddd4805fc4b9b30be57a77798e48abf1badff0f19e5aaf441e94d98c5",
+      "learned_gap_path": "artifacts/research/20261114/ripper/gap/jobs/k17-s5-gap_pruned/searched_model.pt",
+      "learned_gap_sha256": "4ff27077970f81596c9de4cc3502b12f6b73ef40ae21ecc0f8ad6403ba0a9709"
+    },
+    {
+      "k": 21,
+      "seed": 0,
+      "train_path": "artifacts/research/20261114/ripper/inputs/k21-s0/train.npz",
+      "train_sha256": "854cf7324deb6d7954ef0634ddccbad401828ed8075ac70cfb1e9f318d3ca597",
+      "learned_gap_path": "artifacts/research/20261114/ripper/gap/jobs/k21-s0-gap_pruned/searched_model.pt",
+      "learned_gap_sha256": "7b746139c81996e11f994bd63fcdabe660c9ec03ef5b15a5f816c8b634641235"
+    },
+    {
+      "k": 21,
+      "seed": 1,
+      "train_path": "artifacts/research/20261114/ripper/inputs/k21-s1/train.npz",
+      "train_sha256": "bfae7799cc4e3033b6a065fad80c074840f788b92f33b084b86f439b91c5d9f6",
+      "learned_gap_path": "artifacts/research/20261114/ripper/gap/jobs/k21-s1-gap_pruned/searched_model.pt",
+      "learned_gap_sha256": "0298951a5ce377d4d3cab93c33f6d04d853202b09ff1676e5f4796fdc5c8ce6a"
+    },
+    {
+      "k": 21,
+      "seed": 2,
+      "train_path": "artifacts/research/20261114/ripper/inputs/k21-s2/train.npz",
+      "train_sha256": "1966280afa017945efcfd695d8ca0cbc25eb4f4087ce09610dca20b4e2026d4e",
+      "learned_gap_path": "artifacts/research/20261114/ripper/gap/jobs/k21-s2-gap_pruned/searched_model.pt",
+      "learned_gap_sha256": "c41b2448a623d0ea4820285312d7ffa658236a6457f269203654fa045f71ff6d"
+    },
+    {
+      "k": 21,
+      "seed": 3,
+      "train_path": "artifacts/research/20261114/ripper/inputs/k21-s3/train.npz",
+      "train_sha256": "f3373a7c4531dd2718c619fc087ca1e9063a6334ef0f6374f8cc7bc9c7a3607f",
+      "learned_gap_path": "artifacts/research/20261114/ripper/gap/jobs/k21-s3-gap_pruned/searched_model.pt",
+      "learned_gap_sha256": "3002417f69c4dab7d5a4afe3852c659e1ceb0a9b002212defbffcfc666459558"
+    },
+    {
+      "k": 21,
+      "seed": 4,
+      "train_path": "artifacts/research/20261114/ripper/inputs/k21-s4/train.npz",
+      "train_sha256": "c9bb782c9a54d731fa3b6634b6c5efcad99f23137f75319ba095ceacdcaea42d",
+      "learned_gap_path": "artifacts/research/20261114/ripper/gap/jobs/k21-s4-gap_pruned/searched_model.pt",
+      "learned_gap_sha256": "3a748eba8282ff05c3057162a342857723ba3c27b40e8386d4ef9753005abbf3"
+    },
+    {
+      "k": 21,
+      "seed": 5,
+      "train_path": "artifacts/research/20261114/ripper/inputs/k21-s5/train.npz",
+      "train_sha256": "d5efaae5899d4b04e7db86e0f12877e58a06355d4c833e99c4f6a7e65c8f4d4d",
+      "learned_gap_path": "artifacts/research/20261114/ripper/gap/jobs/k21-s5-gap_pruned/searched_model.pt",
+      "learned_gap_sha256": "f3adbb627754f35a9b82a46eba52b50c1124580d2c7ecdcb83b19f40f8040917"
+    }
+  ],
+  "prior_outcomes": "Existing learnedgraphs known exact810peers. Never-equal supports have not been inspected atfreeze.",
+  "structural_caveat": "Training data includes100boards peruniquebase withspatialSudokuaugmentations. Equality events are invariant to digitpermutation,so base-only anddigit-only never-equal graphs must analyticallycoincide."
+}

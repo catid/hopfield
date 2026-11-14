@@ -1,0 +1,485 @@
+{
+  "status": "validated",
+  "utc": "2026-11-14T22:34:00.407263+00:00",
+  "hypothesis": "H3e",
+  "decision": "supported",
+  "primary": {
+    "decision": "supported",
+    "any_regression_inputs": 0,
+    "regression_probability_exact95_upper": 0.0003656231183700605,
+    "conservative_accuracy95_lower_pp": -0.03656231183700605,
+    "accuracy_difference_pp": 0.0732421875,
+    "coverage_difference_pp": -0.926865337987722,
+    "accuracy_one_sided_95_lower_pp": 0.0244140625,
+    "accuracy_one_sided_95_upper_pp": 0.1220703125,
+    "coverage_one_sided_95_lower_pp": -1.0769487542021552,
+    "coverage_one_sided_95_upper_pp": -0.7695237741243499,
+    "replicates": 2000,
+    "unit": "unique input, with all three search seeds retained inside each bootstrap cluster",
+    "seed": 20261114
+  },
+  "rows": [
+    {
+      "arm": "adamw-decay",
+      "updates": 4000,
+      "unique_inputs": 8192,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "original_accuracy_pct": 99.78841145833334,
+      "certificate_first_accuracy_pct": 99.78841145833334,
+      "n1_accuracy_pct": 57.173665364583336,
+      "coverage_pct": 54.17232702239494,
+      "wrong_stops": 0,
+      "capped_chains": 212163,
+      "mean_moves": 13320.230122884115,
+      "search_seconds_total": 198.45006702799583
+    },
+    {
+      "arm": "adam-nodecay",
+      "updates": 250,
+      "unique_inputs": 8192,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "original_accuracy_pct": 100.0,
+      "certificate_first_accuracy_pct": 100.0,
+      "n1_accuracy_pct": 96.00423177083334,
+      "coverage_pct": 71.56667182547189,
+      "wrong_stops": 0,
+      "capped_chains": 19955,
+      "mean_moves": 4878.4049051920565,
+      "search_seconds_total": 111.8806108199642
+    },
+    {
+      "arm": "adam-nodecay",
+      "updates": 1000,
+      "unique_inputs": 8192,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "original_accuracy_pct": 100.0,
+      "certificate_first_accuracy_pct": 100.0,
+      "n1_accuracy_pct": 96.76513671875,
+      "coverage_pct": 72.32386979175624,
+      "wrong_stops": 0,
+      "capped_chains": 15655,
+      "mean_moves": 4508.890736897786,
+      "search_seconds_total": 107.86794487497536
+    },
+    {
+      "arm": "adam-nodecay",
+      "updates": 4000,
+      "unique_inputs": 8192,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "original_accuracy_pct": 100.0,
+      "certificate_first_accuracy_pct": 100.0,
+      "n1_accuracy_pct": 93.4814453125,
+      "coverage_pct": 71.63287649247101,
+      "wrong_stops": 0,
+      "capped_chains": 32272,
+      "mean_moves": 6000.438047281902,
+      "search_seconds_total": 124.7347756899544
+    },
+    {
+      "arm": "sgd-pre",
+      "updates": 4000,
+      "unique_inputs": 8192,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "original_accuracy_pct": 99.9267578125,
+      "certificate_first_accuracy_pct": 99.9267578125,
+      "n1_accuracy_pct": 97.09065755208334,
+      "coverage_pct": 72.4935371634596,
+      "wrong_stops": 0,
+      "capped_chains": 14569,
+      "mean_moves": 4322.3966084798185,
+      "search_seconds_total": 105.78376741200918
+    }
+  ],
+  "dataset": {
+    "status": "prepared_and_independently_validated",
+    "utc": "2026-11-14T22:23:29.909601+00:00",
+    "n": 12,
+    "complete_solutions": 14200,
+    "exact_labeled_rows_universe": 4231600,
+    "unique_input_universe": 206628,
+    "full_unique_by_clues": {
+      "1": 144,
+      "2": 7700,
+      "3": 198784
+    },
+    "fit_unique": 100000,
+    "fit_unique_by_clues": {
+      "1": 69,
+      "2": 3727,
+      "3": 96204
+    },
+    "test_unique": 8192,
+    "test_unique_by_clues": {
+      "1": 6,
+      "2": 305,
+      "3": 7881
+    },
+    "fit_expanded_rows": 2049002,
+    "test_expanded_rows": 169706,
+    "free_cell_weight_total": 289531895,
+    "seed": 2026111412,
+    "splitting": "Enumerate every completable 1/2/3-clue input; allocate 8192 held-out inputs proportionally by clue count using largest remainders, shuffle within each stratum, take held-out first. Allocate 100000 fit inputs proportionally from remaining strata and take next shuffled inputs. Remainder unused. No partial input crosses groups.",
+    "labels": "Every compatible complete solution for each selected fit input, matching GRAM expansion; free_counts aggregates the exact full-row PL objective without sampling a completion.",
+    "validation": [
+      "Independent bitmask recursion yields14200 distinct solutions",
+      "Direct column/diagonal checks on every solution",
+      "Exact set equality against pinned set-based completion recursion",
+      "Input-group split disjointness and exact target counts",
+      "All selected completion labels represented in exact free-cell counts"
+    ],
+    "data_sha256": "c3b1d31a9015f3767c8e070e35c2fc36b76fca906bfb773ccc669f741a710afd",
+    "source_sha256": "4d77130941ff5a712e563eedc02a6563140d95c29443d87ad7c51d46726c23a9",
+    "seconds": 1.5651941370451823,
+    "no_training_or_search": true
+  },
+  "calibration_audits": [
+    {
+      "arm": "adamw-decay",
+      "updates": 4000,
+      "computed_float64": {
+        "tau": -32.586998611688614,
+        "delta": 4.681826569139957,
+        "unit": 9.287836186677302
+      },
+      "absolute_errors": {
+        "tau": 6.258487701416016e-07,
+        "delta": 2.2351741790771484e-08,
+        "unit": 8.418261163711804e-07
+      },
+      "fit_loss": 0.0003952511469833553,
+      "model_sha256": "10142e2614b0fb9580f1f520d67f6c01a5953f101e73e1037bacce9dfd92b544"
+    },
+    {
+      "arm": "adam-nodecay",
+      "updates": 250,
+      "computed_float64": {
+        "tau": -27.217156775295734,
+        "delta": 3.8286475837230682,
+        "unit": 9.537485465373937
+      },
+      "absolute_errors": {
+        "tau": 1.3187527656555176e-06,
+        "delta": 2.9802322387695312e-08,
+        "unit": 6.109810435361851e-07
+      },
+      "fit_loss": 0.0008542048162780702,
+      "model_sha256": "75a5eeee2a035ce3d23ca000c1dd693127b7ee467e9c72247f8527de5ea2c2d6"
+    },
+    {
+      "arm": "adam-nodecay",
+      "updates": 1000,
+      "computed_float64": {
+        "tau": -38.43501165509224,
+        "delta": 5.7451720386743546,
+        "unit": 11.758352139099047
+      },
+      "absolute_errors": {
+        "tau": 1.1622905731201172e-06,
+        "delta": 1.4901161193847656e-08,
+        "unit": 1.4056403863094147e-07
+      },
+      "fit_loss": 0.00012901605805382133,
+      "model_sha256": "942fc1260d86dca062ba047c110d2d930344a89f85abe9a5574750f6dd3b1218"
+    },
+    {
+      "arm": "adam-nodecay",
+      "updates": 4000,
+      "computed_float64": {
+        "tau": -46.79964134097099,
+        "delta": 7.183567702770233,
+        "unit": 13.44159924997578
+      },
+      "absolute_errors": {
+        "tau": 6.854534149169922e-07,
+        "delta": 1.7881393432617188e-07,
+        "unit": 5.959104498742818e-07
+      },
+      "fit_loss": 3.040853698621504e-05,
+      "model_sha256": "919294200c06b6afff037887ec2d36f0a5990a8cbdffb7b62dfc86ec12247a7e"
+    },
+    {
+      "arm": "sgd-pre",
+      "updates": 4000,
+      "computed_float64": {
+        "tau": -19.126950562000275,
+        "delta": 4.7536594569683075,
+        "unit": 10.457674795272402
+      },
+      "absolute_errors": {
+        "tau": 6.556510925292969e-07,
+        "delta": 2.086162567138672e-07,
+        "unit": 1.8489117259434806e-07
+      },
+      "fit_loss": 0.00030830386094748974,
+      "model_sha256": "04664289db3ecaa9f632be994bb073ca9db8eae9595a7ef9d1bb7a87823d7769"
+    }
+  ],
+  "certificate_diagnostics": {
+    "adamw-decay/u4000/s0": {
+      "stopped_count": 93198,
+      "strict_negative_count": 0,
+      "deficit_beyond_1e3_count": 0,
+      "minimum_stopped_gap": 0.0009999776482585432
+    },
+    "adamw-decay/u4000/s1": {
+      "stopped_count": 93585,
+      "strict_negative_count": 0,
+      "deficit_beyond_1e3_count": 0,
+      "minimum_stopped_gap": 0.0009999776482585432
+    },
+    "adamw-decay/u4000/s2": {
+      "stopped_count": 92574,
+      "strict_negative_count": 0,
+      "deficit_beyond_1e3_count": 0,
+      "minimum_stopped_gap": 0.0009999776482585432
+    },
+    "adam-nodecay/u250/s0": {
+      "stopped_count": 157213,
+      "strict_negative_count": 0,
+      "deficit_beyond_1e3_count": 0,
+      "minimum_stopped_gap": 0.0009999701976775022
+    },
+    "adam-nodecay/u250/s1": {
+      "stopped_count": 157211,
+      "strict_negative_count": 0,
+      "deficit_beyond_1e3_count": 0,
+      "minimum_stopped_gap": 0.0009999701976775022
+    },
+    "adam-nodecay/u250/s2": {
+      "stopped_count": 157141,
+      "strict_negative_count": 0,
+      "deficit_beyond_1e3_count": 0,
+      "minimum_stopped_gap": 0.0009999701976775022
+    },
+    "adam-nodecay/u1000/s0": {
+      "stopped_count": 158625,
+      "strict_negative_count": 0,
+      "deficit_beyond_1e3_count": 0,
+      "minimum_stopped_gap": 0.0010000149011615278
+    },
+    "adam-nodecay/u1000/s1": {
+      "stopped_count": 158654,
+      "strict_negative_count": 0,
+      "deficit_beyond_1e3_count": 0,
+      "minimum_stopped_gap": 0.0010000149011615278
+    },
+    "adam-nodecay/u1000/s2": {
+      "stopped_count": 158586,
+      "strict_negative_count": 0,
+      "deficit_beyond_1e3_count": 0,
+      "minimum_stopped_gap": 0.0010000149011615278
+    },
+    "adam-nodecay/u4000/s0": {
+      "stopped_count": 153063,
+      "strict_negative_count": 0,
+      "deficit_beyond_1e3_count": 0,
+      "minimum_stopped_gap": 0.0010001788139346601
+    },
+    "adam-nodecay/u4000/s1": {
+      "stopped_count": 153119,
+      "strict_negative_count": 0,
+      "deficit_beyond_1e3_count": 0,
+      "minimum_stopped_gap": 0.0010001788139346601
+    },
+    "adam-nodecay/u4000/s2": {
+      "stopped_count": 153066,
+      "strict_negative_count": 0,
+      "deficit_beyond_1e3_count": 0,
+      "minimum_stopped_gap": 0.0010001788139346601
+    },
+    "sgd-pre/u4000/s0": {
+      "stopped_count": 158991,
+      "strict_negative_count": 0,
+      "deficit_beyond_1e3_count": 0,
+      "minimum_stopped_gap": 0.0010002086162570478
+    },
+    "sgd-pre/u4000/s1": {
+      "stopped_count": 158958,
+      "strict_negative_count": 0,
+      "deficit_beyond_1e3_count": 0,
+      "minimum_stopped_gap": 0.0010002086162570478
+    },
+    "sgd-pre/u4000/s2": {
+      "stopped_count": 159002,
+      "strict_negative_count": 0,
+      "deficit_beyond_1e3_count": 0,
+      "minimum_stopped_gap": 0.0010002086162570478
+    }
+  },
+  "optimization_validation": {
+    "status": "passed",
+    "utc": "2026-11-14T22:27:37.541199+00:00",
+    "expanded_rows": 2049002,
+    "compressed_solutions": 14200,
+    "loss_values": {
+      "expanded_upstream": 1.087556004524231,
+      "aggregated_binary": 1.0875558853149414
+    },
+    "loss_absolute_error": 1.1920928955078125e-07,
+    "gradient_max_absolute_error": 7.450580596923828e-07,
+    "timings_seconds": {
+      "expanded_upstream": [
+        0.07948915101587772,
+        0.07917103299405426,
+        0.0792620400316082
+      ],
+      "aggregated_binary": [
+        0.0005507369642145932,
+        0.0003930500242859125,
+        0.00039209797978401184
+      ]
+    },
+    "median_forward_backward_speedup": 201.65891142128868,
+    "peak_memory_bytes": {
+      "expanded_upstream": 13331785216,
+      "aggregated_binary": 2740823040
+    },
+    "scope": "Three GPU forward+backward calls after one warmup on the actual complete fit data, with no optimizer update or search; not an end-to-end fit speedup.",
+    "protocol_sha256": "906a6ed96ac61e4b9bf31fd03d5de3029f21bbe272a09656495b71df7d9b39d7",
+    "source_sha256": "9488b49daf16abf4b3d52e500cff13622aef2b2c28f2976e2acbdb3b85510937"
+  },
+  "cpu_validation": {
+    "status": "passed",
+    "utc": "2026-11-14T22:26:48.153300+00:00",
+    "loss_absolute_error": 2.220446049250313e-16,
+    "gradient_max_absolute_error": 5.551115123125783e-17,
+    "protocol_sha256": "906a6ed96ac61e4b9bf31fd03d5de3029f21bbe272a09656495b71df7d9b39d7",
+    "source_sha256": "9488b49daf16abf4b3d52e500cff13622aef2b2c28f2976e2acbdb3b85510937",
+    "no_accuracy_measured": true
+  },
+  "independent_saved_boards": 2457600,
+  "posthoc_uniform_solution_reference": {
+    "expected_pooled_coverage_pct": 76.37116838890702,
+    "formula": "sum_i s_i*(1-(1-1/s_i)^20) / sum_i min(s_i,20)",
+    "scope": "Exact expectation for independent uniform draws from each complete valid solution set; offline oracle reference, not a learned competitor or an upper bound. No influence on settings or decisions."
+  },
+  "limits": [
+    "New generated n12 split rather than official GRAM benchmark; original n10 hyperparameters transferred without n12 tuning.",
+    "Complete solution labels may repeat between disjoint partial inputs, as in the original GRAM protocol; input groups are strictly disjoint.",
+    "Clue strata held out contain only6one-clue and305two-clue inputs; primary estimate pools the declared distribution, not equally weighted strata.",
+    "One deterministic fitted trajectory per optimizer; repeated inference seeds are not training-seed replication.",
+    "Aggregated objective matches the full-row mathematical objective; reordered float32 arithmetic can perturb learned trajectories.",
+    "Certificate-first differs from the paper output-selection convention; original-selection results remain separately visible."
+  ],
+  "input_sha256": {
+    "research/20261114/loki/h3e/protocol.json": "906a6ed96ac61e4b9bf31fd03d5de3029f21bbe272a09656495b71df7d9b39d7",
+    "research/20261114/loki/h3e/driver.py": "9488b49daf16abf4b3d52e500cff13622aef2b2c28f2976e2acbdb3b85510937",
+    "research/20261114/loki/h3e/prepare.py": "4d77130941ff5a712e563eedc02a6563140d95c29443d87ad7c51d46726c23a9",
+    "research/20261114/loki/study.py": "7c48de391879dc2f4b4f14459698afbc84c82cb3e89030e0ba4814d4fd74b552",
+    "research/20261114/loki/h3d/driver.py": "c0b3ecdda3f6b7f8a0a62074f4a9400eee7e390313f2d29daef49bc5639373e7",
+    "upstream/cram/__init__.py": "ada20986bead2aa2d77dcc358af07dbc01b569b1765c83560e917d5cc2bd032f",
+    "upstream/cram/cram_graph_coloring.py": "ed6158d983be48082f851dcdb5175bad7aab6408ac73f14659825e90c67f5275",
+    "upstream/cram/cram_maze.py": "c9f9fa5718fdf7ce1f8ad33dc7dc9481e43c6084a31516ac1c88451dba03ead8",
+    "upstream/cram/cram_maze_hard_graph.py": "967c573a3b3dee6c015bf373b7858b856ae0e639bdfa1a8c302b65af87a19717",
+    "upstream/cram/cram_maze_hard_simple.py": "07e64a9383c4b2b1ea30021063d93e302a794023accbf6effbf188892220b2a8",
+    "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "upstream/cram/cram_sudoku.py": "2c6b53d1b81d54e35c484a3565abd60e778716d6e6121e424aede826a5ab0ed2",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "upstream/cram/graph_coloring_data.py": "b04e61911aa55d437ab3c9d602832c3df09f285f2605aba2e9a3d78c18d9cb04",
+    "upstream/cram/latent_settle_triton.py": "7eca3fdf03ec6d5eb847e0dcbcdad61c74b56c084c363190d2c32a1737f19072",
+    "upstream/cram/maze_h3.py": "dd13a3038830bf1e2db83854704fcb39167a3f76ee9de01832de9b3187ee7acd",
+    "upstream/cram/maze_h3p.py": "dd26d260efea3a84f224743e14ae8383d967dfdafb0b4409bd05e864fe7ce92a",
+    "upstream/cram/maze_learned.py": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "upstream/cram/maze_unique.py": "3ceb56a61d92c3fa52a7d84876314abe31909780159fa53560692c19b306d213",
+    "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623",
+    "upstream/cram/opcount.py": "2ddf7373d227f50f43b06cf8e129cb727a85a3e2e86065e7081ba477997e924d",
+    "upstream/cram/paths.py": "d3af83d2c75e9165b88fbaf09d35ee352523fa79e5b3b02163d0dfbaae8602b8",
+    "upstream/cram/table.py": "bbf1fdce8a9e2fa836f5a3800746671b62f740e28c1986029bb53b608ebd0493",
+    "upstream/experiments/compute_curve_export.py": "951515d262bab6599bee08af08343d039ddc57a3da5b8f38841bccccdb1b47d2",
+    "upstream/experiments/data_efficiency.py": "5f16479ed5428a192ce431e1ebc8715a5ffabeae4aeaefc9448dd4d038495c22",
+    "upstream/experiments/data_efficiency_baselines.py": "08fb19aaf0eff7ddd02fffee3a6e552c7f14e3990384806f75ec3b515f76f383",
+    "upstream/experiments/data_efficiency_common.py": "fd9736215f5268f445f089eaedc84360edbe0aa00abc8af861bf03b98eb1ba01",
+    "upstream/experiments/difficulty_export.py": "946e006435e75bdf36793f0f6dd15a830b44fc076f1ef60f27e492809eb8f051",
+    "upstream/experiments/graph_coloring.py": "156b3c5c4dd377870c10ef6caca20e5ccbf0a6921e0bec997a52d6a03443a972",
+    "upstream/experiments/graph_coloring_export.py": "6823486a862b19e0109ae9df4fca983ba43688daeeef24686450cd1c36a4541d",
+    "upstream/experiments/graph_coloring_hand_set.py": "c0dbce040824dd42d9195305ec8bc5cce581c55143cdf330b7cac8fda3586cdf",
+    "upstream/experiments/hand_set.py": "8fc4f15271655ec5b1e17eec29a48d8f11f8489ca0d1df79f0a7df4f37bac136",
+    "upstream/experiments/maze_hard_figure_export.py": "02e17d0728a458d69428a6e215a33c9d3d5f1f68bb5d49a02a5fac59bb8b037e",
+    "upstream/experiments/maze_hard_latent.py": "fad4c9c05c41ab2e3dcd997c666a2bbf0fdcca5ae894e2e90f1540d6d2cb4d77",
+    "upstream/experiments/maze_hard_support.py": "936caed5f90ef275199c73e26a437b4b6e6dc814b11e6955bb741b33e30b5c49",
+    "upstream/experiments/maze_unique.py": "042e1b0d0c760bfb7b3c4c9a6cd30785e95255ab570a5810bd80cfbf1ac651eb",
+    "upstream/experiments/maze_unique_fit_time.py": "07f0d25ea1f9a244dfba9ce031523400ba6cafa3ecb339ab8a84ade2ac3b31d6",
+    "upstream/experiments/multi_solution_export.py": "7462da58650d6b3c416e7a58b8526899543ae18fe9c05ed0ebd671875cb3317c",
+    "upstream/experiments/nqueens_coverage.py": "2694c01cb6b37b714dcb70b040317aed2789b9ae3207eb2b2c6c54254d41910c",
+    "upstream/experiments/nqueens_emptied.py": "e5d01938ef08469198028547e27cc9789336d3bec7a41cdf88bb2fec37ebeb6e",
+    "upstream/experiments/nqueens_export.py": "79bf0074e470bc6a2bfe1f2dfe5c376b38e96ef98f527a733f01f0b44ce76c96",
+    "upstream/experiments/nqueens_free.py": "67b4f3fd4188714cf04c50f0ecd6b73754c8132e3ed10e7877e17a225e875f08",
+    "upstream/experiments/nqueens_free_export.py": "6bbf21ad9d9864a21dd9f4dda8417a832f4008e7940a5c1b2d8f61162c13156d",
+    "upstream/experiments/nqueens_offset.py": "f9f0641aa33f5a6f80161f20ef55c5bfd6cb28b439439e0162176428a30df0f3",
+    "upstream/experiments/nqueens_offset_export.py": "85a2b6f5bd0d3d56b6ec52b30d22e15d08d8c70f5dca3da9039b3b99f4641127",
+    "upstream/experiments/sudoku.py": "b73f72c8e874711d0d05fa75de0043442a20297618de62e5bb714b76aa09f20b",
+    "upstream/experiments/training_curves.py": "f9c577da0d83a13a53e33ad859d9abe37fbb1cef52c42efb54424f94b6cb2e07",
+    "upstream/experiments/training_methods.py": "13ee258293c6b0883d8dbf93b14533460d402e8bd9d61f306c7d6832f46919e9",
+    "upstream/experiments/training_methods_export.py": "d60a18693e9cc488c239955b952d4f2f34c76eb3f1ed195b793ec4af35341561",
+    "artifacts/research/20261114/loki/h3e/data.npz": "c3b1d31a9015f3767c8e070e35c2fc36b76fca906bfb773ccc669f741a710afd",
+    "artifacts/research/20261114/loki/h3e/dataset.json": "e3c43a99530f3ea7d586aca4c020c7a4ae7cac21caccef024b1b15ddb8892b68",
+    "artifacts/research/20261114/loki/h3e/cpu-validation.json": "e7b071279b819f7cd4fb60a250ae0493335e23d760a5696455738e5b5be36eb6",
+    "artifacts/research/20261114/loki/h3e/gpu-validation.json": "e6d1620da934f01af78ddbf88f2c2395262f1929feb2a46b440c4d42a5848229",
+    "artifacts/research/20261114/loki/h3e/fits/adamw-decay/u4000/fit.json": "4e9a94a5e48a819e7c763ee0a27c5acf2a4a6207ee3bd6d8c81251020875bdf0",
+    "artifacts/research/20261114/loki/h3e/fits/adamw-decay/u4000/model.pt": "10142e2614b0fb9580f1f520d67f6c01a5953f101e73e1037bacce9dfd92b544",
+    "artifacts/research/20261114/loki/h3e/search/adamw-decay/u4000/s0/result.json": "667ebb9f480816b620eddf43b79651f44eea969431a8dc78f2be4993cdb8af6d",
+    "artifacts/research/20261114/loki/h3e/search/adamw-decay/u4000/s0/records.npz": "e264f9d96f03c386a6d1d453459d5e59a7803eecac0a29104d992912eaa5b659",
+    "artifacts/research/20261114/loki/h3e/search/adamw-decay/u4000/s1/result.json": "ad26034ec7e6dd53cc55ac9d88a3adb247cd8361dd5398a07ba65f339cab3683",
+    "artifacts/research/20261114/loki/h3e/search/adamw-decay/u4000/s1/records.npz": "27933189b2de601070eeec12d4fa8444bc79c641aa3810287dbac1145e6bbd18",
+    "artifacts/research/20261114/loki/h3e/search/adamw-decay/u4000/s2/result.json": "a917b5d5d71a493e72fd56589de3cca278dd221fcc288e22d64691c5db3a0fb1",
+    "artifacts/research/20261114/loki/h3e/search/adamw-decay/u4000/s2/records.npz": "aa389acf31bf07fc50efa58f819de3c686599cb5b16ba243ad24cd502b462cb8",
+    "artifacts/research/20261114/loki/h3e/fits/adam-nodecay/u250/fit.json": "21ac690951e67f20648e5635216f7d354c61a1c1aab3767f1379bd98a75df7ec",
+    "artifacts/research/20261114/loki/h3e/fits/adam-nodecay/u250/model.pt": "75a5eeee2a035ce3d23ca000c1dd693127b7ee467e9c72247f8527de5ea2c2d6",
+    "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u250/s0/result.json": "8007a1b4e9ac0127588900a86b7c16522d8c47801b09bf14bbcd928a9898fff0",
+    "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u250/s0/records.npz": "2302d1075b93e0d54240774f253d15f43a1d3edce5d76103d90ba29eb81cb8bb",
+    "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u250/s1/result.json": "331728d4dbe693fd139ea0d1fd6d840876730290eae2565b634b9b585b17f110",
+    "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u250/s1/records.npz": "866a96aebf4f4ae23f521bbd0ef0fbb5ac7336e0ef94d3c7de4b65d273053a19",
+    "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u250/s2/result.json": "fced87dd4ff9cda045c1f439f81c270575874fde969129d0f942412fdce6674a",
+    "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u250/s2/records.npz": "68432d4ab918a7eb364f4f7d8868dcae1fb391707f1625f7df5f2c81aa63c7da",
+    "artifacts/research/20261114/loki/h3e/fits/adam-nodecay/u1000/fit.json": "08aa9ad2a586ca19012b4b0289337fbb0032f4b8262e5c9f51bc26e81e9ec7bc",
+    "artifacts/research/20261114/loki/h3e/fits/adam-nodecay/u1000/model.pt": "942fc1260d86dca062ba047c110d2d930344a89f85abe9a5574750f6dd3b1218",
+    "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u1000/s0/result.json": "13fe9b780a14d9036014699c8a4bc10202934cc6e809b2656fc1a26c06c98dec",
+    "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u1000/s0/records.npz": "9c3060c7589f51b29a560083671255fe6dd5eae4d1ee8462a8b417116ed2ac2b",
+    "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u1000/s1/result.json": "35d84aff143f492670c22123816009feb1a16ddc7fb288e1ae0a20a7009af391",
+    "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u1000/s1/records.npz": "d91d2da4bb919c108e90bbe244f3f7e889373b96e2e1e808b43710c4706e0e78",
+    "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u1000/s2/result.json": "38a312d39729fcf43795243c667231b16baa38328a6198562502b2588b126474",
+    "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u1000/s2/records.npz": "c29ae2ec1967d0a2a9e085db90dc87d03153002984433070cd1abf0c34d40724",
+    "artifacts/research/20261114/loki/h3e/fits/adam-nodecay/u4000/fit.json": "2e59a32c0d3bfef9994df9780f8920275fa09c6bb37d8787a3c41544212d3eca",
+    "artifacts/research/20261114/loki/h3e/fits/adam-nodecay/u4000/model.pt": "919294200c06b6afff037887ec2d36f0a5990a8cbdffb7b62dfc86ec12247a7e",
+    "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u4000/s0/result.json": "628954d52f8f9194c658921741c90647c47609a13301ce15546944a6484ced62",
+    "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u4000/s0/records.npz": "fe0c96a97910fbe2f399f6b95e931ac66e82b034b465a33d73d85126d0147289",
+    "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u4000/s1/result.json": "3b6746f8fd710efb28197bafbec9a363f70cedbf15bb83dff3aab8fc01b12276",
+    "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u4000/s1/records.npz": "92d6919f25565cfc3488e590b28784587ee3b1a2a4b6f4f28563b702f01d07ff",
+    "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u4000/s2/result.json": "11308523bdea2f9077bf8b373312e6f42484c5995774d866fcf0f1138f4dd30a",
+    "artifacts/research/20261114/loki/h3e/search/adam-nodecay/u4000/s2/records.npz": "53012a7168122727f8e19b2b64f213776c638776e760e377cf4b83e09da95a3c",
+    "artifacts/research/20261114/loki/h3e/fits/sgd-pre/u4000/fit.json": "5673434da624088e8cf7d726b77d013b80c97363e7cb2233decf57a7a1678728",
+    "artifacts/research/20261114/loki/h3e/fits/sgd-pre/u4000/model.pt": "04664289db3ecaa9f632be994bb073ca9db8eae9595a7ef9d1bb7a87823d7769",
+    "artifacts/research/20261114/loki/h3e/search/sgd-pre/u4000/s0/result.json": "91bc2abca471f5979803e00b5725987561047efcb305e7ec6e8af2e6d462e841",
+    "artifacts/research/20261114/loki/h3e/search/sgd-pre/u4000/s0/records.npz": "e9d54f79119ff3f5cfe9319b6072a42690153ae89a0f55da54bc5b0ac738d2da",
+    "artifacts/research/20261114/loki/h3e/search/sgd-pre/u4000/s1/result.json": "52f1bb3b4b360060d875750dc5dfd249e4cdf70653bf160784e13b40622f06ff",
+    "artifacts/research/20261114/loki/h3e/search/sgd-pre/u4000/s1/records.npz": "6447c1cce891d3a4e184ab47147f48832e2a70b45846e9a300b43e9e7a79ee2d",
+    "artifacts/research/20261114/loki/h3e/search/sgd-pre/u4000/s2/result.json": "198d4fea8903b9abc1f067689a9988d4009a6791201675fe119b9d601e9e1382",
+    "artifacts/research/20261114/loki/h3e/search/sgd-pre/u4000/s2/records.npz": "cdfacb840fd62c7b484d0bf4aab9c09fc9936246445b9cbbfa2e2248b86bae2e",
+    "research/20261114/loki/h3e/analyze.py": "8fdfc6751b870eeb012f2857978f791aeac3f95ca7199c435c56768d615c051a",
+    "research/20261114/loki/analyze.py": "0a8d1427908062360db73bbeb83b7bbc881ed8eec81450a0245cff40043142e0"
+  },
+  "audit_seconds": 4.696707339026034,
+  "new_training_or_inference": false
+}

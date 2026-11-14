@@ -1,0 +1,61 @@
+{
+  "id": "H4e-direct-count-long-budget",
+  "frozen_utc": "2026-11-14T22:41:25.450810+00:00",
+  "hypothesis": "At16777216movesperchain, optimizer-free countenergy is noninferior to previously measured learnednormalized energy within0.1percentagepoint averageaccuracy onthe same10000puzzles andsixpairedsearchseeds.",
+  "primary_endpoint": 16777216,
+  "primary_accuracy_fraction": 0.99,
+  "secondary_endpoint": 16777216,
+  "secondary_hypothesis": "Countenergy jointlysolvesatleast99%acrossall6searchseeds withzero wrongstops.",
+  "checkpoints": [
+    0,
+    262144,
+    524288,
+    1048576,
+    2097152,
+    4194304,
+    8388608,
+    16777216
+  ],
+  "training_k": 10,
+  "training_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "split": "full-all",
+  "rows_half_open": [
+    30000,
+    40000
+  ],
+  "chains": 4,
+  "check": 4096,
+  "restart": 0,
+  "temperature_hi_unit": 0.4,
+  "temperature_lo_unit": 0.31,
+  "theta_unit": 0.45,
+  "anneal_period": 524288,
+  "tol": 0.001,
+  "method": "Construct binary pair support solely by never-equal counts over1000augmented trainingrows fromk10seed0. Setallretainedweights1 andunaries0. Train-onlycalibrationtau0,ebar0,hbar1. Nooptimizerorlearnedweights.",
+  "continuation": "Fresh search; countcontrol onthiscohort hasnotrunbefore. One uninterrupted trajectory perseed; retain allprespecifiedbudgetcheckpoints.",
+  "validation": "Bounded GeneralSearch/sparse parity beforeproduction; independent boardchecks; integer fieldsandenergy independentlyrecomputed atcheckpoints; storedstates andbudgetpreservation.",
+  "primary_unit": "Paired per-puzzle exactness differencesaveraged oversixsearchseeds; modelisidentical acrossseeds, notsixtrainedreplicas.",
+  "uncertainty": "5000pairedtwo-waybootstrapdraws overseedclusters andsharedpuzzleindices, seed20261114; one-sided95%lowerbound foraccuracydifference. Secondaryjointsuccess exactone-sidedClopperPearson bounds.",
+  "decision": "Primary supportedifpairedone-sided95%lower>=-0.1pp andzero wrongstops;falsifiedifupper<-0.1pp orwrongstop;otherwiseinconclusive. Secondaryabsolutejointclaimseparate.",
+  "limits": [
+    "Same official corpus used in original reproduction; reserved follow-up slice, not new external distribution.",
+    "Longer search is extra compute, not same-budget accuracy improvement.",
+    "Retain original short-budget metrics; no test-based tuning.",
+    "Timing excludes prior prefix and transfers; cumulative search clock recorded separately."
+  ],
+  "source_protocol_sha256": "44699f6ed5577105c3d48f22739acc55e6b72351e7d229d85f50a2d585314f07",
+  "primary_margin_pp": 0.1,
+  "adaptive_note": "Learnednormalized comparatoralreadyobserved; countpolicy andallsettings frozen beforecountoutcomes. This is adaptivefollow-up onreusedcohort, notfresh externalconfirmation.",
+  "frozen_inputs": {
+    "artifacts/research/20261114/ripper/count/k10-s0/counts.npz": "ef22845a4964d21d14a3a776c142f6fff4a2332ab01f8981592ab4ab78a9d2d5",
+    "artifacts/research/20261114/ripper/inputs/k10-s0/train.npz": "cb020a4d8912db1e0cc07399872c59a074b6140c942b2d2b4e84291979b6edca",
+    "results/research/foureyes/budget/summary.json": "bc6ef03f1b1ece041b43fd7e7bb29a526cb492bcda3957b04f1d68a45d4dbb8b"
+  }
+}

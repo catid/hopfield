@@ -1,0 +1,61 @@
+{
+  "id": "H1l-one-base-spatial-coverage",
+  "frozen_utc": "2026-11-14T22:43:30.942167+00:00",
+  "hypothesis": "One base solution andits99storedspatialSudokusymmetryvariants suffice fornever-equalcounting to recover the exact810peergraph on allsixfrozen first-base groups.",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "variants_grid": [
+    0,
+    1,
+    3,
+    7,
+    15,
+    31,
+    63,
+    99
+  ],
+  "selection": "For eachk10seedinput useonlyfirstV+1rows ofthefirst100rowgroup. Edge iff no equality inselectedsolutions. No geometry enters selection.",
+  "primary_decision": "Supported for these6groups only ifall6supports at99variants exactlymatch the auditedpeergraph; anymismatch falsifies thefinitecohortclaim.",
+  "secondary": "Allprefixgraphs andtheir post-selection coverage by pairorbit underSudokuspatial symmetries; numberoffalse retainededges, earliestprespecified exactprefix.",
+  "orbit_audit": "After constructing supports, categorize pairs as row/col-withinbox, row/col-outsidebox, box-only, nonpeer sameband-or-stack, nonpeer differentband-and-stack. Transposition mergesrow/columnorbits. Recordfull orbitcoverage,notonly totaledgecount.",
+  "inference_reuse": "Only forsupportexactlybyteequal topreviouscountgraph andtrainingtau/ebar0,unit1, canmap toexisting count_search seed on full-all[40000,50000). SameS/B/temperature/seed/cohort/cap required. No newGPUsearch orindependentreplicationclaimed.",
+  "inputs": [
+    {
+      "seed": 0,
+      "path": "artifacts/research/20261114/ripper/inputs/k10-s0/train.npz",
+      "sha256": "cb020a4d8912db1e0cc07399872c59a074b6140c942b2d2b4e84291979b6edca"
+    },
+    {
+      "seed": 1,
+      "path": "artifacts/research/20261114/ripper/inputs/k10-s1/train.npz",
+      "sha256": "2cc9d23b289b7ecf8124a91465bad056b8a864e90c9f935251352f6e224ebc24"
+    },
+    {
+      "seed": 2,
+      "path": "artifacts/research/20261114/ripper/inputs/k10-s2/train.npz",
+      "sha256": "7f034264bfbab941f48c5809628baceb2010eafdd14e08030249e7a7e2a4ef2a"
+    },
+    {
+      "seed": 3,
+      "path": "artifacts/research/20261114/ripper/inputs/k10-s3/train.npz",
+      "sha256": "be8efd7d87dab678eb74ef006d57e5a141ba12c9afae177d23132213be3c1be4"
+    },
+    {
+      "seed": 4,
+      "path": "artifacts/research/20261114/ripper/inputs/k10-s4/train.npz",
+      "sha256": "62524f1890caa1c8e738c7a8edfd63c077297ab06ccfd1a79f0320f470601fe1"
+    },
+    {
+      "seed": 5,
+      "path": "artifacts/research/20261114/ripper/inputs/k10-s5/train.npz",
+      "sha256": "3294a35c182c72ade8af3d8d6524794a024b895029f9676e1f46b13f0dbcd73b"
+    }
+  ],
+  "caveat": "Spatialaugmentation is explicit taskknowledge. Onebase plus99validgroupvariants isnotoneunaugmentedexample. Allmatchinggraphs count asone structure."
+}

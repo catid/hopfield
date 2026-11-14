@@ -1,0 +1,1 @@
+The [long-budget report](../../../../research/20261114/foureyes/REPORT-budget.md) explains the optimizer-free count control. Mean accuracy is **99.9567%**, with zero wrong stops at sixteen million moves per chain. This uses augmented Sudoku training data and a reused official test cohort. [Summary and hashes](summary.json) · [Per-seed CSV](per_seed.csv).

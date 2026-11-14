@@ -1,20 +1,22 @@
 # Hopfield: small energies, better reasoning
 
-**+47.8 points on low-data Sudoku. 2.82× faster sparse search. No retraining for either.**
+**99.9567% Sudoku accuracy with a count-based energy and no optimizer.**
 
-An independent implementation, reproduction and experimental extension of [*Classical Energies Learn to Reason 1,000× Faster than Looped Models*](https://arxiv.org/abs/2611.17309v1), by Benjamin Hoover, Hugh Blayney and James C. R. Whittington. CRAM learns a classical energy function, then searches for low-energy solutions.
+An independent implementation, reproduction and experimental extension of [*Classical Energies Learn to Reason 1,000× Faster than Looped Models*](https://arxiv.org/abs/2611.17309v1), by Benjamin Hoover, Hugh Blayney and James C. R. Whittington. CRAM learns a classical energy function, then searches for low-energy solutions. Our follow-ups test what the optimizer, data augmentation and search each contribute.
 
 [Paper in reviewed Markdown](references/2611.17309v1.md) · [Research results](results/README.md) · [Reproduction](REPRODUCTION.md) · [Run the code](docs/RERUN_GUIDE.md)
 
-## Better Sudoku energies without another training run
+## Simple counts match the transformed Sudoku energy
 
-![Reserved Sudoku test results: original CRAM, rule-checked stopping, and digit symmetry with repulsive couplings](assets/figures/sudoku-heldout.png)
+![Count-based Sudoku energy: matched short-budget accuracy and longer-budget failure curves](assets/figures/count-energy.png)
 
-A post-training transformation makes the learned energy invariant to renaming digits and removes attractive equal-digit couplings. It raises average solve accuracy from **21.20% to 69.03%** on a reserved 10,000-puzzle test slice: **+47.83 percentage points**, approximate paired 95% interval **[42.72, 52.85]**. The transformed models made **zero wrong stops** across 120,000 model–puzzle evaluations.
+Connect two cells if they **never share a digit in the training solutions**. Give each retained pair weight one, then run the same focused Gibbs search. This simple estimator recovers the same 810-edge constraint graph as our transformed learned energies, without an optimizer or a supplied Sudoku peer graph.
 
-The comparison uses 17 or 21 unique training puzzles, six trained seeds each, four search chains, and **262,144 moves per chain**. That fixed cap is shorter than the original paper-budget evaluation. The transformation uses learned weights and training-only calibration; it receives no Sudoku row/column/box graph. A separate rule-checking stop adds that task knowledge and reaches **61.30%** with the original energies. Same move cap does not mean equal realized work.
+On a reserved **10,000-puzzle official test slice**, the count energy solves **59,974/60,000 evaluations (99.9567%)** across six search seeds, with **zero wrong stops**, using four chains and **16,777,216 moves per chain**. The transformed learned energy reaches 99.9417% under the same budget. The paired difference is +0.015 points; its one-sided 95% lower bound of −0.0151 points passes the frozen 0.1-point noninferiority margin. At the shorter **262,144-move** cap, the count method solves **81.50%**.
 
-The earlier, disjoint development confirmation gained **48.31 points** from digit symmetry alone. These are follow-up cohorts from the official corpus, which was also used in the original reproduction; they are not a new external benchmark. [Protocols, per-seed results and independent board audits →](research/20261114/ripper/REPORT-heldout.md) · [Rule-checking study →](research/20261114/foureyes/REPORT.md)
+**The augmentation prior matters.** These training counts use ten unique base solutions **plus 99 stored Sudoku-symmetry variants per base**. The transformations supply task knowledge. A follow-up finds that one base solution plus 99 such variants already recovers the identical graph in all six tested sets; this is not one unaugmented example learning Sudoku. The count comparison also reuses the official corpus and a follow-up cohort. [Protocols, full budget curve, stopping proof and limitations →](research/20261114/foureyes/REPORT-budget.md) · [Count and augmentation controls →](research/20261114/ripper/REPORT-count.md)
+
+The earlier intervention result remains useful: digit symmetry and repulsion increased low-data accuracy by **47.83 points** on a separate reserved slice. But the count control shows that optimizer training is unnecessary for recovering this graph from these augmented datasets. [Earlier matched results →](research/20261114/ripper/REPORT-heldout.md)
 
 ## The same transformed model, faster inference
 
@@ -30,19 +32,21 @@ Changing the inference step size from **0.2 to 0.5**, with the learned 29-parame
 
 At a tighter 2,048-update cap, joint success rises from **351/384 to 384/384** at 60×60 and **285/384 to 370/384** at 90×90. These generated tree/loopy mazes differ from the original Maze-Hard distribution. [Frozen protocol, confidence intervals and causal branch-depth experiments →](research/20261114/work/REPORT.md)
 
-## Four times fewer training updates for N-Queens
+## N-Queens: stronger controls change the interpretation
 
-![Weight-decay control, training-prefix accuracy and measured fitting time](results/research/loki/weight-decay-and-prefix.png)
+![N-Queens-12 coverage and accuracy: optimizers, count energy and compatible training-bank control](results/research/loki/h3f/count-and-bank-controls.png)
 
-Under the original lowest-energy output selection, at a fixed **1,000 updates**, Adam without decay matches the **99.9846%** accuracy of preconditioned SGD at **4,000 updates**, taking **2.03 s versus 8.08 s** in matched complete-fit measurements. Solution coverage is 0.47 points lower. The 1,000-update comparison was frozen before evaluation; the test cohort had been used in earlier follow-ups. [Protocol and audited results →](research/20261114/loki/h3c/REPORT.md)
+On **8,192 N-Queens-12 partial inputs**, a training-count exclusion energy reaches **100% accuracy and 75.95% solution coverage**, versus **100% and 71.57%** for Adam at 250 updates. It uses no optimizer, but combines inferred exclusions with a declared fixed energy design and the supplied offset architecture. Ordinary BP AdamW at 4,000 updates reaches 99.7884% accuracy and 54.17% coverage; preconditioned SGD reaches 99.9268% and 72.49%.
 
-## Optimizer controls and results that did not work
+**All 14,200 complete solution patterns occur in the training labels.** Inputs are held out; complete patterns are not. A compatible-training-bank control also reaches 100% accuracy and 76.38% coverage. These controls prevent interpreting the result as generalization to unseen solution patterns. [Exact data split, energy design, counts and controls →](research/20261114/loki/h3f/REPORT.md)
 
-Under that original selection rule, on all **6,513 unique N-Queens-10 test inputs**, ordinary BP AdamW with weight decay reaches **99.6059%**, Adam without decay reaches **100%**, and preconditioned SGD reaches **99.9846%**. Each is one deterministic full-batch fit with three search seeds, 20 chains and a 20,000-move cap. The learning rate was selected on development data; this is an adaptive follow-up, not a general optimizer ranking. [Full comparison →](research/20261114/loki/h3b/REPORT.md)
+Earlier N-Queens-10 experiments showed faster fitting with Adam and a weight-decay gap. A learned-certificate-first output policy then fixed all 77 failed AdamW input–seed cases without extra search, showing that the gap depends on output selection. [Optimizer experiments →](research/20261114/loki/h3c/REPORT.md) · [Selection control →](research/20261114/loki/h3d/REPORT.md)
 
-**The optimizer gap depends on output selection.** A follow-up that prefers a chain satisfying the learned stopping condition fixes all 77 failed AdamW input–seed cases in the saved searches, reaching **100%** with **no additional search**. It uses stopping flags and energies, without a symbolic N-Queens checker. This changes the paper’s output convention and was evaluated adaptively on the reused test cohort. [Selector, exhaustive board checks and measured overhead →](research/20261114/loki/h3d/REPORT.md)
+## Failures are part of the result
 
-Negative results stay visible: digit projection still solves **0%** with one or three training puzzles; clipping attractive couplings fails the proposed ten-point gain; maze mass rescaling gives **no improvement**; AdamW fails the original accuracy noninferiority test; and training-only Sudoku thresholds do not establish a replacement for the rule checker. [All hypotheses, controls and measured outcomes →](results/README.md)
+The maze step-size benefit has a limit: a new maze with many tied shortest paths produces certified branched or disconnected answers for two models. Simple tied-cycle controls still solve perfectly, so ties alone do not explain the failure. [Saved graph, boards and causal controls →](research/20261114/work/REPORT.md)
+
+The learned Sudoku pipeline's four-million-move **99% all-seed joint-success hypothesis was inconclusive**, despite 99.635% mean accuracy. The sixteen-million-move secondary endpoint passed. Projection still fails at extremely low data; largest-gap pruning collapses without spatial augmentation; and maze mass rescaling gives no improvement. [All hypotheses, including negative and inconclusive outcomes →](results/README.md)
 
 ## What was reproduced?
 
@@ -60,8 +64,20 @@ cd hopfield
 git clone https://github.com/Prefrontal-AI/CRAM.git upstream
 git -C upstream checkout --detach 62bbe830c7d6f87f2ba18f30a28039258b986454
 uv sync --project upstream --frozen --python 3.13.13
-CUDA_VISIBLE_DEVICES= upstream/.venv/bin/python -m pytest -q tests/test_reference.py
+uv pip install --python upstream/.venv/bin/python --no-deps -e .
+CUDA_VISIBLE_DEVICES= upstream/.venv/bin/python -m pytest -q tests/test_reference.py tests/test_counting.py
 ```
+
+Build the optimizer-free baseline from your own completed training states:
+
+```python
+from hopfield_cram import fit_never_equal
+
+# Integer tensor (examples, 81), digits 0..8; training data only.
+energy, equality_counts = fit_never_equal(training_solutions, n_values=9)
+```
+
+This [small public API](src/hopfield_cram/counting.py) supplies no cell geometry. With insufficient data, it can infer exclusions that do not hold for unseen valid boards. The [published binary model](results/research/foureyes/count_budget/model.json) retains the training provenance behind the measured Sudoku result. All 33 reference/counting tests pass.
 
 The readable implementation is in [src/hopfield_cram](src/hopfield_cram/). Full-scale runs use the pinned upstream kernels and the isolated [research runners](research/20261114/). [Setup, data preparation and rerun instructions](docs/RERUN_GUIDE.md) explain their hardware and dataset requirements; [implementation notes](docs/IMPLEMENTATION.md) explain the algorithms.
 
