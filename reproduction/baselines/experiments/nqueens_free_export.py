@@ -1,1 +1,1 @@
-/home/catid/hopfield/upstream/experiments/nqueens_free_export.py
+../../../upstream/experiments/nqueens_free_export.py

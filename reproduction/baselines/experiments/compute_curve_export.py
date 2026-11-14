@@ -1,1 +1,1 @@
-/home/catid/hopfield/upstream/experiments/compute_curve_export.py
+../../../upstream/experiments/compute_curve_export.py

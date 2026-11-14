@@ -1,1 +1,1 @@
-/home/catid/hopfield/upstream/experiments/nqueens_emptied.py
+../../../upstream/experiments/nqueens_emptied.py

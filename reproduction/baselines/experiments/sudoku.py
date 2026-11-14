@@ -1,1 +1,1 @@
-/home/catid/hopfield/upstream/experiments/sudoku.py
+../../../upstream/experiments/sudoku.py

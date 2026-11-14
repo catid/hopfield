@@ -1,1 +1,1 @@
-/home/catid/hopfield/upstream/experiments/nqueens_offset.py
+../../../upstream/experiments/nqueens_offset.py

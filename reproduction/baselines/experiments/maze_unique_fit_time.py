@@ -1,1 +1,1 @@
-/home/catid/hopfield/upstream/experiments/maze_unique_fit_time.py
+../../../upstream/experiments/maze_unique_fit_time.py

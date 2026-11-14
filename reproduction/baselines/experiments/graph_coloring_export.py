@@ -1,1 +1,1 @@
-/home/catid/hopfield/upstream/experiments/graph_coloring_export.py
+../../../upstream/experiments/graph_coloring_export.py

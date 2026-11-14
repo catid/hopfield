@@ -1,1 +1,1 @@
-/home/catid/hopfield/upstream/experiments/difficulty_export.py
+../../../upstream/experiments/difficulty_export.py

@@ -1,1 +1,1 @@
-/home/catid/hopfield/upstream/experiments/training_methods_export.py
+../../../upstream/experiments/training_methods_export.py

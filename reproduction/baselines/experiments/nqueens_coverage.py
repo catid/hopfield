@@ -1,1 +1,1 @@
-/home/catid/hopfield/upstream/experiments/nqueens_coverage.py
+../../../upstream/experiments/nqueens_coverage.py

@@ -1,1 +1,1 @@
-/home/catid/hopfield/upstream/experiments/data_efficiency_baselines.py
+../../../upstream/experiments/data_efficiency_baselines.py

@@ -1,1 +1,1 @@
-/home/catid/hopfield/upstream/experiments/maze_hard_latent.py
+../../../upstream/experiments/maze_hard_latent.py

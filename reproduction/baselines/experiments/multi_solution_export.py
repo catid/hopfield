@@ -1,1 +1,1 @@
-/home/catid/hopfield/upstream/experiments/multi_solution_export.py
+../../../upstream/experiments/multi_solution_export.py

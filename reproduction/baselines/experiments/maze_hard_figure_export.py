@@ -1,1 +1,1 @@
-/home/catid/hopfield/upstream/experiments/maze_hard_figure_export.py
+../../../upstream/experiments/maze_hard_figure_export.py
