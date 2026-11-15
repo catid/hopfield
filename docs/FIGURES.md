@@ -24,6 +24,8 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 | Sudoku repeated-query noise calibration | [Calibration exports](../results/research/ripper/calibrated.json) | [plot_repeated_query_calibration.py](../scripts/plot_repeated_query_calibration.py) |
 | Sudoku calibration versus training at equal query cost | [Equal-budget exports](../results/research/ripper/equal_budget.json) | [plot_equal_query_budget.py](../scripts/plot_equal_query_budget.py) |
 | Sudoku calibration transferred to a higher noise rate | [Rate-transfer exports](../results/research/ripper/rate_transfer.json) | [plot_noise_rate_transfer.py](../scripts/plot_noise_rate_transfer.py) |
+| Sudoku logical certificates and invalid zero-energy witness | [Certificates](../results/research/foureyes/logical_soundness/) | [plot_sudoku_soundness.py](../scripts/plot_sudoku_soundness.py) |
+| Sudoku bounded evidence priorities | [Bounded-selector exports](../results/research/ripper/bounded_selector.json) | [plot_bounded_evidence_selector.py](../scripts/plot_bounded_evidence_selector.py) |
 | Sudoku likelihood-ratio priority failure | [LR-selector exports](../results/research/ripper/lr_selector.json) | [plot_lr_evidence_selector.py](../scripts/plot_lr_evidence_selector.py) |
 | Sudoku doubled training at 5% noise | [Scaled-noise exports](../results/research/ripper/scaled_noise.json) | [plot_doubled_noisy_training.py](../scripts/plot_doubled_noisy_training.py) |
 | Sudoku noisy-label likelihood and count controls | [Noisy-PL exports](../results/research/foureyes/noisy_pl/) | [plot_noisy_pl_results.py](../scripts/plot_noisy_pl_results.py) |

@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-15T02:43:49.540473+00:00",
+  "updated_utc": "2026-11-15T03:07:52.681052+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
-  "status": "twenty-two planned inference/trainingstudies, two selected-case interventions, exactobjective/norm certificates and source-onlyscreens complete; ongoingresearch continues separately",
+  "status": "twenty-three planned inference/trainingstudies, two selected-case interventions, exactobjective/norm certificates and source-onlyscreens complete; ongoingresearch continues separately",
   "host": "work",
-  "jobs": 1360,
-  "run_arm_rows": 3567,
-  "model_maze_evaluations": 720770,
+  "jobs": 1408,
+  "run_arm_rows": 3711,
+  "model_maze_evaluations": 757634,
   "hypotheses": [
     {
       "campaign": "discovery",
@@ -598,6 +598,33 @@
         },
         "conjunction": "falsified"
       }
+    },
+    {
+      "campaign": "lp_relaxation",
+      "hypothesis": "H2z fixedbinary-preservinglambda4: jointsolve gain>=90pp versusLPnative andNI<=.1pp versusBPPL",
+      "outcome": {
+        "gain": {
+          "gains": 0,
+          "losses": 0,
+          "observed_net_gain_pp": 0.0,
+          "separately_one_sided95_net_lower_pp": -0.09001999122098098,
+          "separately_one_sided95_net_upper_pp": 0.09001999122098098,
+          "target_pp": 90.0,
+          "decision": "falsified"
+        },
+        "noninferiority": {
+          "gains": 0,
+          "losses": 4084,
+          "observed_net_gain_pp": -99.70703125,
+          "separately_one_sided95_net_lower_pp": -99.84852997983509,
+          "separately_one_sided95_net_upper_pp": -99.39878236653328,
+          "loss_one_sided95_lower_pp": 99.52575917135474,
+          "loss_one_sided95_upper_pp": 99.83086764220808,
+          "margin_pp": 0.1,
+          "decision": "falsified"
+        },
+        "conjunction": "falsified"
+      }
     }
   ],
   "run_tables": [
@@ -619,7 +646,8 @@
     "selective-fallback-runs.csv",
     "window-fallback-runs.csv",
     "contrastive-training-runs.csv",
-    "lp-transfer-runs.csv"
+    "lp-transfer-runs.csv",
+    "lp-relaxation-runs.csv"
   ],
   "protocols": {
     "protocol": {
@@ -731,6 +759,10 @@
     "training-min-norm-protocol": {
       "sha256": "2b6ba6daa177a6bdec98d15ff8e970ebf3f902c98a945d2a473725678c456a79",
       "frozen_utc": "2026-11-15T02:13:34.597252+00:00"
+    },
+    "lp-relaxation-protocol": {
+      "sha256": "3caeef8da51b0af9530215991af170c5f3c7fecd58bd18af1ce9b87e0ea65968",
+      "frozen_utc": "2026-11-15T02:46:46.780536+00:00"
     }
   },
   "audit_sha256": {
@@ -757,7 +789,8 @@
     "artifacts/research/20261114/work/selective_fallback/audit.json": "f1e6cdb962bb6ca707322f9dd1f829bf89d955f5454b59cc36c78b3dc694ec7d",
     "artifacts/research/20261114/work/window_fallback/audit.json": "e55c7ab270ba2cbf4b79d89dde1b88700c06e8acdb0ed8358598da28b5c3d176",
     "artifacts/research/20261114/work/contrastive_training/audit.json": "625e3f2d1e047a28726b7d4646bff682d0cf1000cdc2cc8c33604bc3c3b03c3f",
-    "artifacts/research/20261114/work/lp_transfer/audit.json": "4019fbd98cae812cc37baf1c6264696a721166578fe66177ddd1e8a9884837bf"
+    "artifacts/research/20261114/work/lp_transfer/audit.json": "4019fbd98cae812cc37baf1c6264696a721166578fe66177ddd1e8a9884837bf",
+    "artifacts/research/20261114/work/lp_relaxation/audit.json": "2e8c2484f306960224a781532afa88f19496d8eb6f84516fbd16c8e801030c19"
   },
   "model_sha256": {
     "0": {
@@ -790,8 +823,8 @@
     "case": "cyclic-failure-classification.json",
     "scope": "The same cyclic maze fails for model seeds1and2; these are true invalid fixed points or a period-two timeout, not hidden/nonfinite failures."
   },
-  "primary_jobs": 1354,
-  "primary_model_maze_evaluations": 720638,
+  "primary_jobs": 1402,
+  "primary_model_maze_evaluations": 757502,
   "descriptive_jobs": 6,
   "descriptive_model_maze_evaluations": 132,
   "selected_case_interventions": {
@@ -902,5 +935,13 @@
     "post_outcome_native_map_probes": 73728,
     "diagnostic_new_primary_trajectories": 0,
     "scope": "LP andBPdifferentobjectives/computebudgets; nativeinference comparison, no equal-computeoptimizerclaim. Saved-state probes do not extend cap or replace primary outcomes."
+  },
+  "lp_binary_preserving_relaxation": {
+    "new_fresh_inputs": 4096,
+    "new_model_maze_arms": 36864,
+    "new_optimizer_updates": 0,
+    "lambda_fixed": 4.0,
+    "source_gate_trajectories_separate": 384,
+    "scope": "Frozenbinaryenergy withmodifiedcontinuousextension; nativecontrols, no graphfallback orretuning. DifferentLP/BPtrainingobjectives andbudgets explicitlyseparate."
   }
 }
