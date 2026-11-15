@@ -18,11 +18,13 @@ Under strong, concentrated label corruption, **LP cost curvature recovers all 64
 
 ![Fresh confirmation: LP cost curvature recovers all 64 strongly corrupted graphs](assets/figures/fresh-curvature.png)
 
-The same selector also recovers **64/64 randomly permuted cycles and 64/64 nine-clique graphs**, selecting degrees two and eight. These are uniform proper-coloring samples from two specified synthetic families, with the same concentrated corruption. [Synthetic transfer, inline graph and exact proofs](research/20261114/foureyes/REPORT-varying-degree.md)
+The same selector also recovers **64/64 graphs in each of four synthetic families**, selecting degrees two, four, six and eight. These are randomly permuted cycles, cycle squares, cycle cubes and nine-clique graphs, with uniform proper-coloring samples and the same concentrated corruption. These specified families do not establish arbitrary regular-graph recovery. [Degree-two/eight evidence](research/20261114/foureyes/REPORT-varying-degree.md) · [Connected degree-four/six evidence and inline graph](research/20261114/foureyes/REPORT-cycle-power.md)
 
 **Spend the same label budget on more cells per board:** querying 72 cells on 200 boards recovers **32/32 noisy Sudoku graphs**, versus **6/32** from 32 cells on 450 boards. Both cost 14,400 labels per bank. This fresh paired experiment changes both pair coverage and the number of independent boards; it does not isolate either as the sole cause. [Frozen targets, query accounting and controls](research/20261114/ripper/REPORT-coverage-tradeoff.md)
 
 ![Same label budget: broader observation per board recovers more exact graphs](assets/figures/coverage_tradeoff.png)
+
+When total pair coqueries are matched instead, dense acquisition recovers **31/32**, versus **30/32** for sparse acquisition, using 8,928 versus 20,448 labels per bank. The separate target of two additional recoveries is **falsified**. This fresh follow-up limits the advantage claim; equal pair totals still leave different exposure variance and dependencies. [Matched-pair-budget control](research/20261114/ripper/REPORT-matched-coquery.md)
 
 ## Cycle cuts solve fresh mazes at two sizes
 
@@ -68,7 +70,9 @@ With a supplied class of **1,541 queen rules**, 16 valid N12 examples and at mos
 
 The source-example budget matters: on a new paired cohort, **eight positives identify 1,354/1,408 rules, versus 1,408/1,408 with sixteen** under the same query policy. All 54 failures reach candidate sets too large to identify within the remaining four binary questions. The frozen per-rule reliability target fails for five of the 22 selected rules. [Paired evidence-budget test and information bounds](research/20261114/loki/h3bm/REPORT.md)
 
-Exact posterior-weighted trees also reduce expected continuation cost by **13.99%** on earlier examined checkpoints, while preserving the four-question limit. That is an exact objective result under the supplied posterior; observed future query savings require a separate test. [Weighted tree optimization](research/20261114/loki/h3bl/REPORT.md)
+**Lower expected query cost did not translate to fewer actual queries.** Exact posterior-weighted trees reduce expected continuation cost by 13.99% on an earlier checkpoint study. In the subsequent eight-positive study, weighting improves the posterior objective by **17.16%**, yet actual continuation calls rise from **2,725 to 2,913 (+6.90%)**, falsifying the frozen savings target. All 1,354 previously recovered cases remain exact. [Original expected-cost result](research/20261114/loki/h3bl/REPORT.md) · [Retained actual-cost failure and complete query ledger](research/20261114/loki/h3bn/REPORT.md)
+
+![Weighted trees lower expected cost but increase actual paid questions](results/research/loki/h3bn/expected-versus-actual-cost.png)
 
 ## Confidence weights recover answers under noisy labels
 

@@ -4,6 +4,9 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Expected versus realized question costs | [Every tree proof and paid call](../results/research/loki/h3bn/) | [plot_public.py](../research/20261114/loki/h3bn/plot_public.py) |
+| Connected cycle-power graph recovery | [All source and LP evidence](../results/research/foureyes/cycle_power/) | [plot_cycle_power.py](../scripts/plot_cycle_power.py) |
+| Matched pair coquery acquisition | [Masks, rates and exact proofs](../results/research/ripper/matched_coquery/) | [plot_matched_coquery.py](../scripts/plot_matched_coquery.py) |
 | Equal-label observation coverage | [Paired masks, labels and proofs](../results/research/ripper/coverage_tradeoff/) | [plot_coverage_tradeoff.py](../scripts/plot_coverage_tradeoff.py) |
 | Synthetic degree transfer | [Every source, control and LP proof](../results/research/foureyes/varying_degree/) | [plot_varying_degree.py](../scripts/plot_varying_degree.py) |
 | Archived maze continuation | [All caps, moves and outcomes](../results/research/work/continuation/) | [plot_continuation.py](../research/20261114/work/plot_continuation.py) |

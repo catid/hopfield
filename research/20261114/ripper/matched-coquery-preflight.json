@@ -1,0 +1,111 @@
+{
+  "status": "passed",
+  "host": "ripper",
+  "scope": "639 syntheticrows and toyIDpool only; no official H1bm IDs/masks/labels beforefreeze.",
+  "all_masks_and_counts_match_independent_reference": true,
+  "nested_prefix_masks": true,
+  "dense_suffix_label_and_latent_gate": true,
+  "complete_label_gates": [
+    {
+      "arm": "sparse",
+      "status": "passed",
+      "source_rows": 639,
+      "all_source_and_queried_values_changed": true,
+      "every_mask_and_joint_count_unchanged": true,
+      "equality_counts_changed": true,
+      "original_source_sha256": "8f01b5d1fe71ea15880eec31bc8996d1d8f2fa845acb041cfdffe0ea105d0c55",
+      "changed_source_sha256": "60f562f06c178e7b3b6932399fb6bdb9bfdebd00a1969bce113f2488bd665312"
+    },
+    {
+      "arm": "dense",
+      "status": "passed",
+      "source_rows": 124,
+      "all_source_and_queried_values_changed": true,
+      "every_mask_and_joint_count_unchanged": true,
+      "equality_counts_changed": true,
+      "original_source_sha256": "c3427eee230f40a60103b48e861a84980aee5cdad30b218ccd42f0cc1bf02a20",
+      "changed_source_sha256": "d109907c8a9afcdfcbd04e28ba0874643ebebcd7b83b13feed0f1546bf14f5f4"
+    }
+  ],
+  "query_accounting": {
+    "sparse_queries": 20448,
+    "dense_queries": 8928,
+    "shared_queries": 3968,
+    "new_union_queries": 25408
+  },
+  "separate_endpoint_bound_cases": [
+    {
+      "dense_procedure": {
+        "decision": "supported",
+        "lower": 32,
+        "upper": 32,
+        "required": 31
+      },
+      "dense_advantage": {
+        "decision": "supported",
+        "lower": 2,
+        "upper": 2,
+        "required": 2
+      }
+    },
+    {
+      "dense_procedure": {
+        "decision": "supported",
+        "lower": 32,
+        "upper": 32,
+        "required": 31
+      },
+      "dense_advantage": {
+        "decision": "inconclusive",
+        "lower": 1,
+        "upper": 2,
+        "required": 2
+      }
+    },
+    {
+      "dense_procedure": {
+        "decision": "inconclusive",
+        "lower": 30,
+        "upper": 31,
+        "required": 31
+      },
+      "dense_advantage": {
+        "decision": "falsified",
+        "lower": -2,
+        "upper": -1,
+        "required": 2
+      }
+    },
+    {
+      "dense_procedure": {
+        "decision": "falsified",
+        "lower": 30,
+        "upper": 30,
+        "required": 31
+      },
+      "dense_advantage": {
+        "decision": "falsified",
+        "lower": -2,
+        "upper": -2,
+        "required": 2
+      }
+    }
+  ],
+  "toy_source_draws_disjoint": true,
+  "source_sha256": {
+    "research/20261114/ripper/matched_coquery_study.py": "697b16241493591b8d4c10861ef3f6f2a106443de07f43697009beece97e8162",
+    "research/20261114/ripper/audit_matched_coquery.py": "3ee678d44158831200b491bcf15b57e405485deebb3014e1683cd8d6061c3ebd",
+    "research/20261114/ripper/preflight_matched_coquery.py": "19748c00a708846d29d25aebb0ee0607636e7843023b4d03ec6e676b4efed48d",
+    "research/20261114/ripper/run_matched_coquery.py": "2fab0677d8fea1c7fed5e8ea54a22fc160710ebc93862fcca471a44f18195882",
+    "research/20261114/ripper/partial_degree_study.py": "054cb8d1c4eebda07816735d23d57213052b563cc0a924ec006e6ac965fc8013",
+    "research/20261114/ripper/audit_partial_degree.py": "f867b787e7253ea835be574ed6ffcb82ec8d1a53438aaf75895ffaf5267ddde4",
+    "research/20261114/ripper/extra_coverage_study.py": "ecad651aa4baa117e50acf3afab9b66e323834719ae959aaf7db580af3780e8a",
+    "research/20261114/ripper/audit_extra_coverage.py": "58d0d10e1974506cbca83c37fabd403de17bae46e5683eb89413fdac95982a63",
+    "research/20261114/ripper/run.py": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+    "research/20261114/ripper/degree_prior_solver.py": "2af92a5d4326e74813f514291a7a76e6ac92778335e1dd76ffbb01f83d474c43",
+    "research/20261114/ripper/degree_prior_math.py": "5a3ad2c21f59dfe0d2de40065385d484e171c0f854c49c649e868ce5a98a1f8e",
+    "research/20261114/ripper/audit_degree_prior.py": "179feb9815c787a5381d1924ccb0ac41af49e103222503f5ff988dc13559f55b",
+    "research/20261114/ripper/audit_laplace_rate.py": "378e36af14e26bfb53d7f876d123cc24b3151273d6bb2a015a3f2b5e0dfeddcd",
+    "research/20261114/ripper/laplace_rate_math.py": "439d2edecdf2e518f243b27cc20676a24e561e4260217876230edf6023939093"
+  }
+}

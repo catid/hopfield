@@ -2,6 +2,9 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Weighted question planning reduces its expected objective but raises actual query cost6.90%](../research/20261114/loki/h3bn/REPORT.md)
+- [Connected synthetic graphs:64/64 exact at degrees four and six](../research/20261114/foureyes/REPORT-cycle-power.md)
+- [Matched pair budgets:31/32 dense versus30/32 sparse; the two-recovery advantage target fails](../research/20261114/ripper/REPORT-matched-coquery.md)
 - [Equal label cost: dense queries recover32/32 noisy graphs versus6/32 for sparse queries](../research/20261114/ripper/REPORT-coverage-tradeoff.md)
 - [Synthetic transfer: degree curvature recovers64/64 cycles and64/64 nine-clique graphs](../research/20261114/foureyes/REPORT-varying-degree.md)
 - [Extended cycle rounds rescue all148 examined maze caps](../research/20261114/work/REPORT.md#h2bg-more-rounds-repair-every-archived-loop80-cap-a-larger-chain-limit-changes-nothing)
