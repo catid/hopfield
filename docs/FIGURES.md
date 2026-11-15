@@ -4,6 +4,12 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Uniform query masks on fixed noisy Sudoku sources | [Exact proofs and physical query accounting](../results/research/ripper/uniform_mask.json) | [plot_uniform_mask.py](../scripts/plot_uniform_mask.py) |
+| Two-rule queen family grid | [All 45 families and 100 eligible banks](../results/research/loki/h3ax/) | [plot_public.py](../research/20261114/loki/h3ax/plot_public.py) |
+| Fresh equal-degree Sudoku confirmation | [All 64 banks and source identities](../results/research/foureyes/regularity_fresh/) | [plot_regularity_fresh.py](../scripts/plot_regularity_fresh.py) |
+| Fresh noisy acquisition and degree-constrained recovery | [Acquisition, identities and exact certificates](../results/research/ripper/fresh_rate.json) | [plot_fresh_rate.py](../scripts/plot_fresh_rate.py) |
+| Conditional additional-positive reliability | [Exact 16-additional-label distributions](../results/research/loki/h3av/) | [plot_public.py](../research/20261114/loki/h3av/plot_public.py) |
+| Nonmonotonic conditional rule-recovery curves | [Exact distributions through total 128 labels](../results/research/loki/h3aw/) | [plot_public.py](../research/20261114/loki/h3aw/plot_public.py) |
 | Fresh 180×180 confirmation of the compositional maze policy | [All paired outcomes and endpoint decisions](../results/research/work/cap-transfer-summary.json) | [plot_cap_transfer.py](../research/20261114/work/plot_cap_transfer.py) |
 | Equal-degree thresholds under concentrated Sudoku corruption | [All thresholds and graph outcomes](../results/research/foureyes/regularity_gap/) | [plot_regularity_gap.py](../scripts/plot_regularity_gap.py) |
 | Short-prefix noisy Sudoku recovery failure | [Exact proofs and query accounting](../results/research/ripper/prefix_rate.json) | [plot_prefix_rate.py](../scripts/plot_prefix_rate.py) |

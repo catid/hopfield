@@ -1,0 +1,422 @@
+{
+  "id": "H3aw-exact-conditional-dose-curve",
+  "frozen_utc": "2026-11-15T07:35:47.828014+00:00",
+  "hypothesis": "At TOTAL128positive labels, eachof8fixedinitial16banks has exactconditional probability>=99percent that EVERY MAPtie has zero invalidN13zeroFstates AND>=95percent exactvalidinputcapacity.",
+  "total_doses": [
+    16,
+    32,
+    64,
+    128
+  ],
+  "families": [
+    {
+      "name": "queen-plus-zebra",
+      "leaper": [
+        2,
+        3
+      ],
+      "source_path": "results/research/loki/h3ad/b0/source-columns.npy",
+      "target_path": "results/research/loki/h3ad/b0/target-columns.npy"
+    },
+    {
+      "name": "queen-plus-2-5-leaper",
+      "leaper": [
+        2,
+        5
+      ],
+      "source_path": "results/research/loki/h3ad/b1/source-columns.npy",
+      "target_path": "results/research/loki/h3ad/b1/target-columns.npy"
+    }
+  ],
+  "banks": [
+    {
+      "index": 0,
+      "design_path": "results/research/loki/h3ao/b0/d16/source-design.npz"
+    },
+    {
+      "index": 1,
+      "design_path": "results/research/loki/h3ao/b1/d16/source-design.npz"
+    },
+    {
+      "index": 2,
+      "design_path": "results/research/loki/h3ao/b2/d16/source-design.npz"
+    },
+    {
+      "index": 3,
+      "design_path": "results/research/loki/h3ao/b3/d16/source-design.npz"
+    },
+    {
+      "index": 4,
+      "design_path": "results/research/loki/h3ao/b4/d16/source-design.npz"
+    },
+    {
+      "index": 5,
+      "design_path": "results/research/loki/h3ao/b5/d16/source-design.npz"
+    },
+    {
+      "index": 6,
+      "design_path": "results/research/loki/h3ao/b6/d16/source-design.npz"
+    },
+    {
+      "index": 7,
+      "design_path": "results/research/loki/h3ao/b7/d16/source-design.npz"
+    }
+  ],
+  "normalizers": {
+    "selection_path": "results/research/loki/h3at/source-selection.json",
+    "ordinary_path": "results/research/loki/h3at/source-ordinary-columns.npy",
+    "bits_path": "results/research/loki/h3at/candidate-validity-bits.npz"
+  },
+  "archive": {
+    "H3au_results": "results/research/loki/h3au/capacity-gate.json",
+    "H3au_selection": "results/research/loki/h3au/source-selection.json",
+    "H3av_results": "results/research/loki/h3av/capacity-gate.json",
+    "H3av_selection": "results/research/loki/h3av/source-selection.json"
+  },
+  "candidate_prior": {
+    "orbits": [
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        2,
+        11
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        3,
+        11
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        5,
+        11
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        6,
+        11
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        7,
+        9
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        7,
+        11
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        8,
+        11
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        9,
+        11
+      ],
+      [
+        10,
+        11
+      ]
+    ],
+    "models": 1541,
+    "hierarchical": "UnchangedH3au prior: P(k)=1/3 for0/1/2orbits, uniformsubsetswithinclass; no coefficientretuning."
+  },
+  "acquisition": {
+    "initial": 16,
+    "additional": [
+      0,
+      16,
+      48,
+      112
+    ],
+    "new_observed_labels": 0,
+    "process": "At eachtotaldose, exact distribution of a uniform distinct additional subset fromtrueN12populationminusfixedinitial16. These are hypothetical future acquisitions, no observedlabels consumed.",
+    "joint": "Retainallinitiallyunwitnessedorbit jointmasks includingtrueorbit, impossiblezeromasspatterns andalltiedmodels. No marginalindependenceapproximation.",
+    "coupling": "Each dose has its exact marginal conditional subset distribution. Connecting points in a plot does not assert that everyindividual acquisition trajectory is monotone or supply a jointpath distribution."
+  },
+  "posterior": {
+    "score": "Exact C(55,k)*C(M,total) minimized amongconsistentcandidates withM>=total; allties retained.",
+    "identity": "For everyeligibleM,total verify C(M,16)*C(M-16,total-16)=C(M,total)*C(total,16).",
+    "seal": "Allmasks/choices forallfourtotals sealed beforetruecomplement/target scoring."
+  },
+  "primary": {
+    "total_labels": 128,
+    "probability": [
+      99,
+      100
+    ],
+    "capacity": [
+      19,
+      20
+    ],
+    "invalid_zero_states": 0,
+    "all_banks_and_all_maximizers": true
+  },
+  "descriptive": {
+    "total64": "Prospective descriptive dose, not additionalprimary.",
+    "totals16and32": "Archived H3au/H3av outcomes explicitly revalidated by exactchoices/Fidentity andeventcounts; retainpublishedfailures andearlyregressions.",
+    "nonmonotonicity": "Report actualexactcurveincludinginitialdecreases; no dosegrid expansion or posthocdosechoice."
+  },
+  "evaluation": {
+    "distribution": "IntegerMobius andindependent groupedwithoutreplacementDP agreeon everyjointmass at allfouradditionaldoses. Allfractionsretained.",
+    "target": "Freshlyenumerate ALLselectedcompleteN13supports, includingpreviouslyseen andzero-masssupports; no targetcensuscache used. Full73712ordinaryqueenfilter mustequalcompiledliteralF; allinvalidstates andfull377clueintegercensuses.",
+    "model": "J=F,h0,q13,unit1; noBP/GPUsearch.",
+    "history": "Sourcehypotheticalcandidate normalizers reused with fullpackedmask/cardinality/column/graphhash rechecks; earlier independentliteralnormalizer audit retained."
+  },
+  "budget": {
+    "aggregate_CPU_seconds": 120,
+    "wall_seconds": 180,
+    "GPUs": 0,
+    "distinct_target_supports_max": 3084,
+    "enforcement": "Whole-study stopon anycap/budget/error withoutpruning; publicationaudit separate."
+  },
+  "scope": "Adaptive dosefollowup after H3av showedconditionalregression at32. Fixedtotals16/32/64/128 and128>=99primary frozen before64/128scores/outcomes. Samealreadyseen initialbanks/families/targets; no newlabels or newfamilygeneralization claim.",
+  "source_sha256": {
+    "research/20261114/loki/h3aw/common.py": "c8b542cd8afac53f308a41a846163b05c8f6caced03d3e8b618028e20d11e59d",
+    "research/20261114/loki/h3aw/distribution.py": "6f65216966a850d11928f057b66ea5ce1eebcff70238ec12a9e54f9b9f85cb41",
+    "research/20261114/loki/h3aw/source.py": "744be6ce5717af4848fbfb1ee764223ca0798d2ac605d693ef7a3181119546a1",
+    "research/20261114/loki/h3aw/study.py": "af69f3bf341a74699a78c45c024e3f1457b687ccce3603abd1b992528da37d8e",
+    "research/20261114/loki/h3aw/gate.py": "0bd24c3c476105ef1804263177b7fe63769d3bb41a143cba38420c9aa7df954f",
+    "research/20261114/loki/h3aw/freeze.py": "2870b617a9aecff136e4655c61e593d135d3f979e9238f696b79871a664fde1a",
+    "research/20261114/loki/h3aw/reverse_literal.cpp": "efacb8de87c2a1dce7540e4f42b036a2f1f9a07601f70ee20dc8b09bfcb3d719",
+    "research/20261114/loki/h3at/source.py": "b2c2073b70346855d6c5bfda3db6769a2969c031115bcf8271f911ae194ce1f9",
+    "research/20261114/loki/h3ad/generate.py": "c72c05fbd39ea297daa3356f0ddd3fa914e567f7ac6554d11a968ad1d58a9b6d",
+    "research/20261114/loki/h3ao/evaluate.py": "2e969c1be313f2c62fac1e72f5844f73f822246ed215cd7e1d6584bb2eadcb1e",
+    "research/20261114/loki/h3ao/protocol.json": "6d2289229c2db157974749cffaf01ca216f225dc0355b841101d398d9ba29cd5",
+    "research/20261114/loki/h3au/protocol.json": "96c70b7f37b2acc8933f5245afba781e896967adf364535fe9b980961eb0bb1f",
+    "research/20261114/loki/h3av/protocol.json": "e8e8df2b09d06403c72f57d44e12af7ed9bcad2dec3c1d5b2c99cbbdadcbf538"
+  },
+  "source_data_sha256": {
+    "results/research/loki/h3ao/b0/d16/source-design.npz": "d03ddde91500f659c87f5de6b7ecc1b335e0526958cb6663b056f94b3bb23400",
+    "results/research/loki/h3ao/b1/d16/source-design.npz": "5cfc1d5dfd96c5df2a2724ba09ec8b90b4f328739665ef539c02f14012478dea",
+    "results/research/loki/h3ao/b2/d16/source-design.npz": "7516e5540f3997c93363e245a01b00699b4d3c0a1882c04a8ec278d7a114aac1",
+    "results/research/loki/h3ao/b3/d16/source-design.npz": "a77217c7e1fd3b2a9e32527279b128d4274013e9e09e86da3c6ae8056b4ec07f",
+    "results/research/loki/h3ao/b4/d16/source-design.npz": "12eaaa01073c036b81db226c07c4d1758cb15d13140318115cd4c709ef5e5fc3",
+    "results/research/loki/h3ao/b5/d16/source-design.npz": "ac5a310bfaf8da5c537bb10ea2d9c680329c7b79bf2b194c19dfaa5193625415",
+    "results/research/loki/h3ao/b6/d16/source-design.npz": "bcb12dad1dd378207b664710e4ad2b97b569260af863645748afb442de123eac",
+    "results/research/loki/h3ao/b7/d16/source-design.npz": "7c2612d0a1e924a62259e0d15330fb8dd4e61cc719eb1150ef91a59e5887df33",
+    "results/research/loki/h3at/source-selection.json": "c3e1a5aff0fc737aa2921db159bb4311ee83402ad364037a4d993c73280c1976",
+    "results/research/loki/h3at/source-ordinary-columns.npy": "d63a5e609d915846898d02d0d9f6e43760d2cfe82f5e609d42656ea0b72e28f4",
+    "results/research/loki/h3at/candidate-validity-bits.npz": "45ea2b26333e480f9464564a3a9fe8489d14c1c5d7ca8ab107c487ac2c27b920"
+  },
+  "target_data_sha256": {
+    "results/research/loki/h3ad/b0/source-columns.npy": "53b1209b1ff5af4dbb9c652e574761cd710dbdebb260e8d2ad71d2d88c3465a4",
+    "results/research/loki/h3ad/b0/target-columns.npy": "81e5e6f877586ed8a5d5bd2c4eebec6ef1b93f3dbe98ff471b899d60cb0479da",
+    "results/research/loki/h3ad/b1/source-columns.npy": "d8ee10c015a7aa1131a9c573d8f8cbfd1f349f3587785dd30fa0cc9a5cb8862d",
+    "results/research/loki/h3ad/b1/target-columns.npy": "9d4efdb32cc17beaa9bae12850bf83bebe1b8e8e8f5e4b4d881185d42f175269",
+    "results/research/loki/h3au/capacity-gate.json": "21443b9bc1cd716fec44d78ed2b960086d1c20c71ff16502662fd78545d73eb0",
+    "results/research/loki/h3au/source-selection.json": "f4c9ea53709d7a83a91a69c3dd7fe8c340086166180f0c4c23c0508a63b80867",
+    "results/research/loki/h3av/capacity-gate.json": "11d97a253bd1617d03fdeeaf3bade50279bf34bb63bd90b86793a10159efe09a",
+    "results/research/loki/h3av/source-selection.json": "68ec9d6172dfb9791932faf2e8ca1b7607a3f6eec67f093b694d939d061464c7",
+    "results/research/loki/h3au/support0/model.npz": "95c881455580e8b2bdb5664aa1f7d4729279710396acb187b3cd2251639fec9a",
+    "results/research/loki/h3au/support1/model.npz": "aa5776b969ea7e44bfe326c4be4b088c1a78aef0b674ece722e5b18a0cfcc0d7",
+    "results/research/loki/h3au/support2/model.npz": "316e5e669edaa5b994334363602f1851b163c32fe5e4348bf22bf70731be9548",
+    "results/research/loki/h3au/support3/model.npz": "f897c490067b6807e1d4256feb2134ada6fe1f3ccc0569ed4d7898e05a911624",
+    "results/research/loki/h3au/support4/model.npz": "7f7a75ee8788804a2866bd7fd9d3f8c337c3bcc1457001f9b9cf1f3b269389c1",
+    "results/research/loki/h3au/support5/model.npz": "14340c8c2c32e95eecadc2ed8d67c4dfdd3a7c9aa6a0b64ee4eb884d95c76c89",
+    "results/research/loki/h3au/support6/model.npz": "acf4a2c423edb84435c8885dde4210e9f8574838d9add7e384a3c7e19be25f5a",
+    "results/research/loki/h3au/support7/model.npz": "1072490fbee64443741154565f7cbabe652fe3cf3ca69f11b1cf0d8ce3169443",
+    "results/research/loki/h3au/support8/model.npz": "09f8898855e22542ec328e903ed2ab02a6daca66e4b2db1b419fef3e05593089",
+    "results/research/loki/h3au/support9/model.npz": "cd52f2b19d42a8b41e8daa7731f3527fc34873a31589234a8691623cd4b588f9",
+    "results/research/loki/h3av/support0/model.npz": "a718e6a9cf396d47d935f12c83f4ad241cda87df2c3f7cfb7fa7e490a3f5b956",
+    "results/research/loki/h3av/support1/model.npz": "3692a1c63d20727535467c3c9f59598bcf4a1ae7029251472ebb45ba67988b24",
+    "results/research/loki/h3av/support2/model.npz": "95c881455580e8b2bdb5664aa1f7d4729279710396acb187b3cd2251639fec9a",
+    "results/research/loki/h3av/support3/model.npz": "2c1d514c94a6b7e86261fcaf5e6f6753524a60ac5cd52018aa3a6d49e035348e",
+    "results/research/loki/h3av/support4/model.npz": "fb5c9db17ae27b8d6c66162bc3a1fba5803ee40dcaaf17a7402391b7fb6b764c",
+    "results/research/loki/h3av/support5/model.npz": "7f7a75ee8788804a2866bd7fd9d3f8c337c3bcc1457001f9b9cf1f3b269389c1",
+    "results/research/loki/h3av/support6/model.npz": "2c1d514c94a6b7e86261fcaf5e6f6753524a60ac5cd52018aa3a6d49e035348e",
+    "results/research/loki/h3av/support7/model.npz": "5ccddcb6c1d2817ff28a6e2c96146a186839215c1b4c44451c6e6c57b76868b6",
+    "results/research/loki/h3av/support8/model.npz": "81a792a589524163344812a0022cc29d29b070c6c68d49f8c65c403c133f6ae5",
+    "results/research/loki/h3av/support9/model.npz": "1072490fbee64443741154565f7cbabe652fe3cf3ca69f11b1cf0d8ce3169443",
+    "results/research/loki/h3av/support10/model.npz": "c065b1a4a6c2364b61c443f752f9e06f0ed987127a19d8d37f8204cc8f9b1f71",
+    "results/research/loki/h3av/support11/model.npz": "e6d749d898d577d308f47e6de112e2f31a5f1bdcdc86c11d9a87b339e790f2ce",
+    "results/research/loki/h3av/support12/model.npz": "d37f88c78bb48cf6916de054474710dd3cd322d99ff7f55f8e966cf13e09764d",
+    "results/research/loki/h3av/support13/model.npz": "3692a1c63d20727535467c3c9f59598bcf4a1ae7029251472ebb45ba67988b24",
+    "results/research/loki/h3av/b0/exact-distribution.json": "fd6c87d9f7383505fac79fd035482adb268003ec6e743d4f1ab1f9d3c8abe10c",
+    "results/research/loki/h3av/b1/exact-distribution.json": "b8f64480975cc97effb91c240cbb0e9f22343f3c7b05f126c96b4cbe400a9245",
+    "results/research/loki/h3av/b2/exact-distribution.json": "148c6e74c11beaa812dccba200157d2e02e9be760b6ad39f142817024be9bb7e",
+    "results/research/loki/h3av/b3/exact-distribution.json": "c76dd5a0a913c8b38ea43ba703563b30d58eb0bfde7f740dc94ad0a00b55fd6f",
+    "results/research/loki/h3av/b4/exact-distribution.json": "ff79aa8a6c5ecae68587a468a70017a71be80c7f7b21bb39742be159cf1e4936",
+    "results/research/loki/h3av/b5/exact-distribution.json": "64cc801a576d063b6ecc82373a192257448ca1c38d980670cbc07e2d03e199a7",
+    "results/research/loki/h3av/b6/exact-distribution.json": "2f22938f85d468d7528baedf29d1af4d2d29242f22ddfa0449cfb7f60793d7b2",
+    "results/research/loki/h3av/b7/exact-distribution.json": "facddfa0d71567e6d83690e4efaecb55f2737d26c68b1fe486724358a9cfffbe"
+  }
+}

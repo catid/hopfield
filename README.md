@@ -14,6 +14,8 @@ Connect cells that **never share a digit in training solutions**, assign weight 
 
 This headline uses ten base solutions with 99 stored Sudoku-symmetry variants each. **Augmentation supplies task knowledge.** A separate control recovers the same constraint graph from 100 distinct unaugmented solutions in all six samples. The estimator receives no cell geometry. [Budget, uncertainty and stopping proof](research/20261114/foureyes/REPORT-budget.md) · [Raw-data control](research/20261114/ripper/REPORT-raw-count.md)
 
+With concentrated label corruption, adding an **equal-degree prior** recovers **64/64 exact graphs** on new 2,400-board training banks, versus 26/64 for the earlier count-gap heuristic. The selector receives neither degree twenty nor edge count 810. This measures graph recovery under a fixed noise law; no new puzzle-solving accuracy is claimed. [Fresh-source controls and every candidate threshold](research/20261114/foureyes/REPORT-regularity-fresh.md)
+
 ## Cycle cuts solve fresh mazes at two sizes
 
 ![Fresh maze transfer: paired failures and full prefix costs](results/research/work/cycle-transfer/fresh-cycle-transfer.png)

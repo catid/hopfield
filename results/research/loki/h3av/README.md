@@ -1,0 +1,3 @@
+# H3av: exact hypothetical additional-positive reliability
+
+[Full report](../../../../research/20261114/loki/h3av/REPORT.md). Same prior and fixed initial sixteen positives; enumerate hypothetical acquisition of sixteen more from each complement. Only four of eight banks meet 95% probability of safe, at-least-95%-capacity output. Four probabilities are exactly 100%; others 88.166228%, 83.656393%, 94.135050%, 91.691887%. No new observed labels consumed. All 104 masks, 46 positive-mass masks, every tie and fourteen supports retained, including impossible masks with invalid states. Three initially correct MAP outputs can regress under the stronger likelihood.

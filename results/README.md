@@ -2,6 +2,11 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Fresh Sudoku confirmation: equal-degree thresholds recover all 64 concentrated-noise graphs](../research/20261114/foureyes/REPORT-regularity-fresh.md)
+- [Fresh noisy acquisition: 32/32 exact graphs with 784,000 new queries](../research/20261114/ripper/REPORT-fresh-rate.md)
+- [Uniform queries lose nine exact Sudoku recoveries on the same corrupted boards](../research/20261114/ripper/REPORT-uniform-mask.md)
+- [More positive labels can reduce exact queen-rule recovery reliability](../research/20261114/loki/h3av/REPORT.md) · [Exact conditional learning curves through 128 labels](../research/20261114/loki/h3aw/REPORT.md)
+- [Two-rule queen families expose source aliasing and prior underfitting](../research/20261114/loki/h3ax/REPORT.md)
 - [Fresh larger maze confirmation: 4,096/4,096 solves; two targets pass and minimum-gain target remains inconclusive](../research/20261114/work/REPORT.md#h2ax-fresh-180180-cap-confirmation-supports-safety-and-bp-noninferiority-the-minimum-gain-target-remains-inconclusive)
 - [Equal-degree count thresholds repair all sixteen new concentrated-noise graphs](../research/20261114/foureyes/REPORT-regularity-gap.md)
 - [Noisy Sudoku recovery fails at 600 observations, then succeeds at 900 on fixed streams](../research/20261114/ripper/REPORT-prefix-rate.md) · [Intermediate-prefix follow-up](../research/20261114/ripper/REPORT-intermediate-rate.md)
@@ -77,6 +82,20 @@ The smoothed-rate degree-20 LP has a sharp observed data boundary: **7/32 exact 
 A declared **uniform-over-rule-count prior** repairs seven of eight expanded-vocabulary queen fits. The eighth still adds a false rule and has 89.66% capacity, falsifying the all-bank 95% target. The exact posterior odds explain why the fixed prior is insufficient there; no prior coefficient is retuned. [Full posterior scores, imported control and complete target census](../research/20261114/loki/h3au/REPORT.md)
 
 The fixed compositional maze policy then solves **4,096/4,096 new 180×180 inputs**, requiring success from all three models. BP AdamW solves 4,072; the 256-cell policy solves 4,077. Both new ordering variants give the same joint successes. Zero regressions support the ≤0.1% regression endpoint, and BP noninferiority passes. The prespecified ≥0.2-point gain remains **inconclusive**: 19 paired gains and zero losses yield bounds [0.189482, 0.723442] points. All 73,728 states are independently audited. [Fresh protocol, controls and full cost accounting](../research/20261114/work/REPORT.md#h2ax-fresh-180180-cap-confirmation-supports-safety-and-bp-noninferiority-the-minimum-gain-target-remains-inconclusive)
+
+The equal-degree count selector confirms on **64/64 new source banks**, versus 26/64 for the unchanged gap heuristic under identical concentrated corruption. All 150,618 unique source identities are disjoint from the H4y motivating banks. Every one of 9,581 threshold candidates is audited, and each bank has a unique regular candidate equal to the true graph. Equal degree remains supplied structure; no new inference result is claimed. [Frozen design, source exclusions and raw CSV verification](../research/20261114/foureyes/REPORT-regularity-fresh.md)
+
+![Fresh-bank confirmation of equal-degree graph recovery](../assets/figures/regularity-fresh.png)
+
+The smoothed-rate degree-20 LP also confirms on **32/32 fresh noisy acquisition streams** at 900 training rows per bank. The same-cost top-810 control recovers 2/32. All 59,819 unique calibration/training identities are disjoint from the archived Ripper source ledger; this does not establish global novelty across every experiment. The study charges **784,000 new queries**, including calibration, and independently verifies exact LP certificates. [Fresh-source protocol, acquisition and proof replay](../research/20261114/ripper/REPORT-fresh-rate.md)
+
+Under the fixed hierarchical queen-rule prior, **more positive labels can lower recovery reliability**. Exact conditional analysis shows that adding sixteen random positives takes one already-correct bank from 100% to 83.66% probability of selecting a safe model with at least 95% capacity. A later frozen dose study reaches at least 99% in all eight banks at 128 total labels, while retaining additional nonmonotonic dips. These are exact distributions of hypothetical future uniform draws from fixed source populations; no new observed labels are consumed. [Retained 32-label failure](../research/20261114/loki/h3av/REPORT.md) · [All eight learning curves and complete combinatorial audit](../research/20261114/loki/h3aw/REPORT.md)
+
+![Exact conditional recovery can fall as positive labels increase](research/loki/h3aw/conditional-dose-curve.png)
+
+Replacing calibrated adaptive Sudoku queries with **uniform 25-cell masks** reduces certified exact recovery from 32/32 to **23/32**, falsifying the ≥29 target. Sources, corrupted boards and the rate-based degree-20 recovery rule stay fixed. This also removes exposure/exclusion feedback, so failure does not establish that calibration alone is necessary. Actual incremental queries and alternative deployment budgets are separately counted. [Mask isolation, fractional optimum and query accounting](../research/20261114/ripper/REPORT-uniform-mask.md)
+
+Across a fixed **45-family two-rule queen grid**, twenty families have fewer than sixteen source states and remain ineligible. Both ML and MAP recover **91/100** fresh eligible banks, but two families fail every draw. One exposes identical complete N12 populations under different N13 rule graphs; the other exposes MAP underfitting a genuine second rule. Equal aggregate exactness hides different wrong models. [All families, all ties and source-identifiability limit](../research/20261114/loki/h3ax/REPORT.md)
 
 - [Coefficient-magnitude weights on fixed likelihood supports](../research/20261114/foureyes/REPORT-canonical-weights.md)
 - [Convex digit-invariant PL: accuracy, incorrect stops and exact soundness proofs](../research/20261114/foureyes/REPORT-canonical-study.md)
