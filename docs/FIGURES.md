@@ -4,6 +4,7 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Fresh maze cycle-cut transfer and full prefix costs | [8,192-input paired outcomes](../results/research/work/cycle-transfer-summary.json) | [plot_cycle_transfer.py](../research/20261114/work/plot_cycle_transfer.py) |
 | Nested queen source budgets and invalid-state boundary | [Eight primary fits and 24 count controls](../results/research/loki/h3ao/) | [plot_public.py](../research/20261114/loki/h3ao/plot_public.py) |
 | Maze cycle cuts and learned-versus-lexical ordering | [Paired source controls](../results/research/work/lexical-cycle-cut-summary.json) | [plot_cycle_cut_controls.py](../scripts/plot_cycle_cut_controls.py) |
 | Fixed likelihood mixture on acquired Sudoku labels | [Mixture replay exports](../results/research/ripper/mixture_replay.json) | [plot_mixture_replay.py](../scripts/plot_mixture_replay.py) |

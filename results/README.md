@@ -2,6 +2,7 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Fresh maze transfer: both cycle-cut policies solve all 8,192 inputs across three models](../research/20261114/work/REPORT.md#h2au-fixed-cycle-cut-policies-solve-the-fresh-8192-input-cohort)
 - [32-example queen fits recover exact graphs; 16-example count controls admit invalid states](../research/20261114/loki/h3ao/REPORT.md)
 - [Maze cycle cuts rescue 21/22 archived failures; learned cut ordering adds no rescue](../research/20261114/work/REPORT.md#h2aqh2as-allowing-a-positive-cost-cycle-cut-rescues-21-source-failures)
 - [Likelihood mixture preserves true constraints but increases false exclusions](../research/20261114/ripper/REPORT-mixture-replay.md)

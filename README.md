@@ -14,6 +14,14 @@ Connect cells that **never share a digit in training solutions**, assign weight 
 
 This headline uses ten base solutions with 99 stored Sudoku-symmetry variants each. **Augmentation supplies task knowledge.** A separate control recovers the same constraint graph from 100 distinct unaugmented solutions in all six samples. The estimator receives no cell geometry. [Budget, uncertainty and stopping proof](research/20261114/foureyes/REPORT-budget.md) · [Raw-data control](research/20261114/ripper/REPORT-raw-count.md)
 
+## Cycle cuts solve all 8,192 fresh mazes
+
+![Fresh maze transfer: paired failures and full prefix costs](results/research/work/cycle-transfer/fresh-cycle-transfer.png)
+
+On **8,192 new 120×120 loopy mazes**, adding cycle cuts solves every input across all three frozen models: **24,576/24,576 model-input solves**. BP AdamW solves 8,177 inputs jointly; the preceding connectivity-veto decoder solves 8,151. Lexicographic cuts gain **15 and 41 inputs**, respectively, with zero paired losses. Both prespecified transfer targets pass.
+
+The intervention supplies an explicit graph prior and permits moves that increase the learned energy. Ranking cuts by learned energy ties with choosing them lexicographically, so these results show **no benefit from learned cut ordering**. All 122,880 final states across five arms were independently audited. This is complete success on one fresh finite cohort, not a universal guarantee. [Frozen comparison, uncertainty and full costs](research/20261114/work/REPORT.md#h2au-fixed-cycle-cut-policies-solve-the-fresh-8192-input-cohort)
+
 ## A search prior makes the same learned energy much more useful
 
 ![Same learned energies, different proposals: replicated across two new queen variants at matched measured GPU time](results/research/loki/h3ad/new-family-replication.png)
@@ -36,15 +44,11 @@ This compares 32 shared fits, each costing 57,500 label queries, on 10,000 fresh
 
 The budget boundary matters: with half as many training boards and 29,750 total queries, accuracy falls to **23.55%**, falsifying the frozen 70% target. No certificates occur in that study. [Retained negative result](research/20261114/ripper/REPORT-confidence-budget.md)
 
-## Faster inference and fewer maze failures
+## Faster inference
 
 ![Sparse inference speedups with state-for-state parity](assets/figures/sparse-speed.png)
 
 The sparse backend runs transformed Sudoku energies **2.82× faster** in warm inference, or **2.79× including search setup**, on RTX PRO 6000 Blackwell Max-Q. All 63 paired timing calls return identical states and boards. Compilation is excluded from warm timing. [Measurements and parity checks](research/20261114/ripper/REPORT-sparse.md)
-
-![Selective maze fallback: fewer failures and complete measured overhead](results/research/work/selective-fallback.png)
-
-On 16,384 fresh 120×120 loopy mazes, selective fallback reduces joint failures across three frozen models from **44 to 20**, with **1.31%** median additional answer time. It validates paths using the supplied maze graph, then retries failures in one offline batch. This adds graph knowledge and does not establish low response latency. A task-specific BFS control solves all inputs in **1.679 CPU seconds**. [Complete comparison and timing scope](research/20261114/work/REPORT.md)
 
 ## What was reproduced?
 
