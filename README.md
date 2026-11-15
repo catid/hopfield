@@ -28,6 +28,8 @@ At **180×180**, raising the move limit from 256 to 512 cells repairs all 28 fai
 
 ![Fresh 180×180 maze confirmation and separate frozen endpoints](results/research/work/cap-transfer/fresh-cap-transfer.png)
 
+The denser **50%-loop** test exposes another limit: the same policy solves **4,024/4,096**, and larger cuts add no solves because the preceding search reaches its round cap. The minimum-gain target fails; net BP noninferiority still passes despite 63 paired losses against BP. [Density boundary and preserved audit timeout](research/20261114/work/REPORT.md#h2ay-the-larger-cap-gain-fails-at-higher-density-the-remaining-barrier-is-the-block-round-limit)
+
 ## A search prior makes the same learned energy much more useful
 
 ![Same learned energies, different proposals: replicated across two new queen variants at matched measured GPU time](results/research/loki/h3ad/new-family-replication.png)

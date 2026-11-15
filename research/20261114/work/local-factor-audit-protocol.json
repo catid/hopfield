@@ -1,0 +1,73 @@
+{
+  "id": "retained-density180-independent-local-factor-audit",
+  "hypothesis_id": "H2az",
+  "status": "frozen_after_complete_equivalence_gate_before_timed_benchmarks",
+  "frozen_utc": "2026-11-15T07:52:14.131086+00:00",
+  "source_protocol_sha256": "23fbca881a1f79cee0e68614de6e2b239424622cbc427e202f18417caf391762",
+  "original_failed_audit_receipt_sha256": "fb8c605f29670a4c59a59920968fad4a081e12849c191ac216c300d432ac5e67",
+  "source_sha256": {
+    "research/20261114/work/local_factor_study.py": "336c8ace7354c4225668b2cbe7763de59bf92f1e3bba6a20403722acf91846c4",
+    "research/20261114/work/local_factor_delta.py": "178b4f2465959fd4acdaf3a5857e9e9a0228e508cbf30a0584f1c931b5ecbcd6",
+    "research/20261114/work/preflight_local_factor_delta.py": "77559eab46bae4e2510f222e48d5c505653964edf277fb1b9083282e00c44093",
+    "research/20261114/work/audit_density_local_factors.py": "7841dfd9fc202c148c437cc213e3afe3ea961f5fe419057a1cb1c3b1ef6ec5e0",
+    "research/20261114/work/audit_density_transfer.py": "18a190699e92bfc94086e2cc0faa7018c00d1375c962017c5b021a84b575596d",
+    "research/20261114/work/verify_training_feasibility.py": "3364c8127bea8589100fd6e405d3e6630457408742dc4b7cf48103adf41ed195",
+    "research/20261114/work/verify_large_cycle_geometry.py": "4bec48f982f1b535c5520caf2cc0d639033f2f8f67ab1f6804029f7b05cc09a1",
+    "research/20261114/work/verify_graph_block_source.py": "4bea8e314cd10caf78e705dac0f54711f54c36198d9d1bcad68df0ada5966745",
+    "research/20261114/work/verify_cycle_cut_geometry_checked.py": "5e60359e2e9ad2db4f581a7533e70174bd79c34221b1465a795536fada29a496",
+    "research/20261114/work/verify_cycle_cut_geometry.py": "0d83a0eab973acf39f66aab62402dd580127426b36e55e33833e98032a62826c",
+    "research/20261114/work/audit_connectivity_screen.py": "04931d25d3a467cb2e972ca8f946c107c0fb4370c7e820570416644962f8c5c9",
+    "research/20261114/work/LOCAL_FACTOR_AUDIT.md": "782d6f3482664808f9ba367e3efbf8ab73d0fc50f3aa2076d8b36fc073217f40"
+  },
+  "gate_sha256": "8509f1f6b1f5e24f9694fc45a7e2f800e70722c89af7eb54fad9916aa03092a3",
+  "fixture_manifest_sha256": "9e316af75add2703116e43bee4cafcd7dde2c1abd0b222b94356c657d165e6c4",
+  "benchmark": {
+    "candidate_count": 512,
+    "repeats": 3,
+    "order": [
+      [
+        "full_grid",
+        "local_factors"
+      ],
+      [
+        "local_factors",
+        "full_grid"
+      ],
+      [
+        "full_grid",
+        "local_factors"
+      ]
+    ],
+    "primary": "Median paired process-time ratio full_grid/local_factors >=2; support if at least2, otherwise not met. This is a fixed source implementation benchmark, not statistical generalization.",
+    "warmup": "One untimed equivalence pass for both methods over the fixed512 candidates; all loaded inputs promoted losslessly before timing.",
+    "process_affinity": "Pin micro and full-job benchmarks to the lowest allowed logical CPU; record allowed/pinned CPUs and environment.",
+    "budget_seconds": 120
+  },
+  "full_job_benchmark": {
+    "job": "shard00-s0",
+    "order": [
+      "full_grid",
+      "local_factors"
+    ],
+    "per_method_wall_seconds": 120,
+    "decision": "Only if both finish, compare all scientific audit fields excluding elapsed time and floating-point error maxima; then report measured process/wall ratios. If either times out, report timeout and any conservative bound, never a measured completed ratio."
+  },
+  "full_verification": {
+    "source_jobs": 48,
+    "all_final_states": 73728,
+    "all_candidates": "Every H2ay trace candidate, no subsampling; unchanged graph/native margin/final energy/flags/readout checks",
+    "wall_seconds": 600,
+    "cpu_processes": 16,
+    "persistence": "Atomic per-job rows; collect as completed; retain all partial rows on failure. Write successor audit only under local_factor_audit, never original density_transfer/audit.json."
+  },
+  "scientific_accounting": {
+    "new_independent_inputs": 0,
+    "new_inference_trajectories": 0,
+    "new_optimizer_updates": 0,
+    "source_input_count": 4096,
+    "source_model_count": 3,
+    "source_arms": 6,
+    "original_H2ay_audit_budget_status": "Failed300s limit remains failed; later complete verification uses separately declared600s budget. No original budget extension or inference rerun."
+  },
+  "math": "Direct original-factor cancellation for C: unary changes plus unique valid directed source sites C union(C-offset), evaluating original before/after pair-table and directed-link products in longdouble. Self-links once; no production flip/quadratic scorer imported. Full-grid final energies and native margins remain unchanged."
+}

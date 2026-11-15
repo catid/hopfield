@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "protocol_sha256": "23fbca881a1f79cee0e68614de6e2b239424622cbc427e202f18417caf391762",
+  "paired_rows_sha256": "5177d0a175171e66a98c918badbad0e45370a24e2951374c0c044d72fc2e70d1",
+  "audit_sha256": "3d3aa4719f775d1a47dfee6f02db2fdb5615a8b247d6d205739faf7d27007a63",
+  "source_sha256": "83917d190e97c0ad57b4e60a75db8f5aa62583259865869822356429f08654b5",
+  "n_independent_inputs": 4096,
+  "endpoints": [
+    {
+      "name": "lexical512_gain_vs_lexical256",
+      "gains": 0,
+      "losses": 0,
+      "net_lower_pp": -0.09001999122098098,
+      "net_upper_pp": 0.09001999122098098,
+      "decision": "falsified",
+      "maximum_error_pp": 0.0
+    },
+    {
+      "name": "lexical512_regression_probability",
+      "gains": 0,
+      "losses": 0,
+      "net_lower_pp": -0.09001999122098098,
+      "net_upper_pp": 0.09001999122098098,
+      "regression_lower_pp": 0.0,
+      "regression_upper_pp": 0.07311125564754341,
+      "decision": "supported",
+      "maximum_error_pp": 4.163336342344337e-17
+    },
+    {
+      "name": "lexical512_noninferiority_vs_bp",
+      "gains": 152,
+      "losses": 63,
+      "net_lower_pp": 1.1894269485323117,
+      "net_upper_pp": 3.152130040478214,
+      "decision": "supported",
+      "maximum_error_pp": 4.57167637080147e-12
+    }
+  ],
+  "scope": "SciPy beta quantiles independently reconstruct separately one-sided95 pairednetbounds usingCPmarginalalpha.025. Three endpoints decided separately: paired-net gain/BP NI use CP marginal alpha.025; standalone regression uses alpha.05. No simultaneous claim.",
+  "public_layout": {
+    "campaign": "density-transfer",
+    "protocol": "results/research/work/density-transfer/protocol.json",
+    "audit": "results/research/work/density-transfer-summary.json",
+    "paired_rows": "results/research/work/density-transfer-per-input.csv"
+  }
+}

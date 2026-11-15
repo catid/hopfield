@@ -1,0 +1,68 @@
+{
+  "status": "incomplete_full_audit_budget_exhausted",
+  "utc": "2026-11-15T07:43:51.832130+00:00",
+  "hypothesis": "H2ay",
+  "protocol_sha256": "23fbca881a1f79cee0e68614de6e2b239424622cbc427e202f18417caf391762",
+  "verifier_sha256": "18a190699e92bfc94086e2cc0faa7018c00d1375c962017c5b021a84b575596d",
+  "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 timeout 300s upstream/.venv/bin/python research/20261114/work/audit_density_transfer.py artifacts/research/20261114/work/density_transfer /home/catid/hopfield --workers 16",
+  "external_exit_code": 124,
+  "frozen_audit_wall_seconds": 300,
+  "extensions": 0,
+  "inference_complete_jobs": 48,
+  "inference_worker_seconds": [
+    211.65457757702097,
+    208.70294007501798
+  ],
+  "observed_completed_job_events": [
+    "shard00-s0",
+    "shard00-s1",
+    "shard00-s2",
+    "shard01-s0",
+    "shard01-s1",
+    "shard01-s2",
+    "shard02-s0",
+    "shard02-s1",
+    "shard02-s2",
+    "shard03-s0",
+    "shard03-s1",
+    "shard03-s2",
+    "shard04-s0",
+    "shard04-s1",
+    "shard04-s2",
+    "shard05-s0",
+    "shard05-s1",
+    "shard05-s2"
+  ],
+  "completed_audit_rows_persisted": 0,
+  "full_audit_json_exists": false,
+  "frozen_endpoint_decisions": "unavailable until complete independent audit",
+  "public_subset": "separate288 states48 labels passed; not substitute for full audit",
+  "runtime_diagnostic_first_job": {
+    "connectivity_veto": {
+      "candidate_costs": 7122,
+      "geometries": 519,
+      "trace_rounds": 89
+    },
+    "lexical256": {
+      "candidate_costs": 6336,
+      "geometries": 459,
+      "trace_rounds": 111
+    },
+    "both512_continuations": {
+      "candidate_costs": 0,
+      "geometries": 0,
+      "trace_rounds": 0
+    }
+  },
+  "live_cpu_observation": {
+    "elapsed_seconds": 172,
+    "active_workers": 16,
+    "cpu_percent_each": "99.9-100",
+    "rss_mib_range": [
+      751,
+      1465
+    ]
+  },
+  "post_timeout_process_table": "    PID    PPID S %CPU     TIME   RSS     ELAPSED WCHAN                  COMMAND\n",
+  "scope": "Frozen300s limit preserved;48 inference jobs/all archives retained. Ordered map emitted18 completions but no per-job audit receipt persistence; no overall audit or endpoints claimed. Separate profiling/verification optimization required before any full verification claim."
+}

@@ -4,6 +4,11 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Complete-source queen model alias prevalence | [Full partition and zero-N14 stage receipt](../results/research/loki/h3az/) | [plot_public.py](../research/20261114/loki/h3az/plot_public.py) |
+| Denser-maze transfer and stopping boundary | [Full density outcomes and audit history](../results/research/work/density-transfer-summary.json) | [plot_density_transfer.py](../research/20261114/work/plot_density_transfer.py) |
+| Independent verification acceleration | [Paired cost and complete-job timings](../results/research/work/local-factor-audit/) | [plot_local_factor_audit.py](../research/20261114/work/plot_local_factor_audit.py) |
+| Label-blind balanced query coverage | [Exact proofs and exposure diagnostics](../results/research/ripper/balanced_mask.json) | [plot_balanced_mask.py](../scripts/plot_balanced_mask.py) |
+| Concrete witnesses distinguishing N12-equivalent queen rules at N13 | [Complete populations and exact probabilities](../results/research/loki/h3ay/) | [plot_public.py](../research/20261114/loki/h3ay/plot_public.py) |
 | Uniform query masks on fixed noisy Sudoku sources | [Exact proofs and physical query accounting](../results/research/ripper/uniform_mask.json) | [plot_uniform_mask.py](../scripts/plot_uniform_mask.py) |
 | Two-rule queen family grid | [All 45 families and 100 eligible banks](../results/research/loki/h3ax/) | [plot_public.py](../research/20261114/loki/h3ax/plot_public.py) |
 | Fresh equal-degree Sudoku confirmation | [All 64 banks and source identities](../results/research/foureyes/regularity_fresh/) | [plot_regularity_fresh.py](../scripts/plot_regularity_fresh.py) |

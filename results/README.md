@@ -2,6 +2,11 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Denser mazes expose a round-limit barrier; larger-cut gain fails](../research/20261114/work/REPORT.md#h2ay-the-larger-cap-gain-fails-at-higher-density-the-remaining-barrier-is-the-block-round-limit)
+- [Independent factor cancellation accelerates verification: 18.7× candidate checks, 2.2× one complete audit job](../research/20261114/work/REPORT.md#h2az-independent-local-factor-cancellation-accelerates-verification-without-changing-inference)
+- [Balancing unlabeled pair exposure still fails the Sudoku recovery target](../research/20261114/ripper/REPORT-balanced-mask.md)
+- [N12-identical queen rules behave differently at N13, but random positives rarely distinguish them](../research/20261114/loki/h3ay/REPORT.md)
+- [Complete N12 population partition finds 17 eligible models in five alias classes](../research/20261114/loki/h3az/REPORT.md)
 - [Fresh Sudoku confirmation: equal-degree thresholds recover all 64 concentrated-noise graphs](../research/20261114/foureyes/REPORT-regularity-fresh.md)
 - [Fresh noisy acquisition: 32/32 exact graphs with 784,000 new queries](../research/20261114/ripper/REPORT-fresh-rate.md)
 - [Uniform queries lose nine exact Sudoku recoveries on the same corrupted boards](../research/20261114/ripper/REPORT-uniform-mask.md)
@@ -96,6 +101,20 @@ Under the fixed hierarchical queen-rule prior, **more positive labels can lower 
 Replacing calibrated adaptive Sudoku queries with **uniform 25-cell masks** reduces certified exact recovery from 32/32 to **23/32**, falsifying the ≥29 target. Sources, corrupted boards and the rate-based degree-20 recovery rule stay fixed. This also removes exposure/exclusion feedback, so failure does not establish that calibration alone is necessary. Actual incremental queries and alternative deployment budgets are separately counted. [Mask isolation, fractional optimum and query accounting](../research/20261114/ripper/REPORT-uniform-mask.md)
 
 Across a fixed **45-family two-rule queen grid**, twenty families have fewer than sixteen source states and remain ineligible. Both ML and MAP recover **91/100** fresh eligible banks, but two families fail every draw. One exposes identical complete N12 populations under different N13 rule graphs; the other exposes MAP underfitting a genuine second rule. Equal aggregate exactness hides different wrong models. [All families, all ties and source-identifiability limit](../research/20261114/loki/h3ax/REPORT.md)
+
+At **50% loop density**, the maze policy solves **4,024/4,096 fresh inputs**. Both 512-cell continuations take zero moves because all remaining outputs are capped and thus ineligible for continuation. The larger-cut gain target fails; regression and net BP noninferiority pass separately. All 204 capped states are retained: 28 already form shortest paths, while 176 still admit cycle cuts. [Density protocol and complete residual audit](../research/20261114/work/REPORT.md#h2ay-the-larger-cap-gain-fails-at-higher-density-the-remaining-barrier-is-the-block-round-limit)
+
+The original full audit exceeded its frozen 300-second limit. A separately frozen **local-factor verifier** reproduces full-grid candidate costs and runs **18.74× faster** on 512 fixed deletions and **2.20× faster** on one complete matched audit job. It then verifies all 73,728 states and 429,409 costs in 235.342 seconds under a new 600-second verification budget. Inference is not rerun; the original timeout remains public. [Mathematical cancellation, exhaustive fixtures and measured costs](../research/20261114/work/REPORT.md#h2az-independent-local-factor-cancellation-accelerates-verification-without-changing-inference)
+
+![Verification speedups with separate micro and complete-job measurements](research/work/local-factor-audit/local-factor-audit.png)
+
+Making noisy Sudoku query coverage nearly uniform reduces exposure variance by **98.505%**, yet the fixed degree-20 recovery reaches only **25/32 exact graphs**, below its ≥29 target. Six uniform-query failures improve and four successes worsen. This rejects the specific exposure-balancing remedy while leaving the value of label-dependent acquisition to a separate control. [Fixed mask policy, exact proofs and query unions](../research/20261114/ripper/REPORT-balanced-mask.md)
+
+Two queen-rule models with **identical complete N12 populations** have different valid N13 states in both directions. Only sixteen of one model's 1,188 N13 states reject the alternative; a uniform sixteen-positive sample contains such a witness with **19.62% probability**, versus 65.46% in the reverse direction. Both fail the frozen 95% target. These are probabilities of direct logical rejection, not MAP accuracy. [Complete state sets, exact fractions and concrete boards](../research/20261114/loki/h3ay/REPORT.md)
+
+![Concrete larger-board witnesses separating source-equivalent rules](research/loki/h3ay/alias-witnesses.png)
+
+The complete N12 partition of 1,541 supplied queen models finds **17 eligible models in five nontrivial equivalence classes**. Within the predeclared radius-five two-rule truth grid, complete N12 evidence identifies 24 eligible models uniquely and N13 resolves the remaining known pair. The study's N14 implication is therefore logically supported by unique model identity, with **zero N14 populations evaluated**. The other four alias classes remain visible for broader follow-up. [Full partition, strong complete-source assumptions and explicit vacuous cases](../research/20261114/loki/h3az/REPORT.md)
 
 - [Coefficient-magnitude weights on fixed likelihood supports](../research/20261114/foureyes/REPORT-canonical-weights.md)
 - [Convex digit-invariant PL: accuracy, incorrect stops and exact soundness proofs](../research/20261114/foureyes/REPORT-canonical-study.md)
