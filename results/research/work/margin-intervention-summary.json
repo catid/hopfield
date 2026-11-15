@@ -1,0 +1,109 @@
+{
+  "status": "validated",
+  "utc": "2026-11-15T00:01:09.801606+00:00",
+  "primary": {
+    "hypothesis": "H2p",
+    "n_unique": 4096,
+    "gains_vs_native": 0,
+    "losses_vs_native": 0,
+    "observed_loss_pp": 0.0,
+    "one_sided95_loss_lower_pp": 0.0,
+    "one_sided95_loss_upper_pp": 0.07311125564754345,
+    "noninferiority_margin_pp": 0.1,
+    "decision": "supported"
+  },
+  "secondary": {
+    "vs_native": {
+      "full_gaussian": {
+        "gains": 0,
+        "losses": 530
+      },
+      "upward_only": {
+        "gains": 0,
+        "losses": 0
+      },
+      "downward_only": {
+        "gains": 0,
+        "losses": 687
+      },
+      "constant_up": {
+        "gains": 0,
+        "losses": 0
+      },
+      "constant_down": {
+        "gains": 0,
+        "losses": 0
+      }
+    },
+    "spatial_vs_constant": {
+      "upward_only": {
+        "constant": "constant_up",
+        "gains": 0,
+        "losses": 0
+      },
+      "downward_only": {
+        "constant": "constant_down",
+        "gains": 0,
+        "losses": 687
+      }
+    }
+  },
+  "joint_success": {
+    "native": 4089,
+    "full_gaussian": 3559,
+    "upward_only": 4089,
+    "downward_only": 3402,
+    "constant_up": 4089,
+    "constant_down": 4089
+  },
+  "n_unique": 4096,
+  "models": 3,
+  "jobs": 48,
+  "model_input_rollouts": 73728,
+  "initial_logit_arrays_verified": 4096,
+  "final_logit_arrays_verified": 73728,
+  "independent_graph_checks": 4785,
+  "independent_distance_checks": 4096,
+  "exact_board_cache_hits": 68943,
+  "batch_preflight": {
+    "utc": "2026-11-14T23:46:03.199504+00:00",
+    "status": "passed",
+    "purpose": "Reserved-data batch-size throughput comparison before sign-study freeze",
+    "inputs": 64,
+    "seed": 2026111494,
+    "model_seed": 0,
+    "native_answer_outputs_exact": true,
+    "shared_fixed_hidden_readout": true,
+    "timings": [
+      {
+        "batch_size": 32,
+        "seconds": [
+          0.2345410370035097,
+          0.23342268995475024,
+          0.23307115596253425,
+          0.23290566803188995,
+          0.23334101698128507
+        ],
+        "median_seconds": 0.23334101698128507
+      },
+      {
+        "batch_size": 64,
+        "seconds": [
+          0.12218259298242629,
+          0.12170286796754226,
+          0.1218979189870879,
+          0.12194281601114199,
+          0.12152773700654507
+        ],
+        "median_seconds": 0.1218979189870879
+      }
+    ],
+    "ratio_32_over_64": 1.9142329821561745,
+    "chosen_batch": 64
+  },
+  "protocol_sha256": "0e4eab472c130286e57ce41a17c5b829d0a198231972cfc7cf9ddfe57492dc44",
+  "script_sha256": "c147c02f0cc39db83acd726435b0533698b26187e89a3cd9d8a247033ae40916",
+  "audit_seconds": 28.25584716303274,
+  "scope": "Fixed sigma1 upward/downward initial-logit decomposition with population expected-mean constant controls on fresh90-grid loop20 inputs, three frozen models, eta.5. No candidate selector or ground-truth intervention. All failures retained.",
+  "full_local_audit_sha256": "f344e6d9005399d46277ce55b259a70647f4b4fc578b00e74e6ebbb6d31a0af7"
+}

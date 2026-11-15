@@ -1,0 +1,120 @@
+{
+  "id": "H4l-heavy-cell-noise-count-gap",
+  "frozen_utc": "2026-11-15T00:09:17.529311+00:00",
+  "hypothesis": "The fixed largest-equality-count-gap estimator trained on3000boards with9distinctfreecellscorruptedineveryboard is noninferiortocleancountingwithin2percentagepoints andhaszero wrongstops.",
+  "primary_arm": "n3000-c9",
+  "control_arm": "n3000-c0",
+  "primary_margin_pp": 2.0,
+  "primary_statistic": "Pairedmeanreturned-boardaccuracydifferenceover6training/noise/searchseedlabels and10000sharedpuzzles.",
+  "uncertainty": "5000pairedtwo-waybootstrapdrawsover6seedlabelsand10000puzzles,RNG20261114,two-sided95percentpercentileinterval.",
+  "decision": "Supportedif95percentlower>=-2ppandzeroprimarywrongstops;falsifiedifupper<-2pporanyprimarywrongstop;otherwiseinconclusive.",
+  "recipes": {
+    "n300-c0": {
+      "n": 300,
+      "corrupted_cells_per_board": 0
+    },
+    "n300-c1": {
+      "n": 300,
+      "corrupted_cells_per_board": 1
+    },
+    "n300-c3": {
+      "n": 300,
+      "corrupted_cells_per_board": 3
+    },
+    "n300-c9": {
+      "n": 300,
+      "corrupted_cells_per_board": 9
+    },
+    "n3000-c0": {
+      "n": 3000,
+      "corrupted_cells_per_board": 0
+    },
+    "n3000-c1": {
+      "n": 3000,
+      "corrupted_cells_per_board": 1
+    },
+    "n3000-c3": {
+      "n": 3000,
+      "corrupted_cells_per_board": 3
+    },
+    "n3000-c9": {
+      "n": 3000,
+      "corrupted_cells_per_board": 9
+    }
+  },
+  "arms": [
+    "n300-c0",
+    "n300-c1",
+    "n300-c3",
+    "n300-c9",
+    "n3000-c0",
+    "n3000-c1",
+    "n3000-c3",
+    "n3000-c9"
+  ],
+  "chains_by_arm": {
+    "n300-c0": 4,
+    "n300-c1": 4,
+    "n300-c3": 4,
+    "n300-c9": 4,
+    "n3000-c0": 4,
+    "n3000-c1": 4,
+    "n3000-c3": 4,
+    "n3000-c9": 4
+  },
+  "search_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "noise_rng_base": 20261115100,
+  "split": "full-all",
+  "rows_half_open": [
+    170000,
+    180000
+  ],
+  "checkpoints": [
+    0,
+    1048576
+  ],
+  "budget_unit": "Totalmaximumchainmoves:4chainsx262144moves/chain.",
+  "corruption": "For everyrow of3000sourceboards, choose9distinctofficialfreecells uniformly withoutreplacement anddifferentreplacementdigits. The1/3cell conditionsuseprefixesofthesame9cells; N300usesprefixofN3000. Allgivenclues unchanged.",
+  "construction": "Cleanarm:count==0. Noisyarm:sortdistinctpair equalitycounts, selectfirstlargestadjacentgap,threshold=floor(midpoint),excludepairswithcount<=threshold. No rankrestriction, knownedgecount orgeometry. Single-count-valuefallbackthreshold0.",
+  "calibration": "Literalunit1,B0,tau0,ebar0,theta.45,temperature.4to.31,anneal524288,check4096,no restarts. No corrupted-labelenergycalibration.",
+  "secondary": "AllN300andlowercell-corruptionresults andgraphdiagnostics aredescriptive. No threshold ornoiseadaptation.",
+  "reuse": "Deduplicate identical supportwithinseed beforesearch;saveallmodels,mappingsandfixedparameters. No redundantinference.",
+  "limits": [
+    "Corruptionchangesspecificfree-celllabels,notgivenclues;9of81cellsperboardis11.11percentcellnoise.",
+    "Samefixedgapheuristicasprecedingstudy; independentnoiseRNGandnewresearchcohort, but reusedtrainingbanks andofficialtestcorpus.",
+    "N300isnestedwithinN3000 andcellcorruptionconditionsarenested; theyarenotindependentsamples.",
+    "Allnoiselevels/thresholdrulesfixedbeforeoutcomes; successdoesnotgiveuniversalrobustness."
+  ],
+  "gpu_minute_envelope": 30,
+  "frozen_inputs": {
+    "artifacts/research/20261114/ripper/clues/completion_controls/s0.npz": "38f92ebdcfca8b2729f1f53c67a5919a3764afdc8d5bd7a583ae50c6ef31fd3f",
+    "artifacts/research/20261114/ripper/clues/clue_inputs/s0.npz": "4c02d2e6b6e82bbedb3434884662051fb4b72f99d0a30c0d275280bd34d62f6f",
+    "artifacts/research/20261114/ripper/clues/completion_controls/s1.npz": "9b99bcd1d6ccab242d802b7c0cc218769f778b2a90c5eba059c671ee7e9269fb",
+    "artifacts/research/20261114/ripper/clues/clue_inputs/s1.npz": "f25743a821c4127da939601503476d073dae7b64e033e813614e2b9b5b621939",
+    "artifacts/research/20261114/ripper/clues/completion_controls/s2.npz": "f4c7a273def314244ce15ec41b4ac6143f276e45f136d2f82d6c89e1be8d41a7",
+    "artifacts/research/20261114/ripper/clues/clue_inputs/s2.npz": "62ef624f1cc82cff2f792ef6600bf4eecaaf0e103acf97a86861c8cbef28cb5b",
+    "artifacts/research/20261114/ripper/clues/completion_controls/s3.npz": "a96ae613b82b7ed699eb2b12bbe4cf021b98fd50f5383fdbc60eb4328ad8f2df",
+    "artifacts/research/20261114/ripper/clues/clue_inputs/s3.npz": "51eddadab31ac668d0522ac3638a1f08bb2028bb1cf3a0df13adecbe6c875721",
+    "artifacts/research/20261114/ripper/clues/completion_controls/s4.npz": "25c2708b615ec4db3656d8cfc53827b728ac8bb1dced42dd2249a22c0abf0df3",
+    "artifacts/research/20261114/ripper/clues/clue_inputs/s4.npz": "c7e8d093e6d7d99d273d33763eaf789d18263c95f8c94cc64b0ab52961820e87",
+    "artifacts/research/20261114/ripper/clues/completion_controls/s5.npz": "f51c6cb3e2212ed827886ee961f48aa7d007bab165cbd1cafa233d773c3fd6ff",
+    "artifacts/research/20261114/ripper/clues/clue_inputs/s5.npz": "f44f65cb287b7a5d26a7d3f60dcbfa531a6ac3f5d4e44b5e9909d276c73991b7"
+  },
+  "source_sha256": {
+    "research/20261114/ripper/run.py": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+    "research/20261114/ripper/sparse_backend.py": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+    "research/20261114/foureyes/restart_backend.py": "fd02c4f71574a6e0545c4f7aae54f3ddfeb9321f4c4f840c02ee5a213d814c0e",
+    "research/20261114/foureyes/restart_capture.py": "801f17ab24fe6d8d7f7fe381f7829ab65bed56625413bd7d1b1461b95ef7c7a4",
+    "research/20261114/foureyes/prepare_noise_boundary.py": "e075070546778e5993610c30f3e0b597f337db1c7043840f3f53527ef2a782e9",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871"
+  }
+}

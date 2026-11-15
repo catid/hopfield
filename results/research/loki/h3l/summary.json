@@ -1,0 +1,1439 @@
+{
+  "status": "validated",
+  "utc": "2026-11-15T00:14:15.951895+00:00",
+  "hypothesis": "H3l",
+  "decision": "falsified",
+  "primary": {
+    "arm": "hybrid",
+    "control": "true-graph-oracle",
+    "primary": true,
+    "decision": "falsified",
+    "any_paired_regression_inputs": 2571,
+    "paired_regression_probability_exact95_upper": 0.640161767456854,
+    "conservative_accuracy95_lower_pp": -64.0161767456854,
+    "wrong_stops": 0,
+    "accuracy_difference_pp": -62.7685546875,
+    "coverage_difference_pp": -74.59134392124082,
+    "accuracy_one_sided_95_lower_pp": -64.0380859375,
+    "accuracy_one_sided_95_upper_pp": -61.5234375,
+    "coverage_one_sided_95_lower_pp": -75.56781064132605,
+    "coverage_one_sided_95_upper_pp": -73.70177944254115,
+    "replicates": 2000,
+    "unit": "unique input, with all three search seeds retained inside each bootstrap cluster",
+    "seed": 20261114
+  },
+  "comparisons": [
+    {
+      "arm": "hybrid",
+      "control": "true-graph-oracle",
+      "primary": true,
+      "decision": "falsified",
+      "any_paired_regression_inputs": 2571,
+      "paired_regression_probability_exact95_upper": 0.640161767456854,
+      "conservative_accuracy95_lower_pp": -64.0161767456854,
+      "wrong_stops": 0,
+      "accuracy_difference_pp": -62.7685546875,
+      "coverage_difference_pp": -74.59134392124082,
+      "accuracy_one_sided_95_lower_pp": -64.0380859375,
+      "accuracy_one_sided_95_upper_pp": -61.5234375,
+      "coverage_one_sided_95_lower_pp": -75.56781064132605,
+      "coverage_one_sided_95_upper_pp": -73.70177944254115,
+      "replicates": 2000,
+      "unit": "unique input, with all three search seeds retained inside each bootstrap cluster",
+      "seed": 20261114
+    },
+    {
+      "arm": "line-only",
+      "control": "true-graph-oracle",
+      "primary": false,
+      "decision": "descriptive",
+      "any_paired_regression_inputs": 4093,
+      "paired_regression_probability_exact95_upper": 0.999800339478957,
+      "conservative_accuracy95_lower_pp": -99.98003394789569,
+      "wrong_stops": 234457,
+      "accuracy_difference_pp": -95.46712239583333,
+      "coverage_difference_pp": -71.09222624686542,
+      "accuracy_one_sided_95_lower_pp": -95.7763671875,
+      "accuracy_one_sided_95_upper_pp": -95.14973958333333,
+      "coverage_one_sided_95_lower_pp": -71.55832983188263,
+      "coverage_one_sided_95_upper_pp": -70.62590641263141,
+      "replicates": 2000,
+      "unit": "unique input, with all three search seeds retained inside each bootstrap cluster",
+      "seed": 20261114
+    },
+    {
+      "arm": "direct-offset",
+      "control": "true-graph-oracle",
+      "primary": false,
+      "decision": "descriptive",
+      "any_paired_regression_inputs": 3158,
+      "paired_regression_probability_exact95_upper": 0.7817721455293161,
+      "conservative_accuracy95_lower_pp": -78.1772145529316,
+      "wrong_stops": 34536,
+      "accuracy_difference_pp": -72.98177083333334,
+      "coverage_difference_pp": -75.55493637967864,
+      "accuracy_one_sided_95_lower_pp": -74.0478515625,
+      "accuracy_one_sided_95_upper_pp": -71.93196614583334,
+      "coverage_one_sided_95_lower_pp": -76.4304934026337,
+      "coverage_one_sided_95_upper_pp": -74.74533829125262,
+      "replicates": 2000,
+      "unit": "unique input, with all three search seeds retained inside each bootstrap cluster",
+      "seed": 20261114
+    }
+  ],
+  "rows": [
+    {
+      "arm": "line-only",
+      "target_training_patterns": 0,
+      "unique_inputs": 4096,
+      "chains": 20,
+      "search_seeds": [
+        0,
+        1,
+        2
+      ],
+      "original_accuracy_pct": 4.532877604166666,
+      "certificate_first_accuracy_pct": 4.532877604166666,
+      "n1_accuracy_pct": 4.532877604166666,
+      "coverage_pct": 22.053496795764836,
+      "wrong_stops": 234457,
+      "capped_chains": 56,
+      "mean_moves": 1674.543868001302,
+      "search_seconds_total": 49.46850221400382
+    },
+    {
+      "arm": "hybrid",
+      "target_training_patterns": 0,
+      "unique_inputs": 4096,
+      "chains": 20,
+      "search_seeds": [
+        0,
+        1,
+        2
+      ],
+      "original_accuracy_pct": 37.2314453125,
+      "certificate_first_accuracy_pct": 37.2314453125,
+      "n1_accuracy_pct": 34.70865885416667,
+      "coverage_pct": 18.55437912138943,
+      "wrong_stops": 0,
+      "capped_chains": 160132,
+      "mean_moves": 14701.031123860676,
+      "search_seconds_total": 114.85064219002379
+    },
+    {
+      "arm": "direct-offset",
+      "target_training_patterns": 0,
+      "unique_inputs": 4096,
+      "chains": 20,
+      "search_seeds": [
+        0,
+        1,
+        2
+      ],
+      "original_accuracy_pct": 24.601236979166664,
+      "certificate_first_accuracy_pct": 27.018229166666668,
+      "n1_accuracy_pct": 23.6328125,
+      "coverage_pct": 17.59078666295161,
+      "wrong_stops": 34536,
+      "capped_chains": 163091,
+      "mean_moves": 14712.72403564453,
+      "search_seconds_total": 113.03077263501473
+    },
+    {
+      "arm": "true-graph-oracle",
+      "target_training_patterns": 0,
+      "unique_inputs": 4096,
+      "chains": 20,
+      "search_seeds": [
+        0,
+        1,
+        2
+      ],
+      "original_accuracy_pct": 100.0,
+      "certificate_first_accuracy_pct": 100.0,
+      "n1_accuracy_pct": 93.63606770833334,
+      "coverage_pct": 93.14572304263025,
+      "wrong_stops": 0,
+      "capped_chains": 14813,
+      "mean_moves": 5556.407548014322,
+      "search_seconds_total": 74.24806071899366
+    }
+  ],
+  "dataset": {
+    "status": "reserved_before_fitting",
+    "utc": "2026-11-15T00:05:37.474889+00:00",
+    "task": "superqueens:queen+knight attacks",
+    "source_n": 12,
+    "source_solution_universe": 156,
+    "source_training_patterns": 128,
+    "source_seed": 2026112501,
+    "target_n": 13,
+    "target_solution_universe": 1876,
+    "target_unique_inputs": 4096,
+    "target_input_seed": 2026112502,
+    "target_eligible_pool": 189118,
+    "target_by_clues": {
+      "1": 3,
+      "2": 198,
+      "3": 3895
+    },
+    "all_compatible_target_completions": 15068,
+    "prior_target_input_overlap": 0,
+    "distribution": "Uniform unique valid1/2/3clue superqueen N13 inputs excluding prior H3j/H3k ordinary-queen evaluation inputs.",
+    "target_use": "Target labels only reserve/validate/evaluate inputs; training.npz is separate and is the only positive data read by model construction.",
+    "data_sha256": "bd350bab528b3227645736ce77501de6adcdd77ab0f94d52f339c93ab4542aa5",
+    "training_sha256": "b5068fcf8b8b242d47312c7d3c7c180d4b9edd44916d3c58075e49a5521a0698",
+    "source_sha256": "76f5d69306c3cde6012b72675fe1cbe0edeea9c1867f1baef6e489721c88afb0",
+    "feasibility_sha256": "2db98bff6d15b984ff02832486dc06a189e17c35ea1a6b6e81b3c73037f8446b"
+  },
+  "calibration": {
+    "q": 13,
+    "delta": 12.0,
+    "tau": -78.0,
+    "unit": 25.909505208333332,
+    "explanation": "q and its symbolic delta=q-1,tau=-q(q-1)/2 are declared structural priors. Every target arm shares the inherited N12 offset128 mean-absolute-field unit. No target fit or label calibration.",
+    "unit_source": "artifacts/research/20261114/loki/h3i/models/offset128/model.json"
+  },
+  "line_fit": {
+    "status": "fitted_from_N12_superqueen_bank_only",
+    "utc": "2026-11-15T00:07:10.119049+00:00",
+    "candidates": [
+      {
+        "a": 0,
+        "b": 1,
+        "forbidden_offsets": 11,
+        "allowed_offsets": 0,
+        "retained": true
+      },
+      {
+        "a": 1,
+        "b": -2,
+        "forbidden_offsets": 1,
+        "allowed_offsets": 4,
+        "retained": false
+      },
+      {
+        "a": 1,
+        "b": -1,
+        "forbidden_offsets": 11,
+        "allowed_offsets": 0,
+        "retained": true
+      },
+      {
+        "a": 1,
+        "b": 0,
+        "forbidden_offsets": 11,
+        "allowed_offsets": 0,
+        "retained": true
+      },
+      {
+        "a": 1,
+        "b": 1,
+        "forbidden_offsets": 11,
+        "allowed_offsets": 0,
+        "retained": true
+      },
+      {
+        "a": 1,
+        "b": 2,
+        "forbidden_offsets": 1,
+        "allowed_offsets": 4,
+        "retained": false
+      },
+      {
+        "a": 2,
+        "b": -1,
+        "forbidden_offsets": 1,
+        "allowed_offsets": 4,
+        "retained": false
+      },
+      {
+        "a": 2,
+        "b": 1,
+        "forbidden_offsets": 1,
+        "allowed_offsets": 4,
+        "retained": false
+      }
+    ],
+    "retained_lines": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "source_forbidden_offsets": 69,
+    "training_patterns": 128,
+    "source_sha256": "a27de85cde4496dbc89ce344e44866d03bb8c7d79a7e47fe04a1273bf7c2c5b0",
+    "protocol_sha256": "2ae056d33c7b2a70a745842325bb51cff53e75bfae3f486cbd3d4663b43a62df"
+  },
+  "model_audits": [
+    {
+      "status": "complete",
+      "utc": "2026-11-15T00:07:10.130421+00:00",
+      "arm": "line-only",
+      "target_training_patterns": 0,
+      "q": 13,
+      "delta": 12.0,
+      "tau": -78.0,
+      "unit": 25.909505208333332,
+      "energy_signature": "550a598121f005203bd5819e1b8db52da7c8c21e199da395fd683be931c5191d",
+      "forbidden_pairs": 3328,
+      "model_sha256": "99f9af04e8d4467ad499ef39d907e03cc20aa24b99f21fdf20f124b302a87a13",
+      "construction_sha256": "27aa40c8963fb42aeec4ee985d506bde28f026641ed2e652c79e292df799e916",
+      "source_sha256": "a27de85cde4496dbc89ce344e44866d03bb8c7d79a7e47fe04a1273bf7c2c5b0",
+      "protocol_sha256": "2ae056d33c7b2a70a745842325bb51cff53e75bfae3f486cbd3d4663b43a62df",
+      "false_forbidden": 0,
+      "missed_forbidden": 528,
+      "missed_knight_pairs": 528
+    },
+    {
+      "status": "complete",
+      "utc": "2026-11-15T00:07:10.133026+00:00",
+      "arm": "hybrid",
+      "target_training_patterns": 0,
+      "q": 13,
+      "delta": 12.0,
+      "tau": -78.0,
+      "unit": 25.909505208333332,
+      "energy_signature": "dbe2caa6f351a79994981b099d18f888ebf9cd348ec4fe1b29e6638243fd2707",
+      "forbidden_pairs": 4068,
+      "model_sha256": "601541f4b15182bdf1669e909a79f690fdef16bc4b325c0e107046c7016a94b6",
+      "construction_sha256": "9c26782fa438d1dacddc2b2dd14fcf4772b0c6cedee6e7cc4af95e530226c242",
+      "source_sha256": "a27de85cde4496dbc89ce344e44866d03bb8c7d79a7e47fe04a1273bf7c2c5b0",
+      "protocol_sha256": "2ae056d33c7b2a70a745842325bb51cff53e75bfae3f486cbd3d4663b43a62df",
+      "false_forbidden": 212,
+      "missed_forbidden": 0,
+      "missed_knight_pairs": 0
+    },
+    {
+      "status": "complete",
+      "utc": "2026-11-15T00:07:10.135440+00:00",
+      "arm": "direct-offset",
+      "target_training_patterns": 0,
+      "q": 13,
+      "delta": 12.0,
+      "tau": -78.0,
+      "unit": 25.909505208333332,
+      "energy_signature": "705ecd2215af872814f804b9fd55eadd71d5091f49d409960682b369cf125125",
+      "forbidden_pairs": 4040,
+      "model_sha256": "501eb59df71dad3abdd134bfcc5294215895492c634f84f10d0bca63b6815821",
+      "construction_sha256": "03cadacf67ffb2a888748898aa165ef8340c689339a44335922ab818a674dd84",
+      "source_sha256": "a27de85cde4496dbc89ce344e44866d03bb8c7d79a7e47fe04a1273bf7c2c5b0",
+      "protocol_sha256": "2ae056d33c7b2a70a745842325bb51cff53e75bfae3f486cbd3d4663b43a62df",
+      "false_forbidden": 212,
+      "missed_forbidden": 28,
+      "missed_knight_pairs": 0
+    },
+    {
+      "status": "complete",
+      "utc": "2026-11-15T00:07:10.137854+00:00",
+      "arm": "true-graph-oracle",
+      "target_training_patterns": 0,
+      "q": 13,
+      "delta": 12.0,
+      "tau": -78.0,
+      "unit": 25.909505208333332,
+      "energy_signature": "f01d5f9fc0635ca5ed5b14fa20ff7532a017e02212c8cc35d12ccae839b4e4fd",
+      "forbidden_pairs": 3856,
+      "model_sha256": "677f6f5ecd6d082bcbaf219ef0e0b25058a5d2a41e7bbada8cd2de6ff967636f",
+      "construction_sha256": "466977921642c8e81da1cedfb6808cf8f47ebe4dd980bb71ee6f85140bc97a43",
+      "source_sha256": "a27de85cde4496dbc89ce344e44866d03bb8c7d79a7e47fe04a1273bf7c2c5b0",
+      "protocol_sha256": "2ae056d33c7b2a70a745842325bb51cff53e75bfae3f486cbd3d4663b43a62df",
+      "false_forbidden": 0,
+      "missed_forbidden": 0,
+      "missed_knight_pairs": 0
+    }
+  ],
+  "output_diagnostics": [
+    {
+      "arm": "line-only",
+      "seed": 0,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 78148,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 19,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 78148,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 296795,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 0,
+        "(12, 0)": 0,
+        "(12, 12)": 0,
+        "(12, -12)": 0,
+        "(1, 2)": 74282,
+        "(1, -2)": 73704,
+        "(2, 1)": 73742,
+        "(2, -1)": 75067
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 3909,
+        "above_q": 0,
+        "stopped": 3909,
+        "capped": 0
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 3909,
+        "above_q": 0,
+        "stopped": 3909,
+        "capped": 0
+      }
+    },
+    {
+      "arm": "line-only",
+      "seed": 1,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 78147,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 22,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 78147,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 296398,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 0,
+        "(12, 0)": 0,
+        "(12, 12)": 0,
+        "(12, -12)": 0,
+        "(1, 2)": 73965,
+        "(1, -2)": 73272,
+        "(2, 1)": 73832,
+        "(2, -1)": 75329
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 3907,
+        "above_q": 0,
+        "stopped": 3907,
+        "capped": 0
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 3907,
+        "above_q": 0,
+        "stopped": 3907,
+        "capped": 0
+      }
+    },
+    {
+      "arm": "line-only",
+      "seed": 2,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 78162,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 15,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 78162,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 296995,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 0,
+        "(12, 0)": 0,
+        "(12, 12)": 0,
+        "(12, -12)": 0,
+        "(1, 2)": 74384,
+        "(1, -2)": 74401,
+        "(2, 1)": 73665,
+        "(2, -1)": 74545
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 3915,
+        "above_q": 0,
+        "stopped": 3915,
+        "capped": 0
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 3915,
+        "above_q": 0,
+        "stopped": 3915,
+        "capped": 0
+      }
+    },
+    {
+      "arm": "hybrid",
+      "seed": 0,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 0,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 53363,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 0,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 0,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 0,
+        "(12, 0)": 0,
+        "(12, 12)": 0,
+        "(12, -12)": 0,
+        "(1, 2)": 0,
+        "(1, -2)": 0,
+        "(2, 1)": 0,
+        "(2, -1)": 0
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 2571,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 2571
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 2571,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 2571
+      }
+    },
+    {
+      "arm": "hybrid",
+      "seed": 1,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 0,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 53357,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 0,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 0,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 0,
+        "(12, 0)": 0,
+        "(12, 12)": 0,
+        "(12, -12)": 0,
+        "(1, 2)": 0,
+        "(1, -2)": 0,
+        "(2, 1)": 0,
+        "(2, -1)": 0
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 2571,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 2571
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 2571,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 2571
+      }
+    },
+    {
+      "arm": "hybrid",
+      "seed": 2,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 0,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 53412,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 0,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 0,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 0,
+        "(12, 0)": 0,
+        "(12, 12)": 0,
+        "(12, -12)": 0,
+        "(1, 2)": 0,
+        "(1, -2)": 0,
+        "(2, 1)": 0,
+        "(2, -1)": 0
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 2571,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 2571
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 2571,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 2571
+      }
+    },
+    {
+      "arm": "direct-offset",
+      "seed": 0,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 11492,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 38968,
+          "equal_q": 12201,
+          "above_q": 134
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 11492,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 13803,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 6567,
+        "(12, 0)": 7236,
+        "(12, 12)": 0,
+        "(12, -12)": 0,
+        "(1, 2)": 0,
+        "(1, -2)": 0,
+        "(2, 1)": 0,
+        "(2, -1)": 0
+      },
+      "selection_corrected_inputs": 117,
+      "selection_regressed_inputs": 28,
+      "original_invalid_selected": {
+        "below_q": 1867,
+        "equal_q": 1219,
+        "above_q": 8,
+        "stopped": 624,
+        "capped": 2470
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 1867,
+        "equal_q": 1135,
+        "above_q": 3,
+        "stopped": 868,
+        "capped": 2137
+      }
+    },
+    {
+      "arm": "direct-offset",
+      "seed": 1,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 11492,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 38969,
+          "equal_q": 12140,
+          "above_q": 127
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 11492,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 13855,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 6639,
+        "(12, 0)": 7216,
+        "(12, 12)": 0,
+        "(12, -12)": 0,
+        "(1, 2)": 0,
+        "(1, -2)": 0,
+        "(2, 1)": 0,
+        "(2, -1)": 0
+      },
+      "selection_corrected_inputs": 135,
+      "selection_regressed_inputs": 32,
+      "original_invalid_selected": {
+        "below_q": 1867,
+        "equal_q": 1199,
+        "above_q": 9,
+        "stopped": 593,
+        "capped": 2482
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 1867,
+        "equal_q": 1103,
+        "above_q": 2,
+        "stopped": 853,
+        "capped": 2119
+      }
+    },
+    {
+      "arm": "direct-offset",
+      "seed": 2,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 11552,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 38925,
+          "equal_q": 12227,
+          "above_q": 132
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 11552,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 13893,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 6540,
+        "(12, 0)": 7353,
+        "(12, 12)": 0,
+        "(12, -12)": 0,
+        "(1, 2)": 0,
+        "(1, -2)": 0,
+        "(2, 1)": 0,
+        "(2, -1)": 0
+      },
+      "selection_corrected_inputs": 131,
+      "selection_regressed_inputs": 26,
+      "original_invalid_selected": {
+        "below_q": 1867,
+        "equal_q": 1219,
+        "above_q": 10,
+        "stopped": 602,
+        "capped": 2494
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 1867,
+        "equal_q": 1123,
+        "above_q": 1,
+        "stopped": 850,
+        "capped": 2141
+      }
+    },
+    {
+      "arm": "true-graph-oracle",
+      "seed": 0,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 0,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 5026,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 0,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 0,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 0,
+        "(12, 0)": 0,
+        "(12, 12)": 0,
+        "(12, -12)": 0,
+        "(1, 2)": 0,
+        "(1, -2)": 0,
+        "(2, 1)": 0,
+        "(2, -1)": 0
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 0
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 0
+      }
+    },
+    {
+      "arm": "true-graph-oracle",
+      "seed": 1,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 0,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 4851,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 0,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 0,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 0,
+        "(12, 0)": 0,
+        "(12, 12)": 0,
+        "(12, -12)": 0,
+        "(1, 2)": 0,
+        "(1, -2)": 0,
+        "(2, 1)": 0,
+        "(2, -1)": 0
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 0
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 0
+      }
+    },
+    {
+      "arm": "true-graph-oracle",
+      "seed": 2,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 0,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 4936,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 0,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 0,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 12)": 0,
+        "(12, 0)": 0,
+        "(12, 12)": 0,
+        "(12, -12)": 0,
+        "(1, 2)": 0,
+        "(1, -2)": 0,
+        "(2, 1)": 0,
+        "(2, -1)": 0
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 0
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 0,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 0
+      }
+    }
+  ],
+  "posthoc_valid_certificate_capacity": [
+    {
+      "arm": "line-only",
+      "inputs_with_any_valid_certificate": 4096,
+      "inputs_without_valid_certificate": 0,
+      "valid_input_completion_certificates": 15068,
+      "all_compatible_valid_completions": 15068,
+      "certificate_existence_pct": 100.0,
+      "interpretation": "Post hoc existence of a local certificate among exact valid completions; not a cap on lowest-energy fallback accuracy and not a search outcome."
+    },
+    {
+      "arm": "hybrid",
+      "inputs_with_any_valid_certificate": 1525,
+      "inputs_without_valid_certificate": 2571,
+      "valid_input_completion_certificates": 2747,
+      "all_compatible_valid_completions": 15068,
+      "certificate_existence_pct": 37.2314453125,
+      "interpretation": "Post hoc existence of a local certificate among exact valid completions; not a cap on lowest-energy fallback accuracy and not a search outcome."
+    },
+    {
+      "arm": "direct-offset",
+      "inputs_with_any_valid_certificate": 1225,
+      "inputs_without_valid_certificate": 2871,
+      "valid_input_completion_certificates": 2116,
+      "all_compatible_valid_completions": 15068,
+      "certificate_existence_pct": 29.9072265625,
+      "interpretation": "Post hoc existence of a local certificate among exact valid completions; not a cap on lowest-energy fallback accuracy and not a search outcome."
+    },
+    {
+      "arm": "true-graph-oracle",
+      "inputs_with_any_valid_certificate": 4096,
+      "inputs_without_valid_certificate": 0,
+      "valid_input_completion_certificates": 15068,
+      "all_compatible_valid_completions": 15068,
+      "certificate_existence_pct": 100.0,
+      "interpretation": "Post hoc existence of a local certificate among exact valid completions; not a cap on lowest-energy fallback accuracy and not a search outcome."
+    }
+  ],
+  "source_support_diagnostic": {
+    "source_zero_offsets": 69,
+    "true_source_rule_offsets": 48,
+    "extra_source_zero_offsets": 21,
+    "extra_offsets_globally_absent_at_N12": 20,
+    "extra_offsets_absent_only_from_sample": 1,
+    "global_source_zero_offsets_observed_at_N13": 20,
+    "extra_offsets": [
+      {
+        "dr": 6,
+        "dc": -11,
+        "training_count": 0,
+        "full_N12_count": 0,
+        "source_size_global_zero": true,
+        "full_N13_count": 64
+      },
+      {
+        "dr": 6,
+        "dc": 11,
+        "training_count": 0,
+        "full_N12_count": 0,
+        "source_size_global_zero": true,
+        "full_N13_count": 64
+      },
+      {
+        "dr": 7,
+        "dc": 11,
+        "training_count": 0,
+        "full_N12_count": 1,
+        "source_size_global_zero": false,
+        "full_N13_count": 56
+      },
+      {
+        "dr": 8,
+        "dc": -11,
+        "training_count": 0,
+        "full_N12_count": 0,
+        "source_size_global_zero": true,
+        "full_N13_count": 136
+      },
+      {
+        "dr": 8,
+        "dc": 11,
+        "training_count": 0,
+        "full_N12_count": 0,
+        "source_size_global_zero": true,
+        "full_N13_count": 136
+      },
+      {
+        "dr": 9,
+        "dc": -11,
+        "training_count": 0,
+        "full_N12_count": 0,
+        "source_size_global_zero": true,
+        "full_N13_count": 100
+      },
+      {
+        "dr": 9,
+        "dc": -10,
+        "training_count": 0,
+        "full_N12_count": 0,
+        "source_size_global_zero": true,
+        "full_N13_count": 100
+      },
+      {
+        "dr": 9,
+        "dc": 10,
+        "training_count": 0,
+        "full_N12_count": 0,
+        "source_size_global_zero": true,
+        "full_N13_count": 100
+      },
+      {
+        "dr": 9,
+        "dc": 11,
+        "training_count": 0,
+        "full_N12_count": 0,
+        "source_size_global_zero": true,
+        "full_N13_count": 100
+      },
+      {
+        "dr": 10,
+        "dc": -11,
+        "training_count": 0,
+        "full_N12_count": 0,
+        "source_size_global_zero": true,
+        "full_N13_count": 150
+      },
+      {
+        "dr": 10,
+        "dc": -9,
+        "training_count": 0,
+        "full_N12_count": 0,
+        "source_size_global_zero": true,
+        "full_N13_count": 100
+      },
+      {
+        "dr": 10,
+        "dc": 9,
+        "training_count": 0,
+        "full_N12_count": 0,
+        "source_size_global_zero": true,
+        "full_N13_count": 100
+      },
+      {
+        "dr": 10,
+        "dc": 11,
+        "training_count": 0,
+        "full_N12_count": 0,
+        "source_size_global_zero": true,
+        "full_N13_count": 150
+      },
+      {
+        "dr": 11,
+        "dc": -10,
+        "training_count": 0,
+        "full_N12_count": 0,
+        "source_size_global_zero": true,
+        "full_N13_count": 150
+      },
+      {
+        "dr": 11,
+        "dc": -9,
+        "training_count": 0,
+        "full_N12_count": 0,
+        "source_size_global_zero": true,
+        "full_N13_count": 100
+      },
+      {
+        "dr": 11,
+        "dc": -8,
+        "training_count": 0,
+        "full_N12_count": 0,
+        "source_size_global_zero": true,
+        "full_N13_count": 136
+      },
+      {
+        "dr": 11,
+        "dc": -6,
+        "training_count": 0,
+        "full_N12_count": 0,
+        "source_size_global_zero": true,
+        "full_N13_count": 64
+      },
+      {
+        "dr": 11,
+        "dc": 6,
+        "training_count": 0,
+        "full_N12_count": 0,
+        "source_size_global_zero": true,
+        "full_N13_count": 64
+      },
+      {
+        "dr": 11,
+        "dc": 8,
+        "training_count": 0,
+        "full_N12_count": 0,
+        "source_size_global_zero": true,
+        "full_N13_count": 136
+      },
+      {
+        "dr": 11,
+        "dc": 9,
+        "training_count": 0,
+        "full_N12_count": 0,
+        "source_size_global_zero": true,
+        "full_N13_count": 100
+      },
+      {
+        "dr": 11,
+        "dc": 10,
+        "training_count": 0,
+        "full_N12_count": 0,
+        "source_size_global_zero": true,
+        "full_N13_count": 150
+      }
+    ],
+    "use": "Post-construction diagnosis only; no offset is removed or modified."
+  },
+  "feasibility": {
+    "status": "feasible_enumerated_no_model_fitted",
+    "utc": "2026-11-15T00:02:51.028346+00:00",
+    "task": "queen+knight attacks",
+    "enumerations": {
+      "12": {
+        "complete_solutions": 156,
+        "ordinary_queen_universe": 14200,
+        "independent_enumerations_identical": true,
+        "every_board_pairwise_valid": true,
+        "seconds": 0.01807063299929723,
+        "array_sha256": "189d3d1093167d3619b0259e335e3b7cc25ebc186ff54ca09bc48462d75743df"
+      },
+      "13": {
+        "complete_solutions": 1876,
+        "ordinary_queen_universe": 73712,
+        "independent_enumerations_identical": true,
+        "every_board_pairwise_valid": true,
+        "seconds": 0.11245506699196994,
+        "array_sha256": "858cf62eff2bc84e0d42e5e92cded431545ca2e6554284d4649acc974db0e329"
+      }
+    },
+    "source_bank_proposed": 128,
+    "target_requested_inputs": 4096,
+    "target_unique_input_universe": 192477,
+    "prior_input_overlap": 3359,
+    "target_eligible_new_inputs": 189118,
+    "eligible_by_clues": {
+      "1": 165,
+      "2": 9908,
+      "3": 179045
+    },
+    "no_support_counts_or_line_fits": true,
+    "no_inference_outcomes": true,
+    "total_seconds": 0.3369425109704025,
+    "input_universe_sha256": "9000c5425eda515cc35ea0eb879091b2aab8e17fe96f58d0ac749284f4b827f2",
+    "source_sha256": {
+      "research/20261114/loki/h3l/enumerate.py": "4c1b71ccab7313c1071bf945316b1ec93a6e07fa8fb0d51443e2019e2c99732e",
+      "artifacts/research/20261114/loki/h3i/data.npz": "b1627afd46f8bc94b28783da7dadb5a55022416dcd13398ec6df96a5b90eb1d2",
+      "artifacts/research/20261114/loki/h3j/data.npz": "3967afc244f535f1438a8d9ba237d43166ba5b7a14cf6c6c8d1f084326cadb7f",
+      "artifacts/research/20261114/loki/h3k/data.npz": "1dcfa09841799c28e4aef9505e21697228ffeaa8bb3ed437200b7dc5872a872a"
+    }
+  },
+  "bp_adamw": "Not trained or evaluated on superqueens; ordinary-queen results are not matched controls.",
+  "independent_saved_boards": 983040,
+  "derived_record_boards": 0,
+  "identity_plan": {
+    "status": "ready",
+    "frozen_utc": "2026-11-15T00:09:53.206176+00:00",
+    "pid": 1718074,
+    "groups": [
+      {
+        "signature": "550a598121f005203bd5819e1b8db52da7c8c21e199da395fd683be931c5191d",
+        "representative": "line-only",
+        "members": [
+          "line-only"
+        ]
+      },
+      {
+        "signature": "dbe2caa6f351a79994981b099d18f888ebf9cd348ec4fe1b29e6638243fd2707",
+        "representative": "hybrid",
+        "members": [
+          "hybrid"
+        ]
+      },
+      {
+        "signature": "705ecd2215af872814f804b9fd55eadd71d5091f49d409960682b369cf125125",
+        "representative": "direct-offset",
+        "members": [
+          "direct-offset"
+        ]
+      },
+      {
+        "signature": "f01d5f9fc0635ca5ed5b14fa20ff7532a017e02212c8cc35d12ccae839b4e4fd",
+        "representative": "true-graph-oracle",
+        "members": [
+          "true-graph-oracle"
+        ]
+      }
+    ],
+    "actual_unique_search_jobs": 12,
+    "avoided_identical_search_jobs": 0,
+    "protocol_sha256": "2ae056d33c7b2a70a745842325bb51cff53e75bfae3f486cbd3d4663b43a62df",
+    "identity_receipt_sha256": "67b5564b915bace8c7b33ca456e7825e6d2fdb34e658b79f3aed0f0786a98bf1",
+    "energy_groups_sha256": "9ddd90b39fb8b1010ccbc5e931eba4a7b2b0688ca1c67936dd9b1c797ada3ae7",
+    "source_sha256": "76ffc527af874ae6a6ed85b31c3648e246cf360fb62a27e0b991fd41d4d8b8fd",
+    "rationale": "Every prespecified source draw remains represented. Equal S,B,q,delta,tau,unit plus equal inputs and seeds imply identical outputs. Mappings are not independent search replication."
+  },
+  "identity_mapping": {
+    "status": "complete",
+    "completed_utc": "2026-11-15T00:09:53.206464+00:00",
+    "plan_sha256": "b6f5db449ef1a34d9d866f5e75f8aebd01be59abd1815db9e9b3ceb69684d0fc",
+    "mappings": []
+  },
+  "backend_validations": [
+    {
+      "status": "passed",
+      "utc": "2026-11-15T00:07:10.925512+00:00",
+      "device": "cpu",
+      "synthetic_inputs": 16,
+      "chains": 3,
+      "cap": 64,
+      "all_five_backend_outputs_identical": true,
+      "synthetic_three_clue_false_certificate_rejected": true,
+      "synthetic_q_gate_acceptance_checked": true,
+      "seconds": 0.03871353401336819,
+      "backend_sha256": "7aeda1358924718b3547797dd885b4fdb7fffb650284c29a11f5135451deba4b",
+      "reference_sha256": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+      "source_sha256": "a27de85cde4496dbc89ce344e44866d03bb8c7d79a7e47fe04a1273bf7c2c5b0",
+      "protocol_sha256": "2ae056d33c7b2a70a745842325bb51cff53e75bfae3f486cbd3d4663b43a62df"
+    },
+    {
+      "status": "passed",
+      "utc": "2026-11-15T00:09:26.791246+00:00",
+      "device": "cuda",
+      "synthetic_inputs": 16,
+      "chains": 3,
+      "cap": 64,
+      "all_five_backend_outputs_identical": true,
+      "synthetic_three_clue_false_certificate_rejected": true,
+      "synthetic_q_gate_acceptance_checked": true,
+      "seconds": 0.9314598760101944,
+      "backend_sha256": "7aeda1358924718b3547797dd885b4fdb7fffb650284c29a11f5135451deba4b",
+      "reference_sha256": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+      "source_sha256": "a27de85cde4496dbc89ce344e44866d03bb8c7d79a7e47fe04a1273bf7c2c5b0",
+      "protocol_sha256": "2ae056d33c7b2a70a745842325bb51cff53e75bfae3f486cbd3d4663b43a62df"
+    }
+  ],
+  "worker_receipts": [
+    {
+      "status": "complete",
+      "started_utc": "2026-11-15T00:09:53.836620+00:00",
+      "gpu": 0,
+      "pid": 1718075,
+      "host": "loki",
+      "device": "0, GPU-b13dc6fa-d115-87ba-184a-bfadd158a7e9, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 620.70.06",
+      "protocol_sha256": "2ae056d33c7b2a70a745842325bb51cff53e75bfae3f486cbd3d4663b43a62df",
+      "completed_utc": "2026-11-15T00:12:46.164325+00:00"
+    },
+    {
+      "status": "complete",
+      "started_utc": "2026-11-15T00:09:53.827699+00:00",
+      "gpu": 1,
+      "pid": 1718076,
+      "host": "loki",
+      "device": "1, GPU-0fb7c4f0-73a1-a76b-2cde-616063fa4082, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 620.70.06",
+      "protocol_sha256": "2ae056d33c7b2a70a745842325bb51cff53e75bfae3f486cbd3d4663b43a62df",
+      "completed_utc": "2026-11-15T00:12:56.311682+00:00"
+    }
+  ],
+  "gpu_worker_seconds": 354.811688,
+  "input_sha256": {
+    "research/20261114/loki/h3l/protocol.json": "2ae056d33c7b2a70a745842325bb51cff53e75bfae3f486cbd3d4663b43a62df",
+    "research/20261114/loki/h3l/driver.py": "a27de85cde4496dbc89ce344e44866d03bb8c7d79a7e47fe04a1273bf7c2c5b0",
+    "research/20261114/loki/h3l/prepare.py": "76f5d69306c3cde6012b72675fe1cbe0edeea9c1867f1baef6e489721c88afb0",
+    "research/20261114/loki/h3l/enumerate.py": "4c1b71ccab7313c1071bf945316b1ec93a6e07fa8fb0d51443e2019e2c99732e",
+    "research/20261114/loki/h3l/reuse_identities.py": "76ffc527af874ae6a6ed85b31c3648e246cf360fb62a27e0b991fd41d4d8b8fd",
+    "research/20261114/loki/h3i/backend.py": "7aeda1358924718b3547797dd885b4fdb7fffb650284c29a11f5135451deba4b",
+    "research/20261114/loki/study.py": "7c48de391879dc2f4b4f14459698afbc84c82cb3e89030e0ba4814d4fd74b552",
+    "upstream/cram/__init__.py": "ada20986bead2aa2d77dcc358af07dbc01b569b1765c83560e917d5cc2bd032f",
+    "upstream/cram/cram_graph_coloring.py": "ed6158d983be48082f851dcdb5175bad7aab6408ac73f14659825e90c67f5275",
+    "upstream/cram/cram_maze.py": "c9f9fa5718fdf7ce1f8ad33dc7dc9481e43c6084a31516ac1c88451dba03ead8",
+    "upstream/cram/cram_maze_hard_graph.py": "967c573a3b3dee6c015bf373b7858b856ae0e639bdfa1a8c302b65af87a19717",
+    "upstream/cram/cram_maze_hard_simple.py": "07e64a9383c4b2b1ea30021063d93e302a794023accbf6effbf188892220b2a8",
+    "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "upstream/cram/cram_sudoku.py": "2c6b53d1b81d54e35c484a3565abd60e778716d6e6121e424aede826a5ab0ed2",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "upstream/cram/graph_coloring_data.py": "b04e61911aa55d437ab3c9d602832c3df09f285f2605aba2e9a3d78c18d9cb04",
+    "upstream/cram/latent_settle_triton.py": "7eca3fdf03ec6d5eb847e0dcbcdad61c74b56c084c363190d2c32a1737f19072",
+    "upstream/cram/maze_h3.py": "dd13a3038830bf1e2db83854704fcb39167a3f76ee9de01832de9b3187ee7acd",
+    "upstream/cram/maze_h3p.py": "dd26d260efea3a84f224743e14ae8383d967dfdafb0b4409bd05e864fe7ce92a",
+    "upstream/cram/maze_learned.py": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "upstream/cram/maze_unique.py": "3ceb56a61d92c3fa52a7d84876314abe31909780159fa53560692c19b306d213",
+    "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623",
+    "upstream/cram/opcount.py": "2ddf7373d227f50f43b06cf8e129cb727a85a3e2e86065e7081ba477997e924d",
+    "upstream/cram/paths.py": "d3af83d2c75e9165b88fbaf09d35ee352523fa79e5b3b02163d0dfbaae8602b8",
+    "upstream/cram/table.py": "bbf1fdce8a9e2fa836f5a3800746671b62f740e28c1986029bb53b608ebd0493",
+    "artifacts/research/20261114/loki/h3l/training.npz": "b5068fcf8b8b242d47312c7d3c7c180d4b9edd44916d3c58075e49a5521a0698",
+    "artifacts/research/20261114/loki/h3l/data.npz": "bd350bab528b3227645736ce77501de6adcdd77ab0f94d52f339c93ab4542aa5",
+    "artifacts/research/20261114/loki/h3l/dataset.json": "ee76a2e70f246a347d3b1a149d81a593f3d4641e50b1c0cb54ec525c90a10111",
+    "artifacts/research/20261114/loki/h3l/feasibility.json": "2db98bff6d15b984ff02832486dc06a189e17c35ea1a6b6e81b3c73037f8446b",
+    "research/20261114/loki/h3j/protocol.json": "a00439f3e09981713cf65adc52df55f3d17b91d46ac3f642cd1d8cabeca53a21",
+    "artifacts/research/20261114/loki/h3l/independent-preflight.json": "67b5564b915bace8c7b33ca456e7825e6d2fdb34e658b79f3aed0f0786a98bf1",
+    "artifacts/research/20261114/loki/h3l/solutions-n12.npy": "189d3d1093167d3619b0259e335e3b7cc25ebc186ff54ca09bc48462d75743df",
+    "artifacts/research/20261114/loki/h3l/solutions-n13.npy": "858cf62eff2bc84e0d42e5e92cded431545ca2e6554284d4649acc974db0e329",
+    "artifacts/research/20261114/loki/h3l/source-support.npz": "3f644c991e29afc76f3404a1e562446873ae9afd906f2f29946288395d009681",
+    "artifacts/research/20261114/loki/h3l/line-fit.json": "e1b47300f312196eefce2130cac9c01387424975486c9ac4a8e23df6e236e0f9",
+    "artifacts/research/20261114/loki/h3l/input-universe.npz": "9000c5425eda515cc35ea0eb879091b2aab8e17fe96f58d0ac749284f4b827f2",
+    "artifacts/research/20261114/loki/h3l/models/line-only/model.json": "bebd7bebcaf1cb1145d5c34c930616981eaae739fa4d9244ad066faf37b51e83",
+    "artifacts/research/20261114/loki/h3l/models/line-only/model.pt": "99f9af04e8d4467ad499ef39d907e03cc20aa24b99f21fdf20f124b302a87a13",
+    "artifacts/research/20261114/loki/h3l/models/line-only/construction.npz": "27aa40c8963fb42aeec4ee985d506bde28f026641ed2e652c79e292df799e916",
+    "artifacts/research/20261114/loki/h3l/models/hybrid/model.json": "d5763cc209c964548a897288423c8b6d401bb060c7a0ee6a30dfb175fdb61fea",
+    "artifacts/research/20261114/loki/h3l/models/hybrid/model.pt": "601541f4b15182bdf1669e909a79f690fdef16bc4b325c0e107046c7016a94b6",
+    "artifacts/research/20261114/loki/h3l/models/hybrid/construction.npz": "9c26782fa438d1dacddc2b2dd14fcf4772b0c6cedee6e7cc4af95e530226c242",
+    "artifacts/research/20261114/loki/h3l/models/direct-offset/model.json": "fd3742683e6f3cce216babf67e278b64341b3b0d944565e79b759f47ec1a597f",
+    "artifacts/research/20261114/loki/h3l/models/direct-offset/model.pt": "501eb59df71dad3abdd134bfcc5294215895492c634f84f10d0bca63b6815821",
+    "artifacts/research/20261114/loki/h3l/models/direct-offset/construction.npz": "03cadacf67ffb2a888748898aa165ef8340c689339a44335922ab818a674dd84",
+    "artifacts/research/20261114/loki/h3l/models/true-graph-oracle/model.json": "226f7c6e0abb1134c8530a4dddfc7845d88c05c670f0676f416b2391836d597d",
+    "artifacts/research/20261114/loki/h3l/models/true-graph-oracle/model.pt": "677f6f5ecd6d082bcbaf219ef0e0b25058a5d2a41e7bbada8cd2de6ff967636f",
+    "artifacts/research/20261114/loki/h3l/models/true-graph-oracle/construction.npz": "466977921642c8e81da1cedfb6808cf8f47ebe4dd980bb71ee6f85140bc97a43",
+    "artifacts/research/20261114/loki/h3l/energy-groups.json": "9ddd90b39fb8b1010ccbc5e931eba4a7b2b0688ca1c67936dd9b1c797ada3ae7",
+    "artifacts/research/20261114/loki/h3j/data.npz": "3967afc244f535f1438a8d9ba237d43166ba5b7a14cf6c6c8d1f084326cadb7f",
+    "research/20261114/loki/h3l/preflight.py": "7f910b802f9704eb306a254b6c1cdc1c83aae235e1aed020a4cd1df06a452603",
+    "artifacts/research/20261114/loki/h3l/backend-validation-cpu.json": "cc674285a24a2397ae607c88960b3fee808b95b0d9b27f9649f2f24d3c17a663",
+    "artifacts/research/20261114/loki/h3l/backend-validation-cuda.json": "aac1ea6e7f4aead7a988851f4b2c9819856bb078dc39c087661bb51b52f2e25f",
+    "artifacts/research/20261114/loki/h3l/identity-plan.json": "b6f5db449ef1a34d9d866f5e75f8aebd01be59abd1815db9e9b3ceb69684d0fc",
+    "artifacts/research/20261114/loki/h3l/identity-mapping.json": "474f37ea4351bb5372e41c073a1f25070850813d7aa79ac22fdb792828651f3d",
+    "artifacts/research/20261114/loki/h3l/search/line-only/s0/result.json": "570c84d56ede2b28a0ac20d7519bae2091ab6b1957f48877da579447c3c03a1a",
+    "artifacts/research/20261114/loki/h3l/search/line-only/s0/records.npz": "cf12bb67be30ae63e218f487116bd632cd512b0dbff4d0ec82f7eb0858d98feb",
+    "artifacts/research/20261114/loki/h3l/search/line-only/s1/result.json": "586d67dccbbb28eb0e4d5dfc45e7f22d9570b8b61594126cc1793ec6a1738092",
+    "artifacts/research/20261114/loki/h3l/search/line-only/s1/records.npz": "e7b26f8f4487b5b73d014a1db9b22c73a79a7190b2398dfd611d2ce0e18c90f4",
+    "artifacts/research/20261114/loki/h3l/search/line-only/s2/result.json": "d21d7fab224adc16859e8a49304303f3667f1ddae821d56e77c5a7f1fe25201f",
+    "artifacts/research/20261114/loki/h3l/search/line-only/s2/records.npz": "ddb057b3c54d147ae538501a028b956d4498d4afe6ed62085d537d2205592ce2",
+    "artifacts/research/20261114/loki/h3l/search/hybrid/s0/result.json": "5e54cb3e62e1992318110cc07d1e1216cebe8c8d8ae198ba9d69b0764342a15e",
+    "artifacts/research/20261114/loki/h3l/search/hybrid/s0/records.npz": "cf13e46e33cad2a8bdaa28421171c16750aa73fa3a3c430a66a1ca12b14c4612",
+    "artifacts/research/20261114/loki/h3l/search/hybrid/s1/result.json": "e95d82a0261d22f62240326f4288e45776def16d55919bc3e4d1fbc68ba15850",
+    "artifacts/research/20261114/loki/h3l/search/hybrid/s1/records.npz": "4211cabbca5b2dd3cd80b0695d66e962b1b79092d0b96f992417ae805f1ac1bf",
+    "artifacts/research/20261114/loki/h3l/search/hybrid/s2/result.json": "713fec799a558a0f394f51bf9990267ec69aa82e2432164189d369227cf16fac",
+    "artifacts/research/20261114/loki/h3l/search/hybrid/s2/records.npz": "85ab54fa497d51cf9c9a4be1fa7bcf8c56a0612e105f1085268040e11ba647d9",
+    "artifacts/research/20261114/loki/h3l/search/direct-offset/s0/result.json": "0f3fc3ddb895ca8b6a8e8cd7e4f3666ba45b8a0d4a263278364e32c435eb1aee",
+    "artifacts/research/20261114/loki/h3l/search/direct-offset/s0/records.npz": "5d881e542945e676371a28ee7edc17250695e0265ab54d21ddcc9bdc9bf709ab",
+    "artifacts/research/20261114/loki/h3l/search/direct-offset/s1/result.json": "e3ec4e63374af6fe0609550157b617ab96cf662024288e78aa3d6fdbc7055802",
+    "artifacts/research/20261114/loki/h3l/search/direct-offset/s1/records.npz": "2820f9985a1c05268baee2c46b4fdf3d058bb358d712f3f87e71fc7141c644bc",
+    "artifacts/research/20261114/loki/h3l/search/direct-offset/s2/result.json": "6765e5b59f24a8525fcb196da4c0506bb22c409b1f186cf1be746c2c5ee80f37",
+    "artifacts/research/20261114/loki/h3l/search/direct-offset/s2/records.npz": "c0f9e27f8f8a1fca0d164e369061ad9cc133c845ed4677b57d9b6443453c390b",
+    "artifacts/research/20261114/loki/h3l/search/true-graph-oracle/s0/result.json": "51ce4d4fe7f5d81c9a159575682c86dfd2176570984ecbe006438edb05567e2c",
+    "artifacts/research/20261114/loki/h3l/search/true-graph-oracle/s0/records.npz": "bb1f5cff3664d8bb983e39121b362b5ef950a2e0801229bcf145686b200b6645",
+    "artifacts/research/20261114/loki/h3l/search/true-graph-oracle/s1/result.json": "7ee74b978d4416ccb81ab34a18f76ef6cd4286149ab61ce99b040397707556c8",
+    "artifacts/research/20261114/loki/h3l/search/true-graph-oracle/s1/records.npz": "cde44a797eafaddb5f627079325eddb61a4448a594d5efebef4247c3aaccbd13",
+    "artifacts/research/20261114/loki/h3l/search/true-graph-oracle/s2/result.json": "9744bdd128b6135973e208ee45e0f306b57fe2f1e4df47a0c6bef3ccbd1b8b61",
+    "artifacts/research/20261114/loki/h3l/search/true-graph-oracle/s2/records.npz": "17ce849e15d502703562c62edd21895b40b5da796a3ecf2d185737602efde740",
+    "artifacts/research/20261114/loki/h3l/worker-g0.json": "a0c46a3385d554a5051ffea65f0fb1b8a719d85f5fd5261dc79d0a608f1fa670",
+    "artifacts/research/20261114/loki/h3l/worker-g1.json": "4f524b9adb1a00dd574926cc7101a97d8221c35733bd36d9d3b7240a9b6fcea1",
+    "research/20261114/loki/h3l/analyze.py": "894177d2b8ddc72b8b7ed52de85fbdb016dc203d077cb62a884eb87b01f6ab58",
+    "research/20261114/loki/h3h/analyze.py": "5eff216fedc987f042fdecebb0574ed4d51a7f933510d2f112e4ae6e79b81c92",
+    "research/20261114/loki/h3g/analyze.py": "ad4869210929caf5f3ae0ef4f858b43759007be42ac270ba99686fc5286aee89",
+    "research/20261114/loki/analyze.py": "0a8d1427908062360db73bbeb83b7bbc881ed8eec81450a0245cff40043142e0"
+  },
+  "limits": [
+    "This tests the boundary of a declared geometric hypothesis family, not arbitrary-rule learning.",
+    "Line-only target failure can reflect family mismatch, while finite zero counts can reflect source-size global impossibility; neither is automatically an implementation failure.",
+    "All extra source zero offsets remain in hybrid/direct models. No target-label repair or hyperparameter tuning.",
+    "One128-pattern source bank with3 repeated search seeds, not multiple independent training replications.",
+    "Target q=13, inherited ordinary-queen N12 temperature unit and strict stopping choices are supplied priors; no superqueen target calibration.",
+    "The oracle has explicitly supplied target rules; it is not learned. Unique-input sampling differs from original GRAM."
+  ],
+  "audit_seconds": 3.476957681996282
+}

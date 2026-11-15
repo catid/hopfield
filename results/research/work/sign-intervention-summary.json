@@ -1,0 +1,96 @@
+{
+  "status": "validated",
+  "utc": "2026-11-14T23:51:36.431825+00:00",
+  "primary": {
+    "hypothesis": "H2o",
+    "n_unique": 2048,
+    "gains": 145,
+    "losses": 0,
+    "observed_gain_pp": 7.080078125,
+    "one_sided95_net_gain_lower_pp": 5.826917180934996,
+    "one_sided95_net_gain_upper_pp": 8.277996357781477,
+    "target_pp": 10.0,
+    "decision": "falsified",
+    "bounds": "For each one-sided net bound, two exact binomial tail bounds at alpha=.025; Bonferroni yields95% coverage. Paired gain/loss events use independent inputs."
+  },
+  "secondary": {
+    "negative_vs_full_failure_overlap": {
+      "full_failures": 286,
+      "negative_only_failures": 112,
+      "intersection": 100,
+      "union": 298,
+      "jaccard": 0.33557046979865773,
+      "negative_only_fraction_of_full_failures": 0.34965034965034963
+    },
+    "vs_native": {
+      "full_gaussian": {
+        "gains": 0,
+        "losses": 281
+      },
+      "positive_only": {
+        "gains": 0,
+        "losses": 136
+      },
+      "negative_only": {
+        "gains": 0,
+        "losses": 107
+      }
+    }
+  },
+  "joint_success": {
+    "native": 2043,
+    "full_gaussian": 1762,
+    "positive_only": 1907,
+    "negative_only": 1936
+  },
+  "n_unique": 2048,
+  "models": 3,
+  "jobs": 24,
+  "model_input_rollouts": 24576,
+  "initial_logit_arrays_verified": 2048,
+  "final_logit_arrays_verified": 24576,
+  "independent_graph_checks": 2342,
+  "independent_distance_checks": 2048,
+  "exact_board_cache_hits": 22234,
+  "batch_preflight": {
+    "utc": "2026-11-14T23:46:03.199504+00:00",
+    "status": "passed",
+    "purpose": "Reserved-data batch-size throughput comparison before sign-study freeze",
+    "inputs": 64,
+    "seed": 2026111494,
+    "model_seed": 0,
+    "native_answer_outputs_exact": true,
+    "shared_fixed_hidden_readout": true,
+    "timings": [
+      {
+        "batch_size": 32,
+        "seconds": [
+          0.2345410370035097,
+          0.23342268995475024,
+          0.23307115596253425,
+          0.23290566803188995,
+          0.23334101698128507
+        ],
+        "median_seconds": 0.23334101698128507
+      },
+      {
+        "batch_size": 64,
+        "seconds": [
+          0.12218259298242629,
+          0.12170286796754226,
+          0.1218979189870879,
+          0.12194281601114199,
+          0.12152773700654507
+        ],
+        "median_seconds": 0.1218979189870879
+      }
+    ],
+    "ratio_32_over_64": 1.9142329821561745,
+    "chosen_batch": 64
+  },
+  "protocol_sha256": "f8c56218c6734bb956ea0116e234cf767b0b8ce2210b2d5ab232861cf9fd3cf2",
+  "script_sha256": "db84a062c323f8200ea13d3197dbedee010d54598e0e077131d87eb99161ac9f",
+  "audit_seconds": 16.963194957002997,
+  "scope": "Fixed sigma1 initial-logit sign decomposition on fresh90-grid loop20 inputs, three frozen models, eta.5. No candidate selector or ground-truth intervention. All failures retained.",
+  "full_local_audit_sha256": "6d6ebe138eb572d4ac3c7ee0f3d9419611ed2cc31ec0d86d9627ab45e47cb99b"
+}

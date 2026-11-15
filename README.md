@@ -22,9 +22,17 @@ On a reserved **10,000-puzzle official test slice**, the count energy solves **5
 
 Hidden solution labels can also be removed: counts from **3,000 partially observed training puzzles** recover the same graph in all six samples. Masked digits never enter estimation or calibration. These are official clue masks, whose selection may carry useful information. [Clues-only experiment and leakage checks →](research/20261114/ripper/REPORT-clues.md)
 
-**Label noise exposes a failure—and a simple repair.** Corrupting one digit in three of 300 training solutions drops strict-count accuracy from 82.01% to 55.12%. Tolerating one observed equality recovers the original graph and restores 82.01%, with zero wrong stops. This tests one declared noise level and threshold. [Noise protocol and audit →](research/20261114/foureyes/REPORT-noise.md)
+**More training data makes count recovery robust to label noise.** Change nine free digits in every training board, preserve its clues, and choose the threshold using the largest gap in equality counts. With 3,000 boards, this recovers the exact graph in **3,072/3,072 independent corruption draws** across six fixed source banks. Every bank clears the frozen 99% recovery target after correction for six comparisons. With 300 boards, recovery falls to **4.39%**. This measures graph recovery under a declared random corruption law; it does not vary the six source banks. [Noise replication, failure diagnosis and audit →](research/20261114/foureyes/REPORT-noise-replication.md)
+
+![Count recovery under label noise, with sample-size and failure controls](assets/figures/noise-replication.png)
 
 The earlier intervention result remains useful: digit symmetry and repulsion increased low-data accuracy by **47.83 points** on a separate reserved slice. Counting explains why the transformed models recover the same graph. [Earlier matched results →](research/20261114/ripper/REPORT-heldout.md)
+
+## Choose useful training clues
+
+![Adaptive clue acquisition reduces false constraints and improves short-budget solves](assets/figures/spike-acquisition.png)
+
+With a fixed budget of **25 queried digits per training board**, a new query score reduces false extra constraints by **50.6%** versus our previous policy (95% paired-bank interval: 46.9–54.2%). On the same 10,000 held-out puzzles repeated across 32 source-bank/search-seed runs, short-budget accuracy rises from **3.30% to 14.46%**, with zero wrong stops. All policies receive 300 training boards and the same search budget. Full solution labels serve only as a simulated query oracle; the policy sees its queried digits. These low-label results use a different training regime from the 99.9567% headline. [Policy, controls and independent replay →](research/20261114/ripper/REPORT-spike.md)
 
 ## The same transformed model, faster inference
 
@@ -39,6 +47,10 @@ A sparse backend runs the same repulsive energies **2.82× faster** in warm infe
 Changing the inference step size from **0.2 to 0.5**, with the learned 29-parameter maze energy unchanged, reduces median answer updates by **2.38× at 60×60** and **2.42× at 90×90**. Measured hidden-plus-answer runtime improves **2.09× and 2.21×**. Both arms solve all 768 generated mazes at the 8,192-update cap, across three frozen models, with no lost solves.
 
 At a tighter 2,048-update cap, joint success rises from **351/384 to 384/384** at 60×60 and **285/384 to 370/384** at 90×90. These generated tree/loopy mazes differ from the original Maze-Hard distribution. [Frozen protocol, confidence intervals and causal branch-depth experiments →](research/20261114/work/REPORT.md)
+
+**Changing the continuous relaxation also reduces failures.** Add $\lambda\sum_{i\in\mathrm{free}} p_i(1-p_i)$ with $\lambda=1$. This term is zero on every binary board, so binary energy rankings and the original flip certificate stay unchanged. On **16,384 fresh 90×90 loopy mazes**, joint success across all three frozen models rises from **16,350 to 16,370**: **20 gains, zero losses**, and failures fall from 34 to 14. Answer time increases about **19%**. The frozen one-sided 95% lower bound is +0.0521 points, narrowly clearing the +0.05-point target. [Derivation, paired uncertainty and remaining failures →](research/20261114/work/REPORT.md)
+
+![Continuous relaxation: 34 failed maze inputs reduced to 14](results/research/work/native-relaxation.png)
 
 ## N-Queens: unseen solutions from training counts
 
@@ -61,6 +73,8 @@ The maze step-size benefit has a limit: a new maze with many tied shortest paths
 Exhaustively scoring all **352,212 shortest paths** in that maze finds that a disconnected endpoint-only state has lower energy than every valid shortest path, for all three models. On 4,096 fresh cyclic mazes, checking candidate path feasibility rescues energy-based selection by 42.58 points—but does not improve the native initialization baseline. [Energy landscape and fresh selector controls →](research/20261114/work/REPORT.md)
 
 The learned Sudoku pipeline's four-million-move **99% all-seed joint-success hypothesis was inconclusive**, despite 99.635% mean accuracy. The sixteen-million-move secondary endpoint passed. Projection still fails at extremely low data; largest-gap pruning collapses without spatial augmentation; and maze mass rescaling gives no improvement. [All hypotheses, including negative and inconclusive outcomes →](results/README.md)
+
+Learning valid constraints at one board size does not guarantee transfer to a larger board. For superqueens, a source-based hybrid model reaches **37.23%** on larger N13 boards while the supplied-rule oracle reaches 100%. Some exclusions inferred from all N12 solutions become false at N13. Adding every N11 solution leaves the model unchanged. [Superqueen boundary →](research/20261114/loki/h3l/REPORT.md) · [Smaller-source control →](research/20261114/loki/h3m/REPORT.md)
 
 Fixed Sudoku restarts also failed their frozen +0.1-point improvement target: the gain was +0.012 points, with a paired 95% interval [−0.068, +0.093]. [Restart control and full curve →](research/20261114/foureyes/REPORT-restart.md)
 

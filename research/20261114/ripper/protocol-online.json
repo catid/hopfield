@@ -1,0 +1,52 @@
+{
+  "id": "H1s-online-clue-acquisition",
+  "frozen_utc": "2026-11-14T23:59:32.947608+00:00",
+  "primary_hypothesis": "Candidate-focused online acquisition reduces aggregate N300 extra edges by at least25percent relative to uniform acquisition across six fixed banks.",
+  "primary_effect": "R=1-sum(candidate extra edges)/sum(uniform extra edges), computed across six paired bank seeds. Positive values mean fewer extras.",
+  "primary_interval": "5000 paired bootstrap resamples of the six bank seeds, RNG20261126. Percentile95percent interval for R. Supported if lower>=.25; falsified if upper<.25; otherwise inconclusive. If a bootstrap uniform denominator is zero, report an inconclusive primary and the observed counts rather than silently dropping draws.",
+  "uncertainty_limit": "Only six fixed complete-board banks and one fixed tie stream per bank. Bootstrap over bank clusters is approximate and does not establish population-wide acquisition guarantees.",
+  "inputs": "artifacts/research/20261114/ripper/clues/input_manifest.json",
+  "input_manifest_sha256": "838908435ae82b9f617eb92d821341ec8b6c1792329b7a05d192815aff859eae",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "sizes": [
+    300,
+    1000,
+    3000
+  ],
+  "n_per_bank": 3000,
+  "queries_per_board": 25,
+  "arms": [
+    "uniform",
+    "balanced",
+    "candidate"
+  ],
+  "policies": "Uniform selects first25 cells of the preassigned permutation. Balanced weights every off-diagonal pair by1/(1+past joint-observation count). Candidate uses the same weight only when past equal-observation count is zero. For each weighted policy, select first cell maximizing weighted degree; select each subsequent cell maximizing total weight to already selected cells. Resolve all exact ties by earliest position in the same preassigned permutation. No lookahead or geometry.",
+  "rng": "For bank seed s, NumPy2.3.4 default_rng(20261125+s).permutation(81) once per row in original bank order, shared across all three policies. Shadow-current-row permutations use a separate RNG20261225+s. No policy tuning or stream selection.",
+  "acquisition_interface": "Policy receives only past joint/equal counts, k=25 and tie order. It has no file access, row solutions, current values, source identifiers, geometry or oracle handle. The harness fixes and records the mask before revealing only its25 queried values. Full stored completions act solely as the simulated label oracle.",
+  "gates": "All current-row masks finalize before reveal; premature reveal rejected. State unchanged by selection. For every row/policy, permuting hidden current-row values leaves the finalized mask identical. Observed files contain values only at selected cells. Independent recount of all prefix supports and exact25-query count.",
+  "secondary": "Balanced policy and N1000/N3000 structure are descriptive. Evaluate N300 models for all three policies on fresh full-all[150000,160000), six matched seeds, cap262144,C4,unit1,B0,tau0,ebar0,temp.4->.31,focus.45,anneal524288,check4096,tol.001. Exact duplicate supports/settings/seed may reuse searches. Paired two-way bootstrap95percent accuracy differences versusuniform,5000draws,RNG20261127,descriptive only.",
+  "rows_half_open": [
+    150000,
+    160000
+  ],
+  "split": "full-all",
+  "search_sizes": [
+    300
+  ],
+  "budget": "At most30GPU-minutes, including bounded preflight/validation. CPU acquisition and overlapping preparation/search are eligible; no filler GPU work.",
+  "backend_sha256": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+  "capture_sha256": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+  "limitations": [
+    "Active acquisition is simulated from stored complete boards; the policy itself sees only queried labels.",
+    "25 queries per board fixes label cost. Policies can expose different digits from the same current row, then learn from their different histories.",
+    "Adaptive masks are not independent uniform draws, so the previous independent-mask coverage theorem does not directly apply.",
+    "BP AdamW is outside this count-energy acquisition mechanism study and is not run."
+  ]
+}

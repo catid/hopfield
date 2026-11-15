@@ -1,0 +1,112 @@
+{
+  "status": "validated",
+  "utc": "2026-11-15T00:24:04.974574+00:00",
+  "primary": {
+    "hypothesis": "H2r",
+    "n_unique": 16384,
+    "gains": 20,
+    "losses": 0,
+    "observed_gain_pp": 0.1220703125,
+    "one_sided95_net_gain_lower_pp": 0.05206656213891899,
+    "one_sided95_net_gain_upper_pp": 0.18846504779610573,
+    "target_pp": 0.05,
+    "decision": "supported"
+  },
+  "secondary": {
+    "gain_input_indices": [
+      371,
+      695,
+      1555,
+      3513,
+      3593,
+      4274,
+      5991,
+      6015,
+      6108,
+      7264,
+      8819,
+      9662,
+      10232,
+      10482,
+      10528,
+      13170,
+      13790,
+      14822,
+      14889,
+      15283
+    ],
+    "loss_input_indices": [],
+    "common_failure_input_indices": [
+      962,
+      3636,
+      4353,
+      5676,
+      5796,
+      5889,
+      5998,
+      7541,
+      9892,
+      10463,
+      12588,
+      12766,
+      13439,
+      15756
+    ]
+  },
+  "joint_success": {
+    "native_lambda0": 16350,
+    "native_lambda1": 16370
+  },
+  "n_unique": 16384,
+  "models": 3,
+  "jobs": 192,
+  "model_input_rollouts": 98304,
+  "initial_logit_arrays_verified": 16384,
+  "final_logit_arrays_verified": 98304,
+  "independent_graph_checks": 16411,
+  "independent_distance_checks": 16384,
+  "exact_board_cache_hits": 81893,
+  "batch_preflight": {
+    "utc": "2026-11-14T23:46:03.199504+00:00",
+    "status": "passed",
+    "purpose": "Reserved-data batch-size throughput comparison before sign-study freeze",
+    "inputs": 64,
+    "seed": 2026111494,
+    "model_seed": 0,
+    "native_answer_outputs_exact": true,
+    "shared_fixed_hidden_readout": true,
+    "timings": [
+      {
+        "batch_size": 32,
+        "seconds": [
+          0.2345410370035097,
+          0.23342268995475024,
+          0.23307115596253425,
+          0.23290566803188995,
+          0.23334101698128507
+        ],
+        "median_seconds": 0.23334101698128507
+      },
+      {
+        "batch_size": 64,
+        "seconds": [
+          0.12218259298242629,
+          0.12170286796754226,
+          0.1218979189870879,
+          0.12194281601114199,
+          0.12152773700654507
+        ],
+        "median_seconds": 0.1218979189870879
+      }
+    ],
+    "ratio_32_over_64": 1.9142329821561745,
+    "chosen_batch": 64
+  },
+  "protocol_sha256": "10d847d6c0f0b974126435709a5fb87be0e8ae219a82d32fba40fde3ad8cb702",
+  "script_sha256": "44d460ba20ce00e8c12f0f4943562595ce13190801b61c7277767058871deef4",
+  "parallel_oracle_seconds": 10.841859648993704,
+  "oracle_processes": 8,
+  "audit_seconds": 11.840526346990373,
+  "scope": "Native-u3 compensated diagonal lambda0/+1 comparison with identical binary energies and original certificates on fresh90-grid loop20 inputs, three frozen models, eta.5. No candidate selector or ground-truth intervention. All failures retained.",
+  "full_local_audit_sha256": "6f6ed1a99b621c1a027aeb107693fffb7b1cbe1e54e2695bc67f63c868089ea4"
+}

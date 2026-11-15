@@ -1,0 +1,146 @@
+{
+  "id": "H3m-multisize-superqueen-source",
+  "frozen_utc": "2026-11-15T00:20:37.501133+00:00",
+  "hypothesis": "Adding all44 N11 superqueen patterns to the same128 N12 patterns raises N13 certificate-first N20 accuracy by at least10percentage points over N12-only hybrid inference, with zero wrong stopped chains.",
+  "antecedent": "H3l exposed source-size global zero offsets. This test adds positive examples from another source size without selecting a locality cutoff or removing exceptions by target geometry.",
+  "line_family": "Enumerate integer(a,b) in[-2,2]^2 except(0,0), gcd(abs(a),abs(b))=1, canonical sign(first nonzero positive). A line is a*dr+b*dc=0. Retain iff it contains>=3 observed forbidden N12 offsets and0 observed allowed N12 offsets. Retain all qualifying lines; no subset or orientation selection on target.",
+  "arms": [
+    {
+      "arm": "n12-only",
+      "n12_patterns": 128,
+      "n11_patterns": 0
+    },
+    {
+      "arm": "multisize",
+      "n12_patterns": 128,
+      "n11_patterns": 44
+    },
+    {
+      "arm": "n12-full",
+      "n12_patterns": 156,
+      "n11_patterns": 0
+    },
+    {
+      "arm": "true-graph-oracle",
+      "n12_patterns": 0,
+      "n11_patterns": 0
+    }
+  ],
+  "construction": "For each learned arm sum positive displacement co-occurrences across its declared source patterns, using each boards own coordinates/size. The observed offset domain is the union of source domains (N12 for every arm). Apply the unchanged primitive-line rule, then union extrapolated lines with EVERY observed-zero finite source offset. No radius restriction or graph-based exception pruning. J=13*forbidden-1, diagonal/unary0. Final oracle explicitly supplies target queen+knight attacks.",
+  "source_controls": "N12-only uses exactly H3l128 patterns. Mixed source uses those128 plus all44 N11 patterns (172total). Full-N12 uses all156 patterns. This changes data breadth and count; the descriptive full-N12 control adds28 labels versus44 for mixed source, so total labels are not perfectly matched.",
+  "calibration": {
+    "q": 13,
+    "delta": 12.0,
+    "tau": -78.0,
+    "unit": 25.909505208333332,
+    "explanation": "q and its symbolic delta=q-1,tau=-q(q-1)/2 are declared structural priors. Every target arm shares the inherited N12 offset128 mean-absolute-field unit. No target fit or label calibration.",
+    "unit_source": "artifacts/research/20261114/loki/h3i/models/offset128/model.json"
+  },
+  "search": {
+    "n": 13,
+    "unique_inputs": 4096,
+    "chains": 20,
+    "cap": 20000,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "temperature": 1.0,
+    "stop": "strict local margin plus q-cardinality gate",
+    "margin": 0.001,
+    "floating_operations": "57461+859*moves",
+    "cardinality_integer_additions": "168*(moves+1)"
+  },
+  "primary": {
+    "arm": "multisize",
+    "control": "n12-only",
+    "minimum_accuracy_gain_pp": 10.0,
+    "required_wrong_stops": 0
+  },
+  "decision": "Support if paired-input bootstrap one-sided95% lower mixed-minus-N12-only accuracy gain>=10pp AND zero mixed-source wrong stopped chains. Falsify if upper gain<10pp OR any mixed-source wrong stop; otherwise inconclusive.2000bootstrap replicates,RNG20261114; all3searchseeds remain clustered within each input. Full-N12 and oracle comparisons/coverage are descriptive.",
+  "diagnostics": "After construction identify which N12-zero offsets acquire positive N11 support; all remaining zeros stay in the model. Audit all target graph errors and valid-certificate capacity, with target truth used only diagnostically.",
+  "identity": "Deduplicate only exact S,B,q,delta,tau,unit equality, before target search, keeping all four logical arms and explicit matched-seed mappings. First arm in frozen order is representative.",
+  "dataset": {
+    "status": "reserved_before_fitting",
+    "utc": "2026-11-15T00:19:11.586666+00:00",
+    "task": "superqueens:queen+knight attacks",
+    "source_counts": {
+      "n12_only": 128,
+      "n11_all": 44,
+      "multisize_total": 172,
+      "n12_full": 156
+    },
+    "source_breadth_caveat": "Mixed-size adds44 labels; full-N12 adds28. The control is descriptive and does not perfectly match total positive-label count.",
+    "source_base": "Identical128 N12 patterns from frozen H3l, plus the complete independently validated44-pattern N11 universe or complete156-pattern N12 universe as declared.",
+    "target_n": 13,
+    "target_solution_universe": 1876,
+    "target_unique_inputs": 4096,
+    "target_input_seed": 2026112503,
+    "target_eligible_pool": 185022,
+    "target_by_clues": {
+      "1": 2,
+      "2": 211,
+      "3": 3883
+    },
+    "all_compatible_target_completions": 14736,
+    "prior_target_input_overlap": 0,
+    "target_distribution": "Uniform unique valid1/2/3clue N13 superqueen inputs excluding all H3j/H3k/H3l evaluation inputs.",
+    "data_sha256": "b0a1546dc4e78831d2a9508106fb605bab4926d68a3cafeedf2f978a2104efa7",
+    "training_sha256": "ee928b150a35b9d651ad5677118895e99c04a899accd6bbb378ee6ef08290d25",
+    "source_sha256": "968945e9e66a3842337e6adf749b7743a8ed5f6317b2eae9c22102aaaab16aaf",
+    "parent_training_sha256": "b5068fcf8b8b242d47312c7d3c7c180d4b9edd44916d3c58075e49a5521a0698",
+    "n11_solutions_sha256": "93fbee93ad5458d7c89d19bba220a379df38e17197906cac1c45abcdec36284e"
+  },
+  "budget": {
+    "logical_model_seed_jobs": 12,
+    "maximum_unique_search_jobs": 12,
+    "gpu_minutes_envelope": 20,
+    "optimizer_fits": 0
+  },
+  "validation": "Independent N11 enumeration, source-bank identity to H3l, literal per-size co-occurrences and summed evidence, line decisions, retained finite offsets, target coefficient/flip checks, exact solver identity grouping. Exhaustive N13 superqueen membership and givens for all outputs.",
+  "source_sha256": {
+    "research/20261114/loki/h3m/driver.py": "ab5f92b5db2f52233855e186b5cd9891f2dd88f34a93a014e3a77f6682cb6cdb",
+    "research/20261114/loki/h3m/prepare.py": "968945e9e66a3842337e6adf749b7743a8ed5f6317b2eae9c22102aaaab16aaf",
+    "research/20261114/loki/h3m/enumerate.py": "3c9c4bbdbc6bb9b7abe51060995d2b925b7667d892fdf92f80b4d15d1395dd1e",
+    "research/20261114/loki/h3m/reuse_identities.py": "fff35c9c79384e567585ff189d35891656e4f0554e3227989075bc4c70907150",
+    "research/20261114/loki/h3i/backend.py": "7aeda1358924718b3547797dd885b4fdb7fffb650284c29a11f5135451deba4b",
+    "research/20261114/loki/h3l/enumerate.py": "4c1b71ccab7313c1071bf945316b1ec93a6e07fa8fb0d51443e2019e2c99732e",
+    "research/20261114/loki/study.py": "7c48de391879dc2f4b4f14459698afbc84c82cb3e89030e0ba4814d4fd74b552",
+    "upstream/cram/__init__.py": "ada20986bead2aa2d77dcc358af07dbc01b569b1765c83560e917d5cc2bd032f",
+    "upstream/cram/cram_graph_coloring.py": "ed6158d983be48082f851dcdb5175bad7aab6408ac73f14659825e90c67f5275",
+    "upstream/cram/cram_maze.py": "c9f9fa5718fdf7ce1f8ad33dc7dc9481e43c6084a31516ac1c88451dba03ead8",
+    "upstream/cram/cram_maze_hard_graph.py": "967c573a3b3dee6c015bf373b7858b856ae0e639bdfa1a8c302b65af87a19717",
+    "upstream/cram/cram_maze_hard_simple.py": "07e64a9383c4b2b1ea30021063d93e302a794023accbf6effbf188892220b2a8",
+    "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "upstream/cram/cram_sudoku.py": "2c6b53d1b81d54e35c484a3565abd60e778716d6e6121e424aede826a5ab0ed2",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "upstream/cram/graph_coloring_data.py": "b04e61911aa55d437ab3c9d602832c3df09f285f2605aba2e9a3d78c18d9cb04",
+    "upstream/cram/latent_settle_triton.py": "7eca3fdf03ec6d5eb847e0dcbcdad61c74b56c084c363190d2c32a1737f19072",
+    "upstream/cram/maze_h3.py": "dd13a3038830bf1e2db83854704fcb39167a3f76ee9de01832de9b3187ee7acd",
+    "upstream/cram/maze_h3p.py": "dd26d260efea3a84f224743e14ae8383d967dfdafb0b4409bd05e864fe7ce92a",
+    "upstream/cram/maze_learned.py": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "upstream/cram/maze_unique.py": "3ceb56a61d92c3fa52a7d84876314abe31909780159fa53560692c19b306d213",
+    "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623",
+    "upstream/cram/opcount.py": "2ddf7373d227f50f43b06cf8e129cb727a85a3e2e86065e7081ba477997e924d",
+    "upstream/cram/paths.py": "d3af83d2c75e9165b88fbaf09d35ee352523fa79e5b3b02163d0dfbaae8602b8",
+    "upstream/cram/table.py": "bbf1fdce8a9e2fa836f5a3800746671b62f740e28c1986029bb53b608ebd0493"
+  },
+  "data_sha256": {
+    "artifacts/research/20261114/loki/h3m/training.npz": "ee928b150a35b9d651ad5677118895e99c04a899accd6bbb378ee6ef08290d25",
+    "artifacts/research/20261114/loki/h3m/data.npz": "b0a1546dc4e78831d2a9508106fb605bab4926d68a3cafeedf2f978a2104efa7",
+    "artifacts/research/20261114/loki/h3m/dataset.json": "878ff7d252c190a76b505618185c867bafeefab57b01c8ff9a170ae736136946",
+    "artifacts/research/20261114/loki/h3m/feasibility.json": "2fe0ff17e6557869dc99e23284ff4207ea2d1974d0ac5bb58572690d7a149a29",
+    "research/20261114/loki/h3l/protocol.json": "2ae056d33c7b2a70a745842325bb51cff53e75bfae3f486cbd3d4663b43a62df",
+    "artifacts/research/20261114/loki/h3l/models/hybrid/model.pt": "601541f4b15182bdf1669e909a79f690fdef16bc4b325c0e107046c7016a94b6"
+  },
+  "limits": [
+    "Source data breadth and count change together; full-N12 is a descriptive extra-label control with a slightly smaller total than mixed source.",
+    "No source-size interpolation theorem or arbitrary-rule learning claim; geometry/line family/target q remain supplied priors.",
+    "One fixed N12 bank plus complete finite source universes; three seeds repeat search, not training.",
+    "All remaining source-zero offsets are retained. Target labels do not change the rule, coefficients, thresholds or temperature.",
+    "Uniform unique partial-input sampling excludes prior cohorts and differs from original GRAM multiplicities."
+  ]
+}

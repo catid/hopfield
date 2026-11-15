@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-14T23:47:03.344574+00:00",
+  "updated_utc": "2026-11-15T00:28:35.716710+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
-  "status": "thirteen planned studies, two selected-case interventions, and exhaustive shortest-answer energies complete; ongoing research continues separately",
+  "status": "seventeen planned studies, two selected-case interventions, and exhaustive shortest-answer energies complete; ongoing research continues separately",
   "host": "work",
-  "jobs": 312,
-  "run_arm_rows": 783,
-  "model_maze_evaluations": 155076,
+  "jobs": 624,
+  "run_arm_rows": 1743,
+  "model_maze_evaluations": 400836,
   "hypotheses": [
     {
       "campaign": "discovery",
@@ -412,6 +412,67 @@
         "noninferiority_margin_pp": 0.1,
         "decision": "supported"
       }
+    },
+    {
+      "campaign": "sign_intervention",
+      "hypothesis": "H2o resetting initially negative logits raises joint success >=10pp over fullGaussian",
+      "outcome": {
+        "hypothesis": "H2o",
+        "n_unique": 2048,
+        "gains": 145,
+        "losses": 0,
+        "observed_gain_pp": 7.080078125,
+        "one_sided95_net_gain_lower_pp": 5.826917180934996,
+        "one_sided95_net_gain_upper_pp": 8.277996357781477,
+        "target_pp": 10.0,
+        "decision": "falsified",
+        "bounds": "For each one-sided net bound, two exact binomial tail bounds at alpha=.025; Bonferroni yields95% coverage. Paired gain/loss events use independent inputs."
+      }
+    },
+    {
+      "campaign": "margin_intervention",
+      "hypothesis": "H2p upward-only initial logits noninferior within0.1pp to native",
+      "outcome": {
+        "hypothesis": "H2p",
+        "n_unique": 4096,
+        "gains_vs_native": 0,
+        "losses_vs_native": 0,
+        "observed_loss_pp": 0.0,
+        "one_sided95_loss_lower_pp": 0.0,
+        "one_sided95_loss_upper_pp": 0.07311125564754345,
+        "noninferiority_margin_pp": 0.1,
+        "decision": "supported"
+      }
+    },
+    {
+      "campaign": "binary_relaxation",
+      "hypothesis": "H2q compensated lambda+1 improves identical-Gaussian joint success >=5pp",
+      "outcome": {
+        "hypothesis": "H2q",
+        "n_unique": 4096,
+        "gains": 298,
+        "losses": 0,
+        "observed_gain_pp": 7.275390625,
+        "one_sided95_net_gain_lower_pp": 6.408440094509367,
+        "one_sided95_net_gain_upper_pp": 8.113898364871241,
+        "target_pp": 5.0,
+        "decision": "supported"
+      }
+    },
+    {
+      "campaign": "native_relaxation",
+      "hypothesis": "H2r native-u3 lambda+1 improves joint success >=0.05pp over native-u3 lambda0",
+      "outcome": {
+        "hypothesis": "H2r",
+        "n_unique": 16384,
+        "gains": 20,
+        "losses": 0,
+        "observed_gain_pp": 0.1220703125,
+        "one_sided95_net_gain_lower_pp": 0.05206656213891899,
+        "one_sided95_net_gain_upper_pp": 0.18846504779610573,
+        "target_pp": 0.05,
+        "decision": "supported"
+      }
     }
   ],
   "run_tables": [
@@ -424,7 +485,11 @@
     "coupling-swap-corrected-arms.csv",
     "fork-angle-runs.csv",
     "restart-candidates.csv",
-    "native-restart-candidates.csv"
+    "native-restart-candidates.csv",
+    "sign-intervention-runs.csv",
+    "margin-intervention-runs.csv",
+    "binary-relaxation-runs.csv",
+    "native-relaxation-runs.csv"
   ],
   "protocols": {
     "protocol": {
@@ -492,6 +557,22 @@
     "native_restart-protocol": {
       "sha256": "56c8a5108af0306363bcf48978b665ce583e131ccb3adef391a5886230c53a42",
       "frozen_utc": "2026-11-14T23:41:27.416357+00:00"
+    },
+    "sign_intervention-protocol": {
+      "sha256": "f8c56218c6734bb956ea0116e234cf767b0b8ce2210b2d5ab232861cf9fd3cf2",
+      "frozen_utc": "2026-11-14T23:49:12.289971+00:00"
+    },
+    "margin_intervention-protocol": {
+      "sha256": "0e4eab472c130286e57ce41a17c5b829d0a198231972cfc7cf9ddfe57492dc44",
+      "frozen_utc": "2026-11-14T23:55:28.874357+00:00"
+    },
+    "binary_relaxation-protocol": {
+      "sha256": "418ee55d5d0e9d4d3986eb1698a44f40bd25ad2773dc22a592a6e9b2f58b8898",
+      "frozen_utc": "2026-11-15T00:10:25.170493+00:00"
+    },
+    "native_relaxation-protocol": {
+      "sha256": "10d847d6c0f0b974126435709a5fb87be0e8ae219a82d32fba40fde3ad8cb702",
+      "frozen_utc": "2026-11-15T00:19:18.922471+00:00"
     }
   },
   "audit_sha256": {
@@ -509,7 +590,11 @@
     "artifacts/research/20261114/work/fork_angle/audit.json": "33caec388f6e7cfe1d867930f2048717222dd9140f9188508d4c5b55ea771567",
     "artifacts/research/20261114/work/path_landscape/audit.json": "27ead262712ddef69e9d0bb97059852776e87fb70bb1c95df4874493693ee987",
     "artifacts/research/20261114/work/restart/audit.json": "9ea64cacc3ef9123e163122c16332c57f6dbb25811b3ffd466810015921a66cd",
-    "artifacts/research/20261114/work/native_restart/audit.json": "58565c013aaa1871074291b5c747e9560f46033006614b4c0ef7802b48ae7c16"
+    "artifacts/research/20261114/work/native_restart/audit.json": "58565c013aaa1871074291b5c747e9560f46033006614b4c0ef7802b48ae7c16",
+    "artifacts/research/20261114/work/sign_intervention/audit.json": "6d6ebe138eb572d4ac3c7ee0f3d9419611ed2cc31ec0d86d9627ab45e47cb99b",
+    "artifacts/research/20261114/work/margin_intervention/audit.json": "f344e6d9005399d46277ce55b259a70647f4b4fc578b00e74e6ebbb6d31a0af7",
+    "artifacts/research/20261114/work/binary_relaxation/audit.json": "f39bdfbefc288c3804f7a2a0900a6329030de62fa6d35b39976ce23664aba04e",
+    "artifacts/research/20261114/work/native_relaxation/audit.json": "6f6ed1a99b621c1a027aeb107693fffb7b1cbe1e54e2695bc67f63c868089ea4"
   },
   "model_sha256": {
     "0": {
@@ -542,8 +627,8 @@
     "case": "cyclic-failure-classification.json",
     "scope": "The same cyclic maze fails for model seeds1and2; these are true invalid fixed points or a period-two timeout, not hidden/nonfinite failures."
   },
-  "primary_jobs": 306,
-  "primary_model_maze_evaluations": 154944,
+  "primary_jobs": 618,
+  "primary_model_maze_evaluations": 400704,
   "descriptive_jobs": 6,
   "descriptive_model_maze_evaluations": 132,
   "selected_case_interventions": {

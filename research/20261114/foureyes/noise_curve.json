@@ -1,0 +1,145 @@
+{
+  "id": "H4k-noise-curve-adaptive-gap",
+  "frozen_utc": "2026-11-15T00:00:10.829685+00:00",
+  "hypothesis": "A fixed largest-gap rule on pair equality counts preserves accuracy within2percentagepoints of clean counting when every one of300trainingboards has one free-cell digit corrupted, with zero wrong stops.",
+  "primary_arm": "n300-gap",
+  "control_arm": "clean",
+  "primary_statistic": "Paired accuracy difference n300-gap minus clean across six training/noise/search seed labels and10000commonpuzzles.",
+  "uncertainty": "5000 paired two-way bootstrap draws over6seedlabels and10000puzzles,RNG20261114,two-sided95percent percentile interval.",
+  "decision": "Supported if95percentlower>=-2pp andzero primarywrongstops; falsified ifupper<-2pp oranyprimarywrongstop; otherwiseinconclusive.",
+  "arms": [
+    "clean",
+    "n3-t0",
+    "n3-t1",
+    "n3-t3",
+    "n3-gap",
+    "n30-t0",
+    "n30-t1",
+    "n30-t3",
+    "n30-gap",
+    "n300-t0",
+    "n300-t1",
+    "n300-t3",
+    "n300-gap"
+  ],
+  "chains_by_arm": {
+    "clean": 4,
+    "n3-t0": 4,
+    "n3-t1": 4,
+    "n3-t3": 4,
+    "n3-gap": 4,
+    "n30-t0": 4,
+    "n30-t1": 4,
+    "n30-t3": 4,
+    "n30-gap": 4,
+    "n300-t0": 4,
+    "n300-t1": 4,
+    "n300-t3": 4,
+    "n300-gap": 4
+  },
+  "search_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "noise_rng_base": 20261114200,
+  "split": "full-all",
+  "rows_half_open": [
+    140000,
+    150000
+  ],
+  "checkpoints": [
+    0,
+    1048576
+  ],
+  "budget_unit": "Maximum total chain moves; four chains,262144moves each.",
+  "noise": "Generateonefixedpermutationof300rows; preselectoneuniformfreecell anddifferentdigitperrow. Corruptfirst3/30/300rows toobtainnestednoisesets. Nootherlabels changed.",
+  "construction": "Counts computed frompossiblycorruptedcompletions only. Fixedthresholds0/1/3,or gap: sortdistinctcounts, choosefirstlargestadjacentgap andflooritsmidpoint; count<=threshold isexcludedpair. Noedgecountorquantilerestriction. Ifallcountsidentical,use0fallback. No geometry.",
+  "calibration": "All arms use literalunit1,tau0,ebar0; no thresholdcalibration on contaminated labels. Same0.4to0.31temperature,theta0.45,anneal524288,check4096.",
+  "reuse": "Deduplicate exactsupportbytes withinsearchseed beforeinference; all solverparametersandcohort identical. Saveeverymodel and explicitrequested-to-actual mapping.",
+  "secondary": "All lowernoiselevels,fixedthresholdcontrols andgraphdiagnostics aredescriptive. Onlyn300gap-versus-clean isprimary.",
+  "limits": [
+    "Oneprespecifiedfamilyofsingle-free-celllabelcorruptions; highboardcorruptionrate isnot highper-cellnoise.",
+    "Largest-count-gap heuristic isfixed beforeoutcomesandcanfail ifthereisnocleanseparation; no thresholdretuning.",
+    "Same300trainingrows andsixnoiseseeds; lowernoiselevelsarenested,notindependentreplications.",
+    "Zeroenergy,unittemperatureandfocuscalibrationremainfixed; nofittingofstoppingthresholdtocorruptedlabels.",
+    "Newfollowupcohortfromoriginalofficialcorpus,notexternaldistribution."
+  ],
+  "gpu_minute_envelope": 30,
+  "frozen_inputs": {
+    "artifacts/research/20261114/ripper/raw/inputs/s0/train.npz": "afa0de1acf4183e3079d36067e7a7c8131c876053b17d2c0798c2c32f0622f74",
+    "artifacts/research/20261114/ripper/raw/inputs/s1/train.npz": "775349ea7f9668303fc9ebe86907b1ebe3e50d28f5d9a78e09ebc52de854c308",
+    "artifacts/research/20261114/ripper/raw/inputs/s2/train.npz": "afbdc5341064cf26cc9d87dcdee346ceff75aa7cbf0ff1ee92501e07e54e499c",
+    "artifacts/research/20261114/ripper/raw/inputs/s3/train.npz": "d66edeffc472c117f7289faa0a9badd797eb2d09e2440fe75a3d094b698fb1d5",
+    "artifacts/research/20261114/ripper/raw/inputs/s4/train.npz": "30e64fd84c9a0d24af6204c12d6e51ceb684c821e615b1adc90e1174393d925b",
+    "artifacts/research/20261114/ripper/raw/inputs/s5/train.npz": "a0b16c13e542e74a6b2d2be5d7efab0e25fab6436a8a13de9a4bccd8257aff48"
+  },
+  "source_sha256": {
+    "research/20261114/ripper/run.py": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+    "research/20261114/ripper/sparse_backend.py": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+    "research/20261114/foureyes/restart_backend.py": "fd02c4f71574a6e0545c4f7aae54f3ddfeb9321f4c4f840c02ee5a213d814c0e",
+    "research/20261114/foureyes/restart_capture.py": "801f17ab24fe6d8d7f7fe381f7829ab65bed56625413bd7d1b1461b95ef7c7a4",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "research/20261114/foureyes/prepare_noise_curve.py": "4d3a9f09f91d102f6f49179c8f164e5970a01f24e7b5f6174aa883f6f0f66f23"
+  },
+  "primary_margin_pp": 2.0,
+  "recipes": {
+    "clean": {
+      "corrupted_rows": 0,
+      "threshold": 0
+    },
+    "n3-t0": {
+      "corrupted_rows": 3,
+      "threshold": 0
+    },
+    "n3-t1": {
+      "corrupted_rows": 3,
+      "threshold": 1
+    },
+    "n3-t3": {
+      "corrupted_rows": 3,
+      "threshold": 3
+    },
+    "n3-gap": {
+      "corrupted_rows": 3,
+      "threshold": "largest_gap"
+    },
+    "n30-t0": {
+      "corrupted_rows": 30,
+      "threshold": 0
+    },
+    "n30-t1": {
+      "corrupted_rows": 30,
+      "threshold": 1
+    },
+    "n30-t3": {
+      "corrupted_rows": 30,
+      "threshold": 3
+    },
+    "n30-gap": {
+      "corrupted_rows": 30,
+      "threshold": "largest_gap"
+    },
+    "n300-t0": {
+      "corrupted_rows": 300,
+      "threshold": 0
+    },
+    "n300-t1": {
+      "corrupted_rows": 300,
+      "threshold": 1
+    },
+    "n300-t3": {
+      "corrupted_rows": 300,
+      "threshold": 3
+    },
+    "n300-gap": {
+      "corrupted_rows": 300,
+      "threshold": "largest_gap"
+    }
+  }
+}

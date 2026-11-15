@@ -12,6 +12,15 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 | Maze size transfer, branch depth and step size | [Work exports](../results/research/work/) | [public renderer](../research/20261114/work/) |
 | N-Queens optimizer and update budget | [Loki exports](../results/research/loki/) | [Loki scripts](../research/20261114/loki/) |
 | N-Queens unseen complete patterns | [Pattern holdout exports](../results/research/loki/h3g/) | [plot_public.py](../research/20261114/loki/h3g/plot_public.py) |
+| Sudoku clue-mask controls | [Mask exports](../results/research/ripper/) | [plot_clue_mask_results.py](../scripts/plot_clue_mask_results.py) |
+| Sudoku online acquisition confirmation | [Acquisition exports](../results/research/ripper/) | [plot_online_confirmation.py](../scripts/plot_online_confirmation.py) |
+| Sudoku spike-mixture clue acquisition | [Acquisition exports](../results/research/ripper/spike.json) | [plot_spike_results.py](../scripts/plot_spike_results.py) |
+| Sudoku noise replication and failure diagnosis | [Noise exports](../results/research/foureyes/noise_replication/) | [plot_noise_replication.py](../scripts/plot_noise_replication.py) |
+| Maze binary-preserving continuous relaxation | [Maze exports](../results/research/work/) | [plot_native_relaxation.py](../research/20261114/work/plot_native_relaxation.py) |
+| N-Queens source-bank robustness | [H3k exports](../results/research/loki/h3k/) | [plot_public.py](../research/20261114/loki/h3k/plot_public.py) |
+| Superqueen rule-transfer boundary | [H3l exports](../results/research/loki/h3l/) | [plot_public.py](../research/20261114/loki/h3l/plot_public.py) |
+| Superqueen smaller-source control | [H3m exports](../results/research/loki/h3m/) | [plot_public.py](../research/20261114/loki/h3m/plot_public.py) |
+| Superqueen downward transfer | [H3n exports](../results/research/loki/h3n/) | [plot_public.py](../research/20261114/loki/h3n/plot_public.py) |
 | Original data-efficiency reproduction | [102 measured rows](../results/reproduction/data_efficiency/rows.csv), [collection](../results/reproduction/data_efficiency/collection.json) | [original renderer](../scripts/plot_data_efficiency.py) |
 
 Regenerate the first two README figures from a public checkout:

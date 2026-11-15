@@ -1,0 +1,195 @@
+{
+  "id": "H3k-small-source-bank-robustness",
+  "frozen_utc": "2026-11-14T23:53:24.905251+00:00",
+  "hypothesis": "With8 N12 positive training patterns, the previously frozen primitive-line rule recovers exactly the four true homogeneous attack lines in at least99% of independent eligible source-bank draws.",
+  "primary": {
+    "source_patterns": 8,
+    "independent_draws": 512,
+    "required_recovery_probability": 0.99
+  },
+  "decision": "Support if the one-sided95% exact Clopper-Pearson lower bound on exact-four-line recovery at8patterns is>=0.99; falsify if the exact upper bound<0.99; otherwise inconclusive. Sizes1/2/4/16 are descriptive. The512 draws are independent samples from one fixed eligible source pool; nested sizes within each draw are paired.",
+  "line_family": "Enumerate integer(a,b) in[-2,2]^2 except(0,0), gcd(abs(a),abs(b))=1, canonical sign(first nonzero positive). A line is a*dr+b*dc=0. Retain iff it contains>=3 observed forbidden N12 offsets and0 observed allowed N12 offsets. Retain all qualifying lines; no subset or orientation selection on target.",
+  "source_sizes": [
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "source_draws": 512,
+  "construction": "Compute source displacement co-occurrences only from each draw prefix, apply the unchanged line rule, and retain every fitted line set including failures/spurious lines. Truth is audit-only. The source-bank study does not calibrate thresholds or choose line families.",
+  "behavior_sampling": "Exactly first6 prespecified draw seeds at sizes1 and8, giving12 logical models. No model is replaced based on recovered lines or performance. Three search seeds per distinct solver energy; identical models share explicitly mapped outputs.",
+  "arms": [
+    {
+      "arm": "draw000-n1",
+      "draw": 0,
+      "source_patterns": 1
+    },
+    {
+      "arm": "draw000-n8",
+      "draw": 0,
+      "source_patterns": 8
+    },
+    {
+      "arm": "draw001-n1",
+      "draw": 1,
+      "source_patterns": 1
+    },
+    {
+      "arm": "draw001-n8",
+      "draw": 1,
+      "source_patterns": 8
+    },
+    {
+      "arm": "draw002-n1",
+      "draw": 2,
+      "source_patterns": 1
+    },
+    {
+      "arm": "draw002-n8",
+      "draw": 2,
+      "source_patterns": 8
+    },
+    {
+      "arm": "draw003-n1",
+      "draw": 3,
+      "source_patterns": 1
+    },
+    {
+      "arm": "draw003-n8",
+      "draw": 3,
+      "source_patterns": 8
+    },
+    {
+      "arm": "draw004-n1",
+      "draw": 4,
+      "source_patterns": 1
+    },
+    {
+      "arm": "draw004-n8",
+      "draw": 4,
+      "source_patterns": 8
+    },
+    {
+      "arm": "draw005-n1",
+      "draw": 5,
+      "source_patterns": 1
+    },
+    {
+      "arm": "draw005-n8",
+      "draw": 5,
+      "source_patterns": 8
+    }
+  ],
+  "calibration": {
+    "q": 13,
+    "delta": 12.0,
+    "tau": -78.0,
+    "unit": 25.909505208333332,
+    "explanation": "q and its symbolic delta=q-1,tau=-q(q-1)/2 are declared structural priors. Every target arm shares the inherited N12 offset128 mean-absolute-field unit. No target fit or label calibration.",
+    "unit_source": "artifacts/research/20261114/loki/h3i/models/offset128/model.json"
+  },
+  "search": {
+    "n": 13,
+    "unique_inputs": 2048,
+    "chains": 20,
+    "cap": 20000,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "temperature": 1.0,
+    "stop": "strict local margin plus q-cardinality gate",
+    "margin": 0.001,
+    "floating_operations": "57461+859*moves",
+    "cardinality_integer_additions": "168*(moves+1)"
+  },
+  "behavior_metrics": "N13 N20 both selectors, N1, coverage, wrong stops and capped chains. Behavior is descriptive for the first6 draws, not the primary512-draw inference. Report each logical source draw separately even when energies duplicate.",
+  "identity": "Group by exact solver-used S,B,q,delta,tau,unit identity before target inference; choose the first logical model in frozen arm order as representative. Three new searches per unique group; retain every logical arm through explicit output mappings, never count mappings as independent search replication.",
+  "dataset": {
+    "status": "reserved_before_source_fits_or_target_search",
+    "utc": "2026-11-14T23:52:06.659714+00:00",
+    "source_n": 12,
+    "target_n": 13,
+    "independent_source_draws": 512,
+    "source_sizes": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "source_seed_first": 2026111500,
+    "source_seed_last": 2026112011,
+    "excluded_prior_restricted_patterns": 2315,
+    "available_source_patterns": 11885,
+    "source_sampling": "Each draw independently samples16 distinct patterns without replacement from the fixed eligible pool. Sizes1/2/4/8/16 are prefixes within a draw; overlap across independent draws is allowed.",
+    "exclusion_limit": "H3g512 and all H3i union patterns are excluded. Earlier full-universe studies used all N12 patterns, making never-seen-pattern exclusion impossible; no such novelty claim is made.",
+    "behavior_selection": "Exactly the first6 source draw seeds at sizes1 and8, all12 logical models, regardless of success/failure. Three search seeds per distinct solver energy with explicit identity mappings.",
+    "target_input_seed": 2026112500,
+    "target_unique_inputs": 2048,
+    "target_eligible_pool": 354929,
+    "target_prior_input_overlap": 0,
+    "target_by_clues": {
+      "1": 2,
+      "2": 66,
+      "3": 1980
+    },
+    "all_compatible_target_completions": 168576,
+    "target_distribution": "Uniform unique valid1/2/3clue N13 inputs excluding H3j evaluation inputs. Target labels are evaluation-only.",
+    "data_sha256": "1dcfa09841799c28e4aef9505e21697228ffeaa8bb3ed437200b7dc5872a872a",
+    "source_sha256": {
+      "research/20261114/loki/h3k/prepare.py": "024702c1f8dd23cc691a6cafbba3a3a9be194b8bf3a363420bc48abe56e44089",
+      "artifacts/research/20261114/loki/h3g/data.npz": "d9e484601884afe33a6690006d802184171bc1c5743bc677e6cc5902cf6b93e2",
+      "artifacts/research/20261114/loki/h3i/data.npz": "b1627afd46f8bc94b28783da7dadb5a55022416dcd13398ec6df96a5b90eb1d2",
+      "artifacts/research/20261114/loki/h3j/data.npz": "3967afc244f535f1438a8d9ba237d43166ba5b7a14cf6c6c8d1f084326cadb7f"
+    }
+  },
+  "budget": {
+    "logical_model_seed_jobs": 36,
+    "maximum_unique_search_jobs": 36,
+    "gpu_minutes_envelope": 20,
+    "optimizer_fits": 0
+  },
+  "validation": "Independent reconstruction of all512 nested source fits from literal occupied cell pairs; source draw seeds and exclusions; preserve every source line set and exact recovery outcome. Verify target model coefficients and identity groups, source/target separation, fresh cohort and exact target counts; audit every unique saved search and all mappings.",
+  "source_sha256": {
+    "research/20261114/loki/h3k/driver.py": "e82d3a441a3d450e73cc78b3becc608556287a204c41de0df9a91d73d0387363",
+    "research/20261114/loki/h3k/prepare.py": "024702c1f8dd23cc691a6cafbba3a3a9be194b8bf3a363420bc48abe56e44089",
+    "research/20261114/loki/h3i/backend.py": "7aeda1358924718b3547797dd885b4fdb7fffb650284c29a11f5135451deba4b",
+    "research/20261114/loki/h3j/driver.py": "643856f7553b374ff78836663f01eff973877c0245ec77cdb2faf0dc04bf93ee",
+    "research/20261114/loki/study.py": "7c48de391879dc2f4b4f14459698afbc84c82cb3e89030e0ba4814d4fd74b552",
+    "upstream/cram/__init__.py": "ada20986bead2aa2d77dcc358af07dbc01b569b1765c83560e917d5cc2bd032f",
+    "upstream/cram/cram_graph_coloring.py": "ed6158d983be48082f851dcdb5175bad7aab6408ac73f14659825e90c67f5275",
+    "upstream/cram/cram_maze.py": "c9f9fa5718fdf7ce1f8ad33dc7dc9481e43c6084a31516ac1c88451dba03ead8",
+    "upstream/cram/cram_maze_hard_graph.py": "967c573a3b3dee6c015bf373b7858b856ae0e639bdfa1a8c302b65af87a19717",
+    "upstream/cram/cram_maze_hard_simple.py": "07e64a9383c4b2b1ea30021063d93e302a794023accbf6effbf188892220b2a8",
+    "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "upstream/cram/cram_sudoku.py": "2c6b53d1b81d54e35c484a3565abd60e778716d6e6121e424aede826a5ab0ed2",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "upstream/cram/graph_coloring_data.py": "b04e61911aa55d437ab3c9d602832c3df09f285f2605aba2e9a3d78c18d9cb04",
+    "upstream/cram/latent_settle_triton.py": "7eca3fdf03ec6d5eb847e0dcbcdad61c74b56c084c363190d2c32a1737f19072",
+    "upstream/cram/maze_h3.py": "dd13a3038830bf1e2db83854704fcb39167a3f76ee9de01832de9b3187ee7acd",
+    "upstream/cram/maze_h3p.py": "dd26d260efea3a84f224743e14ae8383d967dfdafb0b4409bd05e864fe7ce92a",
+    "upstream/cram/maze_learned.py": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "upstream/cram/maze_unique.py": "3ceb56a61d92c3fa52a7d84876314abe31909780159fa53560692c19b306d213",
+    "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623",
+    "upstream/cram/opcount.py": "2ddf7373d227f50f43b06cf8e129cb727a85a3e2e86065e7081ba477997e924d",
+    "upstream/cram/paths.py": "d3af83d2c75e9165b88fbaf09d35ee352523fa79e5b3b02163d0dfbaae8602b8",
+    "upstream/cram/table.py": "bbf1fdce8a9e2fa836f5a3800746671b62f740e28c1986029bb53b608ebd0493"
+  },
+  "data_sha256": {
+    "artifacts/research/20261114/loki/h3k/data.npz": "1dcfa09841799c28e4aef9505e21697228ffeaa8bb3ed437200b7dc5872a872a",
+    "artifacts/research/20261114/loki/h3k/dataset.json": "9afc83927ce6d6e6b550819c1945ef8fb36a360431b56f32a592a52d78bafac9",
+    "research/20261114/loki/h3j/protocol.json": "a00439f3e09981713cf65adc52df55f3d17b91d46ac3f642cd1d8cabeca53a21"
+  },
+  "limits": [
+    "The fixed primitive-line family and coordinate geometry are strong supplied priors. This is not geometry-free discovery.",
+    "Source-bank variation is the unit of the primary512-draw inference; search seeds are separate repeated inference draws.",
+    "The source population excludes previous restricted H3g/H3i banks, but older full-universe studies prevent never-seen mathematical pattern claims.",
+    "Behavior uses the first6 draws only at sizes1/8; no population-wide N13 accuracy estimate is claimed from this subset.",
+    "Target cardinality, temperature unit, count-energy design, q gate and certificate-first selection remain fixed from H3j. No N13 training or recalibration."
+  ]
+}

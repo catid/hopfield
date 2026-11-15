@@ -1,0 +1,91 @@
+{
+  "status": "validated",
+  "utc": "2026-11-15T00:14:19.711478+00:00",
+  "primary": {
+    "hypothesis": "H2q",
+    "n_unique": 4096,
+    "gains": 298,
+    "losses": 0,
+    "observed_gain_pp": 7.275390625,
+    "one_sided95_net_gain_lower_pp": 6.408440094509367,
+    "one_sided95_net_gain_upper_pp": 8.113898364871241,
+    "target_pp": 5.0,
+    "decision": "supported"
+  },
+  "secondary": {
+    "vs_native": {
+      "gaussian_lambda0": {
+        "gains": 0,
+        "losses": 554
+      },
+      "gaussian_lambda1": {
+        "gains": 3,
+        "losses": 259
+      },
+      "gaussian_lambda_minus1": {
+        "gains": 0,
+        "losses": 1163
+      }
+    },
+    "minus1_vs_zero": {
+      "gains": 0,
+      "losses": 609
+    }
+  },
+  "joint_success": {
+    "native": 4088,
+    "gaussian_lambda0": 3534,
+    "gaussian_lambda1": 3832,
+    "gaussian_lambda_minus1": 2925
+  },
+  "n_unique": 4096,
+  "models": 3,
+  "jobs": 48,
+  "model_input_rollouts": 49152,
+  "initial_logit_arrays_verified": 4096,
+  "final_logit_arrays_verified": 49152,
+  "independent_graph_checks": 5266,
+  "independent_distance_checks": 4096,
+  "exact_board_cache_hits": 43886,
+  "batch_preflight": {
+    "utc": "2026-11-14T23:46:03.199504+00:00",
+    "status": "passed",
+    "purpose": "Reserved-data batch-size throughput comparison before sign-study freeze",
+    "inputs": 64,
+    "seed": 2026111494,
+    "model_seed": 0,
+    "native_answer_outputs_exact": true,
+    "shared_fixed_hidden_readout": true,
+    "timings": [
+      {
+        "batch_size": 32,
+        "seconds": [
+          0.2345410370035097,
+          0.23342268995475024,
+          0.23307115596253425,
+          0.23290566803188995,
+          0.23334101698128507
+        ],
+        "median_seconds": 0.23334101698128507
+      },
+      {
+        "batch_size": 64,
+        "seconds": [
+          0.12218259298242629,
+          0.12170286796754226,
+          0.1218979189870879,
+          0.12194281601114199,
+          0.12152773700654507
+        ],
+        "median_seconds": 0.1218979189870879
+      }
+    ],
+    "ratio_32_over_64": 1.9142329821561745,
+    "chosen_batch": 64
+  },
+  "protocol_sha256": "418ee55d5d0e9d4d3986eb1698a44f40bd25ad2773dc22a592a6e9b2f58b8898",
+  "script_sha256": "f7f573eb11e0c00cd0b0233130bf42c5c109b83dae5bfd63d41f6244ac0cae07",
+  "audit_seconds": 25.49607139400905,
+  "scope": "Continuous compensated diagonal intervention with identical binary energies and original certificates on fresh90-grid loop20 inputs, three frozen models, eta.5. No candidate selector or ground-truth intervention. All failures retained.",
+  "full_local_audit_sha256": "f39bdfbefc288c3804f7a2a0900a6329030de62fa6d35b39976ce23664aba04e"
+}

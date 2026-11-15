@@ -1,0 +1,32 @@
+{
+  "id": "H1r-training-pool-cover-compression",
+  "frozen_utc": "2026-11-14T23:50:00.682954+00:00",
+  "primary_hypothesis": "Greedy equality-coverage selection retains at most16 boards in every one of the six existing1000-board raw pools while preserving exactly the full-pool union of observed equal-digit cell pairs.",
+  "primary_decision": "Supported on these pools iff all six greedy subset sizes<=16. Falsified if any exceeds16. No population or global Sudoku optimum claim.",
+  "inputs": "artifacts/research/20261114/ripper/raw/input_manifest.json",
+  "input_manifest_sha256": "28f1f8fde6790c9fa4e41a421737618fa5093dffb2a2544ab9d4ea06c263b4b2",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "pool_size": 1000,
+  "cost_label": "SELECTION READS ALL1000 COMPLETE LABELS PER BANK. This is a storage/compression result, not learning from the selected subset alone without selection cost.",
+  "coverage": "For each complete board, the unordered cell pairs with equal digits. Universe is the union observed anywhere in that1000-board pool. No peer graph or geometry enters construction.",
+  "greedy": "At each step choose the board with maximal newly covered pairs; tie break by smallest original official source-row index. Stop only when union equals the full-pool union.",
+  "milp": "For each pool minimize sum_b z_b subject to sum_{b covering e}z_b>=1 for every observed pair e, z_b binary. HiGHS1.12.0, one thread, fixed random_seed20261123+seed, greedy feasible warm start, no relative or absolute MIP gap target beyond zero, primal/mip feasibility tolerance1e-9.",
+  "budget": "At most60 process CPU seconds per seed for the MILP. Single-thread solver wall time_limit55 seconds leaves reporting slack; OS CPU soft limit at solver baseline+60, hard+61. Solve six pools in parallel on Ripper CPU. Timeouts remain reported outcomes.",
+  "reporting": "Record exact-verified incumbent cover, objective, raw HiGHS dual bound and gap, status, node count, solver wall and process CPU. Distinguish numerical solver bounds from exact combinatorial lower bounds; no optimum claim unless solver closes gap and incumbent independently valid.",
+  "counting_bound": "Each valid81-cell9-digit Sudoku board has exactly9*C(9,2)=324 equal-digit unordered pairs. A cover of U observed pairs therefore requires at leastceil(U/324) boards. This is exact regardless of overlap.",
+  "invariance": "Reversing pool order must preserve greedy selected source rows. Independent per-board digit relabelings must preserve all equality coverage. Selected/full support arrays, B0, unit1,tau0,ebar0 must match exactly. Check energies on fixed random boards as a supplemental test.",
+  "inference": "No fresh GPU search when selected/full energies and settings are byte-identical. Explicitly map to the already audited full-count control per search seed and test cohort; do not claim additional independent inference.",
+  "limitations": [
+    "Selection consumes all1000 labeled solutions and may exploit dataset redundancy.",
+    "A finite-pool set cover does not establish a minimum subset among all Sudoku boards.",
+    "No row,column,box graph is passed to selection. Geometry is allowed only in the post-selection audit.",
+    "BP AdamW is outside this compression study and is not run."
+  ]
+}

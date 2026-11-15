@@ -1,0 +1,51 @@
+{
+  "id": "H4m-independent-noise-replication",
+  "frozen_utc": "2026-11-15T00:24:28.234327+00:00",
+  "hypothesis": "For each of the six fixed 3000-board source banks, the frozen largest-count-gap estimator recovers the exact graph in at least99% of independent nine-cell-per-board corruption draws.",
+  "source_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "sample_sizes": [
+    300,
+    3000
+  ],
+  "draws": 512,
+  "batch_size": 64,
+  "noise_rng_base": 20261115200,
+  "per_job_wall_limit_s": 85,
+  "gpu_minute_envelope": 10,
+  "primary_n": 3000,
+  "primary_fraction": 0.99,
+  "primary_family": "Six bank-specific exact one-sided Clopper-Pearson intervals at alpha=.05/6; all lower bounds must reach.99. Falsify the joint effect-size hypothesis if any upper bound is below.99; otherwise inconclusive.",
+  "secondary": "N300 recovery, count thresholds and post-fit conditional noise bands are descriptive. No inference reruns for identical energies.",
+  "estimator": "Same fixed rule: distinct sorted counts, first largest adjacent gap, floored midpoint; if all counts identical threshold0. No graph geometry or count-rank restriction enters construction.",
+  "corruption": "Independent per-row uniform selection of9freecells via float64 random priorities with selection-boundary ties rejected; each selected digit independently replaced uniformly by a different digit. N300 is a prefix of N3000 within each draw.",
+  "validation": "Every pair count independently reconstructed on CPU from archived cell changes;2GPU/CPU count parity draws per size per bank before continuing; all source/output identities retained. No graph truth in producer.",
+  "conditional_theory": "Post-fit clean-input-only probability bands may use the true graph as a privileged diagnostic. Their separation-event union bound does not prove that the adaptive largest-gap threshold stays inside; do not report a conditional error guarantee merely from observing membership.",
+  "limits": [
+    "Independent draws vary corruption of fixed training banks, not source-bank sampling or dataset distribution.",
+    "The six banks are evaluated separately; Bonferroni accounts for their joint primary claim.",
+    "The corruption mechanism preserves originally given clues and changes9of81cells per board.",
+    "The estimator and noise law were selected during prior studies; this is prospective replication with new noise streams.",
+    "Exact supports imply the previously audited energy, so redundant search would not add evidence."
+  ],
+  "frozen_inputs": {
+    "artifacts/research/20261114/ripper/clues/completion_controls/s0.npz": "38f92ebdcfca8b2729f1f53c67a5919a3764afdc8d5bd7a583ae50c6ef31fd3f",
+    "artifacts/research/20261114/ripper/clues/clue_inputs/s0.npz": "4c02d2e6b6e82bbedb3434884662051fb4b72f99d0a30c0d275280bd34d62f6f",
+    "artifacts/research/20261114/ripper/clues/completion_controls/s1.npz": "9b99bcd1d6ccab242d802b7c0cc218769f778b2a90c5eba059c671ee7e9269fb",
+    "artifacts/research/20261114/ripper/clues/clue_inputs/s1.npz": "f25743a821c4127da939601503476d073dae7b64e033e813614e2b9b5b621939",
+    "artifacts/research/20261114/ripper/clues/completion_controls/s2.npz": "f4c7a273def314244ce15ec41b4ac6143f276e45f136d2f82d6c89e1be8d41a7",
+    "artifacts/research/20261114/ripper/clues/clue_inputs/s2.npz": "62ef624f1cc82cff2f792ef6600bf4eecaaf0e103acf97a86861c8cbef28cb5b",
+    "artifacts/research/20261114/ripper/clues/completion_controls/s3.npz": "a96ae613b82b7ed699eb2b12bbe4cf021b98fd50f5383fdbc60eb4328ad8f2df",
+    "artifacts/research/20261114/ripper/clues/clue_inputs/s3.npz": "51eddadab31ac668d0522ac3638a1f08bb2028bb1cf3a0df13adecbe6c875721",
+    "artifacts/research/20261114/ripper/clues/completion_controls/s4.npz": "25c2708b615ec4db3656d8cfc53827b728ac8bb1dced42dd2249a22c0abf0df3",
+    "artifacts/research/20261114/ripper/clues/clue_inputs/s4.npz": "c7e8d093e6d7d99d273d33763eaf789d18263c95f8c94cc64b0ab52961820e87",
+    "artifacts/research/20261114/ripper/clues/completion_controls/s5.npz": "f51c6cb3e2212ed827886ee961f48aa7d007bab165cbd1cafa233d773c3fd6ff",
+    "artifacts/research/20261114/ripper/clues/clue_inputs/s5.npz": "f44f65cb287b7a5d26a7d3f60dcbfa531a6ac3f5d4e44b5e9909d276c73991b7"
+  }
+}
