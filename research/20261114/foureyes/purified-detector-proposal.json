@@ -1,0 +1,35 @@
+{
+  "hypothesis_id": "H4aw",
+  "status": "prospective_design_only_before_any_new_mask_or_score",
+  "motivation": "H4av's observable detector recovers130/256, with42.3176percent location precision/recall and1gain0loss over original. H4au's privileged perfectly precise partial masks suggest an error mechanism worth testing: false-positive censored locations may destroy useful nonedge evidence. Test a privileged purification intervention and a matched-recall-location control without tuning the observable detector.",
+  "scope": "All256 examined600-row H4av banks, unchanged noisy values, original selected degree and original detector masks. No new sources, digit labels, corruption, graph training or puzzle solving. Actual corruption masks are deliberately supplied to both new arms. These are mechanism interventions, not practical detectors or fresh generalization.",
+  "arms": {
+    "purified_detector": "Flag exactly the intersection of the frozen H4av detector mask and the actual corruption mask. Remove all detector false positives, retain every detector true positive, and leave missed corruptions unflagged.",
+    "matched_recall_random": "For each row let k be the purified detector's number of flags. Select exactly k of the9 actual corrupted cells uniformly without replacement, using a prospective fixed PCG64 bank stream and increasing true-cell index before sampling. Keep all rows including k0 and k9; do not adapt to scores or graph outcomes."
+  },
+  "scoring": "Both arms reuse unchanged H4at raw retained equality counts, zero-exposure cost0, the original inferred common degree, and exact scale-two LP certificates. No exposure normalization or objective tuning. Match the true-positive count in every row; per-cell frequencies and pair exposures may still differ.",
+  "primary": {
+    "purified_recovery": "Purified detector recovers at least200/256 graphs. Bounds [exact,exact+unresolved]; support lower>=200, falsify upper<200, else inconclusive.",
+    "location_sensitivity": "Absolute difference between purified and matched-recall random exact counts is at most16. For signed difference interval [purified_exact-random_exact-random_unresolved,purified_exact+purified_unresolved-random_exact], support if the whole interval lies within[-16,16], falsify if it is wholly below-16 or above16, else inconclusive. This finite-cohort target is not an equivalence or noninferiority population test."
+  },
+  "controls": "Recheck all inherited original,H4at full-mask,H4av detector and H4av random selected proofs. Original129/256, detector130/256, random71/256 and full supplied-mask256/256 are inherited references, not new fits. BP AdamW outside this source intervention and first in comparison tables.",
+  "information_boundary": "A trusted mask-preparation stage may read frozen detector masks and actual corruption locations. Seal all512 new masks before scoring. Fit stage reads only noisy observations, prepared masks and inherited degrees. Seal all512 new fits before loading true graph geometry or calculating any outcome/true-cost diagnostic. Mask quality is intentionally privileged; do not describe the method as label-blind corruption detection.",
+  "diagnostics": "All512 outputs, exact/integral-failure/fractional/unresolved counts, paired gains/losses versus original detector and original counts, families, per-row flag counts, per-cell frequencies, pair exposure ranges, true-edge collisions, support errors and exact truth-objective gaps. No filtering by H4av successes or failures.",
+  "seeds": "Exact768 proposed seeds assigned after independent design review, before masks/scores. Check explicit frozen fields and expanded H4at/H4au/H4av actual ranges. Distinct seeds do not establish independent streams.",
+  "budget": {
+    "new_LPs": 512,
+    "workers": 8,
+    "aggregate_cpu_seconds": 600,
+    "wall_seconds": 120,
+    "gpu_seconds": 0,
+    "no_extensions": true
+  },
+  "budget_scope": "Hash checks, all mask construction/sealing,512 fits and complete-fit seal, independent inherited/new audits, and export. Preflight and publication replay separate. Whole-run failure remains incomplete; never publish a selected partial primary.",
+  "gates": "Independent scalar/vector purification, random masks with exact per-row counts for all k0..9, no false positives, selected-location parity, digit-score invariance, zero/full-mask boundaries, certificate mutations, all endpoints/unresolved interval boundaries, missing/early/repeated/mutated mask/fit seals, and bounded independent fixture benchmark. Independent source/gate review before freeze.",
+  "interpretation": "Purification changes exposed clean evidence as well as mask precision. A gain supports this fixed privileged intervention; it does not isolate an abstract precision-only causal effect or supply an observable detector. The paired control holds each row's true-positive count constant but changes which corruptions are detected. A small count difference does not imply identical graphs or individual-case equivalence. Both endpoints are declared separately.",
+  "review": "Design only. No candidate masks, scores or LPs have been generated. Review before implementation gates and protocol freeze. Preserve H4av frozen source/evidence.",
+  "random_seed_base": 2120300000,
+  "random_seed_rule": "Generator(PCG64(base+bank)); for each row in order call choice(sorted actual corrupted indices, size=k, replace=False), including k=0 and k=9. Retain exactly the returned membership set. Independent replay uses default_rng and set membership with identical consumption.",
+  "solver_seed_base": 2120331702,
+  "solver_seed_rule": "base+2*bank+arm, purified0/matched_random1, bank0..255."
+}

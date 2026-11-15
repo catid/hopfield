@@ -1,0 +1,20 @@
+{
+  "id": "H1cb-posterior-residual-gap",
+  "status": "prospective_design_before_truth_objective_gaps_are_read",
+  "hypothesis": "At least 2 of the 3 fixed-posterior failures in fresh H1ca strictly exclude the true graph from the selected-degree optimum.",
+  "motivation": "H1ca met both primary thresholds at their boundaries but still failed on banks6,7,57. The next falsifiable distinction is whether changing tie selection could in principle recover these graphs, or whether the frozen cost itself strictly prefers another graph. The H1ca success labels have been seen, but these truth-objective gaps have not been read.",
+  "scope": "Reuse all64 H1ca banks and all192 selected-arm certificates. No new boards, labels, query records, source IDs, noise draws, degree grids, solver calls or method tuning. All3 known posterior failures retained. This is a diagnostic on an examined fresh cohort, not a new generalization claim.",
+  "parent": "results/research/ripper/posterior_fresh_confirm/summary.json",
+  "parent_protocol_sha256": "700a78cb22b97357fb749da23068e0064ca5301d37d74f98022d015fbff44c0a",
+  "parent_summary_sha256": "27bd7e4ebafd26562fe22abba8f7a19de505bcdda9a97dc4037d50d880c747d4",
+  "frozen_failure_banks": [6,7,57],
+  "hypothesis_threshold": {"strict_exclusion_minimum": 2,"failed_posterior_denominator": 3,"separate_target": true},
+  "method": "Independently reconstruct all192 selected costs from published noisy query records. Recheck each selected primal/dual certificate and altered-proof rejection. Form integer twice-gap=2*cost dot true_binary_edges minus selected certified twice-objective. Require gap>=0. Positive gap strictly excludes truth; zero gap establishes truth cooptimality, not uniqueness or guaranteed tie recovery. All selected degrees are inherited20 and revalidated; no degree selection or fitting changes.",
+  "primary_decision": "Support if at least2 of3 gaps are strictlypositive; falsify if at most1 is strictlypositive. Any required unauditable certificate or data binding makes the study incomplete; do not drop a failed bank.",
+  "diagnostics": "All192 integer gaps and selected success/nonexact/fractional states; comparison of the two triple methods and originalsingle270; all3 posterior failures individually listed. No interpretation that zero gap proves a specific solver tie-breaking cause.",
+  "budget": {"new_LPs":0,"selected_certificates":192,"proof_mutations":576,"workers":8,"aggregate_cpu_seconds":120,"wall_seconds":90,"gpu_seconds":0,"new_source_IDs":0,"new_noisy_cell_queries":0},
+  "query_accounting": "No increment: physical H1ca union2,073,600 already charged, cumulative official noisy sequence16,760,919; combined ledger2,431,463 and Ripper2,195,038 unchanged.",
+  "gates": "Exact integer objective gaps on tiny strict and cooptimal LP fixtures, half-integral selected proof, one-unit proof mutations, all threshold boundary cases, immutable parent mappings and all192 denominator.",
+  "interpretation": "A strict truth gap identifies a limitation of the fixed objective on this cohort, not solely rounding, posterior misspecification, or inadequate sample count. A zero gap is compatible with multiple optimizers; no alternate solver reruns or favorable tie search. BP AdamW outside structural-inference scope and first in comparison tables.",
+  "review": "No gap inspection before design and full source/gate review. No extensions or retries. Preserve the already stable H1ca package unchanged."
+}

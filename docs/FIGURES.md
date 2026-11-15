@@ -4,6 +4,8 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Matched precision and rowwise recall, different graph recovery | [All masks, fits and two-stage seals](../results/research/foureyes/purified_detector/) | [plot_purified_detector.py](../scripts/plot_purified_detector.py) |
+| Exact posterior residual gaps and rounding bounds | [All192 selected objective gaps](../results/research/ripper/posterior_residual_gap/) | [plot_posterior_residual_gap.py](../scripts/plot_posterior_residual_gap.py) |
 | Observable conflict masks and location precision | [All512 fits, seals and exact certificates](../results/research/foureyes/conflict_mask/) | [plot_conflict_mask.py](../scripts/plot_conflict_mask.py) |
 | Fresh posterior-label confirmation at equal query cost | [All three fresh arms and exact certificates](../results/research/ripper/posterior_fresh_confirm/) | [plot_posterior_fresh_confirm.py](../scripts/plot_posterior_fresh_confirm.py) |
 | Posterior scoring on examined repeated-query banks | [All posterior scores, refits and proofs](../results/research/ripper/posterior_query_labels/) | [plot_posterior_query_labels.py](../scripts/plot_posterior_query_labels.py) |

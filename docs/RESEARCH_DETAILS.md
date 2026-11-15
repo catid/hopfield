@@ -34,6 +34,10 @@ An observable conflict heuristic then recovers **130/256**, compared with **129/
 
 ![Observable conflict masks versus random and privileged controls](../assets/figures/conflict-mask.png)
 
+**Perfect precision alone does not rescue the conflict detector.** Removing its false positives leaves recovery at **130/256**, while sampling the same number of true corruptions in each row randomly reaches **237/256**. Both new masks are privileged, perfectly precise and have 42.3176% recall. The purified ≥200 target and absolute-count-difference ≤16 target both fail. Random locations gain107 graphs and lose none versus purification. [Complete matched-recall intervention and every failure](../research/20261114/foureyes/REPORT-purified-detector.md)
+
+![Identical rowwise detection counts, different graph recovery](../assets/figures/purified-detector.png)
+
 **Spend the same label budget on more cells per board:** querying 72 cells on 200 boards recovers **32/32 noisy Sudoku graphs**, versus **6/32** from 32 cells on 450 boards. Both cost 14,400 labels per bank. This fresh paired experiment changes both pair coverage and the number of independent boards; it does not isolate either as the sole cause. [Frozen targets, query accounting and controls](../research/20261114/ripper/REPORT-coverage-tradeoff.md)
 
 ![Same label budget: broader observation per board recovers more exact graphs](../assets/figures/coverage_tradeoff.png)
@@ -63,6 +67,8 @@ An earlier repeated-graph stopping rule recovers 32/32 but needs 281.25 rows on 
 On a new 64-bank cohort, the fixed posterior method recovers **61/64**, hard decoding **51/64**, and single-query sampling of more boards **64/64**, all at equal label cost. Both preregistered posterior targets pass exactly at their boundaries; banks 6, 7 and 57 remain failures. The three arms retain all 7,680 LP certificates. This is graph recovery with supplied noise-law knowledge, not a new puzzle-solving result. [Fresh confirmation, exclusions and complete ledger](../research/20261114/ripper/REPORT-posterior-fresh-confirm.md)
 
 ![Fresh posterior-label confirmation](../assets/figures/posterior_fresh_confirm.png)
+
+All three remaining fresh posterior failures **strictly exclude truth** from the selected objective optimum. Their exact ordinary-cost gaps are 4,597, 999 and 13,285. The registered at-least-two strict-exclusion target passes. A separately labeled mathematical corollary bounds the effect of integer rounding on each truth-versus-witness gap by810; each selected feasible witness therefore remains cheaper under the exact pre-round objective. This does not assert the witness stays optimal. [Exact gaps, rounding proof and all192 controls](../research/20261114/ripper/REPORT-posterior-residual-gap.md)
 
 ## Cycle cuts solve fresh dense mazes
 

@@ -33,12 +33,12 @@ Fit workers lazily decode only noisy observations and the selected original prim
 
 Uncertified outputs would widen these bounds and remain in the denominator. Literal fractional optima are resolved graph failures. The detector gains bank 118 and loses none of the 129 original successes; its four fractional results are banks 15, 46, 122 and 238. Random masking gains banks 14, 16 and 140 while losing 61 original successes. Every failure appears in the [complete summary](../../../results/research/foureyes/conflict_mask/summary.json).
 
-| Family, 64 banks each | Original | Detector | Random |
-|---|---:|---:|---:|
-| Cycle | 55 | 55 | 46 |
-| Cycle square | 40 | 40 | 19 |
-| Cycle cube | 30 | 31 | 6 |
-| Nine-clique union | 4 | 4 | 0 |
+| Family, 64 banks each | BP AdamW | Original | Detector | Random |
+|---|---|---:|---:|---:|
+| Cycle | Not run | 55 | 55 | 46 |
+| Cycle square | Not run | 40 | 40 | 19 |
+| Cycle cube | Not run | 30 | 31 | 6 |
+| Nine-clique union | Not run | 4 | 4 | 0 |
 
 Each arm flags 1,382,400 locations, equal to the actual corruption count. Detector precision and recall are both **42.3176%**, with 584,998 true positives and 797,402 false positives/false negatives. Random precision and recall are **11.1152%**, with 153,656 true positives. These are post-fit diagnostics. The detector improves location quality over random but preserves nearly all original graph errors.
 

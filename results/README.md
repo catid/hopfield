@@ -2,6 +2,8 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Perfect mask precision still gives 130/256; matched rowwise recall at random true locations gives 237/256](../research/20261114/foureyes/REPORT-purified-detector.md)
+- [All three residual posterior failures strictly exclude truth; removing integer rounding alone cannot fix them](../research/20261114/ripper/REPORT-posterior-residual-gap.md)
 - [Observable conflict masks recover 130/256 versus 71/256 random; the absolute recovery target fails](../research/20261114/foureyes/REPORT-conflict-mask.md)
 - [Fresh posterior-label confirmation recovers 61/64 graphs versus 51/64 with hard decoding and 64/64 with more boards](../research/20261114/ripper/REPORT-posterior-fresh-confirm.md)
 - [Posterior scoring recovers 63/64 on the examined repeated-query cohort](../research/20261114/ripper/REPORT-posterior-query-labels.md)

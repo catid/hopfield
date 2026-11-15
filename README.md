@@ -46,15 +46,15 @@ Keeping all three labels closes much of the gap, but uses the **known noise chan
 
 The original hard-decoder study recovered 50/64 versus 64/64 from more boards. Posterior scoring then reached 63/64 on those examined inputs before the fresh confirmation above. [Original negative result](research/20261114/ripper/REPORT-repeat-query-tradeoff.md) · [Examined-cohort intervention](research/20261114/ripper/REPORT-posterior-query-labels.md)
 
-## What known corruption locations buy
+## Which corruptions you detect matters
 
-![Graph recovery with incomplete, perfectly precise corruption masks](assets/figures/partial-mask-recall.png)
+![Equal precision and recall can produce very different graph recovery](assets/figures/purified-detector.png)
 
-Discard observations involving known-corrupted cells, then fit the original inferred degree. Revealing **90% of the actual corruption locations recovers 256/256 graphs**, versus **129/256** from the original noisy counts. The sole prospective target of at least 245 recoveries passes. At 50% recall, the diagnostic arm recovers 251/256.
+On 256 examined noisy graph banks, an observable conflict detector recovers **130/256**, versus 129/256 from the original counts. Removing every false positive still gives **130/256**. Selecting the **same number of true corruptions in every row** randomly instead gives **237/256**. Both new masks have 100% precision and 42.32% recall; their choice of locations makes a large difference.
 
-These are the same examined 600-row synthetic-family banks. **Mask precision is supplied and perfect; no detector is trained.** At 90% recall, none of the raw never-equal supports is exact, but every degree-constrained LP recovers truth. This establishes a specific use of privileged supervision, with no new puzzle-solving claim. [Partial-mask experiment and full evidence](research/20261114/foureyes/REPORT-partial-mask-recall.md) · [Complete-mask control](research/20261114/foureyes/REPORT-corruption-censor.md)
+Both proposed targets fail: purification does not reach 200 recoveries, and the recovery-count difference exceeds 16. **Actual corruption locations are supplied to both new arms.** This is a mechanism test, not a practical detector. [Complete paired intervention and all failures](research/20261114/foureyes/REPORT-purified-detector.md)
 
-A follow-up observable conflict detector recovers **130/256**, versus **71/256** for random masks. It beats the random control but fails its absolute 200/256 target, leaving a substantial gap to supplied locations. [Detector test and limitations](research/20261114/foureyes/REPORT-conflict-mask.md)
+With more privileged labels, revealing 90% of actual corruption locations recovers **256/256**, versus **129/256** without masks. [Partial-mask sensitivity](research/20261114/foureyes/REPORT-partial-mask-recall.md) · [Observable detector versus random masks](research/20261114/foureyes/REPORT-conflict-mask.md)
 
 ## Faster inference
 
