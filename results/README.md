@@ -2,6 +2,11 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Missing Sudoku edges versus global soundness: proofs, counterexamples and unresolved cases](../research/20261114/ripper/REPORT-permuted-soundness.md)
+- [Positive-witness acquisition repairs N15 camel capacity](../research/20261114/loki/h3ak/REPORT.md)
+- [Deleting weak Sudoku constraints: certificates return, gain target fails](../research/20261114/foureyes/REPORT-strong-support-study.md)
+- [Connectivity checks repair observed maze regressions; retained padding-gate failure](../research/20261114/work/REPORT.md)
+- [Digit-count-preserving corruption defeats the balance filter](../research/20261114/ripper/REPORT-permuted-noise.md)
 - [Weaker positive Sudoku penalties: retained failed five-point gain target](../research/20261114/foureyes/REPORT-weak-weight-study.md)
 - [Clean positive witnesses recover all 32 graphs on fixed filtered streams](../research/20261114/ripper/REPORT-positive-witness.md)
 - [Shared-collapse filter: true constraints retained, exact-recovery target fails](../research/20261114/ripper/REPORT-balanced-filter.md)

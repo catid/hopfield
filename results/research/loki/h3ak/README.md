@@ -1,0 +1,3 @@
+# H3ak: bounded positive-witness repair
+
+The [full report](../../../../research/20261114/loki/h3ak/REPORT.md) records all four fixed64-positive streams meeting≥95% exact capacity on the same seen H3aj N15 universe:96.357405%,100%,98.252536%,98.252536%. Lower1/8/32 doses are descriptive. All deletions have selected positive witnesses; repair has an enforced artifact read allowlist and no target truth/scores. Nine full supports cover all16 outcomes. Source-positive validity and size-invariant pair rules imply deletion soundness; sufficient recovery remains empirical.32.058858CPU seconds/32.080434wall seconds,0GPU. This is not a future-acquisition probability or generalization claim.

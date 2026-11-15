@@ -136,3 +136,17 @@ Under the specified shared-collapse noise law, a supplied digit-multiplicity pri
 
 An exact census over **831,605 eligible N15 camel clue inputs** puts certified capacity at **89.54–92.32%** across four fitted source banks. Every learned zero-energy state is valid, but extra exclusions remove valid completions. All four fits fail the frozen 95% capacity target; more search cannot overcome this ceiling. [Complete public census and verifier](../research/20261114/loki/h3aj/REPORT.md)
 
+Deleting weak Sudoku edges then restores valid certificates and raises accuracy to **72.38%**, but its **+4.21-point** gain still misses the frozen five-point target. This changes the zero set, unlike positive reweighting. The full audit finds zero invalid certificates; it does not prove universal soundness for the reduced supports. An erroneous stop-index check was corrected in a separate auditor, with original source, diff and unchanged result hashes preserved. [Deletion study and audit correction](../research/20261114/foureyes/REPORT-strong-support-study.md)
+
+![Certificate restoration after deleting weak constraints](../assets/figures/strong-support-study.png)
+
+On the already-seen maze cohort, preserving initial simple paths removes all 40 block regressions while retaining all 63 gains. A pre-deletion connectivity veto retains those gains and adds 11 more, again with zero observed regressions. These supplied-graph policies are post-hoc interventions. The proposed larger-maze padding gate fails because real wall cells add boundary energy terms that zero convolution padding does not. [Policy controls, full audit and retained gate failure](../research/20261114/work/REPORT.md)
+
+A noise control preserves every complete board's digit counts while permuting cell positions. The multiplicity filter accepts all **2,071 corrupted training boards**, and **21/32** fits lose a true constraint, meeting the frozen ≥16-bank target. Repeated queries still agree. This establishes the filter's limitation under a different specified five-percent marginal-error law, without claiming that every missing edge causes an invalid certificate. [Exact corruption law and full trajectory replay](../research/20261114/ripper/REPORT-permuted-noise.md)
+
+Acquiring **64 positive N13 boards per fixed camel fit** repairs N15 certified capacity to **96.36%, 100%, 98.25% and 98.25%**, supporting the prospective 95% target for these four draws. Repair only deletes exclusions contradicted by positive witnesses; it receives no target geometry, labels or capacity scores. This relies on a size-invariant pair-rule assumption and evaluates the same already-seen N15 universe. The reliability of new random acquisition streams remains a separate question. [Acquisition, access isolation, complete capacities and public replay](../research/20261114/loki/h3ak/REPORT.md)
+
+![Positive witnesses repair fixed-model capacity](../results/research/loki/h3ak/positive-witness-repair.png)
+
+Missing a true Sudoku edge does not by itself establish a false global certificate. Auditing all 32 fits from the digit-count-preserving corruption study proves **28 globally sound**, supplies explicit invalid zero-energy boards for **two**, and leaves **two unresolved** after bounded search. The frozen ≥29-sound hypothesis is inconclusive: an unresolved case is not an unsound graph. Geometry is supplied only to this audit. [Complete proofs, witnesses, limits and public verifier](../research/20261114/ripper/REPORT-permuted-soundness.md)
+

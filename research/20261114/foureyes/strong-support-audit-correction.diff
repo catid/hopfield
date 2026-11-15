@@ -1,0 +1,20 @@
+--- audit_strong_support_study.py
++++ audit_strong_support_study_corrected.py
+@@ -51,7 +51,7 @@
+     import torch
+     sys.path.insert(0,str(RIPPER));from bootstrap_two_way import resample_means
+     p=json.loads(PROTOCOL.read_text());verify(p);source=json.loads((OUT/'source-audit.json').read_text())
+-    assert source['status']=='validated'and source['auditor_sha256']==sha(__file__)and source['protocol_sha256']==sha(PROTOCOL)and source['mapping_sha256']==sha(OUT/'mapping.json')
++    assert source['status']=='validated'and source['auditor_sha256']==sha(HERE/'audit_strong_support_study.py')and source['protocol_sha256']==sha(PROTOCOL)and source['mapping_sha256']==sha(OUT/'mapping.json')
+     mapping=json.loads((OUT/'mapping.json').read_text())['rows'];q=json.loads((OUT/'queue.json').read_text());assert all(x['status']=='complete'for x in q)
+     assert len(q)==source['unique_new_searches'] and {x['job_id']for x in q}=={r['job']for r in mapping if r['kind']=='new'}
+     parent=json.loads((PARENT/'summary.json').read_text())
+@@ -94,7 +94,7 @@
+             assert np.array_equal(b[~free],target[~free]);e=(b==target).all(1);v=np.ones(5000,bool)
+             for u in units:v&=(np.sort(b[:,u],axis=1)==np.arange(9)).all(1)
+             assert np.array_equal(e,z['exact'])and np.array_equal(v,z['valid'])
+-            assert t.dtype==bool and ((moves>=0)&(moves<=262144)).all()and(moves[~t]==262144).all()and(moves[t]%4096==0).all()
++            assert t.dtype==bool and moves.dtype.kind in 'iu' and ((moves>0)&(moves<=262144)).all()and(moves[~t]==262144).all()
+             energy=((b[:,ii]==b[:,jj])*w.astype(np.int64)).sum(1);assert not energy[t].any()
+             target_energy=((target[:,ii]==target[:,jj])*w.astype(np.int64)).sum(1)
+             given=(((target[:,ii]==target[:,jj])&~free[:,ii]&~free[:,jj])*w.astype(np.int64)).sum(1);assert(energy>=given).all()

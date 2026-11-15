@@ -4,6 +4,10 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Missing edges versus global Sudoku soundness | [Proofs and counterexamples](../results/research/ripper/permuted_soundness.json) | [plot_permuted_soundness.py](../scripts/plot_permuted_soundness.py) |
+| Positive-witness repair of N15 camel capacity | [Repair exports](../results/research/loki/h3ak/) | [plot_public.py](../research/20261114/loki/h3ak/plot_public.py) |
+| Removing weak Sudoku constraints | [Deletion exports](../results/research/foureyes/strong_support_study/) | [plot_strong_support_study.py](../scripts/plot_strong_support_study.py) |
+| Digit-count-preserving corruption | [Permutation-noise exports](../results/research/ripper/permuted_noise.json) | [plot_permuted_noise.py](../scripts/plot_permuted_noise.py) |
 | Weaker positive Sudoku penalties | [Penalty-strength exports](../results/research/foureyes/weak_weight_study/) | [plot_weak_weight_study.py](../scripts/plot_weak_weight_study.py) |
 | Clean positive witnesses on fixed observed streams | [Witness exports](../results/research/ripper/positive_witness.json) | [plot_positive_witness.py](../scripts/plot_positive_witness.py) |
 | Multiplicity filter under shared collapse | [Filter exports](../results/research/ripper/balanced_filter.json) | [plot_balanced_filter.py](../scripts/plot_balanced_filter.py) |

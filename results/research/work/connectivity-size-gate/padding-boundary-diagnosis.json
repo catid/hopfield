@@ -1,0 +1,107 @@
+{
+  "status": "cause_verified",
+  "protocol_sha256": "ff8d54d2655623124acb4e87a306bede748dddf076bf774bfc4a94cceeb9e01a",
+  "rows": [
+    {
+      "seed": 0,
+      "arm": "pl",
+      "seen_inputs": 64,
+      "free_readout_exact": true,
+      "free_count_unchanged": true,
+      "boundary_changed_free_cells": 6747,
+      "boundary_linear_correction_range": [
+        0.0,
+        2.9436019100248814
+      ],
+      "maximum_independent_binary_relative_energy_error": 1.4210854715202004e-14,
+      "maximum_independent_flip_difference_error": 3.469446951953614e-18,
+      "maximum_autograd_gradient_correction_error": 7.105427357601002e-15,
+      "maximum_field_correction_error": 1.7763568394002505e-15
+    },
+    {
+      "seed": 0,
+      "arm": "old_binary",
+      "seen_inputs": 64,
+      "free_readout_exact": true,
+      "free_count_unchanged": true,
+      "boundary_changed_free_cells": 6747,
+      "boundary_linear_correction_range": [
+        -0.07318305969238281,
+        0.0
+      ],
+      "maximum_independent_binary_relative_energy_error": 1.1368683772161603e-13,
+      "maximum_independent_flip_difference_error": 1.0842021724855044e-19,
+      "maximum_autograd_gradient_correction_error": 7.105427357601002e-15,
+      "maximum_field_correction_error": 0.0
+    },
+    {
+      "seed": 1,
+      "arm": "pl",
+      "seen_inputs": 64,
+      "free_readout_exact": true,
+      "free_count_unchanged": true,
+      "boundary_changed_free_cells": 6747,
+      "boundary_linear_correction_range": [
+        0.0,
+        2.88846804946661
+      ],
+      "maximum_independent_binary_relative_energy_error": 1.4210854715202004e-14,
+      "maximum_independent_flip_difference_error": 4.336808689942018e-18,
+      "maximum_autograd_gradient_correction_error": 5.329070518200751e-15,
+      "maximum_field_correction_error": 1.7763568394002505e-15
+    },
+    {
+      "seed": 1,
+      "arm": "old_binary",
+      "seen_inputs": 64,
+      "free_readout_exact": true,
+      "free_count_unchanged": true,
+      "boundary_changed_free_cells": 6747,
+      "boundary_linear_correction_range": [
+        -0.07406234741210938,
+        0.0
+      ],
+      "maximum_independent_binary_relative_energy_error": 1.1368683772161603e-13,
+      "maximum_independent_flip_difference_error": 1.0842021724855044e-19,
+      "maximum_autograd_gradient_correction_error": 1.1102230246251565e-16,
+      "maximum_field_correction_error": 0.0
+    },
+    {
+      "seed": 2,
+      "arm": "pl",
+      "seen_inputs": 64,
+      "free_readout_exact": true,
+      "free_count_unchanged": true,
+      "boundary_changed_free_cells": 6747,
+      "boundary_linear_correction_range": [
+        0.0,
+        2.867289997637272
+      ],
+      "maximum_independent_binary_relative_energy_error": 2.842170943040401e-14,
+      "maximum_independent_flip_difference_error": 4.336808689942018e-18,
+      "maximum_autograd_gradient_correction_error": 7.105427357601002e-15,
+      "maximum_field_correction_error": 1.7763568394002505e-15
+    },
+    {
+      "seed": 2,
+      "arm": "old_binary",
+      "seen_inputs": 64,
+      "free_readout_exact": true,
+      "free_count_unchanged": true,
+      "boundary_changed_free_cells": 6747,
+      "boundary_linear_correction_range": [
+        -0.07828617095947266,
+        0.0
+      ],
+      "maximum_independent_binary_relative_energy_error": 1.1368683772161603e-13,
+      "maximum_independent_flip_difference_error": 8.673617379884035e-19,
+      "maximum_autograd_gradient_correction_error": 7.105427357601002e-15,
+      "maximum_field_correction_error": 0.0
+    }
+  ],
+  "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+  "seconds": 18.0181685659918,
+  "source_sha256": "a2ec384925a3f2a72e187825cbfc43aac37b1da1042ca04d15f6a0bfef79f78b",
+  "cause": "Convolution pads the binary-state channels outside the originalgrid with(0,0), whereas an addedclamped wall is state(1,0). Added right/bottom wallneighbors contribute genuine pair-table unarycosts at oldboundaryfreecells. The freegraph, readouts andfreecount are unchanged, buttheanswerobjective is not. Relativebinaryenergies, flipdeltas, autogradgradients andfields match the exact addedpairterms. No globalnormalization explanation needed.",
+  "fresh_inputs": 0
+}

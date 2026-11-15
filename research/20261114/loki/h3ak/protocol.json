@@ -1,0 +1,107 @@
+{
+  "id": "H3ak-bounded-positive-witness-repair",
+  "frozen_utc": "2026-11-15T05:29:12.139006+00:00",
+  "hypothesis": "After64 independently drawn valid N13 positive boards per fixed fit, deleting only inherited finite displacement classes witnessed in those positives raises every one of the four H3ac-derived models to at least95% exact N15 capacity on the same seen H3aj eligible universe, with no invalid zero-F states.",
+  "models": [
+    {
+      "bank": 0,
+      "model_path": "artifacts/research/20261114/loki/h3aj/b0/model.npz",
+      "source_design_path": "artifacts/research/20261114/loki/h3ac/b0/source-design.npz"
+    },
+    {
+      "bank": 1,
+      "model_path": "artifacts/research/20261114/loki/h3aj/b1/model.npz",
+      "source_design_path": "artifacts/research/20261114/loki/h3ac/b1/source-design.npz"
+    },
+    {
+      "bank": 2,
+      "model_path": "artifacts/research/20261114/loki/h3aj/b2/model.npz",
+      "source_design_path": "artifacts/research/20261114/loki/h3ac/b2/source-design.npz"
+    },
+    {
+      "bank": 3,
+      "model_path": "artifacts/research/20261114/loki/h3aj/b3/model.npz",
+      "source_design_path": "artifacts/research/20261114/loki/h3ac/b3/source-design.npz"
+    }
+  ],
+  "acquisition": {
+    "population_path": "artifacts/research/20261114/loki/h3t/solutions-n13.npy",
+    "population_size": 1932,
+    "population_sha256": "c6d9786fbeb885aed2e69ec37ebcfa0904caab7d5a2e90064b3e8c650aba56cf",
+    "seeds": [
+      2026113105,
+      2026113106,
+      2026113107,
+      2026113108
+    ],
+    "doses": [
+      1,
+      8,
+      32,
+      64
+    ],
+    "draw": "Each bank has an independent default_rng choice1932,64,replace=False; preserve draw order and use nested prefixes. Overlap across banks allowed and reported. Draws fixed before examining witnesses or recovery.",
+    "positive_gate": "Separate acquisition process checks every selected N13 board against literal supplied source queen/camel rules. Gate all selected positives before repair; no N15 input or geometry used in acquisition."
+  },
+  "repair": "Separate process reads only each frozen inherited model/design and its sealed64 selected positive boards/indices. For each nested prefix, enumerate literal occupied canonical displacements. Delete J/F on every inherited finite source-displacement class observed in a positive. Never add exclusions, change other weights/unary/unit, refit, reestimate exposure or select a minimum rule. Each deletion carries the first exact positive witness. Artifact/result read allowlist forbids full population and target truth/cache/keys/scores in repair.",
+  "theorem": "Conditional on valid source labels and the declared size-invariant translation-shared pair-rule model, an offset observed in a valid positive cannot be a true forbidden pair class at N15. This establishes deletion soundness only; observing enough witnesses to recover>=95% capacity is empirical. Do not infer a general transfer theorem.",
+  "deduplication": "Retain all4 fits and16 bank-dose outcomes. Deduplicate complete enumeration only for byte-equal full repaired225x225 support arrays after eligibility checks. No target-based support pruning.",
+  "build": {
+    "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "flags": [
+      "-O3",
+      "-std=c++17",
+      "-DNDEBUG",
+      "-Wall",
+      "-Wextra",
+      "-Werror"
+    ],
+    "validation_seed": 2026113109,
+    "validation": "Fresh C++ builds and42 q2..7 random/edge fixtures against original Python and exhaustive permutations. Every repaired N15 support uses complete original forward and compiled independent literal reverse plus occupied certificates."
+  },
+  "evaluation": {
+    "reference_root": "results/research/loki/h3aj",
+    "universe": "Exactly the already seen H3aj831605 eligible N15 camel keys; same prior H3ag exclusions, no new cohort. Reuse hash-pinned complete truth/reference counts only AFTER repair and learned enumeration seals; re-enumerate reference truth with two compiled algorithms and rebuild all true clue counts.",
+    "primary": "Every bank at64 positives must reach>=95% exact valid zero-F capacity and zero invalid zero-F states. Lower1/8/32 doses descriptive only. All bank/dose results, state retention, per-clue capacity, graph errors and witnesses retained.",
+    "baseline": "H3aj untreated exact capacities are clearly labeled previously measured baseline results, not new GPU or optimizer runs."
+  },
+  "budget": {
+    "aggregate_cpu_seconds": 120,
+    "wall_seconds": 180,
+    "GPUs": 0,
+    "enforcement": "Whole monitored stage includes acquisition, source validation, repair, builds/parity, complete learned enumeration, reference checks, full capacity histograms and serialization. No partial universes, extensions or dropped banks."
+  },
+  "scope": "Finite seen-universe information intervention; intermediate-size positive source supervision is newly acquired. No closed-world negatives/completeness prior, source rule minimization, target labels in repair, untouched-test generalization, GPU inference or optimizer improvement claim.",
+  "history": "Distinct from H3m complete smaller-size pooling, H3n/o full/matched larger-source fits and H3x/y/z complete-source sparse rule selection. Here only a bounded positive witness stream deletes inherited finite exclusions.",
+  "source_sha256": {
+    "research/20261114/loki/h3ak/common.py": "6d8a5a2d23cfc5ab71c452f23da74956cf5edb01eedd5a5fda4bba2009c43915",
+    "research/20261114/loki/h3ak/enumerators.py": "08d9af01989399365681bd4d0b2682219f722302e782da597dce5cfa8e404624",
+    "research/20261114/loki/h3ak/acquire.py": "dc635f25b76ef7fdeb14ca94dcd98c17f70a3fdd493b1c42263e044f4b261164",
+    "research/20261114/loki/h3ak/repair.py": "55ee03e3e06f714b8e28df7900747bee52b242604fd3add4a857a26e8142597a",
+    "research/20261114/loki/h3ak/compiler.py": "3cf941b434e2d2ec9d9a86aec02fcc03ce1620de9ed882bddd4fec22415c8b66",
+    "research/20261114/loki/h3ak/study.py": "d49a7635f050dcecba8c54d0c9948265770057601e3b11c6e9c88b630b15f1a2",
+    "research/20261114/loki/h3ak/gate.py": "0bd24c3c476105ef1804263177b7fe63769d3bb41a143cba38420c9aa7df954f",
+    "research/20261114/loki/h3ak/freeze.py": "b9fc20209aa9b76f13bc0029d91db375b429892bef16fc10a0f9014107c03880",
+    "research/20261114/loki/h3ak/reverse_literal.cpp": "efacb8de87c2a1dce7540e4f42b036a2f1f9a07601f70ee20dc8b09bfcb3d719",
+    "research/20261114/loki/h3ak/truth_camel.cpp": "88cffd1a8042f28a6eef369aa2138f9f3cddb538428aec4cb9e8ddff043f1307",
+    "research/20261114/loki/h3ac/protocol.json": "7e955fee208609f6c0dfbbe834f38ac98a1777f19e4ff222eac83bc2cc406608",
+    "research/20261114/loki/h3aj/protocol.json": "401edffa63788a17dc418ffdc79e94bef51d181265a6834ba67962c83d4e9cb8"
+  },
+  "source_data_sha256": {
+    "artifacts/research/20261114/loki/h3t/solutions-n13.npy": "c6d9786fbeb885aed2e69ec37ebcfa0904caab7d5a2e90064b3e8c650aba56cf",
+    "artifacts/research/20261114/loki/h3aj/b0/model.npz": "06d44929b3c6837696a39a5cb790915f9358f24be31286e6260c8a57c7db47fe",
+    "artifacts/research/20261114/loki/h3ac/b0/source-design.npz": "ceaa9d6f5655e80333d609602a0568c544280feb11fe4dd22582307a8ec33cd5",
+    "artifacts/research/20261114/loki/h3aj/b1/model.npz": "0fa571d2aa76b54de95bf5eb360e74f2559874969f5f163bdb40358df5cc909d",
+    "artifacts/research/20261114/loki/h3ac/b1/source-design.npz": "766e21969d7355abd803e0c918787b3e7836ba2afc1fa748e8a4556f62a3d7d9",
+    "artifacts/research/20261114/loki/h3aj/b2/model.npz": "59659d0ec45c634082b953d4bcf4849530cc879b9616040cf4c1939680f0e7c6",
+    "artifacts/research/20261114/loki/h3ac/b2/source-design.npz": "e3f2c97b1ca61526833c84c463ff1e900d49de76ab4c10b860e6aec7f21cdbd6",
+    "artifacts/research/20261114/loki/h3aj/b3/model.npz": "00295d7d676b624806f54c3e7255a77025585ed08b5700fa190063d89eecb2d9",
+    "artifacts/research/20261114/loki/h3ac/b3/source-design.npz": "6d46f440b997569c3ba3859fb3c7c4fce732bcffb90b85ca917b231a05333371"
+  },
+  "target_data_sha256": {
+    "results/research/loki/h3aj/summary.json": "d74075702e3dc5e78154b257e7a7371059334395a7c8be92729d33ae53efc179",
+    "results/research/loki/h3aj/truth/F.npy": "5f934249262c50254cee426d9b383d67a1633ad1f9642270b6f5092061788d6c",
+    "results/research/loki/h3aj/truth/cache.npz": "3f96dcd578a9663e01a4695674e3a0cb4a48759d0234ce5e093d5924d08f3ab3",
+    "results/research/loki/h3aj/input-universe.npz": "563b5168caf18f05858f79ade8afdf848dcef121482e50142dba18b485b868e3"
+  }
+}

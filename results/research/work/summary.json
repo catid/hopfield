@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-15T05:13:13.590502+00:00",
+  "updated_utc": "2026-11-15T05:34:42.867735+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
   "status": "Ongoing research; H2aj prospective factorial complete with independent state and trace audits",
   "host": "work",
@@ -795,6 +795,35 @@
           "decision": "falsified"
         }
       }
+    },
+    {
+      "campaign": "connectivity_screen",
+      "hypothesis": "H2ak zero pairedregressions and retain>=90%of63originalgains, eachpolicy separately",
+      "outcome": {
+        "skip_simple_path": {
+          "joint_gains": 63,
+          "joint_losses": 0,
+          "zero_regressions_target": "met",
+          "retained_original_gain_inputs": 63,
+          "original_gain_inputs": 63,
+          "retention_fraction": 1.0,
+          "retention90percent_target": "met"
+        },
+        "connectivity_veto": {
+          "joint_gains": 74,
+          "joint_losses": 0,
+          "zero_regressions_target": "met",
+          "retained_original_gain_inputs": 63,
+          "original_gain_inputs": 63,
+          "retention_fraction": 1.0,
+          "retention90percent_target": "met"
+        }
+      }
+    },
+    {
+      "campaign": "connectivity_size_gate",
+      "hypothesis": "H2al padding size-invariance gate",
+      "outcome": "failed; boundaryobjectivechange independentlydiagnosed; nofreshcohort"
     }
   ],
   "run_tables": [
@@ -977,6 +1006,14 @@
     "factorial-transfer-protocol": {
       "sha256": "f121d13e662a420ee96ddde36e426521a9dc1d2adcf69c4d385c03467fef6ec7",
       "frozen_utc": "2026-11-15T05:03:45.280250+00:00"
+    },
+    "connectivity-screen-protocol": {
+      "sha256": "8f262beb3e350b9eb37ae4a1a13c5652341ab5fe839fef19e09b351b22f2cc89",
+      "frozen_utc": "2026-11-15T05:16:49.242466+00:00"
+    },
+    "connectivity-transfer-protocol": {
+      "sha256": "ff8d54d2655623124acb4e87a306bede748dddf076bf774bfc4a94cceeb9e01a",
+      "frozen_utc": "2026-11-15T05:24:03.983034+00:00"
     }
   },
   "audit_sha256": {
@@ -1008,7 +1045,8 @@
     "artifacts/research/20261114/work/binary_coordinate/audit.json": "56af375421748d23272e68dde4ffee3d1a6021b8a62886a2ba56f8fcdbfd35da",
     "artifacts/research/20261114/work/hard_negative_transfer/audit.json": "19f69bcc79d075554f809f244f4c8446231809aa3d8269a98c2b5244eaaa2e94",
     "artifacts/research/20261114/work/second_negative_transfer/audit.json": "6309e6e6091b24002513e4b36467bbdcdabea12d8b4fed36e910551be5c1d1ca",
-    "artifacts/research/20261114/work/factorial_transfer/audit.json": "414d0ca69ad6440f7fc39542eb18597143a759daf00fe2b17153708e40521876"
+    "artifacts/research/20261114/work/factorial_transfer/audit.json": "414d0ca69ad6440f7fc39542eb18597143a759daf00fe2b17153708e40521876",
+    "artifacts/research/20261114/work/connectivity_screen/audit.json": "cf2f149522301d5683730623c40a4019661df4f26021295c7b7ad1de82545427"
   },
   "model_sha256": {
     "0": {
@@ -1302,5 +1340,49 @@
     "full_independent_final_state_checks": 61440,
     "full_independent_literal_candidate_checks": 13768,
     "scope": "Five arms; shared hidden and exact binary prefixes. Three separateendpoint decisions, no opaqueconjunction or simultaneous95claim."
+  },
+  "connectivity_screen": {
+    "hypothesis": "H2ak",
+    "fresh_inputs": 0,
+    "new_block_interventions": 12288,
+    "reused_binary_prefixes": 12288,
+    "archived_skip_control_mappings": 12288,
+    "additional_baseline_trajectories": 0,
+    "targets": {
+      "skip_simple_path": {
+        "joint_gains": 63,
+        "joint_losses": 0,
+        "zero_regressions_target": "met",
+        "retained_original_gain_inputs": 63,
+        "original_gain_inputs": 63,
+        "retention_fraction": 1.0,
+        "retention90percent_target": "met"
+      },
+      "connectivity_veto": {
+        "joint_gains": 74,
+        "joint_losses": 0,
+        "zero_regressions_target": "met",
+        "retained_original_gain_inputs": 63,
+        "original_gain_inputs": 63,
+        "retention_fraction": 1.0,
+        "retention90percent_target": "met"
+      }
+    },
+    "joint_success": {
+      "pl": 4081,
+      "old_binary": 3998,
+      "old_blocks": 4021,
+      "skip_simple_path": 4061,
+      "connectivity_veto": 4072
+    },
+    "native_descent_disconnections": 0,
+    "scope": "PosthocseenH2ajcohort; explicit symbolicgraphknowledge; separate policytargets; skipzero-loss conditionalidentityproof distinguished from empirical gainretention."
+  },
+  "connectivity_size_gate": {
+    "hypothesis": "H2al",
+    "status": "failed_before_fresh_generation",
+    "fresh_inputs": 0,
+    "diagnostic_model_inputs": 192,
+    "cause": "Actualaddedwalls introduce pairtable unaryterms at oldgridboundary; no paddingobjectiveinvariance."
   }
 }
