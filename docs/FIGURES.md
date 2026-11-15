@@ -4,6 +4,9 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Maze density limit at 80% loops | [All paired outcomes and five endpoint decisions](../results/research/work/loop80-transfer/) | [plot_loop80_transfer.py](../research/20261114/work/plot_loop80_transfer.py) |
+| Degree inference from partial observations | [All 2,560 grid proofs](../results/research/ripper/partial_degree/) | [plot_partial_degree.py](../scripts/plot_partial_degree.py) |
+| Four-to-eight query continuation | [All 1,408 checkpoints and additional decisions](../results/research/loki/h3bh/) | [plot_public.py](../research/20261114/loki/h3bh/plot_public.py) |
 | Exact LP curvature selects a bounded common degree | [All degree values and5120proofs](../results/research/foureyes/degree_curvature/) | [plot_degree_curvature.py](../scripts/plot_degree_curvature.py) |
 | Additive cell-count correction and remaining overlap | [Every adjusted score and candidate](../results/research/foureyes/centered_regularity/) | [plot_centered_regularity.py](../scripts/plot_centered_regularity.py) |
 | Fresh dense-maze decoder confirmation | [Paired outcomes and endpoint statistics](../results/research/work/unified-cycle/) | [plot_unified_cycle.py](../research/20261114/work/plot_unified_cycle.py) |

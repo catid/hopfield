@@ -34,6 +34,8 @@ The revised decoder also solves **4,096/4,096 fresh 180×180 mazes at 50% loop d
 
 ![Fresh dense-maze confirmation: perfect finite-cohort success with separate endpoint decisions](results/research/work/unified-cycle/unified-cycle.png)
 
+At **80% loop density**, the same decoder solves **4,044/4,096 fresh mazes jointly**, versus 3,911 for BP AdamW and 3,623 for the original 16-round decoder. All four relative improvement targets pass, but the separate **99.9% success target is falsified**: 52 inputs remain unsolved. The BP comparison includes 178 gains and 45 losses. [Density limit, paired outcomes and full audit](research/20261114/work/REPORT.md#h2be-denser-mazes-falsify-999-sufficiency-of-the-fixed-48-round-decoder)
+
 An exact geometry optimization makes this complete inference policy **1.33× faster** on a fixed 768-model-input replay cohort, with identical boards, counters, flags and search traces. Candidate generation alone is 4.98× faster. Both frozen speed targets pass across four balanced paired repetitions; this is a measured source-cohort speed result, with no new accuracy samples. [Correctness gates, timing scope and all pairs](research/20261114/work/REPORT.md#h2bd-exact-bridge-geometry-meets-separate-geometry-and-complete-policy-speed-targets)
 
 ## A search prior makes the same learned energy much more useful

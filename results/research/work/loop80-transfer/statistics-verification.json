@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "protocol_sha256": "1ece6ee58c3fd0aca9746561fbd8cccdad857a51f9954d8227e99a4c84728a00",
+  "paired_rows_sha256": "22c18b6f6df7b205ab9509d0aff92fcfb6fd9d5e594c7b2050e23c76c8ce2c58",
+  "audit_sha256": "8cc32f2c449065b547a94deb63e011aeb42d76c0d601ba774e43fecf2bdb38fb",
+  "source_sha256": "b2e08bb581d0f3dfea34c56cb455f2ffe0496d1272c635b9502ad841949207ab",
+  "n_independent_inputs": 4096,
+  "endpoints": [
+    {
+      "name": "unified48_gain_vs_original16",
+      "gains": 421,
+      "losses": 0,
+      "net_lower_pp": 9.274678898203243,
+      "net_upper_pp": 11.249028368690013,
+      "decision": "supported",
+      "maximum_error_pp": 1.1331380278534198e-11
+    },
+    {
+      "name": "unified48_regression_probability",
+      "gains": 421,
+      "losses": 0,
+      "net_lower_pp": 9.274678898203243,
+      "net_upper_pp": 11.249028368690013,
+      "regression_lower_pp": 0.0,
+      "regression_upper_pp": 0.07311125564754341,
+      "decision": "supported",
+      "maximum_error_pp": 1.1331380278534198e-11
+    },
+    {
+      "name": "unified48_noninferiority_vs_bp",
+      "gains": 178,
+      "losses": 45,
+      "net_lower_pp": 2.274564345087634,
+      "net_upper_pp": 4.2132227055068885,
+      "decision": "supported",
+      "maximum_error_pp": 6.7554850602391525e-12
+    },
+    {
+      "name": "unified48_gain_vs_unified16",
+      "gains": 377,
+      "losses": 0,
+      "net_lower_pp": 8.245902750131558,
+      "net_upper_pp": 10.130960711258526,
+      "decision": "supported",
+      "maximum_error_pp": 7.958078640513122e-12
+    },
+    {
+      "name": "unified48_absolute_sufficiency",
+      "successes": 4044,
+      "success_lower_pp": 98.40313896478709,
+      "success_upper_pp": 99.00426894915944,
+      "decision": "falsified",
+      "maximum_error_pp": 1.2079226507921703e-12
+    }
+  ],
+  "scope": "SciPy beta quantiles independently reconstruct separately one-sided95 pairednetbounds usingCPmarginalalpha.025. Five endpoints decided separately: paired-net gain/BP NI use CP marginal alpha.025; standalone regression uses alpha.05. No simultaneous claim."
+}

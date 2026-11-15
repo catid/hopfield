@@ -1,0 +1,18 @@
+"""Replay every immutable four-query decision before any continuation decision."""
+import gzip
+import hashlib
+import numpy as np
+from common import ROOT,SRC,OUT,read,save,sha,now
+from ledger import audit_bytes
+
+
+def build(protocol,select,bits,ordinary,sourcepred):
+    base=ROOT/'results/research/loki/h3bf';summary=read(base/'summary.json');cases=read(base/'case-results.json');raw=gzip.decompress((base/'query-ledger.jsonl.gz').read_bytes());events=audit_bytes(raw);assert hashlib.sha256(raw).hexdigest()==summary['ledger_sha256'] and len(events)==summary['ledger_records'];case_events={event['data']['case']:event for event in events if event['kind']=='case_result'};checkpoints=[];replayed=0;lookup={bytes(row):i for i,row in enumerate(ordinary)}
+    for case in cases:
+        truth=case['candidate'];source=events[case['source_sequence']];assert source['kind']=='source_draw' and source['sha256']==case['source_record_sha256'];population=ordinary[sourcepred[truth].astype(bool)];indices=np.random.default_rng(case['seed']).choice(len(population),16,replace=False);sample=population[indices];initial=np.flatnonzero(sourcepred[:,[lookup[bytes(row)] for row in sample]].all(1)).tolist();assert source['data']['indices']==indices.tolist() and source['data']['columns_zero_based']==sample.tolist() and source['data']['initial_candidates']==initial==case['initial_candidates'];candidates=list(initial);queried=[]
+        for step in case['steps']:
+            query=events[step['query_sequence']];answer=events[step['answer_sequence']];assert query['sha256']==step['query_sha256'] and answer['sha256']==step['answer_sha256'] and answer['sequence']==query['sequence']+1 and query['kind']=='query' and answer['kind']=='answer';request=dict(bits_path='predictions-bits.npy',scores_path='score-values.json',board_count=73712,candidates=candidates,queried=queried);assert query['data']['request']==request;selection=select(request);assert selection==query['data']['selection'];index=selection['query_index'];label=bool((bits[truth,index//8]>>(index%8))&1);remaining=[cid for cid in candidates if selection['candidate_predictions'][str(cid)]==label]
+            assert index==step['query_index'] and label==step['label']==answer['data']['label'] and candidates==step['candidates_before']==answer['data']['candidates_before'] and remaining==step['candidates_after']==answer['data']['candidates_after'];candidates=remaining;queried=queried+[index];replayed+=1
+        event=case_events[case['case']];assert event['data']==case and candidates==case['remaining_candidates'] and case['exact_true_singleton']==(candidates==[truth]) and (case['exact_true_singleton'] or len(queried)==4);checkpoints.append(dict(case=case['case'],candidate=truth,bank=case['bank'],seed=case['seed'],original_case_record_sequence=event['sequence'],original_case_record_sha256=event['sha256'],original_source_record_sha256=source['sha256'],inherited_membership_labels=len(queried),original_four_query_exact=case['exact_true_singleton'],remaining_candidates=candidates,queried_board_indices=queried,original_query_hashes=[s['query_sha256'] for s in case['steps']],original_answer_hashes=[s['answer_sha256'] for s in case['steps']]))
+    assert replayed==5372 and len(checkpoints)==1408 and sum(c['original_four_query_exact'] for c in checkpoints)==704
+    result=dict(utc=now(),parent_summary_sha256=sha(base/'summary.json'),parent_ledger_raw_sha256=hashlib.sha256(raw).hexdigest(),parent_ledger_records=len(events),all5372_original_selector_outputs_identical=True,all1408_source_seeds_filters_and_final_states_reconstructed=True,original_membership_labels=replayed,checkpoints=checkpoints,source_sha256=sha(__file__));save(OUT/'continuation-checkpoints.json',result);return result

@@ -2,6 +2,9 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Denser mazes: four relative targets pass, but 52 failures falsify 99.9% success](../research/20261114/work/REPORT.md#h2be-denser-mazes-falsify-999-sufficiency-of-the-fixed-48-round-decoder)
+- [Partial observations: curvature infers degree 20 on all 64 examined banks, retaining the existing graph errors](../research/20261114/ripper/REPORT-partial-degree.md)
+- [Eight-query continuation identifies 1,371/1,408 selected hard-tail models; the stronger per-truth target fails](../research/20261114/loki/h3bh/REPORT.md)
 - [LP curvature selects the degree and exactly recovers all64 examined strong-noise graphs](../research/20261114/foureyes/REPORT-degree-curvature.md)
 - [Fresh dense-maze decoder solves4096/4096; one-point gain inconclusive, three other targets supported](../research/20261114/work/REPORT.md#h2bc-fresh-bounded-decoder-confirmation-supports-the-budget-mechanism-while-the-one-point-gain-target-remains-inconclusive)
 - [Exact bridge geometry:4.98× candidate generation and1.33× complete inference](../research/20261114/work/REPORT.md#h2bd-exact-bridge-geometry-meets-separate-geometry-and-complete-policy-speed-targets)
