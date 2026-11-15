@@ -199,3 +199,27 @@ uv run --with matplotlib --with numpy python scripts/plot_count_results.py
 ```
 
 The figure receipt at [assets/figures/provenance.json](../assets/figures/provenance.json) records the renderer and exact input hashes. The original reproduction plotter expects the local `artifacts/` layout; its unchanged final figures and compact inputs are mirrored under `results/reproduction/`.
+
+### Fresh BP-first maze confirmation (H2bo)
+
+![Fresh maze cascade success and complete answer cost](../results/research/work/bp-first-fresh-confirmation/bp-first-fresh-confirmation.png)
+
+The fixed cascade and LP96 each solve all 4,096 fresh mazes jointly across three fixed models; BP AdamW solves 3,921. The second panel shows all four balanced complete-cost comparisons and their 35.40% median saving. Model replicas and timing replays do not add independent accuracy trials. [Report and audit boundary](../research/20261114/work/REPORT.md#h2bo-fresh-confirmation-supports-999-joint-success-and-saves-3540-complete-answer-cost) · [Renderer](../research/20261114/work/plot_bp_first_fresh.py).
+
+### Pairwise likelihood from repeated labels (H1cc)
+
+![Nonlinear likelihood gains one examined graph but misses the absolute target](../assets/figures/pair_likelihood.png)
+
+Archived posterior scoring recovers 61/64 and pairwise composite likelihood 62/64 on the same repeated-query cohort; the original single270 control and its new likelihood diagnostic both recover 64/64. Separate recovery and regression decisions remain visible. [Report](../research/20261114/ripper/REPORT-pair-likelihood.md) · [Renderer](../scripts/plot_pair_likelihood.py) · [Provenance](../assets/figures/pair_likelihood-provenance.json).
+
+### Opposite-half conflict masks (H4ax)
+
+![Crossfit masks lose graph recoveries](../assets/figures/crossfit-conflicts.png)
+
+Both prespecified targets fail on all 256 examined banks. The graph-training sample falls from 600 to 300 rows, and target-row dependence changes at the same time. [Report](../research/20261114/foureyes/REPORT-crossfit-conflicts.md) · [Renderer](../scripts/plot_crossfit_conflicts.py) · [Provenance](../assets/figures/crossfit-conflicts-provenance.json).
+
+### Fresh paired deeper question trees (H3bx)
+
+![Fresh question-tree paid cost and retained outcomes](../results/research/loki/h3bx/fresh-paired-total-cost.png)
+
+The plot retains both independently executed arms and their total paid calls, with the 2% threshold and all 4,096 cases. [Report](../research/20261114/loki/h3bx/REPORT.md) · [Renderer](../research/20261114/loki/h3bx/plot_public.py).

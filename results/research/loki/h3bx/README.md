@@ -1,0 +1,3 @@
+# H3bx: fresh 2% target supported
+
+[Full report](../../../../research/20261114/loki/h3bx/REPORT.md). All 4,096 fresh pairs complete: 9,975 deeper-policy calls versus 10,238 separately paid original-baseline calls, saving 263 / 2.568861%. All 4,083 exact cases, 13 failures and every duplicate remain. The full independent audit verifies fresh RNG source choices, both paid arms, every original/deeper proof and counterfactual branch. Lossless export identities are independently checked; full proof payloads stay outside Git. Portable checkout verification explicitly omits full optimality-proof replay. This supports the frozen finite-cohort threshold under the declared matched prior.

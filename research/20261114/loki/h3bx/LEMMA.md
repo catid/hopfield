@@ -1,0 +1,9 @@
+# Restricting a feasible identification tree
+
+Let a depth-at-most-four binary query tree identify every candidate in a nonempty finite set S. For any nonempty subset T of S, retain only leaves labeled by candidates in T. At a query with candidates remaining on only one branch, suppress the query and continue through that branch. If both branches remain possible, retain the query. Every candidate in T reaches its original correct leaf, and suppression cannot increase any path length. Thus T has a valid identification tree of depth at most four using the same available query universe.
+
+The early-handoff policy follows the identical deterministic MAP policy until it hands off. Every later baseline checkpoint is therefore a subset of its handoff candidate set. If the early set has a feasible depth-four tree, the later baseline set also does. The baseline's exhaustive depth-four feasibility decision cannot fail on that later set. Conversely, if no early handoff occurs, the new policy reaches the same four-MAP checkpoint and uses the same exact posterior-optimal tree or the same certified infeasibility outcome. A singleton reached by MAP is exact in both policies. These facts establish equality of terminal exact flags, conditional on complete catalogs, correct certificates, noiseless consistent answers and unchanged MAP decisions.
+
+Earlier handoff can change realized query cost in either direction. No cost reduction, including the tested 2% total-call reduction, follows from the restriction argument.
+
+The prefreeze and runtime gates construct restricted trees for every nonempty subset of each feasible small compiler fixture and independently follow every remaining candidate, checking correct identity and nonincreasing depth. The public audit additionally checks the lemma's premises and exact-flag equality on all 4,096 cases.

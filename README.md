@@ -4,7 +4,7 @@
 
 Independent implementation, reproduction and research extensions of [*Classical Energies Learn to Reason 1,000× Faster than Looped Models*](https://arxiv.org/abs/2611.17309v1), by Benjamin Hoover, Hugh Blayney and James C. R. Whittington. CRAM learns an energy function, then searches for low-energy answers. We test what learning, data and search each contribute.
 
-**Fresh dense mazes:** **4,096/4,096** solved across three fixed models, versus **3,905** for BP AdamW. A separate examined-cohort cascade cuts measured answer cost **37.03%**, preserves every LP96 success and rescues its one failure. [Results and scope](research/20261114/work/REPORT.md)
+**Fresh dense mazes:** **4,096/4,096** solved across three fixed models, versus **3,921** for BP AdamW. Running BP first and routing invalid paths to LP96 cuts measured complete answer cost **35.40%**, with zero lost LP96 successes. [Fresh confirmation](research/20261114/work/REPORT.md#h2bo-fresh-confirmation-supports-999-joint-success-and-saves-3540-complete-answer-cost)
 
 [Reviewed paper](references/2611.17309v1.md) · [All results](results/README.md) · [Reproduction](REPRODUCTION.md) · [Run the code](docs/RERUN_GUIDE.md)
 
@@ -16,17 +16,15 @@ Connect cells that **never share a digit in training solutions**, assign weight 
 
 This headline uses ten base solutions with 99 stored Sudoku-symmetry variants each. **Augmentation supplies task knowledge.** A separate control recovers the same constraint graph from 100 distinct unaugmented solutions in all six samples. The estimator receives no cell geometry. [Budget, uncertainty and stopping proof](research/20261114/foureyes/REPORT-budget.md) · [Raw-data control](research/20261114/ripper/REPORT-raw-count.md)
 
-## Cycle cuts solve fresh dense mazes
+## Solve fresh dense mazes faster
 
-![Fresh dense-maze confirmation: all inputs solved, with zero fallback calls](results/research/work/fallback-confirmation/fallback-confirmation.png)
+![Fresh maze cascade: all 4,096 cases solved across three fixed models with 35.40% lower complete answer cost](results/research/work/bp-first-fresh-confirmation/bp-first-fresh-confirmation.png)
 
-At **180×180 and 80% loop density**, LP96 solves **4,096/4,096 new mazes jointly across all three fixed models**, versus **3,905** for BP AdamW. The prespecified 99.9% success target passes, with a one-sided 95% lower bound of **99.9269%**. All LP outputs pass numerical acceptance, so the tested fallback policies invoke no BP rescue on this fresh cohort. [Frozen protocol and complete audit](research/20261114/work/REPORT.md#h2bk-fresh-lp96-solves-40964096-the-fallback-branch-is-never-used)
+At **180×180 and 80% loop density**, the fixed BP-first cascade solves **4,096/4,096 fresh mazes jointly across all three models**, versus **3,921** for BP AdamW. LP96 alone also solves all 4,096. The cascade accepts BP paths that pass a geometry check and runs LP96 on the remaining inputs.
 
-Running BP first and routing invalid paths to LP96 separately reaches **4,096/4,096** on an already examined cohort, versus **4,095** for LP96 and **3,917** for BP. Across four balanced paired replays, median complete answer cost falls **37.03%** with zero lost LP96 successes. Model readiness, screening and actual fallback computation are charged. This is an examined-cohort routing result; fresh validation is still pending. [All paired costs, routes and limitations](research/20261114/work/REPORT.md#h2bn-the-actual-bp-first-geometry-cascade-preserves-source-success-and-saves-3703-complete-answer-cost)
+Across four balanced paired replays, median complete answer cost falls **35.40%**. Model readiness, screening and actual routed computation are charged. All three prespecified targets pass separately: at least 99.9% joint success, accuracy no more than 0.1 percentage point below LP96, and at least 10% cost savings. The one-sided 95% success lower bound is **99.9269%**; the models are fixed conditions, not extra independent trials. [Protocol, every input and measured costs](research/20261114/work/REPORT.md#h2bo-fresh-confirmation-supports-999-joint-success-and-saves-3540-complete-answer-cost)
 
-![Actual maze cascade: all source successes preserved and 37.03% median complete answer cost saved](results/research/work/bp-first-geometry-cascade/bp-first-geometry-cascade.png)
-
-The decoder supplies an explicit graph prior. Geometry alone does not prove shortestness, and energy certificates do not prove graph validity. All reported solves receive independent graph checks. [Decoder controls and earlier failures](docs/RESEARCH_DETAILS.md#cycle-cuts-solve-fresh-dense-mazes)
+The decoder supplies an explicit graph prior. Geometry alone does not prove shortestness, and energy certificates do not prove graph validity. Every reported solve receives independent graph checks. This confirmation uses the original endpoint convention. [Controls and earlier cohorts](docs/RESEARCH_DETAILS.md#cycle-cuts-solve-fresh-dense-mazes)
 
 ## Change the search, keep the learned energy
 

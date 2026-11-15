@@ -1,0 +1,127 @@
+{
+  "status": "passed",
+  "host": "ripper",
+  "study_scores_read": false,
+  "Decimal_ln_documentation": "Return the natural (base e) logarithm of the operand. The function always\nuses the ROUND_HALF_EVEN mode and the result is correctly rounded.\n\n",
+  "working_precisions": [
+    80,
+    160
+  ],
+  "independent_digits": 200,
+  "independent_terms": 240,
+  "independent_series_tail": "2*z^(2M+1)/((2M+1)*(1-z^2)); each fixed-point operation rounded outwards.",
+  "log_boundary_cases": [
+    {
+      "numerator": "1",
+      "denominator": "1",
+      "interval_width_units": 0,
+      "scale_digits": 200
+    },
+    {
+      "numerator": "2",
+      "denominator": "1",
+      "interval_width_units": 484,
+      "scale_digits": 200
+    },
+    {
+      "numerator": "3",
+      "denominator": "2",
+      "interval_width_units": 474,
+      "scale_digits": 200
+    },
+    {
+      "numerator": "7",
+      "denominator": "5",
+      "interval_width_units": 482,
+      "scale_digits": 200
+    },
+    {
+      "numerator": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001",
+      "denominator": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "interval_width_units": 482,
+      "scale_digits": 200
+    },
+    {
+      "numerator": "179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137233",
+      "denominator": "3",
+      "interval_width_units": 495130,
+      "scale_digits": 200
+    }
+  ],
+  "half_even_boundary_cases": 5,
+  "forced160_digit_fallbacks": [
+    {
+      "sign": -1,
+      "cost": 0,
+      "precision": 160
+    },
+    {
+      "sign": 1,
+      "cost": 1,
+      "precision": 160
+    }
+  ],
+  "all_possible_query_pair_types": [
+    {
+      "queries": 1,
+      "raw_types": 2,
+      "posterior_rational_types": 2
+    },
+    {
+      "queries": 3,
+      "raw_types": 21,
+      "posterior_rational_types": 21
+    }
+  ],
+  "exact_pair_LR_identity": true,
+  "Q1_affine_pre_round_relation": true,
+  "full_81cell_score_parity": {
+    "single270": {
+      "rows": 270,
+      "cells": 81,
+      "queries": 1,
+      "pair_coqueries": 213,
+      "all_costs_certified": true,
+      "production_wall_seconds": 0.03646346100140363,
+      "independent_wall_seconds": 1.1399696979788132
+    },
+    "triple90": {
+      "rows": 90,
+      "cells": 81,
+      "queries": 3,
+      "pair_coqueries": 71,
+      "all_costs_certified": true,
+      "production_wall_seconds": 0.04194353596540168,
+      "independent_wall_seconds": 0.8565298799658194
+    }
+  },
+  "constant_pair_exposure_verified": true,
+  "digit_and_query_permutation": true,
+  "missing_observation_zero_cost": true,
+  "timings": {
+    "finite_type_intervals": {
+      "samples_wall_seconds": [
+        0.00042967498302459717,
+        0.0004180780379101634,
+        0.0004147620056755841
+      ],
+      "median_wall_seconds": 0.0004180780379101634
+    },
+    "exact_product_rational_series": {
+      "samples_wall_seconds": [
+        0.00753725302638486,
+        0.007484903966542333,
+        0.007469050993677229
+      ],
+      "median_wall_seconds": 0.007484903966542333
+    }
+  },
+  "timing_scope": "Unrelated 3-query12x9 fixture, three repetitions; full-shape synthetic parity timed once. Not full-study speedup.",
+  "source_sha256": {
+    "pair_likelihood_math.py": "5bae12f9f975123344656ce98e00b4b1081e40c0fb35c4e3f2a7382538357d12",
+    "check_pair_likelihood_math.py": "c46ddf131be8310ec74b1105653affbbbe10a79cece45fccbf7dc543b7766d61",
+    "posterior_query_math.py": "e9dc113e5403b07884dd7c35dceb9d1efacd4f3d0a5781db65ea975e8da1f059",
+    "repeat_query_tradeoff_study.py": "c02101460b23dfc29242152ecac5265b78e975d763367c6d82652defcf3147f5"
+  },
+  "wall_seconds": 2.1946593539905734
+}

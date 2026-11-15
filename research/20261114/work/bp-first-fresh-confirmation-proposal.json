@@ -1,0 +1,73 @@
+{
+  "hypothesis_id": "H2bo",
+  "status": "design_approved_implementation_in_progress_before_final_review",
+  "precondition": "Proceed only if H2bn's complete independent audit verifies the fixed BP-first geometry-routed LP96 policy and its stated source/cost results. This draft authorizes no data draw, seed search, source inspection beyond published evidence or execution. Parent review precedes implementation and protocol freeze.",
+  "scope": "4096 new independent 180x180 loop80 mazes, three immutable model seeds, exact unchanged H2bn geometry-only routing and original solver limits. No pooling with H2bh/H2bk source or fresh cohorts. Repeated timing executions do not enlarge the scientific sample size.",
+  "scientific_unit": "One newly sampled maze; success requires all three fixed models to return a numerically accepted valid shortest path. The three models are fixed conditions, not independent statistical trials.",
+  "controls_in_table_order": [
+    "BP AdamW native, actually executed as the candidate's first-stage control on every input; its cost is labeled an executed prefix unless independently measured as a standalone service",
+    "Standalone LP96 on every fresh input",
+    "BP-first simple-path geometry screen with actual LP96 subset execution"
+  ],
+  "policy": "Use the exact H2bn frozen core: BP native at u=3, eta=0.5, cap8192/check16; retain its board iff observable simple-path geometry is valid; otherwise execute the full original LP96 chain on its actual subset within the original32-input batch and scatter outputs. No shortest-distance oracle, graph success label, input identifier, cross-model vote or numerical flag enters the routing predicate. Numerical/hidden/cap/certificate failures are retained explicitly as failures; geometry-valid but longer paths remain accepted by routing and count as wrong at independent graph evaluation.",
+  "primary_and_separate_endpoints": [
+    {
+      "id": "fresh_cascade_joint_success_999",
+      "claim": "Joint cascade success probability is at least99.9% on the declared generator distribution.",
+      "interval": "Compute one-sided95% Clopper-Pearson lower and upper bounds from exactly4096 joint Bernoulli outcomes. Support iff lower>=0.999; falsify iff upper<0.999; otherwise inconclusive. Keep all failures and incomplete solver returns in the denominator. No sample-size extension or pooling."
+    },
+    {
+      "id": "paired_LP96_noninferiority",
+      "claim": "Cascade joint success is no worse than LP96 by0.1percentage point.",
+      "interval": "For paired gains and losses on the same4096 mazes, construct the separately one-sided95% net bounds using CP marginal alpha=0.025 tails: lower=CP_lower(gains,0.025)-CP_upper(losses,0.025), upper=CP_upper(gains,0.025)-CP_lower(losses,0.025). Support iff lower>=-0.001; falsify iff upper<-0.001; otherwise inconclusive. Report raw joint gains/losses and per-model descriptive results."
+    },
+    {
+      "id": "complete_answer_cost_saving10",
+      "claim": "Median complete answer-production cost saving versus standalone LP96 is at least10% over four prespecified balanced whole-cohort pairs.",
+      "decision": "Use the unchanged H2bn synchronized readiness/batch endpoint and exact rational comparison of the ordinary four-pair median of1-cascade_seconds/LP96_seconds. Support iff median>=0.10, otherwise falsify. No confidence interval, discarded slow pair, extra repetition or selection by accuracy outcome."
+    }
+  ],
+  "multiplicity": "These are separate prespecified claims. Do not describe the collection as a simultaneous95% confidence result. Any conjunction is reported explicitly and cannot replace individual supported/falsified/inconclusive decisions.",
+  "generation": {
+    "count": 4096,
+    "shape": [
+      180,
+      180
+    ],
+    "loop_probability": 0.8,
+    "base_seed": 2026111529,
+    "order": "Independent source/statistical gates and complete frozen source hashes precede fresh generation. Generate all4096 in fixed index order. Hash every dataset and independently verify all shortest labels, exact indices, distinct token grids and zero overlap against all prior Work cohort manifests before GPU evaluation.",
+    "failure_policy": "A duplicate/provenance/input-audit failure makes the study incomplete; no replacement maze, alternative seed or reduced cohort.",
+    "seed_reservation": "Authorized full registry audit found exact base2026111529 absent from72prior Work protocols and sealed26prior data manifests; no fresh data drawn."
+  },
+  "execution": {
+    "paired_design": "The same four balanced complete-cohort pairs as H2bn: GPU0 pair0 LP96/cascade then pair1 cascade/LP96; GPU1 pair2 cascade/LP96 then pair3 LP96/cascade. Each arm computes independent readiness, host transfer and hidden/readout. The entire4096 fresh cohort and all three models are run in every arm; source/timing repeats do not add accuracy denominators.",
+    "primary_accuracy_copy": "Pair0 is the predetermined scientific accuracy record. Require all remaining pairs to have exactly matching boards/iterations/flags/routing and acceptance for their corresponding arm; any disagreement is an implementation/replay-integrity failure reported as incomplete, not a selected favorable pair.",
+    "labels_last": "Fresh labels, shortest distances and outcome classifications are excluded from all workers and routing. Only after every complete pair is sealed may the independent CPU audit join graph labels and calculate outcomes. Input auditors may validate source labels before inference but cannot return them to the decoder.",
+    "cost_scope": "Fresh model readiness for all required models, input transfer, hidden work, BP native work, geometry, actual LP subset gather/prefix/certificates/return/scatter, clamps and final numerical acceptance. Scientific diagnostics/archives, host barrier waits and independent audit remain separately measured outside answer cost and inside worker wall budgets. Host-wide barriers prevent either worker's diagnostics/archives from overlapping the other's timed work. No independent CPU audit runs during timing.",
+    "warmup": "Fixed previously published source inputs only, first32 H2bh mazes for allthree models and botharms. No fresh accuracy-driven warmup or route selection."
+  },
+  "gates": {
+    "source": "Reuse H2bn's immutable independently checked complete-source parity as evidence for unchanged solver/policy modules. The new fresh-data runner must additionally reproduce a fixed source gate before generation: all H2bh shard00 inputs/allthree models plus original batch4064..4095/allthree models, covering both ordinary source routing and the known LP96 cap. Exact states/counters/flags/subset mapping and complete cost-boundary semantics are checked; no gate-case filtering or tuning.",
+    "statistics": "Before freeze/generation independently compare exact CP and paired-net calculations with SciPy on boundary, all-success, one-failure and synthetic paired-loss cases. Verify supported/falsified/inconclusive branches and exact4096 denominators.",
+    "lifecycle": "Retain H2bn ownership locks, immutable attempts/markers, source hash checks, both-worker readiness/batch barriers, peer failure/death handling, bounded archive tasks, peak process RSS including threads, owned-process watchdogs and incomplete receipts."
+  },
+  "proposed_budgets": {
+    "source_gate_wall_seconds_per_GPU": 180,
+    "timed_worker_wall_seconds_including_warmup": 1500,
+    "host_barrier_maximum_wait_seconds": 60,
+    "independent_audit_processes": 16,
+    "peak_worker_CPU_RSS_GiB_including_archive_threads": 8,
+    "no_extension": true,
+    "fresh_generation_wall_seconds": 300,
+    "independent_input_audit_wall_seconds": 120,
+    "independent_final_audit_wall_seconds": 600,
+    "fresh_generation_processes": 8,
+    "independent_input_audit_processes": 8,
+    "budget_units": "Elapsed monotonic wall seconds per phase, enforced by ITIMER_REAL and elapsed-time assertions. CPU process counts are separate resource caps; these are not cumulative CPU-second budgets."
+  },
+  "independent_audit": "Verify complete fresh labels and graph shortestness without using decoder graph helpers; all routing with a second geometry implementation; every own-model original-factor margin, numerical/hidden/cap failure and selected-output identity; every actual LP subset trajectory and original objective descent/candidate choices; all pair replay identities; every cost interval/readiness charge/barrier ordering; independent SciPy endpoint reconstruction. Publish all4096 joint rows, all12288 model rows for each logical arm, exact configurations, source provenance, fixed index controls and complete routed/error supplements.",
+  "accounting": "Proposed fresh accounting:48 shard-model jobs and36,864 primary model-maze-arm evaluations for BP, LP96 and candidate. Explicitly label BP prefix reuse in the candidate and repeated timing copies; no source gates, warmups, extra pairs or internal LP prefixes inflate the scientific totals. Final accounting requires parent review.",
+  "reporting": "Preserve valid-but-longer BP false accepts, numerical failures, all paired regressions and every incomplete run. State the fixed-model/distribution support boundary, all interval decisions, all four timing ratios, and no claim that simple-path geometry proves shortestness. An inconclusive absolute99.9% result stays inconclusive regardless of speed or noninferiority.",
+  "budget_declaration_correction_before_freeze": "The pre-freeze proposal mislabeled generation/input/final phase limits as CPU seconds. They are explicitly wall limits of300/120/600 seconds with8/8/16 CPU processes, matching the implemented and inherited elapsed-wall watchdog convention. No fresh draws or outcomes preceded this correction; no cumulative CPU-second cap is claimed. Requires parent final review before freeze."
+}

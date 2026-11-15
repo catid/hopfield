@@ -1,0 +1,11 @@
+{
+  "status": "failed",
+  "stage": "final_graph_packbits",
+  "source_sha256": "3cab86a95c9e33f682e018851a22ad582d45f3a7f60cc39f312260c91c1ccb3d",
+  "error": "TypeError: Expected an input array of integer or boolean data type",
+  "cause": "Actual LP internal binary float predictions promoted the concatenated BP/LP array tofloat; inherited graph auditor expectedbool.",
+  "pre_freeze_fix": "Assert exact binary0/1 representation then cast auditor storage tobool. Solver unchanged.",
+  "fresh_inputs_drawn": 0,
+  "scientific_evaluations_added": 0,
+  "wall_limit_seconds": 180
+}

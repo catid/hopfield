@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-15T13:36:37.111891+00:00",
+  "updated_utc": "2026-11-15T14:41:20.162127+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
-  "status": "Ongoing research; H2aj prospective factorial complete with independent state and trace audits",
+  "status": "Ongoing research; H2bo fresh confirmation independently audited; H2bp endpoint-shift study active",
   "host": "work",
-  "jobs": 2128,
-  "run_arm_rows": 7023,
-  "model_maze_evaluations": 1605506,
+  "jobs": 2176,
+  "run_arm_rows": 7167,
+  "model_maze_evaluations": 1642370,
   "hypotheses": [
     {
       "campaign": "discovery",
@@ -1518,6 +1518,69 @@
         "minimum_saving": 0.1,
         "decision": "supported"
       }
+    },
+    {
+      "campaign": "bp_first_fresh_confirmation",
+      "hypothesis": "H2bo_absolute_joint_success_999",
+      "outcome": {
+        "successes": 4096,
+        "n": 4096,
+        "observed_success_pp": 100.0,
+        "one_sided95_success_lower_pp": 99.92688874435301,
+        "one_sided95_success_upper_pp": 100.0,
+        "minimum_success_pp": 99.9,
+        "decision": "supported"
+      }
+    },
+    {
+      "campaign": "bp_first_fresh_confirmation",
+      "hypothesis": "H2bo_paired_LP96_noninferiority",
+      "outcome": {
+        "gains": 0,
+        "losses": 0,
+        "n": 4096,
+        "observed_net_gain_pp": 0.0,
+        "separately_one_sided95_net_lower_pp": -0.09001999122098098,
+        "separately_one_sided95_net_upper_pp": 0.09001999122098098,
+        "minimum_net_gain_pp": -0.1,
+        "decision": "supported"
+      }
+    },
+    {
+      "campaign": "bp_first_fresh_confirmation",
+      "hypothesis": "H2bo_complete_answer_cost_saving10",
+      "outcome": {
+        "pairs": [
+          {
+            "pair": 0,
+            "LP96_seconds": 195.01214525004616,
+            "candidate_seconds": 125.052625322307,
+            "saving": 0.35874442506150833
+          },
+          {
+            "pair": 1,
+            "LP96_seconds": 196.10873237252235,
+            "candidate_seconds": 125.40299177519046,
+            "saving": 0.3605435604112792
+          },
+          {
+            "pair": 2,
+            "LP96_seconds": 195.9909490730497,
+            "candidate_seconds": 127.83742298197467,
+            "saving": 0.3477381298137031
+          },
+          {
+            "pair": 3,
+            "LP96_seconds": 196.95346185180824,
+            "candidate_seconds": 128.15456918871496,
+            "saving": 0.3493154779622963
+          }
+        ],
+        "median_saving": 0.3540299515119023,
+        "exact_median_fraction": "74320946101699629687584/209928413639321687565475",
+        "minimum_saving": 0.1,
+        "decision": "supported"
+      }
     }
   ],
   "run_tables": [
@@ -1870,6 +1933,12 @@
       "frozen_utc": "2026-11-15T13:08:03.093297+00:00",
       "hypothesis": "H2bn",
       "status": "completed"
+    },
+    "bp-first-fresh-confirmation-protocol": {
+      "sha256": "fa85a3edcb996efa9d86719eb3dc68d852e9fefa2fbf919b1b9eeff5625adbb8",
+      "frozen_utc": "2026-11-15T14:08:51.073628+00:00",
+      "hypothesis": "H2bo",
+      "status": "completed"
     }
   },
   "audit_sha256": {
@@ -1926,7 +1995,8 @@
     "artifacts/research/20261114/work/fallback_confirmation/audit.json": "ab5fe39fac71429098782c5a4ac753c053b10d6ad40b71a9295910d9eb4a589c",
     "artifacts/research/20261114/work/cross_certificate_screen/audit.json": "ffde9bfd18a5ceaef5a9747d95c03eba6b2a61f9eb7998f4fc9a8250f47359b9",
     "artifacts/research/20261114/work/bp_geometry_decomposition/analysis/analysis.json": "3b1c8e0dd814c87a913f255a046b2f43085922d6b1c452cf2cb9347bf4f087f3",
-    "artifacts/research/20261114/work/bp_first_geometry_cascade/audit.json": "b9f880273ad5febba14cc3dee585fb97d2b8a94844b47a8f95dc9f672dd7cbde"
+    "artifacts/research/20261114/work/bp_first_geometry_cascade/audit.json": "b9f880273ad5febba14cc3dee585fb97d2b8a94844b47a8f95dc9f672dd7cbde",
+    "artifacts/research/20261114/work/bp_first_fresh_confirmation/audit.json": "442f67137a2699a78cb4eb64162a3e08e183618f661c4566baf04ff477c2c50f"
   },
   "model_sha256": {
     "0": {
@@ -1959,8 +2029,8 @@
     "case": "cyclic-failure-classification.json",
     "scope": "The same cyclic maze fails for model seeds1and2; these are true invalid fixed points or a period-two timeout, not hidden/nonfinite failures."
   },
-  "primary_jobs": 2122,
-  "primary_model_maze_evaluations": 1605374,
+  "primary_jobs": 2170,
+  "primary_model_maze_evaluations": 1642238,
   "descriptive_jobs": 6,
   "descriptive_model_maze_evaluations": 132,
   "selected_case_interventions": {
@@ -3256,5 +3326,116 @@
       "decision": "supported"
     },
     "scope": "Actual BP-first geometry-routed LP96 source replays. Complete measured answer-production cost includes independent readiness/input/hidden/solver/geometry/certificate/return/mapping, excludes scientific diagnostics/archive/audit and barrier waits. No fresh accuracy/population claim."
+  },
+  "bp_first_fresh_confirmation": {
+    "hypothesis": "H2bo",
+    "fresh_inputs": 4096,
+    "new_scientific_jobs": 48,
+    "new_scientific_evaluations": 36864,
+    "primary_accuracy_pair": 0,
+    "fixed_model_seeds": [
+      0,
+      1,
+      2
+    ],
+    "joint_success": {
+      "BP_AdamW": 3921,
+      "LP96": 4096,
+      "cascade": 4096
+    },
+    "model_success": {
+      "BP_AdamW": 11792,
+      "LP96": 12288,
+      "cascade": 12288
+    },
+    "primary_endpoints": {
+      "absolute_joint_success_999": {
+        "successes": 4096,
+        "n": 4096,
+        "observed_success_pp": 100.0,
+        "one_sided95_success_lower_pp": 99.92688874435301,
+        "one_sided95_success_upper_pp": 100.0,
+        "minimum_success_pp": 99.9,
+        "decision": "supported"
+      },
+      "paired_LP96_noninferiority": {
+        "gains": 0,
+        "losses": 0,
+        "n": 4096,
+        "observed_net_gain_pp": 0.0,
+        "separately_one_sided95_net_lower_pp": -0.09001999122098098,
+        "separately_one_sided95_net_upper_pp": 0.09001999122098098,
+        "minimum_net_gain_pp": -0.1,
+        "decision": "supported"
+      }
+    },
+    "cost_endpoint": {
+      "pairs": [
+        {
+          "pair": 0,
+          "LP96_seconds": 195.01214525004616,
+          "candidate_seconds": 125.052625322307,
+          "saving": 0.35874442506150833
+        },
+        {
+          "pair": 1,
+          "LP96_seconds": 196.10873237252235,
+          "candidate_seconds": 125.40299177519046,
+          "saving": 0.3605435604112792
+        },
+        {
+          "pair": 2,
+          "LP96_seconds": 195.9909490730497,
+          "candidate_seconds": 127.83742298197467,
+          "saving": 0.3477381298137031
+        },
+        {
+          "pair": 3,
+          "LP96_seconds": 196.95346185180824,
+          "candidate_seconds": 128.15456918871496,
+          "saving": 0.3493154779622963
+        }
+      ],
+      "median_saving": 0.3540299515119023,
+      "exact_median_fraction": "74320946101699629687584/209928413639321687565475",
+      "minimum_saving": 0.1,
+      "decision": "supported"
+    },
+    "failure_accounting": {
+      "BP_AdamW": {
+        "model_inputs": 12288,
+        "successes": 11792,
+        "hidden_failures": 0,
+        "nonfinite_outputs": 0,
+        "not_stopped": 0,
+        "native_caps": 0,
+        "block_caps": 0,
+        "numerical_rejections": 0,
+        "wrong_numerically_accepted": 496
+      },
+      "LP96": {
+        "model_inputs": 12288,
+        "successes": 12288,
+        "hidden_failures": 0,
+        "nonfinite_outputs": 0,
+        "not_stopped": 0,
+        "native_caps": 0,
+        "block_caps": 0,
+        "numerical_rejections": 0,
+        "wrong_numerically_accepted": 0
+      },
+      "cascade": {
+        "model_inputs": 12288,
+        "successes": 12288,
+        "hidden_failures": 0,
+        "nonfinite_outputs": 0,
+        "not_stopped": 0,
+        "native_caps": 0,
+        "block_caps": 0,
+        "numerical_rejections": 0,
+        "wrong_numerically_accepted": 0
+      }
+    },
+    "scope": "Independent4096-maze confirmation of unchanged BP-first geometry policy; three logical arms, fixed models. Pair0 is the predetermined accuracy copy. Source gates,warmups,LP internal prefixes and repeated timing pairs add no scientific counts."
   }
 }

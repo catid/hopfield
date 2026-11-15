@@ -1,0 +1,34 @@
+{
+  "hypothesis_id": "H4ax",
+  "status": "prospective_design_before_any_fold_fit_or_crossfit_mask",
+  "motivation": "H4aw held detection precision and every row's recall count fixed, yet purified detector masks recovered130/256 while random true locations recovered237/256. Test whether constructing conflict masks from a graph fitted on different rows improves the practical observable heuristic. This changes the graph estimation sample size as well as same-row dependence; it does not isolate a unique mechanism.",
+  "scope": "All256 examined H4av600-row noisy banks. No new sources, digit labels, corruption, true masks or puzzle solving. Reuse each bank's original inferred degree and supplied per-row corruption count9. The inherited degree used all600 rows, so the whole procedure is not independent of full-cohort estimation. No true degree or graph geometry is supplied to fitting or mask construction.",
+  "folds": "Fixed original row indices0..299 and300..599; no shuffling or split search. Fit a raw equality-count degree-constrained LP on each300-row half. Use the first-half graph only to score the second half's cell conflicts, and vice versa. Keep literal half-integral graph weights. No averaging of masks, training-row mask, iterative detector or tuning.",
+  "mask": "For each target row/cell, sum the opposite-half primal_twice weights to same-digit cells. Flag exactly9 largest scores, with increasing cell index as tie breaker, unchanged H4av rule. Only the target noisy values and opposite-half fitted graph enter this calculation. Actual corruption locations never enter production.",
+  "final_estimator": "Censor a pair observation if either cell is flagged, then use all600rows' raw retained equality counts and the original inferred degree for one final exact LP. Keep zero-exposure cost0; no normalization, smoothing, snap-to-integrality or truth-based postprocessing.",
+  "primary": {
+    "exact_recovery": "At least162/256 final exact graphs,32more than the inherited full-data detector's130. Bounds [exact,exact+unresolved]; support lower>=162, falsify upper<162, else inconclusive.",
+    "detector_regressions": "At most8 losses among the130 inherited detector successes. Lower=known final resolved failures on those130, upper adds unresolved on those130. Support upper<=8, falsify lower>8, else inconclusive. Separate from the exact-count endpoint."
+  },
+  "missingness": "A certified fractional fold graph is a valid detector input. If either required fold LP is uncertified/unresolved, do not impute a graph or construct a partial mask: retain that bank as unresolved, its final fit is unexecuted with an explicit reason, and it remains in both endpoint bounds. No retry. Final fractional optima are resolved failures, not unresolved.",
+  "controls": "Recheck inherited original-count,H4at full-mask,H4av detector and random selected proofs. The full-data observable detector130/256 is the paired comparator; original129/256, random71/256 and supplied full-mask256/256 remain labeled inherited references. H4aw privileged237/256 is mechanism evidence, not an eligible observable control. BP AdamW outside source intervention and first in tables.",
+  "information_boundary": "All512fold outputs sealed before crossfit mask construction; all256 final outcomes sealed before any true masks/graph geometry are read for diagnostics. Producer lazily decodes only original noisy observations and degree metadata. Truth is strictly post-fit evaluation information.",
+  "diagnostics": "Every fold status, literal half-integrality, final graph outcome, paired gains/losses, families, detection precision/recall, row/cell flag frequencies, pair exposures, true-edge collisions/support errors, exact truth-cost gaps, and measured preparation/fit/audit cost. No filtering by parent successes or by easy folds.",
+  "budget": {
+    "maximum_new_LPs": 768,
+    "fold_LPs": 512,
+    "maximum_final_LPs": 256,
+    "workers": 8,
+    "aggregate_cpu_seconds": 600,
+    "wall_seconds": 120,
+    "gpu_seconds": 0,
+    "no_extensions": true
+  },
+  "budget_scope": "Input hashes, all512 fold fits and seal, all crossfit masks and eligible256finalfits and seal, inherited/new audits and export. Preflight/publication replay separate. Whole-run integrity or resource failure remains incomplete. Individual uncertified fits are handled only by the predeclared bounds.",
+  "seed_assignment": "Exact768solver seeds assigned after independent design review before any fold fits. No source/mask/noise RNGs. Preflight must check explicit historical fields and expand H4at/H4au/H4av/H4aw actual solver/mask ranges.",
+  "gates": "Exact complementary row ownership and score dependence, integral/fractional input graphs, stable ties, opposite-fold score replay, raw-half cost summation identity, missing/fractional/unresolved fold behavior, all endpoint bounds, exact certificate mutations, early/missing/mutated seals, and unrelated fixture performance. Full source and independent gate review before freeze.",
+  "interpretation": "A practical but examined-cohort cross-fitting intervention with inherited full-cohort degree and known corruption count. Each detector graph has half as much training data. Success would support this fixed method on these banks, not prove an independence mechanism or arbitrary noise robustness; failure would not rule out more data or other independent detectors.",
+  "review": "Design only. No fold graphs, candidate masks or new scores have been computed. Preserve every frozen ancestor and do not change targets after outcomes.",
+  "solver_seed_base": 2120431702,
+  "solver_seed_rule": "base+3*bank+phase, bank0..255; phase0first-half fit,1second-half fit,2finalfit. Reserve all768even when a finalfit is skipped."
+}

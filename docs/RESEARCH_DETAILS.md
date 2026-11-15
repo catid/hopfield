@@ -72,6 +72,8 @@ All three remaining fresh posterior failures **strictly exclude truth** from the
 
 ## Cycle cuts solve fresh dense mazes
 
+The fresh BP-first confirmation solves **4,096/4,096** new mazes across all three models, versus **3,921** for BP AdamW and **4,096** for LP96. Its median measured complete answer-cost saving is **35.40%** over four balanced paired replays. The separate 99.9% reliability, −0.1-point noninferiority and 10% savings targets all pass. [Fresh confirmation and complete audit](../research/20261114/work/REPORT.md#h2bo-fresh-confirmation-supports-999-joint-success-and-saves-3540-complete-answer-cost).
+
 ![Fresh dense-maze confirmation: all inputs solved, with zero fallback calls](../results/research/work/fallback-confirmation/fallback-confirmation.png)
 
 At **180×180 and 80% loop density**, LP96 solves **4,096/4,096 new mazes jointly across all three fixed models**, versus **3,905** for BP AdamW. All 12,288 LP outputs pass numerical acceptance. The two tested hybrid policies therefore return those same LP outputs: **no input invokes the BP fallback**. Both prespecified 99.9% hybrid-success endpoints pass, with a one-sided 95% lower bound of **99.9269%**. BP noninferiority and the separate added-cost target also pass. [Fresh cohort, separate endpoints and full audit](../research/20261114/work/REPORT.md#h2bk-fresh-lp96-solves-40964096-the-fallback-branch-is-never-used)
@@ -155,3 +157,21 @@ On the same examined 4,096 matched-prior cases, recomputing admissible Huffman b
 ![Total paid-query saving with all failures retained](../results/research/loki/h3bw/inline-bound-total-cost.png)
 
 Every repeated bound merge is charged; the run takes 299.93 seconds wall and 262.09 seconds aggregate CPU. A separate full archive audit checks every tree, bound, pruning decision, canonical reuse and counterfactual exact flag. Git contains portable ledgers, compact evidence and proof hashes; full optimality replay requires the separately retained archive. Earlier state-capped attempts remain incomplete. [Complete result and audit boundary](../research/20261114/loki/h3bw/REPORT.md) · [Earlier capped attempt](../research/20261114/loki/h3bv/REPORT.md)
+
+## Nonlinear likelihood after repeated-label posterior scoring
+
+On the examined H1ca cohort, pairwise composite likelihood recovers **62/64** repeated-query graphs versus **61/64** for the fixed posterior score. It rescues one graph and loses none, but the prespecified target of at least 63 recoveries fails. Both residual failures strictly exclude the true graph. This uses the known noise channel and the same observations; no fresh generalization is claimed. [All arms, certified arithmetic and limits](../research/20261114/ripper/REPORT-pair-likelihood.md).
+
+![Pairwise likelihood comparison and separate targets](../assets/figures/pair_likelihood.png)
+
+## Cross-fitting conflict masks
+
+Training each detector on the opposite 300-row half reduces exact graph recovery to **38/256**, versus **130/256** for the original 600-row detector, with three gains and 95 losses. Both fixed targets fail. Each donor graph has half as much training data, so this does not isolate the effect of disjoint rows. [Protocol, all failures and exact proofs](../research/20261114/foureyes/REPORT-crossfit-conflicts.md).
+
+![Crossfit graph outcomes and paired losses](../assets/figures/crossfit-conflicts.png)
+
+## Fresh paired question-tree confirmation
+
+On 4,096 fresh cases, deeper question planning uses **9,975 paid calls** versus **10,238** for a separately executed baseline: **263 fewer calls (2.57%)**. The fixed 2% whole-cohort target passes. Both policies recover exactly 4,083 graphs and retain all 13 failures; cross-arm repeated queries are reacquired and charged. This is a finite-cohort result under the declared prior. [Fresh generation, full audit and portable proof boundary](../research/20261114/loki/h3bx/REPORT.md).
+
+![Fresh deeper question-tree confirmation](../results/research/loki/h3bx/fresh-paired-total-cost.png)

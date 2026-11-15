@@ -2,6 +2,10 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Opposite-half conflict masks recover only 38/256 graphs, losing 95 detector successes; both targets fail](../research/20261114/foureyes/REPORT-crossfit-conflicts.md)
+- [Fresh deeper question trees save 2.57% of paid calls with all 4,096 paired cases retained](../research/20261114/loki/h3bx/REPORT.md)
+- [Nonlinear pair likelihood recovers 62/64 examined graphs without regressions, missing its 63/64 target](../research/20261114/ripper/REPORT-pair-likelihood.md)
+- [Fresh BP-first maze cascade solves 4,096/4,096 across three models and saves 35.40% complete answer cost](../research/20261114/work/REPORT.md#h2bo-fresh-confirmation-supports-999-joint-success-and-saves-3540-complete-answer-cost)
 - [Perfect mask precision still gives 130/256; matched rowwise recall at random true locations gives 237/256](../research/20261114/foureyes/REPORT-purified-detector.md)
 - [All three residual posterior failures strictly exclude truth; removing integer rounding alone cannot fix them](../research/20261114/ripper/REPORT-posterior-residual-gap.md)
 - [Observable conflict masks recover 130/256 versus 71/256 random; the absolute recovery target fails](../research/20261114/foureyes/REPORT-conflict-mask.md)
