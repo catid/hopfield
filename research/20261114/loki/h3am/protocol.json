@@ -1,0 +1,116 @@
+{
+  "id": "H3am-paired-D4-positive-acquisition-reliability",
+  "frozen_utc": "2026-11-15T05:58:52.394443+00:00",
+  "hypothesis": "For EACH fixed BP AdamW fit, D4 augmentation of32 uniform distinct N13 raw positives has exact P(N15 capacity>=95%)>=90% AND improves that probability by>=10percentage points over unaugmented repair on the SAME raw draws.",
+  "models": [
+    {
+      "bank": 0,
+      "model_path": "artifacts/research/20261114/loki/h3aj/b0/model.npz",
+      "source_design_path": "artifacts/research/20261114/loki/h3ac/b0/source-design.npz"
+    },
+    {
+      "bank": 1,
+      "model_path": "artifacts/research/20261114/loki/h3aj/b1/model.npz",
+      "source_design_path": "artifacts/research/20261114/loki/h3ac/b1/source-design.npz"
+    },
+    {
+      "bank": 2,
+      "model_path": "artifacts/research/20261114/loki/h3aj/b2/model.npz",
+      "source_design_path": "artifacts/research/20261114/loki/h3ac/b2/source-design.npz"
+    },
+    {
+      "bank": 3,
+      "model_path": "artifacts/research/20261114/loki/h3aj/b3/model.npz",
+      "source_design_path": "artifacts/research/20261114/loki/h3ac/b3/source-design.npz"
+    }
+  ],
+  "source_population": {
+    "path": "artifacts/research/20261114/loki/h3t/solutions-n13.npy",
+    "states": 1932,
+    "sha256": "c6d9786fbeb885aed2e69ec37ebcfa0904caab7d5a2e90064b3e8c650aba56cf"
+  },
+  "raw_dose": 32,
+  "learner": {
+    "path": "research/20261114/loki/h3am/learner.py",
+    "access": "Pure functions accept only supplied32positive boards, inherited F and finite offsets. No file loading, population argument, target labels or scoring callback. Evaluator enumerates source outcomes only after this definition is hash-sealed.",
+    "intervention": "Apply all8 D4 board transformations, deduplicate correlated whole-board views, and remove only inherited finite classes witnessed in those views. No refit/exposure recalibration/sparsity prior/target-adaptive selection. Other J/h/q/unit entries unchanged; changed J entries become0 with deleted F.",
+    "assumptions": "Supplied valid positives, D4 invariance of the actual rule family, and size-invariant translation-shared pair prohibitions. D4 is an explicit additional prior, not inferred from finite samples.",
+    "cost": "32raw positive labels and256attempted deterministic views before deduplication; no claim of256independent positive observations. Complete pool used only by distribution evaluator."
+  },
+  "primary": {
+    "capacity_threshold": [
+      19,
+      20
+    ],
+    "reliability_threshold": [
+      9,
+      10
+    ],
+    "paired_gain_threshold": [
+      1,
+      10
+    ],
+    "decision": "Conjunction of both rational conditions for all4fixed fits."
+  },
+  "complexity": {
+    "classes_per_arm_bank_max": 6,
+    "sum_paired_bank_masks_max": 4096,
+    "distinct_supports_max": 128,
+    "enforcement": "Stop whole study inconclusive on any cap; no pruning, raised cap, replacement or dropped bank. Retain all paired masks including zero-mass outcomes."
+  },
+  "combinatorics": "Raw mask occupies lowm bits; D4 mask occupies highm bits. Every board retains its full joint outcome. Exact integer subset Mobius inversion on paired union masks counts all uniform32subsets. Marginals and success/failure/rescue categories derived from the same distribution; no independence assumptions.",
+  "validation": {
+    "basis_coordinate_fixtures": 169,
+    "source_D4_validity": "Literal queens/camel checks for every transformed board; all8coordinate maps independently checked on every basis cell.",
+    "sample_call_seeds": [
+      2026113111,
+      2026113112,
+      2026113113
+    ],
+    "sample_calls": "Per fit and arm,3fixed32positive samples exercise pure learner; actual view counts and indices retained. Check exact equivalence to per-board union composition, without target evaluation.",
+    "distribution": "Inherited25fixtures x9drawsizes exhaustive validation."
+  },
+  "evaluation": {
+    "reference_root": "results/research/loki/h3aj",
+    "unaugmented_reference_summary": "results/research/loki/h3al/summary.json",
+    "proof_gate": "Before ANY outcome filtering, check every full repaired support contains true F. Then complete true26960-state census contains all repaired zero states. If gate fails stop.",
+    "universe": "Same seen831605eligible N15 clue keys and H3aj exclusions. No new target cohort.",
+    "capacity": "Every575one/two/three-clue subsets; exact Boolean key union. Full supports alone deduplicated; all4fits retained.",
+    "control": "Compute raw andD4paired probabilities anew; then verify unaugmented32probability exactly equals frozen H3al. No new optimizer or GPU baseline."
+  },
+  "budget": {
+    "aggregate_cpu_seconds": 120,
+    "wall_seconds": 180,
+    "GPUs": 0,
+    "enforcement": "Includes transformation gates, all source labels/views, exact paired masses, support constructions, concrete32learner calls, completeness proof gate, capacities and serialization; no extension."
+  },
+  "scope": "Conditional exact finite-population comparison on4fixed fits and seen target universe. Unlike H3i one-draw D4 refit/search study, this has no new optimizer/search and computes fixed-fit positive-deletion acquisition reliability. No fresh-family or learning-population generalization.",
+  "source_sha256": {
+    "research/20261114/loki/h3am/common.py": "835f93ffeb976f2c257a43519e86372f386e65315291de1ca95a629e85a5871e",
+    "research/20261114/loki/h3am/distribution.py": "aa65e53be9b2e6d05caaeb2e260663f801d45f09520830a54b56bd701ed8f55b",
+    "research/20261114/loki/h3am/learner.py": "c8ba241b2f91a34e7c3d8a8f561aa5568a37fa7df5593878af87ff154525f7f0",
+    "research/20261114/loki/h3am/source_outcomes.py": "92a56a1bcda2a7995e14feb5a4b5f564727345b208b48c630ebf44780ff46356",
+    "research/20261114/loki/h3am/study.py": "718920044da2f30bd10d90c66bdc90d13b2864a99e454dd3aa137bf0e7437830",
+    "research/20261114/loki/h3am/gate.py": "88e99de407ee656fd74733470c47450cd184ccd502c661cc4d055c57b4510907",
+    "research/20261114/loki/h3am/freeze.py": "07e9920fde297015a73351bd2d08b7bb10b439066f77b9ab0625b307f7502810",
+    "research/20261114/loki/h3al/protocol.json": "c5901ed092c3fa3d9eb04d41557ed2acf6d40d537f0eaafcec8998843d1c8347",
+    "research/20261114/loki/h3ak/repair.py": "55ee03e3e06f714b8e28df7900747bee52b242604fd3add4a857a26e8142597a"
+  },
+  "source_data_sha256": {
+    "artifacts/research/20261114/loki/h3t/solutions-n13.npy": "c6d9786fbeb885aed2e69ec37ebcfa0904caab7d5a2e90064b3e8c650aba56cf",
+    "artifacts/research/20261114/loki/h3aj/b0/model.npz": "06d44929b3c6837696a39a5cb790915f9358f24be31286e6260c8a57c7db47fe",
+    "artifacts/research/20261114/loki/h3ac/b0/source-design.npz": "ceaa9d6f5655e80333d609602a0568c544280feb11fe4dd22582307a8ec33cd5",
+    "artifacts/research/20261114/loki/h3aj/b1/model.npz": "0fa571d2aa76b54de95bf5eb360e74f2559874969f5f163bdb40358df5cc909d",
+    "artifacts/research/20261114/loki/h3ac/b1/source-design.npz": "766e21969d7355abd803e0c918787b3e7836ba2afc1fa748e8a4556f62a3d7d9",
+    "artifacts/research/20261114/loki/h3aj/b2/model.npz": "59659d0ec45c634082b953d4bcf4849530cc879b9616040cf4c1939680f0e7c6",
+    "artifacts/research/20261114/loki/h3ac/b2/source-design.npz": "e3f2c97b1ca61526833c84c463ff1e900d49de76ab4c10b860e6aec7f21cdbd6",
+    "artifacts/research/20261114/loki/h3aj/b3/model.npz": "00295d7d676b624806f54c3e7255a77025585ed08b5700fa190063d89eecb2d9",
+    "artifacts/research/20261114/loki/h3ac/b3/source-design.npz": "6d46f440b997569c3ba3859fb3c7c4fce732bcffb90b85ca917b231a05333371"
+  },
+  "target_data_sha256": {
+    "results/research/loki/h3aj/truth/F.npy": "5f934249262c50254cee426d9b383d67a1633ad1f9642270b6f5092061788d6c",
+    "results/research/loki/h3aj/truth/cache.npz": "3f96dcd578a9663e01a4695674e3a0cb4a48759d0234ce5e093d5924d08f3ab3",
+    "results/research/loki/h3aj/input-universe.npz": "563b5168caf18f05858f79ade8afdf848dcef121482e50142dba18b485b868e3",
+    "results/research/loki/h3al/summary.json": "87c69156a3af95c408742f80f7f7331f7cbdafbf6a151bbb80b6171917da0b12"
+  }
+}

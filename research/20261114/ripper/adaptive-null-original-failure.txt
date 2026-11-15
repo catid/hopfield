@@ -1,0 +1,14 @@
+Original H1as attempt: frozen 120 aggregate CPU-second / 60-second gate FAILED.
+The monitor recorded 120.004219 aggregate CPU-seconds at 15.055995583999902 wall seconds and sent SIGTERM to its eight owned auditors.
+Registered sources and acquisitions for banks 0..7 completed. No auditor or aggregate scientific summary completed during the original attempt.
+Captured launcher terminal failure:
+  File "/home/catid/hopfield/research/20261114/ripper/run_adaptive_null.py", line 59, in main
+    with ThreadPoolExecutor(max_workers=8) as workers:list(workers.map(bank,range(32)))
+  File "/home/catid/hopfield/research/20261114/ripper/run_adaptive_null.py", line 58, in bank
+    run('audit_adaptive_null.py','--seed',seed)
+  File "/home/catid/hopfield/research/20261114/ripper/run_adaptive_null.py", line 52, in run
+    assert code==0 and not stop.is_set(),(script,arguments,code)
+AssertionError: ('audit_adaptive_null.py', ('--seed', 0), -15)
+
+The trigger is an observed counter reading, not final complete CPU accounting. Original complete final CPU is unavailable. All eight recorded owned children were subsequently verified absent; unrelated processes were untouched.
+The cause was lazy NPZ indexing inside the row loop, which repeatedly decompressed arrays. The corrected continuation is separately authorized and separately budgeted; the original gate remains failed.

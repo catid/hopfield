@@ -4,6 +4,8 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Adaptive queries under a supplied exact noise law | [Adaptive-null exports](../results/research/ripper/adaptive_null.json) | [plot_adaptive_null.py](../scripts/plot_adaptive_null.py) |
+| Same-draw D4 repair reliability | [Paired exact distribution](../results/research/loki/h3am/) | [plot_public.py](../research/20261114/loki/h3am/plot_public.py) |
 | Global soundness of all 64 reduced Sudoku graphs | [Exact proofs](../results/research/foureyes/strong_support_soundness/) | [plot_strong_support_soundness.py](../scripts/plot_strong_support_soundness.py) |
 | Exact reliability of acquired positive witnesses | [Finite-population distribution](../results/research/loki/h3al/) | [plot_public.py](../research/20261114/loki/h3al/plot_public.py) |
 | Known-law sequential noise thresholds | [Fixed-stream replay](../results/research/ripper/null_replay.json) | [plot_null_replay.py](../scripts/plot_null_replay.py) |

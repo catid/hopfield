@@ -1,0 +1,25 @@
+--- audit_adaptive_null.py
++++ audit_adaptive_null_eager.py
+@@ -8,6 +8,11 @@
+ from audit_correlated_noise_acquisition import increment
+ from audit_permuted_noise_acquisition import independent_draw
+ 
++def eager_npz(path):
++    with np.load(path,allow_pickle=False) as archive:
++        return {name:archive[name] for name in archive.files}
++
++
+ def main():
+     parser=argparse.ArgumentParser();parser.add_argument('--seed',type=int,required=True);seed=parser.parse_args().seed;started=time.monotonic()
+     out,pp=paths();p=load_protocol();d=out/f's{seed}';r=json.loads((d/'receipt.json').read_text());assert r['status']=='complete'and r['protocol_sha256']==sha(pp)and r['collector_sha256']==sha(HERE/'adaptive_null_acquire.py')and r['queries']==27750 and r['new_calibration_queries']==0
+@@ -15,8 +20,8 @@
+     entry=next(e for e in json.loads((ROOT/p['inputs']).read_text())['inputs']if e['seed']==seed);path=ROOT/entry['training_path'];assert sha(path)==entry['training_sha256']==r['training_source_sha256'];clean=np.load(path)['solutions']
+     reg=json.loads((out/'input_registration.json').read_text());assert reg['threshold_sha256']==sha(out/'thresholds.npz')and reg['decimal_threshold_checks']==1111
+     threshold=np.load(out/'thresholds.npz')['threshold'];q0=Fraction(9,1600);q1=Fraction(1,9);a,b=q1/q0,(1-q1)/(1-q0);la,lb=math.log(float(a)),math.log(float(b))
+-    obs=np.load(d/'observations.npz');noise=np.load(d/'potential_noise.npz');events=json.loads((d/'events.json').read_text())
+-    olddir=ROOT/'artifacts/research/20261114/ripper/permuted_noise'/f's{seed}';oldr=json.loads((olddir/'receipt.json').read_text());parent=json.loads((ROOT/'artifacts/research/20261114/ripper/permuted_noise/audit.json').read_text());assert sha(olddir/'receipt.json')==parent['artifact_sha256'][str((olddir/'receipt.json').relative_to(ROOT))];assert sha(olddir/'observations.npz')==oldr['artifact_sha256']['observations.npz'];assert sha(olddir/'potential_noise.npz')==oldr['artifact_sha256']['potential_noise.npz'];oldnoise=np.load(olddir/'potential_noise.npz');oldobs=np.load(olddir/'observations.npz')
++    obs=eager_npz(d/'observations.npz');noise=eager_npz(d/'potential_noise.npz');events=json.loads((d/'events.json').read_text())
++    olddir=ROOT/'artifacts/research/20261114/ripper/permuted_noise'/f's{seed}';oldr=json.loads((olddir/'receipt.json').read_text());parent=json.loads((ROOT/'artifacts/research/20261114/ripper/permuted_noise/audit.json').read_text());assert sha(olddir/'receipt.json')==parent['artifact_sha256'][str((olddir/'receipt.json').relative_to(ROOT))];assert sha(olddir/'observations.npz')==oldr['artifact_sha256']['observations.npz'];assert sha(olddir/'potential_noise.npz')==oldr['artifact_sha256']['potential_noise.npz'];oldnoise=eager_npz(olddir/'potential_noise.npz');oldobs=eager_npz(olddir/'observations.npz')
+     for key in ['uniforms','permutations']:assert np.array_equal(noise[key],oldnoise[key])
+     joint=np.zeros((81,81),np.int32);equal=np.zeros_like(joint);excluded=np.zeros((81,81),bool);first=np.full(3240,-1,np.int32)
+     pair=np.triu_indices(81,1);i,j=pair;truth=(i//9==j//9)|(i%9==j%9)|((i//27==j//27)&(i%9//3==j%9//3))

@@ -160,3 +160,11 @@ Exact finite-population analysis now quantifies the reliability of acquiring 64 
 
 Using the correct supplied corruption law on fixed observed Sudoku query streams preserves all true constraints in **32/32** fits, but leaves **14,229 false exclusions**. The original underestimated threshold loses 41 true constraints; a still more conservative nominal-independent-noise threshold leaves 30,864 extras. This separates a sound sequential null model from efficient graph recovery on these acquired streams. [Exact threshold replay, conditional law and preserved pre-run correction](../research/20261114/ripper/REPORT-null-replay.md)
 
+Adapting the queries to that known law from the first observation reduces false exclusions from **14,229 to 2,588**, while preserving every true constraint in all 32 fits. This supports the frozen halving target, although no graph is exact. All 888,000 new queries are charged. The original run exceeded its audit CPU gate because of repeated decompression; a separately budgeted correction preserves and reuses the eight completed acquisitions. [Full adaptive replay, query cost and failed-budget history](../research/20261114/ripper/REPORT-adaptive-null.md)
+
+Giving the camel repair procedure an explicit square-symmetry prior raises its exact success probability to **96.04% with 32 raw positives**, improving by **20.78–32.12 points** over unaugmented repair on the same draws. The eight deterministic views per positive are correlated, not additional independent labels. Both frozen targets pass for all four fixed fits. [Exact paired distribution, assumptions and public replay](../research/20261114/loki/h3am/REPORT.md)
+
+![Symmetry views improve acquisition reliability](../results/research/loki/h3am/paired-D4-reliability.png)
+
+Adding articulation-pendant deletions to the maze decoder rescues **0/22** remaining joint failures and fails its target. None of the 63 nonsimple model outputs has an eligible pendant component. The remaining selected graphs contain cycles; the stored shortest label has lower energy in only nine cases. This points to move acceptance and objective ordering, while proving nothing about the energy of every possible shortest path. [Preserved fixture failure, fixed-point control and complete residual audit](../research/20261114/work/REPORT.md)
+

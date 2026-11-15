@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-15T05:50:21.069309+00:00",
+  "updated_utc": "2026-11-15T06:15:26.149494+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
   "status": "Ongoing research; H2aj prospective factorial complete with independent state and trace audits",
   "host": "work",
@@ -876,6 +876,22 @@
           "decision": "supported"
         }
       }
+    },
+    {
+      "campaign": "pendant_fixture_gate",
+      "hypothesis": "H2ao nonempty literal candidate coverage gate",
+      "outcome": "failedbeforeinterventions;correctedseparatelyinH2ap"
+    },
+    {
+      "campaign": "pendant_rescue",
+      "hypothesis": "H2ap >=11of22jointfailuresrescuedandzerojointregressions,separately",
+      "outcome": {
+        "joint_rescues": 0,
+        "initial_joint_failures": 22,
+        "minimum11rescues": "not_met",
+        "joint_regressions": 0,
+        "zero_regressions": "met"
+      }
     }
   ],
   "run_tables": [
@@ -1076,6 +1092,14 @@
     "safe-block-transfer-protocol": {
       "sha256": "c016fa240f3025d4e51a4574541bc0d91d4c53133f69e764062c0ee2a0a0e576",
       "frozen_utc": "2026-11-15T05:43:21.399208+00:00"
+    },
+    "pendant-rescue-protocol": {
+      "sha256": "61aba6e96381a1044cf40ceea22add54d8fdb705027be37265bd26ecef73e757",
+      "frozen_utc": "2026-11-15T06:02:55.564327+00:00"
+    },
+    "pendant-rescue-v2-protocol": {
+      "sha256": "df46b12a3d1c0f5fd1a216af21cbce6921c193055e4e45a9104ce167af043ad7",
+      "frozen_utc": "2026-11-15T06:09:51.324453+00:00"
     }
   },
   "audit_sha256": {
@@ -1110,7 +1134,8 @@
     "artifacts/research/20261114/work/factorial_transfer/audit.json": "414d0ca69ad6440f7fc39542eb18597143a759daf00fe2b17153708e40521876",
     "artifacts/research/20261114/work/connectivity_screen/audit.json": "cf2f149522301d5683730623c40a4019661df4f26021295c7b7ad1de82545427",
     "artifacts/research/20261114/work/connectivity_transfer_180/audit.json": "df24db9314a0bae7369897d500bb4d104169950eb5de036a6d78282dcf717b4a",
-    "artifacts/research/20261114/work/safe_block_transfer/audit.json": "42ede9a85e1bafaf66c8900cb1e4fdccddae7594345362c4b1d5b993ef3c54b0"
+    "artifacts/research/20261114/work/safe_block_transfer/audit.json": "42ede9a85e1bafaf66c8900cb1e4fdccddae7594345362c4b1d5b993ef3c54b0",
+    "artifacts/research/20261114/work/pendant_rescue_v2/audit.json": "0e0f53cd5c00e71a55406d0a47d35edbe9e0d417371e0da90bada6d466a46270"
   },
   "model_sha256": {
     "0": {
@@ -1488,5 +1513,36 @@
     },
     "scope": "Fresh120loop20 with originalunfilteredblocks ascontrol. Bothprespecifiedprobability/conditionalretentionendpoints supported. Explicit graphreachability prior, originalenergy andfixedfits. DescriptiveBPcomparisonseparate.",
     "full_independent_final_state_checks": 49152
+  },
+  "pendant_rescue": {
+    "hypothesis": "H2ap",
+    "fresh_inputs": 0,
+    "included_model_inputs": 12288,
+    "reused_veto_prefixes": 12288,
+    "new_search_inputs": 63,
+    "initial_simple_path_identity_reuses": 12225,
+    "new_optimizer_updates": 0,
+    "targets": {
+      "joint_rescues": 0,
+      "initial_joint_failures": 22,
+      "minimum11rescues": "not_met",
+      "joint_regressions": 0,
+      "zero_regressions": "met"
+    },
+    "joint_success": {
+      "pl": 4090,
+      "old_binary": 4005,
+      "old_blocks": 4031,
+      "connectivity_veto": 4074,
+      "pendant_rescue": 4074
+    },
+    "scope": "PosthocseenH2ancohort;explicitarticulation/reachabilityprior.>=11/22rescuesfalsified:0rescues,zeroeligiblependants.Zero-regressionidentityproofseparate. Oldcontrolfixedpointscertified;noextrabudgetconfound."
+  },
+  "pendant_fixture_gate": {
+    "hypothesis": "H2ao",
+    "status": "failed_before_intervention",
+    "fresh_inputs": 0,
+    "new_searches": 0,
+    "cause": "Thefirst32exhaustive3x3fixturestatesusedforliteralcostgatehavezeroraw/admittedcandidates;preservedfailedcoverageassertion."
   }
 }

@@ -2,6 +2,9 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Adaptive known-law queries reduce false constraints on fixed source banks](../research/20261114/ripper/REPORT-adaptive-null.md)
+- [Symmetry views improve exact positive-acquisition reliability](../research/20261114/loki/h3am/REPORT.md)
+- [Maze pendant moves: retained fixture failure and zero-rescue result](../research/20261114/work/REPORT.md)
 - [Exact proofs: all 64 reduced Sudoku graphs are globally sound](../research/20261114/foureyes/REPORT-strong-support-soundness.md)
 - [Fresh maze confirmation: regressions removed and original gains retained](../research/20261114/work/REPORT.md)
 - [Exact reliability of positive-witness repair across all random draws](../research/20261114/loki/h3al/REPORT.md)

@@ -1,0 +1,3 @@
+# H3am: paired D4 positive-acquisition reliability
+
+[Full report](../../../../research/20261114/loki/h3am/REPORT.md). At32 raw labels, source-only D4 augmentation reaches96.044282% exact probability of≥95% capacity for each of4fixed BP AdamW fits. Same-draw gains are20.776653pp for banks0/1/3 and32.120083pp for bank2; both frozen≥90% reliability and≥10pp gain criteria pass. The intervention adds an explicit D4 prior and256attempted correlated views, with whole-board deduplication. All1792paired masks/32supports retained; exact grouped-DP and all integer capacity censuses independently verified. Same seen831605-key N15 universe; no generalization or speed claim.8.161823CPU s/8.177960wall s,0GPU.

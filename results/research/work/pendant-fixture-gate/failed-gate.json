@@ -1,0 +1,26 @@
+{
+  "status": "failed_before_new_trajectories",
+  "hypothesis_id": "H2ao",
+  "protocol_sha256": "61aba6e96381a1044cf40ceea22add54d8fdb705027be37265bd26ecef73e757",
+  "failed_command": "gate_pendant_rescue.py",
+  "exit_code": 1,
+  "exception": "AssertionError at assert small_items",
+  "fixture_counts": [
+    {
+      "first": 0,
+      "stop": 32,
+      "raw_candidates": 0,
+      "admitted_candidates": 0
+    },
+    {
+      "first": 32,
+      "stop": 160,
+      "raw_candidates": 275,
+      "admitted_candidates": 59
+    }
+  ],
+  "cause": "Literal small-board energy gate uses first32 exhaustive3x3 fixtures only; these havezero admitted candidates. Random5x5 fixtures are structural checks only. No numerical disagreement observed; coverage assertion correctly stopped thegate.",
+  "new_searches": 0,
+  "fixed_point_control": "old-chain-fixed-point-control.json",
+  "gpus_idle_reason": "Numerical prerequisite failed before intervention launch; no filler or baseline reruns."
+}
