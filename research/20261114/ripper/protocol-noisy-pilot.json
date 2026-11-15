@@ -1,0 +1,38 @@
+{
+  "id": "H1y-exploratory-noisy-adaptive-feasibility",
+  "frozen_utc": "2026-11-15T01:08:16.479394+00:00",
+  "scope": "Exploratory endpoint selection on six already-used source banks; not a fresh confirmatory result. No solver inference.",
+  "manifest": "artifacts/research/20261114/ripper/clues/input_manifest.json",
+  "manifest_sha256": "838908435ae82b9f617eb92d821341ec8b6c1792329b7a05d192815aff859eae",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "arms": [
+    "uniform_e",
+    "exponential_e",
+    "exponential_naive"
+  ],
+  "sizes": [
+    600,
+    1000,
+    1500,
+    3000
+  ],
+  "rows": 3000,
+  "queries": 25,
+  "eta": "1/100",
+  "q1": "1/9",
+  "q0": "1591/640000",
+  "crossing_boundary": 324000,
+  "policy_sha256": "31f4b5dbc64690db94fd3d8959c16dd85d9c8b2f891f893e7e9b77413df16c19",
+  "proof_sha256": "a174b7ef358a80f03123c08ea45e109cd253b4707106d7660da0af14b5cd0a4e",
+  "noise": "For bank s, independent potential labels use NumPy2.3.4 RNG20265000+s; every row draws81Bernoulli(.01)flips then81uniform offsets1..8, noisy=(clean+flip*offset)%9. Policies see only their queried noisy labels; common potential values pair the arms.",
+  "ties": "NumPy2.3.4 default_rng(20261125+s), one shared81permutation per row. All three masks finalize before any current noisy label is exposed.",
+  "gate": "E-process arms irreversibly exclude at first exact rational LR>=324000; naive arm at first observed equality. All arms retain log-LRpaths and first crossings. Fixed exponential exposure factor8/9, no eta/q1 tuning.",
+  "budget": "CPU only; exactly six old banks,three arms,3000rows. No extensions or fitting to later fresh-bank outcomes."
+}

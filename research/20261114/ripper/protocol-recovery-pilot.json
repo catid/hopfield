@@ -1,0 +1,31 @@
+{
+  "id": "H1v-followup-exploratory-feasibility",
+  "frozen_utc": "2026-11-15T00:45:07.527648+00:00",
+  "scope": "Exploratory target selection for a later independent N600 graph-recovery confirmation. These are six previously used source banks, not confirmatory evidence. No heldout inference.",
+  "source_manifest": "artifacts/research/20261114/ripper/clues/input_manifest.json",
+  "source_manifest_sha256": "838908435ae82b9f617eb92d821341ec8b6c1792329b7a05d192815aff859eae",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "arms": [
+    "uniform",
+    "candidate",
+    "exponential"
+  ],
+  "sizes": [
+    300,
+    450,
+    600,
+    1000
+  ],
+  "queries": 25,
+  "policy_sha256": "fc0921314bf17a64e8cd6c9e07fc77f22ce559a4b7108d1415c9b39266bb1192",
+  "rng": "Unchanged NumPy2.3.4 default_rng(20261125+seed), one permutation per row.",
+  "rule_selection": "Exponential selected because H1v NI upper bound<=10percent; no rate tuning.",
+  "stopping": "All three arms, six existing banks,1000rows each; no extension."
+}

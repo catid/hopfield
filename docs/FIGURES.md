@@ -17,6 +17,10 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 | Sudoku spike-mixture clue acquisition | [Acquisition exports](../results/research/ripper/spike.json) | [plot_spike_results.py](../scripts/plot_spike_results.py) |
 | Sudoku fresh-bank noisy-label recovery | [Fresh-bank exports](../results/research/foureyes/noise_source_replication/) | [plot_noise_source_replication.py](../scripts/plot_noise_source_replication.py) |
 | Sudoku noise replication and failure diagnosis | [Noise exports](../results/research/foureyes/noise_replication/) | [plot_noise_replication.py](../scripts/plot_noise_replication.py) |
+| Maze selective fallback and complete timing | [Selective exports](../results/research/work/selective-fallback-summary.json) | [plot_selective_fallback.py](../research/20261114/work/plot_selective_fallback.py) |
+| Sudoku noisy adaptive querying | [Noisy-query exports](../results/research/ripper/noisy.json) | [plot_noisy_acquisition.py](../scripts/plot_noisy_acquisition.py) |
+| Sudoku independent recovery confirmation | [Fresh recovery exports](../results/research/ripper/recovery_confirm.json) | [plot_recovery_confirmation.py](../scripts/plot_recovery_confirmation.py) |
+| Sudoku sample-count recovery | [Recovery exports](../results/research/ripper/recovery.json) | [plot_recovery_results.py](../scripts/plot_recovery_results.py) |
 | Maze binary-preserving continuous relaxation | [Maze exports](../results/research/work/) | [plot_native_relaxation.py](../research/20261114/work/plot_native_relaxation.py) |
 | N-Queens source-bank robustness | [H3k exports](../results/research/loki/h3k/) | [plot_public.py](../research/20261114/loki/h3k/plot_public.py) |
 | Superqueen rule-transfer boundary | [H3l exports](../results/research/loki/h3l/) | [plot_public.py](../research/20261114/loki/h3l/plot_public.py) |

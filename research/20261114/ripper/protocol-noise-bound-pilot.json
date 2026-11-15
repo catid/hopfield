@@ -1,0 +1,43 @@
+{
+  "id": "H1z-conservative-bound-implementation-pilot",
+  "frozen_utc": "2026-11-15T01:27:51.435977+00:00",
+  "scope": "Implementation/cost feasibility on six old banks only. N1500 and10pp fresh-study noninferiority margin were fixed before this pilot; no outcome-dependent setting selection.",
+  "manifest": "artifacts/research/20261114/ripper/clues/input_manifest.json",
+  "manifest_sha256": "838908435ae82b9f617eb92d821341ec8b6c1792329b7a05d192815aff859eae",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "arms": [
+    "exact",
+    "upper",
+    "under"
+  ],
+  "sizes": [
+    1500
+  ],
+  "rows": 1500,
+  "queries": 25,
+  "eta": "1/100",
+  "q1": "1/9",
+  "q0": "1591/640000",
+  "crossing_boundary": 324000,
+  "policy_sha256": "2e35beb73dd82890510506b4f72d6ff87582508eb8e3988ca77a9a6cc6a28f9d",
+  "proof_sha256": "5148af92e8c7cecba0361c76b672d06efcba3e6882af98d0f718d2d3a534a931",
+  "noise": "For bank s, independent potential labels use NumPy2.3.4 RNG20265000+s; every row draws81Bernoulli(.01)flips then81uniform offsets1..8, noisy=(clean+flip*offset)%9. Policies see only their queried noisy labels; common potential values pair the arms.",
+  "ties": "NumPy2.3.4 default_rng(20261125+s), one shared81permutation per row. All three masks finalize before any current noisy label is exposed.",
+  "gate": "All arms use first exact LR crossing>=324000,with their specified assumed null probability. Same frozen exponential masks and actualeta=.01. Upper/exact are protected under the stated law; under is an unprotected stress control with no assumed success or failure.",
+  "budget": "CPU only; exactlysixoldbanks,threefixedcalibrations,N1500only;noextensions or inference.",
+  "assumed_eta": {
+    "exact": "1/100",
+    "upper": "1/50",
+    "under": "1/200"
+  },
+  "fixed_fresh_design": "32newindependentbanks,N1500,actualeta.01,assumed.01/.02/.005,q1=1/9; primary upper-exact accuracy>=-10pp plus zero wrong certified stops in both protected arms;freshcohort[230000,240000),<=30GPU-min.",
+  "reference_pilot_protocol_sha256": "9aa78d7a98cefad34123a6ef401bef6e5515ce1b7d0ad78fa17ca3c3d39b07c1",
+  "reference_pilot_public_sha256": "232a754fbbb856dce9c3c37b4ad6afb3f3dafc957099063cda99fe6ac5682271"
+}

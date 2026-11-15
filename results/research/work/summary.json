@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-15T00:41:31.443764+00:00",
+  "updated_utc": "2026-11-15T01:30:04.448820+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
-  "status": "eighteen planned studies, two selected-case interventions, and exhaustive shortest-answer energies complete; ongoing research continues separately",
+  "status": "twenty planned studies, two selected-case interventions, and exhaustive shortest-answer energies complete; ongoing research continues separately",
   "host": "work",
-  "jobs": 816,
-  "run_arm_rows": 2127,
-  "model_maze_evaluations": 499140,
+  "jobs": 1258,
+  "run_arm_rows": 3279,
+  "model_maze_evaluations": 647042,
   "hypotheses": [
     {
       "campaign": "discovery",
@@ -488,6 +488,44 @@
         "target_pp": 0.05,
         "decision": "supported"
       }
+    },
+    {
+      "campaign": "selective_fallback",
+      "hypothesis": "H2t graph-informed fallback gains >=0.05pp with <=2% measured answer overhead",
+      "outcome": {
+        "hypothesis": "H2t",
+        "n_unique": 16384,
+        "gains": 24,
+        "losses": 0,
+        "observed_gain_pp": 0.146484375,
+        "one_sided95_net_gain_lower_pp": 0.07136454922520016,
+        "one_sided95_net_gain_upper_pp": 0.21787924028431657,
+        "target_pp": 0.05,
+        "accuracy_decision": "supported",
+        "median_answer_overhead_percent": 1.307262675442645,
+        "overhead_target_percent": 2.0,
+        "runtime_decision": "supported",
+        "decision": "supported"
+      }
+    },
+    {
+      "campaign": "window_fallback",
+      "hypothesis": "H2u fixed1024 graph-informed fallback gains>=0.05pp with<=2% measured answer overhead",
+      "outcome": {
+        "hypothesis": "H2u",
+        "n_unique": 16384,
+        "gains": 28,
+        "losses": 0,
+        "observed_gain_pp": 0.1708984375,
+        "one_sided95_net_gain_lower_pp": 0.09107728055290461,
+        "one_sided95_net_gain_upper_pp": 0.246901831979325,
+        "target_pp": 0.05,
+        "accuracy_decision": "supported",
+        "median_answer_overhead_percent": 6.905108263886199,
+        "overhead_target_percent": 2.0,
+        "runtime_decision": "falsified",
+        "decision": "falsified"
+      }
     }
   ],
   "run_tables": [
@@ -505,7 +543,9 @@
     "margin-intervention-runs.csv",
     "binary-relaxation-runs.csv",
     "native-relaxation-runs.csv",
-    "larger-relaxation-runs.csv"
+    "larger-relaxation-runs.csv",
+    "selective-fallback-runs.csv",
+    "window-fallback-runs.csv"
   ],
   "protocols": {
     "protocol": {
@@ -593,6 +633,14 @@
     "larger_relaxation-protocol": {
       "sha256": "8a87726a8426dc6eee9742f2d629d3fe1c2f7616b20a4034ab3c5dea3f2496f6",
       "frozen_utc": "2026-11-15T00:34:05.700666+00:00"
+    },
+    "selective_fallback-protocol": {
+      "sha256": "2881b3d3144fef56372ac9260facd4e2b3d608d2299c29c17933596212da700c",
+      "frozen_utc": "2026-11-15T00:48:24.899135+00:00"
+    },
+    "window_fallback-protocol": {
+      "sha256": "eec1107deebc58204c04a870b1f4ff67b188486771cc4fa18e192db6d637fda9",
+      "frozen_utc": "2026-11-15T01:02:31.577086+00:00"
     }
   },
   "audit_sha256": {
@@ -615,7 +663,9 @@
     "artifacts/research/20261114/work/margin_intervention/audit.json": "f344e6d9005399d46277ce55b259a70647f4b4fc578b00e74e6ebbb6d31a0af7",
     "artifacts/research/20261114/work/binary_relaxation/audit.json": "f39bdfbefc288c3804f7a2a0900a6329030de62fa6d35b39976ce23664aba04e",
     "artifacts/research/20261114/work/native_relaxation/audit.json": "6f6ed1a99b621c1a027aeb107693fffb7b1cbe1e54e2695bc67f63c868089ea4",
-    "artifacts/research/20261114/work/larger_relaxation/audit.json": "bdfcfe2ef1b01c1b8f04fc4f913107b45f641a0f9bff6623c975e778499ae715"
+    "artifacts/research/20261114/work/larger_relaxation/audit.json": "bdfcfe2ef1b01c1b8f04fc4f913107b45f641a0f9bff6623c975e778499ae715",
+    "artifacts/research/20261114/work/selective_fallback/audit.json": "f1e6cdb962bb6ca707322f9dd1f829bf89d955f5454b59cc36c78b3dc694ec7d",
+    "artifacts/research/20261114/work/window_fallback/audit.json": "e55c7ab270ba2cbf4b79d89dde1b88700c06e8acdb0ed8358598da28b5c3d176"
   },
   "model_sha256": {
     "0": {
@@ -648,8 +698,8 @@
     "case": "cyclic-failure-classification.json",
     "scope": "The same cyclic maze fails for model seeds1and2; these are true invalid fixed points or a period-two timeout, not hidden/nonfinite failures."
   },
-  "primary_jobs": 810,
-  "primary_model_maze_evaluations": 499008,
+  "primary_jobs": 1252,
+  "primary_model_maze_evaluations": 646910,
   "descriptive_jobs": 6,
   "descriptive_model_maze_evaluations": 132,
   "selected_case_interventions": {
@@ -688,5 +738,37 @@
     "new_answer_rollouts": 49152,
     "exact_reused_native_prefixes": 12288,
     "reused_prefixes_not_added_to_total_evaluations": true
+  },
+  "selective_fallback_reuse": {
+    "exact_native_output_reuses": 49038,
+    "logical_scientific_outcomes": 147456,
+    "new_scientific_trajectories": 98418,
+    "timing_repeat_trajectories_separate": 98532
+  },
+  "window_fallback_reuse": {
+    "exact_native_output_reuses": 97972,
+    "logical_scientific_outcomes": 147456,
+    "new_scientific_trajectories": 49484,
+    "timing_repeat_trajectories_separate": 246424,
+    "prior_cohort_pilot_trajectories_separate": 1026
+  },
+  "global_binary_certificate": {
+    "selected_graph_only": true,
+    "models": 3,
+    "unique_global_binary_endpoint_minima": 3,
+    "half_allocation_successes": 0,
+    "secondary_asymmetric_successes": 3,
+    "new_inference_or_training": false,
+    "public_summary": "global-bound-summary.json"
+  },
+  "hand_engineered_bfs_scope_control": {
+    "reused_h2u_inputs": 16384,
+    "independently_correct_shortest_paths": 16384,
+    "new_independent_inputs": 0,
+    "new_model_evaluations": 0,
+    "median_cpu_solver_seconds": 1.6790433319984004,
+    "single_threaded": true,
+    "complete_timing_repetitions": 3,
+    "scope": "Hand-engineered exact supplied-graph solver, outside learned/CRAMbaseline and never used in its inference."
   }
 }

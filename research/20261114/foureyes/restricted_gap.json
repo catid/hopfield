@@ -1,0 +1,64 @@
+{
+  "id": "H4o-restricted-gap-confirmation",
+  "frozen_utc": "2026-11-15T00:51:50.658889+00:00",
+  "hypothesis": "Restricting candidate gaps below the median count increases exact graph recovery by at least1 percentage point relative to the unchanged unrestricted gap atN600.",
+  "banks": 4096,
+  "rows_per_bank": 600,
+  "sample_sizes": [
+    600
+  ],
+  "shard_banks": 64,
+  "bank_rng_base": 202611160000,
+  "noise_rng_base": 202611170000,
+  "primary_n": 600,
+  "primary": "Paired-bank gain lower minus loss upper, each exact one-sided alpha=.025, gives conservative one-sided95 net lower; support if>=1pp. Reverse endpoints give separate one-sided95 upper; falsify if upper<1pp, otherwise inconclusive.",
+  "source": "upstream/data/sudoku-extreme/train.csv",
+  "source_sha256": "64b46674db0148e0d73a16346dadeb2b1c00824d3fca3f85b2ae7037f6b4b38e",
+  "pool_size": 3831994,
+  "exclusions": [
+    {
+      "path": "artifacts/research/20261114/ripper/clues/input_manifest.json",
+      "sha256": "838908435ae82b9f617eb92d821341ec8b6c1792329b7a05d192815aff859eae"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/online_confirm/input_manifest.json",
+      "sha256": "644bdcc07b65b3ecc116d24e592eb7f0a2eab81c984257ba216004093a18dcd1"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/spike/input_manifest.json",
+      "sha256": "f4cee3502bf6855ad0a065fad18d26b025e8340683db3b1477170bebf7ddcf34"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/exponential/input_manifest.json",
+      "sha256": "baa1d60ec20e26d975ab13a6fea412267d80d5c001b2631028f5b5e24c9fe1ff"
+    }
+  ],
+  "sampling": "4096 banks independently sample600 distinct rows without replacement from SAME frozen3785228-row eligible pool asH4n. Cross-bank overlap and overlap withH4n allowed; independent fresh streams. No globally disjoint/new-never-used claim.",
+  "noise": "Exactly9 distinct freecells per row, selected with float64 random priorities; tied top10 rejected; replacements uniform independently among other8digits. Original givens preserved. Each smaller n shares prefix of the same noisy bank.",
+  "estimator": "Distinct sorted counts; first largest adjacent gap; floored midpoint. Retain counts<=threshold. Zero threshold if one distinct count. No geometry in producer.",
+  "budget": {
+    "max_producer_job_seconds": 60,
+    "max_gpu_minutes": 10
+  },
+  "audit": "Replay bank sampling; independent source reread/count reconstruction; both thresholds, masks, per-bank outcomes and separate exact paired one-sided net bounds; no inference reruns.",
+  "limits": [
+    "Joint draws vary source sampling and noise within a fixed official training corpus; no out-of-distribution claim.",
+    "Cross-bank overlap is allowed by independent sampling and must not be called globally disjoint.",
+    "Exactly9of81 cell labels per board changed; clues remain clean.",
+    "Estimator and noise law selected in earlier studies; prospective streams fixed here.",
+    "Construction-only study: exact energies do not need duplicate inference.",
+    "Rule and1pp target selected following explicitly retained feasibility results on oldH4n banks.",
+    "Rank restriction is an additional prior; no claim of arbitrary graph-family recovery."
+  ],
+  "primary_target_gain_pp": 1.0,
+  "estimators": {
+    "unrestricted": "Unchanged first largest adjacent distinct-count gap, floored midpoint.",
+    "restricted": "First largest adjacent distinct-count gap whose upper endpoint is<=median of all3240paircounts, floored midpoint;threshold0 if no eligible gap."
+  },
+  "added_prior": "Restricted selector presumes the forbidden-pair cluster lies below the median count. This rank restriction is an explicit new prior, although no cell geometry or exact edge count enters.",
+  "exploratory_selection": {
+    "source": "artifacts/research/20261114/foureyes/restricted_gap_feasibility.json",
+    "sha256": "8f94b021e391431ef6d97fcc89282afa750ea0667babddb0d4482af846759fbf",
+    "result": "Post-fit oldH4n N600:unrestricted493/512,restricted502/512,9gains0losses. This selected the rule; prospective4096bank trial remains separate."
+  }
+}

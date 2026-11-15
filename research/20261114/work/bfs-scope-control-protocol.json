@@ -1,0 +1,31 @@
+{
+  "id": "compiled-bfs-hand-engineered-scope-control",
+  "frozen_utc": "2026-11-15T01:19:56.645350+00:00",
+  "status": "frozen_before_implementation_and_timing",
+  "role": "Explicit hand-engineered graph-task solver, not learned/CRAMbaseline and never injected into its inference or selection. Reused H2u inputs, no new accuracy-distribution evidence.",
+  "inputs": {
+    "n_unique": 16384,
+    "grid": [
+      120,
+      120
+    ],
+    "loop_percent": 20,
+    "protocol_sha256": "eec1107deebc58204c04a870b1f4ff67b188486771cc4fa18e192db6d637fda9",
+    "manifest_sha256": "f52483e61846fcc5cc42f439671199d5724445edca8292394c3548b41c6570e4"
+  },
+  "algorithm": "Single-threaded ordinary unweighted BFS from supplied start over supplied orthogonal open-cell graph; fixed neighbororder up,left,right,down; parent-pointer reconstruction; walls excluded; supplied goal selected; returns exactly one shortestpath per graph. No model weights.",
+  "timing": {
+    "repetitions": 3,
+    "warmup": "One64-input call on existing preflight/reserved inputs before measurement.",
+    "solve_scope": "Preloaded contiguous uint8input tokens; include wrapper calls, output/distance/status allocation, Cqueue/parent allocation, BFS/traversal/reconstruction and fullCPUboard output. Exact full16384-input solve each repetition, preserve all3timings. No threadparallelism.",
+    "io_scope": "Archive token loading/stacking measured separately in3repetitions; do not flush OS cache. Artifact serialization and independent verification outside solver time and separately reported.",
+    "comparison": "Report observed BFS seconds/graph alongside existing H2u native and decoder component sums divided by49152model-inputs, explicitly average per-model per-input compute. Raw BFS16384outputs and CRAM49152fixed-modeloutputs shown separately. Do not confuse summedGPUtime with parallelwall latency or count fixed-model repeats as independent inputs.",
+    "environment": "Record CPUmodel/compiler/source/library hashes. GPUuse0."
+  },
+  "validation": "Independent Dijkstra/BFS-distance and endpoint/wall/degree/connectivity check on every output; compareexact shortest_edges to frozeninputaudit. Deterministic repeatedoutputs hash/parity; fixtures for unique, tied,disconnected and invalidendpoint graphs.",
+  "budget": {
+    "cpu_minutes": 5,
+    "gpu_jobs": 0
+  },
+  "interpretation": "Report BFS result even if much faster; suppliedgraph structure makes direct algorithms relevant scopecontrols. No learned-generalization claim for BFS."
+}

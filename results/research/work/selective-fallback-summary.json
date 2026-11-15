@@ -1,0 +1,143 @@
+{
+  "status": "validated",
+  "utc": "2026-11-15T00:55:20.451429+00:00",
+  "primary": {
+    "hypothesis": "H2t",
+    "n_unique": 16384,
+    "gains": 24,
+    "losses": 0,
+    "observed_gain_pp": 0.146484375,
+    "one_sided95_net_gain_lower_pp": 0.07136454922520016,
+    "one_sided95_net_gain_upper_pp": 0.21787924028431657,
+    "target_pp": 0.05,
+    "accuracy_decision": "supported",
+    "median_answer_overhead_percent": 1.307262675442645,
+    "overhead_target_percent": 2.0,
+    "runtime_decision": "supported",
+    "decision": "supported"
+  },
+  "secondary": {
+    "gain_input_indices": [
+      590,
+      1190,
+      1490,
+      1575,
+      2669,
+      3249,
+      4512,
+      4967,
+      5399,
+      6965,
+      7402,
+      7915,
+      8255,
+      9009,
+      9686,
+      9822,
+      11065,
+      11645,
+      11750,
+      11816,
+      14494,
+      15434,
+      16044,
+      16142
+    ],
+    "loss_input_indices": [],
+    "always_lambda_gains_vs_native": 24,
+    "always_lambda_losses_vs_native": 0
+  },
+  "joint_success": {
+    "native": 16340,
+    "always_lambda1": 16364,
+    "selective_fallback": 16364
+  },
+  "n_unique": 16384,
+  "fixed_models": 3,
+  "main_jobs": 192,
+  "fallback_jobs": 6,
+  "new_scientific_trajectories": 98418,
+  "timing_repeat_trajectories": 98532,
+  "logical_scientific_outcomes": 147456,
+  "exact_native_output_reuses": 49038,
+  "fallback_model_inputs": 114,
+  "timing": [
+    {
+      "repetition": 0,
+      "cost_seconds": {
+        "model_setup": 0.003948151017539203,
+        "input_setup": 0.45893361093476415,
+        "hidden": 18.30377065448556,
+        "native_answer": 123.218663641077,
+        "native_output": 0.0857127177878283,
+        "validator": 0.5293719352339394,
+        "queue": 0.0999365160241723,
+        "fallback_setup": 0.0007869449909776449,
+        "fallback_answer": 1.138978194911033,
+        "fallback_output": 0.0005024189013056457,
+        "always_lambda_answer": 145.91115794796497,
+        "always_lambda_output": 0.08707125583896413
+      },
+      "native_common_seconds": 142.0710287753027,
+      "incremental_seconds": 1.769576010061428,
+      "answer_overhead_percent": 1.4361266043397587,
+      "end_to_end_overhead_percent": 1.2455572577433514
+    },
+    {
+      "repetition": 1,
+      "cost_seconds": {
+        "model_setup": 0.0034984000376425683,
+        "input_setup": 0.3723217822262086,
+        "hidden": 18.327936745423358,
+        "native_answer": 122.85277151339687,
+        "native_output": 0.08018661435926333,
+        "validator": 0.49098935205256566,
+        "queue": 0.010238472605124116,
+        "fallback_setup": 0.00041282601887360215,
+        "fallback_answer": 1.1039775550016202,
+        "fallback_output": 0.0003902220632880926,
+        "always_lambda_answer": 0.0,
+        "always_lambda_output": 0.0
+      },
+      "native_common_seconds": 141.63671505544335,
+      "incremental_seconds": 1.6060084277414717,
+      "answer_overhead_percent": 1.307262675442645,
+      "end_to_end_overhead_percent": 1.1338927389785929
+    },
+    {
+      "repetition": 2,
+      "cost_seconds": {
+        "model_setup": 0.0033929210039786994,
+        "input_setup": 0.36390155379194766,
+        "hidden": 18.382103785930667,
+        "native_answer": 122.76655684720026,
+        "native_output": 0.07940944191068411,
+        "validator": 0.48803178570233285,
+        "queue": 0.009992344886995852,
+        "fallback_setup": 0.00039184396155178547,
+        "fallback_answer": 1.1032610340043902,
+        "fallback_output": 0.00038055796176195145,
+        "always_lambda_answer": 0.0,
+        "always_lambda_output": 0.0
+      },
+      "native_common_seconds": 141.59536454983754,
+      "incremental_seconds": 1.6020575665170327,
+      "answer_overhead_percent": 1.3049625302361554,
+      "end_to_end_overhead_percent": 1.1314336253946746
+    }
+  ],
+  "fallback_vs_always_batch_parity": {
+    "inputs": 114,
+    "different_boards": 0,
+    "different_steps": 0,
+    "different_flags": 0,
+    "maximum_logit_error": 0.0
+  },
+  "protocol_sha256": "2881b3d3144fef56372ac9260facd4e2b3d608d2299c29c17933596212da700c",
+  "script_sha256": "2c523f57d3d323db52e7c64f525568c837ce1d37d527cf7e41c78a21c7f051df",
+  "independent_graph_board_checks": 16418,
+  "input_audit_seconds": 19.875972634006757,
+  "audit_seconds": 16.41221078997478,
+  "scope": "Offline graph-informed decoder with deferred per-model fallback batching; validator uses graph feasibility only, no shortestness. Three fresh-cohort timing repetitions. Added task knowledge and delay are explicit; no online latency claim.",
+  "full_local_audit_sha256": "f1e6cdb962bb6ca707322f9dd1f829bf89d955f5454b59cc36c78b3dc694ec7d"
+}

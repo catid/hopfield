@@ -1,0 +1,156 @@
+{
+  "status": "validated",
+  "utc": "2026-11-15T01:03:21.390388+00:00",
+  "scope": "All836069 unique valid1/2/3clue N15 superqueen inputs from all32516 valid complete solutions; no sampling and no new search.",
+  "posthoc": true,
+  "rows": [
+    {
+      "arm": "n14-full",
+      "clues": "all",
+      "inputs": 836069,
+      "inputs_with_certificate": 833285,
+      "inputs_without_certificate": 2784,
+      "no_certificate_pct": 0.3329868707008632,
+      "valid_completion_certificates": 17462500,
+      "compatible_completions": 18696700
+    },
+    {
+      "arm": "n14-full",
+      "clues": 1,
+      "inputs": 225,
+      "inputs_with_certificate": 225,
+      "inputs_without_certificate": 0,
+      "no_certificate_pct": 0.0,
+      "valid_completion_certificates": 454740,
+      "compatible_completions": 487740
+    },
+    {
+      "arm": "n14-full",
+      "clues": 2,
+      "inputs": 19292,
+      "inputs_with_certificate": 19292,
+      "inputs_without_certificate": 0,
+      "no_certificate_pct": 0.0,
+      "valid_completion_certificates": 3185380,
+      "compatible_completions": 3414180
+    },
+    {
+      "arm": "n14-full",
+      "clues": 3,
+      "inputs": 816552,
+      "inputs_with_certificate": 813768,
+      "inputs_without_certificate": 2784,
+      "no_certificate_pct": 0.34094583076154367,
+      "valid_completion_certificates": 13822380,
+      "compatible_completions": 14794780
+    },
+    {
+      "arm": "true-graph-oracle",
+      "clues": "all",
+      "inputs": 836069,
+      "inputs_with_certificate": 836069,
+      "inputs_without_certificate": 0,
+      "no_certificate_pct": 0.0,
+      "valid_completion_certificates": 18696700,
+      "compatible_completions": 18696700
+    },
+    {
+      "arm": "true-graph-oracle",
+      "clues": 1,
+      "inputs": 225,
+      "inputs_with_certificate": 225,
+      "inputs_without_certificate": 0,
+      "no_certificate_pct": 0.0,
+      "valid_completion_certificates": 487740,
+      "compatible_completions": 487740
+    },
+    {
+      "arm": "true-graph-oracle",
+      "clues": 2,
+      "inputs": 19292,
+      "inputs_with_certificate": 19292,
+      "inputs_without_certificate": 0,
+      "no_certificate_pct": 0.0,
+      "valid_completion_certificates": 3414180,
+      "compatible_completions": 3414180
+    },
+    {
+      "arm": "true-graph-oracle",
+      "clues": 3,
+      "inputs": 816552,
+      "inputs_with_certificate": 816552,
+      "inputs_without_certificate": 0,
+      "no_certificate_pct": 0.0,
+      "valid_completion_certificates": 14794780,
+      "compatible_completions": 14794780
+    }
+  ],
+  "source_solution_diagnostics": [
+    {
+      "arm": "n14-full",
+      "solutions_with_empty_cell_deficits": 0,
+      "occupied_deficit_histogram": {
+        "0": 30316,
+        "2": 2200
+      }
+    },
+    {
+      "arm": "true-graph-oracle",
+      "solutions_with_empty_cell_deficits": 0,
+      "occupied_deficit_histogram": {
+        "0": 32516
+      }
+    }
+  ],
+  "structural_fraction_exceeds_0_1_percent": true,
+  "cohort_crosschecks": [
+    {
+      "study": "h3o",
+      "arm": "n14-full",
+      "inputs": 4096,
+      "inputs_without_certificate": 8,
+      "valid_completion_certificates": 89075
+    },
+    {
+      "study": "h3o",
+      "arm": "true-graph-oracle",
+      "inputs": 4096,
+      "inputs_without_certificate": 0,
+      "valid_completion_certificates": 95416
+    },
+    {
+      "study": "h3p",
+      "arm": "n14-full",
+      "inputs": 16384,
+      "inputs_without_certificate": 49,
+      "valid_completion_certificates": 339493
+    },
+    {
+      "study": "h3p",
+      "arm": "true-graph-oracle",
+      "inputs": 16384,
+      "inputs_without_certificate": 0,
+      "valid_completion_certificates": 363499
+    }
+  ],
+  "independent_diagnostic_inputs": 512,
+  "conditional_soundness": "Every q=15 stopped state with valid givens is task-valid if the learned forbidden graph contains every true attack: any true conflict has a free occupied endpoint, whose removal cost is at most14-15<13.999 and therefore cannot stop. This concerns correctness conditional on stopping, not certificate availability or search success.",
+  "seconds": 3.4257690199883655,
+  "protocol_sha256": "f543965bb03d7977a535c69af37cd19739878a6f775d76d19ab1ca5ba3b3a7eb",
+  "source_sha256": "8d901ee3a2f115e15edd35405ef92569de1ff7e4a96d51d099e375465f991c09",
+  "input_sha256": {
+    "research/20261114/loki/h3q/census.py": "8d901ee3a2f115e15edd35405ef92569de1ff7e4a96d51d099e375465f991c09",
+    "artifacts/research/20261114/loki/h3o/data.npz": "d95b0e142021907bb82019535878395d4c9d859403cb4accdbfeaf82e1488641",
+    "artifacts/research/20261114/loki/h3o/input-universe.npz": "1ddde605bac164d4ace81d9f491223bee42c0a9f9e6fbaae036eb0dd3fac2bb2",
+    "artifacts/research/20261114/loki/h3o/solutions-n15.npy": "bf2a9e26338d1d843bfecacc84de2316c2a106471e90a2488f76fd73e54f1232",
+    "artifacts/research/20261114/loki/h3o/models/n14-full/model.pt": "e827995bba72d4e7e625888109c1f06b4918bfaf7907964ff35f6b0c1eea0b0b",
+    "artifacts/research/20261114/loki/h3o/models/true-graph-oracle/model.pt": "37437d85b3b0bfbc4e33f0b558ac62eba836da5e8a48033e3ce8ace58161fb56"
+  },
+  "capacity_archive_sha256": "58f711dc304654ede83fe676342477f25048655526d5c4eaf1ad00f1563c7747",
+  "limits": [
+    "Post hoc descriptive structural population diagnostic following H3o/H3p; no new accuracy evidence.",
+    "Certificate existence, certificate correctness and finite-budget search success are distinct.",
+    "Any conditional certificate-soundness argument assumes target q, valid givens and a forbidden graph containing all true attacks.",
+    "Finite universe and fixed models; no claim about source-bank variation or arbitrary targets."
+  ]
+}

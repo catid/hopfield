@@ -1,0 +1,71 @@
+{
+  "id": "H4p-noise-law-chernoff-recovery",
+  "frozen_utc": "2026-11-15T01:01:56.816070+00:00",
+  "hypothesis": "With the correctly supplied nine-cell corruption law, per-pair Chernoff thresholds recover the exact graph in at least99% of independent600-board source-and-noise draws.",
+  "banks": 512,
+  "rows_per_bank": 1000,
+  "sample_sizes": [
+    600,
+    1000
+  ],
+  "shard_banks": 32,
+  "bank_rng_base": 202611180000,
+  "noise_rng_base": 202611190000,
+  "primary_n": 600,
+  "primary_target": 0.99,
+  "primary": "Single primary: N600 correct-law Chernoff exact graph probability>=99%, one-sided exact95% binomial lower>=.99 supports, upper<.99 falsifies, else inconclusive. N1000 and all matched contrasts descriptive.",
+  "source": "upstream/data/sudoku-extreme/train.csv",
+  "source_sha256": "64b46674db0148e0d73a16346dadeb2b1c00824d3fca3f85b2ae7037f6b4b38e",
+  "pool_size": 3831994,
+  "exclusions": [
+    {
+      "path": "artifacts/research/20261114/ripper/clues/input_manifest.json",
+      "sha256": "838908435ae82b9f617eb92d821341ec8b6c1792329b7a05d192815aff859eae"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/online_confirm/input_manifest.json",
+      "sha256": "644bdcc07b65b3ecc116d24e592eb7f0a2eab81c984257ba216004093a18dcd1"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/spike/input_manifest.json",
+      "sha256": "f4cee3502bf6855ad0a065fad18d26b025e8340683db3b1477170bebf7ddcf34"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/exponential/input_manifest.json",
+      "sha256": "baa1d60ec20e26d975ab13a6fea412267d80d5c001b2631028f5b5e24c9fe1ff"
+    }
+  ],
+  "sampling": "512 independently sampled1000-row banks without replacement within each bank from same fixed3785228 eligible pool asH4n. Cross-bank and prior-study row overlaps allowed; independent fresh RNG streams.",
+  "noise": "Exactly9 distinct freecells per row, selected with float64 random priorities; tied top10 rejected; replacements uniform independently among other8digits. Original givens preserved. Each smaller n shares prefix of the same noisy bank.",
+  "estimator": "Distinct sorted counts; first largest adjacent gap; floored midpoint. Retain counts<=threshold. Zero threshold if one distinct count. No geometry in producer.",
+  "budget": {
+    "max_producer_job_seconds": 60,
+    "max_gpu_minutes": 10
+  },
+  "audit": "Source sampling replay and independent CSV reread; CPU reconstruction of every count; explicit per-row null probabilities independently recomputed (not matrix formula); minimal-tail-threshold verified; graph diagnostics; SciPy exact binomial crosscheck.",
+  "limits": [
+    "Correct-law estimator is supplied original masks and corruption mechanism/count. It is not unsupervised estimation of unknown noise.",
+    "Rank-restricted control adds a prior about lower-half count clusters.",
+    "Fresh independent draws may overlap each other and earlier samples; all are from one official corpus.",
+    "Only N600 correct-law exact recovery is primary. Missing-edge safety is a theorem under stated assumptions, not an exact-recovery guarantee.",
+    "No new inference; construction study with per-model identity retained."
+  ],
+  "estimators": {
+    "gap": "Unchanged first largest distinct-count gap.",
+    "restricted_gap": "First largest gap with upper count<=median pair count.",
+    "chernoff9": "Known actual c9, alpha=.01 split across all3240pairs. Retain C<=smallestT whose binomial-form Chernoff upper bound atT+1<=alpha/3240. Mask/law-only threshold.",
+    "chernoff3": "Same rule with misspecified assumed c3 while actual c9; negative control outside the guarantee."
+  },
+  "threshold_alpha": 0.01,
+  "assumed_noise": [
+    3,
+    9
+  ],
+  "helper_sha256": "183fb90b6af04a464bc1da3d20834bc103a007f9fc608b8977df5e7f10a66d1a",
+  "exploratory_selection": {
+    "path": "artifacts/research/20261114/foureyes/chernoff_feasibility.json",
+    "sha256": "2421efa345e95d26fdd1400942e7d5a18e92b12c36e3a0bbd51130cc844ac972",
+    "result": "First6previously inspectedH4n banks atN600/N1000: correctlaw6/6exact at both; assumed3 drops76-96trueedges at600 and275-293at1000. Feasibility only; not pooled."
+  },
+  "theory": "Conditional on valid clean sources,masks and exact independent corruption law, Bonferroni Chernoff thresholds drop any true never-equal pair with probability<=.01. Does NOT bound extra exclusions, exact recovery, misspecification, or arbitrary decoder certificates."
+}

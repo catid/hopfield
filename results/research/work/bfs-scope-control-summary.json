@@ -1,0 +1,118 @@
+{
+  "status": "validated",
+  "utc": "2026-11-15T01:28:23.811367+00:00",
+  "reused_unique_inputs": 16384,
+  "shortest_valid_boards": 16384,
+  "independent_distance_and_graph_checks": 16384,
+  "independent_checker_source_sha256": "d27d3397a620fa4998428baffeea704cff06c29111160246d17e684278522ec3",
+  "processes": 8,
+  "solver_result_sha256": "d4da7206cd9e662d2be7ad56f6c98e28637f75fdcecf8c2147bb27433b584d17",
+  "outputs_sha256": "1189617ace469fc8847a0f4032d3686c218a4da3e2b36784af01bfeca9f28444",
+  "script_sha256": "f332a18593f94d6cc4cad2725e9afad73909c3cb42aade2df43b4f9112860fbd",
+  "solver": {
+    "status": "measured_pending_independent_audit",
+    "utc": "2026-11-15T01:27:41.817746+00:00",
+    "host": "work",
+    "cpu_model": "AMD Ryzen Threadripper 9980X 64-Cores",
+    "single_threaded_solver": true,
+    "gpu_jobs": 0,
+    "n_unique_reused_inputs": 16384,
+    "repetitions": [
+      {
+        "repetition": 0,
+        "solve_and_cpu_output_seconds": 1.6796328920172527,
+        "seconds_per_graph": 0.0001025166560069124,
+        "exact_output_parity": true
+      },
+      {
+        "repetition": 1,
+        "solve_and_cpu_output_seconds": 1.6790433319984004,
+        "seconds_per_graph": 0.00010248067211904299,
+        "exact_output_parity": true
+      },
+      {
+        "repetition": 2,
+        "solve_and_cpu_output_seconds": 1.6644356320030056,
+        "seconds_per_graph": 0.00010158908886737095,
+        "exact_output_parity": true
+      }
+    ],
+    "median_solve_and_cpu_output_seconds": 1.6790433319984004,
+    "archive_io_and_stacking_seconds": [
+      0.282184925978072,
+      0.2834592569852248,
+      0.2867775190388784
+    ],
+    "io_cache_policy": "No OS cache flushing; separate from preloaded solver timing.",
+    "fixtures": [
+      {
+        "name": "unique_detour",
+        "expected_distance": 12
+      },
+      {
+        "name": "tied_shortest_paths",
+        "expected_distance": 16
+      },
+      {
+        "name": "disconnected",
+        "expected_distance": -1
+      },
+      {
+        "name": "missing_goal",
+        "expected_distance": -1
+      },
+      {
+        "name": "duplicate_start",
+        "expected_distance": -1
+      }
+    ],
+    "warmup_seed": 2026111597,
+    "protocol_sha256": "276f720618f234e806a5329b63e6466e348ce7470507f9db726de0e832f51ea0",
+    "script_sha256": "3764f24f2776984845d8b79b9d592550d0c5bac17baf385f6e64817c1838c962",
+    "c_source_sha256": "13f3c5d1dbe535be0930cfbc933a28572fb0608e54184a32ea9cb5f6f779a182",
+    "library_sha256": "1e0221ef8d853706f5ceaa29a808a54bc68a9d8e33972bb04d5f141b4bfdeb09",
+    "compiler": "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "compile_command": [
+      "cc",
+      "-O3",
+      "-std=c11",
+      "-shared",
+      "-fPIC",
+      "/home/catid/hopfield/research/20261114/work/bfs_scope_solver.c",
+      "-o",
+      "/home/catid/hopfield/artifacts/research/20261114/work/bfs_scope_control/bfs_solver.so"
+    ],
+    "outputs_sha256": "1189617ace469fc8847a0f4032d3686c218a4da3e2b36784af01bfeca9f28444",
+    "input_tokens_sha256": "5fb0d84e0e3007b38cb3ef39b05f52a4b758ebc59cdc0413aa23d5095399035f",
+    "total_worker_seconds": 7.613044067984447,
+    "scope": "Ordinary hand-engineered BFS on suppliedgraph, no learning and no feedback into CRAM. Outputs and all3complete timings retained; archive I/O separately measured."
+  },
+  "comparison": [
+    {
+      "policy": "bounded1024",
+      "measured_cram_model_input_outputs": 49152,
+      "native_common_summed_gpu_seconds": 141.21914112870581,
+      "decoder_common_plus_incremental_summed_gpu_seconds": 149.63660623016767,
+      "native_answer_summed_gpu_seconds": 122.4364038273925,
+      "native_common_seconds_per_model_input": 0.0028731107814271204,
+      "decoder_seconds_per_model_input": 0.0030443645473260026,
+      "bfs_cpu_seconds_per_graph": 0.00010248067211904299,
+      "decoder_per_model_input_over_bfs_per_graph_ratio": 29.706719173246892,
+      "comparison_caution": "Average per-model per-input compute, different hardware/algorithm; summedGPUcomponents are not parallelwall latency. BFSreturns one exactpath pergraph; CRAMstudy evaluated3fixed models pergraph."
+    },
+    {
+      "policy": "cohort_end",
+      "measured_cram_model_input_outputs": 49152,
+      "native_common_summed_gpu_seconds": 141.1995269532781,
+      "decoder_common_plus_incremental_summed_gpu_seconds": 142.82151673838962,
+      "native_answer_summed_gpu_seconds": 122.49356798606459,
+      "native_common_seconds_per_model_input": 0.002872711730006472,
+      "decoder_seconds_per_model_input": 0.0029057111966632,
+      "bfs_cpu_seconds_per_graph": 0.00010248067211904299,
+      "decoder_per_model_input_over_bfs_per_graph_ratio": 28.353748434513438,
+      "comparison_caution": "Average per-model per-input compute, different hardware/algorithm; summedGPUcomponents are not parallelwall latency. BFSreturns one exactpath pergraph; CRAMstudy evaluated3fixed models pergraph."
+    }
+  ],
+  "audit_seconds": 19.620770927984267,
+  "scope": "Hand-engineered suppliedgraph BFS comparator. No training, no CRAMselection intervention, no new independent input cohort. Retains directsolver advantage as measured."
+}

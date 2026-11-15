@@ -1,0 +1,381 @@
+{
+  "scope": "Offline graph-informed decoder with deferred fallback batching. All validator/setup/queue/output costs included; component-summed decoder timings exclude data loading and evidence serialization. No online per-input latency claim.",
+  "repetitions": [
+    {
+      "repetition": 0,
+      "cost_seconds": {
+        "model_setup": 0.003948151017539203,
+        "input_setup": 0.45893361093476415,
+        "hidden": 18.30377065448556,
+        "native_answer": 123.218663641077,
+        "native_output": 0.0857127177878283,
+        "validator": 0.5293719352339394,
+        "queue": 0.0999365160241723,
+        "fallback_setup": 0.0007869449909776449,
+        "fallback_answer": 1.138978194911033,
+        "fallback_output": 0.0005024189013056457,
+        "always_lambda_answer": 145.91115794796497,
+        "always_lambda_output": 0.08707125583896413
+      },
+      "native_common_seconds": 142.0710287753027,
+      "incremental_seconds": 1.769576010061428,
+      "answer_overhead_percent": 1.4361266043397587,
+      "end_to_end_overhead_percent": 1.2455572577433514
+    },
+    {
+      "repetition": 1,
+      "cost_seconds": {
+        "model_setup": 0.0034984000376425683,
+        "input_setup": 0.3723217822262086,
+        "hidden": 18.327936745423358,
+        "native_answer": 122.85277151339687,
+        "native_output": 0.08018661435926333,
+        "validator": 0.49098935205256566,
+        "queue": 0.010238472605124116,
+        "fallback_setup": 0.00041282601887360215,
+        "fallback_answer": 1.1039775550016202,
+        "fallback_output": 0.0003902220632880926,
+        "always_lambda_answer": 0.0,
+        "always_lambda_output": 0.0
+      },
+      "native_common_seconds": 141.63671505544335,
+      "incremental_seconds": 1.6060084277414717,
+      "answer_overhead_percent": 1.307262675442645,
+      "end_to_end_overhead_percent": 1.1338927389785929
+    },
+    {
+      "repetition": 2,
+      "cost_seconds": {
+        "model_setup": 0.0033929210039786994,
+        "input_setup": 0.36390155379194766,
+        "hidden": 18.382103785930667,
+        "native_answer": 122.76655684720026,
+        "native_output": 0.07940944191068411,
+        "validator": 0.48803178570233285,
+        "queue": 0.009992344886995852,
+        "fallback_setup": 0.00039184396155178547,
+        "fallback_answer": 1.1032610340043902,
+        "fallback_output": 0.00038055796176195145,
+        "always_lambda_answer": 0.0,
+        "always_lambda_output": 0.0
+      },
+      "native_common_seconds": 141.59536454983754,
+      "incremental_seconds": 1.6020575665170327,
+      "answer_overhead_percent": 1.3049625302361554,
+      "end_to_end_overhead_percent": 1.1314336253946746
+    }
+  ],
+  "source_receipts": [
+    {
+      "status": "complete",
+      "protocol_sha256": "2881b3d3144fef56372ac9260facd4e2b3d608d2299c29c17933596212da700c",
+      "gpu": 0,
+      "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+      "repetitions": [
+        {
+          "repetition": 0,
+          "cost_seconds": {
+            "model_setup": 0.0020030689775012434,
+            "input_setup": 0.23737595143029466,
+            "hidden": 9.001169155933894,
+            "native_answer": 60.89254626451293,
+            "native_output": 0.04318097175564617,
+            "validator": 0.265476499334909,
+            "queue": 0.050273080938495696,
+            "fallback_setup": 0.0003929370432160795,
+            "fallback_answer": 0.5625597659382038,
+            "fallback_output": 0.0002563419402576983,
+            "always_lambda_answer": 71.96646352554671,
+            "always_lambda_output": 0.04382749751675874
+          },
+          "native_common_seconds": 70.17627541261027,
+          "incremental_seconds": 0.8789586251950823,
+          "answer_overhead_percent": 1.443458484026843,
+          "end_to_end_overhead_percent": 1.2525011052911175,
+          "fallback_model_inputs": 57,
+          "exact_native_repeat_parity": true,
+          "fallback_repeat_parity": [
+            {
+              "seed": 0,
+              "n": 19,
+              "board_step_flag_hashes": [
+                "2527620946da676d98f058c07bdbf8f0086fb0c69dac0fb363f724cef9b71137"
+              ],
+              "repetition0_parity": true
+            },
+            {
+              "seed": 1,
+              "n": 16,
+              "board_step_flag_hashes": [
+                "d3c342c552f7b988d0fe931aa1e2a322588eee310847f502fa0db605973dbd90"
+              ],
+              "repetition0_parity": true
+            },
+            {
+              "seed": 2,
+              "n": 22,
+              "board_step_flag_hashes": [
+                "2cace60feac024d1c20ff82ee0e96c85321b03cbe61e78d788864868c49d9a74"
+              ],
+              "repetition0_parity": true
+            }
+          ]
+        },
+        {
+          "repetition": 1,
+          "cost_seconds": {
+            "model_setup": 0.0017215990228578448,
+            "input_setup": 0.19555841892724857,
+            "hidden": 9.123467531695496,
+            "native_answer": 60.585035631782375,
+            "native_output": 0.040279072942212224,
+            "validator": 0.2480062689865008,
+            "queue": 0.005200534651521593,
+            "fallback_setup": 0.0002079900004900992,
+            "fallback_answer": 0.5464982529520057,
+            "fallback_output": 0.00019392999820411205,
+            "always_lambda_answer": 0.0,
+            "always_lambda_output": 0.0
+          },
+          "native_common_seconds": 69.94606225437019,
+          "incremental_seconds": 0.8001069765887223,
+          "answer_overhead_percent": 1.320634655480822,
+          "end_to_end_overhead_percent": 1.1438913797305754,
+          "fallback_model_inputs": 57,
+          "exact_native_repeat_parity": true,
+          "fallback_repeat_parity": [
+            {
+              "seed": 0,
+              "n": 19,
+              "board_step_flag_hashes": [
+                "2527620946da676d98f058c07bdbf8f0086fb0c69dac0fb363f724cef9b71137"
+              ],
+              "repetition0_parity": true
+            },
+            {
+              "seed": 1,
+              "n": 16,
+              "board_step_flag_hashes": [
+                "d3c342c552f7b988d0fe931aa1e2a322588eee310847f502fa0db605973dbd90"
+              ],
+              "repetition0_parity": true
+            },
+            {
+              "seed": 2,
+              "n": 22,
+              "board_step_flag_hashes": [
+                "2cace60feac024d1c20ff82ee0e96c85321b03cbe61e78d788864868c49d9a74"
+              ],
+              "repetition0_parity": true
+            }
+          ]
+        },
+        {
+          "repetition": 2,
+          "cost_seconds": {
+            "model_setup": 0.001704301976133138,
+            "input_setup": 0.1906879036105238,
+            "hidden": 9.168447736592498,
+            "native_answer": 60.627201281429734,
+            "native_output": 0.03963857766939327,
+            "validator": 0.2457608941476792,
+            "queue": 0.005060790514107794,
+            "fallback_setup": 0.00020559696713462472,
+            "fallback_answer": 0.5480069819604978,
+            "fallback_output": 0.0001919359783641994,
+            "always_lambda_answer": 0.0,
+            "always_lambda_output": 0.0
+          },
+          "native_common_seconds": 70.02767980127828,
+          "incremental_seconds": 0.7992261995677836,
+          "answer_overhead_percent": 1.3182633911431907,
+          "end_to_end_overhead_percent": 1.1413004141159544,
+          "fallback_model_inputs": 57,
+          "exact_native_repeat_parity": true,
+          "fallback_repeat_parity": [
+            {
+              "seed": 0,
+              "n": 19,
+              "board_step_flag_hashes": [
+                "2527620946da676d98f058c07bdbf8f0086fb0c69dac0fb363f724cef9b71137"
+              ],
+              "repetition0_parity": true
+            },
+            {
+              "seed": 1,
+              "n": 16,
+              "board_step_flag_hashes": [
+                "d3c342c552f7b988d0fe931aa1e2a322588eee310847f502fa0db605973dbd90"
+              ],
+              "repetition0_parity": true
+            },
+            {
+              "seed": 2,
+              "n": 22,
+              "board_step_flag_hashes": [
+                "2cace60feac024d1c20ff82ee0e96c85321b03cbe61e78d788864868c49d9a74"
+              ],
+              "repetition0_parity": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "status": "complete",
+      "protocol_sha256": "2881b3d3144fef56372ac9260facd4e2b3d608d2299c29c17933596212da700c",
+      "gpu": 1,
+      "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+      "repetitions": [
+        {
+          "repetition": 0,
+          "cost_seconds": {
+            "model_setup": 0.0019450820400379598,
+            "input_setup": 0.22155765950446948,
+            "hidden": 9.302601498551667,
+            "native_answer": 62.32611737656407,
+            "native_output": 0.04253174603218213,
+            "validator": 0.2638954358990304,
+            "queue": 0.04966343508567661,
+            "fallback_setup": 0.00039400794776156545,
+            "fallback_answer": 0.5764184289728291,
+            "fallback_output": 0.0002460769610479474,
+            "always_lambda_answer": 73.94469442241825,
+            "always_lambda_output": 0.043243758322205395
+          },
+          "native_common_seconds": 71.89475336269243,
+          "incremental_seconds": 0.8906173848663457,
+          "answer_overhead_percent": 1.4289633661686048,
+          "end_to_end_overhead_percent": 1.2387793868258878,
+          "fallback_model_inputs": 57,
+          "exact_native_repeat_parity": true,
+          "fallback_repeat_parity": [
+            {
+              "seed": 0,
+              "n": 16,
+              "board_step_flag_hashes": [
+                "d3c342c552f7b988d0fe931aa1e2a322588eee310847f502fa0db605973dbd90"
+              ],
+              "repetition0_parity": true
+            },
+            {
+              "seed": 1,
+              "n": 20,
+              "board_step_flag_hashes": [
+                "c5ed9ee91484013785d7019e74036af41a11f3b3fd352b98be8468e2b2805ff9"
+              ],
+              "repetition0_parity": true
+            },
+            {
+              "seed": 2,
+              "n": 21,
+              "board_step_flag_hashes": [
+                "919c7836d914be3b801c57c01acbbe9a4b5ad7b5d7b4f158d3d8e47d4974ad43"
+              ],
+              "repetition0_parity": true
+            }
+          ]
+        },
+        {
+          "repetition": 1,
+          "cost_seconds": {
+            "model_setup": 0.0017768010147847235,
+            "input_setup": 0.17676336329896003,
+            "hidden": 9.204469213727862,
+            "native_answer": 62.2677358816145,
+            "native_output": 0.03990754141705111,
+            "validator": 0.24298308306606486,
+            "queue": 0.005037937953602523,
+            "fallback_setup": 0.00020483601838350296,
+            "fallback_answer": 0.5574793020496145,
+            "fallback_output": 0.00019629206508398056,
+            "always_lambda_answer": 0.0,
+            "always_lambda_output": 0.0
+          },
+          "native_common_seconds": 71.69065280107316,
+          "incremental_seconds": 0.8059014511527494,
+          "answer_overhead_percent": 1.2942520548441911,
+          "end_to_end_overhead_percent": 1.124137414941611,
+          "fallback_model_inputs": 57,
+          "exact_native_repeat_parity": true,
+          "fallback_repeat_parity": [
+            {
+              "seed": 0,
+              "n": 16,
+              "board_step_flag_hashes": [
+                "d3c342c552f7b988d0fe931aa1e2a322588eee310847f502fa0db605973dbd90"
+              ],
+              "repetition0_parity": true
+            },
+            {
+              "seed": 1,
+              "n": 20,
+              "board_step_flag_hashes": [
+                "c5ed9ee91484013785d7019e74036af41a11f3b3fd352b98be8468e2b2805ff9"
+              ],
+              "repetition0_parity": true
+            },
+            {
+              "seed": 2,
+              "n": 21,
+              "board_step_flag_hashes": [
+                "919c7836d914be3b801c57c01acbbe9a4b5ad7b5d7b4f158d3d8e47d4974ad43"
+              ],
+              "repetition0_parity": true
+            }
+          ]
+        },
+        {
+          "repetition": 2,
+          "cost_seconds": {
+            "model_setup": 0.0016886190278455615,
+            "input_setup": 0.17321365018142387,
+            "hidden": 9.21365604933817,
+            "native_answer": 62.13935556577053,
+            "native_output": 0.03977086424129084,
+            "validator": 0.24227089155465364,
+            "queue": 0.004931554372888058,
+            "fallback_setup": 0.00018624699441716075,
+            "fallback_answer": 0.5552540520438924,
+            "fallback_output": 0.00018862198339775205,
+            "always_lambda_answer": 0.0,
+            "always_lambda_output": 0.0
+          },
+          "native_common_seconds": 71.56768474855926,
+          "incremental_seconds": 0.8028313669492491,
+          "answer_overhead_percent": 1.2919853442952163,
+          "end_to_end_overhead_percent": 1.1217791518195102,
+          "fallback_model_inputs": 57,
+          "exact_native_repeat_parity": true,
+          "fallback_repeat_parity": [
+            {
+              "seed": 0,
+              "n": 16,
+              "board_step_flag_hashes": [
+                "d3c342c552f7b988d0fe931aa1e2a322588eee310847f502fa0db605973dbd90"
+              ],
+              "repetition0_parity": true
+            },
+            {
+              "seed": 1,
+              "n": 20,
+              "board_step_flag_hashes": [
+                "c5ed9ee91484013785d7019e74036af41a11f3b3fd352b98be8468e2b2805ff9"
+              ],
+              "repetition0_parity": true
+            },
+            {
+              "seed": 2,
+              "n": 21,
+              "board_step_flag_hashes": [
+                "919c7836d914be3b801c57c01acbbe9a4b5ad7b5d7b4f158d3d8e47d4974ad43"
+              ],
+              "repetition0_parity": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "timing_repeat_trajectories": 98532
+}

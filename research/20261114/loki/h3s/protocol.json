@@ -1,0 +1,36 @@
+{
+  "id": "H3s-record-replication-invariance",
+  "frozen_utc": "2026-11-15T01:15:12.904873+00:00",
+  "copies": [
+    1,
+    2,
+    4
+  ],
+  "unique_source_patterns": 5180,
+  "primary_hypothesis": "Raw-record exposure fitting preserves every N15 target coefficient when identical source records are duplicated2x or4x.",
+  "decision": "Support the finite invariance claim iff S and B and q/delta/tau/unit match across all declared multiplicities; falsify if any target coefficient or solver parameter differs. Deterministic equality, not a statistical test.",
+  "derivative": "For each multiplicity explicitly deduplicate complete source patterns before calculating marginals and N. Require exactly5180 distinct patterns and test the same coefficient/parameter invariance. This is a named derivative, not a retroactive change to H3r.",
+  "exposure": "Use exactly H3r E=sum(m_i*m_j)/N and threshold ln(364/.01), unchanged homogeneous lines and target settings. Repeated copies are not independent information.",
+  "provenance": "The multiplicity sensitivity was analytically anticipated after H3r exposure scores were known. Scope is frozen before this deterministic replication audit; it is not an out-of-sample statistical discovery.",
+  "outcomes": "No new GPU searches. If every constructed model exactly matches an H3r model, map its already fixed cohort/seed outcomes with explicit identity receipts; mappings are explanatory reuse, not independent replication.",
+  "budget": {
+    "cpu_wall_seconds": 180,
+    "threads": 1,
+    "gpu_seconds": 0
+  },
+  "input_sha256": {
+    "research/20261114/loki/h3s/replication.py": "a3fe106f259cc0874b99d00cb748b9a2451825419eb6ab6ccfec7d2fb087f645",
+    "artifacts/research/20261114/loki/h3r/training.npz": "86ceddf4bb00448a75951c6c780a58722804580c107618a2282163cd100b12e7",
+    "artifacts/research/20261114/loki/h3r/source-support.npz": "e0b8b8c2afcf93a2f8ddf03f5f7508f0e0cb1d7b8940d9c97a60ed5fab6a0681",
+    "artifacts/research/20261114/loki/h3r/source-fits.json": "78e98d54bd440da23d2e1957a51605531d5f82e27d641c40559ed382196963ef",
+    "research/20261114/loki/h3r/protocol.json": "763d2f78c13c078c7afd57d34ed7c67cf3bc961c32c047346f4b8c13c7c23a5d",
+    "artifacts/research/20261114/loki/h3r/models/n14-full/model.pt": "e827995bba72d4e7e625888109c1f06b4918bfaf7907964ff35f6b0c1eea0b0b",
+    "artifacts/research/20261114/loki/h3r/models/exposure-filtered/model.pt": "2a91ac9b6c319b109071d6ab4e694d9ed81ebdca863ef038ab24a4f22527bb8e",
+    "artifacts/research/20261114/loki/h3r/models/true-graph-oracle/model.pt": "37437d85b3b0bfbc4e33f0b558ac62eba836da5e8a48033e3ce8ace58161fb56"
+  },
+  "limits": [
+    "Invariance over copies1/2/4 of one finite complete source bank, not arbitrary noisy or near-duplicate inputs.",
+    "The independence exposure heuristic has no calibrated significance or Bonferroni guarantee for constrained patterns.",
+    "Deduplication fixes repeated-record counting but does not prove general transfer or source-bank robustness."
+  ]
+}

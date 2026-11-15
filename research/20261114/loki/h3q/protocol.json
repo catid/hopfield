@@ -1,0 +1,31 @@
+{
+  "id": "H3q-exact-population-certificate-census",
+  "frozen_utc": "2026-11-15T00:55:51.711560+00:00",
+  "status": "descriptive_posthoc_scope_frozen_before_census",
+  "scope": "All836069 unique valid1/2/3clue N15 superqueen inputs from all32516 valid complete solutions; no sampling and no new search.",
+  "question": "What exact fraction of this finite input universe lacks any valid local certificate under the unchanged full-N14 hybrid, compared with the supplied oracle?",
+  "diagnostic_threshold": "Report whether the exact no-valid-certificate input fraction exceeds0.1percent. This is a structural threshold, not the accuracy noninferiority test or a general fallback-decoder accuracy bound.",
+  "method": "For each complete solution compute float64 single-cell margins. Any empty-cell deficit makes it uncertifiable under every given subset. Otherwise a1/2/3clue subset admits the solution exactly when it clamps every occupied-cell deficit. Enumerate every subset and accumulate per-input counts.",
+  "independent_validation": "Recompute certificate counts for a frozen512-input diagnostic sample by literal occupied-pair fields and direct evaluation of every compatible solution under its unclamped cells. Rebuild full input completion counts and match the original exhaustive universe. Validate exact H3o/H3p cohort capacities after census without changing models.",
+  "sample_seed": 2026112508,
+  "sample_size": 512,
+  "budget": {
+    "cpu_wall_seconds": 180,
+    "threads": 1,
+    "gpu_seconds": 0
+  },
+  "limits": [
+    "Post hoc descriptive structural population diagnostic following H3o/H3p; no new accuracy evidence.",
+    "Certificate existence, certificate correctness and finite-budget search success are distinct.",
+    "Any conditional certificate-soundness argument assumes target q, valid givens and a forbidden graph containing all true attacks.",
+    "Finite universe and fixed models; no claim about source-bank variation or arbitrary targets."
+  ],
+  "input_sha256": {
+    "research/20261114/loki/h3q/census.py": "8d901ee3a2f115e15edd35405ef92569de1ff7e4a96d51d099e375465f991c09",
+    "artifacts/research/20261114/loki/h3o/data.npz": "d95b0e142021907bb82019535878395d4c9d859403cb4accdbfeaf82e1488641",
+    "artifacts/research/20261114/loki/h3o/input-universe.npz": "1ddde605bac164d4ace81d9f491223bee42c0a9f9e6fbaae036eb0dd3fac2bb2",
+    "artifacts/research/20261114/loki/h3o/solutions-n15.npy": "bf2a9e26338d1d843bfecacc84de2316c2a106471e90a2488f76fd73e54f1232",
+    "artifacts/research/20261114/loki/h3o/models/n14-full/model.pt": "e827995bba72d4e7e625888109c1f06b4918bfaf7907964ff35f6b0c1eea0b0b",
+    "artifacts/research/20261114/loki/h3o/models/true-graph-oracle/model.pt": "37437d85b3b0bfbc4e33f0b558ac62eba836da5e8a48033e3ce8ace58161fb56"
+  }
+}

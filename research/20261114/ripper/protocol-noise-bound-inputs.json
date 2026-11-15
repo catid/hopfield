@@ -1,0 +1,78 @@
+{
+  "id": "H1z-conservative-calibration-fresh-inputs",
+  "frozen_utc": "2026-11-15T01:30:21.107975+00:00",
+  "source": "upstream/data/sudoku-extreme/train.csv",
+  "source_sha256": "64b46674db0148e0d73a16346dadeb2b1c00824d3fca3f85b2ae7037f6b4b38e",
+  "pool_size": 3831994,
+  "unique_pool_proof": "Reuse the prior source-hashed exhaustive proof that all3831994 complete answer strings are distinct; source row equals pool index.",
+  "prior_raw_manifest": "artifacts/research/20261114/ripper/raw/input_manifest.json",
+  "prior_raw_manifest_sha256": "28f1f8fde6790c9fa4e41a421737618fa5093dffb2a2544ab9d4ea06c263b4b2",
+  "draw_rule": "For bank s0..31, NumPy2.3.4 default_rng(20272000+s).choice(eligible_source_rows,1500,replace=False),excluding all source rows in seven listed prior manifests. Independent ordered bank draws; cross-bank overlap allowed and measured. No outcome-adaptive exclusions/extensions.",
+  "bank_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "rows_per_bank": 1500,
+  "outcome_access": "Preparation validates source identity and valid complete boards only. No equality-cover counts, policy outcomes, or held-out test scores inspected before final study protocol freezes.",
+  "label_scope": "Complete stored boards are simulated query oracles; pure policies receive only past queried observations,25query budget,and independently generated per-row tie order.",
+  "exclusion_manifests": [
+    {
+      "path": "artifacts/research/20261114/ripper/clues/input_manifest.json",
+      "sha256": "838908435ae82b9f617eb92d821341ec8b6c1792329b7a05d192815aff859eae"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/online_confirm/input_manifest.json",
+      "sha256": "644bdcc07b65b3ecc116d24e592eb7f0a2eab81c984257ba216004093a18dcd1"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/spike/input_manifest.json",
+      "sha256": "f4cee3502bf6855ad0a065fad18d26b025e8340683db3b1477170bebf7ddcf34"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/exponential/input_manifest.json",
+      "sha256": "baa1d60ec20e26d975ab13a6fea412267d80d5c001b2631028f5b5e24c9fe1ff"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/recovery/input_manifest.json",
+      "sha256": "61a484465f269826f438b4e00960367ca47f2778238345b60f286c8e6b3cd36f"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/recovery_confirm/input_manifest.json",
+      "sha256": "a2320e4317b854bbdd239589b90e2359b57570e406fbc1b5a2817c6a41f7a861"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/noisy/input_manifest.json",
+      "sha256": "0c71df109d5a4e558f9225b25f3ecb255b44716e7283856db0f06c3a06330814"
+    }
+  ]
+}

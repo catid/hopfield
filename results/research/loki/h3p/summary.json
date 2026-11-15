@@ -1,0 +1,875 @@
+{
+  "status": "validated",
+  "utc": "2026-11-15T01:01:09.088969+00:00",
+  "hypothesis": "H3p",
+  "decision": "falsified",
+  "primary": {
+    "arm": "n14-full",
+    "control": "true-graph-oracle",
+    "primary": true,
+    "decision": "falsified",
+    "exact_solver_identity": false,
+    "any_paired_regression_inputs": 74,
+    "paired_regression_probability_exact95_upper": 0.005477723128964841,
+    "conservative_accuracy95_lower_pp": -0.5477723128964841,
+    "wrong_stops": 0,
+    "accuracy_difference_pp": -0.299072265625,
+    "coverage_difference_pp": -2.4474165022290433,
+    "accuracy_one_sided_95_lower_pp": -0.372314453125,
+    "accuracy_one_sided_95_upper_pp": -0.22379557291666669,
+    "coverage_one_sided_95_lower_pp": -2.5666271086196866,
+    "coverage_one_sided_95_upper_pp": -2.331112309807008,
+    "replicates": 2000,
+    "unit": "unique input, with all three search seeds retained inside each bootstrap cluster",
+    "seed": 20261114
+  },
+  "comparisons": [
+    {
+      "arm": "n14-full",
+      "control": "true-graph-oracle",
+      "primary": true,
+      "decision": "falsified",
+      "exact_solver_identity": false,
+      "any_paired_regression_inputs": 74,
+      "paired_regression_probability_exact95_upper": 0.005477723128964841,
+      "conservative_accuracy95_lower_pp": -0.5477723128964841,
+      "wrong_stops": 0,
+      "accuracy_difference_pp": -0.299072265625,
+      "coverage_difference_pp": -2.4474165022290433,
+      "accuracy_one_sided_95_lower_pp": -0.372314453125,
+      "accuracy_one_sided_95_upper_pp": -0.22379557291666669,
+      "coverage_one_sided_95_lower_pp": -2.5666271086196866,
+      "coverage_one_sided_95_upper_pp": -2.331112309807008,
+      "replicates": 2000,
+      "unit": "unique input, with all three search seeds retained inside each bootstrap cluster",
+      "seed": 20261114
+    }
+  ],
+  "rows": [
+    {
+      "arm": "n14-full",
+      "target_training_patterns": 0,
+      "unique_inputs": 16384,
+      "chains": 20,
+      "search_seeds": [
+        0,
+        1,
+        2
+      ],
+      "original_accuracy_pct": 99.64192708333334,
+      "certificate_first_accuracy_pct": 99.64192708333334,
+      "n1_accuracy_pct": 74.19637044270834,
+      "coverage_pct": 67.1795658846744,
+      "wrong_stops": 0,
+      "capped_chains": 252132,
+      "mean_moves": 10479.90333658854,
+      "search_seconds_total": 507.0200573260663
+    },
+    {
+      "arm": "true-graph-oracle",
+      "target_training_patterns": 0,
+      "unique_inputs": 16384,
+      "chains": 20,
+      "search_seeds": [
+        0,
+        1,
+        2
+      ],
+      "original_accuracy_pct": 99.94099934895834,
+      "certificate_first_accuracy_pct": 99.94099934895834,
+      "n1_accuracy_pct": 75.23193359375,
+      "coverage_pct": 69.62698238690346,
+      "wrong_stops": 0,
+      "capped_chains": 245978,
+      "mean_moves": 10400.064697265627,
+      "search_seconds_total": 502.5554674490122
+    }
+  ],
+  "dataset": {
+    "status": "reserved_before_confirmation",
+    "utc": "2026-11-15T00:50:26.252267+00:00",
+    "task": "superqueens:queen+knight attacks",
+    "transfer": "N14 to N15 upward transfer; one prospective larger-cohort confirmation after inconclusive H3o.",
+    "source_counts": {
+      "n14_full": 5180
+    },
+    "target_n": 15,
+    "target_solution_universe": 32516,
+    "target_unique_inputs": 16384,
+    "target_input_seed": 2026112507,
+    "target_eligible_pool": 831973,
+    "target_by_clues": {
+      "1": 3,
+      "2": 377,
+      "3": 16004
+    },
+    "all_compatible_target_completions": 363499,
+    "prior_target_input_overlap": 0,
+    "target_distribution": "Uniform unique valid1/2/3clue N15 superqueen inputs excluding every H3o evaluation input.",
+    "unchanged_models": "Exact H3o hybrid and supplied oracle model files copied before inference. No new source fit or hyperparameter change.",
+    "data_sha256": "854a40c99356a94a1de84acefdf2ff3b4df18b2d522a18c6ec91b9eb4078322f",
+    "training_sha256": "86ceddf4bb00448a75951c6c780a58722804580c107618a2282163cd100b12e7",
+    "source_sha256": "19be161f15e8e2616490254eeaad9db2521c83c2207b3a86fb065e8229c3fa9b",
+    "parent_data_sha256": "d95b0e142021907bb82019535878395d4c9d859403cb4accdbfeaf82e1488641",
+    "target_solutions_sha256": "bf2a9e26338d1d843bfecacc84de2316c2a106471e90a2488f76fd73e54f1232",
+    "input_universe_sha256": "1ddde605bac164d4ace81d9f491223bee42c0a9f9e6fbaae036eb0dd3fac2bb2"
+  },
+  "calibration": {
+    "q": 15,
+    "delta": 14.0,
+    "tau": -105.0,
+    "unit": 25.909505208333332,
+    "explanation": "Target q15 is supplied. Symbolic delta=q-1,tau=-q(q-1)/2; inherited N12 unit unchanged from H3n. No target-label calibration.",
+    "unit_source": "artifacts/research/20261114/loki/h3i/models/offset128/model.json"
+  },
+  "source_fits": {
+    "status": "fitted_source_only",
+    "utc": "2026-11-15T00:42:26.961584+00:00",
+    "arms": {
+      "n14-full": {
+        "source_n": 14,
+        "source_patterns": 5180,
+        "retained_lines": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "candidates": [
+          {
+            "a": 0,
+            "b": 1,
+            "forbidden_offsets": 13,
+            "allowed_offsets": 0,
+            "retained": true
+          },
+          {
+            "a": 1,
+            "b": -2,
+            "forbidden_offsets": 1,
+            "allowed_offsets": 5,
+            "retained": false
+          },
+          {
+            "a": 1,
+            "b": -1,
+            "forbidden_offsets": 13,
+            "allowed_offsets": 0,
+            "retained": true
+          },
+          {
+            "a": 1,
+            "b": 0,
+            "forbidden_offsets": 13,
+            "allowed_offsets": 0,
+            "retained": true
+          },
+          {
+            "a": 1,
+            "b": 1,
+            "forbidden_offsets": 13,
+            "allowed_offsets": 0,
+            "retained": true
+          },
+          {
+            "a": 1,
+            "b": 2,
+            "forbidden_offsets": 1,
+            "allowed_offsets": 5,
+            "retained": false
+          },
+          {
+            "a": 2,
+            "b": -1,
+            "forbidden_offsets": 1,
+            "allowed_offsets": 5,
+            "retained": false
+          },
+          {
+            "a": 2,
+            "b": 1,
+            "forbidden_offsets": 1,
+            "allowed_offsets": 5,
+            "retained": false
+          }
+        ],
+        "source_zero_offsets": 60
+      }
+    },
+    "source_sha256": "194bd9db9acf10bc6003144a98ba882e275db760b108a5b16369dcb1665d4ddd",
+    "protocol_sha256": "cd92ce07177ab39cdefb782a4c0b99417ff55d6000466350d4b15a24854b6c22"
+  },
+  "model_audits": [
+    {
+      "status": "complete",
+      "utc": "2026-11-15T00:50:26.320060+00:00",
+      "arm": "n14-full",
+      "target_training_patterns": 0,
+      "source_n": 14,
+      "source_patterns": 5180,
+      "q": 15,
+      "delta": 14.0,
+      "tau": -105.0,
+      "unit": 25.909505208333332,
+      "energy_signature": "3c5363179a62665aa999364ab638b4f6ad5c3d47e52eb20012c5c8a1e005d11c",
+      "forbidden_pairs": 5932,
+      "model_sha256": "e827995bba72d4e7e625888109c1f06b4918bfaf7907964ff35f6b0c1eea0b0b",
+      "construction_sha256": "1c1cc1896a8a98eeb55bed31b5df49d27b19a7df81e4562dcd58be7425199603",
+      "source_sha256": "eeffe1cd8d3d007bb1dcf43272bb9d388051eee868c8060781dca9df6fac83f1",
+      "protocol_sha256": "65211173edc00997b80e7a63910b47c41da8d6889d74adde0254add18ae81c0d",
+      "derivation": "Copied exact frozen H3o model and construction files; no new fit.",
+      "original_model_receipt": "artifacts/research/20261114/loki/h3o/models/n14-full/model.json",
+      "original_model_receipt_sha256": "3fd0cc7fff229235b7811a03375f276676d3670c75fb0347db1f210e1ab4dca6",
+      "false_forbidden": 24,
+      "missed_forbidden": 0
+    },
+    {
+      "status": "complete",
+      "utc": "2026-11-15T00:50:26.321395+00:00",
+      "arm": "true-graph-oracle",
+      "target_training_patterns": 0,
+      "source_n": null,
+      "source_patterns": 0,
+      "q": 15,
+      "delta": 14.0,
+      "tau": -105.0,
+      "unit": 25.909505208333332,
+      "energy_signature": "15d4b90ae4ca007cbac7a71768037ecffd6698d2f99c8d5f1008673b635c8efa",
+      "forbidden_pairs": 5908,
+      "model_sha256": "37437d85b3b0bfbc4e33f0b558ac62eba836da5e8a48033e3ce8ace58161fb56",
+      "construction_sha256": "fe88a03aba0051b60db06561295150f973dfc574f9d890dc0fc52af3a69ab07f",
+      "source_sha256": "eeffe1cd8d3d007bb1dcf43272bb9d388051eee868c8060781dca9df6fac83f1",
+      "protocol_sha256": "65211173edc00997b80e7a63910b47c41da8d6889d74adde0254add18ae81c0d",
+      "derivation": "Copied exact frozen H3o model and construction files; no new fit.",
+      "original_model_receipt": "artifacts/research/20261114/loki/h3o/models/true-graph-oracle/model.json",
+      "original_model_receipt_sha256": "36481e9e210beb6b7a79415032a27241c93b0981c90c03207d6de1872455d3f0",
+      "false_forbidden": 0,
+      "missed_forbidden": 0
+    }
+  ],
+  "output_diagnostics": [
+    {
+      "arm": "n14-full",
+      "seed": 0,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 0,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 83875,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 0,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 0,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 14)": 0,
+        "(14, 0)": 0,
+        "(14, 14)": 0,
+        "(14, -14)": 0,
+        "(1, 2)": 0,
+        "(1, -2)": 0,
+        "(2, 1)": 0,
+        "(2, -1)": 0
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 54,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 54
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 54,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 54
+      },
+      "certificate_capacity_error_partition": {
+        "inputs_without_valid_certificate": 49,
+        "failed_without_valid_certificate": 49,
+        "succeeded_without_valid_certificate": 0,
+        "failed_despite_valid_certificate": 5
+      }
+    },
+    {
+      "arm": "n14-full",
+      "seed": 1,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 0,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 84285,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 0,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 0,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 14)": 0,
+        "(14, 0)": 0,
+        "(14, 14)": 0,
+        "(14, -14)": 0,
+        "(1, 2)": 0,
+        "(1, -2)": 0,
+        "(2, 1)": 0,
+        "(2, -1)": 0
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 61,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 61
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 61,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 61
+      },
+      "certificate_capacity_error_partition": {
+        "inputs_without_valid_certificate": 49,
+        "failed_without_valid_certificate": 49,
+        "succeeded_without_valid_certificate": 0,
+        "failed_despite_valid_certificate": 12
+      }
+    },
+    {
+      "arm": "n14-full",
+      "seed": 2,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 0,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 83972,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 0,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 0,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 14)": 0,
+        "(14, 0)": 0,
+        "(14, 14)": 0,
+        "(14, -14)": 0,
+        "(1, 2)": 0,
+        "(1, -2)": 0,
+        "(2, 1)": 0,
+        "(2, -1)": 0
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 61,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 61
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 61,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 61
+      },
+      "certificate_capacity_error_partition": {
+        "inputs_without_valid_certificate": 49,
+        "failed_without_valid_certificate": 49,
+        "succeeded_without_valid_certificate": 0,
+        "failed_despite_valid_certificate": 12
+      }
+    },
+    {
+      "arm": "true-graph-oracle",
+      "seed": 0,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 0,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 81665,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 0,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 0,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 14)": 0,
+        "(14, 0)": 0,
+        "(14, 14)": 0,
+        "(14, -14)": 0,
+        "(1, 2)": 0,
+        "(1, -2)": 0,
+        "(2, 1)": 0,
+        "(2, -1)": 0
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 7,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 7
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 7,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 7
+      },
+      "certificate_capacity_error_partition": {
+        "inputs_without_valid_certificate": 0,
+        "failed_without_valid_certificate": 0,
+        "succeeded_without_valid_certificate": 0,
+        "failed_despite_valid_certificate": 7
+      }
+    },
+    {
+      "arm": "true-graph-oracle",
+      "seed": 1,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 0,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 82218,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 0,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 0,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 14)": 0,
+        "(14, 0)": 0,
+        "(14, 14)": 0,
+        "(14, -14)": 0,
+        "(1, 2)": 0,
+        "(1, -2)": 0,
+        "(2, 1)": 0,
+        "(2, -1)": 0
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 10,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 10
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 10,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 10
+      },
+      "certificate_capacity_error_partition": {
+        "inputs_without_valid_certificate": 0,
+        "failed_without_valid_certificate": 0,
+        "succeeded_without_valid_certificate": 0,
+        "failed_despite_valid_certificate": 10
+      }
+    },
+    {
+      "arm": "true-graph-oracle",
+      "seed": 2,
+      "returned_training_pattern_matches": 0,
+      "invalid_occupancies": {
+        "stopped_invalid": {
+          "below_q": 0,
+          "equal_q": 0,
+          "above_q": 0
+        },
+        "capped_invalid": {
+          "below_q": 82095,
+          "equal_q": 0,
+          "above_q": 0
+        }
+      },
+      "strict_stopped_certificate_deficits": 0,
+      "minimum_stopped_gap": 0.0009999999999994458,
+      "wrong_stops_identical_to_initial_state": 0,
+      "zero_move_wrong_stops": 0,
+      "wrong_stops_rejected_by_supplied_true_graph": 0,
+      "counterfactual_scope": "Rescore identical stopped boards under the supplied target oracle; this removes false exclusions and restores missed ones, without rerunning search.",
+      "wrong_stop_true_conflict_edges": 0,
+      "all_wrong_stop_true_conflicts_absent_from_learned_graph": true,
+      "wrong_stop_conflict_edge_occurrences_by_offset": {
+        "(0, 14)": 0,
+        "(14, 0)": 0,
+        "(14, 14)": 0,
+        "(14, -14)": 0,
+        "(1, 2)": 0,
+        "(1, -2)": 0,
+        "(2, 1)": 0,
+        "(2, -1)": 0
+      },
+      "selection_corrected_inputs": 0,
+      "selection_regressed_inputs": 0,
+      "original_invalid_selected": {
+        "below_q": 12,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 12
+      },
+      "certificate_first_invalid_selected": {
+        "below_q": 12,
+        "equal_q": 0,
+        "above_q": 0,
+        "stopped": 0,
+        "capped": 12
+      },
+      "certificate_capacity_error_partition": {
+        "inputs_without_valid_certificate": 0,
+        "failed_without_valid_certificate": 0,
+        "succeeded_without_valid_certificate": 0,
+        "failed_despite_valid_certificate": 12
+      }
+    }
+  ],
+  "posthoc_valid_certificate_capacity": [
+    {
+      "arm": "n14-full",
+      "inputs_with_any_valid_certificate": 16335,
+      "inputs_without_valid_certificate": 49,
+      "valid_input_completion_certificates": 339493,
+      "all_compatible_valid_completions": 363499,
+      "certificate_existence_pct": 99.700927734375,
+      "interpretation": "Post hoc existence of a local certificate among exact valid completions; not a cap on lowest-energy fallback accuracy and not a search outcome."
+    },
+    {
+      "arm": "true-graph-oracle",
+      "inputs_with_any_valid_certificate": 16384,
+      "inputs_without_valid_certificate": 0,
+      "valid_input_completion_certificates": 363499,
+      "all_compatible_valid_completions": 363499,
+      "certificate_existence_pct": 100.0,
+      "interpretation": "Post hoc existence of a local certificate among exact valid completions; not a cap on lowest-energy fallback accuracy and not a search outcome."
+    }
+  ],
+  "source_support_diagnostic": {
+    "extra_source_zero_offsets": [
+      {
+        "arm": "n14-full",
+        "source_n": 14,
+        "dr": 12,
+        "dc": -13,
+        "source_count": 0,
+        "n14_full_count": 0,
+        "target_pair_count": 6,
+        "full_N15_count": 550
+      },
+      {
+        "arm": "n14-full",
+        "source_n": 14,
+        "dr": 12,
+        "dc": 13,
+        "source_count": 0,
+        "n14_full_count": 0,
+        "target_pair_count": 6,
+        "full_N15_count": 550
+      },
+      {
+        "arm": "n14-full",
+        "source_n": 14,
+        "dr": 13,
+        "dc": -12,
+        "source_count": 0,
+        "n14_full_count": 0,
+        "target_pair_count": 6,
+        "full_N15_count": 550
+      },
+      {
+        "arm": "n14-full",
+        "source_n": 14,
+        "dr": 13,
+        "dc": 12,
+        "source_count": 0,
+        "n14_full_count": 0,
+        "target_pair_count": 6,
+        "full_N15_count": 550
+      }
+    ],
+    "all_extra_offsets_have_N15_witnesses": true,
+    "total_target_pair_exclusions_from_extra_offsets": 24,
+    "use": "Post-construction diagnosis only; no offset removed or modified."
+  },
+  "feasibility": {
+    "status": "validated_before_fitting",
+    "utc": "2026-11-15T00:41:50.729038+00:00",
+    "n": 15,
+    "complete_superqueen_solutions": 32516,
+    "complete_ordinary_queen_solutions": 2279184,
+    "independent_enumerations_match": true,
+    "every_board_pairwise_valid": true,
+    "no_cooccurrence_or_line_fit_inspected": true,
+    "seconds": 104.29291238397127,
+    "cpu_wall_seconds_envelope": 300,
+    "solutions_sha256": "bf2a9e26338d1d843bfecacc84de2316c2a106471e90a2488f76fd73e54f1232",
+    "source_sha256": {
+      "research/20261114/loki/h3o/enumerate.py": "7ed6f3b5d9f160d941c065d1ac179a643d4fbb39d7167372005b2dea8dc7ed29",
+      "research/20261114/loki/h3l/enumerate.py": "4c1b71ccab7313c1071bf945316b1ec93a6e07fa8fb0d51443e2019e2c99732e",
+      "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623"
+    }
+  },
+  "bp_adamw": "Not trained or evaluated on superqueens; ordinary-queen results are not matched controls.",
+  "independent_saved_boards": 1966080,
+  "derived_record_boards": 0,
+  "identity_plan": {
+    "status": "ready",
+    "frozen_utc": "2026-11-15T00:52:01.659163+00:00",
+    "pid": 1730481,
+    "groups": [
+      {
+        "signature": "3c5363179a62665aa999364ab638b4f6ad5c3d47e52eb20012c5c8a1e005d11c",
+        "representative": "n14-full",
+        "members": [
+          "n14-full"
+        ]
+      },
+      {
+        "signature": "15d4b90ae4ca007cbac7a71768037ecffd6698d2f99c8d5f1008673b635c8efa",
+        "representative": "true-graph-oracle",
+        "members": [
+          "true-graph-oracle"
+        ]
+      }
+    ],
+    "actual_unique_search_jobs": 6,
+    "avoided_identical_search_jobs": 0,
+    "protocol_sha256": "65211173edc00997b80e7a63910b47c41da8d6889d74adde0254add18ae81c0d",
+    "identity_receipt_sha256": "1f6db5d400f5cde4c1fe9de488d6da7bd9fec1904ed1a9cf3a5036a012f3466c",
+    "energy_groups_sha256": "676850f0d73fae4c829bf95e42e965e84005a4b52e5914cea8d4b270d0a0adc5",
+    "source_sha256": "c0692d4bb9f15e0b1c815444e2aa8842bb4206d5700b5d2c8ebc79d7299b557c",
+    "rationale": "Every prespecified source arm remains represented. Equal S,B,q,delta,tau,unit plus equal inputs and seeds imply identical outputs. Mappings are not independent search replication."
+  },
+  "identity_mapping": {
+    "status": "complete",
+    "completed_utc": "2026-11-15T00:52:01.659455+00:00",
+    "plan_sha256": "4da5d5e95ae7f52febed7dc23d9ee8f181d4639fd6161d2220147ab7b8218582",
+    "mappings": []
+  },
+  "backend_validations": [
+    {
+      "status": "passed",
+      "utc": "2026-11-15T00:50:26.906202+00:00",
+      "device": "cpu",
+      "synthetic_inputs": 16,
+      "chains": 3,
+      "cap": 64,
+      "all_five_backend_outputs_identical": true,
+      "synthetic_three_clue_false_certificate_rejected": true,
+      "synthetic_q_gate_acceptance_checked": true,
+      "seconds": 0.03282578702783212,
+      "backend_sha256": "7aeda1358924718b3547797dd885b4fdb7fffb650284c29a11f5135451deba4b",
+      "reference_sha256": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+      "source_sha256": "eeffe1cd8d3d007bb1dcf43272bb9d388051eee868c8060781dca9df6fac83f1",
+      "protocol_sha256": "65211173edc00997b80e7a63910b47c41da8d6889d74adde0254add18ae81c0d"
+    },
+    {
+      "status": "passed",
+      "utc": "2026-11-15T00:51:37.822156+00:00",
+      "device": "cuda",
+      "synthetic_inputs": 16,
+      "chains": 3,
+      "cap": 64,
+      "all_five_backend_outputs_identical": true,
+      "synthetic_three_clue_false_certificate_rejected": true,
+      "synthetic_q_gate_acceptance_checked": true,
+      "seconds": 0.9448031929787248,
+      "backend_sha256": "7aeda1358924718b3547797dd885b4fdb7fffb650284c29a11f5135451deba4b",
+      "reference_sha256": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+      "source_sha256": "eeffe1cd8d3d007bb1dcf43272bb9d388051eee868c8060781dca9df6fac83f1",
+      "protocol_sha256": "65211173edc00997b80e7a63910b47c41da8d6889d74adde0254add18ae81c0d"
+    }
+  ],
+  "worker_receipts": [
+    {
+      "status": "complete",
+      "started_utc": "2026-11-15T00:52:02.308305+00:00",
+      "gpu": 0,
+      "pid": 1730482,
+      "host": "loki",
+      "device": "0, GPU-b13dc6fa-d115-87ba-184a-bfadd158a7e9, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 620.70.06",
+      "protocol_sha256": "65211173edc00997b80e7a63910b47c41da8d6889d74adde0254add18ae81c0d",
+      "completed_utc": "2026-11-15T01:00:33.813945+00:00"
+    },
+    {
+      "status": "complete",
+      "started_utc": "2026-11-15T00:52:02.298733+00:00",
+      "gpu": 1,
+      "pid": 1730483,
+      "host": "loki",
+      "device": "1, GPU-0fb7c4f0-73a1-a76b-2cde-616063fa4082, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 620.70.06",
+      "protocol_sha256": "65211173edc00997b80e7a63910b47c41da8d6889d74adde0254add18ae81c0d",
+      "completed_utc": "2026-11-15T01:00:33.922808+00:00"
+    }
+  ],
+  "gpu_worker_seconds": 1023.129715,
+  "input_sha256": {
+    "research/20261114/loki/h3p/protocol.json": "65211173edc00997b80e7a63910b47c41da8d6889d74adde0254add18ae81c0d",
+    "research/20261114/loki/h3p/driver.py": "eeffe1cd8d3d007bb1dcf43272bb9d388051eee868c8060781dca9df6fac83f1",
+    "research/20261114/loki/h3p/prepare.py": "19be161f15e8e2616490254eeaad9db2521c83c2207b3a86fb065e8229c3fa9b",
+    "research/20261114/loki/h3p/reuse_identities.py": "c0692d4bb9f15e0b1c815444e2aa8842bb4206d5700b5d2c8ebc79d7299b557c",
+    "research/20261114/loki/h3o/driver.py": "194bd9db9acf10bc6003144a98ba882e275db760b108a5b16369dcb1665d4ddd",
+    "research/20261114/loki/h3o/enumerate.py": "7ed6f3b5d9f160d941c065d1ac179a643d4fbb39d7167372005b2dea8dc7ed29",
+    "research/20261114/loki/h3i/backend.py": "7aeda1358924718b3547797dd885b4fdb7fffb650284c29a11f5135451deba4b",
+    "research/20261114/loki/h3l/enumerate.py": "4c1b71ccab7313c1071bf945316b1ec93a6e07fa8fb0d51443e2019e2c99732e",
+    "research/20261114/loki/study.py": "7c48de391879dc2f4b4f14459698afbc84c82cb3e89030e0ba4814d4fd74b552",
+    "upstream/cram/__init__.py": "ada20986bead2aa2d77dcc358af07dbc01b569b1765c83560e917d5cc2bd032f",
+    "upstream/cram/cram_graph_coloring.py": "ed6158d983be48082f851dcdb5175bad7aab6408ac73f14659825e90c67f5275",
+    "upstream/cram/cram_maze.py": "c9f9fa5718fdf7ce1f8ad33dc7dc9481e43c6084a31516ac1c88451dba03ead8",
+    "upstream/cram/cram_maze_hard_graph.py": "967c573a3b3dee6c015bf373b7858b856ae0e639bdfa1a8c302b65af87a19717",
+    "upstream/cram/cram_maze_hard_simple.py": "07e64a9383c4b2b1ea30021063d93e302a794023accbf6effbf188892220b2a8",
+    "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "upstream/cram/cram_sudoku.py": "2c6b53d1b81d54e35c484a3565abd60e778716d6e6121e424aede826a5ab0ed2",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "upstream/cram/graph_coloring_data.py": "b04e61911aa55d437ab3c9d602832c3df09f285f2605aba2e9a3d78c18d9cb04",
+    "upstream/cram/latent_settle_triton.py": "7eca3fdf03ec6d5eb847e0dcbcdad61c74b56c084c363190d2c32a1737f19072",
+    "upstream/cram/maze_h3.py": "dd13a3038830bf1e2db83854704fcb39167a3f76ee9de01832de9b3187ee7acd",
+    "upstream/cram/maze_h3p.py": "dd26d260efea3a84f224743e14ae8383d967dfdafb0b4409bd05e864fe7ce92a",
+    "upstream/cram/maze_learned.py": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "upstream/cram/maze_unique.py": "3ceb56a61d92c3fa52a7d84876314abe31909780159fa53560692c19b306d213",
+    "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623",
+    "upstream/cram/opcount.py": "2ddf7373d227f50f43b06cf8e129cb727a85a3e2e86065e7081ba477997e924d",
+    "upstream/cram/paths.py": "d3af83d2c75e9165b88fbaf09d35ee352523fa79e5b3b02163d0dfbaae8602b8",
+    "upstream/cram/table.py": "bbf1fdce8a9e2fa836f5a3800746671b62f740e28c1986029bb53b608ebd0493",
+    "artifacts/research/20261114/loki/h3p/training.npz": "86ceddf4bb00448a75951c6c780a58722804580c107618a2282163cd100b12e7",
+    "artifacts/research/20261114/loki/h3p/data.npz": "854a40c99356a94a1de84acefdf2ff3b4df18b2d522a18c6ec91b9eb4078322f",
+    "artifacts/research/20261114/loki/h3p/dataset.json": "16b23fc588fcd7b119cede25f7e69ffa8e1bc93e4f81fd2e676035b31e5cb6ab",
+    "artifacts/research/20261114/loki/h3p/feasibility.json": "d28e4f3b64591d8a65c18410318ef2aa8d3e4cdfe5064fd94ed87c902e7170c0",
+    "artifacts/research/20261114/loki/h3p/input-universe.npz": "1ddde605bac164d4ace81d9f491223bee42c0a9f9e6fbaae036eb0dd3fac2bb2",
+    "research/20261114/loki/h3o/protocol.json": "cd92ce07177ab39cdefb782a4c0b99417ff55d6000466350d4b15a24854b6c22",
+    "artifacts/research/20261114/loki/h3o/data.npz": "d95b0e142021907bb82019535878395d4c9d859403cb4accdbfeaf82e1488641",
+    "artifacts/research/20261114/loki/h3o/source-support.npz": "1c570506631736b62fb79b5ce9e15434e025323654f3e1fd6ab9ea94937b9cab",
+    "artifacts/research/20261114/loki/h3o/source-fits.json": "7ebe2b167e7b3daeb358e263c6f44bbe37c03563d2c26a3ee46d2809cda533b9",
+    "artifacts/research/20261114/loki/h3o/energy-groups.json": "676850f0d73fae4c829bf95e42e965e84005a4b52e5914cea8d4b270d0a0adc5",
+    "artifacts/research/20261114/loki/h3o/models/n14-full/model.pt": "e827995bba72d4e7e625888109c1f06b4918bfaf7907964ff35f6b0c1eea0b0b",
+    "artifacts/research/20261114/loki/h3o/models/n14-full/model.json": "3fd0cc7fff229235b7811a03375f276676d3670c75fb0347db1f210e1ab4dca6",
+    "artifacts/research/20261114/loki/h3o/models/n14-full/construction.npz": "1c1cc1896a8a98eeb55bed31b5df49d27b19a7df81e4562dcd58be7425199603",
+    "artifacts/research/20261114/loki/h3o/models/true-graph-oracle/model.pt": "37437d85b3b0bfbc4e33f0b558ac62eba836da5e8a48033e3ce8ace58161fb56",
+    "artifacts/research/20261114/loki/h3o/models/true-graph-oracle/model.json": "36481e9e210beb6b7a79415032a27241c93b0981c90c03207d6de1872455d3f0",
+    "artifacts/research/20261114/loki/h3o/models/true-graph-oracle/construction.npz": "fe88a03aba0051b60db06561295150f973dfc574f9d890dc0fc52af3a69ab07f",
+    "artifacts/research/20261114/loki/h3p/independent-preflight.json": "1f6db5d400f5cde4c1fe9de488d6da7bd9fec1904ed1a9cf3a5036a012f3466c",
+    "artifacts/research/20261114/loki/h3p/solutions-n15.npy": "bf2a9e26338d1d843bfecacc84de2316c2a106471e90a2488f76fd73e54f1232",
+    "artifacts/research/20261114/loki/h3p/source-support.npz": "1c570506631736b62fb79b5ce9e15434e025323654f3e1fd6ab9ea94937b9cab",
+    "artifacts/research/20261114/loki/h3p/source-fits.json": "7ebe2b167e7b3daeb358e263c6f44bbe37c03563d2c26a3ee46d2809cda533b9",
+    "artifacts/research/20261114/loki/h3p/models/n14-full/model.json": "a0296a6e9313bcd60113b6f8d5792abbc12e731f76477815eb8196b504b5aed7",
+    "artifacts/research/20261114/loki/h3p/models/n14-full/model.pt": "e827995bba72d4e7e625888109c1f06b4918bfaf7907964ff35f6b0c1eea0b0b",
+    "artifacts/research/20261114/loki/h3p/models/n14-full/construction.npz": "1c1cc1896a8a98eeb55bed31b5df49d27b19a7df81e4562dcd58be7425199603",
+    "artifacts/research/20261114/loki/h3p/models/true-graph-oracle/model.json": "f41b1781ee6e98103d2d5bf510b6ee7707c953533925d70e80acc227c7301c55",
+    "artifacts/research/20261114/loki/h3p/models/true-graph-oracle/model.pt": "37437d85b3b0bfbc4e33f0b558ac62eba836da5e8a48033e3ce8ace58161fb56",
+    "artifacts/research/20261114/loki/h3p/models/true-graph-oracle/construction.npz": "fe88a03aba0051b60db06561295150f973dfc574f9d890dc0fc52af3a69ab07f",
+    "artifacts/research/20261114/loki/h3p/energy-groups.json": "676850f0d73fae4c829bf95e42e965e84005a4b52e5914cea8d4b270d0a0adc5",
+    "research/20261114/loki/h3p/preflight.py": "eb1992395c276de8dc4e8cce25e23abd3aaef4cc4f08612d7044bd4e52dcda52",
+    "artifacts/research/20261114/loki/h3p/backend-validation-cpu.json": "0ddb75e27a4e47aee86ac6ee0a6a8d710b354179a55c9fc19040d70c679205ea",
+    "artifacts/research/20261114/loki/h3p/backend-validation-cuda.json": "477992fd44d75670f762cdb8ed55daef97510a5c651e0545436b920afb97e054",
+    "artifacts/research/20261114/loki/h3p/identity-plan.json": "4da5d5e95ae7f52febed7dc23d9ee8f181d4639fd6161d2220147ab7b8218582",
+    "artifacts/research/20261114/loki/h3p/identity-mapping.json": "5272b92df2907893ace66a78faae1aaa197deb7084bc499b57af2235d41a4f83",
+    "artifacts/research/20261114/loki/h3p/search/n14-full/s0/result.json": "c1487179847ed4ab933dab2d039486f243380065ec818bdcf1e0c1589f24c9a3",
+    "artifacts/research/20261114/loki/h3p/search/n14-full/s0/records.npz": "8675b3f1aa082b004a41dc899e18f8367ef141d9bb52d3b0e7b22a6dec7c8497",
+    "artifacts/research/20261114/loki/h3p/search/n14-full/s1/result.json": "192a1feb17e1b94b394307b10bef1afabc44a7bfd71215422236e180dd1eb5b1",
+    "artifacts/research/20261114/loki/h3p/search/n14-full/s1/records.npz": "c71af9d226398e41dc7005e064e5dc70ff27d12c61977d89f3f3de4122bd1565",
+    "artifacts/research/20261114/loki/h3p/search/n14-full/s2/result.json": "fadc8ea6693b715dd388ad294b27f9b7227a5c17f24c4d7ba829490c0da69713",
+    "artifacts/research/20261114/loki/h3p/search/n14-full/s2/records.npz": "98385575861768ab1386098aa0724458ae7b3fdf47460869b4d28b76028e98ee",
+    "artifacts/research/20261114/loki/h3p/search/true-graph-oracle/s0/result.json": "e65088ae74b0575b82012ca7b52546402662deb0100b9b82f7aa4297875e57ee",
+    "artifacts/research/20261114/loki/h3p/search/true-graph-oracle/s0/records.npz": "5331eeec080c6aa5a5ffa177714b97e066e76cf4f87bae39b1674304c909ffa9",
+    "artifacts/research/20261114/loki/h3p/search/true-graph-oracle/s1/result.json": "86854cf692f0ba72743b1dcc7ffb0cfcbcc13a4c1d67a4e02ff1bbebacdd352e",
+    "artifacts/research/20261114/loki/h3p/search/true-graph-oracle/s1/records.npz": "bc43002040946d54471f21e89579807baf41652e15087aed3ccb71b3176c2cba",
+    "artifacts/research/20261114/loki/h3p/search/true-graph-oracle/s2/result.json": "846814126178021f42d6f4c5522c4c682c579a2406a193ba75f18c8d27ce12f1",
+    "artifacts/research/20261114/loki/h3p/search/true-graph-oracle/s2/records.npz": "7c21df54c569b6142ffc125092fb3b25f05dc74c3344bead94b90b1557c8b669",
+    "artifacts/research/20261114/loki/h3p/worker-g0.json": "f42b96df5cb094bf7bc431194acb8cb2641bab2ca03f98253f9a0393e3375fd3",
+    "artifacts/research/20261114/loki/h3p/worker-g1.json": "10fe9150cf92ecfa0290857e59dc767ca42db52e3eb55e96390ea504a9f44b6c",
+    "research/20261114/loki/h3p/analyze.py": "f2a380499777b27c092e125bb4ce8e213c871f9f494a76a254d311df35b8c3cd",
+    "research/20261114/loki/h3h/analyze.py": "5eff216fedc987f042fdecebb0574ed4d51a7f933510d2f112e4ae6e79b81c92",
+    "research/20261114/loki/h3g/analyze.py": "ad4869210929caf5f3ae0ef4f858b43759007be42ac270ba99686fc5286aee89",
+    "research/20261114/loki/analyze.py": "0a8d1427908062360db73bbeb83b7bbc881ed8eec81450a0245cff40043142e0"
+  },
+  "limits": [
+    "One complete finite source universe and one target size; three seeds repeat search, not source data.",
+    "Target q and resulting delta/tau change symbolically with size; unit/temperature/margin/search budget stay inherited, with no target-label calibration.",
+    "The line family, displacement pooling and all-zero rule remain supplied priors; no arbitrary-rule-learning claim.",
+    "Every source-global zero is retained without target-based pruning. Oracle is explicitly supplied-rule reference.",
+    "Uniform unique partial-input sampling differs from original GRAM multiplicities.",
+    "This one prospective confirmation is reported separately from H3o. Its sample size was chosen after H3o, but no confirmation outcomes were inspected before protocol freezing."
+  ],
+  "audit_seconds": 10.057208351034205
+}

@@ -1,0 +1,153 @@
+{
+  "id": "H3r-source-only-exposure-filter",
+  "frozen_utc": "2026-11-15T01:10:21.141336+00:00",
+  "hypothesis": "The exposure-filtered full-N14 hybrid is noninferior to the supplied N15 target-graph oracle within0.1percentage points in certificate-first N20 accuracy, with zero wrong stopped chains.",
+  "antecedent": "Source-global absences transferred as false exclusions in H3o/H3p. Test a fixed source-only independence-model exposure heuristic without a radius cutoff or target-based threshold tuning.",
+  "exposure": {
+    "source_n": 14,
+    "source_patterns": 5180,
+    "offset_domain": "Canonical dr=0,dc=1..13 plus dr=1..13,dc=-13..13; exclude(0,0).",
+    "K": 364,
+    "constant": 0.01,
+    "expected_count": "For each offset o, E_o=N*sum_over_valid_source_placements(i,j with displacement o)(p_i*p_j), where p_i=source_occupied_count_i/N and N=5180. Equivalently sum(m_i*m_j)/N.",
+    "threshold": "natural_log(K/0.01)",
+    "finite_rule": "Retain an observed-zero finite offset iff E_o>=natural_log(K/0.01). No additional condition. All originally inferred homogeneous lines remain unchanged.",
+    "interpretation": "Independent-cell-occupancy exposure heuristic only. The constrained source solutions do not satisfy that independence model. No calibrated p-values, multiple-testing guarantee, confidence coverage or Bonferroni validity is claimed."
+  },
+  "line_family": "Enumerate integer(a,b) in[-2,2]^2 except(0,0), gcd(abs(a),abs(b))=1, canonical sign(first nonzero positive). A line is a*dr+b*dc=0. Retain iff it contains>=3 zero-count offsets in that arms source domain and0 positive-count offsets. Retain all qualifying lines; no target selection.",
+  "arms": [
+    {
+      "arm": "n14-full",
+      "source_n": 14,
+      "source_patterns": 5180
+    },
+    {
+      "arm": "exposure-filtered",
+      "source_n": 14,
+      "source_patterns": 5180
+    },
+    {
+      "arm": "true-graph-oracle",
+      "source_n": null,
+      "source_patterns": 0
+    }
+  ],
+  "construction": "Compute source marginals, literal offset co-occurrences and independent-occupancy expected counts from all5180 N14 patterns only. The control retains all zero offsets; the new arm filters finite zero offsets by the declared exposure threshold. Both union their finite constraints with the unchanged inferred homogeneous lines. Target J=15*forbidden-1, diagonal/unary0. Oracle explicitly supplies target attacks.",
+  "calibration": {
+    "q": 15,
+    "delta": 14.0,
+    "tau": -105.0,
+    "unit": 25.909505208333332,
+    "explanation": "Target q15 is supplied. Symbolic delta=q-1,tau=-q(q-1)/2; inherited N12 unit unchanged from H3n. No target-label calibration.",
+    "unit_source": "artifacts/research/20261114/loki/h3i/models/offset128/model.json"
+  },
+  "search": {
+    "n": 15,
+    "unique_inputs": 4096,
+    "chains": 20,
+    "cap": 20000,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "temperature": 1.0,
+    "stop": "strict local margin plus q-cardinality gate",
+    "margin": 0.001,
+    "floating_operations": "101701+1139*moves",
+    "cardinality_integer_additions": "224*(moves+1)"
+  },
+  "primary": {
+    "arm": "exposure-filtered",
+    "control": "true-graph-oracle",
+    "noninferiority_margin_pp": 0.1,
+    "required_wrong_stops": 0
+  },
+  "decision": "Support if exact one-sided95% upper probability of any paired-seed accuracy regression within an input<=0.001 and zero filtered-arm wrong stopped chains. Falsify if paired-input bootstrap one-sided95% upper filtered-minus-oracle accuracy difference<-0.1pp OR any filtered wrong stop; otherwise inconclusive.2000bootstrap draws,RNG20261114,all3searchseeds clustered within input. Filtered-versus-unfiltered comparison and coverage descriptive.",
+  "diagnostics": "After construction audit retained/removed offsets, score distribution, target graph errors, all saved outputs and valid-certificate capacity. No score inspection precedes protocol freezing; no target diagnostic changes coefficients or thresholds.",
+  "identity": "Deduplicate only exact S,B,q,delta,tau,unit equality, before target search, keeping all four logical arms and explicit matched-seed mappings. First arm in frozen order is representative.",
+  "dataset": {
+    "status": "reserved_before_exposure_scores",
+    "utc": "2026-11-15T01:10:21.102081+00:00",
+    "task": "superqueens:queen+knight attacks",
+    "transfer": "N14 to N15 upward transfer with a source-only independence-model exposure heuristic.",
+    "source_counts": {
+      "n14_full": 5180
+    },
+    "target_n": 15,
+    "target_solution_universe": 32516,
+    "target_unique_inputs": 4096,
+    "target_input_seed": 2026112509,
+    "target_eligible_pool": 815589,
+    "target_by_clues": {
+      "1": 2,
+      "2": 107,
+      "3": 3987
+    },
+    "all_compatible_target_completions": 96287,
+    "prior_target_input_overlap": 0,
+    "target_distribution": "Uniform unique valid1/2/3clue N15 superqueen inputs excluding all H3o/H3p search inputs. The full target universe was already enumerated and structurally censused in H3q; fresh here means no prior search-cohort overlap, not unseen target labels.",
+    "new_method": "Source-only marginal exposure threshold fixed before scores are computed. Inferred homogeneous lines, target q, unit and search settings stay inherited.",
+    "data_sha256": "0333c9d7a77e312b9a71b8af890c4765dc0ea25890797bd15f457f4bc082403a",
+    "training_sha256": "86ceddf4bb00448a75951c6c780a58722804580c107618a2282163cd100b12e7",
+    "source_sha256": "5b04e0bce6b9e8bec1e737e5ae0fc60846ae2d1567c775f5c9b04694b21f987b",
+    "parent_data_sha256": "d95b0e142021907bb82019535878395d4c9d859403cb4accdbfeaf82e1488641",
+    "target_solutions_sha256": "bf2a9e26338d1d843bfecacc84de2316c2a106471e90a2488f76fd73e54f1232",
+    "input_universe_sha256": "1ddde605bac164d4ace81d9f491223bee42c0a9f9e6fbaae036eb0dd3fac2bb2"
+  },
+  "budget": {
+    "logical_model_seed_jobs": 9,
+    "maximum_unique_search_jobs": 9,
+    "gpu_minutes_envelope": 20,
+    "optimizer_fits": 0
+  },
+  "source_sha256": {
+    "research/20261114/loki/h3r/driver.py": "03de0cc74713702f4a93f1dc4d6606fac3cf0ed162121fb69841e95cc565bc0c",
+    "research/20261114/loki/h3r/prepare.py": "5b04e0bce6b9e8bec1e737e5ae0fc60846ae2d1567c775f5c9b04694b21f987b",
+    "research/20261114/loki/h3r/reuse_identities.py": "11595f534fe2123726c3571e0264e9aef8c83ff3ffb9d40c5cca91aadb16d20d",
+    "research/20261114/loki/h3o/enumerate.py": "7ed6f3b5d9f160d941c065d1ac179a643d4fbb39d7167372005b2dea8dc7ed29",
+    "research/20261114/loki/h3i/backend.py": "7aeda1358924718b3547797dd885b4fdb7fffb650284c29a11f5135451deba4b",
+    "research/20261114/loki/h3l/enumerate.py": "4c1b71ccab7313c1071bf945316b1ec93a6e07fa8fb0d51443e2019e2c99732e",
+    "research/20261114/loki/study.py": "7c48de391879dc2f4b4f14459698afbc84c82cb3e89030e0ba4814d4fd74b552",
+    "upstream/cram/__init__.py": "ada20986bead2aa2d77dcc358af07dbc01b569b1765c83560e917d5cc2bd032f",
+    "upstream/cram/cram_graph_coloring.py": "ed6158d983be48082f851dcdb5175bad7aab6408ac73f14659825e90c67f5275",
+    "upstream/cram/cram_maze.py": "c9f9fa5718fdf7ce1f8ad33dc7dc9481e43c6084a31516ac1c88451dba03ead8",
+    "upstream/cram/cram_maze_hard_graph.py": "967c573a3b3dee6c015bf373b7858b856ae0e639bdfa1a8c302b65af87a19717",
+    "upstream/cram/cram_maze_hard_simple.py": "07e64a9383c4b2b1ea30021063d93e302a794023accbf6effbf188892220b2a8",
+    "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "upstream/cram/cram_sudoku.py": "2c6b53d1b81d54e35c484a3565abd60e778716d6e6121e424aede826a5ab0ed2",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "upstream/cram/graph_coloring_data.py": "b04e61911aa55d437ab3c9d602832c3df09f285f2605aba2e9a3d78c18d9cb04",
+    "upstream/cram/latent_settle_triton.py": "7eca3fdf03ec6d5eb847e0dcbcdad61c74b56c084c363190d2c32a1737f19072",
+    "upstream/cram/maze_h3.py": "dd13a3038830bf1e2db83854704fcb39167a3f76ee9de01832de9b3187ee7acd",
+    "upstream/cram/maze_h3p.py": "dd26d260efea3a84f224743e14ae8383d967dfdafb0b4409bd05e864fe7ce92a",
+    "upstream/cram/maze_learned.py": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "upstream/cram/maze_unique.py": "3ceb56a61d92c3fa52a7d84876314abe31909780159fa53560692c19b306d213",
+    "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623",
+    "upstream/cram/opcount.py": "2ddf7373d227f50f43b06cf8e129cb727a85a3e2e86065e7081ba477997e924d",
+    "upstream/cram/paths.py": "d3af83d2c75e9165b88fbaf09d35ee352523fa79e5b3b02163d0dfbaae8602b8",
+    "upstream/cram/table.py": "bbf1fdce8a9e2fa836f5a3800746671b62f740e28c1986029bb53b608ebd0493"
+  },
+  "data_sha256": {
+    "artifacts/research/20261114/loki/h3r/training.npz": "86ceddf4bb00448a75951c6c780a58722804580c107618a2282163cd100b12e7",
+    "artifacts/research/20261114/loki/h3r/data.npz": "0333c9d7a77e312b9a71b8af890c4765dc0ea25890797bd15f457f4bc082403a",
+    "artifacts/research/20261114/loki/h3r/dataset.json": "5a38ef271e18dc8abd41dce877b8fb1e37cbb38155d22434dd8a9ef8bdc2e13a",
+    "artifacts/research/20261114/loki/h3r/feasibility.json": "d28e4f3b64591d8a65c18410318ef2aa8d3e4cdfe5064fd94ed87c902e7170c0",
+    "artifacts/research/20261114/loki/h3r/input-universe.npz": "1ddde605bac164d4ace81d9f491223bee42c0a9f9e6fbaae036eb0dd3fac2bb2",
+    "research/20261114/loki/h3o/protocol.json": "cd92ce07177ab39cdefb782a4c0b99417ff55d6000466350d4b15a24854b6c22",
+    "artifacts/research/20261114/loki/h3o/source-support.npz": "1c570506631736b62fb79b5ce9e15434e025323654f3e1fd6ab9ea94937b9cab",
+    "artifacts/research/20261114/loki/h3o/source-fits.json": "7ebe2b167e7b3daeb358e263c6f44bbe37c03563d2c26a3ee46d2809cda533b9",
+    "artifacts/research/20261114/loki/h3o/models/n14-full/model.pt": "e827995bba72d4e7e625888109c1f06b4918bfaf7907964ff35f6b0c1eea0b0b",
+    "artifacts/research/20261114/loki/h3o/models/true-graph-oracle/model.pt": "37437d85b3b0bfbc4e33f0b558ac62eba836da5e8a48033e3ce8ace58161fb56"
+  },
+  "limits": [
+    "The exposure threshold is a heuristic under an independence model, not a calibrated test or Bonferroni guarantee for constrained solutions.",
+    "The rule is chosen after prior source-global-zero failures but before exposure scores and new-arm outcomes; fresh inputs exclude previous search cohorts.",
+    "The target universe and prior-model population certificate census were already known. No unseen-label claim; source-only fitting is separated from target auditing.",
+    "One complete source universe; repeated search seeds do not measure source-draw variability.",
+    "Homogeneous line inference, displacement pooling, target q and temperature unit remain supplied priors; no radius cutoff or target-tuned pruning.",
+    "Input distribution differs from original GRAM multiplicities."
+  ]
+}

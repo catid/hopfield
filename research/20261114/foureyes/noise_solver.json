@@ -1,0 +1,61 @@
+{
+  "id": "H4q-graph-recovery-versus-solve-quality",
+  "frozen_utc": "2026-11-15T01:16:06.443269+00:00",
+  "hypothesis": "On all512 frozenH4p N600models, correct-law Chernoff improves mean fresh-test solve accuracy by at least1percentagepoint over originalgap despite its lower exact-graph recovery.",
+  "primary_arm": "chernoff9",
+  "control_arm": "gap",
+  "primary_margin_pp": 1.0,
+  "primary_statistic": "Mean paired returned-board accuracy across512sourcebanks and10000sharedfreshresearch puzzles, at a single common fixed search seed. Equal source-bank weights retained including repeated identical models.",
+  "uncertainty": "5000 paired two-way bootstrap resamples over512sourcebank indices and10000puzzle indices; RNG20261115222; 2.5/97.5percentiles. This excludes variation across search RNG seeds. Exact integer-multiplicity implementation pinned.",
+  "decision": "Support iflower>=1pp and zero Chernoff wrongcertifiedstops; falsify ifupper<1pp or any Chernoffwrongcertifiedstop; otherwiseinconclusive.",
+  "arms": [
+    "gap",
+    "restricted_gap",
+    "chernoff9"
+  ],
+  "chains_by_arm": {
+    "gap": 4,
+    "restricted_gap": 4,
+    "chernoff9": 4
+  },
+  "search_seed": 0,
+  "split": "full-all",
+  "rows_half_open": [
+    220000,
+    230000
+  ],
+  "checkpoints": [
+    0,
+    1048576
+  ],
+  "calibration": "Literalunit1,B0,tau0,ebar0,theta.45,temperature.4to.31,anneal524288,check4096,no restarts. No corrupted-labelenergycalibration.",
+  "gpu_minute_envelope": 30,
+  "wall_limit_s": 450,
+  "reuse": "1536logicalbank/armcells collapse to70supports at identical search seed0,inputcohort and all settings. No mapped search counted as independent.",
+  "secondary": "Restrictedgap comparisons, runtime,stops and source structural diagnostics descriptive; no primary superiority claim over restrictedgap.",
+  "source_sha256": {
+    "research/20261114/ripper/run.py": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+    "research/20261114/ripper/sparse_backend.py": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+    "research/20261114/foureyes/restart_backend.py": "fd02c4f71574a6e0545c4f7aae54f3ddfeb9321f4c4f840c02ee5a213d814c0e",
+    "research/20261114/foureyes/restart_capture.py": "801f17ab24fe6d8d7f7fe381f7829ab65bed56625413bd7d1b1461b95ef7c7a4",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "research/20261114/foureyes/prepare_noise_solver.py": "d6265f595ccc854b53aa45933076e034d6830e1b5c6dad25f7a3328d007b4387",
+    "research/20261114/foureyes/noise_solver.py": "0779486321b9897f4261a2006839c9c17e8b7674f03c44d55627992373f5fafa",
+    "research/20261114/ripper/bootstrap_two_way.py": "b4ae5dbccbc7f893f509eaf7b35ae239055f6f7633ac00921b45008761949e43"
+  },
+  "frozen_inputs": {
+    "results/research/foureyes/chernoff_replication/summary.json": "02b030c7bd7f0c526af2226d089a07ffbe81702fa019b63c4952fbe5a424718b",
+    "results/research/foureyes/chernoff_replication/per_bank.csv": "3c7ed21102f5fcb97d7166e194cc6691b1557a61a38666574b1ac485c97ddd54",
+    "artifacts/research/20261114/foureyes/chernoff_replication/inputs.json": "fbe28cec706fc47fef1f9170a42c7d64190d84858863232877fdf8d60aafc5e6",
+    "upstream/data/full-test/full-all.npz": "2fdc470ee042f11ffa61c89f606f39004d8914fca3312c88602d9f68212dec6c"
+  },
+  "limits": [
+    "All fitted model supports and recovery outcomes were known before choosing this inference hypothesis; no solve outcomes from this reservedcohort inspected beforefreeze.",
+    "Testpuzzles are reserved research rows from the official corpus already used in original fullreproduction; not a new externaldistribution.",
+    "One common searchseed0, not512 independentsearchseeds. Sourcebanks/noise draws are independent; repeated model energies mapexactly.",
+    "Known-noise and original-mask knowledge remain explicit in Chernoffconstruction.",
+    "Zeroenergy certificate soundness requires supportcontainsalltruepeers,unit1,B0,nonnegative integer penalties,tau0/tol.001andpreservedclues. It does not guarantee validity of capped best-board returns."
+  ]
+}

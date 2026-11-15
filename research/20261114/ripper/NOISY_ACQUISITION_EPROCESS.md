@@ -1,0 +1,15 @@
+# Noisy adaptive query masks and null-edge protection
+
+Fix any sequence of clean valid complete boards. For each board, each queried label independently stays correct with probability 1−eta or is replaced uniformly by one of the other eight labels with probability eta. We fix eta=1/100. The complete 25-cell mask must be a function only of previous boards' queried noisy labels and independent tie randomness. All current-row masks are finalized before any current-row label is revealed.
+
+For a truly never-equal cell pair, both queried clean labels differ. If the two noisy labels coincide, exactly one replacement contributes 2eta(1−eta)/8, and two replacements contribute 7eta²/64. Hence q0=eta/4−9eta²/64=1591/640000. This probability holds conditional on the entire pre-row history and a selected pair. It is independent of the current clean digit identities.
+
+Let I_t indicate that the pair is co-queried on row t and let Y_t indicate noisy equality when it is queried. I_t is measurable before that row's noise is revealed. Fix q1=1/9 as a betting alternative, without assuming that it describes all Sudoku nonpeers. Start E_0=1 and multiply by (q1/q0)^Y_t ((1−q1)/(1−q0))^(1−Y_t) when I_t=1, otherwise by 1. Under the never-equal null, the conditional expected multiplier is q0(q1/q0)+(1−q0)((1−q1)/(1−q0))=1. Thus E_t is a nonnegative martingale with respect to the row history, even when later query masks adapt to previous noisy labels. Correlations between different pairs do not affect this per-pair statement.
+
+Irreversibly exclude a pair at its first E_t>=324000 crossing. Ville's inequality gives a false exclusion probability at most 1/324000 for that pair, at any acquisition horizon. Union over all 3240 pairs bounds the probability of excluding any true never-equal pair by at most 0.01 for one learned model. No independence between pairs is required. Several policy arms or source banks do not share one global 1% guarantee unless separately adjusted.
+
+The acquisition heuristic uses the same fixed exposure factor (8/9)^m for pairs not yet excluded, and zero for previously excluded pairs. This changes the exclusion rule from “first equality” to “first e-process crossing.” It is not a claim that q1 is a calibrated posterior or that this mask policy is optimal. The guarantee controls missing true edges only: it does not control remaining false edges, exact graph recovery, solver accuracy, or the validity of stops under an arbitrary learned energy.
+
+We save every row's log E for each pair and each pair's first crossing row. Integer count thresholds for crossing are independently checked with exact rational products, avoiding a floating-point decision at the mathematical boundary. The known eta and fixed q1 are never fit. A noiseless eta=0 implementation would require a separate singular-null branch; this pilot uses eta=0.01 only.
+
+Unlike conditioning on all future adaptive masks, the proof conditions only on the history before each current-row noise realization. This is the reason predictability is sufficient here.

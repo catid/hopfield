@@ -1,0 +1,387 @@
+{
+  "status": "validated",
+  "utc": "2026-11-15T01:13:34.469116+00:00",
+  "primary": {
+    "hypothesis": "H2u",
+    "n_unique": 16384,
+    "gains": 28,
+    "losses": 0,
+    "observed_gain_pp": 0.1708984375,
+    "one_sided95_net_gain_lower_pp": 0.09107728055290461,
+    "one_sided95_net_gain_upper_pp": 0.246901831979325,
+    "target_pp": 0.05,
+    "accuracy_decision": "supported",
+    "median_answer_overhead_percent": 6.905108263886199,
+    "overhead_target_percent": 2.0,
+    "runtime_decision": "falsified",
+    "decision": "falsified"
+  },
+  "secondary": {
+    "gain_input_indices": [
+      79,
+      417,
+      488,
+      1747,
+      2592,
+      3498,
+      3582,
+      3588,
+      5621,
+      5949,
+      6555,
+      7218,
+      8095,
+      9310,
+      9595,
+      9882,
+      10004,
+      10489,
+      11297,
+      11321,
+      11388,
+      12173,
+      13267,
+      13583,
+      14471,
+      15314,
+      15840,
+      16259
+    ],
+    "loss_input_indices": [],
+    "cohort_end_gains_vs_native": 28,
+    "cohort_end_losses_vs_native": 0
+  },
+  "joint_success": {
+    "native": 16322,
+    "bounded1024": 16350,
+    "cohort_end": 16350
+  },
+  "n_unique": 16384,
+  "fixed_models": 3,
+  "main_jobs": 192,
+  "fallback_jobs": 52,
+  "new_scientific_trajectories": 49484,
+  "timing_repeat_trajectories": 246424,
+  "logical_scientific_outcomes": 147456,
+  "exact_native_output_reuses": 97972,
+  "fallback_model_inputs_per_policy": 166,
+  "fallback_model_inputs_both_policies": 332,
+  "timing": [
+    {
+      "repetition": 0,
+      "policy": "bounded1024",
+      "cost_seconds": {
+        "model_setup": 0.003910072962753475,
+        "input_setup": 0.42383519891882315,
+        "hidden": 18.336640969791915,
+        "native_answer": 123.87136513664154,
+        "native_output": 0.09210924326907843,
+        "validator": 0.5153958091395907,
+        "queue": 0.09925663302419707,
+        "fallback_setup": 0.00185240781866014,
+        "fallback_answer": 8.006234285014216,
+        "fallback_output": 0.002617929712869227
+      },
+      "native_common_seconds": 142.7278606215841,
+      "incremental_seconds": 8.625357064709533,
+      "answer_overhead_percent": 6.96315654162281,
+      "end_to_end_overhead_percent": 6.043218911252397,
+      "fallback_batches": 46
+    },
+    {
+      "repetition": 1,
+      "policy": "bounded1024",
+      "cost_seconds": {
+        "model_setup": 0.0034045149805024266,
+        "input_setup": 0.39295202534412965,
+        "hidden": 18.324719882803038,
+        "native_answer": 122.0278944959282,
+        "native_output": 0.0844048103899695,
+        "validator": 0.4891194977099076,
+        "queue": 0.011485695256851614,
+        "fallback_setup": 0.001952545891981572,
+        "fallback_answer": 7.92123276606435,
+        "fallback_output": 0.002367722161579877
+      },
+      "native_common_seconds": 140.83337572944583,
+      "incremental_seconds": 8.42615822708467,
+      "answer_overhead_percent": 6.905108263886199,
+      "end_to_end_overhead_percent": 5.983069129346237,
+      "fallback_batches": 46
+    },
+    {
+      "repetition": 2,
+      "policy": "bounded1024",
+      "cost_seconds": {
+        "model_setup": 0.003456382022704929,
+        "input_setup": 0.39336517720948905,
+        "hidden": 18.301324611122254,
+        "native_answer": 122.4364038273925,
+        "native_output": 0.08459113095887005,
+        "validator": 0.49095495778601617,
+        "queue": 0.011584385705646127,
+        "fallback_setup": 0.001959119050297886,
+        "fallback_answer": 7.910638915025629,
+        "fallback_output": 0.0023277238942682743
+      },
+      "native_common_seconds": 141.21914112870581,
+      "incremental_seconds": 8.417465101461858,
+      "answer_overhead_percent": 6.87496923980924,
+      "end_to_end_overhead_percent": 5.960569533410672,
+      "fallback_batches": 46
+    },
+    {
+      "repetition": 0,
+      "policy": "cohort_end",
+      "cost_seconds": {
+        "model_setup": 0.0036788270226679742,
+        "input_setup": 0.3847119143465534,
+        "hidden": 18.2006299138302,
+        "native_answer": 122.51149336452363,
+        "native_output": 0.08331608131993562,
+        "validator": 0.4890395723632537,
+        "queue": 0.011492275691125542,
+        "fallback_setup": 0.0004415990551933646,
+        "fallback_answer": 1.131088947004173,
+        "fallback_output": 0.0004490300198085606
+      },
+      "native_common_seconds": 141.183830101043,
+      "incremental_seconds": 1.632511424133554,
+      "answer_overhead_percent": 1.3325373638831914,
+      "end_to_end_overhead_percent": 1.1563019808749997,
+      "fallback_batches": 6
+    },
+    {
+      "repetition": 1,
+      "policy": "cohort_end",
+      "cost_seconds": {
+        "model_setup": 0.0034060379839502275,
+        "input_setup": 0.3896877523511648,
+        "hidden": 18.319579436501954,
+        "native_answer": 122.4033416461316,
+        "native_output": 0.0835120803094469,
+        "validator": 0.488687161647249,
+        "queue": 0.01157994067762047,
+        "fallback_setup": 0.00036203989293426275,
+        "fallback_answer": 1.1209238098817877,
+        "fallback_output": 0.0004368330119177699
+      },
+      "native_common_seconds": 141.1995269532781,
+      "incremental_seconds": 1.6219897851115093,
+      "answer_overhead_percent": 1.3251188760848427,
+      "end_to_end_overhead_percent": 1.1487218265598111,
+      "fallback_batches": 6
+    },
+    {
+      "repetition": 2,
+      "policy": "cohort_end",
+      "cost_seconds": {
+        "model_setup": 0.0033732170122675598,
+        "input_setup": 0.38125376735115424,
+        "hidden": 18.334714940108825,
+        "native_answer": 122.49356798606459,
+        "native_output": 0.08360020979307592,
+        "validator": 0.4881006430950947,
+        "queue": 0.011407697689719498,
+        "fallback_setup": 0.00033857813104987144,
+        "fallback_answer": 1.11769802600611,
+        "fallback_output": 0.0004292830708436668
+      },
+      "native_common_seconds": 141.2965101203299,
+      "incremental_seconds": 1.6179742279928178,
+      "answer_overhead_percent": 1.3208646417882821,
+      "end_to_end_overhead_percent": 1.145091429798889,
+      "fallback_batches": 6
+    }
+  ],
+  "bounded_vs_cohort_batch_parity": {
+    "inputs": 166,
+    "different_boards": 0,
+    "different_steps": 0,
+    "different_flags": 0,
+    "maximum_logit_error": 0.0
+  },
+  "latency_summary": [
+    {
+      "policy": "bounded1024",
+      "repetition": 0,
+      "n_rejected_model_inputs": 166,
+      "wall_delay_seconds": {
+        "mean": 4.6546799519712225,
+        "p50": 3.850996772001963,
+        "p95": 9.56555058824597,
+        "max": 9.867910651955754
+      },
+      "decoder_delay_seconds": {
+        "mean": 3.7438048553226673,
+        "p50": 3.1954961840528995,
+        "p95": 7.5785847848892445,
+        "max": 7.901646772690583
+      },
+      "input_delay_from_native_completion": {
+        "mean": 452.6265060240964,
+        "p50": 448.0,
+        "p95": 896.0,
+        "max": 960.0
+      },
+      "input_delay_from_source_ordinal": {
+        "mean": 482.59638554216866,
+        "p50": 475.5,
+        "p95": 937.5,
+        "max": 1019.0
+      }
+    },
+    {
+      "policy": "bounded1024",
+      "repetition": 1,
+      "n_rejected_model_inputs": 166,
+      "wall_delay_seconds": {
+        "mean": 3.7404050747614987,
+        "p50": 3.220832992490614,
+        "p95": 7.478499651508173,
+        "max": 7.772619110008236
+      },
+      "decoder_delay_seconds": {
+        "mean": 3.6965854161325002,
+        "p50": 3.186533322703326,
+        "p95": 7.387435163895134,
+        "max": 7.654981066472828
+      },
+      "input_delay_from_native_completion": {
+        "mean": 452.6265060240964,
+        "p50": 448.0,
+        "p95": 896.0,
+        "max": 960.0
+      },
+      "input_delay_from_source_ordinal": {
+        "mean": 482.59638554216866,
+        "p50": 475.5,
+        "p95": 937.5,
+        "max": 1019.0
+      }
+    },
+    {
+      "policy": "bounded1024",
+      "repetition": 2,
+      "n_rejected_model_inputs": 166,
+      "wall_delay_seconds": {
+        "mean": 3.748454194464749,
+        "p50": 3.224394754972309,
+        "p95": 7.533126931492006,
+        "max": 7.801117436029017
+      },
+      "decoder_delay_seconds": {
+        "mean": 3.7053864915036114,
+        "p50": 3.2037406890885904,
+        "p95": 7.42828605073737,
+        "max": 7.674063185113482
+      },
+      "input_delay_from_native_completion": {
+        "mean": 452.6265060240964,
+        "p50": 448.0,
+        "p95": 896.0,
+        "max": 960.0
+      },
+      "input_delay_from_source_ordinal": {
+        "mean": 482.59638554216866,
+        "p50": 475.5,
+        "p95": 937.5,
+        "max": 1019.0
+      }
+    },
+    {
+      "policy": "cohort_end",
+      "repetition": 0,
+      "n_rejected_model_inputs": 166,
+      "wall_delay_seconds": {
+        "mean": 35.094340443109715,
+        "p50": 33.01529410548392,
+        "p95": 70.36154739871563,
+        "max": 72.66790475696325
+      },
+      "decoder_delay_seconds": {
+        "mean": 34.71085545328321,
+        "p50": 32.64930644468404,
+        "p95": 69.53987230391067,
+        "max": 71.90464341978077
+      },
+      "input_delay_from_native_completion": {
+        "mean": 3962.602409638554,
+        "p50": 3584.0,
+        "p95": 7984.0,
+        "max": 8064.0
+      },
+      "input_delay_from_source_ordinal": {
+        "mean": 3992.5722891566265,
+        "p50": 3589.0,
+        "p95": 8008.5,
+        "max": 8112.0
+      }
+    },
+    {
+      "policy": "cohort_end",
+      "repetition": 1,
+      "n_rejected_model_inputs": 166,
+      "wall_delay_seconds": {
+        "mean": 35.07759147319986,
+        "p50": 33.01020574051654,
+        "p95": 70.60908238276897,
+        "max": 72.43169127503643
+      },
+      "decoder_delay_seconds": {
+        "mean": 34.714096399834126,
+        "p50": 32.677166817564284,
+        "p95": 69.66843849215365,
+        "max": 71.78749638941372
+      },
+      "input_delay_from_native_completion": {
+        "mean": 3962.602409638554,
+        "p50": 3584.0,
+        "p95": 7984.0,
+        "max": 8064.0
+      },
+      "input_delay_from_source_ordinal": {
+        "mean": 3992.5722891566265,
+        "p50": 3589.0,
+        "p95": 8008.5,
+        "max": 8112.0
+      }
+    },
+    {
+      "policy": "cohort_end",
+      "repetition": 2,
+      "n_rejected_model_inputs": 166,
+      "wall_delay_seconds": {
+        "mean": 35.10963093303705,
+        "p50": 33.047151330974884,
+        "p95": 70.5653961289645,
+        "max": 72.52156505297171
+      },
+      "decoder_delay_seconds": {
+        "mean": 34.730229925147206,
+        "p50": 32.682870175514836,
+        "p95": 69.65610685013235,
+        "max": 71.89346091501648
+      },
+      "input_delay_from_native_completion": {
+        "mean": 3962.602409638554,
+        "p50": 3584.0,
+        "p95": 7984.0,
+        "max": 8064.0
+      },
+      "input_delay_from_source_ordinal": {
+        "mean": 3992.5722891566265,
+        "p50": 3589.0,
+        "p95": 8008.5,
+        "max": 8112.0
+      }
+    }
+  ],
+  "protocol_sha256": "eec1107deebc58204c04a870b1f4ff67b188486771cc4fa18e192db6d637fda9",
+  "script_sha256": "ab0493793ba736e7c978391a33b8f1202cc0633ccf16f92aaea7985c16e9b45b",
+  "independent_graph_board_checks": 16428,
+  "input_audit_seconds": 19.62554276495939,
+  "audit_seconds": 14.220762459968682,
+  "scope": "Graph-informed fixed1024 native-input fallback windows vs independently executed cohort-end batching. Three full timing repetitions per policy; both actual wall and component-only rejected-input latencies retained. Validator uses feasibility only; no shortestness. Physical timing repeats are not independent accuracy inputs.",
+  "full_local_audit_sha256": "e55c7ab270ba2cbf4b79d89dde1b88700c06e8acdb0ed8358598da28b5c3d176"
+}

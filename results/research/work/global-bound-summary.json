@@ -1,0 +1,316 @@
+{
+  "status": "exact_certificates_verified",
+  "scope": "One preselected90grid graph, all3frozen models and archived readouts. Unique globalminimum over free binaryanswer cells with walls/endpoints clamped; no continuousminimum or populationclaim.",
+  "primary_half_allocation": "No certificate for all3models; retained negative slacks.",
+  "predeclared_secondary_asymmetric_allocation": "Strict exactrational certificate for all3models.",
+  "records": [
+    {
+      "seed": 0,
+      "status": "exact_certificate_passed",
+      "free_binary_cells": 4434,
+      "pair_coefficients": 7308,
+      "negative_edges": 4819,
+      "half_allocation_minimum_slack": -10.711778814078743,
+      "exact_minimum_primal_slack": 4.358498394556145,
+      "exact_dual_upper": 4.358498394606799,
+      "exact_duality_gap": 5.06540444755738e-11,
+      "conservative_float64_allowance": 0.00018257680225242603,
+      "strict_slack_over_allowance_ratio": 23872.13677085984,
+      "conclusion": "With storedreadout and clampedwalls/endpoints, endpoint-only is the unique globalminimum over allfree binaryanswers. For anynonzero freeboard, E(board)-E(endpoint)>=minimum_primal_slack*number_selected_free_cells>0."
+    },
+    {
+      "seed": 1,
+      "status": "exact_certificate_passed",
+      "free_binary_cells": 4434,
+      "pair_coefficients": 7308,
+      "negative_edges": 4819,
+      "half_allocation_minimum_slack": -10.695390656431352,
+      "exact_minimum_primal_slack": 4.348048597638868,
+      "exact_dual_upper": 4.348048597687837,
+      "exact_duality_gap": 4.8969941384857604e-11,
+      "conservative_float64_allowance": 0.00018226585543269235,
+      "strict_slack_over_allowance_ratio": 23855.530084429483,
+      "conclusion": "With storedreadout and clampedwalls/endpoints, endpoint-only is the unique globalminimum over allfree binaryanswers. For anynonzero freeboard, E(board)-E(endpoint)>=minimum_primal_slack*number_selected_free_cells>0."
+    },
+    {
+      "seed": 2,
+      "status": "exact_certificate_passed",
+      "free_binary_cells": 4434,
+      "pair_coefficients": 7308,
+      "negative_edges": 4819,
+      "half_allocation_minimum_slack": -10.67077088759921,
+      "exact_minimum_primal_slack": 4.385751843531193,
+      "exact_dual_upper": 4.38575184359085,
+      "exact_duality_gap": 5.965660927183673e-11,
+      "conservative_float64_allowance": 0.00018239651696735416,
+      "strict_slack_over_allowance_ratio": 24045.151280581566,
+      "conclusion": "With storedreadout and clampedwalls/endpoints, endpoint-only is the unique globalminimum over allfree binaryanswers. For anynonzero freeboard, E(board)-E(endpoint)>=minimum_primal_slack*number_selected_free_cells>0."
+    }
+  ],
+  "half_allocation_source_receipts": {
+    "status": "complete",
+    "utc": "2026-11-15T01:18:47.756262+00:00",
+    "records": [
+      {
+        "seed": 0,
+        "status": "no_certificate",
+        "exact_half_minimum_slack": {
+          "numerator": "-13260539885916942758173265611",
+          "denominator": "1237940039285380274899124224"
+        },
+        "minimum_slack_float": -10.711778814078743,
+        "nonpositive_half_slack_nodes": 604,
+        "nodes": 4434,
+        "edges": 7308,
+        "negative_edges": 4819,
+        "source_float64_allowance": 0.00018257680225242603,
+        "allowance_exact": {
+          "numerator": "18776935006143897095990241901503715480729608056857923079586740962567",
+          "denominator": "102844034808887633128383298955886245983661610722581572290084864000000000"
+        },
+        "allowance_method": {
+          "operation_upper_bound_per_board": 2074600,
+          "unit_roundoff": "2^-53",
+          "absolute_term_upper_bound": {
+            "numerator": "37070333217720245885210373053421390451074776511799664215",
+            "denominator": "187072209578355573530071658587684226515959365500928"
+          },
+          "formula": "4*gamma_m*(absolute_term_bound+nfree/10^11)+10^-8, gamma_m=m*u/(1-m*u). Exactrational coefficient/certificate proof has no rounding. This conservative allowance is only for the float64source checker, not a float32 summation guarantee."
+        },
+        "source_parity": {
+          "all_unary_checks": 4434,
+          "all_pair_checks": 7308,
+          "random_binary_boards": 256,
+          "maximum_unary_error": 8.881784197001252e-16,
+          "maximum_pair_error": 3.552713678800501e-15,
+          "maximum_energy_difference_error": 1.4551915228366852e-11
+        },
+        "protocol_sha256": "c45a98710b23020b010bc94d7c0cdd4032d9e369d709693732b7d227ce22dbf7",
+        "script_sha256": "8d86f4afe70285b786a60cbd1f1c4a1471ae877cf943e300719cacc4e31686a9",
+        "constants_sha256": "58b926c0e9cc1cb3d4d80103ee50de41ef1282b9f6a8116e509ab2e0a1d81401",
+        "coefficients_sha256": "fa3c3e432da3c6ab08e51c73d6921190001935dba1b55b2b06d4b7130fab6732",
+        "checkpoint_sha256": "84d694828c90cbf55bcf2eb84136324e2a5d482e4847e50d7b9f67b39c8aa230",
+        "graph_state_sha256": "e3218a94e89691f100eaca60a47c09c32a6574f451f731efb91b9227bb0fa6e0",
+        "scope": "One preselectedgraph, fixed retainedreadout. Half allocation failure says only no certificate; no globaloptimality conclusion."
+      },
+      {
+        "seed": 1,
+        "status": "no_certificate",
+        "exact_half_minimum_slack": {
+          "numerator": "-6620126164697557768541533757",
+          "denominator": "618970019642690137449562112"
+        },
+        "minimum_slack_float": -10.695390656431352,
+        "nonpositive_half_slack_nodes": 604,
+        "nodes": 4434,
+        "edges": 7308,
+        "negative_edges": 4819,
+        "source_float64_allowance": 0.00018226585543269235,
+        "allowance_exact": {
+          "numerator": "74979823922365975978660019408726771901886366955298271045106387678393",
+          "denominator": "411376139235550532513533195823544983934646442890326289160339456000000000"
+        },
+        "allowance_method": {
+          "operation_upper_bound_per_board": 2074600,
+          "unit_roundoff": "2^-53",
+          "absolute_term_upper_bound": {
+            "numerator": "148028780882714314104751313954699725148487219729518866281",
+            "denominator": "748288838313422294120286634350736906063837462003712"
+          },
+          "formula": "4*gamma_m*(absolute_term_bound+nfree/10^11)+10^-8, gamma_m=m*u/(1-m*u). Exactrational coefficient/certificate proof has no rounding. This conservative allowance is only for the float64source checker, not a float32 summation guarantee."
+        },
+        "source_parity": {
+          "all_unary_checks": 4434,
+          "all_pair_checks": 7308,
+          "random_binary_boards": 256,
+          "maximum_unary_error": 1.7763568394002505e-15,
+          "maximum_pair_error": 3.552713678800501e-15,
+          "maximum_energy_difference_error": 1.4551915228366852e-11
+        },
+        "protocol_sha256": "c45a98710b23020b010bc94d7c0cdd4032d9e369d709693732b7d227ce22dbf7",
+        "script_sha256": "8d86f4afe70285b786a60cbd1f1c4a1471ae877cf943e300719cacc4e31686a9",
+        "constants_sha256": "bb01ede821dfea6aeb1c7e96fd852f9f8a1c81f1e7ca17a09194d48f5ef53f0d",
+        "coefficients_sha256": "240b02820e2061ed7a462d21954752fa7db37e74fda8156077b0926b6e4be450",
+        "checkpoint_sha256": "21004b8bca2fde7ae23825e874a30e15d28174ae5da16382420a1743d8ad2881",
+        "graph_state_sha256": "9f14b72765388876c75f2f88aa6b5e3ec65e2b11bff8a6b5c207bd785b4b8679",
+        "scope": "One preselectedgraph, fixed retainedreadout. Half allocation failure says only no certificate; no globaloptimality conclusion."
+      },
+      {
+        "seed": 2,
+        "status": "no_certificate",
+        "exact_half_minimum_slack": {
+          "numerator": "-206402727059372783743961587",
+          "denominator": "19342813113834066795298816"
+        },
+        "minimum_slack_float": -10.67077088759921,
+        "nonpositive_half_slack_nodes": 604,
+        "nodes": 4434,
+        "edges": 7308,
+        "negative_edges": 4819,
+        "source_float64_allowance": 0.00018239651696735416,
+        "allowance_exact": {
+          "numerator": "37516787480020869528656179616004926080322625079890163119530952628259",
+          "denominator": "205688069617775266256766597911772491967323221445163144580169728000000000"
+        },
+        "allowance_method": {
+          "operation_upper_bound_per_board": 2074600,
+          "unit_roundoff": "2^-53",
+          "absolute_term_upper_bound": {
+            "numerator": "74067452296731669143901730417089450142901757364412016307",
+            "denominator": "374144419156711147060143317175368453031918731001856"
+          },
+          "formula": "4*gamma_m*(absolute_term_bound+nfree/10^11)+10^-8, gamma_m=m*u/(1-m*u). Exactrational coefficient/certificate proof has no rounding. This conservative allowance is only for the float64source checker, not a float32 summation guarantee."
+        },
+        "source_parity": {
+          "all_unary_checks": 4434,
+          "all_pair_checks": 7308,
+          "random_binary_boards": 256,
+          "maximum_unary_error": 1.7763568394002505e-15,
+          "maximum_pair_error": 3.552713678800501e-15,
+          "maximum_energy_difference_error": 1.4551915228366852e-11
+        },
+        "protocol_sha256": "c45a98710b23020b010bc94d7c0cdd4032d9e369d709693732b7d227ce22dbf7",
+        "script_sha256": "8d86f4afe70285b786a60cbd1f1c4a1471ae877cf943e300719cacc4e31686a9",
+        "constants_sha256": "2584c75dae03f8bd7ed4a43ca5a52ee9c605772555efdbf3d9378256e04b820f",
+        "coefficients_sha256": "8ff8f999c044cbd87eb535ec2968e21369fce7052007dc49fe3287f04296f8fc",
+        "checkpoint_sha256": "5f350d5de1f42ef627a2dd6052bcdcb722bd965d1ef940863ed4f6955e4a73e3",
+        "graph_state_sha256": "dc24f99dbde1d738b178e2d2cce696f67cf43738fba5422326b0882673a3afdd",
+        "scope": "One preselectedgraph, fixed retainedreadout. Half allocation failure says only no certificate; no globaloptimality conclusion."
+      }
+    ],
+    "cpu_seconds": 2.1038384729763493,
+    "protocol_sha256": "c45a98710b23020b010bc94d7c0cdd4032d9e369d709693732b7d227ce22dbf7"
+  },
+  "allocation_source_receipts": {
+    "status": "complete",
+    "utc": "2026-11-15T01:20:08.742793+00:00",
+    "records": [
+      {
+        "seed": 0,
+        "solver_status": 0,
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_seconds": 0.032388095976784825,
+        "scipy": "1.18.1",
+        "coefficients_sha256": "fa3c3e432da3c6ab08e51c73d6921190001935dba1b55b2b06d4b7130fab6732",
+        "script_sha256": "88dbe3555e268265c5a3f347a682e6798e7ae61e39155499e0260de9b9a65778",
+        "secondary_predeclared": true,
+        "status": "certified",
+        "exact_primal_lower": {
+          "numerator": "176801699390491889535706765139213",
+          "denominator": "40564819207303340847894502572032"
+        },
+        "exact_dual_upper": {
+          "numerator": "1060810196355279970151862713852635",
+          "denominator": "243388915243820045087367015432192"
+        },
+        "exact_duality_gap": {
+          "numerator": "12328632937622123017357",
+          "denominator": "243388915243820045087367015432192"
+        },
+        "primal_lower": 4.358498394556145,
+        "dual_upper": 4.358498394606799,
+        "duality_gap": 5.06540444755738e-11,
+        "reported_float_solver_slack": 4.3584983946068006,
+        "allowance": 0.00018257680225242603,
+        "allocation_bound_violations": 0,
+        "minimum_exact_node_slack": 4.358498394556145,
+        "dual_normalization_exact": true,
+        "relaxation_strict_certificate_impossible": false,
+        "certificate_sha256": "0928649de633a45e011ae69fcbaae213f77f5323f5d03eefb5cf717b1da6de3f",
+        "scope": "Exactprimal allocation gives a globalbinary lowerbound if strictslack exceedsallowance. Exactdual only bounds bestuniformslack of this negative-edge allocationrelaxation; a negative upper bound does not disprove endpointglobaloptimality."
+      },
+      {
+        "seed": 1,
+        "solver_status": 0,
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_seconds": 0.024110477999784052,
+        "scipy": "1.18.1",
+        "coefficients_sha256": "240b02820e2061ed7a462d21954752fa7db37e74fda8156077b0926b6e4be450",
+        "script_sha256": "88dbe3555e268265c5a3f347a682e6798e7ae61e39155499e0260de9b9a65778",
+        "secondary_predeclared": true,
+        "status": "certified",
+        "exact_primal_lower": {
+          "numerator": "44094451316947371017392606052643",
+          "denominator": "10141204801825835211973625643008"
+        },
+        "exact_dual_upper": {
+          "numerator": "264566707904663911332659122175255",
+          "denominator": "60847228810955011271841753858048"
+        },
+        "exact_duality_gap": {
+          "numerator": "2979685228303485859397",
+          "denominator": "60847228810955011271841753858048"
+        },
+        "primal_lower": 4.348048597638868,
+        "dual_upper": 4.348048597687837,
+        "duality_gap": 4.8969941384857604e-11,
+        "reported_float_solver_slack": 4.348048597687838,
+        "allowance": 0.00018226585543269235,
+        "allocation_bound_violations": 0,
+        "minimum_exact_node_slack": 4.348048597638868,
+        "dual_normalization_exact": true,
+        "relaxation_strict_certificate_impossible": false,
+        "certificate_sha256": "e8e4fb6f90fbf9962f12ea6d8ac2ee81805b36aa53a3ca4d6f2702428f7ff16f",
+        "scope": "Exactprimal allocation gives a globalbinary lowerbound if strictslack exceedsallowance. Exactdual only bounds bestuniformslack of this negative-edge allocationrelaxation; a negative upper bound does not disprove endpointglobaloptimality."
+      },
+      {
+        "seed": 2,
+        "solver_status": 0,
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_seconds": 0.02394380501937121,
+        "scipy": "1.18.1",
+        "coefficients_sha256": "8ff8f999c044cbd87eb535ec2968e21369fce7052007dc49fe3287f04296f8fc",
+        "script_sha256": "88dbe3555e268265c5a3f347a682e6798e7ae61e39155499e0260de9b9a65778",
+        "secondary_predeclared": true,
+        "status": "certified",
+        "exact_primal_lower": {
+          "numerator": "44476807655235045423926340843939",
+          "denominator": "10141204801825835211973625643008"
+        },
+        "exact_dual_upper": {
+          "numerator": "266860845935040211898007234619339",
+          "denominator": "60847228810955011271841753858048"
+        },
+        "exact_duality_gap": {
+          "numerator": "3629939354449189555705",
+          "denominator": "60847228810955011271841753858048"
+        },
+        "primal_lower": 4.385751843531193,
+        "dual_upper": 4.38575184359085,
+        "duality_gap": 5.965660927183673e-11,
+        "reported_float_solver_slack": 4.3857518435908505,
+        "allowance": 0.00018239651696735416,
+        "allocation_bound_violations": 0,
+        "minimum_exact_node_slack": 4.385751843531193,
+        "dual_normalization_exact": true,
+        "relaxation_strict_certificate_impossible": false,
+        "certificate_sha256": "15a302785ef9628fcf5043813703c132495cc497ee6a67a1b350fd2e8688a42e",
+        "scope": "Exactprimal allocation gives a globalbinary lowerbound if strictslack exceedsallowance. Exactdual only bounds bestuniformslack of this negative-edge allocationrelaxation; a negative upper bound does not disprove endpointglobaloptimality."
+      }
+    ],
+    "cpu_seconds": 0.23340604698751122
+  },
+  "protocol_sha256": "c45a98710b23020b010bc94d7c0cdd4032d9e369d709693732b7d227ce22dbf7",
+  "verifier_sha256": "407b5cdec745c6a525c7a43588ebdb242b136765609d17a50eb0ff66823b0494",
+  "derivation_sha256": "9e23566f767f34b9aec2ae7fc84929d327d7362cd7b095c06cf53e0410a015bb",
+  "public_files": {
+    "global-bound/seed0/allocation-certificate.json": "0928649de633a45e011ae69fcbaae213f77f5323f5d03eefb5cf717b1da6de3f",
+    "global-bound/seed0/allocation-result.json": "31cefec2ec97a7d6712672888bc0f4d3f7ad43ac512a0ba7a4c677031f05556f",
+    "global-bound/seed0/coefficients.json": "fa3c3e432da3c6ab08e51c73d6921190001935dba1b55b2b06d4b7130fab6732",
+    "global-bound/seed0/constants.npz": "58b926c0e9cc1cb3d4d80103ee50de41ef1282b9f6a8116e509ab2e0a1d81401",
+    "global-bound/seed0/half-result.json": "8fc51a5511445f8c50aa689ab17ecfaaec27cadab968f16ac52077d9896ee2ed",
+    "global-bound/seed1/allocation-certificate.json": "e8e4fb6f90fbf9962f12ea6d8ac2ee81805b36aa53a3ca4d6f2702428f7ff16f",
+    "global-bound/seed1/allocation-result.json": "d2a06d72163fa2bdcb4fdda22f1e32dfb6f3deaafe7c767bc20efa567891c62b",
+    "global-bound/seed1/coefficients.json": "240b02820e2061ed7a462d21954752fa7db37e74fda8156077b0926b6e4be450",
+    "global-bound/seed1/constants.npz": "bb01ede821dfea6aeb1c7e96fd852f9f8a1c81f1e7ca17a09194d48f5ef53f0d",
+    "global-bound/seed1/half-result.json": "f630f4fdf30d8810f1184bd3ef455ef8e1eb2a9e948f4b2b7018e0245fd65403",
+    "global-bound/seed2/allocation-certificate.json": "15a302785ef9628fcf5043813703c132495cc497ee6a67a1b350fd2e8688a42e",
+    "global-bound/seed2/allocation-result.json": "ee9f23dd528bfa23dcc985aa32543500e08488670c8ee8c73ef45c3c36285bb0",
+    "global-bound/seed2/coefficients.json": "8ff8f999c044cbd87eb535ec2968e21369fce7052007dc49fe3287f04296f8fc",
+    "global-bound/seed2/constants.npz": "2584c75dae03f8bd7ed4a43ca5a52ee9c605772555efdbf3d9378256e04b820f",
+    "global-bound/seed2/half-result.json": "7a450eadcd8beee895e97c50e9b5ea7edeb8229f85469c654891cad54e5e6062"
+  },
+  "new_inference_or_training": false,
+  "new_independent_inputs": 0,
+  "source_to_coefficient": "Publicrawconstants plus independentexactper-node reconstruction in verifier; upstream source hashes, checkpoint hashes and archivedreadout hashes retained in receipts."
+}
