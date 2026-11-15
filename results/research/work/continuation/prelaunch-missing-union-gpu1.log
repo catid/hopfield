@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/home/catid/hopfield/research/20261114/work/preflight_continuation.py", line 50, in <module>
+    ap=argparse.ArgumentParser();ap.add_argument('command',choices=['synthetic','source']);ap.add_argument('--gpu',type=int,choices=[0,1]);a=ap.parse_args();source(a.gpu) if a.command=='source' else synthetic()
+                                                                                                                                                             ~~~~~~^^^^^^^
+  File "/home/catid/hopfield/research/20261114/work/preflight_continuation.py", line 27, in source
+    lock,inventory=F.acquire(gpu);torch,_,_=S.imports();p=protocol();started=time.perf_counter();data=json.loads((SOURCE/'datasets.json').read_text())['datasets'][0];assert S.sha(S.ROOT/data['path'])==data['sha256']
+                                                          ~~~~~~~~^^
+  File "/home/catid/hopfield/research/20261114/work/continuation_study.py", line 22, in protocol
+    for path,h in {**p['source_sha256'],**p['source_evidence_sha256']}.items():assert S.sha(S.ROOT/path)==h,path
+                                                                                      ~~~~~^^^^^^^^^^^^^
+  File "/home/catid/hopfield/research/20261114/work/study.py", line 29, in sha
+    with Path(path).open("rb") as f:
+         ~~~~~~~~~~~~~~~^^^^^^
+  File "/home/catid/.local/share/uv/python/cpython-3.13.13-linux-x86_64-gnu/lib/python3.13/pathlib/_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/catid/hopfield/artifacts/research/20261114/work/loop80_residual_diagnosis/union.json'

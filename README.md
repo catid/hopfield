@@ -18,6 +18,12 @@ Under strong, concentrated label corruption, **LP cost curvature recovers all 64
 
 ![Fresh confirmation: LP cost curvature recovers all 64 strongly corrupted graphs](assets/figures/fresh-curvature.png)
 
+The same selector also recovers **64/64 randomly permuted cycles and 64/64 nine-clique graphs**, selecting degrees two and eight. These are uniform proper-coloring samples from two specified synthetic families, with the same concentrated corruption. [Synthetic transfer, inline graph and exact proofs](research/20261114/foureyes/REPORT-varying-degree.md)
+
+**Spend the same label budget on more cells per board:** querying 72 cells on 200 boards recovers **32/32 noisy Sudoku graphs**, versus **6/32** from 32 cells on 450 boards. Both cost 14,400 labels per bank. This fresh paired experiment changes both pair coverage and the number of independent boards; it does not isolate either as the sole cause. [Frozen targets, query accounting and controls](research/20261114/ripper/REPORT-coverage-tradeoff.md)
+
+![Same label budget: broader observation per board recovers more exact graphs](assets/figures/coverage_tradeoff.png)
+
 ## Cycle cuts solve fresh mazes at two sizes
 
 ![Fresh maze transfer: paired failures and full prefix costs](results/research/work/cycle-transfer/fresh-cycle-transfer.png)
@@ -35,6 +41,8 @@ The revised decoder also solves **4,096/4,096 fresh 180×180 mazes at 50% loop d
 ![Fresh dense-maze confirmation: perfect finite-cohort success with separate endpoint decisions](results/research/work/unified-cycle/unified-cycle.png)
 
 At **80% loop density**, the same decoder solves **4,044/4,096 fresh mazes jointly**, versus 3,911 for BP AdamW and 3,623 for the original 16-round decoder. All four relative improvement targets pass, but the separate **99.9% success target is falsified**: 52 inputs remain unsolved. The BP comparison includes 178 gains and 45 losses. [Density limit, paired outcomes and full audit](research/20261114/work/REPORT.md#h2be-denser-mazes-falsify-999-sufficiency-of-the-fixed-48-round-decoder)
+
+Extending the decoder to **96 cycle rounds rescues all 148 capped model-input cases** on that already examined cohort, bringing all-model success to **4,096/4,096**. Increasing the move-size limit from 256 to 512 changes no choices or outcomes. This is an archived-input intervention; a fresh confirmation is separate. [Complete continuation evidence](research/20261114/work/REPORT.md#h2bg-more-rounds-repair-every-archived-loop80-cap-a-larger-chain-limit-changes-nothing)
 
 An exact geometry optimization makes this complete inference policy **1.33× faster** on a fixed 768-model-input replay cohort, with identical boards, counters, flags and search traces. Candidate generation alone is 4.98× faster. Both frozen speed targets pass across four balanced paired repetitions; this is a measured source-cohort speed result, with no new accuracy samples. [Correctness gates, timing scope and all pairs](research/20261114/work/REPORT.md#h2bd-exact-bridge-geometry-meets-separate-geometry-and-complete-policy-speed-targets)
 
@@ -57,6 +65,10 @@ An earlier queen-plus-camel replication fits **four independent source-bank draw
 With a supplied class of **1,541 queen rules**, 16 valid N12 examples and at most eight binary N13 membership queries, bounded decision trees identify **1,408/1,408 models** across fresh banks from 22 selected hard rules. The preceding MAP-guided policy identifies 1,371; the paired comparison has 37 gains and zero losses. Both frozen success targets pass. The tree policy uses 19 more membership labels in aggregate, so this is a recovery improvement with a slightly higher observed label cost. [Fresh paired study, supplied priors and full query ledger](research/20261114/loki/h3bj/REPORT.md)
 
 ![Fresh paired rule-identification study: complete recovery with a higher observed label cost](results/research/loki/h3bj/fresh-paired-policy.png)
+
+The source-example budget matters: on a new paired cohort, **eight positives identify 1,354/1,408 rules, versus 1,408/1,408 with sixteen** under the same query policy. All 54 failures reach candidate sets too large to identify within the remaining four binary questions. The frozen per-rule reliability target fails for five of the 22 selected rules. [Paired evidence-budget test and information bounds](research/20261114/loki/h3bm/REPORT.md)
+
+Exact posterior-weighted trees also reduce expected continuation cost by **13.99%** on earlier examined checkpoints, while preserving the four-question limit. That is an exact objective result under the supplied posterior; observed future query savings require a separate test. [Weighted tree optimization](research/20261114/loki/h3bl/REPORT.md)
 
 ## Confidence weights recover answers under noisy labels
 

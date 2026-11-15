@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-15T09:40:57.030330+00:00",
+  "updated_utc": "2026-11-15T10:05:00.677634+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
   "status": "Ongoing research; H2aj prospective factorial complete with independent state and trace audits",
   "host": "work",
@@ -1253,6 +1253,14 @@
         "geometry": "supported",
         "full_policy": "supported"
       }
+    },
+    {
+      "campaign": "loop80_continuation",
+      "hypothesis": "H2bg source96rounds repairs all148caps; separate512 changes no choices/outcomes",
+      "outcome": {
+        "all148_rescued": "supported",
+        "size512_no_change": "supported"
+      }
     }
   ],
   "run_tables": [
@@ -1555,6 +1563,12 @@
       "frozen_utc": "2026-11-15T09:32:07.302380+00:00",
       "hypothesis": "H2bf",
       "status": "completed"
+    },
+    "continuation-protocol": {
+      "sha256": "b7ee2428c7da2231f9294fd525d0a01eb7488cc9a58c29d501e46dd1e8f56a71",
+      "frozen_utc": "2026-11-15T09:57:28.304646+00:00",
+      "hypothesis": "H2bg",
+      "status": "completed_source_intervention"
     }
   },
   "audit_sha256": {
@@ -1603,7 +1617,8 @@
     "artifacts/research/20261114/work/unified_cycle/audit.json": "2c7433c666aa7f32100941790f4db7efd58a62784c81e80b5919b3b26da8e023",
     "artifacts/research/20261114/work/geometry_speed/audit.json": "a6d4d545bd36a98bd1fe8fe484b5c3d8f42680b69bef562472b335263e926298",
     "artifacts/research/20261114/work/loop80_transfer/audit.json": "8cc32f2c449065b547a94deb63e011aeb42d76c0d601ba774e43fecf2bdb38fb",
-    "artifacts/research/20261114/work/veto_speed/audit.json": "3358adf486fd4226934be09874d7fe6dbb1cd886c93244b15781a61b21954170"
+    "artifacts/research/20261114/work/veto_speed/audit.json": "3358adf486fd4226934be09874d7fe6dbb1cd886c93244b15781a61b21954170",
+    "artifacts/research/20261114/work/loop80_continuation/audit.json": "9a95fa1b6cdfc1c4b8e9b05a23b10326a142f90434d9c08b364f79451fdfe83a"
   },
   "model_sha256": {
     "0": {
@@ -2564,5 +2579,25 @@
     "full_policy_median_speedup": 1.4628046859088983,
     "full_policy_decision": "supported",
     "scope": "Exact selected-graph bridge veto geometry; H2bd lexical geometry retained. Four balanced timing pairs each;1024 frozen geometry states and768 source model-input complete-policy cases. All source/pair choices/traces/boards/flags preserved; no new accuracy evidence."
+  },
+  "loop80_continuation": {
+    "hypothesis": "H2bg",
+    "fresh_inputs": 0,
+    "new_scientific_evaluations": 0,
+    "source_intervention_cases": 148,
+    "source_all_input_denominator": 4096,
+    "joint_success": {
+      "total64_limit256": 4082,
+      "total96_limit256": 4096,
+      "total96_limit512": 4096
+    },
+    "model_rescues": {
+      "total64_limit256": 106,
+      "total96_limit256": 148,
+      "total96_limit512": 148
+    },
+    "primary_all148_decision": "supported",
+    "size512_contrast_decision": "supported",
+    "scope": "Archived H2be cap continuation only. All148 cases retained; source BP control and4096-row denominator preserved. Total96 repairs all source failures; fresh confirmation required."
   }
 }

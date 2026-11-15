@@ -1,0 +1,411 @@
+{
+  "id": "H4al-two-synthetic-degrees",
+  "frozen_utc": "2026-11-15T10:05:00.524375+00:00",
+  "groups": [
+    [
+      0
+    ],
+    [
+      1
+    ],
+    [
+      2
+    ],
+    [
+      3
+    ],
+    [
+      4
+    ],
+    [
+      5
+    ],
+    [
+      6
+    ],
+    [
+      7
+    ],
+    [
+      8
+    ],
+    [
+      9
+    ],
+    [
+      10
+    ],
+    [
+      11
+    ],
+    [
+      12
+    ],
+    [
+      13
+    ],
+    [
+      14
+    ],
+    [
+      15
+    ],
+    [
+      16
+    ],
+    [
+      17
+    ],
+    [
+      18
+    ],
+    [
+      19
+    ],
+    [
+      20
+    ],
+    [
+      21
+    ],
+    [
+      22
+    ],
+    [
+      23
+    ],
+    [
+      24
+    ],
+    [
+      25
+    ],
+    [
+      26
+    ],
+    [
+      27
+    ],
+    [
+      28
+    ],
+    [
+      29
+    ],
+    [
+      30
+    ],
+    [
+      31
+    ],
+    [
+      32
+    ],
+    [
+      33
+    ],
+    [
+      34
+    ],
+    [
+      35
+    ],
+    [
+      36
+    ],
+    [
+      37
+    ],
+    [
+      38
+    ],
+    [
+      39
+    ],
+    [
+      40
+    ],
+    [
+      41
+    ],
+    [
+      42
+    ],
+    [
+      43
+    ],
+    [
+      44
+    ],
+    [
+      45
+    ],
+    [
+      46
+    ],
+    [
+      47
+    ],
+    [
+      48
+    ],
+    [
+      49
+    ],
+    [
+      50
+    ],
+    [
+      51
+    ],
+    [
+      52
+    ],
+    [
+      53
+    ],
+    [
+      54
+    ],
+    [
+      55
+    ],
+    [
+      56
+    ],
+    [
+      57
+    ],
+    [
+      58
+    ],
+    [
+      59
+    ],
+    [
+      60
+    ],
+    [
+      61
+    ],
+    [
+      62
+    ],
+    [
+      63
+    ]
+  ],
+  "group_count": 64,
+  "rows_per_group": 2400,
+  "conditions": [
+    "cycle81",
+    "cliques9"
+  ],
+  "arms": [
+    "adamw",
+    "canonical",
+    "restricted",
+    "regularity"
+  ],
+  "graph_seed_base": 202612100000,
+  "coloring_seed_base": 202612110000,
+  "heatmap_seed_base": 202612120000,
+  "noise_rng_base": 202612130000,
+  "augmentation_rng_base": 202612140000,
+  "seed_rule": "Index=2*bank+family_index; separate graph/coloring/hotmap/noise streams add index. BP augmentation adds bank and is shared across family conditions.",
+  "scope": "Two explicitly synthetic families on81nodes: one Hamiltonian81cycle and nine disjoint9cliques, randomly cell-permuted independently in each bank.64banks/family; not arbitrary degree2/8 graphs, no official source or puzzle inputs.",
+  "generator": "Cycle: uniform initial digit0..8 and independent uniform nonzero mod9 increments on80path edges; reject closing equality, retain first2400accepted. Each proper labeled9coloring has equal probability. Fixed512candidate batches, cap10000; shortage=incomplete with no replacement rescue. Cliques: independent uniform9digit permutations for every row/block. All81cellsfree. Retain any duplicate boards; no outcome filtering.",
+  "observation_scope": "The9clique family has exactly9instances ofeachdigit globally; cycle family neednot. Different source distributions are explicit. Graph orders sealed before coloring/noise generation; all code and seeds frozen before any actual graph/source draws.",
+  "noise": "Perbank independently seeded18hotcells withweight32, others1; exactly9freecells selected by unchanged exponentialrace and nonzero offsets. Allcellsfree; same corruptedobservations for allestimators. Graph family data distributions differ, not a paired family comparison.",
+  "primary": "Separately for each family: at least61/64 certified integral exact selected graphs.",
+  "degree_endpoint": "Separately for each family: true degree selected in at least61/64 resolved banks. This weaker diagnostic follows from exactgraph success; not independent corroboration.",
+  "decision": "Exact_lower>=61 supported; exact_lower+unresolved<61 falsified; otherwise inconclusive. Any uncertified grid degree makes that bank unresolved. Selected certified fractional/nonexact is a procedure failure; intermediate fractional grid solutions remain valid objective evidence. Whole resource failure incomplete.",
+  "degrees": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+  ],
+  "candidate_degrees": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+  ],
+  "selector": "Exact doubled optimal values Vd=2F(d), analytic V0=0. For d1..39 maximize V[d+1]-2V[d]+V[d-1]; ties smallest d, including zero curvature. No filtering odd degrees.",
+  "prior": "Common degree and bounded grid0..40 on81nodes. No true degree2/8/20, true edge count, graph family/order or geometry enters inference. Tie rule chooses lowest degree.",
+  "objective": "All3240 pairs eligible; minimize raw equality_count*x with0<=x<=1 and each node degree d. Same deterministic solver/proof rule at every d.",
+  "proof": "Strict inherited half-integral primal/dual proof, no primal rounding; exact complementarity and objective equality. Analytic d0 primal/dual allzero valid because costs nonnegative. No uniqueness claim.",
+  "solver": {
+    "highspy": "1.12.0",
+    "numpy": "2.3.4",
+    "threads": 1,
+    "parallel": "off",
+    "solver": "simplex",
+    "simplex_strategy": 1,
+    "presolve": "off",
+    "time_limit": 1.0,
+    "random_seed_base": 2026141502,
+    "primal_feasibility_tolerance": 1e-09,
+    "dual_feasibility_tolerance": 1e-09
+  },
+  "true_degrees_for_evaluation_only": {
+    "cycle81": 2,
+    "cliques9": 8
+  },
+  "controls": "BPAdamW32 first; canonicalPL256; rawrestrictedcountgap; rawregularity; centeredregularity. Fixeddegree20 cell diagnostic, not a target. Identical frozen recipes; no matchedcompute/optimum claim. Truth/order never passed to estimators.",
+  "regularity_rule": "Every distinct observed equality count<=median(counts) yields candidate edges count<=cut; retain all nonempty candidates. Minimize exact integer81*sum(degree^2)-(sumdegree)^2. Ties fewer retainededges,then lowercut. No minimumedge/degree guard. No supplieddegree20 orcardinality810.",
+  "adamw": {
+    "lr": 0.01,
+    "weight_decay": 0.01,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08
+  },
+  "canonical": {
+    "raw_lambda": 3.3333333333333335e-05,
+    "updates": 256,
+    "initial_step": 540.0,
+    "dtype": "float64"
+  },
+  "inherited_rules": {
+    "canonical": "J>0 and J>=median(positiveJ)/4",
+    "restricted": "First largest adjacent distinct-count gap with upper endpoint<=median(counts); floored midpoint, retain counts<=cut; if no gap cut0.",
+    "adamw": "Unchanged noisy_pl_long.transform, diagonal-minus-offdiagonal means clamped at0, first largest positive gap."
+  },
+  "gate": "Same independent rawPL and canonicalPL checks asH4ad on all4GPUs, eachone2400rowgroup, onlyhotcondition. Canonical3vectors errors<1e-12; unrestricted17rowFP32loss<2e-6,dW/dB<2e-7.",
+  "budget": {
+    "preparation_wall_seconds": 90,
+    "gate_phase_wall_seconds": 45,
+    "fit_phase_wall_seconds": 180,
+    "max_group_wall_seconds": 30,
+    "selection_wall_seconds": 30,
+    "audit_wall_seconds": 240,
+    "total_gpu_minutes_upper_bound": 15
+  },
+  "lp_budget": {
+    "workers": 8,
+    "new_LPs": 5120,
+    "aggregate_cpu_seconds": 900,
+    "wall_seconds": 180,
+    "lp_wall_seconds": 1.0,
+    "gpu_seconds": 0
+  },
+  "source_sha256": {
+    "research/20261114/foureyes/audit_centered_regularity.py": "24c679b4f3aaeb4dd29e4d52f23fe9d61f54e853ea6cd0c16e42e957653285ef",
+    "research/20261114/foureyes/audit_degree_curvature.py": "30186de1e6676efbcc2f103f5a0ba0ac8031b6368e00ab8cdcbfbff610b4b563",
+    "research/20261114/foureyes/audit_fresh_curvature_controls.py": "b60461f7d91cac7f476dc60b79b7355e1e2e5e12f6f5f967269baa402f217c5a",
+    "research/20261114/foureyes/audit_fresh_curvature_degree.py": "ac18e77fe9cda7c5a2ff5a13ef219879ed20fb963c08a5316b51a79c5ec79643",
+    "research/20261114/foureyes/audit_heterogeneous_noise.py": "e76cc7dae0a756b20aad58f48b9c275a3f94c9eec2fc69f5ebfec3a3134d23f3",
+    "research/20261114/foureyes/audit_pooled_source_study.py": "753875f3138982c8aa8ec0bdeaeb7896d1b627a32fbe2594aa05003c111747de",
+    "research/20261114/foureyes/audit_regularity_fresh.py": "d5b20788ec511971a4026fb9cddd5aaa4236e76414c03530816c769184c4eb9b",
+    "research/20261114/foureyes/audit_regularity_gap.py": "e565e6a09333eb3ad60459a3fb711d2dec9e4925e63be6dcec48fb1be207732c",
+    "research/20261114/foureyes/audit_regularity_intensity.py": "e2720b883d28f8bdb2bc363ec413bebd6e5fec8b933ccb7109919b3f61317b80",
+    "research/20261114/foureyes/audit_varying_degree_controls.py": "1d56e945c11afad21cb4a373ed450de551930efae1b3163397bbb0c456f66f29",
+    "research/20261114/foureyes/audit_varying_degree_lp.py": "ea14997695c69f5afd844784916124e9ab7aec2b9cd93d82b21a2b05dc702e51",
+    "research/20261114/foureyes/canonical_pl.py": "8fdf94353b5144414e3f2697ad22e0e5207b7d26ee46463442fda83675dd1ab3",
+    "research/20261114/foureyes/centered_regularity_study.py": "3933cad4ad1d5d3239af5115b3a8e6d9315ffbb05face7c43c3420c145c5025e",
+    "research/20261114/foureyes/degree_curvature_study.py": "45f3fc25131e7f964a7a6d3d7a2cdbe585d16a0b6c41271b9f9382e7276e3f87",
+    "research/20261114/foureyes/fresh_curvature_degree.py": "8ed039e71bb3f979a7ea44354dd59b3ec7f10cff9265d63613d9b240b799fdcf",
+    "research/20261114/foureyes/fresh_curvature_study.py": "61c9971959a2f99213427fda7f648d063f568b059f1b3d60b6cf3ca4fa778520",
+    "research/20261114/foureyes/heterogeneous_noise_study.py": "b37dcb0c4e845904593716bf77d67e4d77874b4d7c60ebefdea0fb5f241d18b5",
+    "research/20261114/foureyes/noisy_pl_long.py": "1176a20102d3561f09b9fc6184a5028bac31256b45e4d54b96d918f71f8a771c",
+    "research/20261114/foureyes/pooled_source_study.py": "66fe592a9cec74bd9d6e0e495524ab8d5dd9f6d6846a86faa0a0ec3bb61c664d",
+    "research/20261114/foureyes/preflight_fresh_curvature.py": "c438ac333d82056e61476a81e64a35080715d5c2bd517c8d1e081d7a2106269e",
+    "research/20261114/foureyes/preflight_regularity_fresh.py": "22936848a45dff84ced1ede39306c785d3549cbbf0c0417d3191b351fb49bad3",
+    "research/20261114/foureyes/preflight_regularity_intensity.py": "1c34b94a62317a2bf2dc91de8d68af0c52eee23097e752a1eae5f3eac56d3009",
+    "research/20261114/foureyes/preflight_varying_degree.py": "6db63bccb7287b676e60c15124c61766683d7c3435eeb42e2995a3e89d365042",
+    "research/20261114/foureyes/regularity_fresh_study.py": "b863768000121a42c1584a5126c9b3567712da042dbafcf18b4054a910c3e4bf",
+    "research/20261114/foureyes/regularity_gap.py": "384a696fffebbcd9820190f7545bc98e780ace51e70a5f2762c666004a104a0d",
+    "research/20261114/foureyes/regularity_intensity_study.py": "57ccb9578d2ff97e6eb8f5b2998ce18f795a7dd0f3fc194db9a219928219c654",
+    "research/20261114/foureyes/varying_degree_lp.py": "d9d9b2da6632c8fbb9b31e466577a44fb12907c29250c624022073f9fa020348",
+    "research/20261114/foureyes/varying_degree_sampling.py": "61187ec65f0f2dac659411121bc8aa82b12aa6be442156d2e9c69e319c397394",
+    "research/20261114/foureyes/varying_degree_study.py": "f13e295950de5be3e54f1b3970a6739e2804ba216b6ece993eb2d1816682f931",
+    "research/20261114/foureyes/weak_weight_study.py": "6c1134c255d704a052c530d2d237f65002fa0bdc608dde43590e58eed937f0f3",
+    "research/20261114/ripper/audit_degree_prior.py": "179feb9815c787a5381d1924ccb0ac41af49e103222503f5ff988dc13559f55b",
+    "research/20261114/ripper/confidence_weight_search.py": "008402a6bbaa3a892e1b3f5fcf88a20d5f9484f85cdf79735b06bde4161d1e56",
+    "research/20261114/ripper/degree_prior_math.py": "5a3ad2c21f59dfe0d2de40065385d484e171c0f854c49c649e868ce5a98a1f8e",
+    "research/20261114/ripper/degree_prior_solver.py": "2af92a5d4326e74813f514291a7a76e6ac92778335e1dd76ffbb01f83d474c43",
+    "upstream/experiments/sudoku.py": "b73f72c8e874711d0d05fa75de0043442a20297618de62e5bb714b76aa09f20b"
+  },
+  "input_sha256": {
+    "research/20261114/foureyes/varying-degree-preflight.json": "dff33644531b5553839f430da79445540defbaa7d84c3b014ba88e84f06b01ed",
+    "research/20261114/foureyes/fresh_curvature.json": "7f2174153d77519b75f1fcfa73f552e5dcfa2f5b61984f1f2ea357bc599b48cf",
+    "research/20261114/foureyes/degree_curvature.json": "2dc854b7009a8d7fe6f974e6f8712900bcab247af1ea69041504057ebe254fe6",
+    "results/research/foureyes/canonical_confirm/models.npz": "9b3675686e035dc3ff3436fce53af96bb43e677d7c9820b47d82f4735e693e55"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "status": "complete",
+  "job": {
+    "id": "s0-part1",
+    "seed": 0,
+    "gpu": 1,
+    "n": 24,
+    "path": "artifacts/research/20261114/work/loop80_continuation/inputs/s0-part1.npz",
+    "sha256": "fcb5b69a1a127b4e24b527554c5333b61e2f54fc9b79f4ff51bd464ba7a540c8"
+  },
+  "protocol_sha256": "b7ee2428c7da2231f9294fd525d0a01eb7488cc9a58c29d501e46dd1e8f56a71",
+  "input_sha256": "fcb5b69a1a127b4e24b527554c5333b61e2f54fc9b79f4ff51bd464ba7a540c8",
+  "outputs_sha256": "28c43c2b164da7d636d5ac0241511c4c496a58420086d0a15a17f264fb6c8207",
+  "trace_archives": [
+    {
+      "stage": "extra16_limit256",
+      "path": "extra16_limit256-trace.npz",
+      "sha256": "9a3d16e818f555de1e162457f0322ed827730b33319a0eda6162bc54f0246aa1"
+    },
+    {
+      "stage": "extra32_limit256",
+      "path": "extra32_limit256-trace.npz",
+      "sha256": "67a344479b697cc109dbb8414872207b5ef45e77978e5914c3b418f24abb8a1d"
+    },
+    {
+      "stage": "extra48_limit512",
+      "path": "extra48_limit512-trace.npz",
+      "sha256": "5b5e2cb8f68345743cc89c451a7f4be8906340fe7a3fb854cc1df9af70d90901"
+    }
+  ],
+  "stage_timings": [
+    {
+      "stage": "extra16_limit256",
+      "seconds": 0.7097434980096295,
+      "geometry_seconds": 0.27401074999943376,
+      "score_seconds": 0.11500390811124817,
+      "native_seconds": 0.2658166979672387,
+      "inputs": 24
+    },
+    {
+      "stage": "extra32_limit256",
+      "seconds": 0.09081429097568616,
+      "geometry_seconds": 0.05160251399502158,
+      "score_seconds": 0.009836390789132565,
+      "native_seconds": 0.021060536964796484,
+      "inputs": 7
+    },
+    {
+      "stage": "extra48_limit512",
+      "seconds": 0.404873052961193,
+      "geometry_seconds": 0.28429498081095517,
+      "score_seconds": 0.03981816896703094,
+      "native_seconds": 0.0528917838819325,
+      "inputs": 24
+    }
+  ],
+  "model_load_seconds": 0.4874880720162764,
+  "setup_seconds": 0.16236155002843589,
+  "routing_seconds": [
+    0.0006325339782051742,
+    0.0008365779649466276,
+    0.0006306199938990176
+  ],
+  "charging": "Full H2be source answer prefix for every source row plus all measured eligibility/setup/stage work. Stages16+32 shared for256;512 independently starts at48. Source prefix was archived; this is not a fresh full-pipeline runtime measurement."
+}

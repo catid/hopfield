@@ -2,6 +2,13 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Equal label cost: dense queries recover32/32 noisy graphs versus6/32 for sparse queries](../research/20261114/ripper/REPORT-coverage-tradeoff.md)
+- [Synthetic transfer: degree curvature recovers64/64 cycles and64/64 nine-clique graphs](../research/20261114/foureyes/REPORT-varying-degree.md)
+- [Extended cycle rounds rescue all148 examined maze caps](../research/20261114/work/REPORT.md#h2bg-more-rounds-repair-every-archived-loop80-cap-a-larger-chain-limit-changes-nothing)
+- [Eight positives fail the rule-reliability target:1354/1408 versus1408/1408 with sixteen](../research/20261114/loki/h3bm/REPORT.md)
+- [Exact weighted trees reduce expected continuation cost13.99% on examined checkpoints](../research/20261114/loki/h3bl/REPORT.md)
+- [Retained technical failure: exact weighted-tree aggregate exceeded the serialization limit](../research/20261114/loki/h3bk/REPORT.md)
+- [Fresh uniform32 queries tie donor-guided queries at32/32 exact graphs](../research/20261114/ripper/REPORT-uniform32.md)
 - [Fresh paired question planning identifies 1,408/1,408 models: 37 gains, zero losses, 19 additional labels](../research/20261114/loki/h3bj/REPORT.md)
 - [Exact veto geometry makes the complete dense-maze policy 1.46× faster with identical outputs](../research/20261114/work/REPORT.md#h2bf-exact-veto-geometry-meets-its-own-local-and-complete-policy-speed-targets)
 - [Fresh strong-noise confirmation: degree curvature recovers all 64 graphs, with new BP and count controls](../research/20261114/foureyes/REPORT-fresh-curvature.md)

@@ -4,6 +4,12 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Equal-label observation coverage | [Paired masks, labels and proofs](../results/research/ripper/coverage_tradeoff/) | [plot_coverage_tradeoff.py](../scripts/plot_coverage_tradeoff.py) |
+| Synthetic degree transfer | [Every source, control and LP proof](../results/research/foureyes/varying_degree/) | [plot_varying_degree.py](../scripts/plot_varying_degree.py) |
+| Archived maze continuation | [All caps, moves and outcomes](../results/research/work/continuation/) | [plot_continuation.py](../research/20261114/work/plot_continuation.py) |
+| Eight versus sixteen positive examples | [Paired banks and information bounds](../results/research/loki/h3bm/) | [plot_public.py](../research/20261114/loki/h3bm/plot_public.py) |
+| Exact posterior-weighted trees | [Weights and full optimality proofs](../results/research/loki/h3bl/) | [plot_public.py](../research/20261114/loki/h3bl/plot_public.py) |
+| Fresh uniform versus donor acquisition | [All acquisition and proof evidence](../results/research/ripper/uniform32/) | [plot_uniform32.py](../scripts/plot_uniform32.py) |
 | Fresh paired rule-identification policies | [All 1,408 banks, ledgers and proof trees](../results/research/loki/h3bj/) | [plot_public.py](../research/20261114/loki/h3bj/plot_public.py) |
 | Exact veto-geometry speed | [All timing pairs and parity evidence](../results/research/work/veto-speed/) | [plot_veto_speed.py](../research/20261114/work/plot_veto_speed.py) |
 | Fresh strong-noise degree inference | [Source exclusions, controls and exact proofs](../results/research/foureyes/fresh_curvature/) | [plot_fresh_curvature.py](../scripts/plot_fresh_curvature.py) |
