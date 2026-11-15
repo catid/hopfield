@@ -1,0 +1,145 @@
+{
+  "id": "H3ap-unfiltered-D4-low-label-capacity",
+  "frozen_utc": "2026-11-15T06:35:55.225841+00:00",
+  "hypothesis": "For EACH of8fixed H3ao16-label banks, unfiltered source-zero count support with suppliedD4augmentation attains>=95%exact N13valid-inputcapacity. Conditional safety is a verified construction condition, not independent empiricalsuccess.",
+  "antecedent": "Adaptivefollowup after H3ao16-label exposurefilter admitted invalidzero states despite100%existentialcapacity. Newunfiltered raw/D4supports and capacities not computedbeforefreeze.",
+  "families": [
+    {
+      "name": "queen-plus-zebra",
+      "leaper": [
+        2,
+        3
+      ],
+      "target_path": "results/research/loki/h3ad/b0/target-columns.npy"
+    },
+    {
+      "name": "queen-plus-2-5-leaper",
+      "leaper": [
+        2,
+        5
+      ],
+      "target_path": "results/research/loki/h3ad/b1/target-columns.npy"
+    }
+  ],
+  "banks": [
+    {
+      "index": 0,
+      "family": 0,
+      "design_path": "results/research/loki/h3ao/b0/d16/source-design.npz",
+      "filtered_model_path": "results/research/loki/h3ao/b0/d16/count-model.npz"
+    },
+    {
+      "index": 1,
+      "family": 0,
+      "design_path": "results/research/loki/h3ao/b1/d16/source-design.npz",
+      "filtered_model_path": "results/research/loki/h3ao/b1/d16/count-model.npz"
+    },
+    {
+      "index": 2,
+      "family": 0,
+      "design_path": "results/research/loki/h3ao/b2/d16/source-design.npz",
+      "filtered_model_path": "results/research/loki/h3ao/b2/d16/count-model.npz"
+    },
+    {
+      "index": 3,
+      "family": 0,
+      "design_path": "results/research/loki/h3ao/b3/d16/source-design.npz",
+      "filtered_model_path": "results/research/loki/h3ao/b3/d16/count-model.npz"
+    },
+    {
+      "index": 4,
+      "family": 1,
+      "design_path": "results/research/loki/h3ao/b4/d16/source-design.npz",
+      "filtered_model_path": "results/research/loki/h3ao/b4/d16/count-model.npz"
+    },
+    {
+      "index": 5,
+      "family": 1,
+      "design_path": "results/research/loki/h3ao/b5/d16/source-design.npz",
+      "filtered_model_path": "results/research/loki/h3ao/b5/d16/count-model.npz"
+    },
+    {
+      "index": 6,
+      "family": 1,
+      "design_path": "results/research/loki/h3ao/b6/d16/source-design.npz",
+      "filtered_model_path": "results/research/loki/h3ao/b6/d16/count-model.npz"
+    },
+    {
+      "index": 7,
+      "family": 1,
+      "design_path": "results/research/loki/h3ao/b7/d16/source-design.npz",
+      "filtered_model_path": "results/research/loki/h3ao/b7/d16/count-model.npz"
+    }
+  ],
+  "arms": [
+    "published_filtered",
+    "raw_unfiltered",
+    "D4_unfiltered"
+  ],
+  "construction": {
+    "labels": "Same16observed N12positives perbank, no extra rawlabels or newdraws.",
+    "unfiltered": "Retain ALL canonical finite sourceoffsets absent from suppliedpositives, union unchanged inheritedlines. No exposurethreshold, sourcecompletenessnegatives, sparsityminimum, target-dependent selection or BPfit.",
+    "D4": "Explicit actualfamily D4invariance prior; all8square maps, wholeboarddedup.16rawlabels,128attempted correlatedviews.",
+    "model": "J=F,h0,q13,unit1; no learnedweights. Sourceconstructor accepts onlyselectedboards/offsets/inheritedlines, no familytruth/targetscore/fullpool."
+  },
+  "safety_theorem": "Conditional on valid sourcepositives, D4invariance for augmentedarm andsize-invariantpairrules: every true finiteleaperclass is representable atN12 because maxoffset<=5; it is absent from every validpositive andretained by unfilteredzero rule. Inheritedqueenlines extend all row/column/diagonal constraints. Therefore Ftrue subset Funfiltered atN13, so zeroFstates arevalid. Checkliteral source/viewvalidity, queenlines andallunfilteredF inclusions beforecapacity. Failure is construction/assumption verificationfailure, not an empiricalcounterexample to the conditionalstatement.",
+  "primary": {
+    "capacity_threshold": [
+      19,
+      20
+    ],
+    "all_eight_required": true,
+    "safety": "Verified conditionalconstruction, separately labeled.",
+    "decision": "Conjunction of>=95%capacities forall8D4-unfiltered outcomes. Rawunfiltered andpublishedfiltered controls descriptive. No rescue byposthocthreshold, droppedbank or replacement."
+  },
+  "evaluation": {
+    "reference": "Fullseen N13true1/2/3clue universe, zeroexclusions, sameasH3ao.",
+    "published_filtered_summary": "results/research/loki/h3ao/summary.json",
+    "order": "Sealall24source-only outcomes beforetargetcapacity.",
+    "complete": "Independent73712ordinaryqueen universe + literalFcompiler. EveryF containsqueenconstraints; filteringordinaryuniverse preservesinvalidfilteredbaseline states. Cross-check EVERYcompletezeroFset withcompiledliteralF; all377cluesubsets pervalidstate.",
+    "outputs": "Allfalse/missededges, invalidstates, completecapacity andstateretention; logicalarms retained withbytefullFdedupwithinfamily."
+  },
+  "budget": {
+    "aggregate_CPU_seconds": 120,
+    "wall_seconds": 180,
+    "GPUs": 0,
+    "distinct_full_supports_max": 24,
+    "scope": "Wholeconstruction/sourcevalidity/builds/referencechecks/allcapacities/serialization. Postrunpublicationaudit separatelyreported."
+  },
+  "scope": "Same previouslyexamined8sourcebanks/2D4families/finite targetuniverses. No BP16fits implied, no acquisitionreliability probability, no untouched-test or generalrulefamily claim.",
+  "source_sha256": {
+    "research/20261114/loki/h3ap/common.py": "94c756019168cab5dd9dfbd5b24df682753622b85fd71701f44f231addd6b00e",
+    "research/20261114/loki/h3ap/construct.py": "181ce24ede2624529011bd4bad9cae96d55c81217c96f8a759a33220732f389b",
+    "research/20261114/loki/h3ap/source.py": "307135e56aa8fad1be8d4113f2f82dd6800202cae092198f4c97c302e33fc0f0",
+    "research/20261114/loki/h3ap/study.py": "f5fae2551a51f90d9a1b378219540fdd290c4facac42ef6e1e1f10b62781d47d",
+    "research/20261114/loki/h3ap/gate.py": "0bd24c3c476105ef1804263177b7fe63769d3bb41a143cba38420c9aa7df954f",
+    "research/20261114/loki/h3ap/freeze.py": "2712741594699c7afedbe610a19283525e5cf7a0faf66b85f6f39000827470aa",
+    "research/20261114/loki/h3ap/reverse_literal.cpp": "efacb8de87c2a1dce7540e4f42b036a2f1f9a07601f70ee20dc8b09bfcb3d719",
+    "research/20261114/loki/h3ao/evaluate.py": "2e969c1be313f2c62fac1e72f5844f73f822246ed215cd7e1d6584bb2eadcb1e",
+    "research/20261114/loki/h3ao/protocol.json": "6d2289229c2db157974749cffaf01ca216f225dc0355b841101d398d9ba29cd5",
+    "research/20261114/loki/h3ad/generate.py": "c72c05fbd39ea297daa3356f0ddd3fa914e567f7ac6554d11a968ad1d58a9b6d"
+  },
+  "source_data_sha256": {
+    "results/research/loki/h3ao/b0/d16/source-design.npz": "d03ddde91500f659c87f5de6b7ecc1b335e0526958cb6663b056f94b3bb23400",
+    "results/research/loki/h3ao/b0/d16/count-model.npz": "de23cc552a34274fe50adc0ab70b186d1429288673a6155488bad03fe454c5d4",
+    "results/research/loki/h3ao/b1/d16/source-design.npz": "5cfc1d5dfd96c5df2a2724ba09ec8b90b4f328739665ef539c02f14012478dea",
+    "results/research/loki/h3ao/b1/d16/count-model.npz": "ee214301383f05ae0e627c55246a2ea9040473c3b7440397ec2644f8facf15ca",
+    "results/research/loki/h3ao/b2/d16/source-design.npz": "7516e5540f3997c93363e245a01b00699b4d3c0a1882c04a8ec278d7a114aac1",
+    "results/research/loki/h3ao/b2/d16/count-model.npz": "ee214301383f05ae0e627c55246a2ea9040473c3b7440397ec2644f8facf15ca",
+    "results/research/loki/h3ao/b3/d16/source-design.npz": "a77217c7e1fd3b2a9e32527279b128d4274013e9e09e86da3c6ae8056b4ec07f",
+    "results/research/loki/h3ao/b3/d16/count-model.npz": "ee214301383f05ae0e627c55246a2ea9040473c3b7440397ec2644f8facf15ca",
+    "results/research/loki/h3ao/b4/d16/source-design.npz": "12eaaa01073c036b81db226c07c4d1758cb15d13140318115cd4c709ef5e5fc3",
+    "results/research/loki/h3ao/b4/d16/count-model.npz": "ee214301383f05ae0e627c55246a2ea9040473c3b7440397ec2644f8facf15ca",
+    "results/research/loki/h3ao/b5/d16/source-design.npz": "ac5a310bfaf8da5c537bb10ea2d9c680329c7b79bf2b194c19dfaa5193625415",
+    "results/research/loki/h3ao/b5/d16/count-model.npz": "ee214301383f05ae0e627c55246a2ea9040473c3b7440397ec2644f8facf15ca",
+    "results/research/loki/h3ao/b6/d16/source-design.npz": "bcb12dad1dd378207b664710e4ad2b97b569260af863645748afb442de123eac",
+    "results/research/loki/h3ao/b6/d16/count-model.npz": "ee214301383f05ae0e627c55246a2ea9040473c3b7440397ec2644f8facf15ca",
+    "results/research/loki/h3ao/b7/d16/source-design.npz": "7c2612d0a1e924a62259e0d15330fb8dd4e61cc719eb1150ef91a59e5887df33",
+    "results/research/loki/h3ao/b7/d16/count-model.npz": "ee214301383f05ae0e627c55246a2ea9040473c3b7440397ec2644f8facf15ca"
+  },
+  "target_data_sha256": {
+    "results/research/loki/h3ad/b0/target-columns.npy": "81e5e6f877586ed8a5d5bd2c4eebec6ef1b93f3dbe98ff471b899d60cb0479da",
+    "results/research/loki/h3ad/b1/target-columns.npy": "9d4efdb32cc17beaa9bae12850bf83bebe1b8e8e8f5e4b4d881185d42f175269",
+    "results/research/loki/h3ao/summary.json": "94f0323f980ff865d3207ea915c8f909e88e9827b2834915b9cba81b54a7f0f9"
+  }
+}

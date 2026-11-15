@@ -4,6 +4,12 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Concentrated Sudoku noise and count-threshold failure | [Paired profile exports](../results/research/foureyes/heterogeneous_noise/) | [plot_heterogeneous_noise.py](../scripts/plot_heterogeneous_noise.py) |
+| Supplied-degree Sudoku recovery | [Certified LP exports](../results/research/ripper/degree_prior.json) | [plot_degree_prior.py](../scripts/plot_degree_prior.py) |
+| Repairing premature exclusions with a supplied degree prior | [Exclusion-repair exports](../results/research/ripper/exclusion_repair.json) | [plot_exclusion_repair.py](../scripts/plot_exclusion_repair.py) |
+| Sixteen-label safety/capacity tradeoff | [Unfiltered count exports](../results/research/loki/h3aq/) | [plot_public.py](../research/20261114/loki/h3aq/plot_public.py) |
+| Finite rule-family likelihood and consistency control | [Rule-selection exports](../results/research/loki/h3ar/) | [plot_public.py](../research/20261114/loki/h3ar/plot_public.py) |
+| Fresh 180×180 maze transfer boundary | [Larger-maze exports](../results/research/work/cycle-transfer-180-summary.json) | [plot_cycle_transfer_180.py](../research/20261114/work/plot_cycle_transfer_180.py) |
 | Fresh maze cycle-cut transfer and full prefix costs | [8,192-input paired outcomes](../results/research/work/cycle-transfer-summary.json) | [plot_cycle_transfer.py](../research/20261114/work/plot_cycle_transfer.py) |
 | Nested queen source budgets and invalid-state boundary | [Eight primary fits and 24 count controls](../results/research/loki/h3ao/) | [plot_public.py](../research/20261114/loki/h3ao/plot_public.py) |
 | Maze cycle cuts and learned-versus-lexical ordering | [Paired source controls](../results/research/work/lexical-cycle-cut-summary.json) | [plot_cycle_cut_controls.py](../scripts/plot_cycle_cut_controls.py) |

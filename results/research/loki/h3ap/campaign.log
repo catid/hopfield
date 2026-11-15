@@ -1,0 +1,41 @@
+Traceback (most recent call last):
+  File "/home/catid/hopfield/research/20261114/loki/h3ap/source.py", line 31, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/catid/hopfield/research/20261114/loki/h3ap/source.py", line 29, in main
+    folder=OUT/f'b{index}/{arm}';folder.mkdir(parents=True,exist_ok=True);np.savez_compressed(folder/'model.npz',F=F,J=F.astype(np.float32),h=np.zeros(169,np.float32),q=np.array(13),unit=np.array(1.));save(folder/'construction.json',dict(index=index,family=family,arm=arm,group=group,**receipt,model_sha256=sha(folder/'model.npz')));member=dict(index=index,arm=arm);supports[group]['members'].append(member);rows.append(dict(member,family=family,bank=index%4,group=group,primary=arm=='D4_unfiltered',model_sha256=sha(folder/'model.npz')))
+                                                                                                                                                                                                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/catid/hopfield/research/20261114/loki/h3ap/common.py", line 11, in save
+    def save(path,value):path=Path(path);path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(value,indent=2,allow_nan=False)+'\n')
+                                                                                                       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/catid/.local/share/uv/python/cpython-3.13.13-linux-x86_64-gnu/lib/python3.13/json/__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/home/catid/.local/share/uv/python/cpython-3.13.13-linux-x86_64-gnu/lib/python3.13/json/encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/home/catid/.local/share/uv/python/cpython-3.13.13-linux-x86_64-gnu/lib/python3.13/json/encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+  File "/home/catid/.local/share/uv/python/cpython-3.13.13-linux-x86_64-gnu/lib/python3.13/json/encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type int64 is not JSON serializable
+Traceback (most recent call last):
+  File "/home/catid/hopfield/research/20261114/loki/h3ap/study.py", line 41, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/catid/hopfield/research/20261114/loki/h3ap/study.py", line 18, in main
+    subprocess.run([sys.executable,str(SRC/'source.py')],check=True);source=read(OUT/'source-outcomes.json');frozen(True);helper=load(SRC.parent/'h3ao/evaluate.py','h3ap_complete_helpers');reference=load(SRC.parent/'h3ad/generate.py','h3ap_ordinary_reference');ordinary=reference.queens(13);assert len(ordinary)==73712;queenF=helper.graph(13);binary=OUT/'reverse_literal';subprocess.run(['g++','-O3','-std=c++17','-DNDEBUG','-Wall','-Wextra','-Werror',str(SRC/'reverse_literal.cpp'),'-o',str(binary)],check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/catid/.local/share/uv/python/cpython-3.13.13-linux-x86_64-gnu/lib/python3.13/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/home/catid/hopfield/upstream/.venv/bin/python', '/home/catid/hopfield/research/20261114/loki/h3ap/source.py']' returned non-zero exit status 1.
+COMPILATION_GATE failed_or_incomplete 0.149611 0.16159909195266664
+Traceback (most recent call last):
+  File "/home/catid/hopfield/research/20261114/loki/h3ap/gate.py", line 45, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/catid/hopfield/research/20261114/loki/h3ap/gate.py", line 44, in main
+    save(OUT/'capacity-gate.json',result);print('COMPILATION_GATE',result['status'],total,elapsed,flush=True);assert passed,'Global build/parity/compilation gate failed'
+                                                                                                                     ^^^^^^
+AssertionError: Global build/parity/compilation gate failed

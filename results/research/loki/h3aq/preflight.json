@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "synthetic_only_no_real_source_or_target_reads": true,
+  "cases": [
+    {
+      "augment": false,
+      "full_receipt_JSON_roundtrip": true,
+      "predecessor_failure_reproduced": true,
+      "F_dtype_shape_and_bytes_identical": true
+    },
+    {
+      "augment": true,
+      "full_receipt_JSON_roundtrip": true,
+      "predecessor_failure_reproduced": true,
+      "F_dtype_shape_and_bytes_identical": true
+    }
+  ],
+  "AST_computation_and_nonoffset_metadata_identical": true,
+  "unchanged_files": [
+    "source.py",
+    "study.py",
+    "reverse_literal.cpp"
+  ],
+  "exact_constructor_text_diff": "--- h3ap/construct.py\n+++ h3aq/construct.py\n@@ -8,4 +8,4 @@\n     values=[v for board in boards for v in views(board)]if augment else list(boards);unique=list({np.asarray(v,bool).tobytes():v for v in values}.values());seen={(int(b)//12-int(a)//12,int(b)%12-int(a)%12)for board in unique for a,b in itertools.combinations(np.flatnonzero(board),2)};zero=set(map(tuple,finite_offsets))-seen;F=np.zeros((169,169),np.int32)\n     for a,b in itertools.combinations(range(169),2):\n         dr,dc=b//13-a//13,b%13-a%13;F[a,b]=F[b,a]=(dr,dc)in zero or any(r*dr+c*dc==0 for r,c in inherited_lines)\n-    return F,dict(raw_labels=16,attempted_views=128 if augment else 16,unique_views=len(unique),observed_finite_offsets=sorted(seen&set(map(tuple,finite_offsets))),retained_zero_offsets=sorted(zero))\n+    return F,dict(raw_labels=16,attempted_views=128 if augment else 16,unique_views=len(unique),observed_finite_offsets=[(int(dr),int(dc))for dr,dc in sorted(seen&set(map(tuple,finite_offsets)))],retained_zero_offsets=[(int(dr),int(dc))for dr,dc in sorted(zero)])\n",
+  "measured_CPU_seconds": 3.5150650000000003,
+  "measured_child_wall_seconds": 0.07284224999602884,
+  "charged_wall_seconds": 0.17284224999602885,
+  "wall_charge_note": "Whole child elapsed plus conservative0.1s launcher/startup allowance",
+  "preflight_before_successor_protocol": true
+}

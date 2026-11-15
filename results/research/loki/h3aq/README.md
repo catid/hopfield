@@ -1,0 +1,3 @@
+# H3aq: safe low-label construction loses capacity
+
+[Full report](../../../../research/20261114/loki/h3aq/REPORT.md). All-eight≥95%capacity hypothesis falsified:2/8D4-unfiltered banks pass, capacities63.503984%–96.538095%; raw-unfiltered2.779486%–21.975396%.16raw labels and128attempted correlatedD4views, no BPfits. Unfiltered zero-invalid-state safety follows conditionally from construction and is checked, not an independent empiricalsuccess. All24logical outcomes/18complete supports retained. Metadata-only successor preserves H3ap pre-target JSON failure; exactAST/text/schema gate and4recomputed NPZ byte identities verified.8.424390CPU s/5.073863chargedwall s includingpreflight,0GPU.

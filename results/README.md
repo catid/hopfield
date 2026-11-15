@@ -2,6 +2,12 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Concentrated Sudoku noise: recovery failure despite count separation, with exact invalid certificates](../research/20261114/foureyes/REPORT-heterogeneous-noise.md)
+- [Degree-20 prior recovers all 32 noisy Sudoku graphs with exact LP certificates](../research/20261114/ripper/REPORT-degree-prior.md)
+- [Reopening prematurely excluded edges enables exact degree-constrained repair](../research/20261114/ripper/REPORT-exclusion-repair.md)
+- [Sixteen-label queen safety comes at a capacity cost; metadata failure retained](../research/20261114/loki/h3aq/REPORT.md)
+- [A supplied finite queen-rule vocabulary recovers all eight graphs; likelihood adds no gain over its control](../research/20261114/loki/h3ar/REPORT.md)
+- [Larger maze transfer: gain supported, BP noninferiority inconclusive](../research/20261114/work/REPORT.md#h2av-the-cycle-cut-gain-transfers-to-180180-but-bp-noninferiority-is-inconclusive)
 - [Fresh maze transfer: both cycle-cut policies solve all 8,192 inputs across three models](../research/20261114/work/REPORT.md#h2au-fixed-cycle-cut-policies-solve-the-fresh-8192-input-cohort)
 - [32-example queen fits recover exact graphs; 16-example count controls admit invalid states](../research/20261114/loki/h3ao/REPORT.md)
 - [Maze cycle cuts rescue 21/22 archived failures; learned cut ordering adds no rescue](../research/20261114/work/REPORT.md#h2aqh2as-allowing-a-positive-cost-cycle-cut-rescues-21-source-failures)

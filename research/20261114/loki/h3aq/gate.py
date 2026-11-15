@@ -1,0 +1,45 @@
+"""Subprocess-inclusive CPU monitor for build, parity and both compilations."""
+import os
+import resource
+import signal
+import subprocess
+import sys
+import time
+from pathlib import Path
+from common import SRC,OUT,read,save,sha,now,frozen
+TICKS=os.sysconf('SC_CLK_TCK')
+def own_cpu():
+    r=resource.getrusage(resource.RUSAGE_SELF);return r.ru_utime+r.ru_stime
+def child_cpu():
+    r=resource.getrusage(resource.RUSAGE_CHILDREN);return r.ru_utime+r.ru_stime
+
+def tree_cpu(pid):
+    # Waited children are included in cutime/cstime; live children recurse.
+    # A process transition can race one sample; the final rusage is authoritative.
+    try:
+        stat=Path(f'/proc/{pid}/stat').read_text().rsplit(')',1)[1].split()
+        value=sum(int(stat[k])for k in [11,12,13,14])/TICKS
+        children=Path(f'/proc/{pid}/task/{pid}/children').read_text().split()
+        return value+sum(tree_cpu(int(child))for child in children)
+    except FileNotFoundError:return 0.
+
+def main():
+    p=frozen();preflight=p['metadata_fix_preflight'];pre_cpu=preflight['measured_CPU_seconds'];pre_wall=preflight['charged_wall_seconds'];assert not(OUT/'capacity-gate.json').exists();OUT.mkdir(parents=True,exist_ok=True)
+    wall=time.perf_counter();cpu=own_cpu();previous_children=child_cpu();process=subprocess.Popen([sys.executable,str(SRC/'study.py')],start_new_session=True);peak=0.;expired=False;reason=None
+    while process.poll() is None:
+        used=pre_cpu+own_cpu()-cpu+tree_cpu(process.pid);peak=max(peak,used)
+        if used>=119.8 or pre_wall+time.perf_counter()-wall>=179.8:
+            expired=True;reason='Aggregate120CPU-second ceiling or 180wall-second guard';os.kill(process.pid,signal.SIGUSR1)
+            try:process.wait(timeout=.15)
+            except subprocess.TimeoutExpired:
+                os.killpg(process.pid,signal.SIGKILL);process.wait()
+            break
+        time.sleep(.02)
+    run_cpu=own_cpu()-cpu+child_cpu()-previous_children;run_wall=time.perf_counter()-wall;total=pre_cpu+run_cpu;elapsed=pre_wall+run_wall
+    source=read(OUT/'study-result.json')if(OUT/'study-result.json').exists()else dict(status='failed_or_incomplete',error='Compiler stopped without final receipt')
+    passed=process.returncode==0 and not expired and source['status']=='complete_verified' and total<=120 and elapsed<=180
+    # Charge full monitor/import/common overhead together with build/parity to each family.
+    family_wall=source.get('stage_wall_seconds',0.)
+    result=dict(source,status='complete_verified'if passed else'failed_or_incomplete',utc=now(),aggregate_cpu_seconds=total,wall_seconds=elapsed,preflight_CPU_seconds=pre_cpu,preflight_charged_wall_seconds=pre_wall,new_run_CPU_seconds=run_cpu,new_run_wall_seconds=run_wall,cpu_seconds_ceiling=120,wall_seconds_guard=180,monitor_peak_live_cpu_seconds=peak,monitor_cpu_seconds=own_cpu()-cpu,subprocess_inclusive_CPU_accounting=True,monitor_and_import_wall_seconds=run_wall-family_wall,partial_cache_usable=passed,monitor_expired=expired,monitor_reason=reason,protocol_sha256=sha(SRC/'protocol.json'))
+    save(OUT/'capacity-gate.json',result);print('COMPILATION_GATE',result['status'],total,elapsed,flush=True);assert passed,'Global build/parity/compilation gate failed'
+if __name__=='__main__':main()

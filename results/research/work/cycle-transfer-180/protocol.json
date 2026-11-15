@@ -1,0 +1,550 @@
+{
+  "id": "fresh4096-cycle-cut-transfer180",
+  "hypothesis_id": "H2av",
+  "status": "frozen_after_complete_preflight_before_fresh_draws",
+  "frozen_utc": "2026-11-15T06:48:49.371125+00:00",
+  "arms": [
+    "pl",
+    "old_binary",
+    "connectivity_veto",
+    "energy_cycle_cut",
+    "lexical_cycle_cut"
+  ],
+  "models": {
+    "0": {
+      "pl": {
+        "path": "artifacts/research/20261114/work/contrastive_training/fits/s0-pl/checkpoint.pt",
+        "sha256": "0218e6d814f2ee5b6028877056fc9c705daf53e20233c2ebb083b46f5732752c"
+      },
+      "old_binary": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "connectivity_veto": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "energy_cycle_cut": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "lexical_cycle_cut": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      }
+    },
+    "1": {
+      "pl": {
+        "path": "artifacts/research/20261114/work/contrastive_training/fits/s1-pl/checkpoint.pt",
+        "sha256": "3799b046bdfd3425b9603338f90bd60ccd6637707f20eac0d59139ce5d21445c"
+      },
+      "old_binary": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "connectivity_veto": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "energy_cycle_cut": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "lexical_cycle_cut": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      }
+    },
+    "2": {
+      "pl": {
+        "path": "artifacts/research/20261114/work/contrastive_training/fits/s2-pl/checkpoint.pt",
+        "sha256": "76b8d4e38979cc5282d15b30f4b27c2468dbe5fe43426cfa6e085bb62b333672"
+      },
+      "old_binary": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "connectivity_veto": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "energy_cycle_cut": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "lexical_cycle_cut": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      }
+    }
+  },
+  "jobs": [
+    {
+      "id": "shard00-s0",
+      "shard": 0,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard00-s1",
+      "shard": 0,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard00-s2",
+      "shard": 0,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard01-s0",
+      "shard": 1,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard01-s1",
+      "shard": 1,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard01-s2",
+      "shard": 1,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard02-s0",
+      "shard": 2,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard02-s1",
+      "shard": 2,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard02-s2",
+      "shard": 2,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard03-s0",
+      "shard": 3,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard03-s1",
+      "shard": 3,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard03-s2",
+      "shard": 3,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard04-s0",
+      "shard": 4,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard04-s1",
+      "shard": 4,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard04-s2",
+      "shard": 4,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard05-s0",
+      "shard": 5,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard05-s1",
+      "shard": 5,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard05-s2",
+      "shard": 5,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard06-s0",
+      "shard": 6,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard06-s1",
+      "shard": 6,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard06-s2",
+      "shard": 6,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard07-s0",
+      "shard": 7,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard07-s1",
+      "shard": 7,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard07-s2",
+      "shard": 7,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard08-s0",
+      "shard": 8,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard08-s1",
+      "shard": 8,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard08-s2",
+      "shard": 8,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard09-s0",
+      "shard": 9,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard09-s1",
+      "shard": 9,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard09-s2",
+      "shard": 9,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard10-s0",
+      "shard": 10,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard10-s1",
+      "shard": 10,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard10-s2",
+      "shard": 10,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard11-s0",
+      "shard": 11,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard11-s1",
+      "shard": 11,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard11-s2",
+      "shard": 11,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard12-s0",
+      "shard": 12,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard12-s1",
+      "shard": 12,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard12-s2",
+      "shard": 12,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard13-s0",
+      "shard": 13,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard13-s1",
+      "shard": 13,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard13-s2",
+      "shard": 13,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard14-s0",
+      "shard": 14,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard14-s1",
+      "shard": 14,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard14-s2",
+      "shard": 14,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard15-s0",
+      "shard": 15,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard15-s1",
+      "shard": 15,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard15-s2",
+      "shard": 15,
+      "seed": 2,
+      "gpu": 1
+    }
+  ],
+  "source_sha256": {
+    "research/20261114/work/cycle_transfer_180.py": "47e2cc56eab3a1cbee414637ade9e3ba2c1a6808296cc5f8546a90f61e3f91dc",
+    "research/20261114/work/cycle_transfer_batch.py": "354553d864d296f7e82e7f02e0cd1d0d5c5a0a5d6de3290be52ce293ca7f9ecd",
+    "research/20261114/work/preflight_cycle_transfer_180.py": "835bf4eadb57b05dd017fd2e7aaeb75da5a6256413e57ff6dd645bb3765127b8",
+    "research/20261114/work/audit_cycle180_seed_registry.py": "35df1714936eaa10edfbb87fe2b2ce8a7c42d8fcaf1c0bdc7c293159e1d5a68e",
+    "research/20261114/work/audit_cycle_transfer180_inputs.py": "92ecb4bc477103a4e567abd45a84cad0fd0f979b47fd7703f58f54ee3f371407",
+    "research/20261114/work/connectivity_transfer_180.py": "f14e91a47836bcfd176736ebc2e93a9a4ced1dc1717fac6ab10580d528da98cc",
+    "research/20261114/work/connected_block_moves.py": "e1f959f4d8d134fc47b3bd131b9585073b69df5f06939b918c4e73e3caedc14d",
+    "research/20261114/work/cycle_cut_moves.py": "b12ef5dc1dc3a6f174f1880c91439c461c682ef6ce2e72ed471dcffad510b6cb",
+    "research/20261114/work/lexical_cycle_cut_moves.py": "e1765ba133a37358f3c92bded10f95e69fc545e6187c4039580d3f45671ddc42",
+    "research/20261114/work/graph_block_moves.py": "fa0a68c016da1494d5db42777194ccc125e06508fa0476a7e99a7e2f94589568",
+    "research/20261114/work/binary_coordinate.py": "657c33162a667f0304313612d51387b1d9638ca9290a4002411d7e9b78b5d21d",
+    "research/20261114/work/larger_relaxation.py": "6be58f66b7d354f7d47da697520bddb73dcadc6114cedcde0885ad5e61ea4cd1",
+    "research/20261114/work/factorial_transfer.py": "9381151f81aeda3f45320437a1985a4d6bc0e0ebb3a90fed9dd2cb21ea995f84",
+    "research/20261114/work/fast_npz.py": "2c3f6e8868a22aed0dbb5a389629accc6472a0a877208e01193a97e2a3c039ec",
+    "research/20261114/work/study.py": "c912470b19d0d13b151a4cac9a276455a915adeecf15088d1c5d43db66dbf721",
+    "research/20261114/work/audit.py": "d27d3397a620fa4998428baffeea704cff06c29111160246d17e684278522ec3",
+    "research/20261114/work/safe_block_transfer.py": "fd449b36978b12e94713ef221de913fc455668853813c7417adad032489ae5f3"
+  },
+  "parent_protocol_sha256": {
+    "research/20261114/work/safe-block-transfer-protocol.json": "c016fa240f3025d4e51a4574541bc0d91d4c53133f69e764062c0ee2a0a0e576",
+    "research/20261114/work/cycle-cut-rescue-checked-protocol.json": "1431ed4e2491b27c05b6aa884f605c6ba53228d1039ad27b0a4e2f164fb20b63",
+    "research/20261114/work/lexical-cycle-cut-protocol.json": "6e1cca3dfeb7cb04be99fcb27f8fa7216e1d75e710bb1bfce9fb4a20a8123545",
+    "research/20261114/work/cycle-transfer-protocol.json": "14d84054524bbc1e49b7222cefd09f31f75bd535953045af37763b06169236e6",
+    "research/20261114/work/connectivity-transfer-180-protocol.json": "ed8d31276733ebba490b99f2ac7d4b01a21e687aa3ed1500419dec65200cf250"
+  },
+  "source_gate_files": {
+    "artifacts/research/20261114/work/cycle_transfer_180_preflight/numerical-gate.json": "a0816166a7328c4032baf2df4a3b0e4e5af7b0125f41d01a0c062286d33f38c5",
+    "artifacts/research/20261114/work/cycle_transfer_180/seed-registry.json": "35ffbe15a54a47a41d26d26eba9ed964a75851a774f3bc49807026bf6cb0a4c5"
+  },
+  "cohort": {
+    "n_unique": 4096,
+    "length": 180,
+    "loop_rate": 0.2,
+    "base_seed": 2026111521,
+    "generator": "study.maze SeedSequence([2026111521,180,20,index]),index0..4095",
+    "shards": 16,
+    "shard_size": 256,
+    "prior_registry": [
+      {
+        "path": "artifacts/research/20261114/work/binary_coordinate/datasets.json",
+        "sha256": "a520ef8fa5d1e55bb22b6f519708f16c820a937a80cc7fe2cbee2a1acd7624c2",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/binary_relaxation/datasets.json",
+        "sha256": "27881b30ad9e23f456b4a7b724de9fda00c094ec3a778e5dd7450a9a51e8a134",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/connectivity_transfer_180/datasets.json",
+        "sha256": "9457e4670bf17deeee0315246477ec6da74fb402867d8c9eda9c99841fb45bfd",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/contrastive_training/datasets.json",
+        "sha256": "db7567f0b53b5817d4f743b8167b60dcf10900777359e7c87fd46a971ebe3dbe",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/cycle_transfer/datasets.json",
+        "sha256": "56e0ada0bb3d2d1cf6bf3460fb4a880e3e8f7555903aaf8600ecbf1ae13f8852",
+        "dataset_records": 32
+      },
+      {
+        "path": "artifacts/research/20261114/work/factorial_transfer/datasets.json",
+        "sha256": "1bb811438c5ee6e8475d9067b3d3971ba12d843366178ce332484176d0885db8",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/hard_negative_transfer/datasets.json",
+        "sha256": "025c5eaa7cafbe1eb2445e88abd8b90789e17806a1126506499d82be2d980cfb",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/larger_relaxation/datasets.json",
+        "sha256": "8178b09848f9181278c69cb814ee18e2bf8becb10a6594787599d8e4aeb8f30f",
+        "dataset_records": 64
+      },
+      {
+        "path": "artifacts/research/20261114/work/lp_relaxation/datasets.json",
+        "sha256": "c65eb9afc92a06baea4cda41e1dc0afe4a058641aa4f60aa8d9d14ba25aac891",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/lp_transfer/datasets.json",
+        "sha256": "70689431e875615e5584c4e5330030113fd4d2e711866a5899dc21ca5f7444d7",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/margin_intervention/datasets.json",
+        "sha256": "88c09499cdd4a54759256688928f4db6f180d10416c30be36a69c9a99ea72cda",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/native_relaxation/datasets.json",
+        "sha256": "1dc78728ea6c2df930cf28daa1e184b151bf88d0cac869a223cdbc5a34e0b475",
+        "dataset_records": 64
+      },
+      {
+        "path": "artifacts/research/20261114/work/native_restart/datasets.json",
+        "sha256": "7ada3cbcc02c5544baad95173963dc3cfab107d06ede812d724599eee42658a1",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/restart/datasets.json",
+        "sha256": "d2aeade91015a5cead0352fb91d0d0dd3e010541136e7533eccec8c09ce6d08a",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/safe_block_transfer/datasets.json",
+        "sha256": "dd3bfd9819916cff1c51a3bf0f92816df8b0a19db57069aad64b5c08f91ed300",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/datasets.json",
+        "sha256": "3408578608ff9519f30fe232cece9a24edf809775fec2ca7ff4bcd2a0fb5dcc0",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/selective_fallback/datasets.json",
+        "sha256": "ba205d47c3e4f82d57dc92a12068f324d40845f204a7088a1fdb0bce5fcdaac4",
+        "dataset_records": 64
+      },
+      {
+        "path": "artifacts/research/20261114/work/sign_intervention/datasets.json",
+        "sha256": "5e8d59f20ff3feceb6777472aa3a6b4870f8c0ef23e4d9cfcf0f164b9f841059",
+        "dataset_records": 8
+      },
+      {
+        "path": "artifacts/research/20261114/work/window_fallback/datasets.json",
+        "sha256": "f52483e61846fcc5cc42f439671199d5724445edca8292394c3548b41c6570e4",
+        "dataset_records": 64
+      }
+    ],
+    "exclusion": "Exacttokendigest uniquenessandnonoverlap againstall19registeredpriormanifests;allshortestlabels independentlycheckedbeforeruns."
+  },
+  "primary_endpoints": {
+    "lexical_gain_vs_veto": {
+      "candidate": "lexical_cycle_cut",
+      "control": "connectivity_veto",
+      "minimum_net_gain_pp": 0.5
+    },
+    "lexical_noninferiority_vs_bp": {
+      "candidate": "lexical_cycle_cut",
+      "control": "pl",
+      "minimum_net_gain_pp": -0.1
+    }
+  },
+  "paired_inference": "Independentunit=maze;successrequiresall3fixedmodels. LetG=candidatesuccess/controlfailure,L=controlsuc/candidatefail. ComputeCPmarginal boundsforG/n,L/n withone-sidedalpha.025each. Separatelyone-sided95netlower=100*(G_lower-L_upper);netupper=100*(G_upper-L_lower). Foreachdeclaredthreshold,supportiflower>=threshold,falsifyifupper<threshold,otherwiseinconclusive. Twoprimaryendpoints reportedseparately;nosimultaneous95claim. NImeansnetaccuracydifference>=-.1pp,notstandalonelossprobability.",
+  "secondary": "Energy-vs-lexicalpairedgains/lossesdescriptive;no learnedrankingbenefitclaim. BPfirst. Allcaps,nonfinite,hiddenfailuresandnativecyclerestoration retained. Initialcorrectsimplepathidentity proof distinctfrom measuredfreshgain.",
+  "inference": "FixedH2aeLPandcontinuedBPfits. BPnativefloat32u3eta.5cap8192check16. Sharedfloat32hidden tol1e-6cap4000check8. LPfloat64fourcolor threshold-1e-8cap512. Oneexactbinaryprefixandoneexactconnectivity-vetoprefix shared. Vetooriginalnegativeenergychainmoves. Cyclepolicies: initialsimplepathidentity; oldchaincomponents2..256,endpointconnectivityandstrict E-V+component_count reduction,acceptminimumoriginaldelta versuslexicographicminimum evenpositive;unchangednativeaftereachcut,max16rounds. Explicitgraphprior,energyincreasesallowed; nolabel/shortestdistance choice.",
+  "gate": "Completeactual180objectivepreflightbeforefreeze: first64alreadyseenH2aminputs/model, exactretainedBP/binary/vetoboards/iterations/flags/readouts, upstreamnativeanduncachedbinaryparity, independentoriginalenergies/flips/continuousgradients/readouts, allfivepolicyclamps/prefixes/costs. Allfourouteredgesandinternalwalls. H2alpaddinginvariancefailurepreserved;nosizeinvarianceclaim. BothselectorpoliciesandpositiveacceptancealreadygatedbyH2au.",
+  "budget": {
+    "inference_total_gpu_minutes": 10,
+    "per_worker_wall_seconds": 300,
+    "source_gate_wall_seconds": 120,
+    "input_cpu_audit_wall_seconds": 120,
+    "input_cpu_audit_max_processes": 8,
+    "full_cpu_audit_wall_seconds": 300,
+    "full_cpu_audit_max_processes": 16,
+    "statistics_wall_seconds": 120,
+    "enforcement": "Perbatch/blockroundwatchdogandexternalwalltimeouts;retaincompletedarchives,noextensions."
+  },
+  "archive": "UniformexclusiveNPZdeflate1,allstates/traces/counters;fullbinary+vetoprefixchargedtoeachcyclearm butexecutedonce. Fullcostscoringretainedinlexicalforaudit;notoptimizedlexicalruntimeclaim.",
+  "accounting": {
+    "fresh_inputs": 4096,
+    "primary_model_input_arm_evaluations": 61440,
+    "reused_binary_prefixes": 12288,
+    "reused_full_veto_prefixes": 24576,
+    "new_optimizer_updates": 0
+  },
+  "failed_padding_lineage": {
+    "protocol_sha256": "ff8d54d2655623124acb4e87a306bede748dddf076bf774bfc4a94cceeb9e01a",
+    "failure_sha256": "efe5b18b14a3e5b6c2b1e547efa6ed9a985ce39f812474b0e0e539d6e1e5e3af",
+    "boundary_diagnosis_sha256": "eeef4ee7368981c64bb952cc2a233dc8c21feab4d97627ae042cafb2f88cd7d3",
+    "seed_reuse": "Plannedseed2026111517 reused because failedH2al generatedzerofreshinputs."
+  },
+  "same_fixed_policy_source_protocol_sha256": "14d84054524bbc1e49b7222cefd09f31f75bd535953045af37763b06169236e6"
+}

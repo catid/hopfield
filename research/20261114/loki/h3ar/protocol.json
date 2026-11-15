@@ -1,0 +1,165 @@
+{
+  "id": "H3ar-finite-positive-likelihood-rule-selection",
+  "frozen_utc": "2026-11-15T06:53:13.734372+00:00",
+  "hypothesis": "For EACH of8fixed16-positive banks, EVERY tied maximum-likelihood candidate yields zero invalidN13zeroFstates AND>=95%exactvalid-inputcapacity. Allmaximizers retained; no targettiechoice.",
+  "families": [
+    {
+      "name": "queen-plus-zebra",
+      "leaper": [
+        2,
+        3
+      ],
+      "target_path": "results/research/loki/h3ad/b0/target-columns.npy"
+    },
+    {
+      "name": "queen-plus-2-5-leaper",
+      "leaper": [
+        2,
+        5
+      ],
+      "target_path": "results/research/loki/h3ad/b1/target-columns.npy"
+    }
+  ],
+  "banks": [
+    {
+      "index": 0,
+      "design_path": "results/research/loki/h3ao/b0/d16/source-design.npz"
+    },
+    {
+      "index": 1,
+      "design_path": "results/research/loki/h3ao/b1/d16/source-design.npz"
+    },
+    {
+      "index": 2,
+      "design_path": "results/research/loki/h3ao/b2/d16/source-design.npz"
+    },
+    {
+      "index": 3,
+      "design_path": "results/research/loki/h3ao/b3/d16/source-design.npz"
+    },
+    {
+      "index": 4,
+      "design_path": "results/research/loki/h3ao/b4/d16/source-design.npz"
+    },
+    {
+      "index": 5,
+      "design_path": "results/research/loki/h3ao/b5/d16/source-design.npz"
+    },
+    {
+      "index": 6,
+      "design_path": "results/research/loki/h3ao/b6/d16/source-design.npz"
+    },
+    {
+      "index": 7,
+      "design_path": "results/research/loki/h3ao/b7/d16/source-design.npz"
+    }
+  ],
+  "candidate_prior": {
+    "base": "Supplied ordinaryqueen row/column/diagonal rules.",
+    "orbits": [
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    "family": "All0/1/2element subsets of10D4leaperorbits1<=a<b<=5; exactly56candidate hypotheses.",
+    "additional_priors": "Explicit D4symmetry, radius5finitevocabulary andatmost2orbit bound. Truefamilies areknownbyexperimentcontroller to lie inclass; learner receives nofamilyidentity.",
+    "candidate_normalization": "Enumerate completeN12ordinaryqueen universe andeach candidatevalidsubset; independently enumerate eachcandidate with literalF. These are solver computations under supplied rules, not additional training labels or observed-source completeness."
+  },
+  "likelihood": {
+    "observation": "Same16distinct rawN12positives from each frozen uniform64drawprefix. Ignore their order explicitly; unorderedset likelihood1/choose(M,16) under uniformwithoutreplacement hypothesispopulation.",
+    "selection": "Likelihood0 if anysampleinvalid. Otherwise exact denominatorchoose(M,16); maximizing is equivalent to minimalcompletecardinalityM. No model-size penalty or marginal-independence approximation.",
+    "ties": "Retain ALLminimizers, no arbitrary/targetfavored choice. Primary requires everytie safeand>=95%; uniqueness andexactgraph descriptive.",
+    "data": "16rawlabels only, no D4views counted as extraobservations, no newdraws/fulltruepopulation/completenessnegatives."
+  },
+  "control": {
+    "name": "consistency_envelope",
+    "construction": "Retain every orbit fromsame10-orbit vocabulary with nooccupied-pair witness in16samples, plus ordinaryqueens. Allsamplecompatiblehypotheses can be checked against this envelope.",
+    "scope": "May contain>2orbits andtherefore lieoutside56candidate class; explicit control for candidatevocabulary andpositiveconsistency, not an additional likelihoodcandidate.",
+    "interpretation": "IfselectedF equalscontrolF, reportidentity and do notattributegraph/capacity gain uniquely to likelihoodnormalization."
+  },
+  "primary": {
+    "capacity": [
+      19,
+      20
+    ],
+    "invalid_zero_states": 0,
+    "all_banks_and_all_maximizers": true
+  },
+  "evaluation": {
+    "order": "Sealall56sourcecardinalities/8fullscoretables/tiedselections/controls beforetargettruth scoring.",
+    "complete": "AllN13zeroFsets independently checked by filtering complete73712ordinaryqueenuniverse andcompiledliteralF; preserveinvalidstates andallfalse/missededges.",
+    "capacity": "Fullseen trueN13one/two/threeclue universe; zeroexclusions; exact377subset integerhistograms.",
+    "model": "UniformJ=F,h0,q13,unit1. No BPfits or GPUsearch."
+  },
+  "budget": {
+    "aggregate_CPU_seconds": 120,
+    "wall_seconds": 180,
+    "GPUs": 0,
+    "source_candidates": 56,
+    "distinct_target_supports_max": 57,
+    "enforcement": "Full enumeration/build/parity/selection/evaluation/serialization charged; anybudget/supportlimit stopswhole study withoutpruning. Postpublicationaudit separatelyreported."
+  },
+  "history": "H3x/y/z supplied complete sources/closedworldnegatives andminimizedorbitcount. Here16incompletepositives aremodeled asuniformsample andhypothesisuniverses supplylikelihoodnormalizers. Sameknownbanks/families/targetuniverse, no genericrulediscovery or population/generalization claim.",
+  "source_sha256": {
+    "research/20261114/loki/h3ar/common.py": "12fd38df56787f5d5e481e38e43cfc01382dc9164d4fdf4058ab6bbdcc687829",
+    "research/20261114/loki/h3ar/source.py": "f8efae45c2bdb2adb6222a28c7a50dcbe2b1db7ea612fcc792c748e306ff7227",
+    "research/20261114/loki/h3ar/study.py": "fc98ee7ff7da51a2b8151152ecf068725c22d91a5481fe920421dc2781802586",
+    "research/20261114/loki/h3ar/gate.py": "0bd24c3c476105ef1804263177b7fe63769d3bb41a143cba38420c9aa7df954f",
+    "research/20261114/loki/h3ar/freeze.py": "be73d8206700e659f117ab7d959c0483071f251e1656f391526c0fabd3e30ffa",
+    "research/20261114/loki/h3ar/reverse_literal.cpp": "efacb8de87c2a1dce7540e4f42b036a2f1f9a07601f70ee20dc8b09bfcb3d719",
+    "research/20261114/loki/h3ad/generate.py": "c72c05fbd39ea297daa3356f0ddd3fa914e567f7ac6554d11a968ad1d58a9b6d",
+    "research/20261114/loki/h3ao/evaluate.py": "2e969c1be313f2c62fac1e72f5844f73f822246ed215cd7e1d6584bb2eadcb1e",
+    "research/20261114/loki/h3ao/protocol.json": "6d2289229c2db157974749cffaf01ca216f225dc0355b841101d398d9ba29cd5"
+  },
+  "source_data_sha256": {
+    "results/research/loki/h3ao/b0/d16/source-design.npz": "d03ddde91500f659c87f5de6b7ecc1b335e0526958cb6663b056f94b3bb23400",
+    "results/research/loki/h3ao/b1/d16/source-design.npz": "5cfc1d5dfd96c5df2a2724ba09ec8b90b4f328739665ef539c02f14012478dea",
+    "results/research/loki/h3ao/b2/d16/source-design.npz": "7516e5540f3997c93363e245a01b00699b4d3c0a1882c04a8ec278d7a114aac1",
+    "results/research/loki/h3ao/b3/d16/source-design.npz": "a77217c7e1fd3b2a9e32527279b128d4274013e9e09e86da3c6ae8056b4ec07f",
+    "results/research/loki/h3ao/b4/d16/source-design.npz": "12eaaa01073c036b81db226c07c4d1758cb15d13140318115cd4c709ef5e5fc3",
+    "results/research/loki/h3ao/b5/d16/source-design.npz": "ac5a310bfaf8da5c537bb10ea2d9c680329c7b79bf2b194c19dfaa5193625415",
+    "results/research/loki/h3ao/b6/d16/source-design.npz": "bcb12dad1dd378207b664710e4ad2b97b569260af863645748afb442de123eac",
+    "results/research/loki/h3ao/b7/d16/source-design.npz": "7c2612d0a1e924a62259e0d15330fb8dd4e61cc719eb1150ef91a59e5887df33"
+  },
+  "target_data_sha256": {
+    "results/research/loki/h3ad/b0/target-columns.npy": "81e5e6f877586ed8a5d5bd2c4eebec6ef1b93f3dbe98ff471b899d60cb0479da",
+    "results/research/loki/h3ad/b1/target-columns.npy": "9d4efdb32cc17beaa9bae12850bf83bebe1b8e8e8f5e4b4d881185d42f175269"
+  }
+}

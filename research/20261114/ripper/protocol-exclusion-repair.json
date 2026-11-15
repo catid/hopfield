@@ -1,0 +1,266 @@
+{
+  "id": "H1av-premature-exclusion-repair",
+  "frozen_utc": "2026-11-15T06:57:41.154974+00:00",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "arms": [
+    "original_support",
+    "top810_unrestricted",
+    "degree20_hard",
+    "degree20_unrestricted"
+  ],
+  "scope": "All32 previously examined H1ap observed streams, consumed only through independently archived final counts and supports. No acquisition replay, new observations, calibration, source rows, solver puzzle inputs or GPU use.",
+  "comparison": "Same frozen exact-null costs and supplied degree20 prior. Hard LP allows only original retained pairs; unrestricted LP allows all3240 pairs. Unrestricted top810 same-cost control supplies graph cardinality. No cost tuning or new latent draws.",
+  "supplied_prior": "Exactly 20 incident retained edges per cell, implying exactly 810 undirected edges. The top810 control receives that cardinality directly. These are explicit structural priors; no prior-free or uniqueness claim.",
+  "cost": "w_e = round-half-even(1000000 * [c*ln(1600/81)+(m-c)*ln(12800/14319)]), from original final equal/coquery counts. Producer Decimal80, independent auditor Decimal110; no cost/scale tuning.",
+  "tie_convention": "Top810 sorts (integer cost, lexicographic unordered pair index). LP uses deterministic column pair-index order and frozen HiGHS dual simplex seed/options. No lexicographic objective perturbation or uniqueness claim.",
+  "certificate": "No primal rounding/snapping. Literal primal values must belong to {0,0.5,1}. Multiply by two exactly; require exact degree40. Reconstruct node dual y2=round-to-nearest-even(2*y_float), requiring absolute reconstruction error<=1e-6. Set upper dual z2=min(0,2*w-y2_i-y2_j). Check integer dual feasibility, both complementarity conditions and exact equality sum(w*x2)=20*sum(y2)+sum(z2). Costs and duals restricted to absolute value<2^48. No alternate denominators or fallback scheme.",
+  "certificate_rationale": "Unsigned graph incidence LPs with integral costs and degree RHS admit half-integral basic primal/dual witnesses via tree/odd-cycle components. The fixed scale-two reconstruction is a practical scheme, not an assumption that every solver output is certifiable. Acceptance rests only on exact integer checks. No uniqueness conclusion follows.",
+  "hard_infeasibility_shortcut": "Before solving hard arm, count allowed incident edges. If any cell has <20, emit exact integer deficit certificate for first cell index and skip LP. This proves LP infeasibility. Otherwise solve; an uncertified solver infeasible status remains unresolved.",
+  "omitted_true_edge_diagnostic": "After optimization/audit, report original missing true edges. Their presence proves exact truth recovery impossible under those hard restrictions; it alone does not prove LP infeasibility.",
+  "outcome_rules": "Exact certified integral graph => success. Certified integral nonexact, certified fractional output or exact degree-deficit infeasibility => resolved failure. All other solver/time/numerical/certificate gaps unresolved. No primal rounding or fallback denominator. Fractional output does not exclude an integral co-optimum; no uniqueness claim.",
+  "primary": "Unrestricted degree20 arm has >=29/32 certified integral exact graphs. Supported if successes>=29; falsified only if successes+unresolved<29; otherwise inconclusive. Hard/cardinality/original controls descriptive, all32 retained.",
+  "controls": "BP AdamW outside source-only scope, not run. Controls differ only in explicit prior/candidate availability as stated. Same paired source counts; no independent-arm or fresh-source generalization claim.",
+  "solver_options": {
+    "threads": 1,
+    "parallel": "off",
+    "solver": "simplex",
+    "simplex_strategy": 1,
+    "presolve": "off",
+    "time_limit": 1.0,
+    "random_seed_base": 2026111502,
+    "primal_feasibility_tolerance": 1e-09,
+    "dual_feasibility_tolerance": 1e-09,
+    "log_to_console": false
+  },
+  "solver_version": "HiGHS 1.12.0",
+  "numpy_version": "2.3.4",
+  "budget": {
+    "aggregate_cpu_seconds": 120,
+    "wall_seconds": 60,
+    "max_cpu_workers": 8,
+    "gpu_seconds": 0,
+    "max_solver_calls": 64,
+    "scope": "Monitored prepare, all32 paired-bank LP/audit jobs and summary. Each actual LP time limit1s; known degree deficits skip redundant calls. Thread variables set before numerical imports. Synthetic preflight/packaging separate."
+  },
+  "query_accounting": {
+    "historical_training_queries_per_bank": 27750,
+    "historical_training_queries_total": 888000,
+    "historical_calibration_queries_per_bank": 2000,
+    "historical_calibration_queries_total": 64000,
+    "new_queries": 0,
+    "new_calibrations": 0,
+    "new_source_rows": 0,
+    "new_solver_inputs": 0
+  },
+  "code_sha256": {
+    "research/20261114/ripper/exclusion_repair_study.py": "6ee5518998bb20f9711b902fcc0286d6987564515d882ad7fc9979c587652fc4",
+    "research/20261114/ripper/audit_exclusion_repair.py": "2d3af04f634a8e6a7286809b48f39d9a73079bf9d4233abcd2e88c205d958086",
+    "research/20261114/ripper/preflight_exclusion_repair.py": "c129d35b8eb54e442eb0f8539edf02c6caf962bce1452d003fd01192a7bceebd",
+    "research/20261114/ripper/run_exclusion_repair.py": "9249892967e352feae5fb82f59e37554075a3dd13739ba9357fdf54f1f87d110",
+    "research/20261114/ripper/degree_prior_math.py": "5a3ad2c21f59dfe0d2de40065385d484e171c0f854c49c649e868ce5a98a1f8e",
+    "research/20261114/ripper/degree_prior_solver.py": "2af92a5d4326e74813f514291a7a76e6ac92778335e1dd76ffbb01f83d474c43",
+    "research/20261114/ripper/audit_degree_prior.py": "179feb9815c787a5381d1924ccb0ac41af49e103222503f5ff988dc13559f55b"
+  },
+  "input_sha256": {
+    "artifacts/research/20261114/ripper/permuted_noise/audit.json": "1573fd85e5d5d8a7ca8ff53018f0928e6cad743d16b95a1373efe00fa4b80e8c",
+    "research/20261114/ripper/protocol-permuted-noise.json": "146573e3adb1cd18d57b238efc08936268c7acc557c5a6cc567244451dd18933",
+    "research/20261114/ripper/audit_permuted_noise_acquisition.py": "123d99faefd13286db18706fff0ef564eba575528ae4c7b74227c9937c8ed92e",
+    "research/20261114/ripper/protocol-degree-prior.json": "6251d71af7a643787a38ebb373e75fdb6968243ce3cdce99780799bbb8358572",
+    "research/20261114/ripper/exclusion-repair-preflight.json": "4ae143569ed599d470b272caacf003497d725bc0216aed1f158317a20a94ef29"
+  },
+  "bank_sha256": {
+    "0": {
+      "fit.npz": "0216b1441cfd4f2ddf488af289e5c73b5e389837058bd7c9c62f3b4be72e9c2e",
+      "receipt.json": "f8f7399761d30177e1d2055a1e01d9bb3899c8cfeb82de496ddf4dab94eb485e",
+      "audit.json": "a2eb36968b2aef6a76885dcc7df5cb38b7d2aaa737bbb826625b5d7f3eea83c4"
+    },
+    "1": {
+      "fit.npz": "d0ddddb4040cae4415dfce9893313a62d918a0969f06a23faa2bf236097bf53e",
+      "receipt.json": "ee9b2bdaf8c5c000668b3a40af09f40f41dc4ec7145112d0ebea2b86e4d3087d",
+      "audit.json": "b68120d4e3d5ca11d880041320a779cb4cb249976166bef178c45b7888e78ad7"
+    },
+    "2": {
+      "fit.npz": "b7342255784fa16841f619a2801c1f4593d33b8375690d28ba94a7b152b69582",
+      "receipt.json": "81633f326480220e13c7db64b08020cb9d67356c15350a8d29c5e5804d626e45",
+      "audit.json": "4fc0c598ba351b5cc93e2c6c6af1abbbc29df555f838114cef3d327e9a61c8e8"
+    },
+    "3": {
+      "fit.npz": "bd3bfc4368048b18d0fd504274d8226d8362ed6c4405e27486965e22dcce9814",
+      "receipt.json": "ff399a9d88f9e89733e33d49cf458bd8736b5b1c762eb2416e7dca9e311cd51e",
+      "audit.json": "e759f04371dfc660fce6218e4ad75113470eb4c25dee11db4951aa081b66d53f"
+    },
+    "4": {
+      "fit.npz": "fdec51b75e4dbf70ff38c1cfda1b06495db8d59b79bfbde4396cc420e12bc286",
+      "receipt.json": "78d4c687c2c4014e05b2ea97ba70bae9905aa8bea581133c6c844ad364fa0652",
+      "audit.json": "75fc6e4b6fd8e6b2b030fa8221db6f43c8af19c75a4b5c050f376bfc11fec6f4"
+    },
+    "5": {
+      "fit.npz": "4a6aade7db47cbd2dc5c09d94483c7b9f61d0d283bac2ea50ade4d5151438fd3",
+      "receipt.json": "b5c3b8dc10b3a46aa6b91c3c9eb46ce06159ec4412e94716a91de35928f6c85d",
+      "audit.json": "178ca1b993a69e6ebbfdfc049e0826a0985ac5f92d3bf6977cdd619274200c6a"
+    },
+    "6": {
+      "fit.npz": "c6e87746c7ee509f030eba343876d5e3648682fff2a0a5623d01d4077deace82",
+      "receipt.json": "b0fea6482de39449e211e714bb8a98b054b6985c644feb33078ce2f422a38ce3",
+      "audit.json": "67fba39e9414f2744488a0644f4a1c7219ad6805f18b80d5ccb4d2c9732c6b81"
+    },
+    "7": {
+      "fit.npz": "35f85176d8233aab314d3d2968cd784c7946053666630125801bc9e46e4a4db1",
+      "receipt.json": "a8a26449daf367c17c03d28f8a8eb1e69c59ca9eb738cbf3be0820253f7c0663",
+      "audit.json": "5532290ef845bbb3e395f30c051be26c6253f6955e67332c795ae31539e2f3bc"
+    },
+    "8": {
+      "fit.npz": "ad115436adc6f0f6a2d241608f1425a886bf53ceae51ce3dae13d9bf69b1ac3b",
+      "receipt.json": "49a0d1881512601bacc02ea963629d376068b48c90e9f07fe28cf6580b043c75",
+      "audit.json": "0387ea844a55d1d753fb864251b3004e7562afe25ca5c86bd6a6e7b33a66c853"
+    },
+    "9": {
+      "fit.npz": "5907bd9c38b020565983e6e7bbe5827c88b7f4c60694327aed03caf0a6681610",
+      "receipt.json": "1be40ee425746426bf9773f1d9bad1421b125077bfc6ae90066409ba3ffc47cf",
+      "audit.json": "f9ff8aab8091b6a09c9d6a8b82714ac62655d60e3253a0df6fc2be72bb54b609"
+    },
+    "10": {
+      "fit.npz": "8eaf6b3184587cc9d6a576f8b88ff940ceb0f3b99eba15244087c60d38796716",
+      "receipt.json": "9d55a261ffb47a068711e7e5048ef6a6568224d116966730ed6dd9b525ee8d5b",
+      "audit.json": "d4fde6fc9a603bceb5b7442dc54d2cb7b9ec4634e2f07b5d658031f6e2828c30"
+    },
+    "11": {
+      "fit.npz": "5b80c01e3337ce4c74dab37d244c1d21358a03a5d60a966e1883b523d3776620",
+      "receipt.json": "3390624bc79cd2b915feb38d97c924c2de65d6c5a866a28d2f31683afd940dd0",
+      "audit.json": "8a3bf2da66cc6d3622077afb2e15aca85c5ba4448482d2baf7c781991127a017"
+    },
+    "12": {
+      "fit.npz": "ab7cec97e28570af9735b31884870d671261f8e22d98c8230f51b1870dc76b53",
+      "receipt.json": "b56580339d099979c2855b5fd4d01bdc038ea912531c7e2828426ce1eee65480",
+      "audit.json": "cc1f12ed146c3af68ec13be40d3343dae014b59724f136d090d654e5fb07fc1d"
+    },
+    "13": {
+      "fit.npz": "c318b97e41b072d3aeca996b2c7e446bc2fb725e294ee3babb67b4a67aa76c18",
+      "receipt.json": "796ec3e805a4eb32e82b76015d445c6d3070c0a43b0b70403c5fd8ff4a2910c5",
+      "audit.json": "948adaf158bb7145d859a3fc556e8fbae3fdd84a2cbf605c1bebdebfeefd5553"
+    },
+    "14": {
+      "fit.npz": "1bc9664ca2019b2911b84f0809dcda6cf28fd592f16424a55a8f33d2fe2b7783",
+      "receipt.json": "d3e57076b023592786c580ed03c01f6d5481b956151f7bbad8355290881840f2",
+      "audit.json": "363a67a64c16075754aa2ef03aa5c684355997097675a0d269fdff1f9fa19870"
+    },
+    "15": {
+      "fit.npz": "d9e25a8d0dfc20aed12c118f8e6b625208efb3d533f8e1457d1fd657d4b1db50",
+      "receipt.json": "8447a09c9b45a842acf88c8926f5fb8ad074616fb7ab901e69f55f599b2517ae",
+      "audit.json": "a2aee91967c2be050b8e5c2bb0e46b50d350c31f21def2e16438afeb4eabca5a"
+    },
+    "16": {
+      "fit.npz": "4b0e01efdce2774ab94ac141205245df5926a7825e9dd74968073149996287c8",
+      "receipt.json": "04c030702c82ed0bb8cbeae44f349ec0a2416dd4e809de93c5bc9d63e812d1d1",
+      "audit.json": "6802d5a2b7edb08f57b91f3e53378f743678f3a3be739c41f5015f818d5ce0e6"
+    },
+    "17": {
+      "fit.npz": "6a07780b599eb730c443362bbe883b749034bc9a4b93a4ab06d7a51cbcd0baaf",
+      "receipt.json": "b6aa6c6da58cd3917723e80aaaf9ae35849e543d4ec248bc42e68e2ea1cfb761",
+      "audit.json": "fc3813792fb189e307d3b065c7258568a8dafb00590f3fd288bd58283a5af31d"
+    },
+    "18": {
+      "fit.npz": "e26733bb39c222c2a9b10fd918c54c418dc3a60ca8b9c3768fc1f116a48bf5d6",
+      "receipt.json": "c53a778c38ec8f6d3bbc7e35dd524b6b2e3da8117d9084f24d77272a871d2745",
+      "audit.json": "d39d80bbfa0b1de99a0abbcaad9006030235bfdb27a5967f5414502ee430c0df"
+    },
+    "19": {
+      "fit.npz": "75802ff5bc0358b2e4126e9f102fd4e3db6072929201c77a81dba1bc13723ab6",
+      "receipt.json": "df270bcb97abcf74c71cfcdbc6e47c68ccdfe79c127aa5a5bebe465ec22a6089",
+      "audit.json": "9084e3dcfe662c91e8183dbfdb3b869c5705f7259c844d8894ba46bdbd373946"
+    },
+    "20": {
+      "fit.npz": "976eedc54d2e389d6330163102d5c3db7deb3323d4bb46719e95de6624070b8e",
+      "receipt.json": "8a4d375528c1a73dee44bcf0e1fa58eb0fd67bd069599f6f9309ac1064fde203",
+      "audit.json": "5ae1a1929a6da248d8bdd6832bdbd9369dab5aaafde1f5b52df650cedb1d2991"
+    },
+    "21": {
+      "fit.npz": "e5ce7c2e0b4257cf9c72e168260a60d6ed7c5e2628aab928b4944b027431043e",
+      "receipt.json": "52ab69b228e6ef492c0adef7ea1121eb537ff23eb6cb839124602865c28f335e",
+      "audit.json": "1f745246a19ed3278ed26550f5a7c640f8eea442489344c6b6120c33187560b7"
+    },
+    "22": {
+      "fit.npz": "880a07c89d5a9c5b6711b64dc9b81d82443e03a6739b4abb028b397e5468fa61",
+      "receipt.json": "e05ba5462a855ec3196972f397b7dc1536bf9f8ae599064fb1f20c0ab9c1bb86",
+      "audit.json": "10785896dd2c89fe4520d156088a914197535a5a2d6bc9888b5d8a9db8014d47"
+    },
+    "23": {
+      "fit.npz": "e1552619cd83eea4ec9605812d4ef9fed2d38bc760269bab8bc26158e7a6ab74",
+      "receipt.json": "65c597ac3f7d9c8406d4cec24c465f88fd24ccf652977f941acb57f31b368356",
+      "audit.json": "ebfbf80ecefc9bc68459298e91176a120db3ace75ab0e6de9ea44076513d523f"
+    },
+    "24": {
+      "fit.npz": "b7a41a08e344e2e184a3ef6532b78c45a5567cd28e9f86da87c07e5187b9e4b3",
+      "receipt.json": "16018b53169a9a4bd24051df22bf0756b8dbf8f5bf57f96c9421aee1682a4817",
+      "audit.json": "ff2027abc6f424c3bf34e868ebc7c645c0af57e74c1fa27c075f3c7d4fc764ca"
+    },
+    "25": {
+      "fit.npz": "cd691d3650575ea850253116e363a93b4479e053d2c3ea7620fcfa573a7a90c4",
+      "receipt.json": "322ff33b0e5c72b519b7b59a466802ad10a1bb3d66b05f163f319f8d6503d4b0",
+      "audit.json": "6b8d7ed87537e4c7aec515382df2a817936a7fd76be26fb092b2476244d275cf"
+    },
+    "26": {
+      "fit.npz": "0ee71daebcab541083c4d3f9242bc03d8f1e0d263703f47a659e9c623ef53a8d",
+      "receipt.json": "b60e36ac33d67a588eb519d2a8e4850a1f4fc1177f99be58aa4a3f7e3761ea0f",
+      "audit.json": "0f495482563ee280cd3bba6d0a66781790de5d68fa061d7ce71d68fd454a4de7"
+    },
+    "27": {
+      "fit.npz": "73d64e3fca9a3ffc293adb2db9b1df4defcd627a05f4b1d9b25e8ef6e4d51534",
+      "receipt.json": "fd56bfe1a3ea0ff0e1ea0214fca7ebfe6f9390673da12a37020608d16f0901b1",
+      "audit.json": "be2bfcc9e88a76bb0df65fb4222ee31545607b882b894dcd5754643100e9ecd9"
+    },
+    "28": {
+      "fit.npz": "115ebd067a4b29d61a6bb1e5ad164f552387e07d2df84afed5b95ee7f2cc63e6",
+      "receipt.json": "9a30d83674f400ac773ff209d5e21352c3264bf125e9bea4d85ac0a9ee2ada2e",
+      "audit.json": "33a5bc95684b1010eddff5885c9973b836e18db22e6787307b3e789fba1d5996"
+    },
+    "29": {
+      "fit.npz": "81a4728d95cd416c8c57d7ccc0aadfe1b5599fdaee3b805287099efa49ed8900",
+      "receipt.json": "d287b67d850359f51990522cfae15196d50fbe86d51a3ea47f72e9d8f49e2c45",
+      "audit.json": "1e470778f147d4ef35dea18aefd57974fb586d23853ba3f270abb71f07fa89d2"
+    },
+    "30": {
+      "fit.npz": "4dee3a5e2da95ab8ef5dfb8d3928c1c25ae9f134d811819d552615523c3ea4a6",
+      "receipt.json": "907ded9a3e53fb423a929ceace7efce788e7a8f004faf565c6648786def971d5",
+      "audit.json": "5fd9b14e2604f9ebfa9a7c7fbc8a47d9a95724c0b1a8028878c9731c8ecb2028"
+    },
+    "31": {
+      "fit.npz": "db95957767a83fd0ca793d8047b27d99b1b6d088c7ee3581df568330b4575294",
+      "receipt.json": "3cf9cf062589a89cc65ad4314ba3186afc3611a93eb52f414be38241e6f4ce3b",
+      "audit.json": "b1a1755adf8e9a45379718e8ade950d63bb36b3792cbbe93fa09db9c3c748805"
+    }
+  }
+}
