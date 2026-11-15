@@ -1,0 +1,173 @@
+{
+  "id": "H3as-exact-finite-positive-recovery-reliability",
+  "frozen_utc": "2026-11-15T07:04:50.212526+00:00",
+  "hypothesis": "Under uniform sampling without replacement, 16 distinct raw positive N12 labels uniquely select the correct graph by H3ar finite-candidate likelihood with probability at least99percent for BOTH fixed families.",
+  "families": [
+    {
+      "name": "queen-plus-zebra",
+      "leaper": [
+        2,
+        3
+      ],
+      "source_path": "results/research/loki/h3ad/b0/source-columns.npy"
+    },
+    {
+      "name": "queen-plus-2-5-leaper",
+      "leaper": [
+        2,
+        5
+      ],
+      "source_path": "results/research/loki/h3ad/b1/source-columns.npy"
+    }
+  ],
+  "candidate_prior": {
+    "orbits": [
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    "candidate_sizes": [
+      0,
+      1,
+      2
+    ],
+    "candidate_count": 56,
+    "base": "Supplied ordinary queens; explicit D4 symmetry, radius5 vocabulary and atmost2orbits. Same prior as H3ar."
+  },
+  "source_selection_path": "results/research/loki/h3ar/source-selection.json",
+  "ordinary_source_path": "results/research/loki/h3ar/candidate0/source-columns.npy",
+  "doses": [
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "primary": {
+    "dose": 16,
+    "probability_threshold": [
+      99,
+      100
+    ],
+    "all_families": true
+  },
+  "observation": "Unordered uniform distinct subsets without replacement; candidate likelihood0 if inconsistent, otherwise1/choose(candidateN12cardinality,dose); retain every tied maximizer. No independent-orbit approximation.",
+  "lemma": "Unique true graph recovery iff all nine other vocabulary orbits are witnessed. An unwitnessed other orbit permits true+other: if it excludes any true-population board it strictly improves likelihood; otherwise it ties true and defeats uniqueness because its graph is distinct. If all others witnessed only empty/true survive; proper true source population beats empty. Check graph distinctness, strict properness and zero-observability explicitly; zero-observability is retained as failed recovery, never dropped.",
+  "comparison": "Consistency envelope exactly equals true graph under the same full-witness event; report identical recovery probability, not a likelihood-normalization advantage. BP AdamW is not fitted at any dose.",
+  "calculation": "Exact nine-bit joint population witness histogram; integer subsetzeta/Mobius inversion yields every512union mass at every dose. Independently grouped withoutreplacement DP with binomial group weights must match every mass. Exhaustive small toy populations checked during charged run. Full512patterns directly classified under all56candidates to verify lemma, preserving allties and zero masses.",
+  "evaluation": "Source-only finite-population calculation; no new draws, target truth data, target scores, exclusions or GPU searches. N12/N13 candidate graph distinctness is literal rule construction, not target data. Complete source population is evaluator information for exact reliability, not extra learner labels.",
+  "history": "H3ar succeeded for eight previouslyexamined16label banks with control-identical graphs. This prospective probability test covers all possible draws from the same two known finite source populations, under a fixed supplied rule prior; no claim over new families or observation models.",
+  "budget": {
+    "aggregate_CPU_seconds": 120,
+    "wall_seconds": 180,
+    "GPUs": 0,
+    "enforcement": "Whole-study cap with all masses retained; stop entire study on ceiling with no pruning. Freeze/preparation and public audit separately reported."
+  },
+  "source_sha256": {
+    "research/20261114/loki/h3as/common.py": "8a6c8a7d250eb6f0c85ab66c2ee014a152f49d495b20c4278e67cd80ef225f0d",
+    "research/20261114/loki/h3as/distribution.py": "5ca43b322252651da088e2004549509181951a279e279d51ec465d25dbbe5eab",
+    "research/20261114/loki/h3as/study.py": "1e968a0d0bdfc53ac86f3e6b5e0ec61ae6b00f6b51768fa88f4170123807716b",
+    "research/20261114/loki/h3as/gate.py": "0bd24c3c476105ef1804263177b7fe63769d3bb41a143cba38420c9aa7df954f",
+    "research/20261114/loki/h3as/freeze.py": "4c874c726ae5bb250af9235e542d7b42d668bc3389e4b8c4efbcde5eb706cabe",
+    "research/20261114/loki/h3as/reverse_literal.cpp": "efacb8de87c2a1dce7540e4f42b036a2f1f9a07601f70ee20dc8b09bfcb3d719",
+    "research/20261114/loki/h3ar/protocol.json": "c95950224db911f2d58354d844c20758d69c4dfa148d4e71fa65cd80308434ba"
+  },
+  "source_data_sha256": {
+    "results/research/loki/h3ar/source-selection.json": "3713cbf5761ce84b28d2447d5c2335f537e802dc97a00c2ab37aaa188db03803",
+    "results/research/loki/h3ar/candidate0/source-columns.npy": "d63a5e609d915846898d02d0d9f6e43760d2cfe82f5e609d42656ea0b72e28f4",
+    "results/research/loki/h3ar/candidate1/source-columns.npy": "30295b8b8c0b88d9fff00aa9f0f89d06d4d691f0dfd06d6da559dd44600ace08",
+    "results/research/loki/h3ar/candidate2/source-columns.npy": "5552537b2c3cd7a6b68796636f8cd43c7f483e5d7ad7039969e7e25fe1384c0e",
+    "results/research/loki/h3ar/candidate3/source-columns.npy": "aaad80e864476554a30379436878c5f3336841e0a44b47f09364f11a16c62da1",
+    "results/research/loki/h3ar/candidate4/source-columns.npy": "ac6a8b3e01b5d9e07894ac398165f42b76846c8154b0d997d4e4aa23c7df07d9",
+    "results/research/loki/h3ar/candidate5/source-columns.npy": "53b1209b1ff5af4dbb9c652e574761cd710dbdebb260e8d2ad71d2d88c3465a4",
+    "results/research/loki/h3ar/candidate6/source-columns.npy": "1d85fece9217fa7ac0bb0684de55b606454c712962714d5322d6dcc1066df260",
+    "results/research/loki/h3ar/candidate7/source-columns.npy": "d8ee10c015a7aa1131a9c573d8f8cbfd1f349f3587785dd30fa0cc9a5cb8862d",
+    "results/research/loki/h3ar/candidate8/source-columns.npy": "5a3ea9b09c319f92736fa257dd40a3e3aa7fac30a572172726f168299c554949",
+    "results/research/loki/h3ar/candidate9/source-columns.npy": "f76f0c9437cb4e7ea80a678e7e3b933725d3860468cb70b4239717856ec95b2b",
+    "results/research/loki/h3ar/candidate10/source-columns.npy": "79af18e82675af41641ac477d8a16321063524ddbe9192ca00033acc651ada64",
+    "results/research/loki/h3ar/candidate11/source-columns.npy": "c7fbb2b8411b3e69db91ac481573216e6108e9394650339c8c4ac8c237c7b72f",
+    "results/research/loki/h3ar/candidate12/source-columns.npy": "c7fbb2b8411b3e69db91ac481573216e6108e9394650339c8c4ac8c237c7b72f",
+    "results/research/loki/h3ar/candidate13/source-columns.npy": "23a6b20c7b67cec7809c2303b3995ec197232450f5f3efd2e5829eb23e86acdc",
+    "results/research/loki/h3ar/candidate14/source-columns.npy": "23a6b20c7b67cec7809c2303b3995ec197232450f5f3efd2e5829eb23e86acdc",
+    "results/research/loki/h3ar/candidate15/source-columns.npy": "1772466349201bfd63a7a45279cee53b6b9b099b1888dbf06a5ed595ed53ebb2",
+    "results/research/loki/h3ar/candidate16/source-columns.npy": "297758e1dced518259aa76fa8e3d0b1cd4cb2dac9126f28cbb5463576c8140e6",
+    "results/research/loki/h3ar/candidate17/source-columns.npy": "5f4c6a5bdae5c7f82adca46806925abe835891b58f709fd37c8171044f434754",
+    "results/research/loki/h3ar/candidate18/source-columns.npy": "1f98fc47a5964b14dafadfa6e22211f5da9cb88a0fdb5bca8ca4b49b60293b4a",
+    "results/research/loki/h3ar/candidate19/source-columns.npy": "fd1893bfc602d738edae039c9532e1cda3b88c9141fecfabdbf930f31fc50a4f",
+    "results/research/loki/h3ar/candidate20/source-columns.npy": "b49013c346ac41093c74c444548b54cfef16a02ff96d982273ae6ea87af7ef97",
+    "results/research/loki/h3ar/candidate21/source-columns.npy": "d8eecac4e37128bf65f6666bc14b9cbf726772d4f17e5590b05665f0b55ef0a7",
+    "results/research/loki/h3ar/candidate22/source-columns.npy": "34321cb1ec14764db54fc4330e7478f00f9823c842bb36c25ce5f6379b98a64b",
+    "results/research/loki/h3ar/candidate23/source-columns.npy": "c7fbb2b8411b3e69db91ac481573216e6108e9394650339c8c4ac8c237c7b72f",
+    "results/research/loki/h3ar/candidate24/source-columns.npy": "d810beaf79f355f55c422491e824d52e456560794b814f9fea90d838b73d9c1c",
+    "results/research/loki/h3ar/candidate25/source-columns.npy": "7de28c9d0ed4f32f1b1291e50cae24e2bbcd6d008631c9b7187fbf80eb92f909",
+    "results/research/loki/h3ar/candidate26/source-columns.npy": "89dd97a70192d13fc7e70d79fe7afbab3de24a76540437848e4c93b289185346",
+    "results/research/loki/h3ar/candidate27/source-columns.npy": "2473a6717a1fa31e787f59472dd06b4b899e9056cc147920239990376e631324",
+    "results/research/loki/h3ar/candidate28/source-columns.npy": "1654c1f65556a536d34091d9d2a4afb23c8e8fde5022e14ba102e97be00d0160",
+    "results/research/loki/h3ar/candidate29/source-columns.npy": "8baf71311ac40a07b81dbc9495072a31251ca057ed265eec8ce30fe159144b41",
+    "results/research/loki/h3ar/candidate30/source-columns.npy": "3306f40a5039a88fe3c2c2455232cbc18f8b4179eafdcecddf1c8c2e9a7deed2",
+    "results/research/loki/h3ar/candidate31/source-columns.npy": "b9e56d498036476187b234807a8c0f95acfb6e11bbe88e50a0f028e0740ce763",
+    "results/research/loki/h3ar/candidate32/source-columns.npy": "9893061965be0f31252a00079826d1bce236c928c829a21444313dfed6297349",
+    "results/research/loki/h3ar/candidate33/source-columns.npy": "40ab00600bde8c229f5081756eaebfb6741ded4d470cf16c6cb685b0caea2489",
+    "results/research/loki/h3ar/candidate34/source-columns.npy": "952a8096ff27881b27619b252e24011dc6b44a37784f4d1c982d3bcae382ab35",
+    "results/research/loki/h3ar/candidate35/source-columns.npy": "e4017621e3f6d2e8e9a7290d3a871a8f7e40d7042a2631d8724b43fedc2f8ef5",
+    "results/research/loki/h3ar/candidate36/source-columns.npy": "0ce5b5e1dc7b748ef47c3f2fd1a16f077d4b43e3e7cea732d46c6f500dd3aecb",
+    "results/research/loki/h3ar/candidate37/source-columns.npy": "d8eecac4e37128bf65f6666bc14b9cbf726772d4f17e5590b05665f0b55ef0a7",
+    "results/research/loki/h3ar/candidate38/source-columns.npy": "d5e6b8cd0eb366a491eb368a715c9cd5b49f43f7da829226a18a21173da41063",
+    "results/research/loki/h3ar/candidate39/source-columns.npy": "658e5518e5daaeb1f76eb8b678710a14a1c758e86a80caeb42341821b843fcf8",
+    "results/research/loki/h3ar/candidate40/source-columns.npy": "ca3ff62b92ca6a8ed8862e825f33a956baa663658d9b72466f74372a1c3006a3",
+    "results/research/loki/h3ar/candidate41/source-columns.npy": "23a6b20c7b67cec7809c2303b3995ec197232450f5f3efd2e5829eb23e86acdc",
+    "results/research/loki/h3ar/candidate42/source-columns.npy": "3ec9559f9dd1f5ee7acd267c85debf1b34c1e6cec8067bf54f5da9867d28be48",
+    "results/research/loki/h3ar/candidate43/source-columns.npy": "d8eecac4e37128bf65f6666bc14b9cbf726772d4f17e5590b05665f0b55ef0a7",
+    "results/research/loki/h3ar/candidate44/source-columns.npy": "6e5dd0c1ce5afc36945df6f71b1f7828b4c3ff65ff5a2b6b0c7662da311d9986",
+    "results/research/loki/h3ar/candidate45/source-columns.npy": "5cb40903345407df1d4ce2d31742ddb5c27aea39803871f96d65e412da4a54f3",
+    "results/research/loki/h3ar/candidate46/source-columns.npy": "40ab00600bde8c229f5081756eaebfb6741ded4d470cf16c6cb685b0caea2489",
+    "results/research/loki/h3ar/candidate47/source-columns.npy": "e440677269301a7bd35e620119957adae12d71eb442a1a0c628b9663ec28fa78",
+    "results/research/loki/h3ar/candidate48/source-columns.npy": "f6d41f484faea8c4ab71cd37eaec0987c5ab9c775ce7c492874acecbb0bc03e9",
+    "results/research/loki/h3ar/candidate49/source-columns.npy": "d1d05993614b34913aa3414e8c8527a8856508ca0ca351efaea162e0e7e4a055",
+    "results/research/loki/h3ar/candidate50/source-columns.npy": "da695d4b4942f12208ddbaa54396fd151b9b4188a078f51b36f13a0377ddcd9a",
+    "results/research/loki/h3ar/candidate51/source-columns.npy": "636db846bf55853ab5f0733fd1c958e6d619c2082a01bc91c5c53a7f1f042a48",
+    "results/research/loki/h3ar/candidate52/source-columns.npy": "19b2ad5601516b196edff124d952839ccad00ad5b552e72e9b7036da42678c22",
+    "results/research/loki/h3ar/candidate53/source-columns.npy": "debe79d06d45b4a0d3b04fa9c84f958f15f4d25e378dce342ee10616d17ad9b6",
+    "results/research/loki/h3ar/candidate54/source-columns.npy": "90c0b065ec21bd244f59835edbd7ba14cbf421430190b09032a3b10734e6c253",
+    "results/research/loki/h3ar/candidate55/source-columns.npy": "cbafc1bcd1946aa2a4eec4dc22e240d1a82ba17a4964e897fddcc63398319069",
+    "results/research/loki/h3ad/b0/source-columns.npy": "53b1209b1ff5af4dbb9c652e574761cd710dbdebb260e8d2ad71d2d88c3465a4",
+    "results/research/loki/h3ad/b1/source-columns.npy": "d8ee10c015a7aa1131a9c573d8f8cbfd1f349f3587785dd30fa0cc9a5cb8862d"
+  }
+}

@@ -22,7 +22,7 @@ On **8,192 new 120×120 loopy mazes**, adding cycle cuts solves every input acro
 
 The intervention supplies an explicit graph prior and permits moves that increase the learned energy. Ranking cuts by learned energy ties with choosing them lexicographically, so these results show **no benefit from learned cut ordering**. All 122,880 final states across five arms were independently audited. This is complete success on one fresh finite cohort, not a universal guarantee. [Frozen comparison, uncertainty and full costs](research/20261114/work/REPORT.md#h2au-fixed-cycle-cut-policies-solve-the-fresh-8192-input-cohort)
 
-The larger **180×180** test reaches **4,068/4,096** joint solves; its noninferiority comparison with BP AdamW is inconclusive. The remaining failures expose the fixed 256-cell move limit. [Larger-maze boundary](research/20261114/work/REPORT.md#h2av-the-cycle-cut-gain-transfers-to-180180-but-bp-noninferiority-is-inconclusive)
+The larger **180×180** test initially reaches **4,068/4,096** joint solves; its noninferiority comparison with BP AdamW is inconclusive. Raising the move limit from 256 to 512 cells then rescues **all 28 remaining failures**, with zero regressions, on that same cohort. This identifies a search restriction; the repair still needs fresh confirmation. [Larger-maze boundary](research/20261114/work/REPORT.md#h2av-the-cycle-cut-gain-transfers-to-180180-but-bp-noninferiority-is-inconclusive) · [Controlled size-cap repair](research/20261114/work/REPORT.md#h2aw-raising-the-chain-limit-rescues-all-remaining-180180-source-failures)
 
 ## A search prior makes the same learned energy much more useful
 

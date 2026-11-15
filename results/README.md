@@ -2,6 +2,10 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Larger maze moves rescue all 28 source failures with zero regressions](../research/20261114/work/REPORT.md#h2aw-raising-the-chain-limit-rescues-all-remaining-180180-source-failures)
+- [Smoothed equality rates plus degree 20 recover all 32 fixed noisy Sudoku graphs without supplied noise probabilities](../research/20261114/ripper/REPORT-laplace-rate.md)
+- [Exact sixteen-label recovery probabilities under the narrow queen-rule vocabulary](../research/20261114/loki/h3as/REPORT.md)
+- [Expanded queen vocabulary overfits all eight source banks and loses capacity](../research/20261114/loki/h3at/REPORT.md)
 - [Concentrated Sudoku noise: recovery failure despite count separation, with exact invalid certificates](../research/20261114/foureyes/REPORT-heterogeneous-noise.md)
 - [Degree-20 prior recovers all 32 noisy Sudoku graphs with exact LP certificates](../research/20261114/ripper/REPORT-degree-prior.md)
 - [Reopening prematurely excluded edges enables exact degree-constrained repair](../research/20261114/ripper/REPORT-exclusion-repair.md)
@@ -46,6 +50,18 @@ These compact exports contain the measurements and provenance used by the reposi
 - [Queen search across four freshly fitted source banks](../research/20261114/loki/h3ac/REPORT.md)
 - [Matched-time search on two additional queen families](../research/20261114/loki/h3ad/REPORT.md)
 - [Maze hard-negative constraints and fresh transfer](../research/20261114/work/REPORT.md)
+Increasing the maze chain limit to 512 rescues **all 28/28 remaining 180×180 joint failures**, with zero regressions, whether the new cuts are ordered lexicographically or by energy. Both arms continue the same archived lexical256 output; every new deletion lowers energy, while earlier positive-cost cuts remain in the shared prefix. This isolates the size cap on seen inputs and leaves fresh transfer to a separate test. [Full source intervention and all-state audit](../research/20261114/work/REPORT.md#h2aw-raising-the-chain-limit-rescues-all-remaining-180180-source-failures)
+
+![Larger moves repair the remaining source-maze failures](research/work/large-cycle-cut/large-cycle-cut.png)
+
+Replacing supplied noise probabilities with a fixed **Laplace-smoothed equality rate** still recovers **32/32 exact Sudoku graphs** under the degree-20 LP, with exact optimality certificates. The same-rate top-810 control recovers 16/32. Exposure weighting and smoothing also change, so this establishes that the specified recovery procedure works without supplied noise probabilities on these fixed streams; it does not isolate calibration's effect or remove the degree prior. [Costs, controls and certificate replay](../research/20261114/ripper/REPORT-laplace-rate.md)
+
+![Smoothed-rate recovery and the supplied-degree control](../assets/figures/laplace-rate.png)
+
+Under the supplied 56-model queen vocabulary, exact finite-population analysis gives sixteen-label unique-recovery failure probabilities of **6.94×10⁻¹³ and 8.91×10⁻¹⁰** for the two fixed families. The consistency control has the same recovery event. Expanding that vocabulary to 1,541 models causes every one of the eight fixed-bank likelihood selections to add a spurious orbit; only **2/8** retain at least 95% valid-input capacity. All remain safe. These paired studies expose how strongly recovery depends on the supplied model class. [Exact acquisition reliability](../research/20261114/loki/h3as/REPORT.md) · [Vocabulary sensitivity](../research/20261114/loki/h3at/REPORT.md)
+
+![A broader vocabulary produces spurious exclusions](research/loki/h3at/expanded-vocabulary.png)
+
 - [Coefficient-magnitude weights on fixed likelihood supports](../research/20261114/foureyes/REPORT-canonical-weights.md)
 - [Convex digit-invariant PL: accuracy, incorrect stops and exact soundness proofs](../research/20261114/foureyes/REPORT-canonical-study.md)
 - [Sudoku projection, sparsity and held-out tests](research/ripper/README.md)

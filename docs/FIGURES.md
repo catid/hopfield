@@ -4,6 +4,10 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Larger maze move limit repairs source failures | [Full source intervention](../results/research/work/large-cycle-cut-summary.json) | [plot_large_cycle_cut.py](../research/20261114/work/plot_large_cycle_cut.py) |
+| Smoothed-rate recovery with supplied degree | [Certified recovery exports](../results/research/ripper/laplace_rate.json) | [plot_laplace_rate.py](../scripts/plot_laplace_rate.py) |
+| Exact finite-population rule-recovery reliability | [Exact fractions and distributions](../results/research/loki/h3as/) | [plot_public.py](../research/20261114/loki/h3as/plot_public.py) |
+| Expanded queen vocabulary and capacity loss | [All candidate scores and target supports](../results/research/loki/h3at/) | [plot_public.py](../research/20261114/loki/h3at/plot_public.py) |
 | Concentrated Sudoku noise and count-threshold failure | [Paired profile exports](../results/research/foureyes/heterogeneous_noise/) | [plot_heterogeneous_noise.py](../scripts/plot_heterogeneous_noise.py) |
 | Supplied-degree Sudoku recovery | [Certified LP exports](../results/research/ripper/degree_prior.json) | [plot_degree_prior.py](../scripts/plot_degree_prior.py) |
 | Repairing premature exclusions with a supplied degree prior | [Exclusion-repair exports](../results/research/ripper/exclusion_repair.json) | [plot_exclusion_repair.py](../scripts/plot_exclusion_repair.py) |

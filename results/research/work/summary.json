@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-15T07:01:04.137014+00:00",
+  "updated_utc": "2026-11-15T07:19:40.770858+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
   "status": "Ongoing research; H2aj prospective factorial complete with independent state and trace audits",
   "host": "work",
@@ -969,6 +969,17 @@
           "decision": "inconclusive"
         }
       }
+    },
+    {
+      "campaign": "large_cycle_cut",
+      "hypothesis": "H2aw",
+      "outcome": {
+        "remaining_joint_failures": 28,
+        "joint_rescues": 28,
+        "joint_regressions": 0,
+        "at_least_14_rescues": "met",
+        "zero_regressions": "met"
+      }
     }
   ],
   "run_tables": [
@@ -1211,6 +1222,12 @@
     "cycle-transfer-180-protocol": {
       "sha256": "c3dd526208a5ae4ff3f803ae74ea30f6d302d9c949dab0b22d378bd7cf03eafa",
       "frozen_utc": "2026-11-15T06:48:49.371125+00:00"
+    },
+    "large-cycle-cut-protocol": {
+      "sha256": "72889d317fbf1452189f5083c0851a20c84ef396074b622049d6f29cad10ecfa",
+      "frozen_utc": "2026-11-15T07:11:52.895066+00:00",
+      "hypothesis": "H2aw",
+      "status": "completed"
     }
   },
   "audit_sha256": {
@@ -1250,7 +1267,8 @@
     "artifacts/research/20261114/work/cycle_cut_rescue_checked/audit.json": "47fc63379860209169c25ca58cb977947e4c04a05601be20d5b5b3616838ab0f",
     "artifacts/research/20261114/work/lexical_cycle_cut/audit.json": "99bcfc41516fe9a98aeda05822847a084b24877ca191e24eb4a741d0a73f6288",
     "artifacts/research/20261114/work/cycle_transfer/audit.json": "c21cf08f08b42e48e15b728d1633d3f02b34c01232d5de08a829c28be3978f5e",
-    "artifacts/research/20261114/work/cycle_transfer_180/audit.json": "8f8cf670140afcbc2ad3878cee6d4f6e642e6b56034ad9ffbc9de9372487e663"
+    "artifacts/research/20261114/work/cycle_transfer_180/audit.json": "8f8cf670140afcbc2ad3878cee6d4f6e642e6b56034ad9ffbc9de9372487e663",
+    "artifacts/research/20261114/work/large_cycle_cut/audit.json": "a8c3db51c92833291fb38c3631e967cf05c7b741b33cf54b2e259bbbcd456bab"
   },
   "model_sha256": {
     "0": {
@@ -1799,5 +1817,39 @@
     },
     "full_independent_final_state_checks": 61440,
     "scope": "Fresh180loop20, threefixedmodels,fivefixedpolicies. Explicitenergy-increasingcyclegraphprior. PrimarynetgainandNIdecisionsreportedseparately; energy-rankingcomparisonisdescriptive. Finitecohortresult,notuniversalguarantee."
+  },
+  "large_cycle_cut": {
+    "hypothesis": "H2aw",
+    "fresh_inputs": 0,
+    "included_model_inputs": 12288,
+    "new_search_inputs_per_policy": 84,
+    "reused_lexical256_prefixes_per_policy": 12288,
+    "primary": {
+      "remaining_joint_failures": 28,
+      "joint_rescues": 28,
+      "joint_regressions": 0,
+      "at_least_14_rescues": "met",
+      "zero_regressions": "met"
+    },
+    "joint_success": {
+      "pl": 4078,
+      "old_binary": 3930,
+      "connectivity_veto": 4027,
+      "energy256": 4070,
+      "lexical256": 4068,
+      "lexical512_from_lexical256": 4096,
+      "energy512_from_lexical256": 4096
+    },
+    "model_success": {
+      "pl": 12238,
+      "old_binary": 11793,
+      "connectivity_veto": 12085,
+      "energy256": 12210,
+      "lexical256": 12204,
+      "lexical512_from_lexical256": 12288,
+      "energy512_from_lexical256": 12288
+    },
+    "new_optimizer_updates": 0,
+    "scope": "Source intervention from identical archived H2av lexical256 outputs for both policies. Chain cap256 to512; no other candidate geometry or native rule change. All28 joint/84 model failures rescued by each policy, zero regressions; all84 new moves lower original energy. Earlier positive cuts remain in the reused prefix. Zero fresh generalization evidence."
   }
 }

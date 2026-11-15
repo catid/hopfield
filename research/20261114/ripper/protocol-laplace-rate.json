@@ -1,0 +1,395 @@
+{
+  "id": "H1aw-laplace-rate-replacement",
+  "frozen_utc": "2026-11-15T07:07:36.495653+00:00",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "arms": [
+    "original_support",
+    "archived_exact_law_degree20",
+    "laplace_rate_top810",
+    "laplace_rate_degree20"
+  ],
+  "scope": "All32 previously examined H1ap streams and their archived counts. New unrestricted LP and same-cost cardinality control, compared with archived H1av exact-law LP. No acquisition replay or new observations.",
+  "supplied_prior": "Exactly 20 incident retained edges per cell, implying exactly 810 undirected edges. The top810 control receives that cardinality directly. These are explicit structural priors; no prior-free or uniqueness claim.",
+  "cost": "Integer round-half-even(1000000*(c+1)/(m+2)). Exact integer quotient/remainder producer; independent Fraction rounding auditor. Laplace-smoothed empirical equality rate; no supplied q0 or q1, no tuning. Unexposed pair cost500000.",
+  "objective": "All3240 unordered pairs eligible; minimize sum(cost*x) with 0<=x<=1 and degree20 at every cell. No row/column/box geometry in construction.",
+  "tie_convention": "Top810 sorts (integer cost, lexicographic unordered pair index). LP uses deterministic column pair-index order and frozen HiGHS dual simplex seed/options. No lexicographic objective perturbation or uniqueness claim.",
+  "certificate": "No primal rounding/snapping. Literal primal values must belong to {0,0.5,1}. Multiply by two exactly; require exact degree40. Reconstruct node dual y2=round-to-nearest-even(2*y_float), requiring absolute reconstruction error<=1e-6. Set upper dual z2=min(0,2*w-y2_i-y2_j). Check integer dual feasibility, both complementarity conditions and exact equality sum(w*x2)=20*sum(y2)+sum(z2). Costs and duals restricted to absolute value<2^48. No alternate denominators or fallback scheme.",
+  "certificate_rationale": "Unsigned graph incidence LPs with integral costs and degree RHS admit half-integral basic primal/dual witnesses via tree/odd-cycle components. The fixed scale-two reconstruction is a practical scheme, not an assumption that every solver output is certifiable. Acceptance rests only on exact integer checks. No uniqueness conclusion follows.",
+  "primary": "At least29/32 certified integral exact graphs under the smoothed-rate degree20 LP. Supported if successes>=29; falsified only if successes+unresolved<29; otherwise inconclusive. All32 retained.",
+  "outcome_rules": "Certified integral exact => success; certified integral nonexact or certified fractional => resolved failure of this procedure; numerical/time/nonrepresentable/certification gaps => unresolved. No primal rounding or fallback denominator. No uniqueness claim.",
+  "interpretation": "This replaces likelihood/exposure weighting and introduces Laplace smoothing. Success shows this specific procedure does not require supplied q0/q1 on these fixed streams. Failure would NOT establish calibration necessity. No isolated-noise-law-effect, universal robustness or fresh-source claim.",
+  "controls": "BP AdamW outside source-only scope, not run. Original supports, archived exact-law degree20 LP, and same-rate top810 cardinality control retained. Archived LP is reverified, not rerun. Structural degree/cardinality information remains explicit.",
+  "solver_options": {
+    "threads": 1,
+    "parallel": "off",
+    "solver": "simplex",
+    "simplex_strategy": 1,
+    "presolve": "off",
+    "time_limit": 1.0,
+    "random_seed_base": 2026111502,
+    "primal_feasibility_tolerance": 1e-09,
+    "dual_feasibility_tolerance": 1e-09,
+    "log_to_console": false
+  },
+  "solver_version": "HiGHS 1.12.0",
+  "numpy_version": "2.3.4",
+  "budget": {
+    "aggregate_cpu_seconds": 120,
+    "wall_seconds": 60,
+    "max_cpu_workers": 8,
+    "gpu_seconds": 0,
+    "max_solver_calls": 32,
+    "scope": "Prepare, all32 LP/auditor jobs including archived certificate verification and summary. One-second LP cap; thread limits before imports. Synthetic preflight and packaging separate."
+  },
+  "query_accounting": {
+    "historical_training_queries_per_bank": 27750,
+    "historical_training_queries_total": 888000,
+    "historical_calibration_queries_per_bank": 2000,
+    "historical_calibration_queries_total": 64000,
+    "new_queries": 0,
+    "new_calibrations": 0,
+    "new_source_rows": 0,
+    "new_solver_inputs": 0
+  },
+  "code_sha256": {
+    "research/20261114/ripper/laplace_rate_math.py": "439d2edecdf2e518f243b27cc20676a24e561e4260217876230edf6023939093",
+    "research/20261114/ripper/laplace_rate_study.py": "1c40645a9a68f3436aed51735238c230145d230d3d5c453804fcb5da6e895fc2",
+    "research/20261114/ripper/audit_laplace_rate.py": "378e36af14e26bfb53d7f876d123cc24b3151273d6bb2a015a3f2b5e0dfeddcd",
+    "research/20261114/ripper/preflight_laplace_rate.py": "acfe3da986524ecb6a8ef1dc9e3997e4c58308b60bc63a81fffe4672d4a57b46",
+    "research/20261114/ripper/run_laplace_rate.py": "6e1a1d8a485eb3c6b382dfbfa8e22f881b2b233d51cd4a1efb9389556e64a3d1",
+    "research/20261114/ripper/degree_prior_math.py": "5a3ad2c21f59dfe0d2de40065385d484e171c0f854c49c649e868ce5a98a1f8e",
+    "research/20261114/ripper/degree_prior_solver.py": "2af92a5d4326e74813f514291a7a76e6ac92778335e1dd76ffbb01f83d474c43",
+    "research/20261114/ripper/audit_degree_prior.py": "179feb9815c787a5381d1924ccb0ac41af49e103222503f5ff988dc13559f55b"
+  },
+  "input_sha256": {
+    "artifacts/research/20261114/ripper/permuted_noise/audit.json": "1573fd85e5d5d8a7ca8ff53018f0928e6cad743d16b95a1373efe00fa4b80e8c",
+    "research/20261114/ripper/protocol-permuted-noise.json": "146573e3adb1cd18d57b238efc08936268c7acc557c5a6cc567244451dd18933",
+    "research/20261114/ripper/audit_permuted_noise_acquisition.py": "123d99faefd13286db18706fff0ef564eba575528ae4c7b74227c9937c8ed92e",
+    "artifacts/research/20261114/ripper/exclusion_repair/audit.json": "52ce3ce2e30dfb92fc73d127d863948fe5c746e0ca1808432b656f62b7d464cf",
+    "research/20261114/ripper/protocol-exclusion-repair.json": "5a33d3dec147e18bee42089a185826d45f5ed17ceebd9a89d21f93c214208cb3",
+    "research/20261114/ripper/laplace-rate-preflight.json": "f9615fc51f4d6b2b6eac407fe7cb0a4f6f7911241d0e56f4f3dc1ac853543b1c"
+  },
+  "bank_sha256": {
+    "0": {
+      "artifacts/research/20261114/ripper/permuted_noise/s0/fit.npz": "0216b1441cfd4f2ddf488af289e5c73b5e389837058bd7c9c62f3b4be72e9c2e",
+      "artifacts/research/20261114/ripper/permuted_noise/s0/receipt.json": "f8f7399761d30177e1d2055a1e01d9bb3899c8cfeb82de496ddf4dab94eb485e",
+      "artifacts/research/20261114/ripper/permuted_noise/s0/audit.json": "a2eb36968b2aef6a76885dcc7df5cb38b7d2aaa737bbb826625b5d7f3eea83c4",
+      "artifacts/research/20261114/ripper/exclusion_repair/s0/model.npz": "6dec239635ee8dc2f629d34519d0dd9130aead3a35d985438c81c072aa80a64a",
+      "artifacts/research/20261114/ripper/exclusion_repair/s0/receipt.json": "b312665f6266ed3fd99ea3deeaeef29ebe57ec11a630cbf5c2c6ad234a2c83b8",
+      "artifacts/research/20261114/ripper/exclusion_repair/s0/audit.json": "30b2da5c1157cd14ed9e890dc078aecfaa5e317c4199cb5352cf5e4ee95ee05d",
+      "artifacts/research/20261114/ripper/exclusion_repair/s0/unrestricted-fit.json": "8c8487a0261286186c6c01f2c74247316e240e9dee4345447d8f6d406a6aa120"
+    },
+    "1": {
+      "artifacts/research/20261114/ripper/permuted_noise/s1/fit.npz": "d0ddddb4040cae4415dfce9893313a62d918a0969f06a23faa2bf236097bf53e",
+      "artifacts/research/20261114/ripper/permuted_noise/s1/receipt.json": "ee9b2bdaf8c5c000668b3a40af09f40f41dc4ec7145112d0ebea2b86e4d3087d",
+      "artifacts/research/20261114/ripper/permuted_noise/s1/audit.json": "b68120d4e3d5ca11d880041320a779cb4cb249976166bef178c45b7888e78ad7",
+      "artifacts/research/20261114/ripper/exclusion_repair/s1/model.npz": "04e4efd621d5916e1f1e288dfc35d8c8bb487f63f7c720d46897cf2f75915c66",
+      "artifacts/research/20261114/ripper/exclusion_repair/s1/receipt.json": "7137f9c11701c659e4f1e9aa3e8e6f3ffe87da7d12d432109c6ef8633da1039d",
+      "artifacts/research/20261114/ripper/exclusion_repair/s1/audit.json": "6f6f180537c1b0332f7038b2f974687ca54ccf511f06245e9774441789b7b17c",
+      "artifacts/research/20261114/ripper/exclusion_repair/s1/unrestricted-fit.json": "2914965e0266fdea75c358dfe162a2b0ae3b6ff8d84f5de2f02d93da929686f2"
+    },
+    "2": {
+      "artifacts/research/20261114/ripper/permuted_noise/s2/fit.npz": "b7342255784fa16841f619a2801c1f4593d33b8375690d28ba94a7b152b69582",
+      "artifacts/research/20261114/ripper/permuted_noise/s2/receipt.json": "81633f326480220e13c7db64b08020cb9d67356c15350a8d29c5e5804d626e45",
+      "artifacts/research/20261114/ripper/permuted_noise/s2/audit.json": "4fc0c598ba351b5cc93e2c6c6af1abbbc29df555f838114cef3d327e9a61c8e8",
+      "artifacts/research/20261114/ripper/exclusion_repair/s2/model.npz": "b61a139a56b1f537339f749c13cd9da902978558efd96ee9d6c6c0e1fe6a5854",
+      "artifacts/research/20261114/ripper/exclusion_repair/s2/receipt.json": "95ff3e7bcfa93d656d57288fc3397603899317e3b0be57ac46590f3b724148d0",
+      "artifacts/research/20261114/ripper/exclusion_repair/s2/audit.json": "74ce7283ad9111756a376a81905fc5a088293955b51e4dba6ae5a02e30458145",
+      "artifacts/research/20261114/ripper/exclusion_repair/s2/unrestricted-fit.json": "a5af4ee1da43d9f93c4afe476de71ee92586254c1fc04fe0f281a27527d1c28a"
+    },
+    "3": {
+      "artifacts/research/20261114/ripper/permuted_noise/s3/fit.npz": "bd3bfc4368048b18d0fd504274d8226d8362ed6c4405e27486965e22dcce9814",
+      "artifacts/research/20261114/ripper/permuted_noise/s3/receipt.json": "ff399a9d88f9e89733e33d49cf458bd8736b5b1c762eb2416e7dca9e311cd51e",
+      "artifacts/research/20261114/ripper/permuted_noise/s3/audit.json": "e759f04371dfc660fce6218e4ad75113470eb4c25dee11db4951aa081b66d53f",
+      "artifacts/research/20261114/ripper/exclusion_repair/s3/model.npz": "fd23ddc1e5003e545b5213826b29283dda07a03b65a49254c7a3485f827dd63e",
+      "artifacts/research/20261114/ripper/exclusion_repair/s3/receipt.json": "b026b0a4735b0dbe3cc42fd59e182c08aff2d6cd9112287afed0968adf193757",
+      "artifacts/research/20261114/ripper/exclusion_repair/s3/audit.json": "56d7150c3f913a5e744dfa5a2887cf3e8aff114233b6a471d771ce2af01991a2",
+      "artifacts/research/20261114/ripper/exclusion_repair/s3/unrestricted-fit.json": "0b01aeaf49cfb979672ccc7fc8932910ecea345c68b34338fc1cc7014214cc59"
+    },
+    "4": {
+      "artifacts/research/20261114/ripper/permuted_noise/s4/fit.npz": "fdec51b75e4dbf70ff38c1cfda1b06495db8d59b79bfbde4396cc420e12bc286",
+      "artifacts/research/20261114/ripper/permuted_noise/s4/receipt.json": "78d4c687c2c4014e05b2ea97ba70bae9905aa8bea581133c6c844ad364fa0652",
+      "artifacts/research/20261114/ripper/permuted_noise/s4/audit.json": "75fc6e4b6fd8e6b2b030fa8221db6f43c8af19c75a4b5c050f376bfc11fec6f4",
+      "artifacts/research/20261114/ripper/exclusion_repair/s4/model.npz": "a672e4bfcfd106a053dde2db4367b332eb28757cf5fb4bc1fb1a1fd44abf1d28",
+      "artifacts/research/20261114/ripper/exclusion_repair/s4/receipt.json": "e885dda1cb4299bebd051239f75e05840872b170ead308d43fe2541152c85bcc",
+      "artifacts/research/20261114/ripper/exclusion_repair/s4/audit.json": "5317548059d52e6667e763239b4f67428ce34f0c22f221a66ffdefefdcd2e36d",
+      "artifacts/research/20261114/ripper/exclusion_repair/s4/unrestricted-fit.json": "8901036c1457a1c793b471a38665a544bccc53eb7ef9868a761f8de62e5ba9be"
+    },
+    "5": {
+      "artifacts/research/20261114/ripper/permuted_noise/s5/fit.npz": "4a6aade7db47cbd2dc5c09d94483c7b9f61d0d283bac2ea50ade4d5151438fd3",
+      "artifacts/research/20261114/ripper/permuted_noise/s5/receipt.json": "b5c3b8dc10b3a46aa6b91c3c9eb46ce06159ec4412e94716a91de35928f6c85d",
+      "artifacts/research/20261114/ripper/permuted_noise/s5/audit.json": "178ca1b993a69e6ebbfdfc049e0826a0985ac5f92d3bf6977cdd619274200c6a",
+      "artifacts/research/20261114/ripper/exclusion_repair/s5/model.npz": "59d5837386312dbfd150ef982c029cfcb0541c048a0f793893bedb34aae109e7",
+      "artifacts/research/20261114/ripper/exclusion_repair/s5/receipt.json": "9aef916244227ed043acb56336f71423f671509aea4214e68ba4ea6da3f540a4",
+      "artifacts/research/20261114/ripper/exclusion_repair/s5/audit.json": "efe996e3c451748ee91d3ea22af2cc8a707ca9a5709832645270001842607b64",
+      "artifacts/research/20261114/ripper/exclusion_repair/s5/unrestricted-fit.json": "80982f0e142d090196fcda6ee788aed5353e4d582e98feac52e78bf53e7bb41a"
+    },
+    "6": {
+      "artifacts/research/20261114/ripper/permuted_noise/s6/fit.npz": "c6e87746c7ee509f030eba343876d5e3648682fff2a0a5623d01d4077deace82",
+      "artifacts/research/20261114/ripper/permuted_noise/s6/receipt.json": "b0fea6482de39449e211e714bb8a98b054b6985c644feb33078ce2f422a38ce3",
+      "artifacts/research/20261114/ripper/permuted_noise/s6/audit.json": "67fba39e9414f2744488a0644f4a1c7219ad6805f18b80d5ccb4d2c9732c6b81",
+      "artifacts/research/20261114/ripper/exclusion_repair/s6/model.npz": "9e190aedc6e0f70e7422fa6987f5b71d8f1a87eb2e330069960221b55b7dc646",
+      "artifacts/research/20261114/ripper/exclusion_repair/s6/receipt.json": "6502e7ff0471365fb6184412027c5ade3fdead1a62dcc69c856afe87b56c777f",
+      "artifacts/research/20261114/ripper/exclusion_repair/s6/audit.json": "6ec42ad58cdeeadea93b3d3aa4915d649a2d928c10a57cf25f7d8fee3e3d08c0",
+      "artifacts/research/20261114/ripper/exclusion_repair/s6/unrestricted-fit.json": "185a611edd89593d09b54e62316e42bceb7804a1ee700c02fc39d255689bbfc8"
+    },
+    "7": {
+      "artifacts/research/20261114/ripper/permuted_noise/s7/fit.npz": "35f85176d8233aab314d3d2968cd784c7946053666630125801bc9e46e4a4db1",
+      "artifacts/research/20261114/ripper/permuted_noise/s7/receipt.json": "a8a26449daf367c17c03d28f8a8eb1e69c59ca9eb738cbf3be0820253f7c0663",
+      "artifacts/research/20261114/ripper/permuted_noise/s7/audit.json": "5532290ef845bbb3e395f30c051be26c6253f6955e67332c795ae31539e2f3bc",
+      "artifacts/research/20261114/ripper/exclusion_repair/s7/model.npz": "54caebe972745aa0e0c03c6b3b68e46ac5a82e9cd77b772164f4df1fbe0c8190",
+      "artifacts/research/20261114/ripper/exclusion_repair/s7/receipt.json": "f93c504cebbb4762ee46808188ee5a5cf4e5660bb900a4025ad9451a18f054ba",
+      "artifacts/research/20261114/ripper/exclusion_repair/s7/audit.json": "040abaa479face6586218fbf515f5850e4c3ab57fb08baad16f273660f670f5d",
+      "artifacts/research/20261114/ripper/exclusion_repair/s7/unrestricted-fit.json": "132e5a1edaa57cd088d1a823eb3d40d8c206ad9fd6462278da13da38ec2c9982"
+    },
+    "8": {
+      "artifacts/research/20261114/ripper/permuted_noise/s8/fit.npz": "ad115436adc6f0f6a2d241608f1425a886bf53ceae51ce3dae13d9bf69b1ac3b",
+      "artifacts/research/20261114/ripper/permuted_noise/s8/receipt.json": "49a0d1881512601bacc02ea963629d376068b48c90e9f07fe28cf6580b043c75",
+      "artifacts/research/20261114/ripper/permuted_noise/s8/audit.json": "0387ea844a55d1d753fb864251b3004e7562afe25ca5c86bd6a6e7b33a66c853",
+      "artifacts/research/20261114/ripper/exclusion_repair/s8/model.npz": "e6f3b474aa7521d4921a17b6ff531fbb44d776f9328cf787b7eb73f665a26412",
+      "artifacts/research/20261114/ripper/exclusion_repair/s8/receipt.json": "b999ad3aca15b0fbcd22db060807128ef233b60ab98f37c71b376f65d55b80b0",
+      "artifacts/research/20261114/ripper/exclusion_repair/s8/audit.json": "b7c11a9d44ba207f6fef6a782934d4ead9c555b89fe937752c787683e31bd3a5",
+      "artifacts/research/20261114/ripper/exclusion_repair/s8/unrestricted-fit.json": "91068c4316deda8c1cebf57ffa0eae23b4576298afabd1e488ae8c6bae728c91"
+    },
+    "9": {
+      "artifacts/research/20261114/ripper/permuted_noise/s9/fit.npz": "5907bd9c38b020565983e6e7bbe5827c88b7f4c60694327aed03caf0a6681610",
+      "artifacts/research/20261114/ripper/permuted_noise/s9/receipt.json": "1be40ee425746426bf9773f1d9bad1421b125077bfc6ae90066409ba3ffc47cf",
+      "artifacts/research/20261114/ripper/permuted_noise/s9/audit.json": "f9ff8aab8091b6a09c9d6a8b82714ac62655d60e3253a0df6fc2be72bb54b609",
+      "artifacts/research/20261114/ripper/exclusion_repair/s9/model.npz": "2a23a372575a370ab84d291ce4481050f4f52c62e93e583d1e0c7209fe183048",
+      "artifacts/research/20261114/ripper/exclusion_repair/s9/receipt.json": "9e7bec224dd77d8e8b1f6364d435955812c27052c6a774d44203d35a4ef1e302",
+      "artifacts/research/20261114/ripper/exclusion_repair/s9/audit.json": "a81f43b0af78cef988b101608a0d831d76ee7ebd3f23669e00f39e165b78b8c6",
+      "artifacts/research/20261114/ripper/exclusion_repair/s9/unrestricted-fit.json": "4ce9542bad20418b4ac8a06d504ae162d0462cbddd467419ca58437a156b1dc9"
+    },
+    "10": {
+      "artifacts/research/20261114/ripper/permuted_noise/s10/fit.npz": "8eaf6b3184587cc9d6a576f8b88ff940ceb0f3b99eba15244087c60d38796716",
+      "artifacts/research/20261114/ripper/permuted_noise/s10/receipt.json": "9d55a261ffb47a068711e7e5048ef6a6568224d116966730ed6dd9b525ee8d5b",
+      "artifacts/research/20261114/ripper/permuted_noise/s10/audit.json": "d4fde6fc9a603bceb5b7442dc54d2cb7b9ec4634e2f07b5d658031f6e2828c30",
+      "artifacts/research/20261114/ripper/exclusion_repair/s10/model.npz": "9238c62a0d9b1757187650119bfc4baf2b42d64a6380dab55fbcca37a32ecf2f",
+      "artifacts/research/20261114/ripper/exclusion_repair/s10/receipt.json": "740beeefe4aac9ab80f9da8890e79f087b6913960826ff4b5baaa5fd824dedc2",
+      "artifacts/research/20261114/ripper/exclusion_repair/s10/audit.json": "f8f2edef6103df616e1abbb92f345c97058a0ac543b335924883bf4bd91e9d0d",
+      "artifacts/research/20261114/ripper/exclusion_repair/s10/unrestricted-fit.json": "18032adc120fa79e787771eec6be2f09ea290a40730ecf9d6c1e762a63f8d41f"
+    },
+    "11": {
+      "artifacts/research/20261114/ripper/permuted_noise/s11/fit.npz": "5b80c01e3337ce4c74dab37d244c1d21358a03a5d60a966e1883b523d3776620",
+      "artifacts/research/20261114/ripper/permuted_noise/s11/receipt.json": "3390624bc79cd2b915feb38d97c924c2de65d6c5a866a28d2f31683afd940dd0",
+      "artifacts/research/20261114/ripper/permuted_noise/s11/audit.json": "8a3bf2da66cc6d3622077afb2e15aca85c5ba4448482d2baf7c781991127a017",
+      "artifacts/research/20261114/ripper/exclusion_repair/s11/model.npz": "068977c8dc23873be5fb0545b66b727ec4a76d079a0c29a2d72fe9e8134a2dc0",
+      "artifacts/research/20261114/ripper/exclusion_repair/s11/receipt.json": "d3c30daf004c324dfd676b685bd7e54e23e441af1202fe6e4cfda8a59bb7c2e8",
+      "artifacts/research/20261114/ripper/exclusion_repair/s11/audit.json": "28508cd66a76ed0d1ad52c90da34d18cd14ee2f782b02efa6aea1c9fcc16bca9",
+      "artifacts/research/20261114/ripper/exclusion_repair/s11/unrestricted-fit.json": "4ac7544062250667de0fafe25b5113f55a17f882c084bd3424762900aadf3a76"
+    },
+    "12": {
+      "artifacts/research/20261114/ripper/permuted_noise/s12/fit.npz": "ab7cec97e28570af9735b31884870d671261f8e22d98c8230f51b1870dc76b53",
+      "artifacts/research/20261114/ripper/permuted_noise/s12/receipt.json": "b56580339d099979c2855b5fd4d01bdc038ea912531c7e2828426ce1eee65480",
+      "artifacts/research/20261114/ripper/permuted_noise/s12/audit.json": "cc1f12ed146c3af68ec13be40d3343dae014b59724f136d090d654e5fb07fc1d",
+      "artifacts/research/20261114/ripper/exclusion_repair/s12/model.npz": "67438849def004f9464dff6eed42b2fb29968d8f9d4e42b94c7ae90b9b998d31",
+      "artifacts/research/20261114/ripper/exclusion_repair/s12/receipt.json": "2f09b88bcb533d590d0e974f4522581698140b0b382941d478dce55d565dddae",
+      "artifacts/research/20261114/ripper/exclusion_repair/s12/audit.json": "2ad3eb2f34e63ff3f6d4537703b288a3403a26bfde97b3b4b5692f78a9054524",
+      "artifacts/research/20261114/ripper/exclusion_repair/s12/unrestricted-fit.json": "786f15597b61fcc76527711adc43d3aac6eb489e7da9b1c38640738e6191ddeb"
+    },
+    "13": {
+      "artifacts/research/20261114/ripper/permuted_noise/s13/fit.npz": "c318b97e41b072d3aeca996b2c7e446bc2fb725e294ee3babb67b4a67aa76c18",
+      "artifacts/research/20261114/ripper/permuted_noise/s13/receipt.json": "796ec3e805a4eb32e82b76015d445c6d3070c0a43b0b70403c5fd8ff4a2910c5",
+      "artifacts/research/20261114/ripper/permuted_noise/s13/audit.json": "948adaf158bb7145d859a3fc556e8fbae3fdd84a2cbf605c1bebdebfeefd5553",
+      "artifacts/research/20261114/ripper/exclusion_repair/s13/model.npz": "1a820a7670c37e1b5beffd2d34219dd469819b98425b84f1faff432863bd150a",
+      "artifacts/research/20261114/ripper/exclusion_repair/s13/receipt.json": "cd42e6540c6e08e199161c2f742c9aedb399a02af93e814438b8d9cc9bb75fbe",
+      "artifacts/research/20261114/ripper/exclusion_repair/s13/audit.json": "3d65f009bc1d449f52a897701fb0e199f8e2f148c45cf75e27e291b65aa2bcd1",
+      "artifacts/research/20261114/ripper/exclusion_repair/s13/unrestricted-fit.json": "54058a364c9ab81356beecf49bc7c6e2d3b2aba4b826ed9d10befac0b2d721c1"
+    },
+    "14": {
+      "artifacts/research/20261114/ripper/permuted_noise/s14/fit.npz": "1bc9664ca2019b2911b84f0809dcda6cf28fd592f16424a55a8f33d2fe2b7783",
+      "artifacts/research/20261114/ripper/permuted_noise/s14/receipt.json": "d3e57076b023592786c580ed03c01f6d5481b956151f7bbad8355290881840f2",
+      "artifacts/research/20261114/ripper/permuted_noise/s14/audit.json": "363a67a64c16075754aa2ef03aa5c684355997097675a0d269fdff1f9fa19870",
+      "artifacts/research/20261114/ripper/exclusion_repair/s14/model.npz": "91df0b819980e79a423124b3da5669fa86e9af59559f3c2b89902ce1f46ae918",
+      "artifacts/research/20261114/ripper/exclusion_repair/s14/receipt.json": "ec65009468e4ffe319b3d44bb461498d1383ecae02d0893e907500cd079c8dd5",
+      "artifacts/research/20261114/ripper/exclusion_repair/s14/audit.json": "c5a4d1eeb21a904b3b4d824ef3bd466eb71a3398f1de0b2f7b08b3ad6fd67419",
+      "artifacts/research/20261114/ripper/exclusion_repair/s14/unrestricted-fit.json": "1abf5cf20153f300940a1569817cfe4ff188c9311be2cd7a56b7d79a8dd22019"
+    },
+    "15": {
+      "artifacts/research/20261114/ripper/permuted_noise/s15/fit.npz": "d9e25a8d0dfc20aed12c118f8e6b625208efb3d533f8e1457d1fd657d4b1db50",
+      "artifacts/research/20261114/ripper/permuted_noise/s15/receipt.json": "8447a09c9b45a842acf88c8926f5fb8ad074616fb7ab901e69f55f599b2517ae",
+      "artifacts/research/20261114/ripper/permuted_noise/s15/audit.json": "a2aee91967c2be050b8e5c2bb0e46b50d350c31f21def2e16438afeb4eabca5a",
+      "artifacts/research/20261114/ripper/exclusion_repair/s15/model.npz": "35a0118b632dfd73b9902be61e5d4e5bfab5c3a8b45e51bec3adcc53609cc0b7",
+      "artifacts/research/20261114/ripper/exclusion_repair/s15/receipt.json": "3827bee7a9d00b8828d55520b201157aea428bd840d557ad41abd12c5bbbfa99",
+      "artifacts/research/20261114/ripper/exclusion_repair/s15/audit.json": "36829119942426c943aebd6a41020fc454ae8a8df981a7eb114864bf49871419",
+      "artifacts/research/20261114/ripper/exclusion_repair/s15/unrestricted-fit.json": "fef848086ae94bfb501cd59279a4aeac855374b19faa85ff6a5b07bee4c11742"
+    },
+    "16": {
+      "artifacts/research/20261114/ripper/permuted_noise/s16/fit.npz": "4b0e01efdce2774ab94ac141205245df5926a7825e9dd74968073149996287c8",
+      "artifacts/research/20261114/ripper/permuted_noise/s16/receipt.json": "04c030702c82ed0bb8cbeae44f349ec0a2416dd4e809de93c5bc9d63e812d1d1",
+      "artifacts/research/20261114/ripper/permuted_noise/s16/audit.json": "6802d5a2b7edb08f57b91f3e53378f743678f3a3be739c41f5015f818d5ce0e6",
+      "artifacts/research/20261114/ripper/exclusion_repair/s16/model.npz": "6eeba72a15f63346433d4c09aa5ad02804d939dce0527a7cfb62985a490db13c",
+      "artifacts/research/20261114/ripper/exclusion_repair/s16/receipt.json": "ed4272225c72cf9c58dff41b42a795ebfc721b64b2fe498084b00b56de1dd60d",
+      "artifacts/research/20261114/ripper/exclusion_repair/s16/audit.json": "5e9df7a0d47b9e6f2609e17397b0b44f4451674c81550b9e6600bfbf9eb95609",
+      "artifacts/research/20261114/ripper/exclusion_repair/s16/unrestricted-fit.json": "9c036482fdb61f9e2fd3ede3d78c82d8ced4bf87eabbd5f69431cff6c7f14724"
+    },
+    "17": {
+      "artifacts/research/20261114/ripper/permuted_noise/s17/fit.npz": "6a07780b599eb730c443362bbe883b749034bc9a4b93a4ab06d7a51cbcd0baaf",
+      "artifacts/research/20261114/ripper/permuted_noise/s17/receipt.json": "b6aa6c6da58cd3917723e80aaaf9ae35849e543d4ec248bc42e68e2ea1cfb761",
+      "artifacts/research/20261114/ripper/permuted_noise/s17/audit.json": "fc3813792fb189e307d3b065c7258568a8dafb00590f3fd288bd58283a5af31d",
+      "artifacts/research/20261114/ripper/exclusion_repair/s17/model.npz": "c0210de8ef06cdff8f59ceaeec8c1b0d4d114f590e95bc38c7806bd459e47601",
+      "artifacts/research/20261114/ripper/exclusion_repair/s17/receipt.json": "3a9d613a135330bac9b45fb43733d64c58cc525d368ca382ef478a21f11a01e4",
+      "artifacts/research/20261114/ripper/exclusion_repair/s17/audit.json": "3dd3219cdc98ac869b560426684432abd8053db12552a39c67e791951feb2dc4",
+      "artifacts/research/20261114/ripper/exclusion_repair/s17/unrestricted-fit.json": "7486c6108d996a0e5f708313376a8a2a98b650bdd8ee3cf07b7d29c628058fe2"
+    },
+    "18": {
+      "artifacts/research/20261114/ripper/permuted_noise/s18/fit.npz": "e26733bb39c222c2a9b10fd918c54c418dc3a60ca8b9c3768fc1f116a48bf5d6",
+      "artifacts/research/20261114/ripper/permuted_noise/s18/receipt.json": "c53a778c38ec8f6d3bbc7e35dd524b6b2e3da8117d9084f24d77272a871d2745",
+      "artifacts/research/20261114/ripper/permuted_noise/s18/audit.json": "d39d80bbfa0b1de99a0abbcaad9006030235bfdb27a5967f5414502ee430c0df",
+      "artifacts/research/20261114/ripper/exclusion_repair/s18/model.npz": "a6c9c0dc0d14b6d4165cde871b0e702b928d3d9a17a3e9a56f19c07afb9620a7",
+      "artifacts/research/20261114/ripper/exclusion_repair/s18/receipt.json": "c75b265c8bea05ad133690c1eb0a594e0dc9c32c53495d9ca1a62a9ef537d827",
+      "artifacts/research/20261114/ripper/exclusion_repair/s18/audit.json": "15709b787c059e66e069896a6cc9395926c1fb7ede6da4ae8b779e875d34027a",
+      "artifacts/research/20261114/ripper/exclusion_repair/s18/unrestricted-fit.json": "e1a2fa8c9731348367398148a303e6acd9c0dfeaa18e5339722ca1785a6d2787"
+    },
+    "19": {
+      "artifacts/research/20261114/ripper/permuted_noise/s19/fit.npz": "75802ff5bc0358b2e4126e9f102fd4e3db6072929201c77a81dba1bc13723ab6",
+      "artifacts/research/20261114/ripper/permuted_noise/s19/receipt.json": "df270bcb97abcf74c71cfcdbc6e47c68ccdfe79c127aa5a5bebe465ec22a6089",
+      "artifacts/research/20261114/ripper/permuted_noise/s19/audit.json": "9084e3dcfe662c91e8183dbfdb3b869c5705f7259c844d8894ba46bdbd373946",
+      "artifacts/research/20261114/ripper/exclusion_repair/s19/model.npz": "c8c070ead0cd78434eb51fc7e98d64c792b87adb2631aef5d61697104c800b0e",
+      "artifacts/research/20261114/ripper/exclusion_repair/s19/receipt.json": "cd31fddc2e0e3982a4378df07769c8a77319238bdbee178203edee121d4c96d9",
+      "artifacts/research/20261114/ripper/exclusion_repair/s19/audit.json": "d5b68a3e144248e3d3cb64ae1a6a792e62474eea6d21c50e6668a333675b43a0",
+      "artifacts/research/20261114/ripper/exclusion_repair/s19/unrestricted-fit.json": "338cbefc1521da0acbe72779ac3e40ada01944058248d87398a199e041c94a6b"
+    },
+    "20": {
+      "artifacts/research/20261114/ripper/permuted_noise/s20/fit.npz": "976eedc54d2e389d6330163102d5c3db7deb3323d4bb46719e95de6624070b8e",
+      "artifacts/research/20261114/ripper/permuted_noise/s20/receipt.json": "8a4d375528c1a73dee44bcf0e1fa58eb0fd67bd069599f6f9309ac1064fde203",
+      "artifacts/research/20261114/ripper/permuted_noise/s20/audit.json": "5ae1a1929a6da248d8bdd6832bdbd9369dab5aaafde1f5b52df650cedb1d2991",
+      "artifacts/research/20261114/ripper/exclusion_repair/s20/model.npz": "a5b56cfe650c3412f3df87266ddd8b6e46498f19f1f7acf1af3ecb50084e1f65",
+      "artifacts/research/20261114/ripper/exclusion_repair/s20/receipt.json": "0feaf69a51bb7c0ca7e7eb186571a091e9c890d8f5495a94ca06f9e24039d2ef",
+      "artifacts/research/20261114/ripper/exclusion_repair/s20/audit.json": "68ab14ff7312803f9d3094239fd3d6353751e090ba9679c9db8f9ace492f39a2",
+      "artifacts/research/20261114/ripper/exclusion_repair/s20/unrestricted-fit.json": "0438228f3828f06e4df3ff4ef297c188f2674d26e7ff6f33b585f7c9b005c0d8"
+    },
+    "21": {
+      "artifacts/research/20261114/ripper/permuted_noise/s21/fit.npz": "e5ce7c2e0b4257cf9c72e168260a60d6ed7c5e2628aab928b4944b027431043e",
+      "artifacts/research/20261114/ripper/permuted_noise/s21/receipt.json": "52ab69b228e6ef492c0adef7ea1121eb537ff23eb6cb839124602865c28f335e",
+      "artifacts/research/20261114/ripper/permuted_noise/s21/audit.json": "1f745246a19ed3278ed26550f5a7c640f8eea442489344c6b6120c33187560b7",
+      "artifacts/research/20261114/ripper/exclusion_repair/s21/model.npz": "28b519dab063d92c05e5c9467a7af18bdb647a82a65aa16a8bf6293f1edc730c",
+      "artifacts/research/20261114/ripper/exclusion_repair/s21/receipt.json": "3f01921b6ea4493d2529435dad8e19a5d09bae1550ba284ede5f9848e5b07790",
+      "artifacts/research/20261114/ripper/exclusion_repair/s21/audit.json": "5827556df45626043fa0129a242dffff23133a10b42abb733bc358c53a2b81d1",
+      "artifacts/research/20261114/ripper/exclusion_repair/s21/unrestricted-fit.json": "2e788504ba9670d62d8ee01bc7439ab67ba02ac67477d5c06b681bac17897130"
+    },
+    "22": {
+      "artifacts/research/20261114/ripper/permuted_noise/s22/fit.npz": "880a07c89d5a9c5b6711b64dc9b81d82443e03a6739b4abb028b397e5468fa61",
+      "artifacts/research/20261114/ripper/permuted_noise/s22/receipt.json": "e05ba5462a855ec3196972f397b7dc1536bf9f8ae599064fb1f20c0ab9c1bb86",
+      "artifacts/research/20261114/ripper/permuted_noise/s22/audit.json": "10785896dd2c89fe4520d156088a914197535a5a2d6bc9888b5d8a9db8014d47",
+      "artifacts/research/20261114/ripper/exclusion_repair/s22/model.npz": "8a79cab8ab959e941f75ca616caef87b7446f193bcde42c0336708fa8595a5f8",
+      "artifacts/research/20261114/ripper/exclusion_repair/s22/receipt.json": "c3a9c93ff834e731592dd1d9b477126f3b2fb0f77b5ec7b0ee2a42da5b6232b9",
+      "artifacts/research/20261114/ripper/exclusion_repair/s22/audit.json": "bc8f1c5fe49d803073d4a9ff0ff32c7139d9478f7337cd1dec91470344e73c0a",
+      "artifacts/research/20261114/ripper/exclusion_repair/s22/unrestricted-fit.json": "bcfbd394b11bc59369e09b456c5541f7f579b145275a03467bccbee300d6ebd6"
+    },
+    "23": {
+      "artifacts/research/20261114/ripper/permuted_noise/s23/fit.npz": "e1552619cd83eea4ec9605812d4ef9fed2d38bc760269bab8bc26158e7a6ab74",
+      "artifacts/research/20261114/ripper/permuted_noise/s23/receipt.json": "65c597ac3f7d9c8406d4cec24c465f88fd24ccf652977f941acb57f31b368356",
+      "artifacts/research/20261114/ripper/permuted_noise/s23/audit.json": "ebfbf80ecefc9bc68459298e91176a120db3ace75ab0e6de9ea44076513d523f",
+      "artifacts/research/20261114/ripper/exclusion_repair/s23/model.npz": "fe94638d7d525157e4613cad94b14edcc8bd2111386e43aee551a87a9cc1a106",
+      "artifacts/research/20261114/ripper/exclusion_repair/s23/receipt.json": "9504c5e7e0f1f24bbcca426e4ab5b4199283d7f6e08114f6169c0c57f5e318ea",
+      "artifacts/research/20261114/ripper/exclusion_repair/s23/audit.json": "ad64be0a94e04139cfbc2fc3f57cef39ae4c5165d1c5ccc16cfe88c94fb948da",
+      "artifacts/research/20261114/ripper/exclusion_repair/s23/unrestricted-fit.json": "3541d9c43a1414847b2a83a06140df59546c211cdbfc13f38562fc61fe1891d1"
+    },
+    "24": {
+      "artifacts/research/20261114/ripper/permuted_noise/s24/fit.npz": "b7a41a08e344e2e184a3ef6532b78c45a5567cd28e9f86da87c07e5187b9e4b3",
+      "artifacts/research/20261114/ripper/permuted_noise/s24/receipt.json": "16018b53169a9a4bd24051df22bf0756b8dbf8f5bf57f96c9421aee1682a4817",
+      "artifacts/research/20261114/ripper/permuted_noise/s24/audit.json": "ff2027abc6f424c3bf34e868ebc7c645c0af57e74c1fa27c075f3c7d4fc764ca",
+      "artifacts/research/20261114/ripper/exclusion_repair/s24/model.npz": "f1be6d2533e67ce9a947827be706c270af25225b45c3dabf93743c268541e00d",
+      "artifacts/research/20261114/ripper/exclusion_repair/s24/receipt.json": "6f3d0b318b8f9b5704844e2d6789e05e2552eb9b49fee167fb402d30fc4fb434",
+      "artifacts/research/20261114/ripper/exclusion_repair/s24/audit.json": "c0dc07c61c1f403c28847164cfb3399a71ec32c343bf4a256154e37ee7931521",
+      "artifacts/research/20261114/ripper/exclusion_repair/s24/unrestricted-fit.json": "25f0aa2c8c807361677a0e6e54e7c620e29dcd563654fe818e2c0a912523d374"
+    },
+    "25": {
+      "artifacts/research/20261114/ripper/permuted_noise/s25/fit.npz": "cd691d3650575ea850253116e363a93b4479e053d2c3ea7620fcfa573a7a90c4",
+      "artifacts/research/20261114/ripper/permuted_noise/s25/receipt.json": "322ff33b0e5c72b519b7b59a466802ad10a1bb3d66b05f163f319f8d6503d4b0",
+      "artifacts/research/20261114/ripper/permuted_noise/s25/audit.json": "6b8d7ed87537e4c7aec515382df2a817936a7fd76be26fb092b2476244d275cf",
+      "artifacts/research/20261114/ripper/exclusion_repair/s25/model.npz": "72c5179332300b964ac07b729aea08b2a9c54315cf2323768398b93e855d234d",
+      "artifacts/research/20261114/ripper/exclusion_repair/s25/receipt.json": "429c4c3b681ec45f0c15267b281a2f176fe5ab532895fddac03f520590c99bf6",
+      "artifacts/research/20261114/ripper/exclusion_repair/s25/audit.json": "51a87c0d60e9b909b029042b56b6557c2d2170814da4e3e1240a57a58282144a",
+      "artifacts/research/20261114/ripper/exclusion_repair/s25/unrestricted-fit.json": "e9d7d35a5c22c56873bf6fc129065d2a2358fb74857d1373679f959fdaecfe50"
+    },
+    "26": {
+      "artifacts/research/20261114/ripper/permuted_noise/s26/fit.npz": "0ee71daebcab541083c4d3f9242bc03d8f1e0d263703f47a659e9c623ef53a8d",
+      "artifacts/research/20261114/ripper/permuted_noise/s26/receipt.json": "b60e36ac33d67a588eb519d2a8e4850a1f4fc1177f99be58aa4a3f7e3761ea0f",
+      "artifacts/research/20261114/ripper/permuted_noise/s26/audit.json": "0f495482563ee280cd3bba6d0a66781790de5d68fa061d7ce71d68fd454a4de7",
+      "artifacts/research/20261114/ripper/exclusion_repair/s26/model.npz": "fd758fa9097ab8e67a123ec89317caaef422337a395ddfa6ec0db1cf680ef4b0",
+      "artifacts/research/20261114/ripper/exclusion_repair/s26/receipt.json": "791fb0399f3be1fae0e00487f6c63768aee46b32e8b1f5d5c84c00a72aad13d3",
+      "artifacts/research/20261114/ripper/exclusion_repair/s26/audit.json": "8beb809651bbdcff9c199367ea95c8d08670227bf3e12747d5ca1e175877280a",
+      "artifacts/research/20261114/ripper/exclusion_repair/s26/unrestricted-fit.json": "6c22c2c99618e8725e74e02c22f1d7c6e8b37daf6c20759bb53e6762c8f4ce31"
+    },
+    "27": {
+      "artifacts/research/20261114/ripper/permuted_noise/s27/fit.npz": "73d64e3fca9a3ffc293adb2db9b1df4defcd627a05f4b1d9b25e8ef6e4d51534",
+      "artifacts/research/20261114/ripper/permuted_noise/s27/receipt.json": "fd56bfe1a3ea0ff0e1ea0214fca7ebfe6f9390673da12a37020608d16f0901b1",
+      "artifacts/research/20261114/ripper/permuted_noise/s27/audit.json": "be2bfcc9e88a76bb0df65fb4222ee31545607b882b894dcd5754643100e9ecd9",
+      "artifacts/research/20261114/ripper/exclusion_repair/s27/model.npz": "0e6884b7be55355304198a6b1dbad6e524733002cfe68c0f9551999e35d48486",
+      "artifacts/research/20261114/ripper/exclusion_repair/s27/receipt.json": "ec7cced0ed299261fda394a5d6abb5d46ef10b89ebc214dc586b40e4131a052d",
+      "artifacts/research/20261114/ripper/exclusion_repair/s27/audit.json": "3e2c4613725765231393b05b2b081591e9802afcb7b517a48a8364162f47458c",
+      "artifacts/research/20261114/ripper/exclusion_repair/s27/unrestricted-fit.json": "aea5ae5d06231a0b1384659e613aca1cd451c475c196561185dcdfd809528aaf"
+    },
+    "28": {
+      "artifacts/research/20261114/ripper/permuted_noise/s28/fit.npz": "115ebd067a4b29d61a6bb1e5ad164f552387e07d2df84afed5b95ee7f2cc63e6",
+      "artifacts/research/20261114/ripper/permuted_noise/s28/receipt.json": "9a30d83674f400ac773ff209d5e21352c3264bf125e9bea4d85ac0a9ee2ada2e",
+      "artifacts/research/20261114/ripper/permuted_noise/s28/audit.json": "33a5bc95684b1010eddff5885c9973b836e18db22e6787307b3e789fba1d5996",
+      "artifacts/research/20261114/ripper/exclusion_repair/s28/model.npz": "d6edb8a2e6832d78c78d444e1da3c266645e64d62ba8097c7bfebaa40990f7b1",
+      "artifacts/research/20261114/ripper/exclusion_repair/s28/receipt.json": "dfa456031d9d7936b54577e2eb848332945d4dbb9fa5669b28b63f709bbad4ce",
+      "artifacts/research/20261114/ripper/exclusion_repair/s28/audit.json": "5f2e7f5bfd0fe34442310f76edfb850e450342ed7b084ff2574c33dfe6bcbacd",
+      "artifacts/research/20261114/ripper/exclusion_repair/s28/unrestricted-fit.json": "6e8a0fb0460f2d39fd3638e5e701daf9792a00d9e1406f4163b9fbe6a60f8d0e"
+    },
+    "29": {
+      "artifacts/research/20261114/ripper/permuted_noise/s29/fit.npz": "81a4728d95cd416c8c57d7ccc0aadfe1b5599fdaee3b805287099efa49ed8900",
+      "artifacts/research/20261114/ripper/permuted_noise/s29/receipt.json": "d287b67d850359f51990522cfae15196d50fbe86d51a3ea47f72e9d8f49e2c45",
+      "artifacts/research/20261114/ripper/permuted_noise/s29/audit.json": "1e470778f147d4ef35dea18aefd57974fb586d23853ba3f270abb71f07fa89d2",
+      "artifacts/research/20261114/ripper/exclusion_repair/s29/model.npz": "07047794677b8fa5a591d9b6130d85f0fe6bd5e70b7e8c6ec3f0562ac5a53cf1",
+      "artifacts/research/20261114/ripper/exclusion_repair/s29/receipt.json": "94cafa306917e958dfa7298355aa92b2f76664c8457b80b12269649c2aa4c868",
+      "artifacts/research/20261114/ripper/exclusion_repair/s29/audit.json": "e75cc005ad00553c277613aa26268ddd0748562ea60804a324f72780774789da",
+      "artifacts/research/20261114/ripper/exclusion_repair/s29/unrestricted-fit.json": "fe827c6922713d2f3cb2e7585e682c318fd2f620a18e7fd41c5e57ee25624cae"
+    },
+    "30": {
+      "artifacts/research/20261114/ripper/permuted_noise/s30/fit.npz": "4dee3a5e2da95ab8ef5dfb8d3928c1c25ae9f134d811819d552615523c3ea4a6",
+      "artifacts/research/20261114/ripper/permuted_noise/s30/receipt.json": "907ded9a3e53fb423a929ceace7efce788e7a8f004faf565c6648786def971d5",
+      "artifacts/research/20261114/ripper/permuted_noise/s30/audit.json": "5fd9b14e2604f9ebfa9a7c7fbc8a47d9a95724c0b1a8028878c9731c8ecb2028",
+      "artifacts/research/20261114/ripper/exclusion_repair/s30/model.npz": "3ed0541f49d02182b60ee29048b1137c56c85a65fbe7afe37331d4c9a77594f5",
+      "artifacts/research/20261114/ripper/exclusion_repair/s30/receipt.json": "7910482aa141494693748b5b0ccd9a3318726329cc70ce4b73a149eeee3b4b6e",
+      "artifacts/research/20261114/ripper/exclusion_repair/s30/audit.json": "ea61783a5ec2bd61390acf9891cd2d6086e154858e1b482691da944891f6ffe5",
+      "artifacts/research/20261114/ripper/exclusion_repair/s30/unrestricted-fit.json": "2734e417b3137e02ee8c0eb1aee55d2a32b86ee5b330e3b53bd18e8ea3ca3ba1"
+    },
+    "31": {
+      "artifacts/research/20261114/ripper/permuted_noise/s31/fit.npz": "db95957767a83fd0ca793d8047b27d99b1b6d088c7ee3581df568330b4575294",
+      "artifacts/research/20261114/ripper/permuted_noise/s31/receipt.json": "3cf9cf062589a89cc65ad4314ba3186afc3611a93eb52f414be38241e6f4ce3b",
+      "artifacts/research/20261114/ripper/permuted_noise/s31/audit.json": "b1a1755adf8e9a45379718e8ade950d63bb36b3792cbbe93fa09db9c3c748805",
+      "artifacts/research/20261114/ripper/exclusion_repair/s31/model.npz": "bb4948904387275bca141687c04300cb9fc5d62a3bbba695e5795b56bc6b9852",
+      "artifacts/research/20261114/ripper/exclusion_repair/s31/receipt.json": "0d1300e7f7910465f628a1954cdb379d3d802e46ab381c520f86760bbe6a1341",
+      "artifacts/research/20261114/ripper/exclusion_repair/s31/audit.json": "12eb1080295146cd9a1792f2ef4e9ddb71193621665cc9d1821a55803ecd4c77",
+      "artifacts/research/20261114/ripper/exclusion_repair/s31/unrestricted-fit.json": "fca4044f22da7bfca46b3d3704f21694c56fbe0adb3796a9532c2af2ac429872"
+    }
+  }
+}
