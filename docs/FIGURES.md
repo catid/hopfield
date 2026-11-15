@@ -4,6 +4,11 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Fresh paired rule-identification policies | [All 1,408 banks, ledgers and proof trees](../results/research/loki/h3bj/) | [plot_public.py](../research/20261114/loki/h3bj/plot_public.py) |
+| Exact veto-geometry speed | [All timing pairs and parity evidence](../results/research/work/veto-speed/) | [plot_veto_speed.py](../research/20261114/work/plot_veto_speed.py) |
+| Fresh strong-noise degree inference | [Source exclusions, controls and exact proofs](../results/research/foureyes/fresh_curvature/) | [plot_fresh_curvature.py](../scripts/plot_fresh_curvature.py) |
+| Additional observation coverage | [All extended masks, query costs and exact proofs](../results/research/ripper/extra_coverage/) | [plot_extra_coverage.py](../scripts/plot_extra_coverage.py) |
+| Exact four-question trees | [All checkpoint mappings and tree certificates](../results/research/loki/h3bi/) | [plot_public.py](../research/20261114/loki/h3bi/plot_public.py) |
 | Maze density limit at 80% loops | [All paired outcomes and five endpoint decisions](../results/research/work/loop80-transfer/) | [plot_loop80_transfer.py](../research/20261114/work/plot_loop80_transfer.py) |
 | Degree inference from partial observations | [All 2,560 grid proofs](../results/research/ripper/partial_degree/) | [plot_partial_degree.py](../scripts/plot_partial_degree.py) |
 | Four-to-eight query continuation | [All 1,408 checkpoints and additional decisions](../results/research/loki/h3bh/) | [plot_public.py](../research/20261114/loki/h3bh/plot_public.py) |

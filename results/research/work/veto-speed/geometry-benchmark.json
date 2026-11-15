@@ -1,0 +1,96 @@
+{
+  "status": "passed",
+  "protocol_sha256": "f90be88b82d58996151cdaa12573ca119c0467b5ad6f41c7ca003d5732fc7805",
+  "source_policy_gate_sha256": {
+    "policy-gate-gpu0.json": "ba59e2f970f470d3a3156a5abf2160701f255f03bc4097e2c098309a9e3c8c48",
+    "policy-gate-gpu1.json": "708192fa1cf233eaa722b3f1c7af400afd543a8bd4dcd95d48784477d29f3214"
+  },
+  "rows": [
+    {
+      "repetition": 0,
+      "order": [
+        "legacy",
+        "fast"
+      ],
+      "timing": {
+        "legacy": {
+          "process_seconds": 3.481376428,
+          "wall_seconds": 3.4814486440154724
+        },
+        "fast": {
+          "process_seconds": 0.8113299150000004,
+          "wall_seconds": 0.8113565079984255
+        }
+      },
+      "paired_process_speedup": 4.290950405791457,
+      "all_1024_outputs_exact": true
+    },
+    {
+      "repetition": 1,
+      "order": [
+        "fast",
+        "legacy"
+      ],
+      "timing": {
+        "fast": {
+          "process_seconds": 0.8160631910000005,
+          "wall_seconds": 0.8160857160110027
+        },
+        "legacy": {
+          "process_seconds": 3.493797601999999,
+          "wall_seconds": 3.493921602028422
+        }
+      },
+      "paired_process_speedup": 4.281283165974823,
+      "all_1024_outputs_exact": true
+    },
+    {
+      "repetition": 2,
+      "order": [
+        "fast",
+        "legacy"
+      ],
+      "timing": {
+        "fast": {
+          "process_seconds": 0.8139278450000003,
+          "wall_seconds": 0.8139500889810733
+        },
+        "legacy": {
+          "process_seconds": 3.489674162,
+          "wall_seconds": 3.489781204960309
+        }
+      },
+      "paired_process_speedup": 4.287449045314329,
+      "all_1024_outputs_exact": true
+    },
+    {
+      "repetition": 3,
+      "order": [
+        "legacy",
+        "fast"
+      ],
+      "timing": {
+        "legacy": {
+          "process_seconds": 3.4803948039999995,
+          "wall_seconds": 3.48047787201358
+        },
+        "fast": {
+          "process_seconds": 0.8240467629999984,
+          "wall_seconds": 0.8241031329962425
+        }
+      },
+      "paired_process_speedup": 4.223540410897781,
+      "all_1024_outputs_exact": true
+    }
+  ],
+  "median_paired_process_speedup": 4.284366105644576,
+  "target": 2.0,
+  "decision": "supported",
+  "warmup_seconds": 0.14279948297189549,
+  "cpu_affinity": [
+    0
+  ],
+  "seconds": 17.454695795022417,
+  "fixture_manifest_sha256": "437ba242bd4d05e41570e6e46d4acce5c8338950af481896f213bc1fb3df5d2c",
+  "scope": "Four balanced paired complete geometry sweeps on1024 fixed states; purePython process timing with input loading/warmup separate. No full-policy inference speed claim."
+}

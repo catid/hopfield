@@ -14,9 +14,9 @@ Connect cells that **never share a digit in training solutions**, assign weight 
 
 This headline uses ten base solutions with 99 stored Sudoku-symmetry variants each. **Augmentation supplies task knowledge.** A separate control recovers the same constraint graph from 100 distinct unaugmented solutions in all six samples. The estimator receives no cell geometry. [Budget, uncertainty and stopping proof](research/20261114/foureyes/REPORT-budget.md) · [Raw-data control](research/20261114/ripper/REPORT-raw-count.md)
 
-Under strong, concentrated label corruption, **LP cost curvature recovers all 64 examined Sudoku graphs without being given degree twenty**. It solves a frozen grid of common-degree problems and selects the largest change in optimal-cost slope; every bank selects twenty. All 5,120 optimizations have exact proof certificates. Equal degree and the bounded 0–40 grid remain supplied priors, and fresh-source confirmation is still needed. Raw thresholding recovers 4/64 and centered thresholding 33/64 on the same data. [Procedure, controls, costs and scope](research/20261114/foureyes/REPORT-degree-curvature.md) · [Earlier fresh-source threshold confirmation](research/20261114/foureyes/REPORT-regularity-fresh.md)
+Under strong, concentrated label corruption, **LP cost curvature recovers all 64 graphs in a fresh confirmation without being given degree twenty**. Each bank contains 2,400 distinct rows, drawn after excluding 2,134,884 declared prior source IDs. Every bank selects twenty from the frozen degree grid, and all 2,560 optimizations have exact proof certificates. Equal degree and the bounded 0–40 grid remain supplied priors. Raw regularity recovers 3/64 and centered regularity 29/64 on the same observations. This measures graph recovery; it adds no new puzzle-solving result. [Fresh confirmation, controls and costs](research/20261114/foureyes/REPORT-fresh-curvature.md) · [Earlier examined-input study](research/20261114/foureyes/REPORT-degree-curvature.md)
 
-![LP cost curvature selects the common degree and recovers the strongly corrupted graphs](assets/figures/degree-curvature.png)
+![Fresh confirmation: LP cost curvature recovers all 64 strongly corrupted graphs](assets/figures/fresh-curvature.png)
 
 ## Cycle cuts solve fresh mazes at two sizes
 
@@ -38,6 +38,8 @@ At **80% loop density**, the same decoder solves **4,044/4,096 fresh mazes joint
 
 An exact geometry optimization makes this complete inference policy **1.33× faster** on a fixed 768-model-input replay cohort, with identical boards, counters, flags and search traces. Candidate generation alone is 4.98× faster. Both frozen speed targets pass across four balanced paired repetitions; this is a measured source-cohort speed result, with no new accuracy samples. [Correctness gates, timing scope and all pairs](research/20261114/work/REPORT.md#h2bd-exact-bridge-geometry-meets-separate-geometry-and-complete-policy-speed-targets)
 
+A further exact optimization makes the complete decoder **1.46× faster** on a separate 768-model-input cohort at 80% loop density, retaining identical outputs and traces, including its failures. This improvement is measured over the already optimized decoder; the two speed ratios use different cohorts and should not be multiplied. [Veto geometry, paired timings and parity checks](research/20261114/work/REPORT.md#h2bf-exact-veto-geometry-meets-its-own-local-and-complete-policy-speed-targets)
+
 ## A search prior makes the same learned energy much more useful
 
 ![Same learned energies, different proposals: replicated across two new queen variants at matched measured GPU time](results/research/loki/h3ad/new-family-replication.png)
@@ -49,6 +51,12 @@ Each family uses a complete N12 training universe and 4,096 fresh N13 inputs, wi
 **A practical CPU control is faster still for these fixed N13 models.** Compile the complete learned zero-energy set once, then answer three batches of 4,096 clue queries: **100% certified success**, with total compile/load/query wall time **32.9× and 16.6× lower** than the GPU permutation solver for the two families. This includes independent completeness verification and cache construction. The complete sets contain only 2,696 and 6,368 boards; this is a reusable fixed-size cache comparison across different hardware, not a general scaling result. [Exact compiler, label-free queries and full cost accounting](research/20261114/loki/h3ae/REPORT.md) · [N15 verification-budget boundary](research/20261114/loki/h3af/REPORT.md)
 
 An earlier queen-plus-camel replication fits **four independent source-bank draws**: permutation search reaches **92.47–94.49%**, versus **19.45–21.06%** for arbitrary-cell proposals at matched measured GPU time. The four fits have two distinct supports; extra exclusions limit their certified accuracy. [Four-bank replication](research/20261114/loki/h3ac/REPORT.md) · [Initialization versus proposal control](research/20261114/loki/h3aa/REPORT.md)
+
+## Better questions identify hard rules
+
+With a supplied class of **1,541 queen rules**, 16 valid N12 examples and at most eight binary N13 membership queries, bounded decision trees identify **1,408/1,408 models** across fresh banks from 22 selected hard rules. The preceding MAP-guided policy identifies 1,371; the paired comparison has 37 gains and zero losses. Both frozen success targets pass. The tree policy uses 19 more membership labels in aggregate, so this is a recovery improvement with a slightly higher observed label cost. [Fresh paired study, supplied priors and full query ledger](research/20261114/loki/h3bj/REPORT.md)
+
+![Fresh paired rule-identification study: complete recovery with a higher observed label cost](results/research/loki/h3bj/fresh-paired-policy.png)
 
 ## Confidence weights recover answers under noisy labels
 

@@ -2,6 +2,11 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Fresh paired question planning identifies 1,408/1,408 models: 37 gains, zero losses, 19 additional labels](../research/20261114/loki/h3bj/REPORT.md)
+- [Exact veto geometry makes the complete dense-maze policy 1.46× faster with identical outputs](../research/20261114/work/REPORT.md#h2bf-exact-veto-geometry-meets-its-own-local-and-complete-policy-speed-targets)
+- [Fresh strong-noise confirmation: degree curvature recovers all 64 graphs, with new BP and count controls](../research/20261114/foureyes/REPORT-fresh-curvature.md)
+- [Seven extra observed cells repair all 64 partial-observation graphs at a larger declared query budget](../research/20261114/ripper/REPORT-extra-coverage.md)
+- [Exact question trees can resolve every examined hard-tail checkpoint within four further labels](../research/20261114/loki/h3bi/REPORT.md)
 - [Denser mazes: four relative targets pass, but 52 failures falsify 99.9% success](../research/20261114/work/REPORT.md#h2be-denser-mazes-falsify-999-sufficiency-of-the-fixed-48-round-decoder)
 - [Partial observations: curvature infers degree 20 on all 64 examined banks, retaining the existing graph errors](../research/20261114/ripper/REPORT-partial-degree.md)
 - [Eight-query continuation identifies 1,371/1,408 selected hard-tail models; the stronger per-truth target fails](../research/20261114/loki/h3bh/REPORT.md)
