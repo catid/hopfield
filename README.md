@@ -4,7 +4,7 @@
 
 Independent implementation, reproduction and research extensions of [*Classical Energies Learn to Reason 1,000× Faster than Looped Models*](https://arxiv.org/abs/2611.17309v1), by Benjamin Hoover, Hugh Blayney and James C. R. Whittington. CRAM learns an energy function, then searches for low-energy answers. We test what learning, data and search each contribute.
 
-**Fresh dense mazes:** **4,096/4,096** solved across three fixed models, versus **3,921** for BP AdamW. Running BP first and routing invalid paths to LP96 cuts measured complete answer cost **35.40%**, with zero lost LP96 successes. [Fresh confirmation](research/20261114/work/REPORT.md#h2bo-fresh-confirmation-supports-999-joint-success-and-saves-3540-complete-answer-cost)
+**Fresh dense mazes:** **4,096/4,096** solved across three fixed models. A BP-first cascade cuts complete answer cost **35.40%** with corner endpoints, but costs **15.54% more** with uniformly sampled open-cell endpoints. Both cohorts retain every LP96 success. [Speedup](research/20261114/work/REPORT.md#h2bo-fresh-confirmation-supports-999-joint-success-and-saves-3540-complete-answer-cost) · [Endpoint-shift slowdown](research/20261114/work/REPORT.md#h2bp-uniform-endpoints-preserve-joint-success-but-falsify-the-cost-saving-target)
 
 [Reviewed paper](references/2611.17309v1.md) · [All results](results/README.md) · [Reproduction](REPRODUCTION.md) · [Run the code](docs/RERUN_GUIDE.md)
 
@@ -16,15 +16,17 @@ Connect cells that **never share a digit in training solutions**, assign weight 
 
 This headline uses ten base solutions with 99 stored Sudoku-symmetry variants each. **Augmentation supplies task knowledge.** A separate control recovers the same constraint graph from 100 distinct unaugmented solutions in all six samples. The estimator receives no cell geometry. [Budget, uncertainty and stopping proof](research/20261114/foureyes/REPORT-budget.md) · [Raw-data control](research/20261114/ripper/REPORT-raw-count.md)
 
-## Solve fresh dense mazes faster
+## Maze speed depends on endpoint placement
 
-![Fresh maze cascade: all 4,096 cases solved across three fixed models with 35.40% lower complete answer cost](results/research/work/bp-first-fresh-confirmation/bp-first-fresh-confirmation.png)
+![All four timing pairs: 35.40% saving with corner endpoints and 15.54% higher cost with uniform open-cell endpoints](results/research/work/endpoint-cost-comparison/endpoint-cost-comparison.png)
 
 At **180×180 and 80% loop density**, the fixed BP-first cascade solves **4,096/4,096 fresh mazes jointly across all three models**, versus **3,921** for BP AdamW. LP96 alone also solves all 4,096. The cascade accepts BP paths that pass a geometry check and runs LP96 on the remaining inputs.
 
 Across four balanced paired replays, median complete answer cost falls **35.40%**. Model readiness, screening and actual routed computation are charged. All three prespecified targets pass separately: at least 99.9% joint success, accuracy no more than 0.1 percentage point below LP96, and at least 10% cost savings. The one-sided 95% success lower bound is **99.9269%**; the models are fixed conditions, not extra independent trials. [Protocol, every input and measured costs](research/20261114/work/REPORT.md#h2bo-fresh-confirmation-supports-999-joint-success-and-saves-3540-complete-answer-cost)
 
-The decoder supplies an explicit graph prior. Geometry alone does not prove shortestness, and energy certificates do not prove graph validity. Every reported solve receives independent graph checks. This confirmation uses the original endpoint convention. [Controls and earlier cohorts](docs/RESEARCH_DETAILS.md#cycle-cuts-solve-fresh-dense-mazes)
+**Changing endpoint placement reverses the cost result.** On a separate fresh cohort with endpoints sampled uniformly from open cells, BP AdamW solves **4,079/4,096**; LP96 and the cascade each solve **4,096/4,096**. The accuracy targets pass, but the cascade costs **15.54% more**, falsifying the 10% saving target. All four timing pairs show a slowdown. [Endpoint-shift protocol and full audit](research/20261114/work/REPORT.md#h2bp-uniform-endpoints-preserve-joint-success-but-falsify-the-cost-saving-target)
+
+The decoder supplies an explicit graph prior. Geometry alone does not prove shortestness, and energy certificates do not prove graph validity. Every reported solve receives independent graph checks. These distinct endpoint distributions are reported separately; the comparison does not isolate a causal effect of path length. [Controls and earlier cohorts](docs/RESEARCH_DETAILS.md#cycle-cuts-solve-fresh-dense-mazes)
 
 ## Change the search, keep the learned energy
 

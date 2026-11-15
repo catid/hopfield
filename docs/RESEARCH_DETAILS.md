@@ -175,3 +175,17 @@ Training each detector on the opposite 300-row half reduces exact graph recovery
 On 4,096 fresh cases, deeper question planning uses **9,975 paid calls** versus **10,238** for a separately executed baseline: **263 fewer calls (2.57%)**. The fixed 2% whole-cohort target passes. Both policies recover exactly 4,083 graphs and retain all 13 failures; cross-arm repeated queries are reacquired and charged. This is a finite-cohort result under the declared prior. [Fresh generation, full audit and portable proof boundary](../research/20261114/loki/h3bx/REPORT.md).
 
 ![Fresh deeper question-tree confirmation](../results/research/loki/h3bx/fresh-paired-total-cost.png)
+
+## Endpoint shift reverses the maze cost result
+
+Sampling ordered endpoints uniformly from all open cells gives **4,096/4,096** joint successes for both LP96 and the fixed BP-first cascade, versus **4,079/4,096** for BP AdamW. Both accuracy targets pass, but the cascade's median complete answer cost rises **15.54%**, falsifying the separate 10% saving target. Only 50 inputs route to LP96, yet the BP prefix costs more than the LP work it replaces on this cohort. This is a descriptive cost decomposition, not a causal path-length conclusion.
+
+![All four complete-cost pairs for each endpoint distribution](../results/research/work/endpoint-cost-comparison/endpoint-cost-comparison.png)
+
+The earlier corner-endpoint cohort saves 35.40%; both cohorts use 4,096 fresh mazes and three fixed models. Endpoint distributions and timing pairs remain separate. [Uniform endpoint study](../research/20261114/work/REPORT.md#h2bp-uniform-endpoints-preserve-joint-success-but-falsify-the-cost-saving-target) · [Original endpoint confirmation](../research/20261114/work/REPORT.md#h2bo-fresh-confirmation-supports-999-joint-success-and-saves-3540-complete-answer-cost).
+
+## Likelihood robustness to two wrong noise rates
+
+Assuming half or double the actual 7.5% label-noise rate yields **62/64** exact graphs in both arms, with **zero regressions** versus the nominal likelihood control. All four separate targets pass. Every selected primal is unchanged despite different integer costs. This tests two fixed assumptions on examined repeated-query records; it does not establish a continuous robustness interval or fresh generalization. [Protocol, arithmetic certificates and residual failures](../research/20261114/ripper/REPORT-channel-misspecification.md).
+
+![Two prespecified channel assumptions retain the same graph recoveries](../assets/figures/channel_misspecification.png)

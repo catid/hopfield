@@ -223,3 +223,15 @@ Both prespecified targets fail on all 256 examined banks. The graph-training sam
 ![Fresh question-tree paid cost and retained outcomes](../results/research/loki/h3bx/fresh-paired-total-cost.png)
 
 The plot retains both independently executed arms and their total paid calls, with the 2% threshold and all 4,096 cases. [Report](../research/20261114/loki/h3bx/REPORT.md) · [Renderer](../research/20261114/loki/h3bx/plot_public.py).
+
+### Maze endpoint shift and complete-cost comparison (H2bp)
+
+![Endpoint placement changes the sign of the measured cost result](../results/research/work/endpoint-cost-comparison/endpoint-cost-comparison.png)
+
+Every balanced timing pair appears for each distinct fresh cohort. Positive values are savings against standalone LP96; negative values are added cost. The two medians are 35.40% saving and 15.54% added cost. [Comparison renderer](../research/20261114/work/plot_endpoint_cost_comparison.py) · [Exact costs and provenance](../results/research/work/endpoint-cost-comparison/provenance.json) · [Standalone endpoint-shift renderer](../research/20261114/work/plot_endpoint_shift.py).
+
+### Incorrect noise-channel assumptions (H1cd)
+
+![Half and double assumed noise rates preserve 62/64 graphs](../assets/figures/channel_misspecification.png)
+
+Both examined-cohort arms and all four prespecified decisions are retained. [Report](../research/20261114/ripper/REPORT-channel-misspecification.md) · [Renderer](../scripts/plot_channel_misspecification.py) · [Provenance](../assets/figures/channel_misspecification-provenance.json).

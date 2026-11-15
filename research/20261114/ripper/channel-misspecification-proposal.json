@@ -1,0 +1,50 @@
+{
+  "id": "H1cd-channel-misspecification",
+  "status": "prospective_design_before_new_channel_scores_or_LPs",
+  "hypothesis": "On all64 examined H1ca triple90 banks, each separately fixed misspecified assumed noise rate3/80 and3/20 retains at least60/64 exact graphs and causes at most2 regressions among the62 graphs recovered by nominal3/40 H1cc pair likelihood. Assess all four targets separately; do not choose or tune an assumption after seeing outcomes.",
+  "motivation": "H1cc likelihood recovered62/64 while posterior expectation recovered61/64. Test dependence on supplied channel knowledge while holding the likelihood transform, observations, priors, masks, degree selector, quantization and numerical certification fixed. This does not isolate posterior calibration from likelihood shape because channel misspecification changes posterior evidence inside the fixed transform.",
+  "scope": "Reuse all64 H1ca triple90 bundles, acquired under true nominal3/40 replacement by a uniformly selected incorrect digit. Adaptive robustness comparison on an examined cohort. No fresh-generalization claim, new IDs, labels, noise draws, masks or noisy queries. No baseline or frozen package is changed.",
+  "arms": [
+    {
+      "name": "assumed_low_3_80",
+      "assumed_noise_numerator": 3,
+      "assumed_noise_denominator": 80
+    },
+    {
+      "name": "assumed_high_3_20",
+      "assumed_noise_numerator": 3,
+      "assumed_noise_denominator": 20
+    }
+  ],
+  "posterior": "Independent uniform latent-digit prior unchanged. For assumed error probability a/b, scaled per-query likelihood is8*(b-a) for a matching latent digit and a for each nonmatching digit. Multiply the three query likelihoods exactly then normalize exactly. Thus integer matching/nonmatching weights are616/3 and136/3. Positive assumptions avoid impossible observation patterns and infinite costs. The true3/40 matched channel retains296/3.",
+  "objective": "Unchanged half-even rounding of1e6*sum[-ln(1-e)] over71 coqueries per pair; e is exact rational product-marginal posterior equality probability at the arm assumed channel. No pseudo-observations or exposure normalization. Same pairwise composite likelihood interpretation and independent-uniform-prior misspecification caveat as H1cc; no whole-graph likelihood claim.",
+  "controls": "Recheck all64 archived H1cc nominal3/40 triple90 selected certificates and outcomes as the paired control. H1cc single27064/64 and H1ca hardtriple9051/64 and posteriortriple9061/64 are explicitly inherited references, not new fits. Synthetic Q1 affine-cost identity will be checked at all three assumed rates; no new Q1 cohort fits because they do not test repeated-query channel robustness. BP AdamW first in tables and explicitly outside structural inference scope.",
+  "inference": "128 new degree grids1..40, analytic zero, exact-curvature degree1..39 and lower-degree ties. No true degree20 or edge count810 supplied. Fresh single-thread HiGHS per degree, literal half-integral optima, independent exact integer proofs, no selective retry. All128 outcomes retained; selected fractional is a resolved failure, uncertified required cost or grid is unresolved.",
+  "primary": {
+    "assumed_low_3_80": {
+      "absolute": "At least60/64. Lower=known exact; upper=exact+unresolved. Support lower>=60; falsify upper<60; otherwise inconclusive.",
+      "regressions": "At most2 among62 nominal H1cc successes. Lower=known resolved failures on those62; upper adds unresolved on those62. Support upper<=2; falsify lower>2; otherwise inconclusive."
+    },
+    "assumed_high_3_20": {
+      "absolute": "At least60/64. Lower=known exact; upper=exact+unresolved. Support lower>=60; falsify upper<60; otherwise inconclusive.",
+      "regressions": "At most2 among62 nominal H1cc successes. Lower=known resolved failures on those62; upper adds unresolved on those62. Support upper<=2; falsify lower>2; otherwise inconclusive."
+    }
+  },
+  "diagnostics": "Paired gains/losses separately for each assumption; fate of nominal failures7 and57; selected degrees/ties, fixed20 and top810 diagnostics; integer-cost and selected-primal differences relative to nominal; exact selected truth gaps only after both arms fitted for a bank. No selecting the better assumption or tuning by any diagnostic. Descriptive endpoint decisions, without population significance or fresh-cohort inference.",
+  "numerics": "Reuse immutable H1cc directed Decimal logarithm intervals at80 digits with160 fallback only for unproven rounding and independent exact rational-product fixed-point log bounds at200 digits/240 atanh terms. Generalize only exact likelihood weights/type tables to two prespecified positive rates. Verify int64 bounds before operations, exhaustively enumerate finite Q1/Q3 types, check literal posterior products, digit/query invariance, full81-cell synthetic parity, and whole-arm skip on either producer or independent uncertified costs. No ordinary high precision agreement as a proof.",
+  "candidate_solver_seed_base": 2042231502,
+  "seed_rule": "Actual=base+41*(2*bank+arm_index)+degree. Expand H1bv/bw/by/bz/ca/cc grids and scan explicit historical seed fields before freeze. No acquisition RNG.",
+  "budget": {
+    "new_LPs": 5120,
+    "new_analytic_zero_witnesses": 128,
+    "archived_selected_controls": 64,
+    "workers": 8,
+    "aggregate_cpu_seconds": 900,
+    "wall_seconds": 180,
+    "gpu_seconds": 0,
+    "new_noisy_queries": 0
+  },
+  "optimization_plan": "Reuse finite-type exact interval method and eight persistent workers. Benchmark unrelated full-shape costs and independent certification before freeze, preserve exact parity, and record actual solver CPU share and external live process/counter evidence. GPUs remain idle because this exact LP/rational-certificate pipeline has no GPU implementation; preserve unrelated workloads.",
+  "query_accounting": "Unchanged parent physical noisy union2,073,600; cumulative official noisy labels16,760,919; combinedledger2,431,463; Ripperledger2,195,038.",
+  "review": "Design only. No new-channel cohort score, fit, or truth-gap inspected. Source/gates require independent review before freeze and study execution. No extensions after outcomes."
+}

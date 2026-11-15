@@ -1,0 +1,178 @@
+{
+  "status": "passed",
+  "host": "ripper",
+  "study_scores_read": false,
+  "parent_numerical_gate_sha256": "7b183ba2ca5d0f56997292679b98488db4378af6ca63edeef1fd445b9395029f",
+  "inherited_immutable_rounding_and_fallback_gates": true,
+  "all_possible_types": [
+    {
+      "channel": [
+        3,
+        80
+      ],
+      "queries": 1,
+      "types": 2,
+      "maximum_type_denominator": 409600
+    },
+    {
+      "channel": [
+        3,
+        80
+      ],
+      "queries": 3,
+      "types": 21,
+      "maximum_type_denominator": 54636777383892544
+    },
+    {
+      "channel": [
+        3,
+        40
+      ],
+      "queries": 1,
+      "types": 2,
+      "maximum_type_denominator": 102400
+    },
+    {
+      "channel": [
+        3,
+        40
+      ],
+      "queries": 3,
+      "types": 21,
+      "maximum_type_denominator": 672600987440704
+    },
+    {
+      "channel": [
+        3,
+        20
+      ],
+      "queries": 1,
+      "types": 2,
+      "maximum_type_denominator": 25600
+    },
+    {
+      "channel": [
+        3,
+        20
+      ],
+      "queries": 3,
+      "types": 21,
+      "maximum_type_denominator": 6328605611584
+    }
+  ],
+  "Q1_affine_identities_all_rates": true,
+  "nominal_full_array_parity": true,
+  "literal_cell_likelihood_parity": true,
+  "exact_pair_LR_identity": true,
+  "digit_query_permutation_and_missingness": true,
+  "full81cell_parity": {
+    "(3, 80)-single270": {
+      "rows": 270,
+      "cells": 81,
+      "queries": 1,
+      "pair_coqueries": 213,
+      "production_wall_seconds": 0.03896386903943494,
+      "independent_wall_seconds": 1.195765134994872
+    },
+    "(3, 80)-triple90": {
+      "rows": 90,
+      "cells": 81,
+      "queries": 3,
+      "pair_coqueries": 71,
+      "production_wall_seconds": 0.042708389984909445,
+      "independent_wall_seconds": 0.8614590979996137
+    },
+    "(3, 40)-single270": {
+      "rows": 270,
+      "cells": 81,
+      "queries": 1,
+      "pair_coqueries": 213,
+      "production_wall_seconds": 0.03565182600868866,
+      "independent_wall_seconds": 1.1495031809899956
+    },
+    "(3, 40)-triple90": {
+      "rows": 90,
+      "cells": 81,
+      "queries": 3,
+      "pair_coqueries": 71,
+      "production_wall_seconds": 0.041578784002922475,
+      "independent_wall_seconds": 0.873646491963882
+    },
+    "(3, 20)-single270": {
+      "rows": 270,
+      "cells": 81,
+      "queries": 1,
+      "pair_coqueries": 213,
+      "production_wall_seconds": 0.03539671399630606,
+      "independent_wall_seconds": 1.1122327339835465
+    },
+    "(3, 20)-triple90": {
+      "rows": 90,
+      "cells": 81,
+      "queries": 3,
+      "pair_coqueries": 71,
+      "production_wall_seconds": 0.04219603998353705,
+      "independent_wall_seconds": 0.853272748994641
+    }
+  },
+  "timings": {
+    "(3, 80)-finite_type": {
+      "samples_wall_seconds": [
+        0.0004181379918009043,
+        0.0004126689746044576,
+        0.0004040769999846816
+      ],
+      "median_wall_seconds": 0.0004126689746044576
+    },
+    "(3, 80)-independent_product": {
+      "samples_wall_seconds": [
+        0.007569783017970622,
+        0.007513547956477851,
+        0.007520799990743399
+      ],
+      "median_wall_seconds": 0.007520799990743399
+    },
+    "(3, 40)-finite_type": {
+      "samples_wall_seconds": [
+        0.0004183080163784325,
+        0.00041382102062925696,
+        0.00040501804323866963
+      ],
+      "median_wall_seconds": 0.00041382102062925696
+    },
+    "(3, 40)-independent_product": {
+      "samples_wall_seconds": [
+        0.007604534970596433,
+        0.0076203690259717405,
+        0.0075605190359056
+      ],
+      "median_wall_seconds": 0.007604534970596433
+    },
+    "(3, 20)-finite_type": {
+      "samples_wall_seconds": [
+        0.0004113070317544043,
+        0.0003991489647887647,
+        0.0003945520147681236
+      ],
+      "median_wall_seconds": 0.0003991489647887647
+    },
+    "(3, 20)-independent_product": {
+      "samples_wall_seconds": [
+        0.007312416040804237,
+        0.007266647997312248,
+        0.007245716988109052
+      ],
+      "median_wall_seconds": 0.007266647997312248
+    }
+  },
+  "timing_scope": "Unrelated full-shape inputs timed once and12x9 toys timed three times; not whole-study speedups.",
+  "source_sha256": {
+    "channel_misspecification_math.py": "6b8494ff5fc63ea91358d491c4c31d7da266f40315e9e13a3813df1790af3575",
+    "check_channel_misspecification_math.py": "200731cd360d578b4eba558ae949c6df9bc56998dcb0360726746a98f127c21d",
+    "pair_likelihood_math.py": "5bae12f9f975123344656ce98e00b4b1081e40c0fb35c4e3f2a7382538357d12",
+    "posterior_query_math.py": "e9dc113e5403b07884dd7c35dceb9d1efacd4f3d0a5781db65ea975e8da1f059",
+    "check_pair_likelihood_math.py": "c46ddf131be8310ec74b1105653affbbbe10a79cece45fccbf7dc543b7766d61",
+    "repeat_query_tradeoff_study.py": "c02101460b23dfc29242152ecac5265b78e975d763367c6d82652defcf3147f5"
+  },
+  "wall_seconds": 6.7129003159934655
+}

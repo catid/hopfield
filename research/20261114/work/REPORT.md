@@ -1439,3 +1439,49 @@ The [portable checker](../../../results/research/work/bp-first-fresh-confirmatio
 This fresh experiment adds **48 planned jobs and 36,864 primary logical arm evaluations**. Work totals become **2,170 planned jobs / 1,642,238 primary evaluations**, or **2,176 included jobs / 1,642,370 evaluations**. BP prefix reuse, internal LP prefixes, source gates, warmups and repeated timing copies do not inflate those totals. H2bo is kept separate from prior source and fresh cohorts.
 
 ![H2bo supports the separate fresh accuracy, LP96 noninferiority and complete-cost claims on the declared distribution.](../../../results/research/work/bp-first-fresh-confirmation/bp-first-fresh-confirmation.png)
+
+### H2bp: uniform endpoints preserve joint success but falsify the cost-saving target
+
+The unchanged BP-first geometry-routed LP96 cascade solves **4,096/4,096 fresh uniform-endpoint mazes jointly across the three fixed models**, supporting the separate **99.9% absolute success** and **−0.1 percentage-point LP96 noninferiority** endpoints. Its **complete answer cost is 15.540161% higher than standalone LP96 at the four-pair median**, falsifying the prespecified **at least 10% saving** target. Every pair is slower. This slowdown belongs beside H2bo's **35.402995% saving** on a separate corner-endpoint cohort; the cohorts are not pooled, and their difference does not isolate a causal effect of path length.
+
+| Actual fresh arm | Joint solved / 4,096 | Model-input solved / 12,288 | Role |
+|---|---:|---:|---|
+| BP AdamW executed prefix | 4,079 | 12,238 | Actual first stage; standalone service cost not measured |
+| LP96 standalone | 4,096 | 12,288 | Independent full-cohort accuracy and cost control |
+| BP first, simple-path geometry, actual LP96 subset | 4,096 | 12,288 | Complete cascade |
+
+The [frozen protocol](bp-first-endpoint-shift-protocol.json) keeps the 180×180 loop80 walls, three immutable models, solver, routing and timing boundary unchanged. Seed **2026111530** generates a fresh wall cohort. After both original endpoint tokens are restored to ordinary open cells, the new start and target form a uniformly sampled **ordered distinct pair over all open cells**. There is no path-length rejection, difficulty filter or redraw. Generation takes **32.104 wall seconds** and the [independent input audit](../../../results/research/work/bp-first-endpoint-shift/independent-input-audit.json) **40.164 wall seconds**, each with eight processes. The audit replays all 4,096 original maze seeds and verifies every wall, original endpoint, generator count, sampled ordered pair and rewritten token. Full token grids and wall masks have zero overlap with **632 distinct prior files in 27 frozen manifests**.
+
+Pair 0 is the predetermined accuracy copy; all three other pairs must match the corresponding boards, flags, counters, routes and selected outputs. The one-sided 95% Clopper–Pearson absolute lower bound is **99.926889%**. Paired gains and losses versus LP96 are both zero; the separately one-sided 95% net lower bound is **−0.090020 percentage points**. These support their separate targets without a simultaneous 95% claim. Every candidate replay runs **50 actual LP96 subset trajectories** and retains 12,238 BP outputs. All 50 BP errors violate simple-path geometry. There are zero geometry-valid-but-longer BP paths, hidden failures, nonfinite outputs, stopping failures, numerical rejections or native/block-cap failures in any arm. Geometry remains insufficient to certify shortestness on arbitrary inputs.
+
+| Pair | GPU | Order | LP96 complete seconds | Cascade complete seconds | Saving |
+|---|---:|---|---:|---:|---:|
+| 0 | 0 | LP96, cascade | 76.011607 | 86.686057 | −14.043184% |
+| 1 | 0 | Cascade, LP96 | 75.353002 | 86.504592 | −14.799132% |
+| 2 | 1 | Cascade, LP96 | 76.238292 | 88.863924 | −16.560749% |
+| 3 | 1 | LP96, cascade | 76.449200 | 88.896040 | −16.281191% |
+
+Complete cost includes fresh model readiness, input transfer, hidden/readout, all required solver stages, geometry, original-model certificates, return and scatter. Scientific diagnostics, archives, independent audits and host barrier waits are separately accounted outside the answer interval. Host-wide barriers keep both workers' diagnostic/archive activity outside both workers' timed segments. The fixed four pairs are retained without replacements or extra repetitions. Their exact-rational median saving is **−264221852336735615086903/1700251654189830637065390**. This is a measured answer-production cost under the declared warmed initialization/filesystem-cache regime, not total pipeline speed, cold-start latency or a hardware-general estimate.
+
+The prespecified shortest-distance strata are descriptive only. They retain every input and support no extra confidence or causal claims:
+
+| Shortest edges | Mazes | BP AdamW joint solved | LP96 joint solved | Cascade joint solved | BP model-input solved / denominator | Actual routes |
+|---|---:|---:|---:|---:|---:|---:|
+| 1–64 | 791 | 790 | 791 | 791 | 2,370 / 2,373 | 3 |
+| 65–128 | 1,555 | 1,553 | 1,555 | 1,555 | 4,659 / 4,665 | 6 |
+| 129–256 | 1,680 | 1,667 | 1,680 | 1,680 | 5,002 / 5,040 | 38 |
+| ≥257 | 70 | 69 | 70 | 70 | 207 / 210 | 3 |
+
+The [complete strata receipt](../../../results/research/work/bp-first-endpoint-shift/distance-strata.json) records all per-arm denominators, numerical rejections and valid-longer counts. Routing and timing use neither these distances nor their bins. The all-open endpoint law jointly changes placement, distances and other input features; these observations do not identify which feature explains the cost reversal.
+
+Both source gates pass in **35.943 and 35.941 seconds** before any fresh draw. The [timing workers](../../../results/research/work/bp-first-endpoint-shift/timing-worker0.json) finish in **553.034 and 553.028 seconds**, below the fixed 1,500-second limits, with peak RSS **1,800,216 and 1,779,748 KiB**, below 8 GiB. The [live record](../../../results/research/work/bp-first-endpoint-shift/live-timing.json) retains **527 device/process/progress samples**. No worker fails, forced signals or replacement attempts occur, and no independent CPU audit overlaps timing. Both GPUs return idle after their prescribed measurements.
+
+Only after [all four pairs are sealed](../../../results/research/work/bp-first-endpoint-shift/sealed-replays.json) does the [independent audit](../../../results/research/work/bp-first-endpoint-shift/audit.json) join graph outcomes. It passes in **249.803 wall seconds with 16 CPU processes**, within 600 seconds: **98,304 direct final/internal states**, **94,886 original-factor candidate checks**, 7,626 accepted moves, **98,304 measured replay copies**, **389,128 replay candidate comparisons**, 84,296 active trace states and 3,840 source-gate/warmup copies are checked. Maximum discrepancies are 8.98e−15 for direct margins, 5.11e−10 for direct energies and 3.12e−13 for direct candidate scores. The unchanged failure denominator includes every planned maze/model/arm.
+
+The public package retains [all 36,864 primary scalar rows](../../../results/research/work/bp-first-endpoint-shift/per-model-input.csv), [all 4,096 joint rows](../../../results/research/work/bp-first-endpoint-shift/per-input.csv), complete cohort/input receipts and original bytes of **6,432 barrier markers**. Its [state supplement](../../../results/research/work/bp-first-endpoint-shift/state-fixtures/manifest.json) contains all **50 routes/errors plus 48 fixed controls** and all four pairs' actual BP-prefix, LP96 and cascade states: **98 cases and 1,176 final states**. Full internal trajectories remain separately hash-bound on Work. Extraction takes **10.915 seconds** using a bounded eight-batch cache; this packaging measurement is not a controlled speed comparison with the differently sized H2bo package.
+
+The [portable independent checker](../../../results/research/work/bp-first-endpoint-shift/public-verification.json) passes in **2.633 seconds**, checking every scalar/joint row, all four descriptive bins, all 1,176 selected final states, all complete costs and **6,168 measured barrier events**, with Torch, SciPy, study, production policy and full auditors blocked. Its maximum original-margin error is 7.36e−15. [Independent SciPy verification](../../../results/research/work/bp-first-endpoint-shift/scipy-verification.json) agrees on exact-binomial decisions within 5.44e−15. Run `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 upstream/.venv/bin/python research/20261114/work/run_endpoint_shift_public_check.py results/research/work/bp-first-endpoint-shift`. The corrected figure has been visually inspected and [two renders are byte-identical](../../../results/research/work/bp-first-endpoint-shift/figure-determinism.json).
+
+This fresh experiment adds **48 planned jobs and 36,864 primary logical arm evaluations**. Work totals become **2,218 planned jobs / 1,679,102 primary evaluations**, or **2,224 included jobs / 1,679,234 evaluations**. Prefix reuse, internal solver states, source gates, warmups and repeated timing copies add no scientific counts. The supported accuracy endpoints and falsified cost endpoint remain separate from H2bo and every other cohort.
+
+![H2bp supports the separate accuracy endpoints but falsifies the cost-saving target, with every timing pair showing higher complete cost.](../../../results/research/work/bp-first-endpoint-shift/bp-first-endpoint-shift.png)

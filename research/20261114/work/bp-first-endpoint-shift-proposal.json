@@ -1,0 +1,63 @@
+{
+  "hypothesis_id": "H2bp",
+  "status": "design_approved_implementation_seed_and_synthetic_gates_in_progress_no_fresh_draws",
+  "written_relative_to_H2bo": "Initial designSHA34bafc989a70890049eb9a81e6f558d22b0919a2a8df7e6781f6e9647bdce21a approved during H2bo timing and preserved separately. Implementation, exact seed reservation and synthetic gates are authorized; no fresh H2bo accuracy outcomes have been joined/read. H2bo completion/audit remains priority. Final complete source review is required before H2bp freeze or draws.",
+  "motivation": "Test whether the unchanged BP-first geometry-routed LP96 cascade generalizes beyond the fixed opposite-corner endpoint convention. Endpoint placement changes while the connected180x180 loop80 wall generator, three immutable decoder/hidden checkpoints, inference caps and routing predicate stay fixed. A valid simple path can be longer than shortest; this distribution shift may expose those BP false accepts.",
+  "cohort": {
+    "n": 4096,
+    "size": 180,
+    "loop_probability": 0.8,
+    "base_seed": 2026111530,
+    "seed_rule": "Reserve one exact unused base only after independent design review and a complete prior-seed registry audit. Never search seeds by outcomes.",
+    "maze_rng": "Generate the original connected maze using S.maze(180,0.8,SeedSequence([BASE,180,80,input_index])). Preserve its randomized DFS, exact80percent opening of closed connectors, rotation and reflection. Discard only its original-corner shortest label; retain original generator counts and endpoint coordinates as provenance.",
+    "restore_original_endpoints": "Copy the token grid and set BOTH original endpoint tokens2 and3 to ordinary open token1 before selecting new endpoints. Keep every wall0 and ordinary open cell1 unchanged. Original corner endpoint cells remain eligible for either new endpoint with exactly the same probability as every other open cell.",
+    "endpoint_rng": "Use a separate independently derived endpoint stream, default_rng(SeedSequence([BASE,180,80,input_index,1])). Enumerate all open flat indices in ascending row-major order and call rng.choice(open_indices,size=2,replace=False). Assign the first draw token2 (start), the second token3 (goal).",
+    "uniform_pair_law": "Conditional on the generated wall grid withN open cells, each ordered pair(s,t) with s!=t has probability1/[N(N-1)]. Start and goal are ordered because the model distinguishes tokens2 and3. The only endpoint-selection exclusion is equality: zero-distance pairs are disallowed. Adjacent endpoints, original corners, leaves, junctions and all other open cells remain eligible. No rejection/resampling by Euclidean/Manhattan/shortest distance, node degree, graph difficulty, decoder output, numerical flags or success.",
+    "labels": "After assigning the endpoints, recompute the full shortest-path label and edge distance with the production generator BFS. Independently validate all4096 labels/distances with the separate graph auditor before model inference. Every original maze is connected and the endpoint rewrite preserves the open-cell graph; any unreachable or malformed case is an integrity failure, not a replacement draw.",
+    "identity": "Hash indices, tokens, labels, distances, original/new endpoint indices and generator counts. Require exactly4096 unique token grids and wall masks, and no token-grid or wall-mask overlap with every prior Work dataset manifest, including completed H2bo when available. An overlap/provenance failure makes the study incomplete with retained data; no replacement seed or maze.",
+    "no_selection": "Generate every index0..4095 once. No pilot, path-length filtering, outcome-driven sample extension or selected subset. No pooling with H2bo or any source cohort.",
+    "seed_reservation": "Exact2026111530 absent from73prior Work protocols;27prior dataset manifests sealed, including H2bo inputs. Reserved without any H2bp draws or outcome search.",
+    "seeded_identity_replay": "Within the unchanged120wall-second/8process independent input audit, regenerate each original S.maze draw from its frozen maze seed. Compare original walls, ordered original token2/3 positions, opened/eligible wall counts and every rewritten token to actual data. Independently reconstruct the endpoint RNG pair from all original open cells. These are deterministic identity replays of the same input, not added scientific observations. Synthetic gates reject altered old-endpoint metadata,wall masks and generator counts even when fresh endpoint pairs and shortest labels remain valid."
+  },
+  "controls_in_table_order": [
+    "BP AdamW native, actually executed candidate prefix on every maze/model; standalone service cost is not claimed",
+    "Standalone unchanged LP96 on every maze/model",
+    "Unchanged BP-first geometry-only router with actual LP96 subset execution within original32-input batches"
+  ],
+  "policy": "Exactly the independently audited H2bn/H2bo solver, native initializationu=3,eta0.5,cap8192/check16, original LP96 chain and caps. No retraining, tuning, new route feature, distance/label access or numerical-flag routing. Accept a BP board by simple-path geometry; otherwise execute the actual LP96 subset. Final own-model numerical/hidden/clamp/cap acceptance remains separate. Retained geometry-valid-but-longer BP boards count as failures.",
+  "separate_primary_endpoints": {
+    "absolute_joint_success_999": "Exactly unchanged H2bo claim and decision: joint success across allthree fixed models>=99.9percent; n4096 maze units; one-sided95percent Clopper-Pearson lower/upper. Supported iff lower>=0.999, falsified iff upper<0.999, otherwise inconclusive. No threshold adaptation to H2bo outcomes.",
+    "paired_LP96_noninferiority": "Exactly unchanged H2bo claim and decision: cascade joint accuracy no worse than LP96 by0.1percentage point. Paired gains/losses on4096; separate95percent net bounds from marginal CP tailsalpha0.025. Supported iff net lower>=-0.001, falsified iff net upper<-0.001, otherwise inconclusive.",
+    "complete_answer_cost_saving10": "Exactly unchanged H2bo endpoint: ordinary median of four exact-rational paired complete answer-cost savings>=10percent. Balanced GPU0pair0LP/cascade,pair1cascade/LP; GPU1pair2cascade/LP,pair3LP/cascade. All4096mazes and allthree models in every arm/pair. Supported iff median>=0.10, otherwise falsified. No timing confidence interval or selected/discarded/replacement pair."
+  },
+  "scientific_unit": "One newly sampled wall grid plus uniformly sampled ordered endpoint pair. Success requires allthree fixed models, which are fixed conditions rather than independent statistical trials.",
+  "multiplicity": "Separate prespecified claims; no simultaneous95percent claim. All incomplete/numerical/valid-longer failures remain visible. Timing success cannot resolve an inconclusive accuracy endpoint.",
+  "diagnostic_strata": {
+    "status": "Descriptive only; no extra inferential endpoints or threshold tuning.",
+    "shortest_edge_bins": [
+      "1..64",
+      "65..128",
+      "129..256",
+      ">=257"
+    ],
+    "reason": "Fixed powers-of-two distance bins separate short local endpoint tasks from longer ones without filtering the cohort. Report exact maze and model-input denominators, allthree-arm success/failure counts, BP geometry-valid-longer counts and route fractions. Empty bins remain explicit. Do not treat models or repeated pairs as extra observations."
+  },
+  "execution_and_audit": "Pair0 is the predetermined primary accuracy copy. All subsequent same-arm states/counters/flags/routes must exactly replay pair0 or the study is incomplete. Fresh labels/outcomes are joined only after all complete replay receipts seal. Retain actual pair0 coupling arrays and every LP subset trajectory. Source gates/warmups use only fixed prior H2bh inputs. Use the same owned-PID watchdogs, exclusive attempts, max2archive tasks, host-wide readiness/answer/diagnostic barriers and complete-cost boundary. No independent CPU audit overlaps timed work. Publish all4096joint and36864primary model-maze-arm rows; all routes/errors/valid-longer cases plus48fixed controls receive public actual-state fixtures.",
+  "new_generator_synthetic_gates": "Before freeze, independently enumerate all ordered distinct-open-cell pairs on small connected grids and check support includes original endpoints, adjacent cells, leaves and junctions. Check both original endpoints become ordinary open before new assignment; equality/zero-distance is never emitted; all other tokens/walls are unchanged; exactlyone start andone goal remain; independent BFS labels agree for every enumerated pair; and endpoint RNG is independent of path length/outcomes. Test malformed/disconnected inputs as retained integrity failures, no replacement. Independently verify all new overlap/endpoint metadata fields and failure/overwrite lifecycle.",
+  "proposed_budgets": {
+    "source_gate_wall_seconds_per_GPU": 180,
+    "fresh_generation_wall_seconds": 300,
+    "fresh_generation_processes": 8,
+    "independent_input_audit_wall_seconds": 120,
+    "independent_input_audit_processes": 8,
+    "timed_worker_wall_seconds_including_warmup": 1500,
+    "host_barrier_maximum_wait_seconds": 60,
+    "independent_final_audit_wall_seconds": 600,
+    "independent_audit_processes": 16,
+    "peak_worker_CPU_RSS_GiB_including_archive_threads": 8,
+    "units": "Elapsed monotonic wall seconds per phase, with separate process/RSS caps. Not cumulative CPU seconds.",
+    "no_extensions": true
+  },
+  "proposed_accounting": "48fresh shard-model jobs and36864primary logical arm evaluations. Source diagnostics, source gates, warmups, internal LP prefixes, BP prefix reuse and repeated timing copies add no scientific counts.",
+  "support_boundary": "Only this declared uniform-endpoint distribution, graph size/density, three fixed models and Work hardware. The experiment does not prove shortestness from geometry or robustness to arbitrary/adversarial endpoint selection."
+}

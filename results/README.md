@@ -2,6 +2,8 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Uniform open-cell endpoints: all 4,096 maze cases solved, but the cascade costs 15.54% more than LP96](../research/20261114/work/REPORT.md#h2bp-uniform-endpoints-preserve-joint-success-but-falsify-the-cost-saving-target)
+- [Half and double assumed noise rates each retain 62/64 graphs with zero nominal-control regressions](../research/20261114/ripper/REPORT-channel-misspecification.md)
 - [Opposite-half conflict masks recover only 38/256 graphs, losing 95 detector successes; both targets fail](../research/20261114/foureyes/REPORT-crossfit-conflicts.md)
 - [Fresh deeper question trees save 2.57% of paid calls with all 4,096 paired cases retained](../research/20261114/loki/h3bx/REPORT.md)
 - [Nonlinear pair likelihood recovers 62/64 examined graphs without regressions, missing its 63/64 target](../research/20261114/ripper/REPORT-pair-likelihood.md)

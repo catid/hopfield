@@ -1,0 +1,127 @@
+{
+  "status": "passed",
+  "hypothesis": "H2bp",
+  "protocol_sha256": "0d3a2bdb4e46e1bdd577a54a5fbbdc98c691d387b33b9afd640de92522bdee85",
+  "sealed_replays_sha256": "60348170cf347c14562429250845899f9a9df87071e2d835cfecec54583fa43f",
+  "primary_endpoints": {
+    "absolute_joint_success_999": {
+      "successes": 4096,
+      "n": 4096,
+      "observed_success_pp": 100.0,
+      "one_sided95_success_lower_pp": 99.92688874435301,
+      "one_sided95_success_upper_pp": 100.0,
+      "minimum_success_pp": 99.9,
+      "decision": "supported"
+    },
+    "paired_LP96_noninferiority": {
+      "gains": 0,
+      "losses": 0,
+      "n": 4096,
+      "observed_net_gain_pp": 0.0,
+      "separately_one_sided95_net_lower_pp": -0.09001999122098098,
+      "separately_one_sided95_net_upper_pp": 0.09001999122098098,
+      "minimum_net_gain_pp": -0.1,
+      "decision": "supported"
+    }
+  },
+  "cost_endpoint": {
+    "pairs": [
+      {
+        "pair": 0,
+        "LP96_seconds": 76.01160697382875,
+        "candidate_seconds": 86.68605704477523,
+        "saving": -0.1404318431870774
+      },
+      {
+        "pair": 1,
+        "LP96_seconds": 75.35300166264642,
+        "candidate_seconds": 86.5045920695411,
+        "saving": -0.14799132298431966
+      },
+      {
+        "pair": 2,
+        "LP96_seconds": 76.23829191894038,
+        "candidate_seconds": 88.86392388766399,
+        "saving": -0.16560748740472425
+      },
+      {
+        "pair": 3,
+        "LP96_seconds": 76.44919979007682,
+        "candidate_seconds": 88.89603974099737,
+        "saving": -0.16281190627368947
+      }
+    ],
+    "median_saving": -0.15540161462900456,
+    "exact_median_fraction": "-264221852336735615086903/1700251654189830637065390",
+    "minimum_saving": 0.1,
+    "decision": "falsified"
+  },
+  "joint_success": {
+    "BP_AdamW": 4079,
+    "LP96": 4096,
+    "cascade": 4096
+  },
+  "model_success": {
+    "BP_AdamW": 12238,
+    "LP96": 12288,
+    "cascade": 12288
+  },
+  "failure_accounting": {
+    "BP_AdamW": {
+      "model_inputs": 12288,
+      "successes": 12238,
+      "hidden_failures": 0,
+      "nonfinite_outputs": 0,
+      "not_stopped": 0,
+      "native_caps": 0,
+      "block_caps": 0,
+      "numerical_rejections": 0,
+      "wrong_numerically_accepted": 50
+    },
+    "LP96": {
+      "model_inputs": 12288,
+      "successes": 12288,
+      "hidden_failures": 0,
+      "nonfinite_outputs": 0,
+      "not_stopped": 0,
+      "native_caps": 0,
+      "block_caps": 0,
+      "numerical_rejections": 0,
+      "wrong_numerically_accepted": 0
+    },
+    "cascade": {
+      "model_inputs": 12288,
+      "successes": 12288,
+      "hidden_failures": 0,
+      "nonfinite_outputs": 0,
+      "not_stopped": 0,
+      "native_caps": 0,
+      "block_caps": 0,
+      "numerical_rejections": 0,
+      "wrong_numerically_accepted": 0
+    }
+  },
+  "actual_routed_model_inputs_per_replay": 50,
+  "geometry_valid_longer_BP_outputs_retained": 0,
+  "source_gate_and_warmup_model_copies_checked": 3840,
+  "fresh_final_internal_states_directly_checked": 98304,
+  "direct_candidate_original_factor_checks": 94886,
+  "direct_accepted_moves": 7626,
+  "fresh_measured_replay_model_pipeline_copies": 98304,
+  "replay_candidate_score_comparisons": 389128,
+  "replay_active_trace_states": 84296,
+  "maximum_direct_margin_error": 8.975459264704e-15,
+  "maximum_direct_energy_error": 5.113633960718289e-10,
+  "maximum_direct_candidate_error": 3.1171465690767175e-13,
+  "maximum_replay_candidate_error": 2.2737367544323206e-13,
+  "per_model_rows_sha256": "71299003d47dc662a2fa27aeb5b10ab48df5c68c28ce035b32f4b4c3592897fe",
+  "per_input_rows_sha256": "325b0ed8c3624df4993d23eb81181b364993835bb08ea3b53624912d594dc7ff",
+  "fresh_independent_inputs": 4096,
+  "planned_jobs": 48,
+  "primary_model_maze_arm_evaluations": 36864,
+  "accuracy_pair": 0,
+  "workers": 16,
+  "seconds": 249.803300235013,
+  "source_sha256": "485c7e235c9ba4ab9ebe7e55fef91661d006082dd13cb30954368a4b53d28936",
+  "scope": "Complete fresh cohort, three fixed models, predetermined pair0 accuracy and exact repeated-source integrity. Separate absolute, paired noninferiority and measured complete-cost endpoints; no simultaneous95% claim or dropped numerical/valid-longer failure."
+}
