@@ -265,3 +265,15 @@ All 256 donor/final exact flags agree; the larger observation budgets are shown 
 ![Three-cohort complete-cost comparison](../results/research/work/endpoint-cost-three-cohorts/endpoint-cost-three-cohorts.png)
 
 Each cohort contributes all four fixed paired timings and its own exact median. The prior two-cohort asset remains unchanged. [Renderer](../research/20261114/work/plot_endpoint_cost_three_cohorts.py) · [Provenance](../results/research/work/endpoint-cost-three-cohorts/provenance.json) · [Far-region study](../research/20261114/work/REPORT.md#h2bq-opposite-region-endpoints-preserve-joint-success-and-save-1843-complete-answer-cost).
+
+### Matched observation-budget pooling (H4bb)
+
+![Pooling versus donor masking on the same observations](../assets/figures/pooled-donor.png)
+
+Both methods use the same 1,800-row union; all four families and two remaining failures are shown. [Report](../research/20261114/foureyes/REPORT-pooled-donor.md) · [Renderer](../scripts/plot_pooled_donor.py) · [Provenance](../assets/figures/pooled-donor-provenance.json).
+
+### Fresh noise-rate variation (H1cf)
+
+![Supplied and estimated noise channels on fresh banks](../assets/figures/heterogeneous_channel.png)
+
+All 72 fresh banks and three rate strata remain in the figure. [Report](../research/20261114/ripper/REPORT-heterogeneous-channel.md) · [Renderer](../scripts/plot_heterogeneous_channel.py) · [Provenance](../assets/figures/heterogeneous_channel-provenance.json).

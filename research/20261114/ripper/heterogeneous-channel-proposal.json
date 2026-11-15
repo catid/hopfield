@@ -1,0 +1,66 @@
+{
+  "id": "H1cf-heterogeneous-channel",
+  "status": "prospective_design_before_fresh_ids_masks_noise_estimates_or_LPs",
+  "hypothesis": "On72fresh banks spanning three fixed nominal acquisition noise rates, the unchanged estimated-channel likelihood method recovers at least60/72 exact graphs and loses to a fresh paired supplied-channel control on at most2banks. Separately require the supplied-channel control to recover at least60/72, so preservation is not reported as strong recovery if both methods fail. Assess allthree targets separately.",
+  "motivation": "H1cd/H1ce retained62/64 nominal-channel graphs on an examined homogeneous cohort. Test fixed estimated-channel inference on fresh banks at heterogeneous true nominal rates, using a fresh known-nominal control on exactly the same observations. No tuning or selection of the estimator, grid, objective or thresholds by this new cohort.",
+  "scope": "72new90-row banks sampled from the declared eligible official source pool. Three fixed groups of24banks: nominal3/80,3/40,3/20, assigned bybank modulo3 before draws. Every bank and both methods retained. Freshness is relative to declared combinedRipper/H4ak exclusions throughH1ca, not universal repository untouchedness. Later RipperH1cb..ce used no newIDs. Preserve unrelated and reserved puzzle work.",
+  "banks": 72,
+  "rows": 90,
+  "queried_cells_per_row": 72,
+  "prior_combined_excluded_ids": 2431463,
+  "prior_ripper_ledger_ids": 2195038,
+  "pool_size": 3831994,
+  "eligible_rows": 1400531,
+  "source": "Sample90official IDs withoutreplacement within each bank from eligible IDs. Retain crossbank repeatedIDs; no redraw or outcome screening. Seal all72IDarrays and all72masks before selected CSV labels. Ledger exclusion is the union of H1ca archived exclusions and its selected IDs; verify before freeze. Audit CSV correspondence and update ledgers even if later fitting fails.",
+  "masks": "One90-row GF(9) affine-line-complement cycle perbank using fresh cell/line permutations;72observed cells perrow,80observedrows percell,71coqueries perpair. All3label queries share the same mask; one acquired triple record is reused by both estimators.",
+  "acquisition": "Three independent query streams perbank. Each stream draws one90x81binary64uniform array followed by one90x81int8offset1..8array; corrupt iff uniform<float(nominal_rate), thenaddoffsetmod9. Freeze exact binary64 thresholdhex for3/80,3/40,3/20 and actual53-bit event probabilities ceil(threshold*2^53)/2^53. The supplied control receives the nominal rational rate, not an undocumented claim of exact finite-generator probability. Distinct seeds are not a proof of statistical PRNG independence.",
+  "arms": [
+    "supplied_nominal",
+    "estimated_channel"
+  ],
+  "fixed_methods": "Supplied control uses immutable H1cd channel_misspecification_math.py with exact rates3/80,3/40,3/20; estimated method uses immutable H1ce estimated_channel_math.py, the1..88percent grid and exact moment inversion on19440comparisons. Both use fixed pair composite likelihood,1e6half-even quantization, identical masks/observations,80/160producer and200-digit240-term independent intervals. No cross-method access to graph truth or estimator access to the acquisition-rate metadata. Independent truth diagnostics occur after both method grids for a bank are finalized.",
+  "inference": "144fresh degree1..40grids with analytic zero, exact curvature1..39/lower-degree ties, no supplied true degree20 or edgecount810. Unchanged single-thread HiGHS and exact literal half-integral certificates. Selected fractional is a resolved failure; inadmissible estimate, uncertified cost or required grid is unresolved. All144outcomes retained without retries.",
+  "primary": {
+    "supplied_exact": "At least60/72: lower=known supplied exact,upper adds supplied unresolved;supportlower>=60,falsifyupper<60,elseinconclusive.",
+    "estimated_exact": "At least60/72: lower=known estimated exact,upper adds estimated unresolved;supportlower>=60,falsifyupper<60,elseinconclusive.",
+    "paired_regressions": "At most2/72 pairs where supplied exact and estimated nonexact. Lower=known supplied exact with resolved estimated failure. Upper counts every pair possibly supplied exact and possibly estimated nonexact, including uncertainty on either arm. Supportupper<=2,falsifylower>2,elseinconclusive."
+  },
+  "diagnostics": "Allthree24-bank rate strata reported separately with exact/nonexact/fractional/unresolved outcomes, estimated ratebins and absolute calibration errors, supplied/estimated paired gains/losses, fixed20/top810/degrees/ties, literal primal differences, exact selected truth gaps, clipping/invalid estimate counts, actual corruption fractions and query charges. No threshold changed by a stratum and no pooled historical denominator. Full cost-difference scale changes are not interpreted as directly comparable margins.",
+  "controls": "Fresh supplied-nominal inference is primary paired control; H1cc/H1cd/H1ce are clearly labeled historical context only. BP AdamW first in comparisons and outside structural graph-inference scope. No new neural fitting or reuse of published baseline numbers as fresh measurements.",
+  "seeds": {
+    "source": 202613500000,
+    "balanced_mask": 202613510000,
+    "first_noise": 202613520000,
+    "repeat1": 202613530000,
+    "repeat2": 202613540000,
+    "solver_base": 2042431502
+  },
+  "seed_rule": "Acquisition seed=base+bank0..71;actualsolver=base+41*(2*bank+arm)+degree. Scan explicit historical frozen fields and expand H1ca acquisition streams plusH1bv..ce actualsolver grids beforefreeze. No source/mask/noise/estimate pilot.",
+  "budget": {
+    "new_LPs": 5760,
+    "new_analytic_zero_witnesses": 144,
+    "workers": 8,
+    "aggregate_cpu_seconds": 900,
+    "wall_seconds": 180,
+    "gpu_seconds": 0,
+    "new_noisy_cell_queries": 1399680,
+    "source_instances": 6480,
+    "clean_oracle_unique_cell_queries_cap": 524880
+  },
+  "budget_scope": "NewID/masksealing, selectedCSVmaterialization/sourceaudit, rawquerygeneration/independentreconstruction/sealing, all144grids, numerical/proof/estimate/endpoints/accounting audits and export. Gates/registration outsidechargedexecution and publicationreplay separately timed. No extensions, retries or filtereddenominators.",
+  "query_accounting": {
+    "physical_union_per_bank": 19440,
+    "physical_union_all72": 1399680,
+    "each_standalone_method_all72": 1399680,
+    "reuse": "Both methods reuse the same3*90*72query identities; physical union is not twice deploymentcost.",
+    "source_instances": 6480,
+    "clean_materialized_cell_instances": 524880,
+    "clean_unique_formula": "81*newuniqueofficialIDs; acrossbankrepeatsreused.",
+    "official_noisy_label_sequence_before": 16760919,
+    "official_noisy_label_sequence_after_full_run": 18160599
+  },
+  "gates": "Freshledger/mask/source/noise parity with immutable helperhashes; dtype/shape/range checks against actualsourceheaders withoutdraws; allthreebinary64 thresholds and exact event law; allqueryidentity unions; fixed method/arm/metadata isolation and pairedconservative lossboundaries including either-arm unresolved; estimator19440comparisons; runnerbindings,seedcollisions andcertificate mutations. Fullsource/numerical review beforefreeze.",
+  "optimization": "Reuse fixed exact numerical methods and8persistentworkers. Batch source materialization and query generation; overlap independent source validation with permitted preparation after seals. Measure unrelated preparation/certification bottlenecks, verify liveCPU/counters. No eligible GPU implementation for this exactLP pipeline.",
+  "interpretation": "New heterogeneous-cohort test of a fixed method, still within the structured official-board source and symmetric IID incorrect-digit channel family. Sameobservations estimatep and scorepairs; no estimator/objective independence claim, causal decomposition or universalnoise robustness.",
+  "review": "Design only; no freshID,mask,noise,estimated rate,score orLP drawn. Await independent designreview then source/gates beforefreeze."
+}

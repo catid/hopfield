@@ -46,19 +46,19 @@ At 7.5% independent label noise, **posterior scoring recovers 61/64 fresh graphs
 
 Keeping all three labels closes much of the gap, but uses the **known noise channel and a uniform per-cell digit prior**. Both frozen targets pass exactly at their boundaries: at least 61 recoveries and at most three losses versus single-query sampling. [Fresh confirmation and every failure](research/20261114/ripper/REPORT-posterior-fresh-confirm.md)
 
-A follow-up estimates the noise rate from the repeated labels themselves and retains **62/64** graphs, matching the known-rate likelihood control on these now-examined inputs. [Estimated-noise test and limits](research/20261114/ripper/REPORT-estimated-channel.md)
+A fresh follow-up varies the noise rate between banks: 3.75%, 7.5% and 15%, with 24 banks each. Estimating the rate from the repeated labels recovers **67/72** graphs, matching the supplied-rate control on every bank. Both recover 24, 23 and 20 graphs in the three strata; all three fixed targets pass. Noise remains uniform across cells within each bank. [Fresh rate-variation test and all five failures](research/20261114/ripper/REPORT-heterogeneous-channel.md) · [Earlier examined-data test](research/20261114/ripper/REPORT-estimated-channel.md)
 
 The original hard-decoder study recovered 50/64 versus 64/64 from more boards. Posterior scoring then reached 63/64 on those examined inputs before the fresh confirmation above. [Original negative result](research/20261114/ripper/REPORT-repeat-query-tradeoff.md) · [Examined-cohort intervention](research/20261114/ripper/REPORT-posterior-query-labels.md)
 
-## Which corruptions you detect matters
+## Use all the noisy observations
 
-![Equal precision and recall can produce very different graph recovery](assets/figures/purified-detector.png)
+![Pooling the same noisy observations recovers 254 graphs versus 229 with donor masking](assets/figures/pooled-donor.png)
 
-On 256 examined noisy graph banks, an observable conflict detector recovers **130/256**, versus 129/256 from the original counts. Removing every false positive still gives **130/256**. Selecting the **same number of true corruptions in every row** randomly instead gives **237/256**. Both new masks have 100% precision and 42.32% recall; their choice of locations makes a large difference.
+On **256 examined synthetic graph banks**, pooling all **1,800 noisy observations** recovers **254/256** exact graphs. A donor-based masking method using the same observations recovers **229/256**. Pooling gains **25 graphs and loses none**; both fixed targets pass. Two nine-clique graphs remain wrong.
 
-Both proposed targets fail: purification does not reach 200 recoveries, and the recovery-count difference exceeds 16. **Actual corruption locations are supplied to both new arms.** This is a mechanism test, not a practical detector. [Complete paired intervention and all failures](research/20261114/foureyes/REPORT-purified-detector.md)
+This is a matched-data structural inference test, with degree inherited from the original 600-row prefix. It does not establish fresh-cohort performance or puzzle-solving accuracy. The donor graph alone also recovers 229/256, so its masking stage adds no exact recoveries. [Matched comparison and exact proofs](research/20261114/foureyes/REPORT-pooled-donor.md)
 
-With more privileged labels, revealing 90% of actual corruption locations recovers **256/256**, versus **129/256** without masks. [Partial-mask sensitivity](research/20261114/foureyes/REPORT-partial-mask-recall.md) · [Observable detector versus random masks](research/20261114/foureyes/REPORT-conflict-mask.md)
+Earlier detector controls remain informative: removing every false positive leaves recovery at **130/256**, while randomly selecting the same number of actual corruptions per row reaches **237/256**. Both masks use privileged corruption locations, and both prespecified detector targets fail. [Mask-selection mechanism and retained failures](research/20261114/foureyes/REPORT-purified-detector.md)
 
 ## Faster inference
 

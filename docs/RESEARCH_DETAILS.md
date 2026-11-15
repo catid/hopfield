@@ -219,3 +219,13 @@ Increasing the disjoint donor to 1,200 rows raises final recovery to **229/256**
 With endpoints uniformly sampled within opposite 45×45 corner regions, both LP96 and the cascade solve **4,096/4,096** fresh mazes across all three fixed models; BP AdamW solves **4,003**. The cascade saves **18.43%** median complete answer cost. All three prespecified accuracy and cost targets pass; all four paired timings remain visible. The earlier corner, uniform-open-cell and opposite-region distributions remain separate, with no causal distance claim. [Protocol, all inputs and audit](../research/20261114/work/REPORT.md#h2bq-opposite-region-endpoints-preserve-joint-success-and-save-1843-complete-answer-cost).
 
 ![All twelve paired measurements across three endpoint distributions](../results/research/work/endpoint-cost-three-cohorts/endpoint-cost-three-cohorts.png)
+
+## Pooling beats masking at the same observation budget
+
+One raw-count fit on the same 1,800 observations recovers **254/256** examined synthetic graphs, versus **229/256** with donor masking: **25 gains, zero losses**. Both separate targets pass (at least 245 recoveries, at most four losses). Two nine-clique failures remain; all degrees are inherited from the original 600-row target. This is an examined-data structural test, without a fresh-cohort or puzzle-solving claim. [Full matched comparison](../research/20261114/foureyes/REPORT-pooled-donor.md).
+
+![All observations versus donor masking](../assets/figures/pooled-donor.png)
+
+## Estimating noise across fresh rates
+
+On 72 fresh banks with 24 each at 3.75%, 7.5% and 15% noise, supplied-rate and estimated-rate likelihoods each recover **67/72** exact graphs, with no paired gains or losses. Both absolute targets and the regression bound pass. All five wrong outputs strictly exclude truth under their objectives. Rates differ between banks and remain constant across cells within each bank. [Fresh protocol, strata and exact gaps](../research/20261114/ripper/REPORT-heterogeneous-channel.md).
