@@ -1,0 +1,126 @@
+{
+  "id": "H4s-noisy-label-optimization-budget",
+  "frozen_utc": "2026-11-15T02:03:33.030099+00:00",
+  "hypothesis": "Increasing the fixed paper proximal-SGD training schedule from32to256updates makes transformed supports noninferior within2pp to restrictedcounts on freshN600/c9banks, with zero wrongcertifiedstops.",
+  "primary_arm": "long_pl",
+  "control_arm": "restricted",
+  "primary_margin_pp": -2.0,
+  "decision": "Support if longPL-minus-restricted paired two-way95%lower>=-2pp and zero longPLwrongstops; falsify ifupper<-2pp,anylongPLwrongstop,or anylongPLfitineligible; otherwise inconclusive. Matched256minus32difference is secondary.",
+  "uncertainty": "5000paired two-way bootstrap draws over64source/noisebanks and10000sharedpuzzles; seed20261115444; onefixedsearchseed0.",
+  "banks": 64,
+  "n": 600,
+  "bank_rng_base": 202611240000,
+  "noise_rng_base": 202611250000,
+  "augmentation_rng_base": 202611260000,
+  "source": "upstream/data/sudoku-extreme/train.csv",
+  "source_sha256_value": "64b46674db0148e0d73a16346dadeb2b1c00824d3fca3f85b2ae7037f6b4b38e",
+  "exclusions": [
+    {
+      "path": "artifacts/research/20261114/ripper/clues/input_manifest.json",
+      "sha256": "838908435ae82b9f617eb92d821341ec8b6c1792329b7a05d192815aff859eae"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/online_confirm/input_manifest.json",
+      "sha256": "644bdcc07b65b3ecc116d24e592eb7f0a2eab81c984257ba216004093a18dcd1"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/spike/input_manifest.json",
+      "sha256": "f4cee3502bf6855ad0a065fad18d26b025e8340683db3b1477170bebf7ddcf34"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/exponential/input_manifest.json",
+      "sha256": "baa1d60ec20e26d975ab13a6fea412267d80d5c001b2631028f5b5e24c9fe1ff"
+    }
+  ],
+  "sampling": "Independent fresh600row draws without replacement withinbank from the same3785228eligible rows asH4p; cross-bank/prior-study overlap allowed. Uniform9distinct freecells changed to independentuniform other8digits, original clues retained. CPU NumPy RNG recorded.",
+  "updates": 256,
+  "adamw": {
+    "lr": 0.01,
+    "weight_decay": 0.01,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08
+  },
+  "paper_pl": {
+    "aug": true,
+    "lam": 0.0003333333333333333,
+    "lr": 540.0,
+    "momentum": 0.5,
+    "updates": 32,
+    "split": 0,
+    "seed": 0
+  },
+  "arms": [
+    "adamw",
+    "paper_pl",
+    "long_pl",
+    "restricted",
+    "chernoff9"
+  ],
+  "chains_by_arm": {
+    "adamw": 4,
+    "paper_pl": 4,
+    "long_pl": 4,
+    "restricted": 4,
+    "chernoff9": 4
+  },
+  "fit": "Samefixed32updateAdamW/paperSGD controls asH4r; longSGD changes only updates32to256 and cosineperiod accordingly. Samebank/noise/zeroinit; allshortarms sharefirst32digit-relabelingdraws oflongarm. No learningrate/L1/momentum or transformation change.",
+  "transform": "Direct float64 digit-orbit coefficient mean(diagonal)-mean(offdiagonal), clampnonnegative, firstlargest adjacent gap in sorted strictlypositivecoefficients, strictretention above midpoint, then unitweights,B0. Ineligible if fewerthan2positivecoefficients/no positivegap/nonfinite. No geometry.",
+  "calibration": "Common literalunit1,B0,tau0,ebar0,theta.45,temperature.4to.31,anneal524288,check4096,no restarts. This is a structural-comparison derivative, not original rawPL or corrupted-training-calibrated inference.",
+  "gate_source": "artifacts/research/20261114/foureyes/chernoff_replication/inputs-00.npz",
+  "gate": "All unchanged implementations retain H4r independent loss/gradient gates; additional256updateCPU/GPU32row source-only support/separation gate and600rowGPUthroughput check beforefreshfit; no tuning.",
+  "max_fit_bank_s": 30,
+  "gpu_minute_envelope": 30,
+  "wall_limit_s": 450,
+  "search_seed": 0,
+  "split": "full-all",
+  "rows_half_open": [
+    260000,
+    270000
+  ],
+  "checkpoints": [
+    0,
+    1048576
+  ],
+  "source_sha256": {
+    "research/20261114/ripper/run.py": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+    "research/20261114/ripper/sparse_backend.py": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+    "research/20261114/foureyes/restart_backend.py": "fd02c4f71574a6e0545c4f7aae54f3ddfeb9321f4c4f840c02ee5a213d814c0e",
+    "research/20261114/foureyes/restart_capture.py": "801f17ab24fe6d8d7f7fe381f7829ab65bed56625413bd7d1b1461b95ef7c7a4",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "research/20261114/ripper/bootstrap_two_way.py": "b4ae5dbccbc7f893f509eaf7b35ae239055f6f7633ac00921b45008761949e43",
+    "research/20261114/foureyes/noise_chernoff.py": "183fb90b6af04a464bc1da3d20834bc103a007f9fc608b8977df5e7f10a66d1a",
+    "upstream/experiments/sudoku.py": "b73f72c8e874711d0d05fa75de0043442a20297618de62e5bb714b76aa09f20b",
+    "research/20261114/foureyes/noisy_pl_long.py": "1176a20102d3561f09b9fc6184a5028bac31256b45e4d54b96d918f71f8a771c",
+    "research/20261114/foureyes/noisy_pl_long_search.py": "96e5882abd4b4fa67a61d5516878232ef4e963b5ef9839f454762a8404f8e87a",
+    "research/20261114/foureyes/map_noisy_pl_long.py": "f9a63c8e02f3a6a9ae57b515da5636520a4e0d625eeeddd84ab5aa4bf0076231",
+    "research/20261114/foureyes/gate_noisy_pl_long.py": "42a4a4842e6405b16c4d14c41af5e6eefc94c9b5cff5c588f02af671776adc09"
+  },
+  "frozen_inputs": {
+    "upstream/data/full-test/full-all.npz": "2fdc470ee042f11ffa61c89f606f39004d8914fca3312c88602d9f68212dec6c",
+    "artifacts/research/20261114/foureyes/chernoff_replication/inputs-00.npz": "9c68907b52ef453b406dc2cc35e2b4440f8c817b9be411f49b1c63f5595ef44e",
+    "results/research/foureyes/noisy_pl/gate.json": "201bf322955075687e2293b5060b9578ef051ded934c28703e47eceafc2795f0"
+  },
+  "limits": [
+    "64sourcebanks,one fixed searchseed; repeated supports collapse to one search and keep logicalbankweights.",
+    "Reserved research rows from reused official corpus, notexternaldistribution.",
+    "No claim of tuned AdamW or optimization method superiority; fixed regularizers and step sizes differ.",
+    "Known-noise Chernoff control receives correct corruptionlaw and originalfree masks; otherarms do not.",
+    "Independent auditor rereads every selected original CSVrow and reconstructs source/noise/graph/returnedboards.",
+    "Normalized support inference removes training-derived stopping calibration; conclusions concern transformedsupports."
+  ],
+  "long_pl": {
+    "aug": true,
+    "lam": 0.0003333333333333333,
+    "lr": 540.0,
+    "momentum": 0.5,
+    "updates": 256,
+    "split": 0,
+    "seed": 0
+  },
+  "prior_selection": "H4r failed20.27% vs80.25% restrictedcounts and240000wrongstops. Positive-only/two-means source-only posthoc diagnostics did not recover exactgraphs. This prospectively tests trainingbudget, not a selected graphthreshold."
+}

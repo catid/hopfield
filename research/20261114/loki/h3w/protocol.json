@@ -1,0 +1,117 @@
+{
+  "id": "H3w-permutation-initialization-and-proposal-prior",
+  "frozen_utc": "2026-11-15T02:09:48.291589+00:00",
+  "hypothesis": "With identical frozen positive BP AdamW weights and source temperature, permutation initialization and row-pair column swaps improve certified valid success by at least50percentage points over H3v arbitrary-cell initialization/swaps on the same fresh cohort, with zero wrongstops.",
+  "antecedent": "H3v weighted arbitrary-cell search was much worse than uniform on identical support. This adaptive follow-up changes BOTH initialization and proposal constraints; it cannot isolate a pure move-barrier cause.",
+  "arms": [
+    {
+      "arm": "bp-adamw-permutation",
+      "model": "positive-bp-adamw-weights",
+      "kernel": "permutation"
+    },
+    {
+      "arm": "bp-adamw-arbitrary",
+      "model": "positive-bp-adamw-weights",
+      "kernel": "arbitrary"
+    },
+    {
+      "arm": "uniform-filtered-permutation",
+      "model": "uniform-filtered",
+      "kernel": "permutation"
+    },
+    {
+      "arm": "oracle-permutation",
+      "model": "supplied-rule-oracle",
+      "kernel": "permutation"
+    }
+  ],
+  "models": "Byte-identical copies of all H3v source-produced positive/uniform/oracle models. No refit, coefficient change, filtering change, rescaling or source-temperature recalibration. Weighted/uniformF still carries308false target pairs. Oracle explicitlysupplied.",
+  "added_prior": "Require the original source-inferred line family to include row andcolumn lines. Initialize onequeen perrow/column while preserving givens, then preserve this inferred row/column prior through every permutation proposal. This is a stronger supplied representation prior than merely fixedq13.",
+  "initialization": "For each input/chain keep given rows and their columns fixed; uniformly permute unused columns among nongiven rows. The arbitrary control reruns the frozen H3v initialization: uniformly add nongiven cells untilq13, which need not have unique rows/columns.",
+  "proposal": "Permutation arms choose an unordered pair of nongiven rows uniformly via top2 IIDuniform scores, exchange their queen columns, and use Metropolis acceptance min(1,exp(-DeltaE/T)). This symmetric transposition preserves q13,allrows,allcolumnsandgivens. Arbitrary control uses unchanged H3v occupied-nongiven\u2192emptycell swap.",
+  "temperature": "Exactly frozen H3v schedule T(k)=u*0.01**(k/19999),k0..19999;u=3.0367188453674316weighted,u=1uniform/oracle. Retain row/column contributions to the source unit even though they are zero on permutation states; no target tuning.",
+  "certificate": "Exact integer count of occupied F-edges=0, including given\u2013given pairs; independent of float tolerance. All weights retained positive; no native inherited-margin certificate.",
+  "search": {
+    "q": 13,
+    "unique_inputs": 4096,
+    "chains": 20,
+    "cap": 20000,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "end_temperature_ratio": 0.01,
+    "block": 65536
+  },
+  "primary": {
+    "arm": "bp-adamw-permutation",
+    "control": "bp-adamw-arbitrary",
+    "metric": "Any valid zero-conflict stopped completion among20chains, abstain otherwise.",
+    "gain_pp": 50.0,
+    "wrong_stops": 0
+  },
+  "decision": "Support iff paired-input bootstrap one-sided95% lower primary gain>=50pp and no permutation-weighted wrongstops; falsify iff uppergain<50ppORany suchwrongstop; otherwise inconclusive.2000draws,RNG20261114,all3searchseeds clusteredwithininput. Uniform/oracle permutation and coverage comparisons descriptive.",
+  "secondary": "Original lowest-running-energy and certificate-first fallback accuracy; distinct valid completion coverage; exact supportcapacity; proposal/accepted counts; per-proposal runtime; allcap returns. Equalproposalcounts do not imply equalFLOPs or equally expensive transitions.",
+  "validation": "Exhaustive24smallpermutations\u00d7alltranspositions with0/1/2clues; direct fullenergy/countdelta and fixedtemperature detailedbalance; initialization bijection counts24/6/2; CPU/GPU traces verifyq,rows,columns,givens,fields,energy,integerconflicts; native source denseenergy parity; bounded source-only pilot. Confirm source inferredaxes, allcopied model hashes and fresh cohort before targetsearch.",
+  "numeric_audit": "Every saved state checked forq/givens, permutation states additionallyonerow/column. Reconstruct integerFconflicts and float64 energies. Strictstop requires exact0conflicts; maxenergyerror>.1prevents support without overriding wrong-stop falsification.",
+  "identity": "The two BP arms have identicalmodelbytes but differentinitialization/proposal kernels, so they are NOT outcome-identical. All12jobs are actualsearches; no mappings.",
+  "budget": {
+    "search_gpu_minutes_envelope": 20,
+    "wall_minutes_envelope": 10,
+    "logical_model_seed_jobs": 12,
+    "optimizer_refits": 0,
+    "policy": "Shared absolute10minute wall deadline and perworkerSIGALRM bound aggregate at20GPUminutes. On expiry retain completed evidence and report incomplete; no cap or recipe retuning."
+  },
+  "dataset": {
+    "status": "reserved_before_permutation_search",
+    "utc": "2026-11-15T02:09:47.774814+00:00",
+    "source_patterns": 176,
+    "target_n": 13,
+    "target_solutions": 1932,
+    "unique_inputs": 4096,
+    "input_seed": 2026112513,
+    "prior_search_keys": 30720,
+    "eligible_keys": 169505,
+    "prior_overlap": 0,
+    "by_clues": {
+      "1": 2,
+      "2": 239,
+      "3": 3855
+    },
+    "compatible_completions": 15250,
+    "distribution": "Uniform unique valid1/2/3-clue inputs excluding all H3j/k/l/m/n/t/u/v search keys; target universe previously enumerated.",
+    "data_sha256": "4fc37451c20a8af8e004c17faa7cc96c88939100dd134b07f66445136c4ea163",
+    "source_sha256": "dc19cd1a5a9bb7a44a9bc3e9f1c1c9e900501e0cf598ddd29d9a7a6e3257e317"
+  },
+  "source_sha256": {
+    "research/20261114/loki/h3w/driver.py": "98b81345f309fe98d0d50bb04729a754cea16f4dfec171f34a20950eadbcbc61",
+    "research/20261114/loki/h3w/backend.py": "1bb03dc45e735347226c177fab2c237c42fe69229a1a8bd6d93b32bb90f60861",
+    "research/20261114/loki/h3w/prepare.py": "dc19cd1a5a9bb7a44a9bc3e9f1c1c9e900501e0cf598ddd29d9a7a6e3257e317",
+    "research/20261114/loki/h3w/preflight.py": "af175486e13d96a598e58ce8197ff372a33f935e49565bf99912afcb2772c6e4",
+    "research/20261114/loki/h3w/validate_kernel.py": "afae0ab217b64c6b3fbd301cf9b3722d9569c1447d7a3cdf362104a653616af6",
+    "research/20261114/loki/h3v/backend.py": "36376b65310c13c45b10c1c03f1c0e17395f48e96562c565beaba47e8b2ffd45",
+    "research/20261114/loki/h3v/protocol.json": "bb4ecc3aa54e590118daf4ba9ad246a454d266e5f4a0dfc51552a232f484a00b",
+    "research/20261114/loki/study.py": "7c48de391879dc2f4b4f14459698afbc84c82cb3e89030e0ba4814d4fd74b552",
+    "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623"
+  },
+  "data_sha256": {
+    "artifacts/research/20261114/loki/h3w/data.npz": "4fc37451c20a8af8e004c17faa7cc96c88939100dd134b07f66445136c4ea163",
+    "artifacts/research/20261114/loki/h3w/dataset.json": "d74ae19deabb06ac35617ace8c164a706ead249f375aaf66eceff6e86942f9cf",
+    "artifacts/research/20261114/loki/h3w/kernel-validation-cpu.json": "52035d2d580d56d32f6abe8d2a9b0b902fa2a32c44e7b0e97ac83c4a665b92da",
+    "artifacts/research/20261114/loki/h3w/kernel-validation-cuda.json": "0bc4cb97daedc2e42c153bea636d4c8febb2ff201f2a99c7374ef2453a937299",
+    "artifacts/research/20261114/loki/h3v/independent-preflight.json": "6e30eb2f3b926c0c4fd9702e9497a1ec780544b4155914a0777adf866b7ec0bc",
+    "artifacts/research/20261114/loki/h3u/source-design.npz": "b9b61ddad7f128798724c50a8d3d49b9b87c24ae253a678bce3bb29d17a7aedc",
+    "artifacts/research/20261114/loki/h3v/models/positive-bp-adamw-weights/model.npz": "e893ff379d9394e8437c7c778a45a4d7d0ea57a2587116d42b959e864d96e84a",
+    "artifacts/research/20261114/loki/h3v/models/supplied-rule-oracle/model.npz": "ac29a077b07629a74079c0b42dc1756b01af17c3c1e01680bba8414c1875ef7e",
+    "artifacts/research/20261114/loki/h3v/models/uniform-filtered/model.npz": "1e6a2a2f75959e0a165bfe6a3db17a015861d912a3314cad5a15f4c42a65b622"
+  },
+  "limits": [
+    "Joint initialization+proposal+representation intervention, not isolated causalproof that barriers alone explain H3v.",
+    "Fixed-q permutation solver is a new derivative with inferred row/column prior; not paper reproduction.",
+    "Unchanged source support still excludes somevalid targetsolutions and limits abstainingprimary.",
+    "One complete source universe and inherited fitted trajectory; repeated searchseeds are not independentlearning replicas.",
+    "No optimizer refit, targettemperature adjustment or targetdependentmask edit."
+  ]
+}

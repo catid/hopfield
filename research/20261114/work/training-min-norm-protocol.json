@@ -1,0 +1,171 @@
+{
+  "id": "source-only-minimum-coordinate-linf-answer-norm",
+  "study_id": "H2x",
+  "frozen_utc": "2026-11-15T02:13:34.597252+00:00",
+  "status": "frozen_before_min_norm_solver",
+  "question": "What minimum coordinateLinf norm is required by exactly the H2w unit-margin originaltrainingconstraints, and can independentupper/lower certificates bound it within1%relativewidth for everyfixedreadout?",
+  "constraints": [
+    {
+      "kind": 0,
+      "meaning": "Every freecell i of each canonicaltraininglabel y",
+      "signed_inequality": "E(y with i flipped)-E(y)>=1",
+      "normalization": 1
+    },
+    {
+      "kind": 1,
+      "meaning": "Sparse negative: endpoints only, clamped walls/endpoints",
+      "signed_inequality": "E(endpoints)-E(y)>=number of selectedfree labelcells",
+      "normalization": "Divide by selectedfree labelcount, assertedpositive."
+    },
+    {
+      "kind": 2,
+      "meaning": "Dense negative: all open cells, clamped walls/endpoints",
+      "signed_inequality": "E(allopen)-E(y)>=number of unselectedfree cells",
+      "normalization": "Divide by unselectedfree count, assertedpositive."
+    }
+  ],
+  "parameter_domain": {
+    "order": "T[4,2,2] rowmajor, b[2], kappa[5]",
+    "dimension": 23,
+    "domain": "All real23vectors; no coefficientbound, signrestriction, gaugefix or proximitypenalty. Exactly the trainedarchitecture answerparameters.",
+    "frozen": "Original mu,beta and exact retainedfloat32couplings, promoted to float64."
+  },
+  "objective": "minimize t with every original normalizedrow A_i theta>=1, -t<=theta_j<=t for all23coordinates and t>=0. t is optimized, not an artificialcoefficient bound.",
+  "interpretation": "Norm is coordinate/gauge/margin dependent. It is not an invariant dynamicalstiffness measure. No necessityclaim from a feasibleprimal alone; compare a certifiedlower bound with originalcoordinate norm only in this declared representation. No targetinputs or gradientfits.",
+  "solver": {
+    "method": "SciPyHiGHS dualsimplex, oneCPUthread",
+    "options": {
+      "presolve": true,
+      "threads": 1,
+      "small_matrix_value": 1e-12,
+      "primal_feasibility_tolerance": 1e-09,
+      "dual_feasibility_tolerance": 1e-09
+    },
+    "models": [
+      0,
+      1,
+      2
+    ],
+    "no_retuning": "One optimization call permodel, fixed constraints/objective/options. No parameterbound or alternative solver after outcomes."
+  },
+  "primal_certificate": {
+    "method": "Independent directNumPy extendedprecision pair/link energy and flip evaluation on every trainingconstraint. Same conservativefloat64allowance as H2w.",
+    "fixed_scaling": "Evaluate unscaled normalized minimum m and allowance e. If m-e>0, once set scale=nextafter(float64((1+1e-8)/(m-e)),+inf), candidate=float64(scale*theta). Recompute all inequalities; retain certificate only if newminimum-newallowance>1. No adaptive retries.",
+    "upper": "Maximumabsolute coordinate of the actual savedfloat64feasiblecandidate."
+  },
+  "dual_certificate": {
+    "weights": "Positive solverrow multipliers for original Arows only, each float64 interpreted as exactdyadicrational. Ignore boxrow multipliers.",
+    "coefficient_reconstruction": "Exactrational features from retainedfloat32readouts on every supportrow.",
+    "bound": "For any lambda>=0 with positive sum and nonzero g=A^Tlambda, every feasible theta has ||theta||inf>=sum(lambda)/||g||1 by weightedconstraints and H\u00f6lder. No exact dualstationarity assumption is needed.",
+    "audit": "Independent public-only rational reconstruction using directbinaryenergychanges plus exactweightedgradient, nonnegativity, numerator/denominator and ratio checks."
+  },
+  "interval_rule": "Report certified lower L and feasible upper U. Narrow bound if (U-L)/U<=0.01; otherwise report gap without claiming approximateoptimality. A numericalsolver optimum is not itself thecertificate.",
+  "budget": {
+    "aggregate_cpu_wall_seconds": 120,
+    "threads": 1,
+    "includes": "Scientificrunentry imports/sourcechecks/data loading, all3coefficient extractions/solves/candidatechecks/certificates and receipts.",
+    "watchdog": "SIGALRM120s plus remaining HiGHStime_limit; preserve partialrecords, no extension. Independentread-onlycertificateaudit may follow, with no new optimization."
+  },
+  "parent_protocol_sha256": "ea25a2a233d47334d114a08e2f97ffbf4f8afbe79428d88dab3d7ab8ea6e7abb",
+  "parent_verification_sha256": "0ea70e99723c99d59ee8894f34e08d82f8bcab697d00a201d54967456c240e7e",
+  "training_manifest": {
+    "utc": "2026-11-15T01:37:29.513576+00:00",
+    "source": "Actual upstream data/maze-hard/train.csv loaded by original maze_learned.load; not recreated or generated.",
+    "source_csv_path": "upstream/data/maze-hard/train.csv",
+    "source_csv_sha256": "25f9e39b5aee16967da41ba63b2d1d75cf608c2360d8a1419d827f9859dbafa0",
+    "loader_sha256": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "n_training": 1000,
+    "shape": [
+      1000,
+      30,
+      30
+    ],
+    "arrays_sha256": "2ac6e034cf09cfdfcd00d81b51088c66042b2ec738e39b33496a75aa70aa777d",
+    "tokens_sha256": "5497e6927a10b71c7754634431ad43ad459c6698e238930feaebe18d0fcd651b",
+    "labels_sha256": "644c4eba45a4c2a875ba90bd21f1783301c2ec9340b680c3f61aa12326634703",
+    "script_sha256": "8bce0157edecd6d5c64ab2c855886bba5d4f1c286032d6a34c70ca45b24d03c0",
+    "numpy": "2.5.4"
+  },
+  "readouts": {
+    "0": {
+      "seed": 0,
+      "gpu": 0,
+      "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+      "arrays_sha256": "2ac6e034cf09cfdfcd00d81b51088c66042b2ec738e39b33496a75aa70aa777d",
+      "checkpoint_sha256": "84d694828c90cbf55bcf2eb84136324e2a5d482e4847e50d7b9f67b39c8aa230",
+      "readout_sha256": "8512aae4a4ca418b684ce37c032a9350398dddf92f0694b58aa49509888d41f6",
+      "coupling_array_sha256": "9e3d861a04a0f3eceea22136d2e4b2e5a83ee5d85216dbd47f1a3a087e4af678",
+      "hidden_batch_size": 64,
+      "tol": 1e-06,
+      "cap": 4000,
+      "check_every": 8,
+      "frozen_parameters": [
+        "mu",
+        "beta"
+      ],
+      "script_sha256": "8bce0157edecd6d5c64ab2c855886bba5d4f1c286032d6a34c70ca45b24d03c0"
+    },
+    "1": {
+      "seed": 1,
+      "gpu": 1,
+      "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+      "arrays_sha256": "2ac6e034cf09cfdfcd00d81b51088c66042b2ec738e39b33496a75aa70aa777d",
+      "checkpoint_sha256": "21004b8bca2fde7ae23825e874a30e15d28174ae5da16382420a1743d8ad2881",
+      "readout_sha256": "7899886bdf87152abd18d836b2f7eb0d0be5a3e0a91890b6594d5e3150e85da4",
+      "coupling_array_sha256": "307045eb96abd50eb9ffe15bc1d6ab66c75df44fe49a91d7e490e3694c121209",
+      "hidden_batch_size": 64,
+      "tol": 1e-06,
+      "cap": 4000,
+      "check_every": 8,
+      "frozen_parameters": [
+        "mu",
+        "beta"
+      ],
+      "script_sha256": "8bce0157edecd6d5c64ab2c855886bba5d4f1c286032d6a34c70ca45b24d03c0"
+    },
+    "2": {
+      "seed": 2,
+      "gpu": 0,
+      "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+      "arrays_sha256": "2ac6e034cf09cfdfcd00d81b51088c66042b2ec738e39b33496a75aa70aa777d",
+      "checkpoint_sha256": "5f350d5de1f42ef627a2dd6052bcdcb722bd965d1ef940863ed4f6955e4a73e3",
+      "readout_sha256": "7383a2395eb9b61c2a843fc788289578877897059ddefd17a4f571c96fd170c5",
+      "coupling_array_sha256": "d4ae5d9581e755fbeee30d1caf386fe2d9e29121b6a6b2145b71b9075b67231c",
+      "hidden_batch_size": 64,
+      "tol": 1e-06,
+      "cap": 4000,
+      "check_every": 8,
+      "frozen_parameters": [
+        "mu",
+        "beta"
+      ],
+      "script_sha256": "8bce0157edecd6d5c64ab2c855886bba5d4f1c286032d6a34c70ca45b24d03c0"
+    }
+  },
+  "initial_models": [
+    {
+      "seed": 0,
+      "path": "artifacts/research/20261114/work/training_feasibility/initial-seed0.npz",
+      "sha256": "59f860656a0b9d4f74c893b076ca079bd1792d1f322f70feceaf6d514ce32e4e",
+      "original_checkpoint_sha256": "84d694828c90cbf55bcf2eb84136324e2a5d482e4847e50d7b9f67b39c8aa230"
+    },
+    {
+      "seed": 1,
+      "path": "artifacts/research/20261114/work/training_feasibility/initial-seed1.npz",
+      "sha256": "281b7da1ab1401dea30596003bf4bced8e9600e69051b789df821542a2cd2016",
+      "original_checkpoint_sha256": "21004b8bca2fde7ae23825e874a30e15d28174ae5da16382420a1743d8ad2881"
+    },
+    {
+      "seed": 2,
+      "path": "artifacts/research/20261114/work/training_feasibility/initial-seed2.npz",
+      "sha256": "08c0840d920d017eb625471e0b4e6db8d628ece97746c147131f4524869df5c2",
+      "original_checkpoint_sha256": "5f350d5de1f42ef627a2dd6052bcdcb722bd965d1ef940863ed4f6955e4a73e3"
+    }
+  ],
+  "source_sha256": {
+    "research/20261114/work/training_min_norm.py": "72436e7ee7d4b44d2d04c8ec28a81c98d9026fbc23c639e52fe6075cab90483e",
+    "research/20261114/work/feasibility_features.py": "5d3f75d6eb23249ef1e4ba94303a9d01a8a9287db17de47e26ed59646702f00d",
+    "research/20261114/work/verify_training_feasibility.py": "3364c8127bea8589100fd6e405d3e6630457408742dc4b7cf48103adf41ed195",
+    "research/20261114/work/study.py": "c912470b19d0d13b151a4cac9a276455a915adeecf15088d1c5d43db66dbf721"
+  }
+}

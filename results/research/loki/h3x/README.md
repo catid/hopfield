@@ -1,0 +1,9 @@
+# H3x tracked evidence
+
+The source-only minimum-D4-rule hypothesis is supported **conditional on supplied complete source coverage and D4/minimum-cardinality priors**. All 32 subsets were checked against 14,024 completeness-derived negatives while preserving all 176 positives. Completeness leaves 16 source-indistinguishable covering sets; the additional minimum-description prior selects the unique smallest set, generator (1, 3). Its N13 extension has zero false or missed attack pairs.
+
+The reconstructed model and frozen search configuration exactly match H3w's oracle. Its 100% certified success and 90.846463% coverage are **identity-derived H3w outcomes**, with zero new GPU searches. All 245,760 inherited saved states were re-audited. BP AdamW and uniform filtered rows are clearly labeled H3w references on the same reused cohort.
+
+[Full report](../../../../research/20261114/loki/h3x/REPORT.md), [frozen protocol](../../../../research/20261114/loki/h3x/protocol.json), [summary](summary.json), [source certificate](source-certificate.npz), [source result](source-result.json), [independent verification](source-verification.json), [all 32 subsets and uncovered witnesses](all_subsets.csv), [sealed source-result hash](source-seal.json), [mapped per-seed counts](mapped_per_seed.csv), [reconstructed model](minimum-1-model.npz), [figure](minimum-rule.png), [SVG](minimum-rule.svg), [plot provenance](plot-provenance.json).
+
+The figure reads only tracked summary data and uses deterministic SVG metadata and hash salt. Rebuild with `artifacts/plotting-venv/bin/python research/20261114/loki/h3x/plot_public.py` from the repository root. Source selection plus its independent certificate took 3.545 CPU seconds on Loki; no source target-data access or target-dependent tie selection occurred.

@@ -1,0 +1,95 @@
+{
+  "id": "H1ae-LR-selector-implementation-pilot",
+  "frozen_utc": "2026-11-15T02:48:53.269344+00:00",
+  "scope": "Six old-board implementation banks. No solver inference or pooling; every weight, endpoint, stream and count freezes before pilot.",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "rows": 2220,
+  "calibration_pairs": 1000,
+  "queries": 25,
+  "arms": [
+    "exposure_exact",
+    "lr_exact",
+    "exposure_learned",
+    "lr_learned"
+  ],
+  "q1": "1/9",
+  "calibration_alpha": "1/200",
+  "edge_alpha": "1/200",
+  "edge_crossing_boundary": 648000,
+  "eta_grid": 1000000,
+  "streams": {
+    "calibration_cell": 20344000,
+    "calibration_noise": 20345000,
+    "training_noise": 20346000,
+    "ties": 20347000
+  },
+  "noise_draw_rule": "Independent eta=.05 replacement. Calibration draws uniform(1000,2),then int8 offsets1..8. One M1000 calibration result is reused by both learned selectors. Training draws81 uniforms then81 offsets per row, after every current mask finalizes.",
+  "policy_sha256": "a3f41b5af03c2ea75d786867207f421a9a4bd2cba67bfb9c37fd259c84a7029d",
+  "estimator_sha256": "ee8d23b74b87937a179fe7249fc3d64a427947e6cfda3424add88b33b27f6012",
+  "proof_sha256": "dfc34f2f24207d1bfa23a546d1d17ef457e9c6f425f31e9a1d538be5d0d163bf",
+  "label_costs": {
+    "exposure_exact": {
+      "calibration": 0,
+      "training": 55500,
+      "total": 55500
+    },
+    "lr_exact": {
+      "calibration": 0,
+      "training": 55500,
+      "total": 55500
+    },
+    "exposure_learned": {
+      "calibration": 2000,
+      "training": 55500,
+      "total": 57500
+    },
+    "lr_learned": {
+      "calibration": 2000,
+      "training": 55500,
+      "total": 57500
+    }
+  },
+  "budget": "Six old training banks and six independent calibration draws only; no solver inference and no extension.",
+  "arm_rows": {
+    "exposure_exact": 2220,
+    "lr_exact": 2220,
+    "exposure_learned": 2220,
+    "lr_learned": 2220
+  },
+  "arm_calibration_pairs": {
+    "exposure_exact": 0,
+    "lr_exact": 0,
+    "exposure_learned": 1000,
+    "lr_learned": 1000
+  },
+  "base_policy_sha256": "0c07514e139bb82e4199485876ef36f9859583b18c6e9c44246bc31e3c0daf7a",
+  "base_estimator_sha256": "7e1c8433219297d2309d585db4d0b0517435fae035ac36d8a43f193d8d188311",
+  "nesting": "Source boards, ties, calibration and potential training noise are paired across selectors and known/learned bounds. Masks can differ; no nested-mask claim.",
+  "noise": "Independent eta=.05 replacement. Calibration draws uniform(1000,2),then int8 offsets1..8. One M1000 calibration result is reused by both learned selectors. Training draws81 uniforms then81 offsets per row, after every current mask finalizes.",
+  "estimator_interface": "One fixed1000 disagreement-indicator vector per bank; no clean labels,source orcell identity.",
+  "policy_preflight_path": "artifacts/research/20261114/ripper/lr_selector_preflight.json",
+  "policy_preflight_sha256": "56d97c70d605acb847082d15ccc622c00fbd006cfea90d1a63ebfe65019844c0",
+  "arm_actual_eta": {
+    "exposure_exact": "1/20",
+    "lr_exact": "1/20",
+    "exposure_learned": "1/20",
+    "lr_learned": "1/20"
+  },
+  "actual_eta": "1/20",
+  "source_rule": "For each seed0..5 take first2220 old H1adpilot training boards and its1000 calibration boards. No new boards; existing role disjointness preserved.",
+  "crossing_preflight_path": "artifacts/research/20261114/ripper/rate_transfer_preflight.json",
+  "crossing_preflight_sha256": "e1f7661ff639c80028ff796d580573553aee4d98fd5b2e1236fa84023d3b4cd6",
+  "replay_optimization_validation_path": "artifacts/research/20261114/ripper/replay_optimization_validation.json",
+  "replay_optimization_validation_sha256": "852a77ec71dd1f99443690d883e93d68654665e44304fd059632e787a96f6b4a",
+  "fast_reference_mask_sha256": "c2c38e9eb65483d8503cb35d32a0d6688e083baff08fab646bd904ca6a38bf0e",
+  "selector": "Exposure uses unchanged(8/9)^pastjoint. LR weights use exp(min(m*logB+c*(logA-logB),log648000)/2), zero for exclusions/diagonal. Same greedy25/tie permutation; FP64 order fixed. All state arguments contain past queried data only.",
+  "prior_input_manifest": "artifacts/research/20261114/ripper/scaled_noise_pilot/input_manifest.json",
+  "prior_input_manifest_sha256": "a57bc6e0c7d27d8fb4247ca97344366637d169afce2d0f99eefb9eb8cc2600f7"
+}

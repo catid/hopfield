@@ -22,8 +22,19 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 | Sudoku noisy adaptive querying | [Noisy-query exports](../results/research/ripper/noisy.json) | [plot_noisy_acquisition.py](../scripts/plot_noisy_acquisition.py) |
 | Sudoku conservative noise-bound accuracy cost | [Noise-bound exports](../results/research/ripper/noise_bound.json) | [plot_noise_bound_results.py](../scripts/plot_noise_bound_results.py) |
 | Sudoku repeated-query noise calibration | [Calibration exports](../results/research/ripper/calibrated.json) | [plot_repeated_query_calibration.py](../scripts/plot_repeated_query_calibration.py) |
+| Sudoku calibration versus training at equal query cost | [Equal-budget exports](../results/research/ripper/equal_budget.json) | [plot_equal_query_budget.py](../scripts/plot_equal_query_budget.py) |
+| Sudoku calibration transferred to a higher noise rate | [Rate-transfer exports](../results/research/ripper/rate_transfer.json) | [plot_noise_rate_transfer.py](../scripts/plot_noise_rate_transfer.py) |
+| Sudoku likelihood-ratio priority failure | [LR-selector exports](../results/research/ripper/lr_selector.json) | [plot_lr_evidence_selector.py](../scripts/plot_lr_evidence_selector.py) |
+| Sudoku doubled training at 5% noise | [Scaled-noise exports](../results/research/ripper/scaled_noise.json) | [plot_doubled_noisy_training.py](../scripts/plot_doubled_noisy_training.py) |
 | Sudoku noisy-label likelihood and count controls | [Noisy-PL exports](../results/research/foureyes/noisy_pl/) | [plot_noisy_pl_results.py](../scripts/plot_noisy_pl_results.py) |
+| Sudoku noisy-label training update budget | [Long-training exports](../results/research/foureyes/noisy_pl_long/) | [plot_noisy_pl_long_results.py](../scripts/plot_noisy_pl_long_results.py) |
 | Queen-plus-camel soft-weight transfer and wrong stops | [Matched transfer exports](../results/research/loki/h3u/) | [plot_public.py](../research/20261114/loki/h3u/plot_public.py) |
+| Queen-plus-camel weights versus search on fixed support | [Fixed-support exports](../results/research/loki/h3v/) | [plot_public.py](../research/20261114/loki/h3v/plot_public.py) |
+| Queen-plus-camel permutation initialization and search prior | [Permutation exports](../results/research/loki/h3w/) | [plot_public.py](../research/20261114/loki/h3w/plot_public.py) |
+| Queen-plus-camel shared-initialization proposal control | [Triangle exports](../results/research/loki/h3aa/) | [plot_public.py](../research/20261114/loki/h3aa/plot_public.py) |
+| Complete-source minimum D4 rule | [Rule-selection exports](../results/research/loki/h3x/) | [plot_public.py](../research/20261114/loki/h3x/plot_public.py) |
+| Fixed multi-family rule-transfer stress grid | [Stress-grid exports](../results/research/loki/h3y/) | [plot_public.py](../research/20261114/loki/h3y/plot_public.py) |
+| Pooled smaller-source rule information | [Pooled exports](../results/research/loki/h3z/) | [plot_public.py](../research/20261114/loki/h3z/plot_public.py) |
 | Sudoku independent recovery confirmation | [Fresh recovery exports](../results/research/ripper/recovery_confirm.json) | [plot_recovery_confirmation.py](../scripts/plot_recovery_confirmation.py) |
 | Sudoku sample-count recovery | [Recovery exports](../results/research/ripper/recovery.json) | [plot_recovery_results.py](../scripts/plot_recovery_results.py) |
 | Maze binary-preserving continuous relaxation | [Maze exports](../results/research/work/) | [plot_native_relaxation.py](../research/20261114/work/plot_native_relaxation.py) |

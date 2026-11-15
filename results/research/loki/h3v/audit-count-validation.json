@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "fixture_rows": 4096,
+  "cells": 169,
+  "rng": 83299,
+  "counts_bitwise_equal": true,
+  "reason": "Every field is a sum of at most169binary terms; the double-counted total is at most169*168. All operations remain exact integers below2**53 in float64. Division by2 is exact. The audit also compares every full target solution with literal occupied-pair counts.",
+  "timings_seconds": {
+    "int64": [
+      0.04802313004620373,
+      0.048901155998464674,
+      0.048083370027597994
+    ],
+    "float64_exact_integer_range": [
+      0.002888915012590587,
+      0.002764036995358765,
+      0.0023447630228474736
+    ]
+  },
+  "median_speedup": 17.396066010815783,
+  "input_sha256": {
+    "research/20261114/loki/h3v/validate_audit_counts.py": "5716eb3c4b5ea7ee51600fc45962b385152bace9cf7432b0a6f855c7c9afc872",
+    "artifacts/research/20261114/loki/h3v/models/uniform-filtered/model.npz": "1e6a2a2f75959e0a165bfe6a3db17a015861d912a3314cad5a15f4c42a65b622"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "id": "H1ab-equal-query-budget-implementation-pilot",
+  "frozen_utc": "2026-11-15T02:04:28.222311+00:00",
+  "scope": "Implementation only, six old-board banks. All equal-cost arms, M1000/N2220 versus M10000/N1500,5ppmargin and streams freeze before pilot. No solver inference or outcome-dependent settings.",
+  "training_manifest": "artifacts/research/20261114/ripper/clues/input_manifest.json",
+  "training_manifest_sha256": "838908435ae82b9f617eb92d821341ec8b6c1792329b7a05d192815aff859eae",
+  "calibration_pool_manifest": "artifacts/research/20261114/ripper/recovery_confirm/input_manifest.json",
+  "calibration_pool_manifest_sha256": "a2320e4317b854bbdd239589b90e2359b57570e406fbc1b5a2817c6a41f7a861",
+  "calibration_pool_rule": "Sorted unique H1x source-row union, disjoint from old training. Each pilotseed draws10000withoutreplacement with20298000+s. Training prefix2300of originalcluesbank; smallcalibrationfirst1000.",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "rows": 2300,
+  "calibration_pairs": 10000,
+  "queries": 25,
+  "arms": [
+    "exact",
+    "fixed_upper",
+    "learned_small",
+    "learned_large"
+  ],
+  "actual_eta": "1/100",
+  "q1": "1/9",
+  "calibration_alpha": "1/200",
+  "edge_alpha": "1/200",
+  "edge_crossing_boundary": 648000,
+  "eta_grid": 1000000,
+  "streams": {
+    "calibration_source": 20298000,
+    "calibration_cell": 20299000,
+    "calibration_noise": 20300000,
+    "training_noise": 20301000,
+    "ties": 20302000
+  },
+  "noise_draw_rule": "Draw calibration flips as random((10000,2))<.01 then int8 offsets integers1..8 of same shape. Small uses first1000 pairs. Training generates81 flips then81int8offsets per row, after every active mask finalizes. Cells integers0..80 from a separate stream.",
+  "policy_sha256": "56f8ef3bce1ee328b6a47b51bb6e1518a4d114409c924b1139c5bf4b1ec06d54",
+  "estimator_sha256": "9527f3ad4060f187566b983db25806acd357a213fea018636fad3bcb379d20f2",
+  "proof_sha256": "db64fc4be22b4f03df2bfc4a6095bf866920419ec3661bcb3ce07694c404d977",
+  "label_costs": {
+    "exact": {
+      "calibration": 0,
+      "training": 57500,
+      "total": 57500
+    },
+    "fixed_upper": {
+      "calibration": 0,
+      "training": 57500,
+      "total": 57500
+    },
+    "learned_small": {
+      "calibration": 2000,
+      "training": 55500,
+      "total": 57500
+    },
+    "learned_large": {
+      "calibration": 20000,
+      "training": 37500,
+      "total": 57500
+    }
+  },
+  "budget": "Six old training banks and six independent calibration draws only; no solver inference and no extension.",
+  "arm_rows": {
+    "exact": 2300,
+    "fixed_upper": 2300,
+    "learned_small": 2220,
+    "learned_large": 1500
+  },
+  "arm_calibration_pairs": {
+    "exact": 0,
+    "fixed_upper": 0,
+    "learned_small": 1000,
+    "learned_large": 10000
+  },
+  "base_policy_sha256": "0c07514e139bb82e4199485876ef36f9859583b18c6e9c44246bc31e3c0daf7a",
+  "base_estimator_sha256": "7e1c8433219297d2309d585db4d0b0517435fae035ac36d8a43f193d8d188311",
+  "nesting": "Within each bank, small calibration uses the first1000 of10000 paired labels, and each training arm uses its firstN of2300 boards. Masks can differ. All active-arm masks finalize before shared current-row potential noise. An arm receives no labels after its ownN.",
+  "noise": "Draw calibration flips as random((10000,2))<.01 then int8 offsets integers1..8 of same shape. Small uses first1000 pairs. Training generates81 flips then81int8offsets per row, after every active mask finalizes. Cells integers0..80 from a separate stream.",
+  "estimator_interface": "Each call receives only its declared indicator prefix of1000 or10000; no clean labels, source identity, cells or later indicators.",
+  "policy_preflight_path": "artifacts/research/20261114/ripper/equal_budget_preflight.json",
+  "policy_preflight_sha256": "9a94562bfcde8fc0fdd5e3717f298461ca4e4624c24d492124f8f80e5ef849da"
+}

@@ -1,0 +1,5240 @@
+{
+  "status": "validated",
+  "utc": "2026-11-15T02:36:33.688075+00:00",
+  "hypothesis": "H3y",
+  "decision": "falsified",
+  "primary": {
+    "unit": "All18fixed cases, not just eligible successful ones",
+    "support": "All18have nonempty complete sources,eligible row/column inference,exhaustive source certificates,oneunique minimum,andzero false/missed N+1attack pairs.",
+    "falsify": "Any empty source,ineligible row/column inference,no source cover,ambiguous minimum,or unique minimum with any false/missed target pair falsifies the universal claim. Still finish/report everycase.",
+    "incomplete": "A timeout or failed validation remains incomplete and is never dropped. If no completed case falsifies but at least one is incomplete,the overall decision is inconclusive; an observed falsification remains a falsification even if other cases are incomplete."
+  },
+  "source_seal_sha256": "e3f834220ddde35cabd6e76e30812562462e2cbb194466bf0ec2bb18c8bebe33",
+  "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+  "families": {
+    "f0": [
+      [
+        1,
+        4
+      ]
+    ],
+    "f1": [
+      [
+        2,
+        3
+      ]
+    ],
+    "f2": [
+      [
+        2,
+        5
+      ]
+    ],
+    "f3": [
+      [
+        3,
+        4
+      ]
+    ],
+    "f4": [
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "f5": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ]
+    ]
+  },
+  "source_sizes": [
+    8,
+    10,
+    12
+  ],
+  "cases": 18,
+  "outcome_counts": {
+    "ambiguous_minimum": 1,
+    "empty_source": 4,
+    "unique_exact_transfer": 12,
+    "unique_minimum_wrong_graph": 1
+  },
+  "rows": [
+    {
+      "id": "f0-n8",
+      "family_id": "f0",
+      "family": "[[1, 4]]",
+      "source_n": 8,
+      "target_n": 9,
+      "source_patterns": 4,
+      "source_status": "source_certified",
+      "candidate_orbits": 10,
+      "minimum_cardinality": 1,
+      "minimum_count": 1,
+      "checked_subsets": 11,
+      "exact_minimum_count": 1,
+      "false_pairs_best": 0,
+      "false_pairs_worst": 0,
+      "missed_pairs_best": 0,
+      "missed_pairs_worst": 0,
+      "outcome": "unique_exact_transfer",
+      "source_cpu_seconds": 0.010172696000000002,
+      "source_wall_seconds": 0.010173215996474028
+    },
+    {
+      "id": "f0-n10",
+      "family_id": "f0",
+      "family": "[[1, 4]]",
+      "source_n": 10,
+      "target_n": 11,
+      "source_patterns": 76,
+      "source_status": "source_certified",
+      "candidate_orbits": 3,
+      "minimum_cardinality": 1,
+      "minimum_count": 1,
+      "checked_subsets": 4,
+      "exact_minimum_count": 1,
+      "false_pairs_best": 0,
+      "false_pairs_worst": 0,
+      "missed_pairs_best": 0,
+      "missed_pairs_worst": 0,
+      "outcome": "unique_exact_transfer",
+      "source_cpu_seconds": 0.13320857,
+      "source_wall_seconds": 0.13321607100078836
+    },
+    {
+      "id": "f0-n12",
+      "family_id": "f0",
+      "family": "[[1, 4]]",
+      "source_n": 12,
+      "target_n": 13,
+      "source_patterns": 632,
+      "source_status": "source_certified",
+      "candidate_orbits": 1,
+      "minimum_cardinality": 1,
+      "minimum_count": 1,
+      "checked_subsets": 2,
+      "exact_minimum_count": 1,
+      "false_pairs_best": 0,
+      "false_pairs_worst": 0,
+      "missed_pairs_best": 0,
+      "missed_pairs_worst": 0,
+      "outcome": "unique_exact_transfer",
+      "source_cpu_seconds": 3.458909625,
+      "source_wall_seconds": 3.4590972310397774
+    },
+    {
+      "id": "f1-n8",
+      "family_id": "f1",
+      "family": "[[2, 3]]",
+      "source_n": 8,
+      "target_n": 9,
+      "source_patterns": 0,
+      "source_status": "empty_source",
+      "candidate_orbits": 0,
+      "minimum_cardinality": null,
+      "minimum_count": 0,
+      "checked_subsets": 0,
+      "exact_minimum_count": 0,
+      "false_pairs_best": null,
+      "false_pairs_worst": null,
+      "missed_pairs_best": null,
+      "missed_pairs_worst": null,
+      "outcome": "empty_source",
+      "source_cpu_seconds": 0.00013446199999999492,
+      "source_wall_seconds": 0.00013523298548534513
+    },
+    {
+      "id": "f1-n10",
+      "family_id": "f1",
+      "family": "[[2, 3]]",
+      "source_n": 10,
+      "target_n": 11,
+      "source_patterns": 48,
+      "source_status": "source_certified",
+      "candidate_orbits": 6,
+      "minimum_cardinality": 1,
+      "minimum_count": 1,
+      "checked_subsets": 7,
+      "exact_minimum_count": 1,
+      "false_pairs_best": 0,
+      "false_pairs_worst": 0,
+      "missed_pairs_best": 0,
+      "missed_pairs_worst": 0,
+      "outcome": "unique_exact_transfer",
+      "source_cpu_seconds": 0.011673535999999998,
+      "source_wall_seconds": 0.011674279056023806
+    },
+    {
+      "id": "f1-n12",
+      "family_id": "f1",
+      "family": "[[2, 3]]",
+      "source_n": 12,
+      "target_n": 13,
+      "source_patterns": 472,
+      "source_status": "source_certified",
+      "candidate_orbits": 1,
+      "minimum_cardinality": 1,
+      "minimum_count": 1,
+      "checked_subsets": 2,
+      "exact_minimum_count": 1,
+      "false_pairs_best": 0,
+      "false_pairs_worst": 0,
+      "missed_pairs_best": 0,
+      "missed_pairs_worst": 0,
+      "outcome": "unique_exact_transfer",
+      "source_cpu_seconds": 0.23109675300000002,
+      "source_wall_seconds": 3.2195671260124072
+    },
+    {
+      "id": "f2-n8",
+      "family_id": "f2",
+      "family": "[[2, 5]]",
+      "source_n": 8,
+      "target_n": 9,
+      "source_patterns": 20,
+      "source_status": "source_certified",
+      "candidate_orbits": 6,
+      "minimum_cardinality": 1,
+      "minimum_count": 1,
+      "checked_subsets": 7,
+      "exact_minimum_count": 1,
+      "false_pairs_best": 0,
+      "false_pairs_worst": 0,
+      "missed_pairs_best": 0,
+      "missed_pairs_worst": 0,
+      "outcome": "unique_exact_transfer",
+      "source_cpu_seconds": 0.0030396680000000023,
+      "source_wall_seconds": 0.0030402420088648796
+    },
+    {
+      "id": "f2-n10",
+      "family_id": "f2",
+      "family": "[[2, 5]]",
+      "source_n": 10,
+      "target_n": 11,
+      "source_patterns": 72,
+      "source_status": "source_certified",
+      "candidate_orbits": 3,
+      "minimum_cardinality": 1,
+      "minimum_count": 1,
+      "checked_subsets": 4,
+      "exact_minimum_count": 1,
+      "false_pairs_best": 0,
+      "false_pairs_worst": 0,
+      "missed_pairs_best": 0,
+      "missed_pairs_worst": 0,
+      "outcome": "unique_exact_transfer",
+      "source_cpu_seconds": 0.011534989000000002,
+      "source_wall_seconds": 0.011535539990291
+    },
+    {
+      "id": "f2-n12",
+      "family_id": "f2",
+      "family": "[[2, 5]]",
+      "source_n": 12,
+      "target_n": 13,
+      "source_patterns": 1304,
+      "source_status": "source_certified",
+      "candidate_orbits": 1,
+      "minimum_cardinality": 1,
+      "minimum_count": 1,
+      "checked_subsets": 2,
+      "exact_minimum_count": 1,
+      "false_pairs_best": 0,
+      "false_pairs_worst": 0,
+      "missed_pairs_best": 0,
+      "missed_pairs_worst": 0,
+      "outcome": "unique_exact_transfer",
+      "source_cpu_seconds": 0.24904043199999998,
+      "source_wall_seconds": 0.2490495599922724
+    },
+    {
+      "id": "f3-n8",
+      "family_id": "f3",
+      "family": "[[3, 4]]",
+      "source_n": 8,
+      "target_n": 9,
+      "source_patterns": 0,
+      "source_status": "empty_source",
+      "candidate_orbits": 0,
+      "minimum_cardinality": null,
+      "minimum_count": 0,
+      "checked_subsets": 0,
+      "exact_minimum_count": 0,
+      "false_pairs_best": null,
+      "false_pairs_worst": null,
+      "missed_pairs_best": null,
+      "missed_pairs_worst": null,
+      "outcome": "empty_source",
+      "source_cpu_seconds": 0.00011619499999999949,
+      "source_wall_seconds": 0.00011686602374538779
+    },
+    {
+      "id": "f3-n10",
+      "family_id": "f3",
+      "family": "[[3, 4]]",
+      "source_n": 10,
+      "target_n": 11,
+      "source_patterns": 52,
+      "source_status": "source_certified",
+      "candidate_orbits": 5,
+      "minimum_cardinality": 1,
+      "minimum_count": 1,
+      "checked_subsets": 6,
+      "exact_minimum_count": 1,
+      "false_pairs_best": 0,
+      "false_pairs_worst": 0,
+      "missed_pairs_best": 0,
+      "missed_pairs_worst": 0,
+      "outcome": "unique_exact_transfer",
+      "source_cpu_seconds": 0.011566146,
+      "source_wall_seconds": 0.011568129004444927
+    },
+    {
+      "id": "f3-n12",
+      "family_id": "f3",
+      "family": "[[3, 4]]",
+      "source_n": 12,
+      "target_n": 13,
+      "source_patterns": 1192,
+      "source_status": "source_certified",
+      "candidate_orbits": 2,
+      "minimum_cardinality": 1,
+      "minimum_count": 1,
+      "checked_subsets": 3,
+      "exact_minimum_count": 1,
+      "false_pairs_best": 0,
+      "false_pairs_worst": 0,
+      "missed_pairs_best": 0,
+      "missed_pairs_worst": 0,
+      "outcome": "unique_exact_transfer",
+      "source_cpu_seconds": 0.264477895,
+      "source_wall_seconds": 0.2645064140087925
+    },
+    {
+      "id": "f4-n8",
+      "family_id": "f4",
+      "family": "[[1, 3], [2, 3]]",
+      "source_n": 8,
+      "target_n": 9,
+      "source_patterns": 0,
+      "source_status": "empty_source",
+      "candidate_orbits": 0,
+      "minimum_cardinality": null,
+      "minimum_count": 0,
+      "checked_subsets": 0,
+      "exact_minimum_count": 0,
+      "false_pairs_best": null,
+      "false_pairs_worst": null,
+      "missed_pairs_best": null,
+      "missed_pairs_worst": null,
+      "outcome": "empty_source",
+      "source_cpu_seconds": 0.00011845800000000184,
+      "source_wall_seconds": 0.00011916900984942913
+    },
+    {
+      "id": "f4-n10",
+      "family_id": "f4",
+      "family": "[[1, 3], [2, 3]]",
+      "source_n": 10,
+      "target_n": 11,
+      "source_patterns": 4,
+      "source_status": "source_certified",
+      "candidate_orbits": 23,
+      "minimum_cardinality": 1,
+      "minimum_count": 1,
+      "checked_subsets": 24,
+      "exact_minimum_count": 0,
+      "false_pairs_best": 0,
+      "false_pairs_worst": 0,
+      "missed_pairs_best": 288,
+      "missed_pairs_worst": 288,
+      "outcome": "unique_minimum_wrong_graph",
+      "source_cpu_seconds": 0.013654868,
+      "source_wall_seconds": 0.013655080983880907
+    },
+    {
+      "id": "f4-n12",
+      "family_id": "f4",
+      "family": "[[1, 3], [2, 3]]",
+      "source_n": 12,
+      "target_n": 13,
+      "source_patterns": 12,
+      "source_status": "source_certified",
+      "candidate_orbits": 21,
+      "minimum_cardinality": 2,
+      "minimum_count": 1,
+      "checked_subsets": 232,
+      "exact_minimum_count": 1,
+      "false_pairs_best": 0,
+      "false_pairs_worst": 0,
+      "missed_pairs_best": 0,
+      "missed_pairs_worst": 0,
+      "outcome": "unique_exact_transfer",
+      "source_cpu_seconds": 0.276734325,
+      "source_wall_seconds": 0.2767351139918901
+    },
+    {
+      "id": "f5-n8",
+      "family_id": "f5",
+      "family": "[[1, 4], [2, 3]]",
+      "source_n": 8,
+      "target_n": 9,
+      "source_patterns": 0,
+      "source_status": "empty_source",
+      "candidate_orbits": 0,
+      "minimum_cardinality": null,
+      "minimum_count": 0,
+      "checked_subsets": 0,
+      "exact_minimum_count": 0,
+      "false_pairs_best": null,
+      "false_pairs_worst": null,
+      "missed_pairs_best": null,
+      "missed_pairs_worst": null,
+      "outcome": "empty_source",
+      "source_cpu_seconds": 0.00019415100000000352,
+      "source_wall_seconds": 0.00019493303261697292
+    },
+    {
+      "id": "f5-n10",
+      "family_id": "f5",
+      "family": "[[1, 4], [2, 3]]",
+      "source_n": 10,
+      "target_n": 11,
+      "source_patterns": 12,
+      "source_status": "source_certified",
+      "candidate_orbits": 18,
+      "minimum_cardinality": 2,
+      "minimum_count": 9,
+      "checked_subsets": 172,
+      "exact_minimum_count": 1,
+      "false_pairs_best": 0,
+      "false_pairs_worst": 396,
+      "missed_pairs_best": 0,
+      "missed_pairs_worst": 568,
+      "outcome": "ambiguous_minimum",
+      "source_cpu_seconds": 0.014333485,
+      "source_wall_seconds": 0.014342422015033662
+    },
+    {
+      "id": "f5-n12",
+      "family_id": "f5",
+      "family": "[[1, 4], [2, 3]]",
+      "source_n": 12,
+      "target_n": 13,
+      "source_patterns": 52,
+      "source_status": "source_certified",
+      "candidate_orbits": 9,
+      "minimum_cardinality": 2,
+      "minimum_count": 1,
+      "checked_subsets": 46,
+      "exact_minimum_count": 1,
+      "false_pairs_best": 0,
+      "false_pairs_worst": 0,
+      "missed_pairs_best": 0,
+      "missed_pairs_worst": 0,
+      "outcome": "unique_exact_transfer",
+      "source_cpu_seconds": 0.25971531200000003,
+      "source_wall_seconds": 0.25976323598297313
+    }
+  ],
+  "case_diagnostics": {
+    "f0-n8": {
+      "source_result": {
+        "id": "f0-n8",
+        "n": 8,
+        "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+        "source_sha256": "682deabb3d730c497a8528ba4625f746b5cf7b5c0817f76a05b5522ed30ffc7e",
+        "supplied_complete_source": true,
+        "no_target_file_access": true,
+        "source_patterns": 4,
+        "inferred_lines": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "status": "source_certified",
+        "source_structural_failure": false,
+        "source_universe_boards": 92,
+        "source_negatives": 88,
+        "candidate_generators": [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            6,
+            7
+          ]
+        ],
+        "candidate_orbits": [
+          [
+            [
+              1,
+              -4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              -1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          [
+            [
+              2,
+              -5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              5,
+              -2
+            ],
+            [
+              5,
+              2
+            ]
+          ],
+          [
+            [
+              2,
+              -6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              6,
+              -2
+            ],
+            [
+              6,
+              2
+            ]
+          ],
+          [
+            [
+              2,
+              -7
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              7,
+              -2
+            ],
+            [
+              7,
+              2
+            ]
+          ],
+          [
+            [
+              3,
+              -6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              6,
+              -3
+            ],
+            [
+              6,
+              3
+            ]
+          ],
+          [
+            [
+              4,
+              -6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              -4
+            ],
+            [
+              6,
+              4
+            ]
+          ],
+          [
+            [
+              4,
+              -7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              7,
+              -4
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          [
+            [
+              5,
+              -6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              -5
+            ],
+            [
+              6,
+              5
+            ]
+          ],
+          [
+            [
+              5,
+              -7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              -5
+            ],
+            [
+              7,
+              5
+            ]
+          ],
+          [
+            [
+              6,
+              -7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              -6
+            ],
+            [
+              7,
+              6
+            ]
+          ]
+        ],
+        "minimum_cardinality": 1,
+        "minima": [
+          [
+            0
+          ]
+        ],
+        "selected_generator_sets": [
+          [
+            [
+              1,
+              4
+            ]
+          ]
+        ],
+        "unique_minimum": true,
+        "checked_subset_count": 11,
+        "certificate_sha256": "b63523bfdc67fe1ebc4347a0a932410ca384161b56674c85c987cf092bb099c6",
+        "verification_sha256": "dc0809b034fc305552ec01ce08ceea4b10630ca0cf83f1d90bed6074b5da2b9f",
+        "checked_subsets_sha256": "18b64702d1f2c9e09b59aba4977e6ec1ddb10f94eebeed8355459db621fe616f",
+        "cache_key": "4d91b80dc0edc3dfbc033b343729629a2a683ff48f107106bdf49c30a565086d",
+        "cache_reused": false,
+        "cache_receipt": {
+          "n": 8,
+          "lines": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "primary_sha256": "4c38b4b4e4e039827379bfa1b75e4c7e8be672c3fe7129fddadec7f4626dc715",
+          "independent_sha256": "4c38b4b4e4e039827379bfa1b75e4c7e8be672c3fe7129fddadec7f4626dc715",
+          "constructor_sha256": "e15c9706e43f3e5de54f26617947ccfbf98c2675a11cf4d2cbdc122285d207c7",
+          "boards": 92
+        },
+        "wall_seconds": 0.010173215996474028,
+        "cpu_seconds": 0.010172696000000002,
+        "completed_utc": "2026-11-15T02:35:03.700594+00:00"
+      },
+      "target_true_pairs": 1216,
+      "all_minima": [
+        {
+          "orbit_indices": [
+            0
+          ],
+          "generators": [
+            [
+              1,
+              4
+            ]
+          ],
+          "target_pairs": 1216,
+          "false_pairs": 0,
+          "missed_pairs": 0,
+          "exact_graph": true,
+          "first_false_edge": null,
+          "first_missed_edge": null
+        }
+      ],
+      "selected_after_target_comparison": false
+    },
+    "f0-n10": {
+      "source_result": {
+        "id": "f0-n10",
+        "n": 10,
+        "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+        "source_sha256": "4f9a6cb44c82640b72b0526c915c83d9b4e7f85413e917d868995bf15052ff48",
+        "supplied_complete_source": true,
+        "no_target_file_access": true,
+        "source_patterns": 76,
+        "inferred_lines": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "status": "source_certified",
+        "source_structural_failure": false,
+        "source_universe_boards": 724,
+        "source_negatives": 648,
+        "candidate_generators": [
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            5,
+            7
+          ]
+        ],
+        "candidate_orbits": [
+          [
+            [
+              1,
+              -4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              -1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              -8
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              8,
+              -1
+            ],
+            [
+              8,
+              1
+            ]
+          ],
+          [
+            [
+              5,
+              -7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              -5
+            ],
+            [
+              7,
+              5
+            ]
+          ]
+        ],
+        "minimum_cardinality": 1,
+        "minima": [
+          [
+            0
+          ]
+        ],
+        "selected_generator_sets": [
+          [
+            [
+              1,
+              4
+            ]
+          ]
+        ],
+        "unique_minimum": true,
+        "checked_subset_count": 4,
+        "certificate_sha256": "b5e09a3a27038941326c773ea112984ec350295861fc9718741ffa1d4ead23c5",
+        "verification_sha256": "7adbb7ac6ec0f9726f6d7f392720b8e7e22b0e4b2bbe36dabb96a10889e93f6c",
+        "checked_subsets_sha256": "ce7002f03b9ebd14dddcf4df60bf4018905bd0ff034beddd57591a78a8500e56",
+        "cache_key": "b5c30c0ab18ffd8f2152c869e2652df9d77b00c1db5f5c40af19d74c2d80ae57",
+        "cache_reused": false,
+        "cache_receipt": {
+          "n": 10,
+          "lines": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "primary_sha256": "be5529c767a7c6317c25f928521bfca6c404706ae097c4084c21fa8bc30e5bcd",
+          "independent_sha256": "be5529c767a7c6317c25f928521bfca6c404706ae097c4084c21fa8bc30e5bcd",
+          "constructor_sha256": "e15c9706e43f3e5de54f26617947ccfbf98c2675a11cf4d2cbdc122285d207c7",
+          "boards": 724
+        },
+        "wall_seconds": 0.13321607100078836,
+        "cpu_seconds": 0.13320857,
+        "completed_utc": "2026-11-15T02:35:03.823784+00:00"
+      },
+      "target_true_pairs": 2260,
+      "all_minima": [
+        {
+          "orbit_indices": [
+            0
+          ],
+          "generators": [
+            [
+              1,
+              4
+            ]
+          ],
+          "target_pairs": 2260,
+          "false_pairs": 0,
+          "missed_pairs": 0,
+          "exact_graph": true,
+          "first_false_edge": null,
+          "first_missed_edge": null
+        }
+      ],
+      "selected_after_target_comparison": false
+    },
+    "f0-n12": {
+      "source_result": {
+        "id": "f0-n12",
+        "n": 12,
+        "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+        "source_sha256": "aaad80e864476554a30379436878c5f3336841e0a44b47f09364f11a16c62da1",
+        "supplied_complete_source": true,
+        "no_target_file_access": true,
+        "source_patterns": 632,
+        "inferred_lines": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "status": "source_certified",
+        "source_structural_failure": false,
+        "source_universe_boards": 14200,
+        "source_negatives": 13568,
+        "candidate_generators": [
+          [
+            1,
+            4
+          ]
+        ],
+        "candidate_orbits": [
+          [
+            [
+              1,
+              -4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              -1
+            ],
+            [
+              4,
+              1
+            ]
+          ]
+        ],
+        "minimum_cardinality": 1,
+        "minima": [
+          [
+            0
+          ]
+        ],
+        "selected_generator_sets": [
+          [
+            [
+              1,
+              4
+            ]
+          ]
+        ],
+        "unique_minimum": true,
+        "checked_subset_count": 2,
+        "certificate_sha256": "9d3a125046412c1074900510755f2a97af173c3c8b288c1d38f32918b7ee2f36",
+        "verification_sha256": "efcb85e65d2378fd6eafea4bee75950718d9b60e057a1df0f26e81367675e653",
+        "checked_subsets_sha256": "a303a91f3eeb79a1d36cd077891efda4698b7ff87350a450dc08671c31fa95c6",
+        "cache_key": "1b144b6e66254f8379b5edf2a631d4104f8cb62724c20ecc2bff8808b039e561",
+        "cache_reused": false,
+        "cache_receipt": {
+          "n": 12,
+          "lines": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "primary_sha256": "d63a5e609d915846898d02d0d9f6e43760d2cfe82f5e609d42656ea0b72e28f4",
+          "independent_sha256": "d63a5e609d915846898d02d0d9f6e43760d2cfe82f5e609d42656ea0b72e28f4",
+          "constructor_sha256": "e15c9706e43f3e5de54f26617947ccfbf98c2675a11cf4d2cbdc122285d207c7",
+          "boards": 14200
+        },
+        "wall_seconds": 3.4590972310397774,
+        "cpu_seconds": 3.458909625,
+        "completed_utc": "2026-11-15T02:35:07.209516+00:00"
+      },
+      "target_true_pairs": 3760,
+      "all_minima": [
+        {
+          "orbit_indices": [
+            0
+          ],
+          "generators": [
+            [
+              1,
+              4
+            ]
+          ],
+          "target_pairs": 3760,
+          "false_pairs": 0,
+          "missed_pairs": 0,
+          "exact_graph": true,
+          "first_false_edge": null,
+          "first_missed_edge": null
+        }
+      ],
+      "selected_after_target_comparison": false
+    },
+    "f1-n8": {
+      "source_result": {
+        "id": "f1-n8",
+        "n": 8,
+        "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+        "source_sha256": "a0a6e13687082b27860b5264817cea4972368c547819bd64c85bcf66642b313b",
+        "supplied_complete_source": true,
+        "no_target_file_access": true,
+        "source_patterns": 0,
+        "status": "empty_source",
+        "source_structural_failure": true,
+        "minimum_cardinality": null,
+        "minima": [],
+        "wall_seconds": 0.00013523298548534513,
+        "cpu_seconds": 0.00013446199999999492,
+        "completed_utc": "2026-11-15T02:35:03.877722+00:00"
+      },
+      "target_true_pairs": 1224,
+      "all_minima": [],
+      "selected_after_target_comparison": false
+    },
+    "f1-n10": {
+      "source_result": {
+        "id": "f1-n10",
+        "n": 10,
+        "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+        "source_sha256": "12cfcced04112a773ff133a081fc2482156c73bb855db8b00d6ac3154cb6e7ba",
+        "supplied_complete_source": true,
+        "no_target_file_access": true,
+        "source_patterns": 48,
+        "inferred_lines": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "status": "source_certified",
+        "source_structural_failure": false,
+        "source_universe_boards": 724,
+        "source_negatives": 676,
+        "candidate_generators": [
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            5,
+            9
+          ],
+          [
+            6,
+            9
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            8,
+            9
+          ]
+        ],
+        "candidate_orbits": [
+          [
+            [
+              2,
+              -3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              -2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          [
+            [
+              4,
+              -7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              7,
+              -4
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          [
+            [
+              5,
+              -9
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              9,
+              -5
+            ],
+            [
+              9,
+              5
+            ]
+          ],
+          [
+            [
+              6,
+              -9
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              9,
+              -6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          [
+            [
+              7,
+              -8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              -7
+            ],
+            [
+              8,
+              7
+            ]
+          ],
+          [
+            [
+              8,
+              -9
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              9,
+              -8
+            ],
+            [
+              9,
+              8
+            ]
+          ]
+        ],
+        "minimum_cardinality": 1,
+        "minima": [
+          [
+            0
+          ]
+        ],
+        "selected_generator_sets": [
+          [
+            [
+              2,
+              3
+            ]
+          ]
+        ],
+        "unique_minimum": true,
+        "checked_subset_count": 7,
+        "certificate_sha256": "bd7a712329d8728ce38e02cb5dcebd437513703517024202304fe78ab8ff0c61",
+        "verification_sha256": "a132b8a96edcbc631dec835cf69beb5a9f2dfb667837ffaed97589ff96bee1e5",
+        "checked_subsets_sha256": "72932ae6521d640ae0a0a9f879d26f5cb9dfb3876b8bc429cf5617e4e85662a0",
+        "cache_key": "b5c30c0ab18ffd8f2152c869e2652df9d77b00c1db5f5c40af19d74c2d80ae57",
+        "cache_reused": true,
+        "cache_receipt": {
+          "n": 10,
+          "lines": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "primary_sha256": "be5529c767a7c6317c25f928521bfca6c404706ae097c4084c21fa8bc30e5bcd",
+          "independent_sha256": "be5529c767a7c6317c25f928521bfca6c404706ae097c4084c21fa8bc30e5bcd",
+          "constructor_sha256": "e15c9706e43f3e5de54f26617947ccfbf98c2675a11cf4d2cbdc122285d207c7",
+          "boards": 724
+        },
+        "wall_seconds": 0.011674279056023806,
+        "cpu_seconds": 0.011673535999999998,
+        "completed_utc": "2026-11-15T02:35:03.939131+00:00"
+      },
+      "target_true_pairs": 2268,
+      "all_minima": [
+        {
+          "orbit_indices": [
+            0
+          ],
+          "generators": [
+            [
+              2,
+              3
+            ]
+          ],
+          "target_pairs": 2268,
+          "false_pairs": 0,
+          "missed_pairs": 0,
+          "exact_graph": true,
+          "first_false_edge": null,
+          "first_missed_edge": null
+        }
+      ],
+      "selected_after_target_comparison": false
+    },
+    "f1-n12": {
+      "source_result": {
+        "id": "f1-n12",
+        "n": 12,
+        "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+        "source_sha256": "53b1209b1ff5af4dbb9c652e574761cd710dbdebb260e8d2ad71d2d88c3465a4",
+        "supplied_complete_source": true,
+        "no_target_file_access": true,
+        "source_patterns": 472,
+        "inferred_lines": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "status": "source_certified",
+        "source_structural_failure": false,
+        "source_universe_boards": 14200,
+        "source_negatives": 13728,
+        "candidate_generators": [
+          [
+            2,
+            3
+          ]
+        ],
+        "candidate_orbits": [
+          [
+            [
+              2,
+              -3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              -2
+            ],
+            [
+              3,
+              2
+            ]
+          ]
+        ],
+        "minimum_cardinality": 1,
+        "minima": [
+          [
+            0
+          ]
+        ],
+        "selected_generator_sets": [
+          [
+            [
+              2,
+              3
+            ]
+          ]
+        ],
+        "unique_minimum": true,
+        "checked_subset_count": 2,
+        "certificate_sha256": "b53586c673b6040a065ea99a59e438aaffa6a3809e6ba5a45072a27c1ba3a878",
+        "verification_sha256": "efcb85e65d2378fd6eafea4bee75950718d9b60e057a1df0f26e81367675e653",
+        "checked_subsets_sha256": "725a67376969dffe9bfb46a7ecc1b56f4db4129cf7c2dbdc46e0325d0f15496f",
+        "cache_key": "1b144b6e66254f8379b5edf2a631d4104f8cb62724c20ecc2bff8808b039e561",
+        "cache_reused": true,
+        "cache_receipt": {
+          "n": 12,
+          "lines": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "primary_sha256": "d63a5e609d915846898d02d0d9f6e43760d2cfe82f5e609d42656ea0b72e28f4",
+          "independent_sha256": "d63a5e609d915846898d02d0d9f6e43760d2cfe82f5e609d42656ea0b72e28f4",
+          "constructor_sha256": "e15c9706e43f3e5de54f26617947ccfbf98c2675a11cf4d2cbdc122285d207c7",
+          "boards": 14200
+        },
+        "wall_seconds": 3.2195671260124072,
+        "cpu_seconds": 0.23109675300000002,
+        "completed_utc": "2026-11-15T02:35:07.206803+00:00"
+      },
+      "target_true_pairs": 3768,
+      "all_minima": [
+        {
+          "orbit_indices": [
+            0
+          ],
+          "generators": [
+            [
+              2,
+              3
+            ]
+          ],
+          "target_pairs": 3768,
+          "false_pairs": 0,
+          "missed_pairs": 0,
+          "exact_graph": true,
+          "first_false_edge": null,
+          "first_missed_edge": null
+        }
+      ],
+      "selected_after_target_comparison": false
+    },
+    "f2-n8": {
+      "source_result": {
+        "id": "f2-n8",
+        "n": 8,
+        "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+        "source_sha256": "c35595e8aca36dffba1da1cb2b10457a774cc86305d1e79fb8d8016ae5deea2c",
+        "supplied_complete_source": true,
+        "no_target_file_access": true,
+        "source_patterns": 20,
+        "inferred_lines": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "status": "source_certified",
+        "source_structural_failure": false,
+        "source_universe_boards": 92,
+        "source_negatives": 72,
+        "candidate_generators": [
+          [
+            2,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            6,
+            7
+          ]
+        ],
+        "candidate_orbits": [
+          [
+            [
+              2,
+              -5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              5,
+              -2
+            ],
+            [
+              5,
+              2
+            ]
+          ],
+          [
+            [
+              2,
+              -6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              6,
+              -2
+            ],
+            [
+              6,
+              2
+            ]
+          ],
+          [
+            [
+              4,
+              -6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              -4
+            ],
+            [
+              6,
+              4
+            ]
+          ],
+          [
+            [
+              4,
+              -7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              7,
+              -4
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          [
+            [
+              5,
+              -7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              -5
+            ],
+            [
+              7,
+              5
+            ]
+          ],
+          [
+            [
+              6,
+              -7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              -6
+            ],
+            [
+              7,
+              6
+            ]
+          ]
+        ],
+        "minimum_cardinality": 1,
+        "minima": [
+          [
+            0
+          ]
+        ],
+        "selected_generator_sets": [
+          [
+            [
+              2,
+              5
+            ]
+          ]
+        ],
+        "unique_minimum": true,
+        "checked_subset_count": 7,
+        "certificate_sha256": "65c41db99c57735acfcc84f270b6ed68705a020a75dc3334410d17251d360251",
+        "verification_sha256": "a132b8a96edcbc631dec835cf69beb5a9f2dfb667837ffaed97589ff96bee1e5",
+        "checked_subsets_sha256": "290defc4358e009dac14f098d7e644ad42c12e9359127c051bd24a20a7322499",
+        "cache_key": "4d91b80dc0edc3dfbc033b343729629a2a683ff48f107106bdf49c30a565086d",
+        "cache_reused": true,
+        "cache_receipt": {
+          "n": 8,
+          "lines": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "primary_sha256": "4c38b4b4e4e039827379bfa1b75e4c7e8be672c3fe7129fddadec7f4626dc715",
+          "independent_sha256": "4c38b4b4e4e039827379bfa1b75e4c7e8be672c3fe7129fddadec7f4626dc715",
+          "constructor_sha256": "e15c9706e43f3e5de54f26617947ccfbf98c2675a11cf4d2cbdc122285d207c7",
+          "boards": 92
+        },
+        "wall_seconds": 0.0030402420088648796,
+        "cpu_seconds": 0.0030396680000000023,
+        "completed_utc": "2026-11-15T02:35:07.262546+00:00"
+      },
+      "target_true_pairs": 1168,
+      "all_minima": [
+        {
+          "orbit_indices": [
+            0
+          ],
+          "generators": [
+            [
+              2,
+              5
+            ]
+          ],
+          "target_pairs": 1168,
+          "false_pairs": 0,
+          "missed_pairs": 0,
+          "exact_graph": true,
+          "first_false_edge": null,
+          "first_missed_edge": null
+        }
+      ],
+      "selected_after_target_comparison": false
+    },
+    "f2-n10": {
+      "source_result": {
+        "id": "f2-n10",
+        "n": 10,
+        "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+        "source_sha256": "10d71b41e666d9ac454ee885762ee8723159ffe0f740bcd739080359fb811291",
+        "supplied_complete_source": true,
+        "no_target_file_access": true,
+        "source_patterns": 72,
+        "inferred_lines": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "status": "source_certified",
+        "source_structural_failure": false,
+        "source_universe_boards": 724,
+        "source_negatives": 652,
+        "candidate_generators": [
+          [
+            2,
+            5
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            6,
+            9
+          ]
+        ],
+        "candidate_orbits": [
+          [
+            [
+              2,
+              -5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              5,
+              -2
+            ],
+            [
+              5,
+              2
+            ]
+          ],
+          [
+            [
+              6,
+              -8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              8,
+              -6
+            ],
+            [
+              8,
+              6
+            ]
+          ],
+          [
+            [
+              6,
+              -9
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              9,
+              -6
+            ],
+            [
+              9,
+              6
+            ]
+          ]
+        ],
+        "minimum_cardinality": 1,
+        "minima": [
+          [
+            0
+          ]
+        ],
+        "selected_generator_sets": [
+          [
+            [
+              2,
+              5
+            ]
+          ]
+        ],
+        "unique_minimum": true,
+        "checked_subset_count": 4,
+        "certificate_sha256": "e5bc7f64a6b556046b5f9b8d370d571bc33446e447f45d83ce3a9a3546a67bd2",
+        "verification_sha256": "7adbb7ac6ec0f9726f6d7f392720b8e7e22b0e4b2bbe36dabb96a10889e93f6c",
+        "checked_subsets_sha256": "1a487b89b6903f3285f069a9e574c0f72fe0d7ee5e127ac4426a4032068cd774",
+        "cache_key": "b5c30c0ab18ffd8f2152c869e2652df9d77b00c1db5f5c40af19d74c2d80ae57",
+        "cache_reused": true,
+        "cache_receipt": {
+          "n": 10,
+          "lines": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "primary_sha256": "be5529c767a7c6317c25f928521bfca6c404706ae097c4084c21fa8bc30e5bcd",
+          "independent_sha256": "be5529c767a7c6317c25f928521bfca6c404706ae097c4084c21fa8bc30e5bcd",
+          "constructor_sha256": "e15c9706e43f3e5de54f26617947ccfbf98c2675a11cf4d2cbdc122285d207c7",
+          "boards": 724
+        },
+        "wall_seconds": 0.011535539990291,
+        "cpu_seconds": 0.011534989000000002,
+        "completed_utc": "2026-11-15T02:35:07.273334+00:00"
+      },
+      "target_true_pairs": 2196,
+      "all_minima": [
+        {
+          "orbit_indices": [
+            0
+          ],
+          "generators": [
+            [
+              2,
+              5
+            ]
+          ],
+          "target_pairs": 2196,
+          "false_pairs": 0,
+          "missed_pairs": 0,
+          "exact_graph": true,
+          "first_false_edge": null,
+          "first_missed_edge": null
+        }
+      ],
+      "selected_after_target_comparison": false
+    },
+    "f2-n12": {
+      "source_result": {
+        "id": "f2-n12",
+        "n": 12,
+        "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+        "source_sha256": "d8ee10c015a7aa1131a9c573d8f8cbfd1f349f3587785dd30fa0cc9a5cb8862d",
+        "supplied_complete_source": true,
+        "no_target_file_access": true,
+        "source_patterns": 1304,
+        "inferred_lines": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "status": "source_certified",
+        "source_structural_failure": false,
+        "source_universe_boards": 14200,
+        "source_negatives": 12896,
+        "candidate_generators": [
+          [
+            2,
+            5
+          ]
+        ],
+        "candidate_orbits": [
+          [
+            [
+              2,
+              -5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              5,
+              -2
+            ],
+            [
+              5,
+              2
+            ]
+          ]
+        ],
+        "minimum_cardinality": 1,
+        "minima": [
+          [
+            0
+          ]
+        ],
+        "selected_generator_sets": [
+          [
+            [
+              2,
+              5
+            ]
+          ]
+        ],
+        "unique_minimum": true,
+        "checked_subset_count": 2,
+        "certificate_sha256": "8562d6613f6b57e7d7e168a4ba130acef457b63e51fd786b35ab44dd6a42add0",
+        "verification_sha256": "efcb85e65d2378fd6eafea4bee75950718d9b60e057a1df0f26e81367675e653",
+        "checked_subsets_sha256": "b074420b6b482fb054ba3f302a9aef8f087ea88c7769be80ed659e0c94596764",
+        "cache_key": "1b144b6e66254f8379b5edf2a631d4104f8cb62724c20ecc2bff8808b039e561",
+        "cache_reused": true,
+        "cache_receipt": {
+          "n": 12,
+          "lines": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "primary_sha256": "d63a5e609d915846898d02d0d9f6e43760d2cfe82f5e609d42656ea0b72e28f4",
+          "independent_sha256": "d63a5e609d915846898d02d0d9f6e43760d2cfe82f5e609d42656ea0b72e28f4",
+          "constructor_sha256": "e15c9706e43f3e5de54f26617947ccfbf98c2675a11cf4d2cbdc122285d207c7",
+          "boards": 14200
+        },
+        "wall_seconds": 0.2490495599922724,
+        "cpu_seconds": 0.24904043199999998,
+        "completed_utc": "2026-11-15T02:35:07.560711+00:00"
+      },
+      "target_true_pairs": 3680,
+      "all_minima": [
+        {
+          "orbit_indices": [
+            0
+          ],
+          "generators": [
+            [
+              2,
+              5
+            ]
+          ],
+          "target_pairs": 3680,
+          "false_pairs": 0,
+          "missed_pairs": 0,
+          "exact_graph": true,
+          "first_false_edge": null,
+          "first_missed_edge": null
+        }
+      ],
+      "selected_after_target_comparison": false
+    },
+    "f3-n8": {
+      "source_result": {
+        "id": "f3-n8",
+        "n": 8,
+        "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+        "source_sha256": "a0a6e13687082b27860b5264817cea4972368c547819bd64c85bcf66642b313b",
+        "supplied_complete_source": true,
+        "no_target_file_access": true,
+        "source_patterns": 0,
+        "status": "empty_source",
+        "source_structural_failure": true,
+        "minimum_cardinality": null,
+        "minima": [],
+        "wall_seconds": 0.00011686602374538779,
+        "cpu_seconds": 0.00011619499999999949,
+        "completed_utc": "2026-11-15T02:35:07.322166+00:00"
+      },
+      "target_true_pairs": 1176,
+      "all_minima": [],
+      "selected_after_target_comparison": false
+    },
+    "f3-n10": {
+      "source_result": {
+        "id": "f3-n10",
+        "n": 10,
+        "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+        "source_sha256": "ddd3f9a990ea20e093fbeee5c94f8594c419f135ffb6212f1c17cf00a26cbeb3",
+        "supplied_complete_source": true,
+        "no_target_file_access": true,
+        "source_patterns": 52,
+        "inferred_lines": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "status": "source_certified",
+        "source_structural_failure": false,
+        "source_universe_boards": 724,
+        "source_negatives": 672,
+        "candidate_generators": [
+          [
+            3,
+            4
+          ],
+          [
+            6,
+            9
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            7,
+            9
+          ],
+          [
+            8,
+            9
+          ]
+        ],
+        "candidate_orbits": [
+          [
+            [
+              3,
+              -4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              -3
+            ],
+            [
+              4,
+              3
+            ]
+          ],
+          [
+            [
+              6,
+              -9
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              9,
+              -6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          [
+            [
+              7,
+              -8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              -7
+            ],
+            [
+              8,
+              7
+            ]
+          ],
+          [
+            [
+              7,
+              -9
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              9,
+              -7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          [
+            [
+              8,
+              -9
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              9,
+              -8
+            ],
+            [
+              9,
+              8
+            ]
+          ]
+        ],
+        "minimum_cardinality": 1,
+        "minima": [
+          [
+            0
+          ]
+        ],
+        "selected_generator_sets": [
+          [
+            [
+              3,
+              4
+            ]
+          ]
+        ],
+        "unique_minimum": true,
+        "checked_subset_count": 6,
+        "certificate_sha256": "e0001bfef95b30f8586d564065a14d1ff6c3bba05a8ddac61cf23b6d0877ad6b",
+        "verification_sha256": "c0aaa7feaf5af81e40cf805763d448e0d7451523ade2d39bd03d57cb7c57194b",
+        "checked_subsets_sha256": "4bbe9c88157d3aa6d0798b237673436e112ad9e41044102d023808ca4aefac9a",
+        "cache_key": "b5c30c0ab18ffd8f2152c869e2652df9d77b00c1db5f5c40af19d74c2d80ae57",
+        "cache_reused": true,
+        "cache_receipt": {
+          "n": 10,
+          "lines": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "primary_sha256": "be5529c767a7c6317c25f928521bfca6c404706ae097c4084c21fa8bc30e5bcd",
+          "independent_sha256": "be5529c767a7c6317c25f928521bfca6c404706ae097c4084c21fa8bc30e5bcd",
+          "constructor_sha256": "e15c9706e43f3e5de54f26617947ccfbf98c2675a11cf4d2cbdc122285d207c7",
+          "boards": 724
+        },
+        "wall_seconds": 0.011568129004444927,
+        "cpu_seconds": 0.011566146,
+        "completed_utc": "2026-11-15T02:35:07.382871+00:00"
+      },
+      "target_true_pairs": 2204,
+      "all_minima": [
+        {
+          "orbit_indices": [
+            0
+          ],
+          "generators": [
+            [
+              3,
+              4
+            ]
+          ],
+          "target_pairs": 2204,
+          "false_pairs": 0,
+          "missed_pairs": 0,
+          "exact_graph": true,
+          "first_false_edge": null,
+          "first_missed_edge": null
+        }
+      ],
+      "selected_after_target_comparison": false
+    },
+    "f3-n12": {
+      "source_result": {
+        "id": "f3-n12",
+        "n": 12,
+        "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+        "source_sha256": "5a3ea9b09c319f92736fa257dd40a3e3aa7fac30a572172726f168299c554949",
+        "supplied_complete_source": true,
+        "no_target_file_access": true,
+        "source_patterns": 1192,
+        "inferred_lines": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "status": "source_certified",
+        "source_structural_failure": false,
+        "source_universe_boards": 14200,
+        "source_negatives": 13008,
+        "candidate_generators": [
+          [
+            3,
+            4
+          ],
+          [
+            10,
+            11
+          ]
+        ],
+        "candidate_orbits": [
+          [
+            [
+              3,
+              -4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              -3
+            ],
+            [
+              4,
+              3
+            ]
+          ],
+          [
+            [
+              10,
+              -11
+            ],
+            [
+              10,
+              11
+            ],
+            [
+              11,
+              -10
+            ],
+            [
+              11,
+              10
+            ]
+          ]
+        ],
+        "minimum_cardinality": 1,
+        "minima": [
+          [
+            0
+          ]
+        ],
+        "selected_generator_sets": [
+          [
+            [
+              3,
+              4
+            ]
+          ]
+        ],
+        "unique_minimum": true,
+        "checked_subset_count": 3,
+        "certificate_sha256": "1ad5306f2b4311783203221549ede8bff373962a1b0c665aef33a42530757455",
+        "verification_sha256": "21f58fa460ade2b0152a56642e2a317d34db95fab5bb0ca9c03a4b46397e9d8c",
+        "checked_subsets_sha256": "a9b96a248105acffc76b540c73c16de3150d840e37a6e654f9829e439513f9cf",
+        "cache_key": "1b144b6e66254f8379b5edf2a631d4104f8cb62724c20ecc2bff8808b039e561",
+        "cache_reused": true,
+        "cache_receipt": {
+          "n": 12,
+          "lines": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "primary_sha256": "d63a5e609d915846898d02d0d9f6e43760d2cfe82f5e609d42656ea0b72e28f4",
+          "independent_sha256": "d63a5e609d915846898d02d0d9f6e43760d2cfe82f5e609d42656ea0b72e28f4",
+          "constructor_sha256": "e15c9706e43f3e5de54f26617947ccfbf98c2675a11cf4d2cbdc122285d207c7",
+          "boards": 14200
+        },
+        "wall_seconds": 0.2645064140087925,
+        "cpu_seconds": 0.264477895,
+        "completed_utc": "2026-11-15T02:35:07.697977+00:00"
+      },
+      "target_true_pairs": 3688,
+      "all_minima": [
+        {
+          "orbit_indices": [
+            0
+          ],
+          "generators": [
+            [
+              3,
+              4
+            ]
+          ],
+          "target_pairs": 3688,
+          "false_pairs": 0,
+          "missed_pairs": 0,
+          "exact_graph": true,
+          "first_false_edge": null,
+          "first_missed_edge": null
+        }
+      ],
+      "selected_after_target_comparison": false
+    },
+    "f4-n8": {
+      "source_result": {
+        "id": "f4-n8",
+        "n": 8,
+        "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+        "source_sha256": "a0a6e13687082b27860b5264817cea4972368c547819bd64c85bcf66642b313b",
+        "supplied_complete_source": true,
+        "no_target_file_access": true,
+        "source_patterns": 0,
+        "status": "empty_source",
+        "source_structural_failure": true,
+        "minimum_cardinality": null,
+        "minima": [],
+        "wall_seconds": 0.00011916900984942913,
+        "cpu_seconds": 0.00011845800000000184,
+        "completed_utc": "2026-11-15T02:35:07.613029+00:00"
+      },
+      "target_true_pairs": 1416,
+      "all_minima": [],
+      "selected_after_target_comparison": false
+    },
+    "f4-n10": {
+      "source_result": {
+        "id": "f4-n10",
+        "n": 10,
+        "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+        "source_sha256": "19ed463b4d4b214d3fc9d1261335c9ea79944806ed2039b889924cf983ebade0",
+        "supplied_complete_source": true,
+        "no_target_file_access": true,
+        "source_patterns": 4,
+        "inferred_lines": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "status": "source_certified",
+        "source_structural_failure": false,
+        "source_universe_boards": 724,
+        "source_negatives": 720,
+        "candidate_generators": [
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            2,
+            9
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            5,
+            9
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            6,
+            9
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            8,
+            9
+          ]
+        ],
+        "candidate_orbits": [
+          [
+            [
+              1,
+              -3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              3,
+              -1
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              -4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              -1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              -7
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              7,
+              -1
+            ],
+            [
+              7,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              -8
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              8,
+              -1
+            ],
+            [
+              8,
+              1
+            ]
+          ],
+          [
+            [
+              2,
+              -3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              -2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          [
+            [
+              2,
+              -5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              5,
+              -2
+            ],
+            [
+              5,
+              2
+            ]
+          ],
+          [
+            [
+              2,
+              -6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              6,
+              -2
+            ],
+            [
+              6,
+              2
+            ]
+          ],
+          [
+            [
+              2,
+              -8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              8,
+              -2
+            ],
+            [
+              8,
+              2
+            ]
+          ],
+          [
+            [
+              2,
+              -9
+            ],
+            [
+              2,
+              9
+            ],
+            [
+              9,
+              -2
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          [
+            [
+              3,
+              -8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              8,
+              -3
+            ],
+            [
+              8,
+              3
+            ]
+          ],
+          [
+            [
+              3,
+              -9
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              9,
+              -3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          [
+            [
+              4,
+              -5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              -4
+            ],
+            [
+              5,
+              4
+            ]
+          ],
+          [
+            [
+              4,
+              -6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              -4
+            ],
+            [
+              6,
+              4
+            ]
+          ],
+          [
+            [
+              4,
+              -7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              7,
+              -4
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          [
+            [
+              4,
+              -9
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              9,
+              -4
+            ],
+            [
+              9,
+              4
+            ]
+          ],
+          [
+            [
+              5,
+              -6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              -5
+            ],
+            [
+              6,
+              5
+            ]
+          ],
+          [
+            [
+              5,
+              -7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              -5
+            ],
+            [
+              7,
+              5
+            ]
+          ],
+          [
+            [
+              5,
+              -9
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              9,
+              -5
+            ],
+            [
+              9,
+              5
+            ]
+          ],
+          [
+            [
+              6,
+              -7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              -6
+            ],
+            [
+              7,
+              6
+            ]
+          ],
+          [
+            [
+              6,
+              -8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              8,
+              -6
+            ],
+            [
+              8,
+              6
+            ]
+          ],
+          [
+            [
+              6,
+              -9
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              9,
+              -6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          [
+            [
+              7,
+              -8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              -7
+            ],
+            [
+              8,
+              7
+            ]
+          ],
+          [
+            [
+              8,
+              -9
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              9,
+              -8
+            ],
+            [
+              9,
+              8
+            ]
+          ]
+        ],
+        "minimum_cardinality": 1,
+        "minima": [
+          [
+            0
+          ]
+        ],
+        "selected_generator_sets": [
+          [
+            [
+              1,
+              3
+            ]
+          ]
+        ],
+        "unique_minimum": true,
+        "checked_subset_count": 24,
+        "certificate_sha256": "be312fd6fa583d9465c16d41011b8b9b1c641c176d3d0421129e4e41388b9473",
+        "verification_sha256": "3493009e9a2ad785f0456aa1c845b2fe4562dad0c4b2e7d796dc0e1112b6e2e9",
+        "checked_subsets_sha256": "75e7c0bbe8da06dc64542c92089e71d7adfa61e8acf874d33f650c7d99b95ead",
+        "cache_key": "b5c30c0ab18ffd8f2152c869e2652df9d77b00c1db5f5c40af19d74c2d80ae57",
+        "cache_reused": true,
+        "cache_receipt": {
+          "n": 10,
+          "lines": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "primary_sha256": "be5529c767a7c6317c25f928521bfca6c404706ae097c4084c21fa8bc30e5bcd",
+          "independent_sha256": "be5529c767a7c6317c25f928521bfca6c404706ae097c4084c21fa8bc30e5bcd",
+          "constructor_sha256": "e15c9706e43f3e5de54f26617947ccfbf98c2675a11cf4d2cbdc122285d207c7",
+          "boards": 724
+        },
+        "wall_seconds": 0.013655080983880907,
+        "cpu_seconds": 0.013654868,
+        "completed_utc": "2026-11-15T02:35:07.674420+00:00"
+      },
+      "target_true_pairs": 2588,
+      "all_minima": [
+        {
+          "orbit_indices": [
+            0
+          ],
+          "generators": [
+            [
+              1,
+              3
+            ]
+          ],
+          "target_pairs": 2300,
+          "false_pairs": 0,
+          "missed_pairs": 288,
+          "exact_graph": false,
+          "first_false_edge": null,
+          "first_missed_edge": [
+            0,
+            25
+          ]
+        }
+      ],
+      "selected_after_target_comparison": false
+    },
+    "f4-n12": {
+      "source_result": {
+        "id": "f4-n12",
+        "n": 12,
+        "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+        "source_sha256": "34321cb1ec14764db54fc4330e7478f00f9823c842bb36c25ce5f6379b98a64b",
+        "supplied_complete_source": true,
+        "no_target_file_access": true,
+        "source_patterns": 12,
+        "inferred_lines": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "status": "source_certified",
+        "source_structural_failure": false,
+        "source_universe_boards": 14200,
+        "source_negatives": 14188,
+        "candidate_generators": [
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            2,
+            11
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            3,
+            10
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            4,
+            11
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            5,
+            8
+          ],
+          [
+            5,
+            11
+          ],
+          [
+            6,
+            9
+          ],
+          [
+            6,
+            11
+          ],
+          [
+            7,
+            9
+          ],
+          [
+            7,
+            11
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            8,
+            10
+          ],
+          [
+            8,
+            11
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            10,
+            11
+          ]
+        ],
+        "candidate_orbits": [
+          [
+            [
+              1,
+              -3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              3,
+              -1
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              -8
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              8,
+              -1
+            ],
+            [
+              8,
+              1
+            ]
+          ],
+          [
+            [
+              2,
+              -3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              -2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          [
+            [
+              2,
+              -8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              8,
+              -2
+            ],
+            [
+              8,
+              2
+            ]
+          ],
+          [
+            [
+              2,
+              -11
+            ],
+            [
+              2,
+              11
+            ],
+            [
+              11,
+              -2
+            ],
+            [
+              11,
+              2
+            ]
+          ],
+          [
+            [
+              3,
+              -9
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              9,
+              -3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          [
+            [
+              3,
+              -10
+            ],
+            [
+              3,
+              10
+            ],
+            [
+              10,
+              -3
+            ],
+            [
+              10,
+              3
+            ]
+          ],
+          [
+            [
+              4,
+              -7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              7,
+              -4
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          [
+            [
+              4,
+              -11
+            ],
+            [
+              4,
+              11
+            ],
+            [
+              11,
+              -4
+            ],
+            [
+              11,
+              4
+            ]
+          ],
+          [
+            [
+              5,
+              -6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              -5
+            ],
+            [
+              6,
+              5
+            ]
+          ],
+          [
+            [
+              5,
+              -8
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              8,
+              -5
+            ],
+            [
+              8,
+              5
+            ]
+          ],
+          [
+            [
+              5,
+              -11
+            ],
+            [
+              5,
+              11
+            ],
+            [
+              11,
+              -5
+            ],
+            [
+              11,
+              5
+            ]
+          ],
+          [
+            [
+              6,
+              -9
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              9,
+              -6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          [
+            [
+              6,
+              -11
+            ],
+            [
+              6,
+              11
+            ],
+            [
+              11,
+              -6
+            ],
+            [
+              11,
+              6
+            ]
+          ],
+          [
+            [
+              7,
+              -9
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              9,
+              -7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          [
+            [
+              7,
+              -11
+            ],
+            [
+              7,
+              11
+            ],
+            [
+              11,
+              -7
+            ],
+            [
+              11,
+              7
+            ]
+          ],
+          [
+            [
+              8,
+              -9
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              9,
+              -8
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          [
+            [
+              8,
+              -10
+            ],
+            [
+              8,
+              10
+            ],
+            [
+              10,
+              -8
+            ],
+            [
+              10,
+              8
+            ]
+          ],
+          [
+            [
+              8,
+              -11
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              11,
+              -8
+            ],
+            [
+              11,
+              8
+            ]
+          ],
+          [
+            [
+              9,
+              -10
+            ],
+            [
+              9,
+              10
+            ],
+            [
+              10,
+              -9
+            ],
+            [
+              10,
+              9
+            ]
+          ],
+          [
+            [
+              10,
+              -11
+            ],
+            [
+              10,
+              11
+            ],
+            [
+              11,
+              -10
+            ],
+            [
+              11,
+              10
+            ]
+          ]
+        ],
+        "minimum_cardinality": 2,
+        "minima": [
+          [
+            0,
+            2
+          ]
+        ],
+        "selected_generator_sets": [
+          [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ]
+        ],
+        "unique_minimum": true,
+        "checked_subset_count": 232,
+        "certificate_sha256": "8275b8ce0c66d105a0f05db97c29765d625b35acb53e994c7f44b46457da573f",
+        "verification_sha256": "8fd27627a5bde38bc6e2c58bb32412aad7d3bd23c36e37b3150e9ae1f35a1d3e",
+        "checked_subsets_sha256": "87b1e54a01a6f19c10bfb7a0b0bf33d423e4ca4152ab19d5e083011af02c4f35",
+        "cache_key": "1b144b6e66254f8379b5edf2a631d4104f8cb62724c20ecc2bff8808b039e561",
+        "cache_reused": true,
+        "cache_receipt": {
+          "n": 12,
+          "lines": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "primary_sha256": "d63a5e609d915846898d02d0d9f6e43760d2cfe82f5e609d42656ea0b72e28f4",
+          "independent_sha256": "d63a5e609d915846898d02d0d9f6e43760d2cfe82f5e609d42656ea0b72e28f4",
+          "constructor_sha256": "e15c9706e43f3e5de54f26617947ccfbf98c2675a11cf4d2cbdc122285d207c7",
+          "boards": 14200
+        },
+        "wall_seconds": 0.2767351139918901,
+        "cpu_seconds": 0.276734325,
+        "completed_utc": "2026-11-15T02:35:07.996785+00:00"
+      },
+      "target_true_pairs": 4248,
+      "all_minima": [
+        {
+          "orbit_indices": [
+            0,
+            2
+          ],
+          "generators": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "target_pairs": 4248,
+          "false_pairs": 0,
+          "missed_pairs": 0,
+          "exact_graph": true,
+          "first_false_edge": null,
+          "first_missed_edge": null
+        }
+      ],
+      "selected_after_target_comparison": false
+    },
+    "f5-n8": {
+      "source_result": {
+        "id": "f5-n8",
+        "n": 8,
+        "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+        "source_sha256": "a0a6e13687082b27860b5264817cea4972368c547819bd64c85bcf66642b313b",
+        "supplied_complete_source": true,
+        "no_target_file_access": true,
+        "source_patterns": 0,
+        "status": "empty_source",
+        "source_structural_failure": true,
+        "minimum_cardinality": null,
+        "minima": [],
+        "wall_seconds": 0.00019493303261697292,
+        "cpu_seconds": 0.00019415100000000352,
+        "completed_utc": "2026-11-15T02:35:07.749987+00:00"
+      },
+      "target_true_pairs": 1384,
+      "all_minima": [],
+      "selected_after_target_comparison": false
+    },
+    "f5-n10": {
+      "source_result": {
+        "id": "f5-n10",
+        "n": 10,
+        "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+        "source_sha256": "8bf7f6d13a9f1238fec81d95c664d0af8b030967b8c3b638b2cb581986ef1a42",
+        "supplied_complete_source": true,
+        "no_target_file_access": true,
+        "source_patterns": 12,
+        "inferred_lines": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "status": "source_certified",
+        "source_structural_failure": true,
+        "source_universe_boards": 724,
+        "source_negatives": 712,
+        "candidate_generators": [
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            5,
+            9
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            6,
+            9
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            8,
+            9
+          ]
+        ],
+        "candidate_orbits": [
+          [
+            [
+              1,
+              -4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              -1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              -8
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              8,
+              -1
+            ],
+            [
+              8,
+              1
+            ]
+          ],
+          [
+            [
+              2,
+              -3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              -2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          [
+            [
+              2,
+              -5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              5,
+              -2
+            ],
+            [
+              5,
+              2
+            ]
+          ],
+          [
+            [
+              2,
+              -6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              6,
+              -2
+            ],
+            [
+              6,
+              2
+            ]
+          ],
+          [
+            [
+              2,
+              -8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              8,
+              -2
+            ],
+            [
+              8,
+              2
+            ]
+          ],
+          [
+            [
+              3,
+              -8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              8,
+              -3
+            ],
+            [
+              8,
+              3
+            ]
+          ],
+          [
+            [
+              3,
+              -9
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              9,
+              -3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          [
+            [
+              4,
+              -5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              -4
+            ],
+            [
+              5,
+              4
+            ]
+          ],
+          [
+            [
+              4,
+              -7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              7,
+              -4
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          [
+            [
+              4,
+              -9
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              9,
+              -4
+            ],
+            [
+              9,
+              4
+            ]
+          ],
+          [
+            [
+              5,
+              -7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              -5
+            ],
+            [
+              7,
+              5
+            ]
+          ],
+          [
+            [
+              5,
+              -9
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              9,
+              -5
+            ],
+            [
+              9,
+              5
+            ]
+          ],
+          [
+            [
+              6,
+              -7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              -6
+            ],
+            [
+              7,
+              6
+            ]
+          ],
+          [
+            [
+              6,
+              -8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              8,
+              -6
+            ],
+            [
+              8,
+              6
+            ]
+          ],
+          [
+            [
+              6,
+              -9
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              9,
+              -6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          [
+            [
+              7,
+              -8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              -7
+            ],
+            [
+              8,
+              7
+            ]
+          ],
+          [
+            [
+              8,
+              -9
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              9,
+              -8
+            ],
+            [
+              9,
+              8
+            ]
+          ]
+        ],
+        "minimum_cardinality": 2,
+        "minima": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            9
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            8
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            4,
+            13
+          ],
+          [
+            4,
+            14
+          ]
+        ],
+        "selected_generator_sets": [
+          [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          [
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          [
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              7
+            ]
+          ],
+          [
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          [
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          [
+            [
+              2,
+              6
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          [
+            [
+              2,
+              6
+            ],
+            [
+              4,
+              7
+            ]
+          ],
+          [
+            [
+              2,
+              6
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          [
+            [
+              2,
+              6
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        ],
+        "unique_minimum": false,
+        "checked_subset_count": 172,
+        "certificate_sha256": "e8317fc085b912dfb6cc9fed12f5b31ccf94db2b7d6923feacc05df3e318b094",
+        "verification_sha256": "fc70dc7b0e81f184325d0774f88a14ca5183b49216ea2b0edc71aa87def34b2a",
+        "checked_subsets_sha256": "54ba7008a601e048bb6be5f7a01e6e1a40734a1be3b6fae938706a99864b97a2",
+        "cache_key": "b5c30c0ab18ffd8f2152c869e2652df9d77b00c1db5f5c40af19d74c2d80ae57",
+        "cache_reused": true,
+        "cache_receipt": {
+          "n": 10,
+          "lines": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "primary_sha256": "be5529c767a7c6317c25f928521bfca6c404706ae097c4084c21fa8bc30e5bcd",
+          "independent_sha256": "be5529c767a7c6317c25f928521bfca6c404706ae097c4084c21fa8bc30e5bcd",
+          "constructor_sha256": "e15c9706e43f3e5de54f26617947ccfbf98c2675a11cf4d2cbdc122285d207c7",
+          "boards": 724
+        },
+        "wall_seconds": 0.014342422015033662,
+        "cpu_seconds": 0.014333485,
+        "completed_utc": "2026-11-15T02:35:07.815901+00:00"
+      },
+      "target_true_pairs": 2548,
+      "all_minima": [
+        {
+          "orbit_indices": [
+            0,
+            2
+          ],
+          "generators": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "target_pairs": 2548,
+          "false_pairs": 0,
+          "missed_pairs": 0,
+          "exact_graph": true,
+          "first_false_edge": null,
+          "first_missed_edge": null
+        },
+        {
+          "orbit_indices": [
+            0,
+            8
+          ],
+          "generators": [
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "target_pairs": 2428,
+          "false_pairs": 168,
+          "missed_pairs": 288,
+          "exact_graph": false,
+          "first_false_edge": [
+            0,
+            49
+          ],
+          "first_missed_edge": [
+            0,
+            25
+          ]
+        },
+        {
+          "orbit_indices": [
+            0,
+            9
+          ],
+          "generators": [
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              7
+            ]
+          ],
+          "target_pairs": 2372,
+          "false_pairs": 112,
+          "missed_pairs": 288,
+          "exact_graph": false,
+          "first_false_edge": [
+            0,
+            51
+          ],
+          "first_missed_edge": [
+            0,
+            25
+          ]
+        },
+        {
+          "orbit_indices": [
+            2,
+            4
+          ],
+          "generators": [
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "target_pairs": 2448,
+          "false_pairs": 180,
+          "missed_pairs": 280,
+          "exact_graph": false,
+          "first_false_edge": [
+            0,
+            28
+          ],
+          "first_missed_edge": [
+            0,
+            15
+          ]
+        },
+        {
+          "orbit_indices": [
+            3,
+            4
+          ],
+          "generators": [
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "target_pairs": 2376,
+          "false_pairs": 396,
+          "missed_pairs": 568,
+          "exact_graph": false,
+          "first_false_edge": [
+            0,
+            27
+          ],
+          "first_missed_edge": [
+            0,
+            15
+          ]
+        },
+        {
+          "orbit_indices": [
+            4,
+            8
+          ],
+          "generators": [
+            [
+              2,
+              6
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "target_pairs": 2328,
+          "false_pairs": 348,
+          "missed_pairs": 568,
+          "exact_graph": false,
+          "first_false_edge": [
+            0,
+            28
+          ],
+          "first_missed_edge": [
+            0,
+            15
+          ]
+        },
+        {
+          "orbit_indices": [
+            4,
+            9
+          ],
+          "generators": [
+            [
+              2,
+              6
+            ],
+            [
+              4,
+              7
+            ]
+          ],
+          "target_pairs": 2272,
+          "false_pairs": 292,
+          "missed_pairs": 568,
+          "exact_graph": false,
+          "first_false_edge": [
+            0,
+            28
+          ],
+          "first_missed_edge": [
+            0,
+            15
+          ]
+        },
+        {
+          "orbit_indices": [
+            4,
+            13
+          ],
+          "generators": [
+            [
+              2,
+              6
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "target_pairs": 2240,
+          "false_pairs": 260,
+          "missed_pairs": 568,
+          "exact_graph": false,
+          "first_false_edge": [
+            0,
+            28
+          ],
+          "first_missed_edge": [
+            0,
+            15
+          ]
+        },
+        {
+          "orbit_indices": [
+            4,
+            14
+          ],
+          "generators": [
+            [
+              2,
+              6
+            ],
+            [
+              6,
+              8
+            ]
+          ],
+          "target_pairs": 2220,
+          "false_pairs": 240,
+          "missed_pairs": 568,
+          "exact_graph": false,
+          "first_false_edge": [
+            0,
+            28
+          ],
+          "first_missed_edge": [
+            0,
+            15
+          ]
+        }
+      ],
+      "selected_after_target_comparison": false
+    },
+    "f5-n12": {
+      "source_result": {
+        "id": "f5-n12",
+        "n": 12,
+        "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+        "source_sha256": "8baf71311ac40a07b81dbc9495072a31251ca057ed265eec8ce30fe159144b41",
+        "supplied_complete_source": true,
+        "no_target_file_access": true,
+        "source_patterns": 52,
+        "inferred_lines": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "status": "source_certified",
+        "source_structural_failure": false,
+        "source_universe_boards": 14200,
+        "source_negatives": 14148,
+        "candidate_generators": [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            11
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            6,
+            10
+          ],
+          [
+            7,
+            9
+          ],
+          [
+            8,
+            11
+          ],
+          [
+            9,
+            10
+          ]
+        ],
+        "candidate_orbits": [
+          [
+            [
+              1,
+              -4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              -1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          [
+            [
+              2,
+              -3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              -2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          [
+            [
+              4,
+              -11
+            ],
+            [
+              4,
+              11
+            ],
+            [
+              11,
+              -4
+            ],
+            [
+              11,
+              4
+            ]
+          ],
+          [
+            [
+              6,
+              -7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              -6
+            ],
+            [
+              7,
+              6
+            ]
+          ],
+          [
+            [
+              6,
+              -8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              8,
+              -6
+            ],
+            [
+              8,
+              6
+            ]
+          ],
+          [
+            [
+              6,
+              -10
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              10,
+              -6
+            ],
+            [
+              10,
+              6
+            ]
+          ],
+          [
+            [
+              7,
+              -9
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              9,
+              -7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          [
+            [
+              8,
+              -11
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              11,
+              -8
+            ],
+            [
+              11,
+              8
+            ]
+          ],
+          [
+            [
+              9,
+              -10
+            ],
+            [
+              9,
+              10
+            ],
+            [
+              10,
+              -9
+            ],
+            [
+              10,
+              9
+            ]
+          ]
+        ],
+        "minimum_cardinality": 2,
+        "minima": [
+          [
+            0,
+            1
+          ]
+        ],
+        "selected_generator_sets": [
+          [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ]
+          ]
+        ],
+        "unique_minimum": true,
+        "checked_subset_count": 46,
+        "certificate_sha256": "93a08365ae1d3830522afac05765ae5e40befc00347c127d700c900c3d7307de",
+        "verification_sha256": "2279e093130eb9aa572619dec3f778ed24e8dc8ff70d20fc82bb629e47c4e317",
+        "checked_subsets_sha256": "62f4695238a047dd13aa80b973baaa02266c5aec495d8280e10942f7697807ad",
+        "cache_key": "1b144b6e66254f8379b5edf2a631d4104f8cb62724c20ecc2bff8808b039e561",
+        "cache_reused": true,
+        "cache_receipt": {
+          "n": 12,
+          "lines": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "primary_sha256": "d63a5e609d915846898d02d0d9f6e43760d2cfe82f5e609d42656ea0b72e28f4",
+          "independent_sha256": "d63a5e609d915846898d02d0d9f6e43760d2cfe82f5e609d42656ea0b72e28f4",
+          "constructor_sha256": "e15c9706e43f3e5de54f26617947ccfbf98c2675a11cf4d2cbdc122285d207c7",
+          "boards": 14200
+        },
+        "wall_seconds": 0.25976323598297313,
+        "cpu_seconds": 0.25971531200000003,
+        "completed_utc": "2026-11-15T02:35:08.127593+00:00"
+      },
+      "target_true_pairs": 4200,
+      "all_minima": [
+        {
+          "orbit_indices": [
+            0,
+            1
+          ],
+          "generators": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "target_pairs": 4200,
+          "false_pairs": 0,
+          "missed_pairs": 0,
+          "exact_graph": true,
+          "first_false_edge": null,
+          "first_missed_edge": null
+        }
+      ],
+      "selected_after_target_comparison": false
+    }
+  },
+  "generation": {
+    "status": "complete",
+    "utc": "2026-11-15T02:35:03.597613+00:00",
+    "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+    "ordinary_enumerations": [
+      {
+        "n": 8,
+        "ordinary_boards": 92,
+        "independent_enumerations_equal": true
+      },
+      {
+        "n": 10,
+        "ordinary_boards": 724,
+        "independent_enumerations_equal": true
+      },
+      {
+        "n": 12,
+        "ordinary_boards": 14200,
+        "independent_enumerations_equal": true
+      }
+    ],
+    "cases": [
+      {
+        "id": "f0-n8",
+        "n": 8,
+        "source_patterns": 4,
+        "source_path": "artifacts/research/20261114/loki/h3y/sources/f0-n8.npy",
+        "source_sha256": "682deabb3d730c497a8528ba4625f746b5cf7b5c0817f76a05b5522ed30ffc7e",
+        "complete_source_supplied": true,
+        "independent_generation_equal": true
+      },
+      {
+        "id": "f0-n10",
+        "n": 10,
+        "source_patterns": 76,
+        "source_path": "artifacts/research/20261114/loki/h3y/sources/f0-n10.npy",
+        "source_sha256": "4f9a6cb44c82640b72b0526c915c83d9b4e7f85413e917d868995bf15052ff48",
+        "complete_source_supplied": true,
+        "independent_generation_equal": true
+      },
+      {
+        "id": "f0-n12",
+        "n": 12,
+        "source_patterns": 632,
+        "source_path": "artifacts/research/20261114/loki/h3y/sources/f0-n12.npy",
+        "source_sha256": "aaad80e864476554a30379436878c5f3336841e0a44b47f09364f11a16c62da1",
+        "complete_source_supplied": true,
+        "independent_generation_equal": true
+      },
+      {
+        "id": "f1-n8",
+        "n": 8,
+        "source_patterns": 0,
+        "source_path": "artifacts/research/20261114/loki/h3y/sources/f1-n8.npy",
+        "source_sha256": "a0a6e13687082b27860b5264817cea4972368c547819bd64c85bcf66642b313b",
+        "complete_source_supplied": true,
+        "independent_generation_equal": true
+      },
+      {
+        "id": "f1-n10",
+        "n": 10,
+        "source_patterns": 48,
+        "source_path": "artifacts/research/20261114/loki/h3y/sources/f1-n10.npy",
+        "source_sha256": "12cfcced04112a773ff133a081fc2482156c73bb855db8b00d6ac3154cb6e7ba",
+        "complete_source_supplied": true,
+        "independent_generation_equal": true
+      },
+      {
+        "id": "f1-n12",
+        "n": 12,
+        "source_patterns": 472,
+        "source_path": "artifacts/research/20261114/loki/h3y/sources/f1-n12.npy",
+        "source_sha256": "53b1209b1ff5af4dbb9c652e574761cd710dbdebb260e8d2ad71d2d88c3465a4",
+        "complete_source_supplied": true,
+        "independent_generation_equal": true
+      },
+      {
+        "id": "f2-n8",
+        "n": 8,
+        "source_patterns": 20,
+        "source_path": "artifacts/research/20261114/loki/h3y/sources/f2-n8.npy",
+        "source_sha256": "c35595e8aca36dffba1da1cb2b10457a774cc86305d1e79fb8d8016ae5deea2c",
+        "complete_source_supplied": true,
+        "independent_generation_equal": true
+      },
+      {
+        "id": "f2-n10",
+        "n": 10,
+        "source_patterns": 72,
+        "source_path": "artifacts/research/20261114/loki/h3y/sources/f2-n10.npy",
+        "source_sha256": "10d71b41e666d9ac454ee885762ee8723159ffe0f740bcd739080359fb811291",
+        "complete_source_supplied": true,
+        "independent_generation_equal": true
+      },
+      {
+        "id": "f2-n12",
+        "n": 12,
+        "source_patterns": 1304,
+        "source_path": "artifacts/research/20261114/loki/h3y/sources/f2-n12.npy",
+        "source_sha256": "d8ee10c015a7aa1131a9c573d8f8cbfd1f349f3587785dd30fa0cc9a5cb8862d",
+        "complete_source_supplied": true,
+        "independent_generation_equal": true
+      },
+      {
+        "id": "f3-n8",
+        "n": 8,
+        "source_patterns": 0,
+        "source_path": "artifacts/research/20261114/loki/h3y/sources/f3-n8.npy",
+        "source_sha256": "a0a6e13687082b27860b5264817cea4972368c547819bd64c85bcf66642b313b",
+        "complete_source_supplied": true,
+        "independent_generation_equal": true
+      },
+      {
+        "id": "f3-n10",
+        "n": 10,
+        "source_patterns": 52,
+        "source_path": "artifacts/research/20261114/loki/h3y/sources/f3-n10.npy",
+        "source_sha256": "ddd3f9a990ea20e093fbeee5c94f8594c419f135ffb6212f1c17cf00a26cbeb3",
+        "complete_source_supplied": true,
+        "independent_generation_equal": true
+      },
+      {
+        "id": "f3-n12",
+        "n": 12,
+        "source_patterns": 1192,
+        "source_path": "artifacts/research/20261114/loki/h3y/sources/f3-n12.npy",
+        "source_sha256": "5a3ea9b09c319f92736fa257dd40a3e3aa7fac30a572172726f168299c554949",
+        "complete_source_supplied": true,
+        "independent_generation_equal": true
+      },
+      {
+        "id": "f4-n8",
+        "n": 8,
+        "source_patterns": 0,
+        "source_path": "artifacts/research/20261114/loki/h3y/sources/f4-n8.npy",
+        "source_sha256": "a0a6e13687082b27860b5264817cea4972368c547819bd64c85bcf66642b313b",
+        "complete_source_supplied": true,
+        "independent_generation_equal": true
+      },
+      {
+        "id": "f4-n10",
+        "n": 10,
+        "source_patterns": 4,
+        "source_path": "artifacts/research/20261114/loki/h3y/sources/f4-n10.npy",
+        "source_sha256": "19ed463b4d4b214d3fc9d1261335c9ea79944806ed2039b889924cf983ebade0",
+        "complete_source_supplied": true,
+        "independent_generation_equal": true
+      },
+      {
+        "id": "f4-n12",
+        "n": 12,
+        "source_patterns": 12,
+        "source_path": "artifacts/research/20261114/loki/h3y/sources/f4-n12.npy",
+        "source_sha256": "34321cb1ec14764db54fc4330e7478f00f9823c842bb36c25ce5f6379b98a64b",
+        "complete_source_supplied": true,
+        "independent_generation_equal": true
+      },
+      {
+        "id": "f5-n8",
+        "n": 8,
+        "source_patterns": 0,
+        "source_path": "artifacts/research/20261114/loki/h3y/sources/f5-n8.npy",
+        "source_sha256": "a0a6e13687082b27860b5264817cea4972368c547819bd64c85bcf66642b313b",
+        "complete_source_supplied": true,
+        "independent_generation_equal": true
+      },
+      {
+        "id": "f5-n10",
+        "n": 10,
+        "source_patterns": 12,
+        "source_path": "artifacts/research/20261114/loki/h3y/sources/f5-n10.npy",
+        "source_sha256": "8bf7f6d13a9f1238fec81d95c664d0af8b030967b8c3b638b2cb581986ef1a42",
+        "complete_source_supplied": true,
+        "independent_generation_equal": true
+      },
+      {
+        "id": "f5-n12",
+        "n": 12,
+        "source_patterns": 52,
+        "source_path": "artifacts/research/20261114/loki/h3y/sources/f5-n12.npy",
+        "source_sha256": "8baf71311ac40a07b81dbc9495072a31251ca057ed265eec8ce30fe159144b41",
+        "complete_source_supplied": true,
+        "independent_generation_equal": true
+      }
+    ],
+    "wall_seconds": 3.701035788981244,
+    "cpu_seconds": 3.700882059,
+    "no_target_enumeration": true
+  },
+  "source_seals": {
+    "status": "all18sources_sealed_before_any_target_diagnosis",
+    "utc": "2026-11-15T02:35:08.138659+00:00",
+    "protocol_sha256": "355fddc408a04004678efbb84cfb523f05871f015d286479f6b05b5253251e28",
+    "source_result_sha256": {
+      "f0-n8": "7a8fb6958dec17303d00a6833cd40bb3d7311798f86c61a0cb49054fdd703b8f",
+      "f0-n10": "e1b6685490e672fc956553f4a469d63cb956b5760b0fcbce37c8fc5e98ff2106",
+      "f0-n12": "dc6c7c491db8812f73be82e3460f4e2ee25fb502c1116797b1f8621fc3bdb4e5",
+      "f1-n8": "e164235446f185155204c21df73604db2e6320898c2174c27c2a0ffa0d22e490",
+      "f1-n10": "d92f905b470c389064adbdc89f78b9206f2ce070a28eac98d993500ab97de734",
+      "f1-n12": "d818a69d5b2f92a1811b0dfc7c3b52b2dc5a2ea646f6586888147a5d0e5d34e8",
+      "f2-n8": "bb09fc652ff57ca6c59561c18ed2a204d69ca1e1d1a5da295de103fdd8e63428",
+      "f2-n10": "5b68aaf0dcb09eb8cba5e8e6efe1670d02eb89374acc7c76cc27fa2e9924f338",
+      "f2-n12": "3d7b8e218a29a581bf9e4f84faeee45fd2fdb213afbab2b61e92649936960a82",
+      "f3-n8": "326fac712dba138ee0b08eac8ab84307b1258cb609a9089bb19a6ae40be4b8e3",
+      "f3-n10": "0c723208328808c220a2426e3f0b5b7e973153d06ac61b26f334b61366bb106a",
+      "f3-n12": "e0174789c1793671660a8cf4169d47945b1339a9f42ce2f86313a46f015d10b9",
+      "f4-n8": "42c680db688e4628242c908fbfdf4a3d063255af545dae9178860751202469bd",
+      "f4-n10": "f8ecb27107ce1fe6751e1cfdd130d09ddd072457963200546b2e0016ec6f23be",
+      "f4-n12": "2439a562b5899f55502dbaccfcbe5e76f0a26eab82aa62b28579dd676c7782e8",
+      "f5-n8": "ef7c0720c53e6f9bacc8894b19372638a156d2beaa9610c958912da6e50c837f",
+      "f5-n10": "979b7e61dec0dd916d8e05052ddea172da18e13f6306e9750205f8ca59c4040f",
+      "f5-n12": "d2ee8af01a87e70d4bc5aaba0ecd411802f2e7c76994e9c5a70f5f8983957bbf"
+    },
+    "campaign_wall_seconds": 4.490706675045658,
+    "logs": [
+      {
+        "id": "f0-n8",
+        "returncode": 0,
+        "stdout": "{\"id\": \"f0-n8\", \"status\": \"source_certified\", \"source_patterns\": 4, \"minimum_cardinality\": 1, \"minima\": [[0]], \"wall_seconds\": 0.010173215996474028}\n",
+        "stderr": ""
+      },
+      {
+        "id": "f0-n10",
+        "returncode": 0,
+        "stdout": "{\"id\": \"f0-n10\", \"status\": \"source_certified\", \"source_patterns\": 76, \"minimum_cardinality\": 1, \"minima\": [[0]], \"wall_seconds\": 0.13321607100078836}\n",
+        "stderr": ""
+      },
+      {
+        "id": "f1-n8",
+        "returncode": 0,
+        "stdout": "{\"id\": \"f1-n8\", \"status\": \"empty_source\", \"source_patterns\": 0, \"minimum_cardinality\": null, \"minima\": [], \"wall_seconds\": 0.00013523298548534513}\n",
+        "stderr": ""
+      },
+      {
+        "id": "f1-n10",
+        "returncode": 0,
+        "stdout": "{\"id\": \"f1-n10\", \"status\": \"source_certified\", \"source_patterns\": 48, \"minimum_cardinality\": 1, \"minima\": [[0]], \"wall_seconds\": 0.011674279056023806}\n",
+        "stderr": ""
+      },
+      {
+        "id": "f1-n12",
+        "returncode": 0,
+        "stdout": "{\"id\": \"f1-n12\", \"status\": \"source_certified\", \"source_patterns\": 472, \"minimum_cardinality\": 1, \"minima\": [[0]], \"wall_seconds\": 3.2195671260124072}\n",
+        "stderr": ""
+      },
+      {
+        "id": "f0-n12",
+        "returncode": 0,
+        "stdout": "{\"id\": \"f0-n12\", \"status\": \"source_certified\", \"source_patterns\": 632, \"minimum_cardinality\": 1, \"minima\": [[0]], \"wall_seconds\": 3.4590972310397774}\n",
+        "stderr": ""
+      },
+      {
+        "id": "f2-n8",
+        "returncode": 0,
+        "stdout": "{\"id\": \"f2-n8\", \"status\": \"source_certified\", \"source_patterns\": 20, \"minimum_cardinality\": 1, \"minima\": [[0]], \"wall_seconds\": 0.0030402420088648796}\n",
+        "stderr": ""
+      },
+      {
+        "id": "f2-n10",
+        "returncode": 0,
+        "stdout": "{\"id\": \"f2-n10\", \"status\": \"source_certified\", \"source_patterns\": 72, \"minimum_cardinality\": 1, \"minima\": [[0]], \"wall_seconds\": 0.011535539990291}\n",
+        "stderr": ""
+      },
+      {
+        "id": "f3-n8",
+        "returncode": 0,
+        "stdout": "{\"id\": \"f3-n8\", \"status\": \"empty_source\", \"source_patterns\": 0, \"minimum_cardinality\": null, \"minima\": [], \"wall_seconds\": 0.00011686602374538779}\n",
+        "stderr": ""
+      },
+      {
+        "id": "f3-n10",
+        "returncode": 0,
+        "stdout": "{\"id\": \"f3-n10\", \"status\": \"source_certified\", \"source_patterns\": 52, \"minimum_cardinality\": 1, \"minima\": [[0]], \"wall_seconds\": 0.011568129004444927}\n",
+        "stderr": ""
+      },
+      {
+        "id": "f2-n12",
+        "returncode": 0,
+        "stdout": "{\"id\": \"f2-n12\", \"status\": \"source_certified\", \"source_patterns\": 1304, \"minimum_cardinality\": 1, \"minima\": [[0]], \"wall_seconds\": 0.2490495599922724}\n",
+        "stderr": ""
+      },
+      {
+        "id": "f4-n8",
+        "returncode": 0,
+        "stdout": "{\"id\": \"f4-n8\", \"status\": \"empty_source\", \"source_patterns\": 0, \"minimum_cardinality\": null, \"minima\": [], \"wall_seconds\": 0.00011916900984942913}\n",
+        "stderr": ""
+      },
+      {
+        "id": "f4-n10",
+        "returncode": 0,
+        "stdout": "{\"id\": \"f4-n10\", \"status\": \"source_certified\", \"source_patterns\": 4, \"minimum_cardinality\": 1, \"minima\": [[0]], \"wall_seconds\": 0.013655080983880907}\n",
+        "stderr": ""
+      },
+      {
+        "id": "f3-n12",
+        "returncode": 0,
+        "stdout": "{\"id\": \"f3-n12\", \"status\": \"source_certified\", \"source_patterns\": 1192, \"minimum_cardinality\": 1, \"minima\": [[0]], \"wall_seconds\": 0.2645064140087925}\n",
+        "stderr": ""
+      },
+      {
+        "id": "f5-n8",
+        "returncode": 0,
+        "stdout": "{\"id\": \"f5-n8\", \"status\": \"empty_source\", \"source_patterns\": 0, \"minimum_cardinality\": null, \"minima\": [], \"wall_seconds\": 0.00019493303261697292}\n",
+        "stderr": ""
+      },
+      {
+        "id": "f5-n10",
+        "returncode": 0,
+        "stdout": "{\"id\": \"f5-n10\", \"status\": \"source_certified\", \"source_patterns\": 12, \"minimum_cardinality\": 2, \"minima\": [[0, 2], [0, 8], [0, 9], [2, 4], [3, 4], [4, 8], [4, 9], [4, 13], [4, 14]], \"wall_seconds\": 0.014342422015033662}\n",
+        "stderr": ""
+      },
+      {
+        "id": "f4-n12",
+        "returncode": 0,
+        "stdout": "{\"id\": \"f4-n12\", \"status\": \"source_certified\", \"source_patterns\": 12, \"minimum_cardinality\": 2, \"minima\": [[0, 2]], \"wall_seconds\": 0.2767351139918901}\n",
+        "stderr": ""
+      },
+      {
+        "id": "f5-n12",
+        "returncode": 0,
+        "stdout": "{\"id\": \"f5-n12\", \"status\": \"source_certified\", \"source_patterns\": 52, \"minimum_cardinality\": 2, \"minima\": [[0, 1]], \"wall_seconds\": 0.25976323598297313}\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "source_cpu_seconds": 4.949721566,
+  "source_worker_wall_seconds": 7.9384898621356115,
+  "source_campaign_wall_seconds": 4.490706675045658,
+  "generation_cpu_seconds": 3.700882059,
+  "generation_wall_seconds": 3.701035788981244,
+  "reused_universe_cache_cases": 11,
+  "unique_universe_cache_keys": 3,
+  "total_checked_subsets": 522,
+  "target_diagnostic_seconds": 0.062027646985370666,
+  "new_gpu_search_jobs": 0,
+  "new_optimizer_fits": 0,
+  "target_tie_selections": 0,
+  "limits": [
+    "Supplied closed-world completeness and D4/minimum-description priors are stronger information than positive examples alone.",
+    "Uniqueness concerns only this finite candidate class; completeness need not identify one rule set without the minimum-description prior.",
+    "Eighteen fixed synthetic cases are a structural stress test,not independent random draws from a rule-family population.",
+    "No GPUsearch or optimizer fitting is performed. Structural exactness is separate from search performance and paper reproduction.",
+    "All target comparisons follow the global source seal; ambiguous source minima remain ambiguous even if only one transfers."
+  ],
+  "diagnostic_source_sha256": "80edff1276cd1b8db0a709c46cfd5d5c1ea2592afac5504c252ba0c6f917af62",
+  "export_sha256": {
+    "cache/1b144b6e66254f8379b5edf2a631d4104f8cb62724c20ecc2bff8808b039e561/independent.npy": "d63a5e609d915846898d02d0d9f6e43760d2cfe82f5e609d42656ea0b72e28f4",
+    "cache/1b144b6e66254f8379b5edf2a631d4104f8cb62724c20ecc2bff8808b039e561/primary.npy": "d63a5e609d915846898d02d0d9f6e43760d2cfe82f5e609d42656ea0b72e28f4",
+    "cache/1b144b6e66254f8379b5edf2a631d4104f8cb62724c20ecc2bff8808b039e561/receipt.json": "2e27005a861f6e03c15748f0494c1095c2cced4b5190ec1d140f3c7588af0a74",
+    "cache/4d91b80dc0edc3dfbc033b343729629a2a683ff48f107106bdf49c30a565086d/independent.npy": "4c38b4b4e4e039827379bfa1b75e4c7e8be672c3fe7129fddadec7f4626dc715",
+    "cache/4d91b80dc0edc3dfbc033b343729629a2a683ff48f107106bdf49c30a565086d/primary.npy": "4c38b4b4e4e039827379bfa1b75e4c7e8be672c3fe7129fddadec7f4626dc715",
+    "cache/4d91b80dc0edc3dfbc033b343729629a2a683ff48f107106bdf49c30a565086d/receipt.json": "571465dc91f245e479552178d56b4d6c3ece96f8281512101efe35bf5c89725e",
+    "cache/b5c30c0ab18ffd8f2152c869e2652df9d77b00c1db5f5c40af19d74c2d80ae57/independent.npy": "be5529c767a7c6317c25f928521bfca6c404706ae097c4084c21fa8bc30e5bcd",
+    "cache/b5c30c0ab18ffd8f2152c869e2652df9d77b00c1db5f5c40af19d74c2d80ae57/primary.npy": "be5529c767a7c6317c25f928521bfca6c404706ae097c4084c21fa8bc30e5bcd",
+    "cache/b5c30c0ab18ffd8f2152c869e2652df9d77b00c1db5f5c40af19d74c2d80ae57/receipt.json": "d5bf21103cd6f2c30fc501fbabea80ec0c07ec523886ad45d2f67ba602857073",
+    "cases/f0-n10/certificate.npz": "b5e09a3a27038941326c773ea112984ec350295861fc9718741ffa1d4ead23c5",
+    "cases/f0-n10/checked-subsets.json": "ce7002f03b9ebd14dddcf4df60bf4018905bd0ff034beddd57591a78a8500e56",
+    "cases/f0-n10/result.json": "e1b6685490e672fc956553f4a469d63cb956b5760b0fcbce37c8fc5e98ff2106",
+    "cases/f0-n10/verification.json": "7adbb7ac6ec0f9726f6d7f392720b8e7e22b0e4b2bbe36dabb96a10889e93f6c",
+    "cases/f0-n12/certificate.npz": "9d3a125046412c1074900510755f2a97af173c3c8b288c1d38f32918b7ee2f36",
+    "cases/f0-n12/checked-subsets.json": "a303a91f3eeb79a1d36cd077891efda4698b7ff87350a450dc08671c31fa95c6",
+    "cases/f0-n12/result.json": "dc6c7c491db8812f73be82e3460f4e2ee25fb502c1116797b1f8621fc3bdb4e5",
+    "cases/f0-n12/verification.json": "efcb85e65d2378fd6eafea4bee75950718d9b60e057a1df0f26e81367675e653",
+    "cases/f0-n8/certificate.npz": "b63523bfdc67fe1ebc4347a0a932410ca384161b56674c85c987cf092bb099c6",
+    "cases/f0-n8/checked-subsets.json": "18b64702d1f2c9e09b59aba4977e6ec1ddb10f94eebeed8355459db621fe616f",
+    "cases/f0-n8/result.json": "7a8fb6958dec17303d00a6833cd40bb3d7311798f86c61a0cb49054fdd703b8f",
+    "cases/f0-n8/verification.json": "dc0809b034fc305552ec01ce08ceea4b10630ca0cf83f1d90bed6074b5da2b9f",
+    "cases/f1-n10/certificate.npz": "bd7a712329d8728ce38e02cb5dcebd437513703517024202304fe78ab8ff0c61",
+    "cases/f1-n10/checked-subsets.json": "72932ae6521d640ae0a0a9f879d26f5cb9dfb3876b8bc429cf5617e4e85662a0",
+    "cases/f1-n10/result.json": "d92f905b470c389064adbdc89f78b9206f2ce070a28eac98d993500ab97de734",
+    "cases/f1-n10/verification.json": "a132b8a96edcbc631dec835cf69beb5a9f2dfb667837ffaed97589ff96bee1e5",
+    "cases/f1-n12/certificate.npz": "b53586c673b6040a065ea99a59e438aaffa6a3809e6ba5a45072a27c1ba3a878",
+    "cases/f1-n12/checked-subsets.json": "725a67376969dffe9bfb46a7ecc1b56f4db4129cf7c2dbdc46e0325d0f15496f",
+    "cases/f1-n12/result.json": "d818a69d5b2f92a1811b0dfc7c3b52b2dc5a2ea646f6586888147a5d0e5d34e8",
+    "cases/f1-n12/verification.json": "efcb85e65d2378fd6eafea4bee75950718d9b60e057a1df0f26e81367675e653",
+    "cases/f1-n8/result.json": "e164235446f185155204c21df73604db2e6320898c2174c27c2a0ffa0d22e490",
+    "cases/f2-n10/certificate.npz": "e5bc7f64a6b556046b5f9b8d370d571bc33446e447f45d83ce3a9a3546a67bd2",
+    "cases/f2-n10/checked-subsets.json": "1a487b89b6903f3285f069a9e574c0f72fe0d7ee5e127ac4426a4032068cd774",
+    "cases/f2-n10/result.json": "5b68aaf0dcb09eb8cba5e8e6efe1670d02eb89374acc7c76cc27fa2e9924f338",
+    "cases/f2-n10/verification.json": "7adbb7ac6ec0f9726f6d7f392720b8e7e22b0e4b2bbe36dabb96a10889e93f6c",
+    "cases/f2-n12/certificate.npz": "8562d6613f6b57e7d7e168a4ba130acef457b63e51fd786b35ab44dd6a42add0",
+    "cases/f2-n12/checked-subsets.json": "b074420b6b482fb054ba3f302a9aef8f087ea88c7769be80ed659e0c94596764",
+    "cases/f2-n12/result.json": "3d7b8e218a29a581bf9e4f84faeee45fd2fdb213afbab2b61e92649936960a82",
+    "cases/f2-n12/verification.json": "efcb85e65d2378fd6eafea4bee75950718d9b60e057a1df0f26e81367675e653",
+    "cases/f2-n8/certificate.npz": "65c41db99c57735acfcc84f270b6ed68705a020a75dc3334410d17251d360251",
+    "cases/f2-n8/checked-subsets.json": "290defc4358e009dac14f098d7e644ad42c12e9359127c051bd24a20a7322499",
+    "cases/f2-n8/result.json": "bb09fc652ff57ca6c59561c18ed2a204d69ca1e1d1a5da295de103fdd8e63428",
+    "cases/f2-n8/verification.json": "a132b8a96edcbc631dec835cf69beb5a9f2dfb667837ffaed97589ff96bee1e5",
+    "cases/f3-n10/certificate.npz": "e0001bfef95b30f8586d564065a14d1ff6c3bba05a8ddac61cf23b6d0877ad6b",
+    "cases/f3-n10/checked-subsets.json": "4bbe9c88157d3aa6d0798b237673436e112ad9e41044102d023808ca4aefac9a",
+    "cases/f3-n10/result.json": "0c723208328808c220a2426e3f0b5b7e973153d06ac61b26f334b61366bb106a",
+    "cases/f3-n10/verification.json": "c0aaa7feaf5af81e40cf805763d448e0d7451523ade2d39bd03d57cb7c57194b",
+    "cases/f3-n12/certificate.npz": "1ad5306f2b4311783203221549ede8bff373962a1b0c665aef33a42530757455",
+    "cases/f3-n12/checked-subsets.json": "a9b96a248105acffc76b540c73c16de3150d840e37a6e654f9829e439513f9cf",
+    "cases/f3-n12/result.json": "e0174789c1793671660a8cf4169d47945b1339a9f42ce2f86313a46f015d10b9",
+    "cases/f3-n12/verification.json": "21f58fa460ade2b0152a56642e2a317d34db95fab5bb0ca9c03a4b46397e9d8c",
+    "cases/f3-n8/result.json": "326fac712dba138ee0b08eac8ab84307b1258cb609a9089bb19a6ae40be4b8e3",
+    "cases/f4-n10/certificate.npz": "be312fd6fa583d9465c16d41011b8b9b1c641c176d3d0421129e4e41388b9473",
+    "cases/f4-n10/checked-subsets.json": "75e7c0bbe8da06dc64542c92089e71d7adfa61e8acf874d33f650c7d99b95ead",
+    "cases/f4-n10/result.json": "f8ecb27107ce1fe6751e1cfdd130d09ddd072457963200546b2e0016ec6f23be",
+    "cases/f4-n10/verification.json": "3493009e9a2ad785f0456aa1c845b2fe4562dad0c4b2e7d796dc0e1112b6e2e9",
+    "cases/f4-n12/certificate.npz": "8275b8ce0c66d105a0f05db97c29765d625b35acb53e994c7f44b46457da573f",
+    "cases/f4-n12/checked-subsets.json": "87b1e54a01a6f19c10bfb7a0b0bf33d423e4ca4152ab19d5e083011af02c4f35",
+    "cases/f4-n12/result.json": "2439a562b5899f55502dbaccfcbe5e76f0a26eab82aa62b28579dd676c7782e8",
+    "cases/f4-n12/verification.json": "8fd27627a5bde38bc6e2c58bb32412aad7d3bd23c36e37b3150e9ae1f35a1d3e",
+    "cases/f4-n8/result.json": "42c680db688e4628242c908fbfdf4a3d063255af545dae9178860751202469bd",
+    "cases/f5-n10/certificate.npz": "e8317fc085b912dfb6cc9fed12f5b31ccf94db2b7d6923feacc05df3e318b094",
+    "cases/f5-n10/checked-subsets.json": "54ba7008a601e048bb6be5f7a01e6e1a40734a1be3b6fae938706a99864b97a2",
+    "cases/f5-n10/result.json": "979b7e61dec0dd916d8e05052ddea172da18e13f6306e9750205f8ca59c4040f",
+    "cases/f5-n10/verification.json": "fc70dc7b0e81f184325d0774f88a14ca5183b49216ea2b0edc71aa87def34b2a",
+    "cases/f5-n12/certificate.npz": "93a08365ae1d3830522afac05765ae5e40befc00347c127d700c900c3d7307de",
+    "cases/f5-n12/checked-subsets.json": "62f4695238a047dd13aa80b973baaa02266c5aec495d8280e10942f7697807ad",
+    "cases/f5-n12/result.json": "d2ee8af01a87e70d4bc5aaba0ecd411802f2e7c76994e9c5a70f5f8983957bbf",
+    "cases/f5-n12/verification.json": "2279e093130eb9aa572619dec3f778ed24e8dc8ff70d20fc82bb629e47c4e317",
+    "cases/f5-n8/result.json": "ef7c0720c53e6f9bacc8894b19372638a156d2beaa9610c958912da6e50c837f",
+    "generation.json": "448158bb6c5e3cc3a524173671193fbb06376c35d4154193a84ca26d37ebed0b",
+    "per_case.csv": "0163d492750e46bc3ecb11a5aa06eb9aa32a099d9441a2c04281c142948d36e5",
+    "source-seals.json": "e3f834220ddde35cabd6e76e30812562462e2cbb194466bf0ec2bb18c8bebe33",
+    "sources/f0-n10.npy": "4f9a6cb44c82640b72b0526c915c83d9b4e7f85413e917d868995bf15052ff48",
+    "sources/f0-n12.npy": "aaad80e864476554a30379436878c5f3336841e0a44b47f09364f11a16c62da1",
+    "sources/f0-n8.npy": "682deabb3d730c497a8528ba4625f746b5cf7b5c0817f76a05b5522ed30ffc7e",
+    "sources/f1-n10.npy": "12cfcced04112a773ff133a081fc2482156c73bb855db8b00d6ac3154cb6e7ba",
+    "sources/f1-n12.npy": "53b1209b1ff5af4dbb9c652e574761cd710dbdebb260e8d2ad71d2d88c3465a4",
+    "sources/f1-n8.npy": "a0a6e13687082b27860b5264817cea4972368c547819bd64c85bcf66642b313b",
+    "sources/f2-n10.npy": "10d71b41e666d9ac454ee885762ee8723159ffe0f740bcd739080359fb811291",
+    "sources/f2-n12.npy": "d8ee10c015a7aa1131a9c573d8f8cbfd1f349f3587785dd30fa0cc9a5cb8862d",
+    "sources/f2-n8.npy": "c35595e8aca36dffba1da1cb2b10457a774cc86305d1e79fb8d8016ae5deea2c",
+    "sources/f3-n10.npy": "ddd3f9a990ea20e093fbeee5c94f8594c419f135ffb6212f1c17cf00a26cbeb3",
+    "sources/f3-n12.npy": "5a3ea9b09c319f92736fa257dd40a3e3aa7fac30a572172726f168299c554949",
+    "sources/f3-n8.npy": "a0a6e13687082b27860b5264817cea4972368c547819bd64c85bcf66642b313b",
+    "sources/f4-n10.npy": "19ed463b4d4b214d3fc9d1261335c9ea79944806ed2039b889924cf983ebade0",
+    "sources/f4-n12.npy": "34321cb1ec14764db54fc4330e7478f00f9823c842bb36c25ce5f6379b98a64b",
+    "sources/f4-n8.npy": "a0a6e13687082b27860b5264817cea4972368c547819bd64c85bcf66642b313b",
+    "sources/f5-n10.npy": "8bf7f6d13a9f1238fec81d95c664d0af8b030967b8c3b638b2cb581986ef1a42",
+    "sources/f5-n12.npy": "8baf71311ac40a07b81dbc9495072a31251ca057ed265eec8ce30fe159144b41",
+    "sources/f5-n8.npy": "a0a6e13687082b27860b5264817cea4972368c547819bd64c85bcf66642b313b"
+  }
+}

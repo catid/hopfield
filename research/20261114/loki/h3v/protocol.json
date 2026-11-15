@@ -1,0 +1,101 @@
+{
+  "id": "H3v-fixed-support-positive-weight-swap-search",
+  "frozen_utc": "2026-11-15T01:57:34.615602+00:00",
+  "hypothesis": "Positive learned weights improve valid zero-conflict completion found among20chains by at least5percentage points over uniform weights on the identical filtered support, with zero wrong stopped chains.",
+  "antecedent": "H3u source-native soft margins admitted false stops. This new derivative tests pure search quality on a fixed zero set, not repair of source-global exclusions. H3u coefficients are frozen and no source refit occurs.",
+  "arms": [
+    {
+      "arm": "positive-bp-adamw-weights"
+    },
+    {
+      "arm": "uniform-filtered"
+    },
+    {
+      "arm": "supplied-rule-oracle"
+    }
+  ],
+  "producer": "Use frozen H3u source counts/exposures and inferred lines. F is finite source zero with E>=ln(264/.01), union all originally inferred lines. Weighted arm retains the positive original BP AdamW coupling on F, zero elsewhere; unary0. Uniform arm uses1on exactly F,0elsewhere. Oracle supplies true queen+camel support with1weights. No target label enters weighted/uniform construction.",
+  "positivity_gate": "Every source-retained positive coupling and every transferred Fedge must be finite and strictly>0. Record minimum. No clipping, radius cutoff or dropping failed edges. A failed gate stops research searches and requires a transparent amendment; it is not repaired silently.",
+  "temperature": "T(k)=u*(0.01**(k/19999)),k=0..19999. u is the arithmetic mean retained positive coefficient across unique canonical SOURCE offsets after line union, computed in float32 exactly as the source-only pilot. Uniform and oracleu=1. No target-temperature tuning.",
+  "kernel": "Initialize givens plus uniformly chosen empty cells to exactlyq13. At each step choose uniformly one occupied nongiven celli and one emptycellj via independent maxima over disjoint sets of IIDuniform scores. DeltaE=field_j-field_i-Jij. Accept iffDelta<=0orU<exp(-Delta/T). Cardinality/givens preserved. Same proposal and annealing schedule for allarms. Matched seed/initial random stream; adaptive completion changes later RNG streams, so not claimed common post-initial random numbers.",
+  "certificate": "Stop iff exact integer count of occupied Fedges is0. Count maintained with integer deltas independently of floatenergy; q13 preserved. All weights onF strictlypositive, so this is precisely the common zero-energy set. No native inherited margin certificate.",
+  "search": {
+    "q": 13,
+    "unique_inputs": 4096,
+    "chains": 20,
+    "cap": 20000,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "end_temperature_ratio": 0.01,
+    "block": 65536
+  },
+  "primary": {
+    "arm": "positive-bp-adamw-weights",
+    "control": "uniform-filtered",
+    "metric": "Any valid stopped zero-conflict completion among20chains; abstain ifnone.",
+    "gain_pp": 5.0,
+    "wrong_stops": 0
+  },
+  "decision": "Support iff paired-input bootstrap one-sided95% lower primary gain>=5pp and zero weighted wrongstops. Falsify iff uppergain<5ppORany wrongstop; otherwise inconclusive. Bootstrap2000draws,RNG20261114,all3searchseeds clustered byinput. Alloracle/coverage/fallback comparisons descriptive.",
+  "secondary": "Original lowest-running-energy and certificate-first-with-best-energy-fallback accuracy, valid distinct-solution coverage, zero-set capacity, allcap returns, moves/acceptances, exact-source support and target diagnostic attack recovery. No target diagnostic changes model.",
+  "capacity": "Weighted/uniform support Fidentical, so common exact valid zero-conflict completion capacity is an actual ceiling only for the abstaining certified primary. It is not a bound on fallback accuracy. Supplied target-geometry audit is diagnostic only.",
+  "validation": "Exhaustive84toyq3states and3024swaps across0/1/2clues; native direct energy parity, symmetric proposal and detailed balance at3fixed temperatures; CPU/GPU independent trace checks forq,givens,energy,fields,integercounts; source-only runtime pilot. Then independently rebuild full source support, weights, temperature, target expansion and exact cohort counts before fresh target searches.",
+  "numeric_audit": "Independently reconstruct each saved board energy and integer conflict count. All stopped counts must beexact0, all boardsq13/givens. Record running energy drift and exact-energy selector differences; energy discrepancy>.1prevents support without changing wrong-stop falsification.",
+  "budget": {
+    "search_gpu_minutes_envelope": 20,
+    "wall_minutes_envelope": 10,
+    "logical_model_seed_jobs": 9,
+    "optimizer_fits": 0,
+    "source_only_pilot": "128sourceinputs\u00d720chains\u00d72000swaps onCPU/GPU; feasibility only, no retuning."
+  },
+  "dataset": {
+    "status": "reserved_before_swap_search",
+    "utc": "2026-11-15T01:57:34.066321+00:00",
+    "source_patterns": 176,
+    "target_n": 13,
+    "target_solutions": 1932,
+    "unique_inputs": 4096,
+    "input_seed": 2026112512,
+    "prior_search_keys": 26624,
+    "eligible_keys": 173601,
+    "prior_overlap": 0,
+    "by_clues": {
+      "1": 4,
+      "2": 208,
+      "3": 3884
+    },
+    "compatible_completions": 15446,
+    "distribution": "Uniform unique valid1/2/3-clue inputs excluding all H3j/k/l/m/n/t/u search keys; target universe previously enumerated.",
+    "data_sha256": "14a951e23152bb7693c4f1a4b2efcabc543cffba2b12f121a7761a797d682e4b",
+    "source_sha256": "66f1cccc3071fbe8fab24bc476ff3e2f4dc4d832ac339713c59c9c34969456e4"
+  },
+  "source_sha256": {
+    "research/20261114/loki/h3v/driver.py": "719902a125d4d829f6e822f16f96f099a9c54fb3555f960bab963e6ecfb8f46f",
+    "research/20261114/loki/h3v/backend.py": "36376b65310c13c45b10c1c03f1c0e17395f48e96562c565beaba47e8b2ffd45",
+    "research/20261114/loki/h3v/prepare.py": "66f1cccc3071fbe8fab24bc476ff3e2f4dc4d832ac339713c59c9c34969456e4",
+    "research/20261114/loki/h3v/preflight.py": "badcd08d22e98b3efa958b53cdc75253c641e983c0c6329e9625b7cfd64d691f",
+    "research/20261114/loki/h3v/validate_kernel.py": "1cb3653bfc53d5e9952ff5ef445e25ed96481322e65bda687ed57801f3ec8419",
+    "research/20261114/loki/study.py": "7c48de391879dc2f4b4f14459698afbc84c82cb3e89030e0ba4814d4fd74b552",
+    "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623",
+    "research/20261114/loki/h3u/protocol.json": "d93afc225cd263e15b4d3e264c2c60fec084f2c8f3883b6d333880a6cc10d4de"
+  },
+  "data_sha256": {
+    "artifacts/research/20261114/loki/h3v/data.npz": "14a951e23152bb7693c4f1a4b2efcabc543cffba2b12f121a7761a797d682e4b",
+    "artifacts/research/20261114/loki/h3v/dataset.json": "f95269550f38be329f56d0ed241e53fec93a6838f9fa30e33a58f463bbc2e7ff",
+    "artifacts/research/20261114/loki/h3u/source-design.npz": "b9b61ddad7f128798724c50a8d3d49b9b87c24ae253a678bce3bb29d17a7aedc",
+    "artifacts/research/20261114/loki/h3u/models/bp-adamw-grouped/model.pt": "e55c20a81891fc3d16e3aa07ae736d0dcc8f77225884b99e811ebad44452523c",
+    "artifacts/research/20261114/loki/h3v/kernel-validation-cpu.json": "f6309a3945afe8750843411a20194034379116c296acadb9504b5cb743b276fa",
+    "artifacts/research/20261114/loki/h3v/kernel-validation-cuda.json": "088e7e3dfb439dd96581da93d74aa2befd191a5edf28b391f16578d15a64ea24"
+  },
+  "limits": [
+    "New fixed-q Metropolis/annealing derivative, not paper solver reproduction.",
+    "Unchanged filtered support keeps source-global false exclusions. Positive weighting changes search but not exact zero-set capacity.",
+    "Learned projection discards nonuniform off-support couplings and unary, rather than only subtracting a constant from the original variable-cardinality energy.",
+    "One complete finite source universe and one inherited fitted trajectory; three seeds repeatsearch,not training.",
+    "Oracle target rules privileged; source-only producers never inspect targetgeometry or solutions."
+  ]
+}

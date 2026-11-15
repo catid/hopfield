@@ -1,0 +1,175 @@
+{
+  "queries": 25,
+  "q1": "1/9",
+  "crossing_boundary": 648000,
+  "policy_sha256": "a3f41b5af03c2ea75d786867207f421a9a4bd2cba67bfb9c37fd259c84a7029d",
+  "proof_sha256": "dfc34f2f24207d1bfa23a546d1d17ef457e9c6f425f31e9a1d538be5d0d163bf",
+  "gate": "Independent greedy masks/ties reconstructed from past queried labels; capped finite weights, readonly state, current label barrier, calibrated rational crossings andall paths verified before inference.",
+  "id": "H1ae-LR-evidence-selector-fixedcost",
+  "frozen_utc": "2026-11-15T02:48:53.269344+00:00",
+  "primary_hypothesis": "At eta=.05 and M1000/N2220, LR/learned minus exposure/learned accuracy>=10pp, LR/learned accuracy>=70percent, and zero wrong certified stops in both learned arms.",
+  "primary_effect": "Paired LR/learned minus exposure/learned accuracy(pp), absolute LR/learned accuracy(percent), zero learned-arm wrong stops; separate endpoints and conjunction.",
+  "primary_interval": "5000two-way bootstrap draws over32banks and10000 shared puzzleindices,RNG20341000. Gain endpoint supports if lower95%>=10pp, falsifies if upper95%<10pp. LR/learned usefulness supports if lower95%>=70%, falsifies if upper95%<70%. Wrong-stop gate passes iff both learned arms have zero wrong stops. Conjunction supported iff both interval endpoints and stopgate pass; falsified if either interval endpoint falsified orstopgate fails; otherwise inconclusive. Intervals have marginal95% nominal coverage; no simultaneous-coverage claim.",
+  "uncertainty_limit": "32independent source-bank draws,one independent noise and tie stream perbank,and32paired search seeds. The same10000testinputs repeat acrossbanks. Bootstrap uncertainty is approximate,not a population-universal acquisition guarantee.",
+  "inputs": "artifacts/research/20261114/ripper/lr_selector/input_manifest.json",
+  "input_manifest_sha256": null,
+  "input_registration": "artifacts/research/20261114/ripper/lr_selector/input_registration.json",
+  "registration_rule": "Full study and sampling protocols freeze before input generation. After preparation, an immutable registration records the input manifest SHA256 and unchanged study protocol SHA256 before acquisition. Runners resolve the manifest hash from that registration; no outcomes are available during registration.",
+  "input_protocol_sha256": "b4eadafe3a9267a0b178ada914bd784e1f4653c3fcf81b957e87d1e082beb12a",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "sizes": [
+    2220
+  ],
+  "rows": 2220,
+  "n_per_bank": 2220,
+  "arms": [
+    "exposure_exact",
+    "lr_exact",
+    "exposure_learned",
+    "lr_learned"
+  ],
+  "noise": "Independent eta=.05 replacement. Calibration draws uniform(1000,2),then int8 offsets1..8. One M1000 calibration result is reused by both learned selectors. Training draws81 uniforms then81 offsets per row, after every current mask finalizes.",
+  "ties": "RNG20337000+s produces shared81permutation perrow; max-score ties choose earliest permutation cell.",
+  "acquisition_interface": "Policy receives only past joint/equality counts,irreversible past exclusions,k25,tiepermutation,and fixed calibration log multipliers. No current labels,geometry,source identity ororacle handle. All history arrays are readonly,hashed before/after; all masks finalize before generating/revealing current noise.",
+  "gates": "Independent exact masks reconstructed from past noisy queriedarchives; allcurrent masks finalize before reveals; noise draws,logLRpaths,exact rational crossings,and prefix supports independently replayed. Row-noise independence and predictable masks are required by the proof.",
+  "secondary": "Full factorial exact-bound controls and other accuracy contrasts are descriptive. Every learned arm pays57500 queries; every exact arm55500. Grapherrors,coverage/fallback,wrongstops andinvalid cappedreturns reported.",
+  "rows_half_open": [
+    300000,
+    310000
+  ],
+  "split": "full-all",
+  "search_sizes": [
+    2220
+  ],
+  "budget": "At most30GPU-minutes including trajectory preflight. Exact support/settings/search-seed/input deduplication. No duplicate/filler jobs.",
+  "backend_sha256": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+  "capture_sha256": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+  "original_policy_sha256": "7be1d4c3f54ab61fa93c42ad478558163d3e080b4ad5ca877642f971fdf27bbe",
+  "original_exponential_sha256": "fc0921314bf17a64e8cd6c9e07fc77f22ce559a4b7108d1415c9b39266bb1192",
+  "policy_preflight_path": "artifacts/research/20261114/ripper/lr_selector_preflight.json",
+  "policy_preflight_sha256": "56d97c70d605acb847082d15ccc622c00fbd006cfea90d1a63ebfe65019844c0",
+  "pilot_path": "research/20261114/ripper/protocol-lr-selector-pilot.json",
+  "pilot_sha256": "9e6bcf89e6bc7a9a47a8e0588b0755bbe546c2df0c27ff038f61e5aa23c851dd",
+  "relation_to_prior": "All prior studies remainunchanged. Fresh sources excludeall1326762priorRipperboards. Neither q1 nortraining/calibrationbudget is tuned; only the frozen selector weights change.",
+  "stopping_rule": "Exactly32freshbanks andfourarms,128requestedcells except exactsupport/settings/seed/inputdedup. No outcomechanges settings,weights,counts,gain,floor orbudget.",
+  "limitations": [
+    "Independent fixed eta=.05 replacement noise only, same family/rate in calibration and training.",
+    "At matchedN2220, learned57500 queries vs exact55500; selector comparison within calibration type is equalcost.",
+    "Past LR evidence is predictable; it changes selection but not the edge-testing law or risk budget.",
+    "Each learned model has .005calibration plus .005edge risk; no joint1percent event across selectors/banks.",
+    "Gain and usefulness intervals each marginal95%; no simultaneous-coverage claim.",
+    "Edge protection does not guarantee gain,usefulness,recovery orvalid cappedreturns.",
+    "Source-role pools globallydisjoint within study;crossbankoverlap reported.",
+    "Same10000testinputs repeat over32bank/searchseeds.",
+    "BP AdamW outside acquisition-mechanism study andnotrun."
+  ],
+  "original_noisy_policy_sha256": "31f4b5dbc64690db94fd3d8959c16dd85d9c8b2f891f893e7e9b77413df16c19",
+  "calibration_pairs": 1000,
+  "calibration_alpha": "1/200",
+  "edge_alpha": "1/200",
+  "eta_grid": 1000000,
+  "streams": {
+    "pool_split": 20334000,
+    "calibration_source": 20335000,
+    "training_source": 20336000,
+    "ties": 20337000,
+    "calibration_noise": 20338000,
+    "training_noise": 20339000,
+    "calibration_cell": 20340000,
+    "bootstrap": 20341000
+  },
+  "calibration": "SeparatefixedM1000indicator-onlyestimatesperrate: one-sided99.5percentCPdisagreementupper,monotoneinverse,outward1e-6grid,exactintegerendpoint/predecessorchecks,independent80digitverification.Alloutcomesretained.",
+  "fallback": "If the inverted or outward-rounded upper reaches eta=8/9, retain every pair and use the no-pruning fallback. No clipping to a falsely smaller bound.",
+  "estimator_sha256": "ee8d23b74b87937a179fe7249fc3d64a427947e6cfda3424add88b33b27f6012",
+  "label_costs": {
+    "exposure_exact": {
+      "calibration": 0,
+      "training": 55500,
+      "total": 55500
+    },
+    "lr_exact": {
+      "calibration": 0,
+      "training": 55500,
+      "total": 55500
+    },
+    "exposure_learned": {
+      "calibration": 2000,
+      "training": 55500,
+      "total": 57500
+    },
+    "lr_learned": {
+      "calibration": 2000,
+      "training": 55500,
+      "total": 57500
+    }
+  },
+  "arm_rows": {
+    "exposure_exact": 2220,
+    "lr_exact": 2220,
+    "exposure_learned": 2220,
+    "lr_learned": 2220
+  },
+  "arm_calibration_pairs": {
+    "exposure_exact": 0,
+    "lr_exact": 0,
+    "exposure_learned": 1000,
+    "lr_learned": 1000
+  },
+  "edge_crossing_boundary": 648000,
+  "base_policy_sha256": "0c07514e139bb82e4199485876ef36f9859583b18c6e9c44246bc31e3c0daf7a",
+  "base_estimator_sha256": "7e1c8433219297d2309d585db4d0b0517435fae035ac36d8a43f193d8d188311",
+  "nesting": "Source boards, ties, calibration and potential training noise are paired across selectors and known/learned bounds. Masks can differ; no nested-mask claim.",
+  "estimator_interface": "One fixed1000 disagreement-indicator vector per bank; no clean labels,source orcell identity.",
+  "arm_actual_eta": {
+    "exposure_exact": "1/20",
+    "lr_exact": "1/20",
+    "exposure_learned": "1/20",
+    "lr_learned": "1/20"
+  },
+  "usefulness_floor_pct": 70,
+  "primary_arms": [
+    "exposure_learned",
+    "lr_learned"
+  ],
+  "actual_eta": "1/20",
+  "crossing_preflight_path": "artifacts/research/20261114/ripper/rate_transfer_preflight.json",
+  "crossing_preflight_sha256": "e1f7661ff639c80028ff796d580573553aee4d98fd5b2e1236fa84023d3b4cd6",
+  "replay_optimization_validation_path": "artifacts/research/20261114/ripper/replay_optimization_validation.json",
+  "replay_optimization_validation_sha256": "852a77ec71dd1f99443690d883e93d68654665e44304fd059632e787a96f6b4a",
+  "fast_reference_mask_sha256": "c2c38e9eb65483d8503cb35d32a0d6688e083baff08fab646bd904ca6a38bf0e",
+  "selector": "Exposure uses unchanged(8/9)^pastjoint. LR weights use exp(min(m*logB+c*(logA-logB),log648000)/2), zero for exclusions/diagonal. Same greedy25/tie permutation; FP64 order fixed. All state arguments contain past queried data only.",
+  "minimum_gain_pp": 10
+}

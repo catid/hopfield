@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-15T01:58:10.626751+00:00",
+  "updated_utc": "2026-11-15T02:43:49.540473+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
-  "status": "twenty-one planned studies, two selected-case interventions, exhaustive shortest-answer energies, exact objective certificate and BFSscope control complete; ongoing research continues separately",
+  "status": "twenty-two planned inference/trainingstudies, two selected-case interventions, exactobjective/norm certificates and source-onlyscreens complete; ongoingresearch continues separately",
   "host": "work",
-  "jobs": 1312,
-  "run_arm_rows": 3423,
-  "model_maze_evaluations": 683906,
+  "jobs": 1360,
+  "run_arm_rows": 3567,
+  "model_maze_evaluations": 720770,
   "hypotheses": [
     {
       "campaign": "discovery",
@@ -553,6 +553,51 @@
         },
         "conjunction": "falsified"
       }
+    },
+    {
+      "campaign": "training_feasibility",
+      "hypothesis": "H2w source-only unit-margin sparse/dense-negative ranking and all local-label flips are jointly feasible in23real parameters",
+      "outcome": {
+        "decision": "supported_for_stated_training_constraints",
+        "models": 3,
+        "scope": "Original1000trainingarrays/frozenreadouts only; no generalization or decoderclaim."
+      }
+    },
+    {
+      "campaign": "training_min_norm",
+      "hypothesis": "H2x bound the minimum coordinateLinf norm for the fixedunit-margin trainingconstraints within1%relativewidth",
+      "outcome": {
+        "decision": "all_three_optima_bounded_within_one_percent",
+        "models": 3,
+        "scope": "Original1000trainingarrays/frozenreadouts only; coordinate/gauge/margin dependent."
+      }
+    },
+    {
+      "campaign": "lp_transfer",
+      "hypothesis": "H2y norm-matchedLP both-negative ranking gain>=90pp and separate solve noninferiority<=0.1pp",
+      "outcome": {
+        "ranking": {
+          "gains": 3952,
+          "losses": 0,
+          "observed_net_gain_pp": 96.484375,
+          "separately_one_sided95_net_lower_pp": 95.78396419916118,
+          "separately_one_sided95_net_upper_pp": 97.027233570286,
+          "target_pp": 90.0,
+          "decision": "supported"
+        },
+        "accuracy": {
+          "gains": 0,
+          "losses": 4082,
+          "observed_net_gain_pp": -99.658203125,
+          "separately_one_sided95_net_lower_pp": -99.8130143592245,
+          "separately_one_sided95_net_upper_pp": -99.33716726219615,
+          "loss_one_sided95_lower_pp": 99.46617644794824,
+          "loss_one_sided95_upper_pp": 99.79324633380378,
+          "noninferiority_margin_pp": 0.1,
+          "decision": "falsified"
+        },
+        "conjunction": "falsified"
+      }
     }
   ],
   "run_tables": [
@@ -573,7 +618,8 @@
     "larger-relaxation-runs.csv",
     "selective-fallback-runs.csv",
     "window-fallback-runs.csv",
-    "contrastive-training-runs.csv"
+    "contrastive-training-runs.csv",
+    "lp-transfer-runs.csv"
   ],
   "protocols": {
     "protocol": {
@@ -673,6 +719,18 @@
     "contrastive-training-protocol": {
       "sha256": "0656e576103ad828d2e0c5d2f3f59e3db9e5ef2cdeab267c5399944206557e47",
       "frozen_utc": "2026-11-15T01:43:56.465610+00:00"
+    },
+    "lp-transfer-protocol": {
+      "sha256": "f94b666a7f4eb18edf5f6137cf119ef8c8a53f3bd8a9adfaccde54b3fa431573",
+      "frozen_utc": "2026-11-15T02:23:17.206811+00:00"
+    },
+    "training-feasibility-protocol": {
+      "sha256": "ea25a2a233d47334d114a08e2f97ffbf4f8afbe79428d88dab3d7ab8ea6e7abb",
+      "frozen_utc": "2026-11-15T02:04:23.197083+00:00"
+    },
+    "training-min-norm-protocol": {
+      "sha256": "2b6ba6daa177a6bdec98d15ff8e970ebf3f902c98a945d2a473725678c456a79",
+      "frozen_utc": "2026-11-15T02:13:34.597252+00:00"
     }
   },
   "audit_sha256": {
@@ -698,7 +756,8 @@
     "artifacts/research/20261114/work/larger_relaxation/audit.json": "bdfcfe2ef1b01c1b8f04fc4f913107b45f641a0f9bff6623c975e778499ae715",
     "artifacts/research/20261114/work/selective_fallback/audit.json": "f1e6cdb962bb6ca707322f9dd1f829bf89d955f5454b59cc36c78b3dc694ec7d",
     "artifacts/research/20261114/work/window_fallback/audit.json": "e55c7ab270ba2cbf4b79d89dde1b88700c06e8acdb0ed8358598da28b5c3d176",
-    "artifacts/research/20261114/work/contrastive_training/audit.json": "625e3f2d1e047a28726b7d4646bff682d0cf1000cdc2cc8c33604bc3c3b03c3f"
+    "artifacts/research/20261114/work/contrastive_training/audit.json": "625e3f2d1e047a28726b7d4646bff682d0cf1000cdc2cc8c33604bc3c3b03c3f",
+    "artifacts/research/20261114/work/lp_transfer/audit.json": "4019fbd98cae812cc37baf1c6264696a721166578fe66177ddd1e8a9884837bf"
   },
   "model_sha256": {
     "0": {
@@ -731,8 +790,8 @@
     "case": "cyclic-failure-classification.json",
     "scope": "The same cyclic maze fails for model seeds1and2; these are true invalid fixed points or a period-two timeout, not hidden/nonfinite failures."
   },
-  "primary_jobs": 1306,
-  "primary_model_maze_evaluations": 683774,
+  "primary_jobs": 1354,
+  "primary_model_maze_evaluations": 720638,
   "descriptive_jobs": 6,
   "descriptive_model_maze_evaluations": 132,
   "selected_case_interventions": {
@@ -812,5 +871,36 @@
     "new_eval_model_maze_arms": 36864,
     "original_training_arrays": true,
     "baseline": "Matched BPAdamWcontinuedPL; unchanged original checkpoint control also retained."
+  },
+  "training_constraint_feasibility": {
+    "models": 3,
+    "constraints_per_model": 566329,
+    "total_independently_verified_constraints": 1698987,
+    "cpu_feasibility_solves": 3,
+    "decision": "supported_for_stated_training_constraints",
+    "new_inference_evaluations": 0,
+    "new_gradient_updates": 0,
+    "public_summary": "training-feasibility-summary.json"
+  },
+  "training_minimum_coordinate_norm": {
+    "models": 3,
+    "constraints_per_model": 566329,
+    "total_independently_verified_constraints": 1698987,
+    "exact_dual_support_rows": 37,
+    "cpu_min_norm_solves": 3,
+    "decision": "all_three_optima_bounded_within_one_percent",
+    "new_inference_evaluations": 0,
+    "new_gradient_updates": 0,
+    "public_summary": "training-min-norm-summary.json"
+  },
+  "lp_norm_matched_transfer": {
+    "new_fresh_inputs": 4096,
+    "new_model_maze_arms": 36864,
+    "new_optimizer_updates": 0,
+    "positive_source_constraints_after_float32_cast": 1698987,
+    "post_outcome_diagnostic_source_states": 36864,
+    "post_outcome_native_map_probes": 73728,
+    "diagnostic_new_primary_trajectories": 0,
+    "scope": "LP andBPdifferentobjectives/computebudgets; nativeinference comparison, no equal-computeoptimizerclaim. Saved-state probes do not extend cap or replace primary outcomes."
   }
 }

@@ -1,0 +1,171 @@
+{
+  "queries": 25,
+  "q1": "1/9",
+  "crossing_boundary": 648000,
+  "policy_sha256": "ff95cda65ce2e16a94e3a927622ca05a5b7582356fa7f8d0dd8cadd452976e6a",
+  "proof_sha256": "744110fb6761904aced4b727ad2f026036777ca62af800872df2655d6082e20c",
+  "gate": "Sameq1=1/9,predictableexponentialmask,firstLRcrossing648000.Allactivecurrentmasksfinalizebeforelabels;perarmstopsatfixedN.",
+  "id": "H1ad-doubled-training-fixed5percent-noise",
+  "frozen_utc": "2026-11-15T02:30:26.075464+00:00",
+  "primary_hypothesis": "Atactualeta=.05andN4440,M1000learnednoiseboundiswithin5ppofexact-knowneta,learnedaccuracy>=70percent,andbothprimaryarmshavezerowrongcertifiedstops.",
+  "primary_effect": "learned_longminus exact_longaccuracy(pp),absolutelearned_longaccuracy(percent),zero primarywrongstops; separatelyandconjunction.",
+  "primary_interval": "5000two-waybootstrapdraws,RNG20325000,over32banksand10000sharedpuzzleindices. NIpaired95% supportsiflower>=-5pp,falsifiesifupper<-5pp. Learnedabsolute95%supportsiflower>=70%,falsifiesifupper<70%. Zero-wrongstopgatepassesiffzeroacrossbothN4440arms. Conjunctionsupportedonlyifallpass;falsifiedifeitherintervalendpointfalsifiedorwrongstop;otherwiseinconclusive. Marginal95%intervalsonly,no simultaneous-coverageclaim.",
+  "uncertainty_limit": "32independent source-bank draws,one independent noise and tie stream perbank,and32paired search seeds. The same10000testinputs repeat acrossbanks. Bootstrap uncertainty is approximate,not a population-universal acquisition guarantee.",
+  "inputs": "artifacts/research/20261114/ripper/scaled_noise/input_manifest.json",
+  "input_manifest_sha256": null,
+  "input_registration": "artifacts/research/20261114/ripper/scaled_noise/input_registration.json",
+  "registration_rule": "Full study and sampling protocols freeze before input generation. After preparation, an immutable registration records the input manifest SHA256 and unchanged study protocol SHA256 before acquisition. Runners resolve the manifest hash from that registration; no outcomes are available during registration.",
+  "input_protocol_sha256": "fb3bcb323090b7921e7dc42ab9e313437137ae13ff99d0290b1b62af0ce49174",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "sizes": [
+    2220,
+    4440
+  ],
+  "rows": 4440,
+  "n_per_bank": 4440,
+  "arms": [
+    "exact_short",
+    "learned_short",
+    "exact_long",
+    "learned_long"
+  ],
+  "noise": "Independent eta=.05 replacement. Calibration draws uniform(1000,2),then int8offsets1..8;sameonecalibrationresultusedbybothlearnedprefixes. Trainingdraws81uniforms then81offsets perrow afterallactive masksfinalize.",
+  "ties": "RNG20321000+s shared81permutationperrow,allactivearmsfinalizebeforelabels;shortarmsstopat2220.",
+  "acquisition_interface": "Policy gets only past joint counts,irreversible past exclusions,k25,and tie permutation. Full100percent-complete stored labels are a simulated oracle; policy receives only25noisyquerieddigits each row. No current values,sourceidentity,geometry or oracle handle enters the policy.",
+  "gates": "Independent exact masks reconstructed from past noisy queriedarchives; allcurrent masks finalize before reveals; noise draws,logLRpaths,exact rational crossings,and prefix supports independently replayed. Row-noise independence and predictable masks are required by the proof.",
+  "secondary": "N2220prefixesonthissamefreshcohortaredescriptive; structuralerrors,coverage/fallback,invalidreturnsandothercontrastsalso descriptive. Report costs113000learned/111000exactatN4440.",
+  "rows_half_open": [
+    290000,
+    300000
+  ],
+  "split": "full-all",
+  "search_sizes": [
+    2220,
+    4440
+  ],
+  "budget": "At most30GPU-minutes including trajectory preflight. Exact support/settings/search-seed/input deduplication. No duplicate/filler jobs.",
+  "backend_sha256": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+  "capture_sha256": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+  "original_policy_sha256": "7be1d4c3f54ab61fa93c42ad478558163d3e080b4ad5ca877642f971fdf27bbe",
+  "original_exponential_sha256": "fc0921314bf17a64e8cd6c9e07fc77f22ce559a4b7108d1415c9b39266bb1192",
+  "policy_preflight_path": "artifacts/research/20261114/ripper/scaled_noise_preflight.json",
+  "policy_preflight_sha256": "ed05808b995ccc6520363f74d8bb575c22a288dcdb4f681629bbac71e94e2be3",
+  "pilot_path": "research/20261114/ripper/protocol-scaled-noise-pilot.json",
+  "pilot_sha256": "83f2d458444eabd85db7780994a01f01d53940182085d7197621f200e10c216e",
+  "relation_to_prior": "H1acremainsfalsified,unchangedandnotpooled. Freshinputsexcludeall1160098priorRipperboards. No q1orselectortuning.",
+  "stopping_rule": "Exactly32freshbanks,fourfixedarms,128requestedcells except exactsupport/settings/seed/inputdedup;nooutcomechangesN,M,rates,margin,floor,budgetorbankcount.",
+  "limitations": [
+    "Fixedindependenteta=.05replacementfamily,samecalibration/trainingrate.",
+    "Longlearned113000queriesversusexact111000;shortprefixes57500/55500aredescriptive.",
+    "Sharedcalibrationandnestedprefixes preserveper-model.01deletionbound,notjoint1percenteventacrossN,armsorbanks.",
+    "NIandabsoluteaccuracyintervalseachmarginal95%,nosimultaneouscoverageclaim.",
+    "Edgeprotectiondoesnotensureusefulness,NI,recoveryorvalidcappedreturns.",
+    "Rolepoolsgloballydisjointwithinstudy;crossbankoverlapreported.",
+    "Same10000testinputsrepeatacross32bank/searchseeds.",
+    "EarlierH1acisnotpooledandremainsfalsified.",
+    "BP AdamWoutsidequeryscalingstudyandnotrun."
+  ],
+  "original_noisy_policy_sha256": "31f4b5dbc64690db94fd3d8959c16dd85d9c8b2f891f893e7e9b77413df16c19",
+  "calibration_pairs": 1000,
+  "calibration_alpha": "1/200",
+  "edge_alpha": "1/200",
+  "eta_grid": 1000000,
+  "streams": {
+    "pool_split": 20318000,
+    "calibration_source": 20319000,
+    "training_source": 20320000,
+    "ties": 20321000,
+    "calibration_noise": 20322000,
+    "training_noise": 20323000,
+    "calibration_cell": 20324000,
+    "bootstrap": 20325000
+  },
+  "calibration": "SeparatefixedM1000indicator-onlyestimatesperrate: one-sided99.5percentCPdisagreementupper,monotoneinverse,outward1e-6grid,exactintegerendpoint/predecessorchecks,independent80digitverification.Alloutcomesretained.",
+  "fallback": "If the inverted or outward-rounded upper reaches eta=8/9, retain every pair and use the no-pruning fallback. No clipping to a falsely smaller bound.",
+  "estimator_sha256": "ee8d23b74b87937a179fe7249fc3d64a427947e6cfda3424add88b33b27f6012",
+  "label_costs": {
+    "exact_short": {
+      "calibration": 0,
+      "training": 55500,
+      "total": 55500
+    },
+    "learned_short": {
+      "calibration": 2000,
+      "training": 55500,
+      "total": 57500
+    },
+    "exact_long": {
+      "calibration": 0,
+      "training": 111000,
+      "total": 111000
+    },
+    "learned_long": {
+      "calibration": 2000,
+      "training": 111000,
+      "total": 113000
+    }
+  },
+  "arm_rows": {
+    "exact_short": 2220,
+    "learned_short": 2220,
+    "exact_long": 4440,
+    "learned_long": 4440
+  },
+  "arm_calibration_pairs": {
+    "exact_short": 0,
+    "learned_short": 1000,
+    "exact_long": 0,
+    "learned_long": 1000
+  },
+  "edge_crossing_boundary": 648000,
+  "base_policy_sha256": "0c07514e139bb82e4199485876ef36f9859583b18c6e9c44246bc31e3c0daf7a",
+  "base_estimator_sha256": "7e1c8433219297d2309d585db4d0b0517435fae035ac36d8a43f193d8d188311",
+  "nesting": "Withinmethod,N2220masks/observations/logLRsareliteralprefixesofN4440; bothlearnedarmsreusethebankcalibrationresult. Shortarmsstopqueryingat2220. Verify independentprefixidentity.",
+  "estimator_interface": "Onefixed1000binarydisagreementindicatorvectorperbank,no cleanlabels orsource/cellidentity.",
+  "arm_actual_eta": {
+    "exact_short": "1/20",
+    "learned_short": "1/20",
+    "exact_long": "1/20",
+    "learned_long": "1/20"
+  },
+  "noninferiority_margin_pp": 5,
+  "usefulness_floor_pct": 70,
+  "primary_arms": [
+    "exact_long",
+    "learned_long"
+  ],
+  "actual_eta": "1/20"
+}

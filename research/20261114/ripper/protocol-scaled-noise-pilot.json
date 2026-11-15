@@ -1,0 +1,101 @@
+{
+  "id": "H1ad-fixed5percent-scaling-pilot",
+  "frozen_utc": "2026-11-15T02:30:26.075464+00:00",
+  "scope": "Sixoldboardbanks,implementationonly,noinferenceornullresultpooling.AllN/M/rates/endpoints/streamsfreezebeforepilot.",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "rows": 4440,
+  "calibration_pairs": 1000,
+  "queries": 25,
+  "arms": [
+    "exact_short",
+    "learned_short",
+    "exact_long",
+    "learned_long"
+  ],
+  "q1": "1/9",
+  "calibration_alpha": "1/200",
+  "edge_alpha": "1/200",
+  "edge_crossing_boundary": 648000,
+  "eta_grid": 1000000,
+  "streams": {
+    "calibration_cell": 20327000,
+    "calibration_noise": 20328000,
+    "training_noise": 20329000,
+    "ties": 20330000
+  },
+  "noise_draw_rule": "Independent eta=.05 replacement. Calibration draws uniform(1000,2),then int8offsets1..8;sameonecalibrationresultusedbybothlearnedprefixes. Trainingdraws81uniforms then81offsets perrow afterallactive masksfinalize.",
+  "policy_sha256": "ff95cda65ce2e16a94e3a927622ca05a5b7582356fa7f8d0dd8cadd452976e6a",
+  "estimator_sha256": "ee8d23b74b87937a179fe7249fc3d64a427947e6cfda3424add88b33b27f6012",
+  "proof_sha256": "744110fb6761904aced4b727ad2f026036777ca62af800872df2655d6082e20c",
+  "label_costs": {
+    "exact_short": {
+      "calibration": 0,
+      "training": 55500,
+      "total": 55500
+    },
+    "learned_short": {
+      "calibration": 2000,
+      "training": 55500,
+      "total": 57500
+    },
+    "exact_long": {
+      "calibration": 0,
+      "training": 111000,
+      "total": 111000
+    },
+    "learned_long": {
+      "calibration": 2000,
+      "training": 111000,
+      "total": 113000
+    }
+  },
+  "budget": "Six old training banks and six independent calibration draws only; no solver inference and no extension.",
+  "arm_rows": {
+    "exact_short": 2220,
+    "learned_short": 2220,
+    "exact_long": 4440,
+    "learned_long": 4440
+  },
+  "arm_calibration_pairs": {
+    "exact_short": 0,
+    "learned_short": 1000,
+    "exact_long": 0,
+    "learned_long": 1000
+  },
+  "base_policy_sha256": "0c07514e139bb82e4199485876ef36f9859583b18c6e9c44246bc31e3c0daf7a",
+  "base_estimator_sha256": "7e1c8433219297d2309d585db4d0b0517435fae035ac36d8a43f193d8d188311",
+  "nesting": "Withinmethod,N2220masks/observations/logLRsareliteralprefixesofN4440; bothlearnedarmsreusethebankcalibrationresult. Shortarmsstopqueryingat2220. Verify independentprefixidentity.",
+  "noise": "Independent eta=.05 replacement. Calibration draws uniform(1000,2),then int8offsets1..8;sameonecalibrationresultusedbybothlearnedprefixes. Trainingdraws81uniforms then81offsets perrow afterallactive masksfinalize.",
+  "estimator_interface": "Onefixed1000binarydisagreementindicatorvectorperbank,no cleanlabels orsource/cellidentity.",
+  "policy_preflight_path": "artifacts/research/20261114/ripper/scaled_noise_preflight.json",
+  "policy_preflight_sha256": "ed05808b995ccc6520363f74d8bb575c22a288dcdb4f681629bbac71e94e2be3",
+  "arm_actual_eta": {
+    "exact_short": "1/20",
+    "learned_short": "1/20",
+    "exact_long": "1/20",
+    "learned_long": "1/20"
+  },
+  "actual_eta": "1/20",
+  "old_manifests": {
+    "equal_budget": {
+      "path": "artifacts/research/20261114/ripper/equal_budget/input_manifest.json",
+      "sha256": "6a27524a41688fd031eab1a2dcf00411ab9de71559766aac8e43c3419218088e"
+    },
+    "rate_transfer": {
+      "path": "artifacts/research/20261114/ripper/rate_transfer/input_manifest.json",
+      "sha256": "30aed968cd9d50821c6cbae9e57146923032ac3d59cc8e43c849a322416769a7"
+    },
+    "calibrated": {
+      "path": "artifacts/research/20261114/ripper/calibrated/input_manifest.json",
+      "sha256": "974202331026aacb0fc5f91f5cd13720b45a161cf4c8d4b8a16760f2dd95a90a"
+    }
+  },
+  "source_rule": "Perseed0..5,training=concat(H1ab2300,H1ac2220)[:4440];calibration=H1aa_calibration[:1000]. Allpreviouslyusedboards. These studyrolepoolsaregloballydisjointbyearlierexclusions."
+}

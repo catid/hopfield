@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/home/catid/hopfield/artifacts/feasibility-venv/lib/python3.12/site-packages/scipy/__init__.py", line 83, in <module>
+    from scipy._lib._ccallback import LowLevelCallable
+  File "/home/catid/hopfield/artifacts/feasibility-venv/lib/python3.12/site-packages/scipy/_lib/_ccallback.py", line 1, in <module>
+    from . import _ccallback_c
+ImportError: cannot import name '_ccallback_c' from 'scipy._lib' (/home/catid/hopfield/artifacts/feasibility-venv/lib/python3.12/site-packages/scipy/_lib/__init__.py)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/catid/hopfield/research/20261114/work/training_feasibility.py", line 111, in <module>
+    parser=argparse.ArgumentParser();parser.add_argument('command',choices=['freeze','run']);args=parser.parse_args();globals()[args.command]()
+                                                                                                                      ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/catid/hopfield/research/20261114/work/training_feasibility.py", line 59, in run
+    import scipy
+  File "/home/catid/hopfield/artifacts/feasibility-venv/lib/python3.12/site-packages/scipy/__init__.py", line 88, in <module>
+    raise ImportError(msg) from e
+ImportError: The `scipy` install you are using seems to be broken, (extension modules cannot be imported), please try reinstalling.

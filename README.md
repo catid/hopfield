@@ -28,6 +28,8 @@ Hidden solution labels can also be removed: counts from **3,000 partially observ
 
 The fixed learned transformation is less robust at 600 noisy boards: the paper recipe solves **20.27%**, versus **80.25%** for restricted counts, and produces 240,000 wrong stops across 320,000 logical evaluations. An untuned AdamW control reaches 78.03% with zero observed wrong stops. All arms use the same zero-threshold search; optimizer and regularization differences remain explicit. [Noisy-label comparison and audited graph failures →](research/20261114/foureyes/REPORT-noisy-pl.md)
 
+More training does not repair that fixed pipeline: a fresh 64-bank test scores **18.76% at 256 SGD updates**, versus **27.59% at 32 updates** and **79.99% for restricted counts**. The AdamW control now produces 838 wrong stops, underscoring the limits of an earlier zero-error observation. [Matched training-budget test and numerical checks →](research/20261114/foureyes/REPORT-noisy-pl-long.md)
+
 ![Noisy-label likelihood fits versus count controls, including true-edge retention](assets/figures/noisy-pl.png)
 
 The earlier intervention result remains useful: digit symmetry and repulsion increased low-data accuracy by **47.83 points** on a separate reserved slice. Counting explains why the transformed models recover the same graph. [Earlier matched results →](research/20261114/ripper/REPORT-heldout.md)
@@ -40,9 +42,15 @@ With **1% independent noise in queried labels**, adaptive querying plus a sequen
 
 Each policy receives **1,500 training boards × 25 queries** per board. The 32 source-bank runs share the same 10,000 test puzzles and fixed short search budget. Complete stored solutions act as a simulated label oracle; only queried, corrupted digits reach the policy. The evidence rule is supplied the **exact 1% noise law**. Its conditional guarantee protects true constraints under that law; it does not guarantee exact graph recovery or solve accuracy. [Sequential evidence proof, controls and audit →](research/20261114/ripper/REPORT-noisy.md)
 
-**The noise bound can be estimated from repeated queries.** On a fresh cohort, a bound learned from 10,000 independently corrupted query pairs reaches **74.21%**, versus **76.13%** with exact noise knowledge. The paired difference is −1.93 points, with a 95% interval of [−4.42, +0.61], passing the frozen 5-point noninferiority margin with zero wrong stops. This costs **57,500 total queries per bank**, versus 37,500 for the known-noise controls; query efficiency remains a separate question. [Calibration proof, costs and independent replay →](research/20261114/ripper/REPORT-calibrated.md)
+**At a fixed query budget, spend more on training and less on calibration.** With 57,500 queries per bank, using 1,000 repeated-query pairs to estimate noise and 2,220 training boards solves **83.17%**, versus **76.31%** with 10,000 calibration pairs and 1,500 training boards. The observed gain is **6.86 points**, with a paired 95% interval of **[4.76, 9.14]**; the frozen 5-point noninferiority target passes, with zero wrong stops. All 32 cheaper-calibration models recover the exact graph and match the known-noise control's outcomes through identical energies. This result concerns the declared independent 1% noise law. [Equal-query controls, proof and audit →](research/20261114/ripper/REPORT-equal-budget.md)
 
-![Estimated noise bounds recover most of the exact-calibration accuracy, with query costs shown](assets/figures/repeated-query-noise-calibration.png)
+![Equal query budgets favor fewer calibration pairs and more training boards in this experiment](assets/figures/equal-query-budget.png)
+
+The earlier experiment established that repeated queries could estimate a useful noise bound, but charged the learned-bound arm extra queries. [Original calibration study and limits →](research/20261114/ripper/REPORT-calibrated.md)
+
+The economical allocation fails at **5% noise**: learned calibration solves **24.17%**, versus **52.32%** with exact noise knowledge, failing both the five-point accuracy margin and the frozen 70% accuracy floor. Both still have zero wrong stops; preserving true constraints does not guarantee useful solve accuracy. [Noise-rate transfer and retained calibration failure →](research/20261114/ripper/REPORT-rate-transfer.md)
+
+**Doubling training restores performance at 5% noise.** With 4,440 training boards and 1,000 calibration pairs, both learned and exact noise calibration recover all 32 graphs and solve **82.34%**, with zero wrong stops. This costs **113,000 queries** per bank for learned calibration and **111,000** for exact calibration. It passes the frozen accuracy and stopping targets; the gain comes with more data. [Fresh-bank test, nested controls and costs →](research/20261114/ripper/REPORT-scaled-noise.md)
 
 Noise calibration matters: using a conservative **2% upper bound when actual noise is 1%** preserves true constraints but falls to **57.10%** versus **78.98%** for exact calibration on a separate fresh cohort, falsifying the frozen 10-point noninferiority target. [Conservative-bound control and figure →](research/20261114/ripper/REPORT-noise-bound.md)
 
@@ -84,6 +92,12 @@ The earlier study included every complete pattern in training, where simple bank
 
 Earlier N-Queens-10 experiments showed faster fitting with Adam and a weight-decay gap. A learned-certificate-first output policy then fixed all 77 failed AdamW input–seed cases without extra search, showing that the gap depends on output selection. [Optimizer experiments →](research/20261114/loki/h3c/REPORT.md) · [Selection control →](research/20261114/loki/h3d/REPORT.md)
 
+**Preserving a permutation makes the search much more effective.** With identical learned weights, temperatures and permutation starting boards, proposals that preserve one queen per row and column raise certified queen-plus-camel success from **20.87% to 87.23%**: **+66.36 points**, with one-sided 95% endpoints [65.43, 67.28] and zero wrong stops. Changing initialization alone gives no demonstrated large gain. The proposal prior comes from source-inferred lines. Both arms get 20,000 proposals per chain, but permutation proposals cost more: 100.36 versus 65.82 aggregate GPU-worker seconds. [Matched initialization control and audit →](research/20261114/loki/h3aa/REPORT.md) · [Original combined intervention →](research/20261114/loki/h3w/REPORT.md)
+
+![Identical permutation starts isolate the gain from permutation-preserving proposals](results/research/loki/h3aa/initialization-triangle.png)
+
+**A complete source universe can support compact rule learning.** Given all 176 N12 queen-plus-camel solutions, an explicit completeness assumption, D4 symmetry and a preference for fewer rule generators, exhaustive selection identifies the single `(1,3)` leaper rule. Its N13 energy exactly matches the already-audited oracle, inheriting **100%** certified success without another search. This uses substantial extra priors and reused outcomes. A fixed 18-case stress grid succeeds in 12 cases and includes a unique wrong rule that certifies 12 invalid complete boards. [Exact selection and identity mapping](research/20261114/loki/h3x/REPORT.md) · [Full stress grid and counterexamples](research/20261114/loki/h3y/REPORT.md)
+
 ## Failures are part of the result
 
 The maze step-size benefit has a limit: a new maze with many tied shortest paths produces certified branched or disconnected answers for two models. Simple tied-cycle controls still solve perfectly, so ties alone do not explain the failure. [Saved graph, boards and causal controls →](research/20261114/work/REPORT.md)
@@ -92,6 +106,8 @@ A stronger check proves that the invalid endpoint-only answer is the **unique gl
 
 A matched training intervention then fixes label-versus-endpoint ranking on all **4,096 fresh mazes**, but drops joint shortest-path solves from **4,089 to zero**. The failed outputs select about 92% of free cells; nearly every correct label still remains a local minimum. Improving one energy ranking is insufficient to make the decoder solve the task. [Training controls, full diagnostics and figure →](research/20261114/work/REPORT.md)
 
+Linear programming can satisfy every declared training flip and sparse/dense ranking constraint, with public primal and dual certificates. Yet a norm-matched version still solves zero fresh mazes under native inference: its final probabilities are nearly stationary and fractional, and rounding remains invalid. [Feasibility, norm bounds and the failed decoder test →](research/20261114/work/REPORT.md)
+
 The learned Sudoku pipeline's four-million-move **99% all-seed joint-success hypothesis was inconclusive**, despite 99.635% mean accuracy. The sixteen-million-move secondary endpoint passed. Projection still fails at extremely low data; largest-gap pruning collapses without spatial augmentation; and maze mass rescaling gives no improvement. [All hypotheses, including negative and inconclusive outcomes →](results/README.md)
 
 Learning valid constraints at one board size does not guarantee transfer to a larger board. For superqueens, a source-based hybrid model reaches **37.23%** on larger N13 boards while the supplied-rule oracle reaches 100%. Some exclusions inferred from all N12 solutions become false at N13. Adding every N11 solution leaves the model unchanged. [Superqueen boundary →](research/20261114/loki/h3l/REPORT.md) · [Smaller-source control →](research/20261114/loki/h3m/REPORT.md)
@@ -99,6 +115,8 @@ Learning valid constraints at one board size does not guarantee transfer to a la
 A larger prospective upward-transfer test also **falsifies** the frozen 0.1-point noninferiority target: the full N14 superqueen source gives **99.6419%** on N15 versus **99.9410%** for the supplied-rule oracle. Extra exclusions leave 49 of 16,384 inputs without any valid certificate. The earlier smaller test remains inconclusive. [Confirmation and structural audit →](research/20261114/loki/h3p/REPORT.md)
 
 Learning soft weights does not automatically fix transfer. On queen-plus-camel boards, grouped BP AdamW reaches **75.63%** versus **88.75%** for matched filtered counts, with **9,965 wrong stopped chains**. Independent energy reconstruction confirms that negative interactions can compensate for real conflicts and satisfy the source-trained certificate. [Matched optimizer control and failure mechanism →](research/20261114/loki/h3u/REPORT.md)
+
+Removing negative interactions and using a strict zero-conflict stop eliminates observed wrong stops, but learned positive weights find certified solutions on only **21.25%** of fresh inputs versus **83.41%** for uniform weights on the **same support and zero set**. This separates search behavior from which solutions the energy allows. [Fixed-support experiment, capacity census and kernel validation →](research/20261114/loki/h3v/REPORT.md)
 
 Fixed Sudoku restarts also failed their frozen +0.1-point improvement target: the gain was +0.012 points, with a paired 95% interval [−0.068, +0.093]. [Restart control and full curve →](research/20261114/foureyes/REPORT-restart.md)
 

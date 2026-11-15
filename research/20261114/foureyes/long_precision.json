@@ -1,0 +1,44 @@
+{
+  "id": "H4s-source-only-precision-diagnosis",
+  "frozen_utc": "2026-11-15T02:10:00.108510+00:00",
+  "scope": "Diagnose failed source-only gate, not fresh scientific fits or target inference. Preserved H4s gate remains failed.",
+  "cases": [
+    {
+      "n": 32,
+      "noise": false
+    },
+    {
+      "n": 32,
+      "noise": true
+    },
+    {
+      "n": 600,
+      "noise": false
+    },
+    {
+      "n": 600,
+      "noise": true
+    }
+  ],
+  "checkpoints": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128,
+    256
+  ],
+  "input": "artifacts/research/20261114/foureyes/chernoff_replication/inputs-00.npz",
+  "corruptions": "artifacts/research/20261114/foureyes/chernoff_replication/shard-00/corruptions.npz",
+  "max_case_seconds": 120,
+  "comparisons": "Same native SGD/prox/cosine256 trajectory with exact replayed augmentation draws: CPU/GPU float32 and CPU/GPU float64 algebra. Record losses, canonicalcoefficient error, support changes. Native GPU32final mustmatch copied loop bitwise.",
+  "frozen_inputs": {
+    "artifacts/research/20261114/foureyes/chernoff_replication/inputs-00.npz": "9c68907b52ef453b406dc2cc35e2b4440f8c817b9be411f49b1c63f5595ef44e",
+    "artifacts/research/20261114/foureyes/chernoff_replication/shard-00/corruptions.npz": "be6b7dd6986bb6ad3d55cf51103563918da67b06f624e7138df40b876bb04511",
+    "research/20261114/foureyes/diagnose_long_precision.py": "6e61fb90136ac956c84c988e2e56d733228b7670a59fd678a648157acfacffbd",
+    "upstream/experiments/sudoku.py": "b73f72c8e874711d0d05fa75de0043442a20297618de62e5bb714b76aa09f20b"
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "queries": 25,
+  "q1": "1/9",
+  "crossing_boundary": 648000,
+  "policy_sha256": "6f4f24c016370be61637a7af50669b0797c659ab2801c5cc6e624800f2be2d09",
+  "proof_sha256": "90712d96e4149020a0bced7a5c8ba67fc5b525e7adc5768bdf3ae1c41ddf8ee0",
+  "gate": "Sameq1=1/9,predictableexponentialmask,firstLRcrossing648000.Allactivecurrentmasksfinalizebeforelabels;perarmstopsatfixedN.",
+  "id": "H1ac-calibration-rate-transfer",
+  "frozen_utc": "2026-11-15T02:15:44.177736+00:00",
+  "primary_hypothesis": "Atactualindependenteta=.05,M1000learned/N2220iswithin5ppofexact-knowneta/N2220,learnedaccuracyisatleast70percent,andboth5percentprimaryarmshavezerowrongcertifiedstops.",
+  "primary_effect": "Three separate endpoints and their conjunction: learned_05minus exact_05accuracy(pp),absolutelearned_05accuracy(percent),zero wrongcertifiedstops in learned_05/exact_05.",
+  "primary_interval": "5000two-waybootstrapdraws,RNG20311000,over32banksand10000sharedpuzzleindices. NIpaired95% supportsiflower>=-5pp,falsifiesifupper<-5pp. Learnedabsolute95%supportsiflower>=70%,falsifiesifupper<70%. Zero-wrongstopgatepassesiffzeroacrossboth5%arms. Conjunctionsupportedonlyifallpass;falsifiedifeitherintervalendpointfalsifiedorwrongstop;otherwiseinconclusive. Marginal95%intervalsonly,no simultaneous-coverageclaim.",
+  "uncertainty_limit": "32independent source-bank draws,one independent noise and tie stream perbank,and32paired search seeds. The same10000testinputs repeat acrossbanks. Bootstrap uncertainty is approximate,not a population-universal acquisition guarantee.",
+  "inputs": "artifacts/research/20261114/ripper/rate_transfer/input_manifest.json",
+  "input_manifest_sha256": null,
+  "input_registration": "artifacts/research/20261114/ripper/rate_transfer/input_registration.json",
+  "registration_rule": "Full study and sampling protocols freeze before input generation. After preparation, an immutable registration records the input manifest SHA256 and unchanged study protocol SHA256 before acquisition. Runners resolve the manifest hash from that registration; no outcomes are available during registration.",
+  "input_protocol_sha256": "365ed9dbf0ba2e78dc2045a5babe05475f239e6185de5b6ba5ffb6cac954fdae",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "sizes": [
+    2220
+  ],
+  "rows": 2220,
+  "n_per_bank": 2220,
+  "arms": [
+    "exact_01",
+    "learned_01",
+    "exact_05",
+    "learned_05"
+  ],
+  "noise": "Calibration: draw uniform(1000,2),then same-shape int8 offsets1..8; use U<.01orU<.05. Training: perrow draw81uniforms then81int8offsets, after all four masks finalize. One shared calibration cell perboard. Separate source/cell/calnoise/trainnoise/tie streams.",
+  "ties": "RNG20307000+s sharedperrow81permutation; masksdependonlyonpastobservations. Allfourmasksfinalizebeforeanycurrentvalues.",
+  "acquisition_interface": "Policy gets only past joint counts,irreversible past exclusions,k25,and tie permutation. Full100percent-complete stored labels are a simulated oracle; policy receives only25noisyquerieddigits each row. No current values,sourceidentity,geometry or oracle handle enters the policy.",
+  "gates": "Independent exact masks reconstructed from past noisy queriedarchives; allcurrent masks finalize before reveals; noise draws,logLRpaths,exact rational crossings,and prefix supports independently replayed. Row-noise independence and predictable masks are required by the proof.",
+  "secondary": "1percentarms,othercontrasts,grapherrors,calibrationcoverage/fallback,invalidcappedreturnsdescriptive. Learned57500versusexact55500queriesclearlycharged;matchedNisolatescalibration,notqueryefficiency.",
+  "rows_half_open": [
+    280000,
+    290000
+  ],
+  "split": "full-all",
+  "search_sizes": [
+    2220
+  ],
+  "budget": "At most30GPU-minutes including trajectory preflight. Exact support/settings/search-seed/input deduplication. No duplicate/filler jobs.",
+  "backend_sha256": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+  "capture_sha256": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+  "original_policy_sha256": "7be1d4c3f54ab61fa93c42ad478558163d3e080b4ad5ca877642f971fdf27bbe",
+  "original_exponential_sha256": "fc0921314bf17a64e8cd6c9e07fc77f22ce559a4b7108d1415c9b39266bb1192",
+  "policy_preflight_path": "artifacts/research/20261114/ripper/rate_transfer_preflight.json",
+  "policy_preflight_sha256": "e1f7661ff639c80028ff796d580573553aee4d98fd5b2e1236fa84023d3b4cd6",
+  "pilot_path": "research/20261114/ripper/protocol-rate-transfer-pilot.json",
+  "pilot_sha256": "046f7847211b88a10866ec6e7d576987d7a9dd50c815213ee25a80df11976dcf",
+  "relation_to_prior": "H1abseparate;freshinputs excludeall1059144priorRippercalibration/trainingboards. Allsettingsfreezebeforeold-boardpilotandfreshfits.",
+  "stopping_rule": "Exactly32freshbanksandfourarms,128requestedcellswithonlyexactmodel/settings/seed/inputdedup;nooutcomechangesN,M,rates,margin,floor,budgetorbanks.",
+  "limitations": [
+    "Guarantee requires fixedindependentreplacementnoise, same rate incalibration/training foreacharm.",
+    "MatchedN2220:learned57500totalqueries versus exact55500;not equal-total-coststudy.",
+    "Separate .005calibration and.005edge budgets bound learnedper-modeldeletionby.01;no global1percentclaimacrossrates,armsorbanks.",
+    "NIandabsoluteaccuracy intervalsare marginal95%;no simultaneous-coverageclaim.",
+    "Source/noisepotentials pairedacrossrates;adaptive masks neednot be nested.",
+    "EdgeprotectiondoesnotensureNI,70percentusefulness,fewextras,recoveryorvalidcappedreturns.",
+    "Rolepoolsdisjointwithinstudy;crossbankoverlapallowedandreported.",
+    "Same10000testinputsrepeatacross32bank/searchseeds.",
+    "BP AdamW outsidequerycalibrationstudyandnotrun."
+  ],
+  "original_noisy_policy_sha256": "31f4b5dbc64690db94fd3d8959c16dd85d9c8b2f891f893e7e9b77413df16c19",
+  "calibration_pairs": 1000,
+  "calibration_alpha": "1/200",
+  "edge_alpha": "1/200",
+  "eta_grid": 1000000,
+  "streams": {
+    "pool_split": 20304000,
+    "calibration_source": 20305000,
+    "training_source": 20306000,
+    "ties": 20307000,
+    "calibration_noise": 20308000,
+    "training_noise": 20309000,
+    "calibration_cell": 20310000,
+    "bootstrap": 20311000
+  },
+  "calibration": "SeparatefixedM1000indicator-onlyestimatesperrate: one-sided99.5percentCPdisagreementupper,monotoneinverse,outward1e-6grid,exactintegerendpoint/predecessorchecks,independent80digitverification.Alloutcomesretained.",
+  "fallback": "If the inverted or outward-rounded upper reaches eta=8/9, retain every pair and use the no-pruning fallback. No clipping to a falsely smaller bound.",
+  "estimator_sha256": "ee8d23b74b87937a179fe7249fc3d64a427947e6cfda3424add88b33b27f6012",
+  "label_costs": {
+    "exact_01": {
+      "calibration": 0,
+      "training": 55500,
+      "total": 55500
+    },
+    "learned_01": {
+      "calibration": 2000,
+      "training": 55500,
+      "total": 57500
+    },
+    "exact_05": {
+      "calibration": 0,
+      "training": 55500,
+      "total": 55500
+    },
+    "learned_05": {
+      "calibration": 2000,
+      "training": 55500,
+      "total": 57500
+    }
+  },
+  "arm_rows": {
+    "exact_01": 2220,
+    "learned_01": 2220,
+    "exact_05": 2220,
+    "learned_05": 2220
+  },
+  "arm_calibration_pairs": {
+    "exact_01": 0,
+    "learned_01": 1000,
+    "exact_05": 0,
+    "learned_05": 1000
+  },
+  "edge_crossing_boundary": 648000,
+  "base_policy_sha256": "0c07514e139bb82e4199485876ef36f9859583b18c6e9c44246bc31e3c0daf7a",
+  "base_estimator_sha256": "7e1c8433219297d2309d585db4d0b0517435fae035ac36d8a43f193d8d188311",
+  "nesting": "Same source boards,cells,uniformpotentials,offsets,ties pair rates; low-rateflips subset high-rateflips. Adaptive masks may differ and are not assumed nested. Each estimator receives only its ownrate1000indicators.",
+  "estimator_interface": "Exactly1000 binary disagreement indicators for one fixedrate,without other-rate indicators,cleanlabels,cellsoridentities.",
+  "arm_actual_eta": {
+    "exact_01": "1/100",
+    "learned_01": "1/100",
+    "exact_05": "1/20",
+    "learned_05": "1/20"
+  },
+  "noninferiority_margin_pp": 5,
+  "usefulness_floor_pct": 70,
+  "primary_arms": [
+    "exact_05",
+    "learned_05"
+  ]
+}

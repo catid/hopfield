@@ -1,0 +1,91 @@
+{
+  "id": "H1ac-rate-transfer-implementation-pilot",
+  "frozen_utc": "2026-11-15T02:15:44.177736+00:00",
+  "scope": "Sixoldboardimplementationbanks,noinferenceornullresultpooling.Allrates,endpoints,margins,floor,streamsandsamplesfreezebeforepilot.",
+  "training_manifest": "artifacts/research/20261114/ripper/clues/input_manifest.json",
+  "training_manifest_sha256": "838908435ae82b9f617eb92d821341ec8b6c1792329b7a05d192815aff859eae",
+  "calibration_pool_manifest": "artifacts/research/20261114/ripper/recovery_confirm/input_manifest.json",
+  "calibration_pool_manifest_sha256": "a2320e4317b854bbdd239589b90e2359b57570e406fbc1b5a2817c6a41f7a861",
+  "calibration_pool_rule": "SorteduniqueH1xunion; eachpilotseed draws1000withoutreplacementwith20312000+s. Trainingfirst2220oforiginalcluesbanks;rolepoolsdisjoint.",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "rows": 2220,
+  "calibration_pairs": 1000,
+  "queries": 25,
+  "arms": [
+    "exact_01",
+    "learned_01",
+    "exact_05",
+    "learned_05"
+  ],
+  "q1": "1/9",
+  "calibration_alpha": "1/200",
+  "edge_alpha": "1/200",
+  "edge_crossing_boundary": 648000,
+  "eta_grid": 1000000,
+  "streams": {
+    "calibration_source": 20312000,
+    "calibration_cell": 20313000,
+    "calibration_noise": 20314000,
+    "training_noise": 20315000,
+    "ties": 20316000
+  },
+  "noise_draw_rule": "Calibration: draw uniform(1000,2),then same-shape int8 offsets1..8; use U<.01orU<.05. Training: perrow draw81uniforms then81int8offsets, after all four masks finalize. One shared calibration cell perboard. Separate source/cell/calnoise/trainnoise/tie streams.",
+  "policy_sha256": "6f4f24c016370be61637a7af50669b0797c659ab2801c5cc6e624800f2be2d09",
+  "estimator_sha256": "ee8d23b74b87937a179fe7249fc3d64a427947e6cfda3424add88b33b27f6012",
+  "proof_sha256": "90712d96e4149020a0bced7a5c8ba67fc5b525e7adc5768bdf3ae1c41ddf8ee0",
+  "label_costs": {
+    "exact_01": {
+      "calibration": 0,
+      "training": 55500,
+      "total": 55500
+    },
+    "learned_01": {
+      "calibration": 2000,
+      "training": 55500,
+      "total": 57500
+    },
+    "exact_05": {
+      "calibration": 0,
+      "training": 55500,
+      "total": 55500
+    },
+    "learned_05": {
+      "calibration": 2000,
+      "training": 55500,
+      "total": 57500
+    }
+  },
+  "budget": "Six old training banks and six independent calibration draws only; no solver inference and no extension.",
+  "arm_rows": {
+    "exact_01": 2220,
+    "learned_01": 2220,
+    "exact_05": 2220,
+    "learned_05": 2220
+  },
+  "arm_calibration_pairs": {
+    "exact_01": 0,
+    "learned_01": 1000,
+    "exact_05": 0,
+    "learned_05": 1000
+  },
+  "base_policy_sha256": "0c07514e139bb82e4199485876ef36f9859583b18c6e9c44246bc31e3c0daf7a",
+  "base_estimator_sha256": "7e1c8433219297d2309d585db4d0b0517435fae035ac36d8a43f193d8d188311",
+  "nesting": "Same source boards,cells,uniformpotentials,offsets,ties pair rates; low-rateflips subset high-rateflips. Adaptive masks may differ and are not assumed nested. Each estimator receives only its ownrate1000indicators.",
+  "noise": "Calibration: draw uniform(1000,2),then same-shape int8 offsets1..8; use U<.01orU<.05. Training: perrow draw81uniforms then81int8offsets, after all four masks finalize. One shared calibration cell perboard. Separate source/cell/calnoise/trainnoise/tie streams.",
+  "estimator_interface": "Exactly1000 binary disagreement indicators for one fixedrate,without other-rate indicators,cleanlabels,cellsoridentities.",
+  "policy_preflight_path": "artifacts/research/20261114/ripper/rate_transfer_preflight.json",
+  "policy_preflight_sha256": "e1f7661ff639c80028ff796d580573553aee4d98fd5b2e1236fa84023d3b4cd6",
+  "arm_actual_eta": {
+    "exact_01": "1/100",
+    "learned_01": "1/100",
+    "exact_05": "1/20",
+    "learned_05": "1/20"
+  }
+}
