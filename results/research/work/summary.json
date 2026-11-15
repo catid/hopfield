@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-15T08:03:51.113717+00:00",
+  "updated_utc": "2026-11-15T08:16:24.467784+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
   "status": "Ongoing research; H2aj prospective factorial complete with independent state and trace audits",
   "host": "work",
@@ -1075,6 +1075,16 @@
       "campaign": "local_factor_audit",
       "hypothesis": "H2az fixed512candidate medianprocessspeedup>=2x with algebraic equivalence",
       "outcome": "met"
+    },
+    {
+      "campaign": "terminal_cycle",
+      "hypothesis": "H2ba >=31 additional jointrescues beyond terminalonly andzero regressions",
+      "outcome": {
+        "additional_joint_rescues": 52,
+        "joint_regressions": 0,
+        "at_least31_additional_rescues": "met",
+        "zero_regressions": "met"
+      }
     }
   ],
   "run_tables": [
@@ -1339,6 +1349,12 @@
       "frozen_utc": "2026-11-15T07:52:14.131086+00:00",
       "hypothesis": "H2az",
       "status": "completed"
+    },
+    "terminal-cycle-protocol": {
+      "sha256": "07a68d788b65c103fce8057a0ccb224f7e9e46eff501538674a662d5cd579e89",
+      "frozen_utc": "2026-11-15T08:11:07.403497+00:00",
+      "hypothesis": "H2ba",
+      "status": "completed"
     }
   },
   "audit_sha256": {
@@ -1381,7 +1397,8 @@
     "artifacts/research/20261114/work/cycle_transfer_180/audit.json": "8f8cf670140afcbc2ad3878cee6d4f6e642e6b56034ad9ffbc9de9372487e663",
     "artifacts/research/20261114/work/large_cycle_cut/audit.json": "a8c3db51c92833291fb38c3631e967cf05c7b741b33cf54b2e259bbbcd456bab",
     "artifacts/research/20261114/work/cap_transfer/audit.json": "1a5f37678ab4dc7673b2ddd5e643cacf2d5bf5fb0fff83dd68b42f76be1d054c",
-    "artifacts/research/20261114/work/local_factor_audit/audit.json": "3d3aa4719f775d1a47dfee6f02db2fdb5615a8b247d6d205739faf7d27007a63"
+    "artifacts/research/20261114/work/local_factor_audit/audit.json": "3d3aa4719f775d1a47dfee6f02db2fdb5615a8b247d6d205739faf7d27007a63",
+    "artifacts/research/20261114/work/terminal_cycle/audit.json": "43ff5af08f9426230ca1a197c651d11759d1cdcceec397fc3e8e0158db30403b"
   },
   "model_sha256": {
     "0": {
@@ -2106,5 +2123,30 @@
     "full_density_final_states": 73728,
     "full_density_candidate_checks": 429409,
     "original_density_audit": "Failed at300s, preserved; successor separately frozen600s verification budget. No inference rerun; no original gate retroactive pass."
+  },
+  "terminal_cycle": {
+    "hypothesis": "H2ba",
+    "fresh_inputs": 0,
+    "source_model_inputs": 12288,
+    "new_search_inputs": 167,
+    "known_terminal_bookkeeping_model_cases": 27,
+    "inherited_veto_caps_unchanged": 10,
+    "primary": {
+      "additional_joint_rescues": 52,
+      "joint_regressions": 0,
+      "at_least31_additional_rescues": "met",
+      "zero_regressions": "met"
+    },
+    "joint_success": {
+      "inherited_lexical256": 4024,
+      "terminal_only": 4034,
+      "terminal_then_extra16": 4086
+    },
+    "model_success": {
+      "inherited_lexical256": 12084,
+      "terminal_only": 12111,
+      "terminal_then_extra16": 12263
+    },
+    "scope": "Archived source intervention. Certificate-only10joint rescues known from prior diagnosis; new16rounds52additional joint rescues/zero regressions. All25remainingmodel caps retained. No fresh generalization/confidence claim or evaluation totals."
   }
 }

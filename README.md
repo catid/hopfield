@@ -30,6 +30,10 @@ At **180×180**, raising the move limit from 256 to 512 cells repairs all 28 fai
 
 The denser **50%-loop** test exposes another limit: the same policy solves **4,024/4,096**, and larger cuts add no solves because the preceding search reaches its round cap. The minimum-gain target fails; net BP noninferiority still passes despite 63 paired losses against BP. [Density boundary and preserved audit timeout](research/20261114/work/REPORT.md#h2ay-the-larger-cap-gain-fails-at-higher-density-the-remaining-barrier-is-the-block-round-limit)
 
+A follow-up on those same dense mazes reaches **4,086/4,096**: a terminal-state check certifies ten already-solved inputs, and sixteen extra search rounds rescue another **52**, with zero regressions against the inherited decoder. This separates a stopping-flag issue from insufficient search; it is a source-cohort repair, with fresh confirmation still needed. [Separate controls, full costs and remaining failures](research/20261114/work/REPORT.md#h2ba-ten-known-bookkeeping-rescues-and-52-additional-search-rescues)
+
+![Dense-maze repair: terminal checks and extra search have separate effects](results/research/work/terminal-cycle/terminal-cycle.png)
+
 ## A search prior makes the same learned energy much more useful
 
 ![Same learned energies, different proposals: replicated across two new queen variants at matched measured GPU time](results/research/loki/h3ad/new-family-replication.png)

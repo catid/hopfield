@@ -1,0 +1,159 @@
+{
+  "status": "validated_synthetic_only",
+  "rational_rounding_states_checked": 44912,
+  "rate_cost_states_checked": 1114,
+  "unexposed_and_both_tie_parities_checked": true,
+  "independent_synthetic_predictable_masks": 190,
+  "synthetic_policy_states": 200,
+  "suffix_substitution_gates": [
+    {
+      "status": "validated",
+      "checkpoint": 45,
+      "prefix_masks_and_labels_unchanged": true,
+      "prefix_counts_unchanged": true,
+      "original_suffix_sha256": "f0dc6428047ee98f797770c353bfb62ef13c19aab1ee3de66e0804787892dffa",
+      "substituted_suffix_sha256": "5b8dbe4f3d1df4741e0f7cc2ed02d9fbcd0dd5ac87ab5b4a4bf1b5337d9205fc"
+    },
+    {
+      "status": "validated",
+      "checkpoint": 45,
+      "prefix_masks_and_labels_unchanged": true,
+      "prefix_counts_unchanged": true,
+      "original_suffix_sha256": "f0dc6428047ee98f797770c353bfb62ef13c19aab1ee3de66e0804787892dffa",
+      "substituted_suffix_sha256": "5b8dbe4f3d1df4741e0f7cc2ed02d9fbcd0dd5ac87ab5b4a4bf1b5337d9205fc"
+    }
+  ],
+  "rejected_mutated_certificates_or_primals": 12,
+  "cases": [
+    {
+      "name": "triangle_fractional",
+      "certificate": {
+        "certified": true,
+        "reason": "exact_scaled_integer_primal_dual",
+        "integral": false,
+        "primal_objective_twice": 3,
+        "dual_objective_twice": 3,
+        "maximum_dual_reconstruction_error": 0.0,
+        "primal_rounding_used": false,
+        "dual_scale": 2
+      },
+      "solver": {
+        "highs_version": "1.12.0",
+        "numpy": "2.3.4",
+        "solver_options": {
+          "threads": 1,
+          "parallel": "off",
+          "solver": "simplex",
+          "simplex_strategy": 1,
+          "presolve": "off",
+          "time_limit": 1.0,
+          "random_seed": 2026111502,
+          "primal_feasibility_tolerance": 1e-09,
+          "dual_feasibility_tolerance": 1e-09,
+          "log_to_console": false,
+          "log_file": "/tmp/laplace-rate-synthetic-vqiymn2_/triangle_fractional.log"
+        },
+        "solver_status": "Optimal",
+        "solver_call_status": "HighsStatus.kOk",
+        "solver_optimal": true,
+        "value_valid": true,
+        "dual_valid": true,
+        "solver_objective": 1.5,
+        "simplex_iterations": 3,
+        "solver_wall_s": 0.00018485699547454715,
+        "solver_cpu_s": 0.00018305499999998753
+      }
+    },
+    {
+      "name": "square_integral",
+      "certificate": {
+        "certified": true,
+        "reason": "exact_scaled_integer_primal_dual",
+        "integral": true,
+        "primal_objective_twice": 6,
+        "dual_objective_twice": 6,
+        "maximum_dual_reconstruction_error": 0.0,
+        "primal_rounding_used": false,
+        "dual_scale": 2
+      },
+      "solver": {
+        "highs_version": "1.12.0",
+        "numpy": "2.3.4",
+        "solver_options": {
+          "threads": 1,
+          "parallel": "off",
+          "solver": "simplex",
+          "simplex_strategy": 1,
+          "presolve": "off",
+          "time_limit": 1.0,
+          "random_seed": 2026111503,
+          "primal_feasibility_tolerance": 1e-09,
+          "dual_feasibility_tolerance": 1e-09,
+          "log_to_console": false,
+          "log_file": "/tmp/laplace-rate-synthetic-vqiymn2_/square_integral.log"
+        },
+        "solver_status": "Optimal",
+        "solver_call_status": "HighsStatus.kOk",
+        "solver_optimal": true,
+        "value_valid": true,
+        "dual_valid": true,
+        "solver_objective": 3.0,
+        "simplex_iterations": 2,
+        "solver_wall_s": 5.876802606508136e-05,
+        "solver_cpu_s": 5.85180000000074e-05
+      }
+    },
+    {
+      "name": "square_tied",
+      "certificate": {
+        "certified": true,
+        "reason": "exact_scaled_integer_primal_dual",
+        "integral": true,
+        "primal_objective_twice": 0,
+        "dual_objective_twice": 0,
+        "maximum_dual_reconstruction_error": 0.0,
+        "primal_rounding_used": false,
+        "dual_scale": 2
+      },
+      "solver": {
+        "highs_version": "1.12.0",
+        "numpy": "2.3.4",
+        "solver_options": {
+          "threads": 1,
+          "parallel": "off",
+          "solver": "simplex",
+          "simplex_strategy": 1,
+          "presolve": "off",
+          "time_limit": 1.0,
+          "random_seed": 2026111504,
+          "primal_feasibility_tolerance": 1e-09,
+          "dual_feasibility_tolerance": 1e-09,
+          "log_to_console": false,
+          "log_file": "/tmp/laplace-rate-synthetic-vqiymn2_/square_tied.log"
+        },
+        "solver_status": "Optimal",
+        "solver_call_status": "HighsStatus.kOk",
+        "solver_optimal": true,
+        "value_valid": true,
+        "dual_valid": true,
+        "solver_objective": 0.0,
+        "simplex_iterations": 3,
+        "solver_wall_s": 7.370999082922935e-05,
+        "solver_cpu_s": 7.351999999999359e-05
+      }
+    }
+  ],
+  "wall_s": 0.1513749149744399,
+  "code_sha256": {
+    "soft_feedback_policy.py": "68f0cf2da45faa5c4a1768f4bc28fd1a49ca4d0f9f649b4818a3a9977cc7a77d",
+    "soft_feedback_study.py": "8609267f0a4d01a0ac3f3838bcff8f2a54873905ba2d4e23e598b054d601339a",
+    "audit_soft_feedback.py": "35214d9d17b9ccc462c4bf96bf6dbcdb51ccfa23d27513d73706f8b5a4b72bcc",
+    "preflight_soft_feedback.py": "0324580cfebf0130a987c8987fb6af69c87afdef577f2530ba13e63e131ce6a2",
+    "run_soft_feedback.py": "376f7ad1f6789391d9ec28e7bb252bc1a55916e28a465a2457f6b4d8b12a3ab6",
+    "laplace_rate_math.py": "439d2edecdf2e518f243b27cc20676a24e561e4260217876230edf6023939093",
+    "audit_laplace_rate.py": "378e36af14e26bfb53d7f876d123cc24b3151273d6bb2a015a3f2b5e0dfeddcd",
+    "degree_prior_math.py": "5a3ad2c21f59dfe0d2de40065385d484e171c0f854c49c649e868ce5a98a1f8e",
+    "degree_prior_solver.py": "2af92a5d4326e74813f514291a7a76e6ac92778335e1dd76ffbb01f83d474c43",
+    "audit_degree_prior.py": "179feb9815c787a5381d1924ccb0ac41af49e103222503f5ff988dc13559f55b"
+  }
+}

@@ -4,6 +4,9 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Dense-maze terminal checks versus extra search | [Paired outcomes and full audit](../results/research/work/terminal-cycle-summary.json) | [plot_terminal_cycle.py](../research/20261114/work/plot_terminal_cycle.py) |
+| Aligned versus permuted acquisition feedback | [Exact certificates and query accounting](../results/research/ripper/soft_feedback.json) | [plot_soft_feedback.py](../scripts/plot_soft_feedback.py) |
+| Resolving all eligible N12 queen aliases at N13 | [Complete populations and witnesses](../results/research/loki/h3ba/) | [plot_public.py](../research/20261114/loki/h3ba/plot_public.py) |
 | Complete-source queen model alias prevalence | [Full partition and zero-N14 stage receipt](../results/research/loki/h3az/) | [plot_public.py](../research/20261114/loki/h3az/plot_public.py) |
 | Denser-maze transfer and stopping boundary | [Full density outcomes and audit history](../results/research/work/density-transfer-summary.json) | [plot_density_transfer.py](../research/20261114/work/plot_density_transfer.py) |
 | Independent verification acceleration | [Paired cost and complete-job timings](../results/research/work/local-factor-audit/) | [plot_local_factor_audit.py](../research/20261114/work/plot_local_factor_audit.py) |

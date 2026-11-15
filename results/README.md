@@ -2,6 +2,9 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Dense-maze repair: ten terminal-check rescues plus 52 extra-search rescues, without regressions](../research/20261114/work/REPORT.md#h2ba-ten-known-bookkeeping-rescues-and-52-additional-search-rescues)
+- [Aligned soft feedback recovers 31/32 noisy graphs versus 26/32 for permuted feedback](../research/20261114/ripper/REPORT-soft-feedback.md)
+- [Complete N12/N13 populations identify all 1,511 eligible queen models; zero N14 populations measured](../research/20261114/loki/h3ba/REPORT.md)
 - [Denser mazes expose a round-limit barrier; larger-cut gain fails](../research/20261114/work/REPORT.md#h2ay-the-larger-cap-gain-fails-at-higher-density-the-remaining-barrier-is-the-block-round-limit)
 - [Independent factor cancellation accelerates verification: 18.7× candidate checks, 2.2× one complete audit job](../research/20261114/work/REPORT.md#h2az-independent-local-factor-cancellation-accelerates-verification-without-changing-inference)
 - [Balancing unlabeled pair exposure still fails the Sudoku recovery target](../research/20261114/ripper/REPORT-balanced-mask.md)
