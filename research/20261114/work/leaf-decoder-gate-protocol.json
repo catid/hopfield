@@ -1,0 +1,163 @@
+{
+  "training_manifest": {
+    "utc": "2026-11-15T01:37:29.513576+00:00",
+    "source": "Actual upstream data/maze-hard/train.csv loaded by original maze_learned.load; not recreated or generated.",
+    "source_csv_path": "upstream/data/maze-hard/train.csv",
+    "source_csv_sha256": "25f9e39b5aee16967da41ba63b2d1d75cf608c2360d8a1419d827f9859dbafa0",
+    "loader_sha256": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "n_training": 1000,
+    "shape": [
+      1000,
+      30,
+      30
+    ],
+    "arrays_sha256": "2ac6e034cf09cfdfcd00d81b51088c66042b2ec738e39b33496a75aa70aa777d",
+    "tokens_sha256": "5497e6927a10b71c7754634431ad43ad459c6698e238930feaebe18d0fcd651b",
+    "labels_sha256": "644c4eba45a4c2a875ba90bd21f1783301c2ec9340b680c3f61aa12326634703",
+    "script_sha256": "8bce0157edecd6d5c64ab2c855886bba5d4f1c286032d6a34c70ca45b24d03c0",
+    "numpy": "2.5.4"
+  },
+  "readouts": {
+    "0": {
+      "seed": 0,
+      "gpu": 0,
+      "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+      "arrays_sha256": "2ac6e034cf09cfdfcd00d81b51088c66042b2ec738e39b33496a75aa70aa777d",
+      "checkpoint_sha256": "84d694828c90cbf55bcf2eb84136324e2a5d482e4847e50d7b9f67b39c8aa230",
+      "readout_sha256": "8512aae4a4ca418b684ce37c032a9350398dddf92f0694b58aa49509888d41f6",
+      "coupling_array_sha256": "9e3d861a04a0f3eceea22136d2e4b2e5a83ee5d85216dbd47f1a3a087e4af678",
+      "hidden_batch_size": 64,
+      "tol": 1e-06,
+      "cap": 4000,
+      "check_every": 8,
+      "frozen_parameters": [
+        "mu",
+        "beta"
+      ],
+      "script_sha256": "8bce0157edecd6d5c64ab2c855886bba5d4f1c286032d6a34c70ca45b24d03c0"
+    },
+    "1": {
+      "seed": 1,
+      "gpu": 1,
+      "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+      "arrays_sha256": "2ac6e034cf09cfdfcd00d81b51088c66042b2ec738e39b33496a75aa70aa777d",
+      "checkpoint_sha256": "21004b8bca2fde7ae23825e874a30e15d28174ae5da16382420a1743d8ad2881",
+      "readout_sha256": "7899886bdf87152abd18d836b2f7eb0d0be5a3e0a91890b6594d5e3150e85da4",
+      "coupling_array_sha256": "307045eb96abd50eb9ffe15bc1d6ab66c75df44fe49a91d7e490e3694c121209",
+      "hidden_batch_size": 64,
+      "tol": 1e-06,
+      "cap": 4000,
+      "check_every": 8,
+      "frozen_parameters": [
+        "mu",
+        "beta"
+      ],
+      "script_sha256": "8bce0157edecd6d5c64ab2c855886bba5d4f1c286032d6a34c70ca45b24d03c0"
+    },
+    "2": {
+      "seed": 2,
+      "gpu": 0,
+      "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+      "arrays_sha256": "2ac6e034cf09cfdfcd00d81b51088c66042b2ec738e39b33496a75aa70aa777d",
+      "checkpoint_sha256": "5f350d5de1f42ef627a2dd6052bcdcb722bd965d1ef940863ed4f6955e4a73e3",
+      "readout_sha256": "7383a2395eb9b61c2a843fc788289578877897059ddefd17a4f571c96fd170c5",
+      "coupling_array_sha256": "d4ae5d9581e755fbeee30d1caf386fe2d9e29121b6a6b2145b71b9075b67231c",
+      "hidden_batch_size": 64,
+      "tol": 1e-06,
+      "cap": 4000,
+      "check_every": 8,
+      "frozen_parameters": [
+        "mu",
+        "beta"
+      ],
+      "script_sha256": "8bce0157edecd6d5c64ab2c855886bba5d4f1c286032d6a34c70ca45b24d03c0"
+    }
+  },
+  "initial_models": [
+    {
+      "seed": 0,
+      "path": "artifacts/research/20261114/work/training_feasibility/initial-seed0.npz",
+      "sha256": "59f860656a0b9d4f74c893b076ca079bd1792d1f322f70feceaf6d514ce32e4e",
+      "original_checkpoint_sha256": "84d694828c90cbf55bcf2eb84136324e2a5d482e4847e50d7b9f67b39c8aa230"
+    },
+    {
+      "seed": 1,
+      "path": "artifacts/research/20261114/work/training_feasibility/initial-seed1.npz",
+      "sha256": "281b7da1ab1401dea30596003bf4bced8e9600e69051b789df821542a2cd2016",
+      "original_checkpoint_sha256": "21004b8bca2fde7ae23825e874a30e15d28174ae5da16382420a1743d8ad2881"
+    },
+    {
+      "seed": 2,
+      "path": "artifacts/research/20261114/work/training_feasibility/initial-seed2.npz",
+      "sha256": "08c0840d920d017eb625471e0b4e6db8d628ece97746c147131f4524869df5c2",
+      "original_checkpoint_sha256": "5f350d5de1f42ef627a2dd6052bcdcb722bd965d1ef940863ed4f6955e4a73e3"
+    }
+  ],
+  "id": "source-leaf-fitted-unchanged-binary-decoder-gate",
+  "hypothesis_id": "H2ah",
+  "status": "frozen_before_source_gate_inference",
+  "frozen_utc": "2026-11-15T04:29:04.248163+00:00",
+  "hypothesis": "Descriptive source target: at least50percent fewer wrong model-input outputs than the retained H2af580 wrong outputs, with no exclusions.",
+  "parent_protocol_sha256": "269e4e7763dc9d42060f5cdda6e79c1bf72ded80e0b4739232c7468a68c7925b",
+  "parent_verification_sha256": "b81e1a9514553ae9bc758c3157afb20d844970089689b8fab25cefb493f46398",
+  "models": {
+    "0": {
+      "path": "artifacts/research/20261114/work/leaf_decoder_gate/leaf-scaled-seed0.pt",
+      "sha256": "57500ab99ca8580db7ce2de0f1fdb3cc5e01b79978987b3056b38e9bb8835192"
+    },
+    "1": {
+      "path": "artifacts/research/20261114/work/leaf_decoder_gate/leaf-scaled-seed1.pt",
+      "sha256": "2b76dedd784d1bddab52b437de97c99a2da23fe31be8ac540e94b35d2dfd16d5"
+    },
+    "2": {
+      "path": "artifacts/research/20261114/work/leaf_decoder_gate/leaf-scaled-seed2.pt",
+      "sha256": "69d6fb31c8066b4879cd68fa577a6841c7319de4422625ab0c254bbedcdff1cc"
+    }
+  },
+  "coefficient_arrays": {
+    "0": {
+      "path": "artifacts/research/20261114/work/leaf_decoder_gate/leaf-scaled-seed0.npy",
+      "sha256": "86446e41cf86e02fcbaa8ff1bc67dc2c9e674d7b40a384042c0a2c5f2ff93cd9"
+    },
+    "1": {
+      "path": "artifacts/research/20261114/work/leaf_decoder_gate/leaf-scaled-seed1.npy",
+      "sha256": "3266483dd8df5a9acf54fc000f01b27c35ca23514081051ca5780d93ec7581e9"
+    },
+    "2": {
+      "path": "artifacts/research/20261114/work/leaf_decoder_gate/leaf-scaled-seed2.npy",
+      "sha256": "0f7ca3445584f56eeac076ed7f6affde7a7dab8fe10297c9193c00340642c9bf"
+    }
+  },
+  "gates": {
+    "artifacts/research/20261114/work/leaf_decoder_gate/cast-gate.json": "9a212dc0ccb9978c188b5f6302dc328198a06c03fd922c5545213f34dd175714",
+    "artifacts/research/20261114/work/leaf_decoder_gate/numerical-gate.json": "ba590bedf224041c10c8a36ce5221be817edf03fd6f832def30b8261b1039445"
+  },
+  "source_sha256": {
+    "research/20261114/work/leaf_decoder_gate.py": "c8fe05d718fcb70d42265d2ae69d0a453c1cc8c3c8883e6084dc37ca44a1543a",
+    "research/20261114/work/prepare_leaf_decoder_gate.py": "a6c47388e4f6daa09778cb79c574c834d976925577052a7aead80832932ff8f4",
+    "research/20261114/work/gate_leaf_decoder.py": "00c96c9d89b1d7a53677a1bb6da9f4480c452b9efc42f64807a7ec8bc10d710d",
+    "research/20261114/work/binary_coordinate.py": "657c33162a667f0304313612d51387b1d9638ca9290a4002411d7e9b78b5d21d",
+    "research/20261114/work/study.py": "c912470b19d0d13b151a4cac9a276455a915adeecf15088d1c5d43db66dbf721",
+    "research/20261114/work/audit.py": "d27d3397a620fa4998428baffeea704cff06c29111160246d17e684278522ec3",
+    "research/20261114/work/verify_training_feasibility.py": "3364c8127bea8589100fd6e405d3e6630457408742dc4b7cf48103adf41ed195"
+  },
+  "retained_baseline": {
+    "directory": "artifacts/research/20261114/work/leaf_removability",
+    "mining_audit_sha256": "c68c626c5f437134394adb4e72ce99d0d610455751bf3990783a0d53f8faa06f",
+    "independent_verification_sha256": "cfdb80b27c02eb6d13c9dba16bed38e0824fffca902f6c74c276da48d494921f",
+    "wrong_by_model": [
+      233,
+      114,
+      233
+    ],
+    "wrong_total": 580
+  },
+  "scope": "All original1000 training inputs/model, fixed hidden readouts and original norm match plus one float32 cast. Unchanged H2ae/H2aa binary inference: allopen, float64 promotion, fourcolors, threshold-1e-8, cap512. Source labels only after inference. No fresh target input, subset exclusion, coefficient tuning or graph repair.",
+  "decision": "Report source wrong-count reduction descriptively; target met iff totalwrong<=290. No independent test/generalization or confidence claim; preserve all cases including previous leafless boards.",
+  "budget": {
+    "total_gpu_minutes": 5,
+    "overall_wall_seconds": 180,
+    "per_worker_wall_seconds": 150,
+    "watchdog": "Check every source batch, retain partial and stop; independent source/state audit separate."
+  }
+}

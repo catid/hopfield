@@ -1,0 +1,152 @@
+{
+  "status": "validated_failure_audit",
+  "utc": "2026-11-15T04:47:44.955682+00:00",
+  "hypothesis": "H3af",
+  "decision": "inconclusive_not_run",
+  "reason": "The shared 120 CPU-second complete-enumeration gate expired during the second independent reverse enumeration.",
+  "protocol_sha256": "b350428624ab205c4219860526564d185efd4d2d6fae24199b80848456e99b67",
+  "compilation_gate": {
+    "status": "failed_or_incomplete",
+    "utc": "2026-11-15T04:40:32.902927+00:00",
+    "aggregate_cpu_seconds": 119.99392176,
+    "wall_seconds": 120.04646766802762,
+    "completed_families": [
+      {
+        "bank": 0,
+        "status": "complete_verified",
+        "utc": "2026-11-15T04:39:42.788882+00:00",
+        "zero_F_solutions": 74436,
+        "primary_seconds": 5.13546924298862,
+        "independent_seconds": 59.16033669002354,
+        "compile_wall_seconds": 69.93240874598268,
+        "compile_cpu_seconds": 69.928947372,
+        "includes_source_transfer_model_checks_both_enumerators_index_and_serialization": true,
+        "proof": {
+          "q": 15,
+          "strict_positive_F_energy": true,
+          "complete_row_and_column_cliques": true,
+          "proof": "At most one occupied cell per row/column; q=n implies exactly one per row/column. Exhaustive row-wise F-consistent recursion therefore enumerates every cardinality-q zero-energy state."
+        },
+        "source_model_sha256": "9669f9f5749415a529167778ccba6e1ce5582f97b3be035be55cb83127815452",
+        "cache_sha256": "cb2631d90c0ccafa562ead03c2d28b0f9a892cc0bc9876de11b42db5d2c24274",
+        "protocol_sha256": "b350428624ab205c4219860526564d185efd4d2d6fae24199b80848456e99b67",
+        "source_sha256": "091af7c20c5b3e737155b93fe41648ae37aa96e20f106db3c4f409d94f7af2c7"
+      }
+    ],
+    "error": "TimeoutError('Aggregate120CPU-second exact compilation/independent-proof ceiling')",
+    "partial_cache_usable": false,
+    "progress": {
+      "bank": 1,
+      "stage": "independent_reverse",
+      "utc": "2026-11-15T04:39:53.287657+00:00",
+      "unverified_forward_solutions": 125864,
+      "primary_seconds": 9.774451619014144
+    },
+    "protocol_sha256": "b350428624ab205c4219860526564d185efd4d2d6fae24199b80848456e99b67"
+  },
+  "campaign": {
+    "status": "stopped_with_failure",
+    "completed_utc": "2026-11-15T04:40:32.932472+00:00",
+    "error": "CalledProcessError(1, ['/home/catid/hopfield/upstream/.venv/bin/python', '/home/catid/hopfield/research/20261114/loki/h3af/compiler.py'])",
+    "pid": 1790502
+  },
+  "family_results": [
+    {
+      "bank": 0,
+      "family": "queen-plus-zebra",
+      "method": "BP AdamW model-only exact compilation",
+      "status": "complete_verified_model_only",
+      "verified_states": 74436,
+      "provisional_forward_states": null,
+      "primary_seconds": 5.13546924298862,
+      "independent_seconds": 59.16033669002354,
+      "complete_compile_cpu_seconds": 69.928947372,
+      "complete_compile_wall_seconds": 69.93240874598268,
+      "externally_validated": false
+    },
+    {
+      "bank": 1,
+      "family": "queen-plus-2-5-leaper",
+      "method": "BP AdamW model-only exact compilation",
+      "status": "independent_enumeration_incomplete",
+      "verified_states": null,
+      "provisional_forward_states": 125864,
+      "primary_seconds": 9.774451619014144,
+      "independent_seconds": null,
+      "complete_compile_cpu_seconds": null,
+      "complete_compile_wall_seconds": null,
+      "externally_validated": false
+    }
+  ],
+  "partial_cache_usable": false,
+  "external_graph_gate_run": false,
+  "target_cohorts_created": 0,
+  "GPU_jobs_run": 0,
+  "GPU_worker_seconds": 0,
+  "query_calls_run": 0,
+  "speed_ratios": null,
+  "amortization_estimates": null,
+  "uncompleted_family_observed_cpu_remainder": 50.06497438800001,
+  "post_run_audit": {
+    "complete_cache_identity_index_and_literal_occupied_pairs_verified": true,
+    "provisional_forward_count_only": true,
+    "no_enumeration_rerun": true,
+    "no_external_geometry_access": true,
+    "absent_stage_paths_checked": [
+      "external-graph-gate.json",
+      "graph-gate.json",
+      "datasets.json",
+      "global-budget.json",
+      "query-worker.json",
+      "query.log",
+      "b*/data.npz",
+      "b*/query-inputs.npy",
+      "b*/dataset.json",
+      "b*/preflight.json",
+      "b*/exact/*",
+      "b*/target-worker-*.json",
+      "target-*.log"
+    ],
+    "cpu_seconds": 0.129588064,
+    "wall_seconds": 0.1386988969752565
+  },
+  "limits": [
+    "N15sourceextrapolationofsameN12models; fixedinheritedN13caps arenot newly matchedN15compute.",
+    "Twofixedrulefamilies andremaining-eligible-keycohorts,notrepresentative task sampling.",
+    "Externalgraph equality is apostcompilevalidationgate,not an inputtocompiler.",
+    "CPU/GPUheterogeneoushardware timing,not equalFLOPs/energy orsinglequerylatency.",
+    "Threebatchesamortizeonecache; break-even extrapolation isdescriptive only.",
+    "Independentverificationcostincluded; timeout stopsstudy withoutpartialcache orfamilyreplacement."
+  ],
+  "input_sha256": {
+    "artifacts/research/20261114/loki/h3af/campaign.json": "3264cae2a08aa2ee48e62e29787a086451dd6b92e45f8b6b811d4fc15f3ad01c",
+    "artifacts/research/20261114/loki/h3af/campaign.log": "5d2c042f5dadd047d419c6cef3cc5def8363717163dd0114b99b96e69fc49dc1",
+    "artifacts/research/20261114/loki/h3af/compilation-gate.json": "3171f5c545c35bed31ee0d2464996d08ebfb34a45165fc8107060fcbc3d122b0",
+    "artifacts/research/20261114/loki/h3af/compilation-progress.json": "fdf8e5df10c1e77e5ad8bb6701c9fd7a14c99dc975afaf2248af582c53c0990c",
+    "artifacts/research/20261114/loki/h3af/query-validation.json": "5bdec76d9e36b36c6265b9485646d5826baa0d47d4c4b11c0c5b7c5502896048",
+    "artifacts/research/20261114/loki/h3af/b0/model.npz": "9669f9f5749415a529167778ccba6e1ce5582f97b3be035be55cb83127815452",
+    "artifacts/research/20261114/loki/h3af/b0/transfer.json": "08f001402f1c496ace3a564bee322e1e9edae0b918352c3ded24ca029efef259",
+    "artifacts/research/20261114/loki/h3af/b0/unverified-forward-columns.npy": "f58789cbf1e1bcd7e67b16c23f3a6662fbf62c6ece89f2c49b06432247e2c0ec",
+    "artifacts/research/20261114/loki/h3af/b0/compilation.json": "84befc104b4945530370cb7ea5cecc826f4d879701ae9a218af672e6e24c3a76",
+    "artifacts/research/20261114/loki/h3af/b0/cache.npz": "cb2631d90c0ccafa562ead03c2d28b0f9a892cc0bc9876de11b42db5d2c24274",
+    "artifacts/research/20261114/loki/h3af/b1/model.npz": "5e68255afcfbbe15fd7d9956c4d8fd07892ec2fcbdc0b71443aab41d656b2190",
+    "artifacts/research/20261114/loki/h3af/b1/transfer.json": "14f11ffada15a85d96719dca1e2b96b4cb575e284377635a30cb626f4d624929",
+    "artifacts/research/20261114/loki/h3af/b1/unverified-forward-columns.npy": "999cb4af62854832192fd7f558ebc1d227aeb3ef730b4d2abcf34ddd930d4955"
+  },
+  "public_sha256": {
+    "campaign.json": "3264cae2a08aa2ee48e62e29787a086451dd6b92e45f8b6b811d4fc15f3ad01c",
+    "campaign.log": "5d2c042f5dadd047d419c6cef3cc5def8363717163dd0114b99b96e69fc49dc1",
+    "compilation-gate.json": "3171f5c545c35bed31ee0d2464996d08ebfb34a45165fc8107060fcbc3d122b0",
+    "compilation-progress.json": "fdf8e5df10c1e77e5ad8bb6701c9fd7a14c99dc975afaf2248af582c53c0990c",
+    "query-validation.json": "5bdec76d9e36b36c6265b9485646d5826baa0d47d4c4b11c0c5b7c5502896048",
+    "b0/model.npz": "9669f9f5749415a529167778ccba6e1ce5582f97b3be035be55cb83127815452",
+    "b0/transfer.json": "08f001402f1c496ace3a564bee322e1e9edae0b918352c3ded24ca029efef259",
+    "b0/unverified-forward-columns.npy": "f58789cbf1e1bcd7e67b16c23f3a6662fbf62c6ece89f2c49b06432247e2c0ec",
+    "b0/compilation.json": "84befc104b4945530370cb7ea5cecc826f4d879701ae9a218af672e6e24c3a76",
+    "b0/cache.npz": "cb2631d90c0ccafa562ead03c2d28b0f9a892cc0bc9876de11b42db5d2c24274",
+    "b1/model.npz": "5e68255afcfbbe15fd7d9956c4d8fd07892ec2fcbdc0b71443aab41d656b2190",
+    "b1/transfer.json": "14f11ffada15a85d96719dca1e2b96b4cb575e284377635a30cb626f4d624929",
+    "b1/unverified-forward-columns.npy": "999cb4af62854832192fd7f558ebc1d227aeb3ef730b4d2abcf34ddd930d4955"
+  },
+  "audit_source_sha256": "0ab9feb0a6d02d7935ca51e1c78b9aecf7294a4cde18eb2f1380ec3365d4e2bc"
+}

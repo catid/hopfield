@@ -2,6 +2,9 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Shared label permutations: calibration failure with preserved constraints](../research/20261114/ripper/REPORT-correlated-noise.md)
+- [Fresh-bank confirmation of coefficient-magnitude weighting](../research/20261114/foureyes/REPORT-canonical-confirm.md)
+- [N15 exact compilation: retained CPU-budget gate failure](../research/20261114/loki/h3af/REPORT.md)
 - [Exact compilation of learned queen constraints versus GPU search](../research/20261114/loki/h3ae/REPORT.md)
 - [Stricter confidence weights on fresh puzzles: retained failed targets and auditor correction](../research/20261114/ripper/REPORT-confidence-strict.md)
 - [Oracle diagnosis of the confidence-weight budget boundary](../research/20261114/ripper/REPORT-confidence-oracle.md)

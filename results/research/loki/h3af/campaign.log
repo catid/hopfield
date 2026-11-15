@@ -1,0 +1,45 @@
+COMPILED {'bank': 0, 'status': 'complete_verified', 'utc': '2026-11-15T04:39:42.788882+00:00', 'zero_F_solutions': 74436, 'primary_seconds': 5.13546924298862, 'independent_seconds': 59.16033669002354, 'compile_wall_seconds': 69.93240874598268, 'compile_cpu_seconds': 69.928947372, 'includes_source_transfer_model_checks_both_enumerators_index_and_serialization': True, 'proof': {'q': 15, 'strict_positive_F_energy': True, 'complete_row_and_column_cliques': True, 'proof': 'At most one occupied cell per row/column; q=n implies exactly one per row/column. Exhaustive row-wise F-consistent recursion therefore enumerates every cardinality-q zero-energy state.'}, 'source_model_sha256': '9669f9f5749415a529167778ccba6e1ce5582f97b3be035be55cb83127815452', 'cache_sha256': 'cb2631d90c0ccafa562ead03c2d28b0f9a892cc0bc9876de11b42db5d2c24274', 'protocol_sha256': 'b350428624ab205c4219860526564d185efd4d2d6fae24199b80848456e99b67', 'source_sha256': '091af7c20c5b3e737155b93fe41648ae37aa96e20f106db3c4f409d94f7af2c7'}
+Traceback (most recent call last):
+  File "/home/catid/hopfield/research/20261114/loki/h3af/compiler.py", line 53, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/catid/hopfield/research/20261114/loki/h3af/compiler.py", line 46, in main
+    cpu=time.process_time();wall=time.perf_counter();folder=OUT/f'b{bank}';folder.mkdir(parents=True,exist_ok=True);path=folder/'model.npz';m,transfer=make(cfg,15);np.savez_compressed(path,**m);save(folder/'transfer.json',transfer);proof=eligibility(m);q=proof['q'];save(OUT/'compilation-progress.json',dict(bank=bank,stage='forward',utc=now()));primary_start=time.perf_counter();a=forward(m['F'],q);primary_seconds=time.perf_counter()-primary_start;np.save(folder/'unverified-forward-columns.npy',a);save(OUT/'compilation-progress.json',dict(bank=bank,stage='independent_reverse',utc=now(),unverified_forward_solutions=len(a),primary_seconds=primary_seconds));ind_start=time.perf_counter();b=reverse_literal(m['F'],q);independent_seconds=time.perf_counter()-ind_start;assert np.array_equal(a,b)and len(np.unique(a,axis=0))==len(a)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/catid/hopfield/research/20261114/loki/h3af/compiler.py", line 36, in reverse_literal
+    visit(q-1);a=np.array(answers,np.uint8).reshape(-1,q)
+    ~~~~~^^^^^
+  File "/home/catid/hopfield/research/20261114/loki/h3af/compiler.py", line 35, in visit
+    columns[row]=col;selected.append(cell);visit(row-1);selected.pop()
+                                           ~~~~~^^^^^^^
+  File "/home/catid/hopfield/research/20261114/loki/h3af/compiler.py", line 35, in visit
+    columns[row]=col;selected.append(cell);visit(row-1);selected.pop()
+                                           ~~~~~^^^^^^^
+  File "/home/catid/hopfield/research/20261114/loki/h3af/compiler.py", line 35, in visit
+    columns[row]=col;selected.append(cell);visit(row-1);selected.pop()
+                                           ~~~~~^^^^^^^
+  [Previous line repeated 6 more times]
+  File "/home/catid/hopfield/research/20261114/loki/h3af/compiler.py", line 34, in visit
+    if any(F[cell,old]for old in selected):continue
+       ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/catid/hopfield/research/20261114/loki/h3af/compiler.py", line 34, in <genexpr>
+    if any(F[cell,old]for old in selected):continue
+    
+  File "/home/catid/hopfield/research/20261114/loki/h3af/compiler.py", line 42, in expired
+    def expired(*args):raise TimeoutError('Aggregate120CPU-second exact compilation/independent-proof ceiling')
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: Aggregate120CPU-second exact compilation/independent-proof ceiling
+Traceback (most recent call last):
+  File "/home/catid/hopfield/research/20261114/loki/h3af/campaign.py", line 22, in <module>
+    try:main()
+        ~~~~^^
+  File "/home/catid/hopfield/research/20261114/loki/h3af/campaign.py", line 16, in main
+    frozen();assert read(OLD/'campaign.json')['status']=='complete';assert not(OUT/'campaign.json').exists();save(OUT/'campaign.json',dict(status='running',stage='compilation',utc=now(),pid=os.getpid()));call('compiler');call('graph_gate');call('prepare')
+                                                                                                                                                                                                            ~~~~^^^^^^^^^^^^
+  File "/home/catid/hopfield/research/20261114/loki/h3af/campaign.py", line 8, in call
+    def call(name,*args):subprocess.run([PYTHON,str(SRC/f'{name}.py'),*map(str,args)],check=True)
+                         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/catid/.local/share/uv/python/cpython-3.13.13-linux-x86_64-gnu/lib/python3.13/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/home/catid/hopfield/upstream/.venv/bin/python', '/home/catid/hopfield/research/20261114/loki/h3af/compiler.py']' returned non-zero exit status 1.

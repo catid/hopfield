@@ -1,0 +1,176 @@
+{
+  "training_manifest": {
+    "utc": "2026-11-15T01:37:29.513576+00:00",
+    "source": "Actual upstream data/maze-hard/train.csv loaded by original maze_learned.load; not recreated or generated.",
+    "source_csv_path": "upstream/data/maze-hard/train.csv",
+    "source_csv_sha256": "25f9e39b5aee16967da41ba63b2d1d75cf608c2360d8a1419d827f9859dbafa0",
+    "loader_sha256": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "n_training": 1000,
+    "shape": [
+      1000,
+      30,
+      30
+    ],
+    "arrays_sha256": "2ac6e034cf09cfdfcd00d81b51088c66042b2ec738e39b33496a75aa70aa777d",
+    "tokens_sha256": "5497e6927a10b71c7754634431ad43ad459c6698e238930feaebe18d0fcd651b",
+    "labels_sha256": "644c4eba45a4c2a875ba90bd21f1783301c2ec9340b680c3f61aa12326634703",
+    "script_sha256": "8bce0157edecd6d5c64ab2c855886bba5d4f1c286032d6a34c70ca45b24d03c0",
+    "numpy": "2.5.4"
+  },
+  "readouts": {
+    "0": {
+      "seed": 0,
+      "gpu": 0,
+      "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+      "arrays_sha256": "2ac6e034cf09cfdfcd00d81b51088c66042b2ec738e39b33496a75aa70aa777d",
+      "checkpoint_sha256": "84d694828c90cbf55bcf2eb84136324e2a5d482e4847e50d7b9f67b39c8aa230",
+      "readout_sha256": "8512aae4a4ca418b684ce37c032a9350398dddf92f0694b58aa49509888d41f6",
+      "coupling_array_sha256": "9e3d861a04a0f3eceea22136d2e4b2e5a83ee5d85216dbd47f1a3a087e4af678",
+      "hidden_batch_size": 64,
+      "tol": 1e-06,
+      "cap": 4000,
+      "check_every": 8,
+      "frozen_parameters": [
+        "mu",
+        "beta"
+      ],
+      "script_sha256": "8bce0157edecd6d5c64ab2c855886bba5d4f1c286032d6a34c70ca45b24d03c0"
+    },
+    "1": {
+      "seed": 1,
+      "gpu": 1,
+      "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+      "arrays_sha256": "2ac6e034cf09cfdfcd00d81b51088c66042b2ec738e39b33496a75aa70aa777d",
+      "checkpoint_sha256": "21004b8bca2fde7ae23825e874a30e15d28174ae5da16382420a1743d8ad2881",
+      "readout_sha256": "7899886bdf87152abd18d836b2f7eb0d0be5a3e0a91890b6594d5e3150e85da4",
+      "coupling_array_sha256": "307045eb96abd50eb9ffe15bc1d6ab66c75df44fe49a91d7e490e3694c121209",
+      "hidden_batch_size": 64,
+      "tol": 1e-06,
+      "cap": 4000,
+      "check_every": 8,
+      "frozen_parameters": [
+        "mu",
+        "beta"
+      ],
+      "script_sha256": "8bce0157edecd6d5c64ab2c855886bba5d4f1c286032d6a34c70ca45b24d03c0"
+    },
+    "2": {
+      "seed": 2,
+      "gpu": 0,
+      "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+      "arrays_sha256": "2ac6e034cf09cfdfcd00d81b51088c66042b2ec738e39b33496a75aa70aa777d",
+      "checkpoint_sha256": "5f350d5de1f42ef627a2dd6052bcdcb722bd965d1ef940863ed4f6955e4a73e3",
+      "readout_sha256": "7383a2395eb9b61c2a843fc788289578877897059ddefd17a4f571c96fd170c5",
+      "coupling_array_sha256": "d4ae5d9581e755fbeee30d1caf386fe2d9e29121b6a6b2145b71b9075b67231c",
+      "hidden_batch_size": 64,
+      "tol": 1e-06,
+      "cap": 4000,
+      "check_every": 8,
+      "frozen_parameters": [
+        "mu",
+        "beta"
+      ],
+      "script_sha256": "8bce0157edecd6d5c64ab2c855886bba5d4f1c286032d6a34c70ca45b24d03c0"
+    }
+  },
+  "initial_models": [
+    {
+      "seed": 0,
+      "path": "artifacts/research/20261114/work/training_feasibility/initial-seed0.npz",
+      "sha256": "59f860656a0b9d4f74c893b076ca079bd1792d1f322f70feceaf6d514ce32e4e",
+      "original_checkpoint_sha256": "84d694828c90cbf55bcf2eb84136324e2a5d482e4847e50d7b9f67b39c8aa230"
+    },
+    {
+      "seed": 1,
+      "path": "artifacts/research/20261114/work/training_feasibility/initial-seed1.npz",
+      "sha256": "281b7da1ab1401dea30596003bf4bced8e9600e69051b789df821542a2cd2016",
+      "original_checkpoint_sha256": "21004b8bca2fde7ae23825e874a30e15d28174ae5da16382420a1743d8ad2881"
+    },
+    {
+      "seed": 2,
+      "path": "artifacts/research/20261114/work/training_feasibility/initial-seed2.npz",
+      "sha256": "08c0840d920d017eb625471e0b4e6db8d628ece97746c147131f4524869df5c2",
+      "original_checkpoint_sha256": "5f350d5de1f42ef627a2dd6052bcdcb722bd965d1ef940863ed4f6955e4a73e3"
+    }
+  ],
+  "models": {
+    "0": {
+      "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+      "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+    },
+    "1": {
+      "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+      "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+    },
+    "2": {
+      "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+      "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+    }
+  },
+  "coefficient_arrays": {
+    "0": {
+      "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.npy",
+      "sha256": "6fcef212cb8b1a39d51ab50ea983abf8af779b41c62a9c42af51a4d7680a2b98"
+    },
+    "1": {
+      "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.npy",
+      "sha256": "f5d89b4bcc1e3160e7dc5a9068109eae81ce6f3e621b57e0018523b0c8aa41bb"
+    },
+    "2": {
+      "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.npy",
+      "sha256": "cc322326095427d8feb7c47c878e13715a1225218e2939616ac2c428b9e85702"
+    }
+  },
+  "id": "source-only-label-free-selected-chain-block-descent",
+  "hypothesis_id": "H2ai",
+  "status": "frozen_before_gate_and_source_intervention",
+  "frozen_utc": "2026-11-15T04:39:34.865566+00:00",
+  "baseline_protocol_sha256": "fb78b9ec4f05091dfc24550219d352713f9b70ef241756f70e93bfed32e2c15e",
+  "baseline_wrong_by_model": [
+    233,
+    114,
+    233
+  ],
+  "baseline_wrong_total": 580,
+  "source_outputs": {
+    "0": {
+      "path": "artifacts/research/20261114/work/leaf_removability/mined-seed0.npz",
+      "sha256": "e8c76cc9d49dfc3fb52aa2106a1a6a410de0411929208b20ec8717154dadeaa7"
+    },
+    "1": {
+      "path": "artifacts/research/20261114/work/leaf_removability/mined-seed1.npz",
+      "sha256": "8cd1d22ea67df91b811356e9785eaf037a8254f9e049662a4867f77b027c5602"
+    },
+    "2": {
+      "path": "artifacts/research/20261114/work/leaf_removability/mined-seed2.npz",
+      "sha256": "b9ff9906461c981f78d9bf24eafdc8cc80dbbf39a55b6712e613b85499600a42"
+    }
+  },
+  "candidate_rule": "Compute selected four-neighbor degree. Eligible vertices are selected free cells with global selected degree1or2. Every maximal four-connected component of these eligible vertices is a free-leaf/degree2 chain or a closed free cycle. Retain each component with2..256cells. All clamps protected, including walls and endpoints. Protected junctions/clamps split chains; no labels, shortest distance, graph validity oracle, targets or search-based repair in candidate selection.",
+  "energy_rule": "For deleting selected setM, delta=sum original single-flip costs overM plus every internal quadratic interaction once. Include all original pair/link interactions, including diagonals. Exact algebra checked against literal before/after full energy. Float64 promotion of frozenfloat32 coefficients/readout.",
+  "policy": {
+    "threshold": -1e-08,
+    "max_cells": 256,
+    "max_rounds": 16,
+    "choice": "Most negative full-original-energy delta below-1e-8; exact score ties resolved by sorted flattened cell tuple. One move/input/round.",
+    "after_move": "Run unchanged four-color binary solver from modified board, cap512sweeps; stop that input on nativecap/nonfinite.",
+    "stop": "No improving allowed block. Inputs still active after16rounds are block-cap failures, no postcapcredit.",
+    "baseline": "Reuse every retained H2af original one-bit output; no extra original-prefix trajectories. Coefficients fixed H2ae, no H2ag fit."
+  },
+  "decision": "Descriptive fixed-source target met iff complete, finite, locally certified valid-shortest wrong model-input count<=290 (at least50percent reduction vs580). All1000 source inputs/model retained, including regressions, endpointdisconnections, native/blockcap failures. No independent test or confidence claim.",
+  "budget": {
+    "gate_cpu_seconds": 120,
+    "whole_study_gpu_minutes": 5,
+    "whole_study_wall_seconds": 300,
+    "per_worker_wall_seconds": 150,
+    "watchdog": "Per round and batch; preserve partial states on expiry. CPU graph work, GPU scoring and native descent separately timed; CPU bottleneck explicit."
+  },
+  "source_sha256": {
+    "research/20261114/work/graph_block_study.py": "f8cd0f7878abbb5c82de3bfaed1ddefad68550a77983b080ba88baf90cc4dbd3",
+    "research/20261114/work/graph_block_moves.py": "fa0a68c016da1494d5db42777194ccc125e06508fa0476a7e99a7e2f94589568",
+    "research/20261114/work/gate_graph_block_moves.py": "0059cd060e4bb0230bc1b66f1b0f1f7746ba09eefbd699e28948c999cc9f66e1",
+    "research/20261114/work/binary_coordinate.py": "657c33162a667f0304313612d51387b1d9638ca9290a4002411d7e9b78b5d21d",
+    "research/20261114/work/study.py": "c912470b19d0d13b151a4cac9a276455a915adeecf15088d1c5d43db66dbf721",
+    "research/20261114/work/audit.py": "d27d3397a620fa4998428baffeea704cff06c29111160246d17e684278522ec3"
+  }
+}

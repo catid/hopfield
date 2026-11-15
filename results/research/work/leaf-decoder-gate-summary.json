@@ -1,0 +1,96 @@
+{
+  "status": "validated",
+  "hypothesis": "H2ah",
+  "decision": "descriptive_target_met",
+  "fresh_test_inputs": 0,
+  "independent_verification": {
+    "status": "passed",
+    "hypothesis": "H2ah",
+    "decision": "descriptive_target_met",
+    "rows": [
+      {
+        "seed": 0,
+        "inputs": 1000,
+        "baseline_wrong": 233,
+        "new_wrong": 3,
+        "paired_gains": 230,
+        "paired_losses": 0,
+        "wrong_indices": [
+          268,
+          578,
+          683
+        ],
+        "timeouts": 0,
+        "nonfinite": 0,
+        "minimum_final_flip_margin": 0.00524739220016509,
+        "minimum_label_flip_margin": 0.00524739220016509,
+        "maximum_direct_vs_saved_margin_error": 1.8810441824502512e-16,
+        "maximum_sweeps": 25,
+        "exact_norm_match_and_cast": true
+      },
+      {
+        "seed": 1,
+        "inputs": 1000,
+        "baseline_wrong": 114,
+        "new_wrong": 3,
+        "paired_gains": 111,
+        "paired_losses": 0,
+        "wrong_indices": [
+          268,
+          578,
+          683
+        ],
+        "timeouts": 0,
+        "nonfinite": 0,
+        "minimum_final_flip_margin": 0.005435192490867834,
+        "minimum_label_flip_margin": 0.005435192490867834,
+        "maximum_direct_vs_saved_margin_error": 1.5569143196891844e-16,
+        "maximum_sweeps": 25,
+        "exact_norm_match_and_cast": true
+      },
+      {
+        "seed": 2,
+        "inputs": 1000,
+        "baseline_wrong": 233,
+        "new_wrong": 3,
+        "paired_gains": 230,
+        "paired_losses": 0,
+        "wrong_indices": [
+          268,
+          578,
+          683
+        ],
+        "timeouts": 0,
+        "nonfinite": 0,
+        "minimum_final_flip_margin": 0.00555640676152321,
+        "minimum_label_flip_margin": 0.00555640676152321,
+        "maximum_direct_vs_saved_margin_error": 1.9251280121901013e-16,
+        "maximum_sweeps": 25,
+        "exact_norm_match_and_cast": true
+      }
+    ],
+    "source_inputs_per_model": 1000,
+    "source_model_input_trajectories": 3000,
+    "baseline_wrong": 580,
+    "new_wrong": 9,
+    "wrong_reduction_percent": 98.44827586206897,
+    "paired_gains": 571,
+    "paired_losses": 0,
+    "new_independent_test_inputs": 0,
+    "source_graph_states_checked": 6000,
+    "new_final_states_independently_checked": 3000,
+    "seconds": 4.596788873022888,
+    "protocol_sha256": "3102a32a9de30c0f857c454f4578977f968cea52bcd702b3c0330daaf2fbefb4",
+    "verifier_sha256": "f9fe7d47e5945f17d0a20ddb99d97cce9a6ec576784ac75ce8e8b5c3015dff32",
+    "scope": "Fixed training inputs, three models, all cases retained. Independent graph labels/outcomes, original norm match and single cast, all final flip certificates. Source wrong-count target descriptive; no generalization or independent test claim."
+  },
+  "protocol_sha256": "3102a32a9de30c0f857c454f4578977f968cea52bcd702b3c0330daaf2fbefb4",
+  "exporter_sha256": "f320a05a1545b6effde3f15b4af81af74b1e1c68d9d70bc3fb0fbe15b72bc2b7",
+  "source_model_input_trajectories": 3000,
+  "baseline_source_outputs_reused": 3000,
+  "baseline_wrong": 580,
+  "new_wrong": 9,
+  "paired_gains": 571,
+  "paired_losses": 0,
+  "scope": "Additional leaf-margin fit, fixed original norm/cast, unchanged one-bit decoder. All original training inputs; descriptive source gate only."
+}

@@ -4,6 +4,9 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Shared-permutation label noise and constraint recovery | [Correlation exports](../results/research/ripper/correlated_noise.json) | [plot_correlated_noise.py](../scripts/plot_correlated_noise.py) |
+| Fresh confirmation of coefficient-magnitude weights | [Fresh exports](../results/research/foureyes/canonical_confirm/) | [plot_canonical_confirm.py](../scripts/plot_canonical_confirm.py) |
+| N15 compilation budget boundary | [Gate failure](../results/research/loki/h3af/) | [plot_public.py](../research/20261114/loki/h3af/plot_public.py) |
 | Exact compilation of learned queen models versus GPU search | [Exact-compilation exports](../results/research/loki/h3ae/) | [plot_public.py](../research/20261114/loki/h3ae/plot_public.py) |
 | Stricter confidence weights on fresh puzzles | [Strict-rule exports](../results/research/ripper/confidence_strict.json) | [plot_confidence_strict.py](../scripts/plot_confidence_strict.py) |
 | Oracle diagnosis of confidence-weight budget boundary | [Oracle diagnostic](../results/research/ripper/confidence_oracle.json) | [plot_confidence_oracle.py](../scripts/plot_confidence_oracle.py) |

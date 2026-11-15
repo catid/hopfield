@@ -1,0 +1,103 @@
+{
+  "status": "passed",
+  "hypothesis": "H2ai",
+  "decision": "descriptive_target_met",
+  "rows": [
+    {
+      "seed": 0,
+      "baseline_wrong": 233,
+      "new_wrong": 2,
+      "paired_gains": 231,
+      "paired_losses": 0,
+      "wrong_indices": [
+        268,
+        578
+      ],
+      "accepted_block_moves": 249,
+      "maximum_block_moves": 2,
+      "native_cap_failures": 0,
+      "block_cap_failures": 0,
+      "nonfinite": 0,
+      "endpoint_disconnections": 0,
+      "timings": {
+        "cpu_graph_seconds": 0.07634829985909164,
+        "score_seconds": 0.10541108797769994,
+        "descent_seconds": 0.2551421052776277,
+        "seconds": 0.8767158329719678
+      }
+    },
+    {
+      "seed": 1,
+      "baseline_wrong": 114,
+      "new_wrong": 2,
+      "paired_gains": 112,
+      "paired_losses": 0,
+      "wrong_indices": [
+        268,
+        578
+      ],
+      "accepted_block_moves": 113,
+      "maximum_block_moves": 1,
+      "native_cap_failures": 0,
+      "block_cap_failures": 0,
+      "nonfinite": 0,
+      "endpoint_disconnections": 0,
+      "timings": {
+        "cpu_graph_seconds": 0.06624650786397979,
+        "score_seconds": 0.09999935590894893,
+        "descent_seconds": 0.24401210999349132,
+        "seconds": 0.8257122130016796
+      }
+    },
+    {
+      "seed": 2,
+      "baseline_wrong": 233,
+      "new_wrong": 2,
+      "paired_gains": 231,
+      "paired_losses": 0,
+      "wrong_indices": [
+        268,
+        578
+      ],
+      "accepted_block_moves": 249,
+      "maximum_block_moves": 2,
+      "native_cap_failures": 0,
+      "block_cap_failures": 0,
+      "nonfinite": 0,
+      "endpoint_disconnections": 0,
+      "timings": {
+        "cpu_graph_seconds": 0.07957872818224132,
+        "score_seconds": 0.02315984189044684,
+        "descent_seconds": 0.02938315289793536,
+        "seconds": 0.30520415399223566
+      }
+    }
+  ],
+  "baseline_wrong": 580,
+  "new_wrong": 6,
+  "wrong_reduction_percent": 98.96551724137932,
+  "paired_gains": 574,
+  "paired_losses": 0,
+  "source_model_input_interventions": 3000,
+  "reused_source_prefixes": 3000,
+  "new_independent_test_inputs": 0,
+  "candidate_moves_literal_energy_checked": 4286,
+  "accepted_moves_checked": 611,
+  "maximum_literal_delta_error": 5.684341886080801e-13,
+  "maximum_final_margin_error": 1.4721839199094422e-15,
+  "maximum_final_energy_error": 9.880096740744193e-12,
+  "seconds": 6.9734202600084245,
+  "protocol_sha256": "c8ae03ebdf0b74b0cb507615b4a14d84f4449082bd17c9c02e24e353f654e22a",
+  "verifier_sha256": "4bea8e314cd10caf78e705dac0f54711f54c36198d9d1bcad68df0ada5966745",
+  "scope": "All frozen source cases retained. Independently reconstruct every graph candidate, clamp and deterministic choice; every candidate delta checked against literal before/after full original energy, all native transitions nonincreasing, every final state checked. Labels used only for graph evaluation. Descriptive fixed-source result, not independent generalization.",
+  "blocked_imports": [
+    "binary_coordinate",
+    "feasibility_features",
+    "graph_block_moves",
+    "graph_block_study",
+    "scipy",
+    "study",
+    "torch"
+  ],
+  "isolation_passed": true
+}

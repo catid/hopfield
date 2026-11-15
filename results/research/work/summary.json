@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-15T04:23:00.470843+00:00",
+  "updated_utc": "2026-11-15T04:51:22.010421+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
   "status": "Twenty-six planned inference/training studies, selected-case diagnostics, objective/norm certificates and source-only feasibility screens complete; ongoing research continues separately",
   "host": "work",
@@ -730,6 +730,30 @@
         "decision": "uninformative_no_leaf_gate",
         "numerical_LP_solves": 0
       }
+    },
+    {
+      "campaign": "leaf_block_feasibility",
+      "hypothesis": "H2ag",
+      "outcome": {
+        "decision": "supported_for_stated_source_constraints",
+        "fresh_test_inputs": 0
+      }
+    },
+    {
+      "campaign": "leaf_decoder_gate",
+      "hypothesis": "H2ah",
+      "outcome": {
+        "decision": "descriptive_target_met",
+        "fresh_test_inputs": 0
+      }
+    },
+    {
+      "campaign": "graph_block_source",
+      "hypothesis": "H2ai",
+      "outcome": {
+        "decision": "descriptive_target_met",
+        "fresh_test_inputs": 0
+      }
     }
   ],
   "run_tables": [
@@ -895,6 +919,18 @@
     "leaf-removability-protocol": {
       "sha256": "fb78b9ec4f05091dfc24550219d352713f9b70ef241756f70e93bfed32e2c15e",
       "frozen_utc": "2026-11-15T04:09:07.137384+00:00"
+    },
+    "leaf-block-feasibility-protocol": {
+      "sha256": "269e4e7763dc9d42060f5cdda6e79c1bf72ded80e0b4739232c7468a68c7925b",
+      "frozen_utc": "2026-11-15T04:20:46.191502+00:00"
+    },
+    "leaf-decoder-gate-protocol": {
+      "sha256": "3102a32a9de30c0f857c454f4578977f968cea52bcd702b3c0330daaf2fbefb4",
+      "frozen_utc": "2026-11-15T04:29:04.248163+00:00"
+    },
+    "graph-block-source-protocol": {
+      "sha256": "c8ae03ebdf0b74b0cb507615b4a14d84f4449082bd17c9c02e24e353f654e22a",
+      "frozen_utc": "2026-11-15T04:39:34.865566+00:00"
     }
   },
   "audit_sha256": {
@@ -1160,5 +1196,46 @@
     "fresh_test_inputs": 0,
     "numerical_LP_solves": 0,
     "scope": "Failed no-leaf screen preserved; all leaves retained, no selected subset or LP. Real source regression confirmed by exact scaling/readout/source identities and complete cached/reference replays. Source-only labels select leaves and components; not an inference procedure."
+  },
+  "leaf_block_feasibility": {
+    "status": "validated",
+    "hypothesis": "H2ag",
+    "decision": "supported_for_stated_source_constraints",
+    "fresh_test_inputs": 0,
+    "protocol_sha256": "269e4e7763dc9d42060f5cdda6e79c1bf72ded80e0b4739232c7468a68c7925b",
+    "numerical_LP_solves": 3,
+    "constraint_rows": 1701078,
+    "retained_leaf_rows": 1216,
+    "duplicate_component_rows": 6,
+    "new_source_trajectories": 0,
+    "scope": "All H2af source cases retained with leaf and already-favored component removal rows. Feasible witnesses, not minimum-norm optimality or decoder success."
+  },
+  "leaf_decoder_gate": {
+    "status": "validated",
+    "hypothesis": "H2ah",
+    "decision": "descriptive_target_met",
+    "fresh_test_inputs": 0,
+    "protocol_sha256": "3102a32a9de30c0f857c454f4578977f968cea52bcd702b3c0330daaf2fbefb4",
+    "source_model_input_trajectories": 3000,
+    "baseline_source_outputs_reused": 3000,
+    "baseline_wrong": 580,
+    "new_wrong": 9,
+    "paired_gains": 571,
+    "paired_losses": 0,
+    "scope": "Additional leaf-margin fit, fixed original norm/cast, unchanged one-bit decoder. All original training inputs; descriptive source gate only."
+  },
+  "graph_block_source": {
+    "status": "validated",
+    "hypothesis": "H2ai",
+    "decision": "descriptive_target_met",
+    "fresh_test_inputs": 0,
+    "protocol_sha256": "c8ae03ebdf0b74b0cb507615b4a14d84f4449082bd17c9c02e24e353f654e22a",
+    "source_model_input_interventions": 3000,
+    "baseline_source_prefixes_reused": 3000,
+    "baseline_wrong": 580,
+    "new_wrong": 6,
+    "paired_gains": 574,
+    "paired_losses": 0,
+    "scope": "Original H2ae coefficients unchanged. Label-free selected-chain/cycle block deletion followed by unchanged one-bit descent; every source case retained. Descriptive source gate only."
   }
 }

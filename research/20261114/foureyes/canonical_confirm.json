@@ -1,0 +1,161 @@
+{
+  "id": "H4y-fresh-magnitude-confirmation",
+  "frozen_utc": "2026-11-15T04:41:28.607407+00:00",
+  "source": "upstream/data/sudoku-extreme/train.csv",
+  "source_sha256_value": "64b46674db0148e0d73a16346dadeb2b1c00824d3fca3f85b2ae7037f6b4b38e",
+  "sampling": "Independent fresh600row draws without replacement withinbank from the same3785228eligible rows asH4p; cross-bank/prior-study overlap allowed. Uniform9distinct freecells changed to independentuniform other8digits, original clues retained. CPU NumPy RNG recorded.",
+  "exclusions": [
+    {
+      "path": "artifacts/research/20261114/ripper/clues/input_manifest.json",
+      "sha256": "838908435ae82b9f617eb92d821341ec8b6c1792329b7a05d192815aff859eae"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/online_confirm/input_manifest.json",
+      "sha256": "644bdcc07b65b3ecc116d24e592eb7f0a2eab81c984257ba216004093a18dcd1"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/spike/input_manifest.json",
+      "sha256": "f4cee3502bf6855ad0a065fad18d26b025e8340683db3b1477170bebf7ddcf34"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/exponential/input_manifest.json",
+      "sha256": "baa1d60ec20e26d975ab13a6fea412267d80d5c001b2631028f5b5e24c9fe1ff"
+    }
+  ],
+  "n": 600,
+  "banks": 64,
+  "adamw": {
+    "lr": 0.01,
+    "weight_decay": 0.01,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08
+  },
+  "source_sha256": {
+    "research/20261114/ripper/run.py": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+    "research/20261114/ripper/sparse_backend.py": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+    "research/20261114/foureyes/restart_backend.py": "fd02c4f71574a6e0545c4f7aae54f3ddfeb9321f4c4f840c02ee5a213d814c0e",
+    "research/20261114/foureyes/restart_capture.py": "801f17ab24fe6d8d7f7fe381f7829ab65bed56625413bd7d1b1461b95ef7c7a4",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "research/20261114/ripper/bootstrap_two_way.py": "b4ae5dbccbc7f893f509eaf7b35ae239055f6f7633ac00921b45008761949e43",
+    "research/20261114/foureyes/noise_chernoff.py": "183fb90b6af04a464bc1da3d20834bc103a007f9fc608b8977df5e7f10a66d1a",
+    "upstream/experiments/sudoku.py": "b73f72c8e874711d0d05fa75de0043442a20297618de62e5bb714b76aa09f20b",
+    "research/20261114/foureyes/noisy_pl_long.py": "1176a20102d3561f09b9fc6184a5028bac31256b45e4d54b96d918f71f8a771c",
+    "research/20261114/foureyes/noisy_pl_long_search.py": "96e5882abd4b4fa67a61d5516878232ef4e963b5ef9839f454762a8404f8e87a",
+    "research/20261114/foureyes/map_noisy_pl_long.py": "f9a63c8e02f3a6a9ae57b515da5636520a4e0d625eeeddd84ab5aa4bf0076231",
+    "research/20261114/foureyes/gate_noisy_pl_long.py": "42a4a4842e6405b16c4d14c41af5e6eefc94c9b5cff5c588f02af671776adc09",
+    "research/20261114/foureyes/gate_long_matched.py": "5c81be45ee03b7529d43d9c5dd3ff15afbbeddd486dc4955cca88ce31e8443b0",
+    "research/20261114/foureyes/canonical_study.py": "effa6587a6522b4d2f57b93cc2b986fdbef84d29ea3dc31725bb6d535baa3637",
+    "research/20261114/foureyes/audit_canonical_study.py": "8c513ffebd9d1cac9f7a84ae1947e7f9d443762e6f2f120c52f70a5cf22197b2",
+    "research/20261114/foureyes/canonical_pl.py": "8fdf94353b5144414e3f2697ad22e0e5207b7d26ee46463442fda83675dd1ab3",
+    "research/20261114/foureyes/canonical_pl_gate.py": "9d325ee50a7493fc9a7b97e6edb55971abcd9a138892876cfab849f4091b8242",
+    "research/20261114/foureyes/canonical_half_gate.py": "7e2795dc8efa0c1815fe8d49e21c8823464077d2e01648e1116af7c4ed070eab",
+    "research/20261114/foureyes/audit_noisy_pl_long.py": "1afefa805fb5904d40c7b99de831028489c4916afd6b3a2627c66c81e2dfebbc",
+    "research/20261114/foureyes/canonical_confirm.py": "981e02d7528b3dfac22e1017654c409d3b3052dab385961a41a59c25ef356c69",
+    "research/20261114/foureyes/audit_canonical_confirm.py": "54577dee207016b894730409d0b1e2b5fca5b4404822a4ef0eb694a4156a6fb7",
+    "research/20261114/foureyes/canonical_weights.py": "fe6517ee7403fb0d5edc147bb56f2a29d1edfa9679fb701c5e3e7231438261e4",
+    "research/20261114/ripper/confidence_weight_search.py": "008402a6bbaa3a892e1b3f5fcf88a20d5f9484f85cdf79735b06bde4161d1e56",
+    "research/20261114/ripper/confidence_weight_common.py": "91c037edd774ac77ddd02c768f543c8bcca625ca48492862154e10eb01ffd696",
+    "research/20261114/ripper/confidence_integer_audit.py": "409697edab28ed19a42c93d60864bd2c9a7152880f3e2d3b9a0cb5e25869a248"
+  },
+  "frozen_inputs": {
+    "upstream/data/full-test/full-all.npz": "2fdc470ee042f11ffa61c89f606f39004d8914fca3312c88602d9f68212dec6c",
+    "artifacts/research/20261114/foureyes/chernoff_replication/inputs-00.npz": "9c68907b52ef453b406dc2cc35e2b4440f8c817b9be411f49b1c63f5595ef44e",
+    "results/research/foureyes/noisy_pl/gate.json": "201bf322955075687e2293b5060b9578ef051ded934c28703e47eceafc2795f0",
+    "artifacts/research/20261114/foureyes/canonical_pl_gate/bank1.json": "ff2aa117cfa086fb18d1c137b45887328dc0d4b14db242c4c82539d239c1f65b",
+    "artifacts/research/20261114/foureyes/canonical_pl_gate/bank1-coefficients.npz": "c48aab47d562fae035d7a7d60f3972fdd828f6009e28afe19bdd2d7fdadd5514",
+    "artifacts/research/20261114/foureyes/canonical_pl_gate/bank2.json": "51c7b42f2c206a745f93e28a8f4ebebb8373d8a1f4b902e0f55fbd38b6006e46",
+    "artifacts/research/20261114/foureyes/canonical_pl_gate/bank2-coefficients.npz": "cb016e787f3a50eeeda7fc3f7492a3ebeea9415a9052707004062883548de4e1",
+    "artifacts/research/20261114/foureyes/canonical_pl_gate/bank3.json": "ad4f03b006bf24d256301081a2f5752283768ddc10f8570b9d374e472bb7234e",
+    "artifacts/research/20261114/foureyes/canonical_pl_gate/bank3-coefficients.npz": "7212dde87331e0bc6686529d085f37f6049cff7fe8d32e15e8d7d9404c5b9c6e",
+    "artifacts/research/20261114/foureyes/canonical_pl_gate/bank4.json": "a08b12a37f58c5691b701d2a0153da40f845607e37fdee89b2022af5c1eda625",
+    "artifacts/research/20261114/foureyes/canonical_pl_gate/bank4-coefficients.npz": "ea1d36435a05885eb5305f661836e06eb1434ed8a58dec48e875c82d2f552194",
+    "artifacts/research/20261114/foureyes/canonical_half_gate/bank1.json": "752d3aa6444a97d1e7dc7ce1e9bc69c39941b6b645de558735e07179253bfef5",
+    "artifacts/research/20261114/foureyes/canonical_half_gate/bank1-coefficients.npz": "d5fe578fcafed766497f3d1bcaf3f7d6a4023ef649f78f55fb4f0388d93f544f",
+    "artifacts/research/20261114/foureyes/canonical_half_gate/bank2.json": "dffea9f412966777ff6d5868b1afc99fc737d50d8368dcf8e0493cae99cde357",
+    "artifacts/research/20261114/foureyes/canonical_half_gate/bank2-coefficients.npz": "44f23da47265f8058c74ff1b9e55b09d7f94540b74412de95ec5e385574c2d13",
+    "artifacts/research/20261114/foureyes/canonical_half_gate/bank3.json": "3dc29eb0265b42e82e4f0a77d496c0e8e379f473e42860debcac37c20618ea0f",
+    "artifacts/research/20261114/foureyes/canonical_half_gate/bank3-coefficients.npz": "61051544af0d418072997eff8c89d59a06750eeca5b9ed161eee39768ed83c77",
+    "artifacts/research/20261114/foureyes/canonical_half_gate/bank4.json": "b9c0da4b3cf5e2acb1b69957777aa13558f28867594feb45f4af21e256d0e55e",
+    "artifacts/research/20261114/foureyes/canonical_half_gate/bank4-coefficients.npz": "32d0d6553fda0d11ab68cf5f7d7d562765dc817f1f4773015390ecb48b1c81bc",
+    "research/20261114/foureyes/canonical_weights.json": "220f4b5646a6197dd7d22c482ed631eda8b58bf5dd4d8efbd4eac5d6f0876918"
+  },
+  "search_seed": 0,
+  "split": "full-all",
+  "checkpoints": [
+    0,
+    1048576
+  ],
+  "limits": [
+    "64 independentlysampled sourcebanks conditionalonsameeligiblecorpus; withinbank no replacement, crossbank overlap allowed.",
+    "5000shared newpuzzles andone fixed searchseed; dedup identicalcompleteweights/settings.",
+    "No claims of tunedoptimizer ormatchedtraining compute; no freshfamily/distributionclaim."
+  ],
+  "hypothesis": "Magnitude accuracy>=60percent AND magnitude-uniform gain>=50pp ANDzero magnitude invalidcertificates.",
+  "arms": [
+    "adamw",
+    "uniform",
+    "magnitude",
+    "restricted"
+  ],
+  "primary_arm": "magnitude",
+  "control_arm": "uniform",
+  "primary_margin_pp": 50,
+  "decision": "Each endpoint usesits marginal95two-way interval; supported ifbothlower bounds meettargets andzero magnitudewrongstops; falsified ifanyupper misses target orany magnitudewrongstop; otherwiseinconclusive.",
+  "uncertainty": "5000paired two-waybank/inputdraws; gainseed20261116021, absoluteseed20261116022; marginal95, no simultaneouscoverageclaim.",
+  "secondary": "BPAdamW32 and restrictedcounts are separatelyfitted descriptivecontrols; no noninferiorityclaim to them.",
+  "bank_rng_base": 202611340000,
+  "noise_rng_base": 202611350000,
+  "augmentation_rng_base": 202611360000,
+  "updates": 256,
+  "raw_penalties": {
+    "canonical_weak": 3.3333333333333335e-05
+  },
+  "canonical_recipe": "UnrestrictedrealJ; W=JI,B0; unaugmentedPL exactall9!digit-average onthisparametrization;9lambdaL1;FP64proximalgradient256updates,initialstep540,backtrackinghalves,max32attempts/update,carryacceptedstep. No freshgeometry.",
+  "graph_rule": "Canonicalarms retainJ>0 exactly, useunitweights/B0/tau0. AdamWretainsH4sfirstlargestpositivegaptransform. Restrictedcounts retainH4sbelow-median-countgaprule.",
+  "original_raw_gate": "TenfoldweakerrawSGD failed3/4sourceprecisionchecks; nofreshrawweakSGDexperiment. Newcanonicalparametrization,optimizer,andgraphselection arejointchanges.",
+  "source_design": "Unchanged H4x threshold, weights and \u03bb chosenbefore freshbanks; no banks filtered by structuraloutcomes.",
+  "rows_half_open": [
+    410000,
+    415000
+  ],
+  "chains_by_arm": {
+    "adamw": 4,
+    "uniform": 4,
+    "magnitude": 4,
+    "restricted": 4
+  },
+  "calibration": "Literalunit1,B0,tau0,ebar0,focus.45,temp.4to.31,anneal524288,check4096,4chains,262144moves/chain;unchanged inheritedsearchloop.",
+  "budget": {
+    "fit_phase_wall_seconds": 180,
+    "search_phase_wall_seconds": 360,
+    "total_gpu_minutes_upper_bound": 36,
+    "max_fit_bank_seconds": 30
+  },
+  "source_gates": {
+    "artifacts/research/20261114/foureyes/canonical_pl_gate/bank1.json": "ff2aa117cfa086fb18d1c137b45887328dc0d4b14db242c4c82539d239c1f65b",
+    "artifacts/research/20261114/foureyes/canonical_pl_gate/bank1-coefficients.npz": "c48aab47d562fae035d7a7d60f3972fdd828f6009e28afe19bdd2d7fdadd5514",
+    "artifacts/research/20261114/foureyes/canonical_pl_gate/bank2.json": "51c7b42f2c206a745f93e28a8f4ebebb8373d8a1f4b902e0f55fbd38b6006e46",
+    "artifacts/research/20261114/foureyes/canonical_pl_gate/bank2-coefficients.npz": "cb016e787f3a50eeeda7fc3f7492a3ebeea9415a9052707004062883548de4e1",
+    "artifacts/research/20261114/foureyes/canonical_pl_gate/bank3.json": "ad4f03b006bf24d256301081a2f5752283768ddc10f8570b9d374e472bb7234e",
+    "artifacts/research/20261114/foureyes/canonical_pl_gate/bank3-coefficients.npz": "7212dde87331e0bc6686529d085f37f6049cff7fe8d32e15e8d7d9404c5b9c6e",
+    "artifacts/research/20261114/foureyes/canonical_pl_gate/bank4.json": "a08b12a37f58c5691b701d2a0153da40f845607e37fdee89b2022af5c1eda625",
+    "artifacts/research/20261114/foureyes/canonical_pl_gate/bank4-coefficients.npz": "ea1d36435a05885eb5305f661836e06eb1434ed8a58dec48e875c82d2f552194",
+    "artifacts/research/20261114/foureyes/canonical_half_gate/bank1.json": "752d3aa6444a97d1e7dc7ce1e9bc69c39941b6b645de558735e07179253bfef5",
+    "artifacts/research/20261114/foureyes/canonical_half_gate/bank1-coefficients.npz": "d5fe578fcafed766497f3d1bcaf3f7d6a4023ef649f78f55fb4f0388d93f544f",
+    "artifacts/research/20261114/foureyes/canonical_half_gate/bank2.json": "dffea9f412966777ff6d5868b1afc99fc737d50d8368dcf8e0493cae99cde357",
+    "artifacts/research/20261114/foureyes/canonical_half_gate/bank2-coefficients.npz": "44f23da47265f8058c74ff1b9e55b09d7f94540b74412de95ec5e385574c2d13",
+    "artifacts/research/20261114/foureyes/canonical_half_gate/bank3.json": "3dc29eb0265b42e82e4f0a77d496c0e8e379f473e42860debcac37c20618ea0f",
+    "artifacts/research/20261114/foureyes/canonical_half_gate/bank3-coefficients.npz": "61051544af0d418072997eff8c89d59a06750eeca5b9ed161eee39768ed83c77",
+    "artifacts/research/20261114/foureyes/canonical_half_gate/bank4.json": "b9c0da4b3cf5e2acb1b69957777aa13558f28867594feb45f4af21e256d0e55e",
+    "artifacts/research/20261114/foureyes/canonical_half_gate/bank4-coefficients.npz": "32d0d6553fda0d11ab68cf5f7d7d562765dc817f1f4773015390ecb48b1c81bc"
+  },
+  "fit_failure_policy": "Retainnonfinite/ineligiblefits; failprimaryeligibility. Never replaceorretunebanks; donot inventtestaccuracy forineligiblemodels.",
+  "scope": "Fresh64sourcebanks and5000reserved official puzzles; fixedH4x recipe, no new tuning. Same officialcorpus, not externaldistribution.",
+  "accuracy_floor_pct": 60,
+  "rule": "Magnitude usesJ>0support; threshold median(positiveJ)/4,weight1 ifJ>=threshold else1/16. Otherarms unitweights ontheir own supports. No geometry enters fitting orassignment."
+}
