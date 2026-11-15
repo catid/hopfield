@@ -1,0 +1,2098 @@
+{
+  "samples": [
+    {
+      "utc_seconds": 1794756901.849607,
+      "monitor_wall_seconds": 6.210175342857838e-07,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 0 %, 2 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 0 %, 2 MiB"
+      ],
+      "gpu_processes": [],
+      "workers": {
+        "0": {
+          "status": "starting",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 0,
+          "completed_cohorts": [],
+          "phase": "source_bindings"
+        },
+        "1": {
+          "status": "starting",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 0,
+          "completed_cohorts": [],
+          "phase": "source_bindings"
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) S 2012274 2012274 2012274 0 -1 4194304 5366 0 0 0 5 0 0 0 20 0 2 0 49734667 209264640 9472 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 107 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t   38752 kB",
+            "VmRSS:\t   38752 kB",
+            "Threads:\t2"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) S 2012274 2012274 2012274 0 -1 4194304 5244 0 0 0 5 0 0 0 20 0 2 0 49734667 209010688 9472 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 48 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t   38552 kB",
+            "VmRSS:\t   38552 kB",
+            "Threads:\t2"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756902.9141927,
+      "monitor_wall_seconds": 1.064587541972287,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 0 %, 118 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 0 %, 560 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 552 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 552 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 0,
+          "completed_cohorts": [],
+          "phase": "corner-LP96",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 0.9775875710183755,
+          "process_cpu_seconds": 0.7370374860000001,
+          "peak_cpu_rss_kib": 585324,
+          "updated_utc": "2026-11-15T15:35:02.834131+00:00"
+        },
+        "1": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 0,
+          "completed_cohorts": [],
+          "phase": "corner-LP96",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 0.9679332220111974,
+          "process_cpu_seconds": 0.7645508569999999,
+          "peak_cpu_rss_kib": 590880,
+          "updated_utc": "2026-11-15T15:35:02.824386+00:00"
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) R 2012274 2012274 2012274 0 -1 4194304 93748 11428 0 0 55 36 0 2 20 0 6 0 49734667 19415035904 190281 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 2 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t  769912 kB",
+            "VmRSS:\t  769912 kB",
+            "Threads:\t6"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 93805 11428 0 0 53 40 0 2 20 0 6 0 49734667 19415166976 191366 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 3 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t  770068 kB",
+            "VmRSS:\t  770068 kB",
+            "Threads:\t6"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756903.9737008,
+      "monitor_wall_seconds": 2.1240952520165592,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 18 %, 1104 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 17 %, 1104 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 1094 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 1094 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 0,
+          "completed_cohorts": [],
+          "phase": "corner-LP96",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 0.9775875710183755,
+          "process_cpu_seconds": 0.7370374860000001,
+          "peak_cpu_rss_kib": 585324,
+          "updated_utc": "2026-11-15T15:35:02.834131+00:00"
+        },
+        "1": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 0,
+          "completed_cohorts": [],
+          "phase": "corner-LP96",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 0.9679332220111974,
+          "process_cpu_seconds": 0.7645508569999999,
+          "peak_cpu_rss_kib": 590880,
+          "updated_utc": "2026-11-15T15:35:02.824386+00:00"
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) R 2012274 2012274 2012274 0 -1 4194304 255211 11428 0 0 146 48 0 2 20 0 6 0 49734667 21678120960 345364 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 2 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1390664 kB",
+            "VmRSS:\t 1390664 kB",
+            "Threads:\t6"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 256848 11428 0 0 146 52 0 2 20 0 6 0 49734667 21686652928 347988 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 3 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1397228 kB",
+            "VmRSS:\t 1397228 kB",
+            "Threads:\t6"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756905.023438,
+      "monitor_wall_seconds": 3.1738322880119085,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 6 %, 1238 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 0 %, 1238 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 1228 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 1228 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 100,
+          "completed_cohorts": [],
+          "phase": "corner-LP96",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 3.1103885960183106,
+          "process_cpu_seconds": 3.182512987,
+          "peak_cpu_rss_kib": 1754828,
+          "updated_utc": "2026-11-15T15:35:04.966931+00:00",
+          "mode": "LP96",
+          "batches_complete": 2,
+          "seed": 0,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 64,
+          "actual_subset_inputs": 0
+        },
+        "1": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 100,
+          "completed_cohorts": [],
+          "phase": "corner-LP96",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 3.10940609005047,
+          "process_cpu_seconds": 3.221830223,
+          "peak_cpu_rss_kib": 1761960,
+          "updated_utc": "2026-11-15T15:35:04.965855+00:00",
+          "mode": "LP96",
+          "batches_complete": 2,
+          "seed": 0,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 64,
+          "actual_subset_inputs": 0
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) R 2012274 2012274 2012274 0 -1 4194304 320670 11428 0 0 275 58 0 2 20 0 8 0 49734667 21842694144 364250 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 2 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1754828 kB",
+            "VmRSS:\t 1465832 kB",
+            "Threads:\t8"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 321269 11428 0 0 274 62 0 2 20 0 8 0 49734667 21842931712 364802 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 67 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1761960 kB",
+            "VmRSS:\t 1464972 kB",
+            "Threads:\t8"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756906.0717018,
+      "monitor_wall_seconds": 4.222095794975758,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 14 %, 1238 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 16 %, 1238 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 1228 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 1228 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 152,
+          "completed_cohorts": [],
+          "phase": "corner-LP96",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 3.7293049939908087,
+          "process_cpu_seconds": 3.963378489,
+          "peak_cpu_rss_kib": 1754828,
+          "updated_utc": "2026-11-15T15:35:05.585847+00:00",
+          "mode": "LP96",
+          "batches_complete": 3,
+          "seed": 1,
+          "shard": 0,
+          "batch": 0,
+          "model_inputs_complete": 96,
+          "actual_subset_inputs": 0
+        },
+        "1": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 151,
+          "completed_cohorts": [],
+          "phase": "corner-LP96",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 3.7288954330142587,
+          "process_cpu_seconds": 4.014450555,
+          "peak_cpu_rss_kib": 1761960,
+          "updated_utc": "2026-11-15T15:35:05.585343+00:00",
+          "mode": "LP96",
+          "batches_complete": 3,
+          "seed": 1,
+          "shard": 0,
+          "batch": 0,
+          "model_inputs_complete": 96,
+          "actual_subset_inputs": 0
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) R 2012274 2012274 2012274 0 -1 4194304 363784 11428 0 0 395 65 0 2 20 0 8 0 49734667 22059397120 410093 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 3 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1754828 kB",
+            "VmRSS:\t 1648740 kB",
+            "Threads:\t8"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 362818 11428 0 0 396 70 0 2 20 0 8 0 49734667 22063783936 407926 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 32 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1761960 kB",
+            "VmRSS:\t 1636520 kB",
+            "Threads:\t8"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756907.1185093,
+      "monitor_wall_seconds": 5.268903827993199,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 33 %, 1378 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 39 %, 1378 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 1368 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 1368 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 255,
+          "completed_cohorts": [],
+          "phase": "corner-LP96",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 5.02121477300534,
+          "process_cpu_seconds": 5.5653873250000006,
+          "peak_cpu_rss_kib": 1758036,
+          "updated_utc": "2026-11-15T15:35:06.877755+00:00",
+          "mode": "LP96",
+          "batches_complete": 5,
+          "seed": 2,
+          "shard": 0,
+          "batch": 0,
+          "model_inputs_complete": 160,
+          "actual_subset_inputs": 0
+        },
+        "1": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 248,
+          "completed_cohorts": [],
+          "phase": "corner-LP96",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 5.0136121160467155,
+          "process_cpu_seconds": 5.641981456,
+          "peak_cpu_rss_kib": 1764212,
+          "updated_utc": "2026-11-15T15:35:06.870060+00:00",
+          "mode": "LP96",
+          "batches_complete": 5,
+          "seed": 2,
+          "shard": 0,
+          "batch": 0,
+          "model_inputs_complete": 160,
+          "actual_subset_inputs": 0
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) R 2012274 2012274 2012274 0 -1 4194304 390001 11428 0 0 519 70 0 2 20 0 8 0 49734667 21841670144 364249 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 66 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1758036 kB",
+            "VmRSS:\t 1464920 kB",
+            "Threads:\t8"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 387536 11428 0 0 522 75 0 2 20 0 8 0 49734667 21839835136 364524 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 3 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1764212 kB",
+            "VmRSS:\t 1463056 kB",
+            "Threads:\t8"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756908.1676726,
+      "monitor_wall_seconds": 6.318066917010583,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 0 %, 1008 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 0 %, 1008 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 998 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 998 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 351,
+          "completed_cohorts": [
+            "corner-LP96"
+          ],
+          "phase": "corner-BP_geometry_LP96",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 6.349720422003884,
+          "process_cpu_seconds": 7.186723476,
+          "peak_cpu_rss_kib": 1762180,
+          "updated_utc": "2026-11-15T15:35:08.206260+00:00",
+          "mode": "BP_geometry_LP96",
+          "batches_complete": 1,
+          "seed": 0,
+          "shard": 0,
+          "batch": 0,
+          "model_inputs_complete": 32,
+          "actual_subset_inputs": 1
+        },
+        "1": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 344,
+          "completed_cohorts": [
+            "corner-LP96"
+          ],
+          "phase": "corner-BP_geometry_LP96",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 6.349708363995887,
+          "process_cpu_seconds": 7.272178385,
+          "peak_cpu_rss_kib": 1764768,
+          "updated_utc": "2026-11-15T15:35:08.206157+00:00",
+          "mode": "BP_geometry_LP96",
+          "batches_complete": 1,
+          "seed": 0,
+          "shard": 0,
+          "batch": 0,
+          "model_inputs_complete": 32,
+          "actual_subset_inputs": 1
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) R 2012274 2012274 2012274 0 -1 4194304 426098 11428 0 0 647 77 0 2 20 0 8 0 49734667 21847351296 369876 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 2 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1762180 kB",
+            "VmRSS:\t 1487168 kB",
+            "Threads:\t8"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 424253 11428 0 0 650 82 0 2 20 0 8 0 49734667 21847556096 370517 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 3 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1764768 kB",
+            "VmRSS:\t 1487280 kB",
+            "Threads:\t8"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756909.2166913,
+      "monitor_wall_seconds": 7.3670854099909775,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 24 %, 1008 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 28 %, 1008 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 998 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 998 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 388,
+          "completed_cohorts": [
+            "corner-LP96"
+          ],
+          "phase": "corner-BP_geometry_LP96",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 6.92630905401893,
+          "process_cpu_seconds": 7.9028254890000005,
+          "peak_cpu_rss_kib": 1762180,
+          "updated_utc": "2026-11-15T15:35:08.782851+00:00",
+          "mode": "BP_geometry_LP96",
+          "batches_complete": 2,
+          "seed": 0,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 64,
+          "actual_subset_inputs": 2
+        },
+        "1": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 379,
+          "completed_cohorts": [
+            "corner-LP96"
+          ],
+          "phase": "corner-BP_geometry_LP96",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 6.923711337032728,
+          "process_cpu_seconds": 7.998141293999999,
+          "peak_cpu_rss_kib": 1764768,
+          "updated_utc": "2026-11-15T15:35:08.780158+00:00",
+          "mode": "BP_geometry_LP96",
+          "batches_complete": 2,
+          "seed": 0,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 64,
+          "actual_subset_inputs": 2
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) R 2012274 2012274 2012274 0 -1 4194304 442375 11428 0 0 769 80 0 2 20 0 8 0 49734667 21955874816 394827 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 66 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1762180 kB",
+            "VmRSS:\t 1587016 kB",
+            "Threads:\t8"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 441227 11428 0 0 773 85 0 2 20 0 8 0 49734667 21956939776 395808 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 67 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1764768 kB",
+            "VmRSS:\t 1587872 kB",
+            "Threads:\t8"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756910.263361,
+      "monitor_wall_seconds": 8.413755337009206,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 41 %, 1008 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 50 %, 1008 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 998 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 998 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 471,
+          "completed_cohorts": [
+            "corner-LP96"
+          ],
+          "phase": "corner-BP_geometry_LP96",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 8.107732274977025,
+          "process_cpu_seconds": 9.358783088000001,
+          "peak_cpu_rss_kib": 1762180,
+          "updated_utc": "2026-11-15T15:35:09.964273+00:00",
+          "mode": "BP_geometry_LP96",
+          "batches_complete": 4,
+          "seed": 1,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 128,
+          "actual_subset_inputs": 4
+        },
+        "1": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 459,
+          "completed_cohorts": [
+            "corner-LP96"
+          ],
+          "phase": "corner-BP_geometry_LP96",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 8.107431676995475,
+          "process_cpu_seconds": 9.464794534000001,
+          "peak_cpu_rss_kib": 1764768,
+          "updated_utc": "2026-11-15T15:35:09.963881+00:00",
+          "mode": "BP_geometry_LP96",
+          "batches_complete": 4,
+          "seed": 1,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 128,
+          "actual_subset_inputs": 4
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) R 2012274 2012274 2012274 0 -1 4194304 457937 11428 0 0 892 82 0 2 20 0 8 0 49734667 21847871488 370003 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 66 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1762180 kB",
+            "VmRSS:\t 1487752 kB",
+            "Threads:\t8"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 456792 11428 0 0 896 88 0 2 20 0 8 0 49734667 21847814144 370789 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 67 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1764768 kB",
+            "VmRSS:\t 1487608 kB",
+            "Threads:\t8"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756911.3094606,
+      "monitor_wall_seconds": 9.45985575398663,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 71 %, 884 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 67 %, 884 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 874 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 874 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 562,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96"
+          ],
+          "phase": "corner-endpoint_dispatch",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 9.310482689004857,
+          "process_cpu_seconds": 10.81931781,
+          "peak_cpu_rss_kib": 1762180,
+          "updated_utc": "2026-11-15T15:35:11.167015+00:00",
+          "mode": "BP_geometry_LP96",
+          "batches_complete": 6,
+          "seed": 2,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 192,
+          "actual_subset_inputs": 6
+        },
+        "1": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 548,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96"
+          ],
+          "phase": "corner-endpoint_dispatch",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 9.314553074014839,
+          "process_cpu_seconds": 10.934365296000001,
+          "peak_cpu_rss_kib": 1764768,
+          "updated_utc": "2026-11-15T15:35:11.170991+00:00",
+          "mode": "BP_geometry_LP96",
+          "batches_complete": 6,
+          "seed": 2,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 192,
+          "actual_subset_inputs": 6
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) R 2012274 2012274 2012274 0 -1 4194304 481986 11428 0 0 1018 86 0 2 20 0 6 0 49734667 21861998592 373460 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 66 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1762180 kB",
+            "VmRSS:\t 1501764 kB",
+            "Threads:\t6"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 477322 11428 0 0 1025 91 0 2 20 0 6 0 49734667 21848100864 370867 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 67 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1764768 kB",
+            "VmRSS:\t 1488104 kB",
+            "Threads:\t6"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756912.3574877,
+      "monitor_wall_seconds": 10.507881863974035,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 13 %, 1008 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 11 %, 1008 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 998 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 998 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 648,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96"
+          ],
+          "phase": "corner-endpoint_dispatch",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 10.496153779968154,
+          "process_cpu_seconds": 12.269030729,
+          "peak_cpu_rss_kib": 1762180,
+          "updated_utc": "2026-11-15T15:35:12.352696+00:00",
+          "mode": "endpoint_dispatch",
+          "batches_complete": 2,
+          "seed": 0,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 64,
+          "actual_subset_inputs": 2
+        },
+        "1": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 629,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96"
+          ],
+          "phase": "corner-endpoint_dispatch",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 10.496670121036004,
+          "process_cpu_seconds": 12.413127824,
+          "peak_cpu_rss_kib": 1764768,
+          "updated_utc": "2026-11-15T15:35:12.353117+00:00",
+          "mode": "endpoint_dispatch",
+          "batches_complete": 2,
+          "seed": 0,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 64,
+          "actual_subset_inputs": 2
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) R 2012274 2012274 2012274 0 -1 4194304 502496 11428 0 0 1146 90 0 2 20 0 8 0 49734667 21847613440 369940 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 66 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1762180 kB",
+            "VmRSS:\t 1487820 kB",
+            "Threads:\t8"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 498987 11428 0 0 1155 96 0 2 20 0 8 0 49734667 21847875584 370804 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 67 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1764768 kB",
+            "VmRSS:\t 1487988 kB",
+            "Threads:\t8"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756913.4112394,
+      "monitor_wall_seconds": 11.56163353996817,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 19 %, 1008 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 23 %, 1008 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 998 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 998 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 693,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96"
+          ],
+          "phase": "corner-endpoint_dispatch",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 11.089451289968565,
+          "process_cpu_seconds": 12.992896914000001,
+          "peak_cpu_rss_kib": 1762180,
+          "updated_utc": "2026-11-15T15:35:12.945995+00:00",
+          "mode": "endpoint_dispatch",
+          "batches_complete": 3,
+          "seed": 1,
+          "shard": 0,
+          "batch": 0,
+          "model_inputs_complete": 96,
+          "actual_subset_inputs": 3
+        },
+        "1": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 672,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96"
+          ],
+          "phase": "corner-endpoint_dispatch",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 11.090649018005934,
+          "process_cpu_seconds": 13.156091914000001,
+          "peak_cpu_rss_kib": 1764768,
+          "updated_utc": "2026-11-15T15:35:12.947094+00:00",
+          "mode": "endpoint_dispatch",
+          "batches_complete": 3,
+          "seed": 1,
+          "shard": 0,
+          "batch": 0,
+          "model_inputs_complete": 96,
+          "actual_subset_inputs": 3
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) R 2012274 2012274 2012274 0 -1 4194304 519804 11428 0 0 1270 93 0 2 20 0 8 0 49734667 21958397952 396938 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 66 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1762180 kB",
+            "VmRSS:\t 1595880 kB",
+            "Threads:\t8"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 515724 11428 0 0 1282 98 0 2 20 0 8 0 49734667 21959438336 397800 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 67 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1764768 kB",
+            "VmRSS:\t 1596808 kB",
+            "Threads:\t8"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756914.4568512,
+      "monitor_wall_seconds": 12.607245386985596,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 53 %, 1008 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 54 %, 1008 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 998 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 998 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 780,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96"
+          ],
+          "phase": "corner-endpoint_dispatch",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 12.339211835991591,
+          "process_cpu_seconds": 14.502424024,
+          "peak_cpu_rss_kib": 1762180,
+          "updated_utc": "2026-11-15T15:35:14.195756+00:00",
+          "mode": "endpoint_dispatch",
+          "batches_complete": 5,
+          "seed": 2,
+          "shard": 0,
+          "batch": 0,
+          "model_inputs_complete": 160,
+          "actual_subset_inputs": 5
+        },
+        "1": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 755,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96"
+          ],
+          "phase": "corner-endpoint_dispatch",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 12.339487899036612,
+          "process_cpu_seconds": 14.702117727000001,
+          "peak_cpu_rss_kib": 1764768,
+          "updated_utc": "2026-11-15T15:35:14.195934+00:00",
+          "mode": "endpoint_dispatch",
+          "batches_complete": 5,
+          "seed": 2,
+          "shard": 0,
+          "batch": 0,
+          "model_inputs_complete": 160,
+          "actual_subset_inputs": 5
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) R 2012274 2012274 2012274 0 -1 4194304 533677 11428 0 0 1389 95 0 2 20 0 8 0 49734667 21847969792 370027 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 66 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1762180 kB",
+            "VmRSS:\t 1488168 kB",
+            "Threads:\t8"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 529757 11428 0 0 1404 101 0 2 20 0 8 0 49734667 21850206208 371373 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 67 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1764768 kB",
+            "VmRSS:\t 1490264 kB",
+            "Threads:\t8"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756915.5053022,
+      "monitor_wall_seconds": 13.655696481000632,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 48 %, 1094 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 51 %, 1094 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 1084 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 1084 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 852,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96",
+            "corner-endpoint_dispatch"
+          ],
+          "phase": "uniform-LP96",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 13.438702128012665,
+          "process_cpu_seconds": 15.89156065,
+          "peak_cpu_rss_kib": 1803904,
+          "updated_utc": "2026-11-15T15:35:15.295247+00:00",
+          "mode": "LP96",
+          "batches_complete": 1,
+          "seed": 0,
+          "shard": 0,
+          "batch": 0,
+          "model_inputs_complete": 32,
+          "actual_subset_inputs": 0
+        },
+        "1": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 823,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96",
+            "corner-endpoint_dispatch"
+          ],
+          "phase": "uniform-LP96",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 13.439751405036077,
+          "process_cpu_seconds": 16.103905172999998,
+          "peak_cpu_rss_kib": 1804068,
+          "updated_utc": "2026-11-15T15:35:15.296197+00:00",
+          "mode": "LP96",
+          "batches_complete": 1,
+          "seed": 0,
+          "shard": 0,
+          "batch": 0,
+          "model_inputs_complete": 32,
+          "actual_subset_inputs": 0
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) R 2012274 2012274 2012274 0 -1 4194304 593775 11428 0 0 1515 105 0 2 20 0 8 0 49734667 22021017600 412246 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 66 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1803904 kB",
+            "VmRSS:\t 1657412 kB",
+            "Threads:\t8"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 588258 11428 0 0 1532 111 0 2 20 0 8 0 49734667 22019985408 412794 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 67 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1804068 kB",
+            "VmRSS:\t 1656316 kB",
+            "Threads:\t8"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756916.5545301,
+      "monitor_wall_seconds": 14.704924524005037,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 8 %, 1094 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 0 %, 1094 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 1084 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 1084 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 921,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96",
+            "corner-endpoint_dispatch"
+          ],
+          "phase": "uniform-LP96",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 14.727370795968454,
+          "process_cpu_seconds": 17.670353623999997,
+          "peak_cpu_rss_kib": 1805184,
+          "updated_utc": "2026-11-15T15:35:16.583911+00:00",
+          "mode": "LP96",
+          "batches_complete": 4,
+          "seed": 1,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 128,
+          "actual_subset_inputs": 0
+        },
+        "1": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 893,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96",
+            "corner-endpoint_dispatch"
+          ],
+          "phase": "uniform-LP96",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 14.726806264021434,
+          "process_cpu_seconds": 17.878523002999998,
+          "peak_cpu_rss_kib": 1806508,
+          "updated_utc": "2026-11-15T15:35:16.583253+00:00",
+          "mode": "LP96",
+          "batches_complete": 4,
+          "seed": 1,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 128,
+          "actual_subset_inputs": 0
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) R 2012274 2012274 2012274 0 -1 4194304 656189 11428 0 0 1657 116 0 2 20 0 8 0 49734667 21826088960 364953 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 66 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1805184 kB",
+            "VmRSS:\t 1467572 kB",
+            "Threads:\t8"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 621855 11428 0 0 1674 119 0 2 20 0 8 0 49734667 21854085120 373132 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 67 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1806508 kB",
+            "VmRSS:\t 1494952 kB",
+            "Threads:\t8"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756917.603394,
+      "monitor_wall_seconds": 15.753788514004555,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 73 %, 884 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 68 %, 884 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 874 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 874 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 972,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96",
+            "corner-endpoint_dispatch",
+            "uniform-LP96"
+          ],
+          "phase": "uniform-BP_geometry_LP96",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 15.614192230976187,
+          "process_cpu_seconds": 18.878398249,
+          "peak_cpu_rss_kib": 1805264,
+          "updated_utc": "2026-11-15T15:35:17.470726+00:00",
+          "mode": "LP96",
+          "batches_complete": 6,
+          "seed": 2,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 192,
+          "actual_subset_inputs": 0
+        },
+        "1": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 946,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96",
+            "corner-endpoint_dispatch",
+            "uniform-LP96"
+          ],
+          "phase": "uniform-BP_geometry_LP96",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 15.614345951005816,
+          "process_cpu_seconds": 19.076197744999998,
+          "peak_cpu_rss_kib": 1807304,
+          "updated_utc": "2026-11-15T15:35:17.470784+00:00",
+          "mode": "LP96",
+          "batches_complete": 6,
+          "seed": 2,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 192,
+          "actual_subset_inputs": 0
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) R 2012274 2012274 2012274 0 -1 4194304 712270 11428 0 0 1785 125 0 2 20 0 6 0 49734667 21863383040 374298 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 66 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1805264 kB",
+            "VmRSS:\t 1504144 kB",
+            "Threads:\t6"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 656126 11428 0 0 1804 125 0 2 20 0 6 0 49734667 21874790400 378195 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 67 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1807304 kB",
+            "VmRSS:\t 1515196 kB",
+            "Threads:\t6"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756918.6506083,
+      "monitor_wall_seconds": 16.801002990978304,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 74 %, 1006 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 53 %, 1006 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 996 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 996 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 995,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96",
+            "corner-endpoint_dispatch",
+            "uniform-LP96"
+          ],
+          "phase": "uniform-BP_geometry_LP96",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 16.50918765598908,
+          "process_cpu_seconds": 20.046341683999998,
+          "peak_cpu_rss_kib": 1805264,
+          "updated_utc": "2026-11-15T15:35:18.365728+00:00",
+          "mode": "BP_geometry_LP96",
+          "batches_complete": 2,
+          "seed": 0,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 64,
+          "actual_subset_inputs": 1
+        },
+        "1": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 966,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96",
+            "corner-endpoint_dispatch",
+            "uniform-LP96"
+          ],
+          "phase": "uniform-BP_geometry_LP96",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 16.504632307041902,
+          "process_cpu_seconds": 20.255416787999998,
+          "peak_cpu_rss_kib": 1807304,
+          "updated_utc": "2026-11-15T15:35:18.361080+00:00",
+          "mode": "BP_geometry_LP96",
+          "batches_complete": 2,
+          "seed": 0,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 64,
+          "actual_subset_inputs": 1
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) S 2012274 2012274 2012274 0 -1 4194304 732829 11428 0 0 1912 129 0 2 20 0 8 0 49734667 21821943808 364105 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 66 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1805264 kB",
+            "VmRSS:\t 1463524 kB",
+            "Threads:\t8"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 675806 11428 0 0 1933 129 0 2 20 0 8 0 49734667 21870673920 377185 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 67 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1807304 kB",
+            "VmRSS:\t 1511152 kB",
+            "Threads:\t8"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756919.6972828,
+      "monitor_wall_seconds": 17.847677121986635,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 6 %, 1006 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 12 %, 1006 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 996 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 996 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 1016,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96",
+            "corner-endpoint_dispatch",
+            "uniform-LP96"
+          ],
+          "phase": "uniform-BP_geometry_LP96",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 17.405161800968926,
+          "process_cpu_seconds": 21.217091669,
+          "peak_cpu_rss_kib": 1805264,
+          "updated_utc": "2026-11-15T15:35:19.261702+00:00",
+          "mode": "BP_geometry_LP96",
+          "batches_complete": 4,
+          "seed": 1,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 128,
+          "actual_subset_inputs": 2
+        },
+        "1": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 986,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96",
+            "corner-endpoint_dispatch",
+            "uniform-LP96"
+          ],
+          "phase": "uniform-BP_geometry_LP96",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 17.401993813051376,
+          "process_cpu_seconds": 21.425996748,
+          "peak_cpu_rss_kib": 1807304,
+          "updated_utc": "2026-11-15T15:35:19.258442+00:00",
+          "mode": "BP_geometry_LP96",
+          "batches_complete": 4,
+          "seed": 1,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 128,
+          "actual_subset_inputs": 2
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) R 2012274 2012274 2012274 0 -1 4194304 771826 11428 0 0 2051 135 0 2 20 0 8 0 49734667 21998723072 407190 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 66 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1805264 kB",
+            "VmRSS:\t 1636168 kB",
+            "Threads:\t8"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 706794 11428 0 0 2074 134 0 2 20 0 8 0 49734667 21998985216 408252 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 67 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1807304 kB",
+            "VmRSS:\t 1636336 kB",
+            "Threads:\t8"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756920.742974,
+      "monitor_wall_seconds": 18.893368124961853,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 8 %, 1110 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 12 %, 1110 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 1100 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 1100 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 1038,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96",
+            "corner-endpoint_dispatch",
+            "uniform-LP96",
+            "uniform-BP_geometry_LP96"
+          ],
+          "phase": "uniform-endpoint_dispatch",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 18.30575191602111,
+          "process_cpu_seconds": 22.381959537999997,
+          "peak_cpu_rss_kib": 1805264,
+          "updated_utc": "2026-11-15T15:35:20.162286+00:00",
+          "mode": "BP_geometry_LP96",
+          "batches_complete": 6,
+          "seed": 2,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 192,
+          "actual_subset_inputs": 3
+        },
+        "1": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 1007,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96",
+            "corner-endpoint_dispatch",
+            "uniform-LP96",
+            "uniform-BP_geometry_LP96"
+          ],
+          "phase": "uniform-endpoint_dispatch",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 18.305953246017452,
+          "process_cpu_seconds": 22.602608613999998,
+          "peak_cpu_rss_kib": 1807304,
+          "updated_utc": "2026-11-15T15:35:20.162393+00:00",
+          "mode": "BP_geometry_LP96",
+          "batches_complete": 6,
+          "seed": 2,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 192,
+          "actual_subset_inputs": 3
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) R 2012274 2012274 2012274 0 -1 4194304 805688 11428 0 0 2180 140 0 2 20 0 8 0 49734667 22117441536 436094 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 66 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1805264 kB",
+            "VmRSS:\t 1752132 kB",
+            "Threads:\t8"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 736705 11428 0 0 2203 140 0 2 20 0 8 0 49734667 22117965824 437299 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 67 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1807304 kB",
+            "VmRSS:\t 1752556 kB",
+            "Threads:\t8"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756921.7905717,
+      "monitor_wall_seconds": 19.94096565298969,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 32 %, 1110 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 37 %, 1110 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 1100 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 1100 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 1090,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96",
+            "corner-endpoint_dispatch",
+            "uniform-LP96",
+            "uniform-BP_geometry_LP96"
+          ],
+          "phase": "uniform-endpoint_dispatch",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 19.498460016970057,
+          "process_cpu_seconds": 23.881407996999997,
+          "peak_cpu_rss_kib": 1805264,
+          "updated_utc": "2026-11-15T15:35:21.355003+00:00",
+          "mode": "endpoint_dispatch",
+          "batches_complete": 2,
+          "seed": 0,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 64,
+          "actual_subset_inputs": 55
+        },
+        "1": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 1058,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96",
+            "corner-endpoint_dispatch",
+            "uniform-LP96",
+            "uniform-BP_geometry_LP96"
+          ],
+          "phase": "uniform-endpoint_dispatch",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 19.498730531020556,
+          "process_cpu_seconds": 24.110074376,
+          "peak_cpu_rss_kib": 1807304,
+          "updated_utc": "2026-11-15T15:35:21.355177+00:00",
+          "mode": "endpoint_dispatch",
+          "batches_complete": 2,
+          "seed": 0,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 64,
+          "actual_subset_inputs": 55
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) R 2012274 2012274 2012274 0 -1 4194304 845635 11428 0 0 2297 147 0 2 20 0 8 0 49734667 22010679296 408756 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 66 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1805264 kB",
+            "VmRSS:\t 1643036 kB",
+            "Threads:\t8"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 766604 11428 0 0 2322 145 0 2 20 0 8 0 49734667 22018428928 411460 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 67 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1807304 kB",
+            "VmRSS:\t 1648288 kB",
+            "Threads:\t8"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756922.8376691,
+      "monitor_wall_seconds": 20.98806339496514,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 58 %, 1110 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 54 %, 1110 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 1100 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 1100 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 1140,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96",
+            "corner-endpoint_dispatch",
+            "uniform-LP96",
+            "uniform-BP_geometry_LP96"
+          ],
+          "phase": "uniform-endpoint_dispatch",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 20.67321657401044,
+          "process_cpu_seconds": 25.370090783,
+          "peak_cpu_rss_kib": 1805264,
+          "updated_utc": "2026-11-15T15:35:22.529758+00:00",
+          "mode": "endpoint_dispatch",
+          "batches_complete": 4,
+          "seed": 1,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 128,
+          "actual_subset_inputs": 110
+        },
+        "1": {
+          "status": "running",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 1106,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96",
+            "corner-endpoint_dispatch",
+            "uniform-LP96",
+            "uniform-BP_geometry_LP96"
+          ],
+          "phase": "uniform-endpoint_dispatch",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 20.672255259996746,
+          "process_cpu_seconds": 25.611544833,
+          "peak_cpu_rss_kib": 1807304,
+          "updated_utc": "2026-11-15T15:35:22.528703+00:00",
+          "mode": "endpoint_dispatch",
+          "batches_complete": 4,
+          "seed": 1,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 128,
+          "actual_subset_inputs": 110
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) R 2012274 2012274 2012274 0 -1 4194304 870117 11428 0 0 2425 152 0 2 20 0 8 0 49734667 21858750464 372775 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 8194 0 0 0 17 66 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1805264 kB",
+            "VmRSS:\t 1499512 kB",
+            "Threads:\t8"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 783312 11428 0 0 2450 151 0 2 20 0 8 0 49734667 21881171968 379428 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 8194 0 0 0 17 67 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1807304 kB",
+            "VmRSS:\t 1521448 kB",
+            "Threads:\t8"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756923.887071,
+      "monitor_wall_seconds": 22.037465234985575,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        null,
+        null
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 0 %, 714 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 0 %, 714 MiB"
+      ],
+      "gpu_processes": [
+        "GPU-7d991585-c5b5-889b-932b-a541900410ed, 2012275, /home/catid/hopfield/upstream/.venv/bin/python, 704 MiB",
+        "GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 2012276, /home/catid/hopfield/upstream/.venv/bin/python, 704 MiB"
+      ],
+      "workers": {
+        "0": {
+          "status": "complete",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 1193,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96",
+            "corner-endpoint_dispatch",
+            "uniform-LP96",
+            "uniform-BP_geometry_LP96",
+            "uniform-endpoint_dispatch"
+          ],
+          "phase": "finished",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 21.85068659199169,
+          "process_cpu_seconds": 26.852798264999997,
+          "peak_cpu_rss_kib": 1805264,
+          "updated_utc": "2026-11-15T15:35:23.707220+00:00",
+          "mode": "endpoint_dispatch",
+          "batches_complete": 6,
+          "seed": 2,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 192,
+          "actual_subset_inputs": 165
+        },
+        "1": {
+          "status": "complete",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 1159,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96",
+            "corner-endpoint_dispatch",
+            "uniform-LP96",
+            "uniform-BP_geometry_LP96",
+            "uniform-endpoint_dispatch"
+          ],
+          "phase": "finished",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 21.850851278053597,
+          "process_cpu_seconds": 27.094445583,
+          "peak_cpu_rss_kib": 1807304,
+          "updated_utc": "2026-11-15T15:35:23.707290+00:00",
+          "mode": "endpoint_dispatch",
+          "batches_complete": 6,
+          "seed": 2,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 192,
+          "actual_subset_inputs": 165
+        }
+      },
+      "owned_process_counters": {
+        "2012275": {
+          "stat": "2012275 (python) R 2012274 2012274 2012274 0 -1 4194304 908742 11428 0 0 2554 158 0 2 20 0 5 0 49734667 21858361344 381451 18446744073709551615 4329472 35532632 140725399973520 0 0 0 0 16781312 0 0 0 0 17 66 0 0 0 0 0 25165824 35532632 439566336 140725399977188 140725399977327 140725399977327 140725399977929 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1805264 kB",
+            "VmRSS:\t 1535848 kB",
+            "Threads:\t5"
+          ]
+        },
+        "2012276": {
+          "stat": "2012276 (python) R 2012274 2012274 2012274 0 -1 4194304 807263 11428 0 0 2580 156 0 2 20 0 5 0 49734667 21856333824 382600 18446744073709551615 4329472 35532632 140734391129152 0 0 0 0 16781312 0 0 0 0 17 67 0 0 0 0 0 25165824 35532632 280403968 140734391135460 140734391135599 140734391135599 140734391136201 0",
+          "status_memory_threads": [
+            "VmHWM:\t 1807304 kB",
+            "VmRSS:\t 1533572 kB",
+            "Threads:\t5"
+          ]
+        }
+      }
+    },
+    {
+      "utc_seconds": 1794756924.93428,
+      "monitor_wall_seconds": 23.084674504993018,
+      "worker_pids": [
+        2012275,
+        2012276
+      ],
+      "exit_codes": [
+        0,
+        0
+      ],
+      "gpu": [
+        "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 0 %, 2 MiB",
+        "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 0 %, 2 MiB"
+      ],
+      "gpu_processes": [],
+      "workers": {
+        "0": {
+          "status": "complete",
+          "command": "gate",
+          "gpu": 0,
+          "pid": 2012275,
+          "started_utc": "2026-11-15T15:35:01.901063+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 1193,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96",
+            "corner-endpoint_dispatch",
+            "uniform-LP96",
+            "uniform-BP_geometry_LP96",
+            "uniform-endpoint_dispatch"
+          ],
+          "phase": "finished",
+          "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 21.85068659199169,
+          "process_cpu_seconds": 26.852798264999997,
+          "peak_cpu_rss_kib": 1805264,
+          "updated_utc": "2026-11-15T15:35:23.707220+00:00",
+          "mode": "endpoint_dispatch",
+          "batches_complete": 6,
+          "seed": 2,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 192,
+          "actual_subset_inputs": 165
+        },
+        "1": {
+          "status": "complete",
+          "command": "gate",
+          "gpu": 1,
+          "pid": 2012276,
+          "started_utc": "2026-11-15T15:35:01.900824+00:00",
+          "wall_budget_seconds": 240,
+          "watchdog_checks": 1159,
+          "completed_cohorts": [
+            "corner-LP96",
+            "corner-BP_geometry_LP96",
+            "corner-endpoint_dispatch",
+            "uniform-LP96",
+            "uniform-BP_geometry_LP96",
+            "uniform-endpoint_dispatch"
+          ],
+          "phase": "finished",
+          "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+          "protocol_sha256": "370c57e53506f7b27a253034d584283e4f6c93bf757291e609f547256902497d",
+          "worker_wall_seconds": 21.850851278053597,
+          "process_cpu_seconds": 27.094445583,
+          "peak_cpu_rss_kib": 1807304,
+          "updated_utc": "2026-11-15T15:35:23.707290+00:00",
+          "mode": "endpoint_dispatch",
+          "batches_complete": 6,
+          "seed": 2,
+          "shard": 15,
+          "batch": 0,
+          "model_inputs_complete": 192,
+          "actual_subset_inputs": 165
+        }
+      },
+      "owned_process_counters": {}
+    }
+  ],
+  "forced_owned_signals": []
+}

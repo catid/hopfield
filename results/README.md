@@ -1,5 +1,8 @@
 # Public results
 
+
+Latest: [Fresh pooling confirmation and retained audit correction](../research/20261114/foureyes/REPORT-fresh-pooled-donor.md) — 253/256 versus 239/256, 15 gains and one loss. [Mixed-maze dispatch](../research/20261114/work/REPORT.md#h2br-endpoint-dispatch-preserves-accuracy-but-falsifies-both-cost-targets) preserves 4,096/4,096 accuracy but fails both cost targets.
+
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
 - [Within-bank noise variation: scalar inference matches a privileged per-cell-channel control at 70/72 fresh graphs](../research/20261114/ripper/REPORT-cell-channel.md)

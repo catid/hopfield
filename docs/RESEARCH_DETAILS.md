@@ -239,3 +239,13 @@ Uniform fitted query weights reduce actual calls from **3,121 to 2,771** across 
 ## Scalar inference with different noise rates across cells
 
 The unchanged scalar estimator and a control supplied with the true per-cell channel map both recover the same **70/72** graphs on fresh banks. Each bank assigns 27 cells each to 3.75%, 7.5% and 15% noise. All three fixed targets pass, with two strict objective failures retained. Every selected primal agrees even though all edge costs change. The supplied control has privileged parameter information; this is a specified mixture test, not an equal-information method ranking. [Acquisition, every failure and independent checks](../research/20261114/ripper/REPORT-cell-channel.md).
+
+## Fresh pooling confirmation and the retained audit correction
+
+Pooling recovers **253/256** fresh synthetic graphs versus **239/256** with donor masking, with **15 gains and one loss**. All 256 degrees are inferred correctly. Both fixed endpoints pass; three wrong pooled graphs have strictly better objective values than truth. The original run remains incomplete after a mistaken NumPy-version assertion; a separately frozen correction-only audit validates the unchanged fits. [Protocol, all failures, correction and exact public reconstruction](../research/20261114/foureyes/REPORT-fresh-pooled-donor.md).
+
+![Fresh pooling result](../assets/figures/fresh-pooled-donor.png)
+
+## Endpoint dispatch preserves maze accuracy but costs more
+
+On a fresh 4,096-maze 50:50 endpoint mixture, BP AdamW solves 4,048 jointly; LP96, always-cascade and distance dispatch each solve 4,096. The dispatcher costs **14.04% more than LP96** and **30.41% more than always-cascade**, failing both separate cost targets in every block. It invokes BP and an LP subset in every batch; that operation accounting motivates a prospective packing test without proving a cause. [Full source cohort and all timings](../research/20261114/work/REPORT.md#h2br-endpoint-dispatch-preserves-accuracy-but-falsifies-both-cost-targets).

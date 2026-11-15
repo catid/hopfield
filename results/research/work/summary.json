@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-15T15:27:48.920260+00:00",
+  "updated_utc": "2026-11-15T16:26:10.149501+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
-  "status": "Ongoing research; H2bq opposite-region endpoint stress independently audited",
+  "status": "Ongoing research; H2br endpoint dispatcher independently audited",
   "host": "work",
-  "jobs": 2272,
-  "run_arm_rows": 7455,
-  "model_maze_evaluations": 1716098,
+  "jobs": 2320,
+  "run_arm_rows": 7647,
+  "model_maze_evaluations": 1765250,
   "hypotheses": [
     {
       "campaign": "discovery",
@@ -1707,6 +1707,131 @@
         "minimum_saving": 0.1,
         "decision": "supported"
       }
+    },
+    {
+      "campaign": "bp_first_endpoint_dispatch",
+      "hypothesis": "H2br_absolute_dispatch_joint_success_999",
+      "outcome": {
+        "successes": 4096,
+        "n": 4096,
+        "observed_success_pp": 100.0,
+        "one_sided95_success_lower_pp": 99.92688874435301,
+        "one_sided95_success_upper_pp": 100.0,
+        "minimum_success_pp": 99.9,
+        "decision": "supported"
+      }
+    },
+    {
+      "campaign": "bp_first_endpoint_dispatch",
+      "hypothesis": "H2br_dispatch_LP96_noninferiority",
+      "outcome": {
+        "gains": 0,
+        "losses": 0,
+        "n": 4096,
+        "observed_net_gain_pp": 0.0,
+        "separately_one_sided95_net_lower_pp": -0.09001999122098098,
+        "separately_one_sided95_net_upper_pp": 0.09001999122098098,
+        "minimum_net_gain_pp": -0.1,
+        "decision": "supported"
+      }
+    },
+    {
+      "campaign": "bp_first_endpoint_dispatch",
+      "hypothesis": "H2br_complete_cost_saving5_vs_LP96",
+      "outcome": {
+        "control": "LP96",
+        "blocks": [
+          {
+            "block": 0,
+            "control_seconds": 104.12392282491783,
+            "dispatcher_seconds": 119.34153857378988,
+            "saving": -0.1461490821322603
+          },
+          {
+            "block": 1,
+            "control_seconds": 104.59673105372349,
+            "dispatcher_seconds": 118.68247615540167,
+            "saving": -0.13466716368452658
+          },
+          {
+            "block": 2,
+            "control_seconds": 106.27143255039118,
+            "dispatcher_seconds": 118.51031820097705,
+            "saving": -0.1151662808796946
+          },
+          {
+            "block": 3,
+            "control_seconds": 106.22326875344152,
+            "dispatcher_seconds": 122.52406024659285,
+            "saving": -0.1534578222309056
+          },
+          {
+            "block": 4,
+            "control_seconds": 106.014340780559,
+            "dispatcher_seconds": 121.61766389652621,
+            "saving": -0.14718124926385964
+          },
+          {
+            "block": 5,
+            "control_seconds": 108.35654001822695,
+            "dispatcher_seconds": 121.80946952430531,
+            "saving": -0.12415429196812125
+          }
+        ],
+        "median_saving": -0.14040812290839344,
+        "exact_median_fraction": "-451336619723022399108904/3214462314388236813145889",
+        "minimum_saving": 0.05,
+        "decision": "falsified"
+      }
+    },
+    {
+      "campaign": "bp_first_endpoint_dispatch",
+      "hypothesis": "H2br_complete_cost_saving5_vs_BP_geometry_LP96",
+      "outcome": {
+        "control": "BP_geometry_LP96",
+        "blocks": [
+          {
+            "block": 0,
+            "control_seconds": 90.83868567156605,
+            "dispatcher_seconds": 119.34153857378988,
+            "saving": -0.31377438688708004
+          },
+          {
+            "block": 1,
+            "control_seconds": 91.51400121609913,
+            "dispatcher_seconds": 118.68247615540167,
+            "saving": -0.29687779550964566
+          },
+          {
+            "block": 2,
+            "control_seconds": 90.8955752280308,
+            "dispatcher_seconds": 118.51031820097705,
+            "saving": -0.3038073404967055
+          },
+          {
+            "block": 3,
+            "control_seconds": 93.1335093844682,
+            "dispatcher_seconds": 122.52406024659285,
+            "saving": -0.3155743948270685
+          },
+          {
+            "block": 4,
+            "control_seconds": 94.14955074008321,
+            "dispatcher_seconds": 121.61766389652621,
+            "saving": -0.29174980592603855
+          },
+          {
+            "block": 5,
+            "control_seconds": 93.37695160362637,
+            "dispatcher_seconds": 121.80946952430531,
+            "saving": -0.3044918197947977
+          }
+        ],
+        "median_saving": -0.3041495801457516,
+        "exact_median_fraction": "-1523839954056338219799653/5010166225861954047031044",
+        "minimum_saving": 0.05,
+        "decision": "falsified"
+      }
     }
   ],
   "run_tables": [
@@ -2077,6 +2202,12 @@
       "frozen_utc": "2026-11-15T15:01:35.849262+00:00",
       "hypothesis": "H2bq",
       "status": "completed"
+    },
+    "bp-first-endpoint-dispatch-protocol": {
+      "sha256": "d295f1838655be8f03555ee0c09df8335186a46852e42f1c243ea6b4625df23d",
+      "frozen_utc": "2026-11-15T15:52:11.958680+00:00",
+      "hypothesis": "H2br",
+      "status": "completed"
     }
   },
   "audit_sha256": {
@@ -2136,7 +2267,8 @@
     "artifacts/research/20261114/work/bp_first_geometry_cascade/audit.json": "b9f880273ad5febba14cc3dee585fb97d2b8a94844b47a8f95dc9f672dd7cbde",
     "artifacts/research/20261114/work/bp_first_fresh_confirmation/audit.json": "442f67137a2699a78cb4eb64162a3e08e183618f661c4566baf04ff477c2c50f",
     "artifacts/research/20261114/work/bp_first_endpoint_shift/audit.json": "da7e8f91fb69cd995936ab6e80776b88a861d763ac352833becd024c5fad9a6b",
-    "artifacts/research/20261114/work/bp_first_far_placement/audit.json": "c0ad132fece750713d32b19918ab3aa1bfbe6ba1d7c525ea45fa069ff54d6635"
+    "artifacts/research/20261114/work/bp_first_far_placement/audit.json": "c0ad132fece750713d32b19918ab3aa1bfbe6ba1d7c525ea45fa069ff54d6635",
+    "artifacts/research/20261114/work/bp_first_endpoint_dispatch/audit.json": "669a530d5e9f5fcc82d9734c337b43e818626a73a5af61e50bd36e159cb4d6e2"
   },
   "model_sha256": {
     "0": {
@@ -2169,8 +2301,8 @@
     "case": "cyclic-failure-classification.json",
     "scope": "The same cyclic maze fails for model seeds1and2; these are true invalid fixed points or a period-two timeout, not hidden/nonfinite failures."
   },
-  "primary_jobs": 2266,
-  "primary_model_maze_evaluations": 1715966,
+  "primary_jobs": 2314,
+  "primary_model_maze_evaluations": 1765118,
   "descriptive_jobs": 6,
   "descriptive_model_maze_evaluations": 132,
   "selected_case_interventions": {
@@ -4067,5 +4199,629 @@
       }
     ],
     "scope": "Independent4096-maze opposite-region endpoint stress with unchanged BP-first geometry policy; three logical arms, fixed models. Pair0 is the predetermined accuracy copy. Source gates,warmups,LP internal prefixes and repeated timing pairs add no scientific counts."
+  },
+  "bp_first_endpoint_dispatch": {
+    "hypothesis": "H2br",
+    "fresh_inputs": 4096,
+    "new_scientific_jobs": 48,
+    "new_scientific_evaluations": 49152,
+    "primary_accuracy_block": 0,
+    "fixed_model_seeds": [
+      0,
+      1,
+      2
+    ],
+    "joint_success": {
+      "BP_AdamW": 4048,
+      "LP96": 4096,
+      "cascade": 4096,
+      "dispatcher": 4096
+    },
+    "model_success": {
+      "BP_AdamW": 12150,
+      "LP96": 12288,
+      "cascade": 12288,
+      "dispatcher": 12288
+    },
+    "primary_endpoints": {
+      "absolute_dispatch_joint_success_999": {
+        "successes": 4096,
+        "n": 4096,
+        "observed_success_pp": 100.0,
+        "one_sided95_success_lower_pp": 99.92688874435301,
+        "one_sided95_success_upper_pp": 100.0,
+        "minimum_success_pp": 99.9,
+        "decision": "supported"
+      },
+      "dispatch_LP96_noninferiority": {
+        "gains": 0,
+        "losses": 0,
+        "n": 4096,
+        "observed_net_gain_pp": 0.0,
+        "separately_one_sided95_net_lower_pp": -0.09001999122098098,
+        "separately_one_sided95_net_upper_pp": 0.09001999122098098,
+        "minimum_net_gain_pp": -0.1,
+        "decision": "supported"
+      }
+    },
+    "cost_endpoints": {
+      "LP96": {
+        "control": "LP96",
+        "blocks": [
+          {
+            "block": 0,
+            "control_seconds": 104.12392282491783,
+            "dispatcher_seconds": 119.34153857378988,
+            "saving": -0.1461490821322603
+          },
+          {
+            "block": 1,
+            "control_seconds": 104.59673105372349,
+            "dispatcher_seconds": 118.68247615540167,
+            "saving": -0.13466716368452658
+          },
+          {
+            "block": 2,
+            "control_seconds": 106.27143255039118,
+            "dispatcher_seconds": 118.51031820097705,
+            "saving": -0.1151662808796946
+          },
+          {
+            "block": 3,
+            "control_seconds": 106.22326875344152,
+            "dispatcher_seconds": 122.52406024659285,
+            "saving": -0.1534578222309056
+          },
+          {
+            "block": 4,
+            "control_seconds": 106.014340780559,
+            "dispatcher_seconds": 121.61766389652621,
+            "saving": -0.14718124926385964
+          },
+          {
+            "block": 5,
+            "control_seconds": 108.35654001822695,
+            "dispatcher_seconds": 121.80946952430531,
+            "saving": -0.12415429196812125
+          }
+        ],
+        "median_saving": -0.14040812290839344,
+        "exact_median_fraction": "-451336619723022399108904/3214462314388236813145889",
+        "minimum_saving": 0.05,
+        "decision": "falsified"
+      },
+      "BP_geometry_LP96": {
+        "control": "BP_geometry_LP96",
+        "blocks": [
+          {
+            "block": 0,
+            "control_seconds": 90.83868567156605,
+            "dispatcher_seconds": 119.34153857378988,
+            "saving": -0.31377438688708004
+          },
+          {
+            "block": 1,
+            "control_seconds": 91.51400121609913,
+            "dispatcher_seconds": 118.68247615540167,
+            "saving": -0.29687779550964566
+          },
+          {
+            "block": 2,
+            "control_seconds": 90.8955752280308,
+            "dispatcher_seconds": 118.51031820097705,
+            "saving": -0.3038073404967055
+          },
+          {
+            "block": 3,
+            "control_seconds": 93.1335093844682,
+            "dispatcher_seconds": 122.52406024659285,
+            "saving": -0.3155743948270685
+          },
+          {
+            "block": 4,
+            "control_seconds": 94.14955074008321,
+            "dispatcher_seconds": 121.61766389652621,
+            "saving": -0.29174980592603855
+          },
+          {
+            "block": 5,
+            "control_seconds": 93.37695160362637,
+            "dispatcher_seconds": 121.80946952430531,
+            "saving": -0.3044918197947977
+          }
+        ],
+        "median_saving": -0.3041495801457516,
+        "exact_median_fraction": "-1523839954056338219799653/5010166225861954047031044",
+        "minimum_saving": 0.05,
+        "decision": "falsified"
+      }
+    },
+    "failure_accounting": {
+      "BP_AdamW": {
+        "model_inputs": 12288,
+        "successes": 12150,
+        "hidden_failures": 0,
+        "nonfinite_outputs": 0,
+        "not_stopped": 0,
+        "native_caps": 0,
+        "block_caps": 0,
+        "numerical_rejections": 0,
+        "wrong_numerically_accepted": 138
+      },
+      "LP96": {
+        "model_inputs": 12288,
+        "successes": 12288,
+        "hidden_failures": 0,
+        "nonfinite_outputs": 0,
+        "not_stopped": 0,
+        "native_caps": 0,
+        "block_caps": 0,
+        "numerical_rejections": 0,
+        "wrong_numerically_accepted": 0
+      },
+      "cascade": {
+        "model_inputs": 12288,
+        "successes": 12288,
+        "hidden_failures": 0,
+        "nonfinite_outputs": 0,
+        "not_stopped": 0,
+        "native_caps": 0,
+        "block_caps": 0,
+        "numerical_rejections": 0,
+        "wrong_numerically_accepted": 0
+      },
+      "dispatcher": {
+        "model_inputs": 12288,
+        "successes": 12288,
+        "hidden_failures": 0,
+        "nonfinite_outputs": 0,
+        "not_stopped": 0,
+        "native_caps": 0,
+        "block_caps": 0,
+        "numerical_rejections": 0,
+        "wrong_numerically_accepted": 0
+      }
+    },
+    "descriptive_partitions": {
+      "mixture_component": [
+        {
+          "bin": "uniform",
+          "empty": false,
+          "arms": {
+            "BP_AdamW": {
+              "maze_denominator": 2065,
+              "joint_successes": 2051,
+              "model_input_denominator": 6195,
+              "model_input_successes": 6159,
+              "numerical_rejections": 0,
+              "BP_inputs": 6195,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 0,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "LP96": {
+              "maze_denominator": 2065,
+              "joint_successes": 2065,
+              "model_input_denominator": 6195,
+              "model_input_successes": 6195,
+              "numerical_rejections": 0,
+              "BP_inputs": 0,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 0,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "cascade": {
+              "maze_denominator": 2065,
+              "joint_successes": 2065,
+              "model_input_denominator": 6195,
+              "model_input_successes": 6195,
+              "numerical_rejections": 0,
+              "BP_inputs": 6195,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 36,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "dispatcher": {
+              "maze_denominator": 2065,
+              "joint_successes": 2065,
+              "model_input_denominator": 6195,
+              "model_input_successes": 6195,
+              "numerical_rejections": 0,
+              "BP_inputs": 1017,
+              "direct_LP_inputs": 5178,
+              "BP_to_LP_rescues": 7,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            }
+          }
+        },
+        {
+          "bin": "opposite_regions",
+          "empty": false,
+          "arms": {
+            "BP_AdamW": {
+              "maze_denominator": 2031,
+              "joint_successes": 1997,
+              "model_input_denominator": 6093,
+              "model_input_successes": 5991,
+              "numerical_rejections": 0,
+              "BP_inputs": 6093,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 0,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "LP96": {
+              "maze_denominator": 2031,
+              "joint_successes": 2031,
+              "model_input_denominator": 6093,
+              "model_input_successes": 6093,
+              "numerical_rejections": 0,
+              "BP_inputs": 0,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 0,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "cascade": {
+              "maze_denominator": 2031,
+              "joint_successes": 2031,
+              "model_input_denominator": 6093,
+              "model_input_successes": 6093,
+              "numerical_rejections": 0,
+              "BP_inputs": 6093,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 102,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "dispatcher": {
+              "maze_denominator": 2031,
+              "joint_successes": 2031,
+              "model_input_denominator": 6093,
+              "model_input_successes": 6093,
+              "numerical_rejections": 0,
+              "BP_inputs": 6093,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 102,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            }
+          }
+        }
+      ],
+      "token_dispatch": [
+        {
+          "bin": "D<182",
+          "empty": false,
+          "arms": {
+            "BP_AdamW": {
+              "maze_denominator": 1726,
+              "joint_successes": 1715,
+              "model_input_denominator": 5178,
+              "model_input_successes": 5149,
+              "numerical_rejections": 0,
+              "BP_inputs": 5178,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 0,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "LP96": {
+              "maze_denominator": 1726,
+              "joint_successes": 1726,
+              "model_input_denominator": 5178,
+              "model_input_successes": 5178,
+              "numerical_rejections": 0,
+              "BP_inputs": 0,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 0,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "cascade": {
+              "maze_denominator": 1726,
+              "joint_successes": 1726,
+              "model_input_denominator": 5178,
+              "model_input_successes": 5178,
+              "numerical_rejections": 0,
+              "BP_inputs": 5178,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 29,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "dispatcher": {
+              "maze_denominator": 1726,
+              "joint_successes": 1726,
+              "model_input_denominator": 5178,
+              "model_input_successes": 5178,
+              "numerical_rejections": 0,
+              "BP_inputs": 0,
+              "direct_LP_inputs": 5178,
+              "BP_to_LP_rescues": 0,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            }
+          }
+        },
+        {
+          "bin": "D>=182",
+          "empty": false,
+          "arms": {
+            "BP_AdamW": {
+              "maze_denominator": 2370,
+              "joint_successes": 2333,
+              "model_input_denominator": 7110,
+              "model_input_successes": 7001,
+              "numerical_rejections": 0,
+              "BP_inputs": 7110,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 0,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "LP96": {
+              "maze_denominator": 2370,
+              "joint_successes": 2370,
+              "model_input_denominator": 7110,
+              "model_input_successes": 7110,
+              "numerical_rejections": 0,
+              "BP_inputs": 0,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 0,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "cascade": {
+              "maze_denominator": 2370,
+              "joint_successes": 2370,
+              "model_input_denominator": 7110,
+              "model_input_successes": 7110,
+              "numerical_rejections": 0,
+              "BP_inputs": 7110,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 109,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "dispatcher": {
+              "maze_denominator": 2370,
+              "joint_successes": 2370,
+              "model_input_denominator": 7110,
+              "model_input_successes": 7110,
+              "numerical_rejections": 0,
+              "BP_inputs": 7110,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 109,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            }
+          }
+        }
+      ],
+      "shortest_edges": [
+        {
+          "bin": "1..64",
+          "empty": false,
+          "arms": {
+            "BP_AdamW": {
+              "maze_denominator": 398,
+              "joint_successes": 397,
+              "model_input_denominator": 1194,
+              "model_input_successes": 1191,
+              "numerical_rejections": 0,
+              "BP_inputs": 1194,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 0,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "LP96": {
+              "maze_denominator": 398,
+              "joint_successes": 398,
+              "model_input_denominator": 1194,
+              "model_input_successes": 1194,
+              "numerical_rejections": 0,
+              "BP_inputs": 0,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 0,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "cascade": {
+              "maze_denominator": 398,
+              "joint_successes": 398,
+              "model_input_denominator": 1194,
+              "model_input_successes": 1194,
+              "numerical_rejections": 0,
+              "BP_inputs": 1194,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 3,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "dispatcher": {
+              "maze_denominator": 398,
+              "joint_successes": 398,
+              "model_input_denominator": 1194,
+              "model_input_successes": 1194,
+              "numerical_rejections": 0,
+              "BP_inputs": 0,
+              "direct_LP_inputs": 1194,
+              "BP_to_LP_rescues": 0,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            }
+          }
+        },
+        {
+          "bin": "65..128",
+          "empty": false,
+          "arms": {
+            "BP_AdamW": {
+              "maze_denominator": 768,
+              "joint_successes": 763,
+              "model_input_denominator": 2304,
+              "model_input_successes": 2293,
+              "numerical_rejections": 0,
+              "BP_inputs": 2304,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 0,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "LP96": {
+              "maze_denominator": 768,
+              "joint_successes": 768,
+              "model_input_denominator": 2304,
+              "model_input_successes": 2304,
+              "numerical_rejections": 0,
+              "BP_inputs": 0,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 0,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "cascade": {
+              "maze_denominator": 768,
+              "joint_successes": 768,
+              "model_input_denominator": 2304,
+              "model_input_successes": 2304,
+              "numerical_rejections": 0,
+              "BP_inputs": 2304,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 11,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "dispatcher": {
+              "maze_denominator": 768,
+              "joint_successes": 768,
+              "model_input_denominator": 2304,
+              "model_input_successes": 2304,
+              "numerical_rejections": 0,
+              "BP_inputs": 0,
+              "direct_LP_inputs": 2304,
+              "BP_to_LP_rescues": 0,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            }
+          }
+        },
+        {
+          "bin": "129..256",
+          "empty": false,
+          "arms": {
+            "BP_AdamW": {
+              "maze_denominator": 1469,
+              "joint_successes": 1452,
+              "model_input_denominator": 4407,
+              "model_input_successes": 4358,
+              "numerical_rejections": 0,
+              "BP_inputs": 4407,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 0,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "LP96": {
+              "maze_denominator": 1469,
+              "joint_successes": 1469,
+              "model_input_denominator": 4407,
+              "model_input_successes": 4407,
+              "numerical_rejections": 0,
+              "BP_inputs": 0,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 0,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "cascade": {
+              "maze_denominator": 1469,
+              "joint_successes": 1469,
+              "model_input_denominator": 4407,
+              "model_input_successes": 4407,
+              "numerical_rejections": 0,
+              "BP_inputs": 4407,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 49,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "dispatcher": {
+              "maze_denominator": 1469,
+              "joint_successes": 1469,
+              "model_input_denominator": 4407,
+              "model_input_successes": 4407,
+              "numerical_rejections": 0,
+              "BP_inputs": 2727,
+              "direct_LP_inputs": 1680,
+              "BP_to_LP_rescues": 34,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            }
+          }
+        },
+        {
+          "bin": ">=257",
+          "empty": false,
+          "arms": {
+            "BP_AdamW": {
+              "maze_denominator": 1461,
+              "joint_successes": 1436,
+              "model_input_denominator": 4383,
+              "model_input_successes": 4308,
+              "numerical_rejections": 0,
+              "BP_inputs": 4383,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 0,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "LP96": {
+              "maze_denominator": 1461,
+              "joint_successes": 1461,
+              "model_input_denominator": 4383,
+              "model_input_successes": 4383,
+              "numerical_rejections": 0,
+              "BP_inputs": 0,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 0,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "cascade": {
+              "maze_denominator": 1461,
+              "joint_successes": 1461,
+              "model_input_denominator": 4383,
+              "model_input_successes": 4383,
+              "numerical_rejections": 0,
+              "BP_inputs": 4383,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 75,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            },
+            "dispatcher": {
+              "maze_denominator": 1461,
+              "joint_successes": 1461,
+              "model_input_denominator": 4383,
+              "model_input_successes": 4383,
+              "numerical_rejections": 0,
+              "BP_inputs": 4383,
+              "direct_LP_inputs": 0,
+              "BP_to_LP_rescues": 75,
+              "underlying_BP_valid_longer": 0,
+              "retained_BP_valid_longer": 0
+            }
+          }
+        }
+      ]
+    },
+    "scope": "Independent4096-maze IID50:50 uniform/opposite-region endpoint mixture with frozen Manhattan182 dispatcher; four logical arms, three fixed models. Block0 is the predetermined accuracy copy. Source gates,warmups,LP internal prefixes and repeated timing blocks add no scientific counts."
   }
 }

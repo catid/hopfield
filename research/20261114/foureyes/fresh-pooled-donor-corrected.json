@@ -1,0 +1,36 @@
+{
+  "id": "H4bd-fresh-pooled-donor-corrected-audit",
+  "status": "frozen_before_corrected_outcome_audit",
+  "parent_status": "H4bc remains technically incomplete: all fits and final seal finished; all eight audit workers failed the BP NumPy-version assertion; zero bank audits completed.",
+  "correction": "Only the BP environment assertion changes from NumPy2.3.4 (LP environment) to NumPy2.5.4 (actual separately gated GPU environment). Original H4bc files, logs, runtime, phase seals and outcomes remain untouched.",
+  "hypothesis": "Apply the unchanged H4bc two separate endpoints: pooled exact>=245/256 and conservative regressions<=4/256 versus donor1200+masked600. No new data, degree selection, fit, tuning or omitted bank. This is a separately documented corrected audit of a prospectively frozen fresh cohort, not an unmodified successful H4bc run.",
+  "visibility": "At correction proposal, only failure traces, environment fields, completion counters and seal/runtime metadata were inspected; no aggregate or completed bank outcomes available. Initial failed audit internally computed first8 structural outcomes but emitted none; those partial computations remain disclosed.",
+  "budget": {
+    "CPU_workers": 8,
+    "wall_seconds": 120,
+    "aggregate_CPU_seconds": 600,
+    "new_observations": 0,
+    "new_LPs": 0,
+    "new_BP_fits": 0
+  },
+  "failure": "Any failed audit, cap, missing file or seal change yields whole corrected study incomplete with retained partial evidence and no primary decision. No retry or cap extension.",
+  "validation": "Require exact one-string source diff, independently verified GPU environment, original immutable bindings and final seal, and review before freeze. Replay original source/noise, all LP certificates and mutations, BP transforms/history/provenance and all phase orders for all256 banks.",
+  "publication": "Publish original incomplete runtime and correction side by side. Report original and additional audit resources separately and their total; graph recovery on synthetic data only. BP AdamW first, descriptive finite32-update control.",
+  "parent_sha256": {
+    "research/20261114/foureyes/fresh-pooled-donor.json": "806adc2bede792b521807d61065b406b154dbd5b928b019178286a8de2c0511f",
+    "artifacts/research/20261114/foureyes/fresh_pooled_donor/runtime.json": "b6cd7f57d91be8735bce8310c842025367d66a0c5946079a707df3bae4d98df1",
+    "artifacts/research/20261114/foureyes/fresh_pooled_donor/orders-seal.json": "53c2b3d3531a491b4eadd63a1d32136cf5e06df8f2139d2dde79ef553fe278e5",
+    "artifacts/research/20261114/foureyes/fresh_pooled_donor/source-seal.json": "9383d93ddf2f51b495215fb3e90eeafec8234bddd78b46efaf928be0706bf4c3",
+    "artifacts/research/20261114/foureyes/fresh_pooled_donor/grid-seal.json": "df7deef45c9886b36324abf8497d53753bb73c60be4d9379a7917b1e1cf1bb95",
+    "artifacts/research/20261114/foureyes/fresh_pooled_donor/donor-seal.json": "71ec7bd74fce771e16f80dba443b47e6d7dfe54451cd23b048609c821f6c0d38",
+    "artifacts/research/20261114/foureyes/fresh_pooled_donor/final-seal.json": "4ef3683b4d84df3e80098dc307a789ce971d695f09d4bbbe198ad4afe2b4537e"
+  },
+  "frozen_utc": "2026-11-15T16:28:58.685094+00:00",
+  "source_sha256": {
+    "research/20261114/foureyes/run_fresh_pooled_donor_corrected.py": "fdff4c6ed4e076d429dfb99537b4d08a3fe84a9355352d6a169a953cf8e25a64",
+    "research/20261114/foureyes/audit_fresh_pooled_donor_corrected.py": "2d531b23aecd575bb1864f225b67ca0078beb968f094e4ee53bd0069db173074",
+    "research/20261114/foureyes/fresh-pooled-donor-corrected-proposal.json": "e0ba1af79e89a34bd894c75136ea9c0962929eb58511ea937947dfb569a8f7f7",
+    "research/20261114/foureyes/preflight_fresh_pooled_donor_corrected.py": "eaecd10bbe7903d8d477e5381073e2a24367bb7f6d9581145dbc48a204c9caf2",
+    "research/20261114/foureyes/fresh-pooled-donor-corrected-preflight.json": "e036f3b56622a1d83dafb427e928f7af3f62c71434b0dfa985132ac4a6c446f5"
+  }
+}

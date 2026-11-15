@@ -1,0 +1,205 @@
+{
+  "status": "passed",
+  "hypothesis": "H2br",
+  "protocol_sha256": "d295f1838655be8f03555ee0c09df8335186a46852e42f1c243ea6b4625df23d",
+  "sealed_replays_sha256": "1d226ba71c0d3c26d67e62bd3264c228dea44f0faa4d3cb5d51186a1df224ffe",
+  "primary_endpoints": {
+    "absolute_dispatch_joint_success_999": {
+      "successes": 4096,
+      "n": 4096,
+      "observed_success_pp": 100.0,
+      "one_sided95_success_lower_pp": 99.92688874435301,
+      "one_sided95_success_upper_pp": 100.0,
+      "minimum_success_pp": 99.9,
+      "decision": "supported"
+    },
+    "dispatch_LP96_noninferiority": {
+      "gains": 0,
+      "losses": 0,
+      "n": 4096,
+      "observed_net_gain_pp": 0.0,
+      "separately_one_sided95_net_lower_pp": -0.09001999122098098,
+      "separately_one_sided95_net_upper_pp": 0.09001999122098098,
+      "minimum_net_gain_pp": -0.1,
+      "decision": "supported"
+    }
+  },
+  "cost_endpoints": {
+    "LP96": {
+      "control": "LP96",
+      "blocks": [
+        {
+          "block": 0,
+          "control_seconds": 104.12392282491783,
+          "dispatcher_seconds": 119.34153857378988,
+          "saving": -0.1461490821322603
+        },
+        {
+          "block": 1,
+          "control_seconds": 104.59673105372349,
+          "dispatcher_seconds": 118.68247615540167,
+          "saving": -0.13466716368452658
+        },
+        {
+          "block": 2,
+          "control_seconds": 106.27143255039118,
+          "dispatcher_seconds": 118.51031820097705,
+          "saving": -0.1151662808796946
+        },
+        {
+          "block": 3,
+          "control_seconds": 106.22326875344152,
+          "dispatcher_seconds": 122.52406024659285,
+          "saving": -0.1534578222309056
+        },
+        {
+          "block": 4,
+          "control_seconds": 106.014340780559,
+          "dispatcher_seconds": 121.61766389652621,
+          "saving": -0.14718124926385964
+        },
+        {
+          "block": 5,
+          "control_seconds": 108.35654001822695,
+          "dispatcher_seconds": 121.80946952430531,
+          "saving": -0.12415429196812125
+        }
+      ],
+      "median_saving": -0.14040812290839344,
+      "exact_median_fraction": "-451336619723022399108904/3214462314388236813145889",
+      "minimum_saving": 0.05,
+      "decision": "falsified"
+    },
+    "BP_geometry_LP96": {
+      "control": "BP_geometry_LP96",
+      "blocks": [
+        {
+          "block": 0,
+          "control_seconds": 90.83868567156605,
+          "dispatcher_seconds": 119.34153857378988,
+          "saving": -0.31377438688708004
+        },
+        {
+          "block": 1,
+          "control_seconds": 91.51400121609913,
+          "dispatcher_seconds": 118.68247615540167,
+          "saving": -0.29687779550964566
+        },
+        {
+          "block": 2,
+          "control_seconds": 90.8955752280308,
+          "dispatcher_seconds": 118.51031820097705,
+          "saving": -0.3038073404967055
+        },
+        {
+          "block": 3,
+          "control_seconds": 93.1335093844682,
+          "dispatcher_seconds": 122.52406024659285,
+          "saving": -0.3155743948270685
+        },
+        {
+          "block": 4,
+          "control_seconds": 94.14955074008321,
+          "dispatcher_seconds": 121.61766389652621,
+          "saving": -0.29174980592603855
+        },
+        {
+          "block": 5,
+          "control_seconds": 93.37695160362637,
+          "dispatcher_seconds": 121.80946952430531,
+          "saving": -0.3044918197947977
+        }
+      ],
+      "median_saving": -0.3041495801457516,
+      "exact_median_fraction": "-1523839954056338219799653/5010166225861954047031044",
+      "minimum_saving": 0.05,
+      "decision": "falsified"
+    }
+  },
+  "joint_success": {
+    "BP_AdamW": 4048,
+    "LP96": 4096,
+    "cascade": 4096,
+    "dispatcher": 4096
+  },
+  "model_success": {
+    "BP_AdamW": 12150,
+    "LP96": 12288,
+    "cascade": 12288,
+    "dispatcher": 12288
+  },
+  "failure_accounting": {
+    "BP_AdamW": {
+      "model_inputs": 12288,
+      "successes": 12150,
+      "hidden_failures": 0,
+      "nonfinite_outputs": 0,
+      "not_stopped": 0,
+      "native_caps": 0,
+      "block_caps": 0,
+      "numerical_rejections": 0,
+      "wrong_numerically_accepted": 138
+    },
+    "LP96": {
+      "model_inputs": 12288,
+      "successes": 12288,
+      "hidden_failures": 0,
+      "nonfinite_outputs": 0,
+      "not_stopped": 0,
+      "native_caps": 0,
+      "block_caps": 0,
+      "numerical_rejections": 0,
+      "wrong_numerically_accepted": 0
+    },
+    "cascade": {
+      "model_inputs": 12288,
+      "successes": 12288,
+      "hidden_failures": 0,
+      "nonfinite_outputs": 0,
+      "not_stopped": 0,
+      "native_caps": 0,
+      "block_caps": 0,
+      "numerical_rejections": 0,
+      "wrong_numerically_accepted": 0
+    },
+    "dispatcher": {
+      "model_inputs": 12288,
+      "successes": 12288,
+      "hidden_failures": 0,
+      "nonfinite_outputs": 0,
+      "not_stopped": 0,
+      "native_caps": 0,
+      "block_caps": 0,
+      "numerical_rejections": 0,
+      "wrong_numerically_accepted": 0
+    }
+  },
+  "actual_dispatcher_BP_inputs_per_replay": 7110,
+  "actual_dispatcher_direct_LP_inputs_per_replay": 5178,
+  "actual_routed_model_inputs_per_replay": {
+    "cascade": 138,
+    "dispatcher": 109
+  },
+  "geometry_valid_longer_BP_outputs_retained": 0,
+  "source_gate_and_warmup_model_copies_checked": 3456,
+  "fresh_final_internal_states_directly_checked": 98304,
+  "direct_candidate_original_factor_checks": 362995,
+  "direct_accepted_moves": 21820,
+  "fresh_measured_replay_model_pipeline_copies": 221184,
+  "replay_candidate_score_comparisons": 2530620,
+  "replay_active_trace_states": 276972,
+  "maximum_direct_margin_error": 9.376180387654642e-15,
+  "maximum_direct_energy_error": 5.098854671814479e-10,
+  "maximum_direct_candidate_error": 2.733549064187768e-13,
+  "maximum_replay_candidate_error": 1.1368683772161603e-13,
+  "per_model_rows_sha256": "c1ff2bf6fdc9117afb286d4d66f2f4347cc53598ef677b314d40b2c143e85694",
+  "per_input_rows_sha256": "2cc848465bf216974e32ef3d80565d8f4964b22388f2a8a41b9f95621024f3ef",
+  "fresh_independent_inputs": 4096,
+  "planned_jobs": 48,
+  "primary_model_maze_arm_evaluations": 49152,
+  "accuracy_block": 0,
+  "workers": 16,
+  "seconds": 313.63170856097713,
+  "source_sha256": "ff5242d912956046242359bed0cd118a0cf88eaf9c70ae090d411dfe426eec11",
+  "scope": "Complete fresh cohort, three fixed models, predetermined block0 accuracy and exact repeated-source integrity. Separate absolute, paired noninferiority and two measured complete-cost endpoints; no simultaneous95% claim or dropped numerical/valid-longer failure."
+}

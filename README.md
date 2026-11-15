@@ -28,6 +28,8 @@ Across four balanced paired replays, median complete answer cost falls **35.40%*
 
 A third fresh cohort draws endpoints from opposite corner regions. LP96 and the cascade again solve **4,096/4,096**; BP AdamW solves **4,003**. Median complete cost falls **18.43%**, passing all three targets. [Far-region confirmation](research/20261114/work/REPORT.md#h2bq-opposite-region-endpoints-preserve-joint-success-and-save-1843-complete-answer-cost)
 
+On a fresh 50:50 mixture of uniform and far-region endpoints, a distance-based dispatcher also solves **4,096/4,096**, but costs **14.04% more than LP96** and **30.41% more than always using the cascade**. Both cost targets fail in every timing block. [Mixed-cohort test and complete costs](research/20261114/work/REPORT.md#h2br-endpoint-dispatch-preserves-accuracy-but-falsifies-both-cost-targets)
+
 The decoder supplies an explicit graph prior. Geometry alone does not prove shortestness, and energy certificates do not prove graph validity. Every reported solve receives independent graph checks. These distinct endpoint distributions are reported separately; the comparison does not isolate a causal effect of path length. [Controls and earlier cohorts](docs/RESEARCH_DETAILS.md#cycle-cuts-solve-fresh-dense-mazes)
 
 ## Change the search, keep the learned energy
@@ -54,11 +56,11 @@ The original hard-decoder study recovered 50/64 versus 64/64 from more boards. P
 
 ## Use all the noisy observations
 
-![Pooling the same noisy observations recovers 254 graphs versus 229 with donor masking](assets/figures/pooled-donor.png)
+![Fresh pooling confirmation: 253 exact graphs versus 239 with donor masking](assets/figures/fresh-pooled-donor.png)
 
-On **256 examined synthetic graph banks**, pooling all **1,800 noisy observations** recovers **254/256** exact graphs. A donor-based masking method using the same observations recovers **229/256**. Pooling gains **25 graphs and loses none**; both fixed targets pass. Two nine-clique graphs remain wrong.
+On **256 fresh synthetic graph banks**, pooling all **1,800 noisy observations** recovers **253/256** exact graphs, versus **239/256** for donor-plus-masking using the same observations. Pooling gains **15 graphs and loses one**; both fixed targets pass. Every graph degree is inferred correctly from the first 600 noisy rows.
 
-This is a matched-data structural inference test, with degree inherited from the original 600-row prefix. It does not establish fresh-cohort performance or puzzle-solving accuracy. The donor graph alone also recovers 229/256, so its masking stage adds no exact recoveries. [Matched comparison and exact proofs](research/20261114/foureyes/REPORT-pooled-donor.md)
+This is graph recovery, not puzzle-solving accuracy. A separately reviewed audit corrects one software-version assertion; the original incomplete run and unchanged fits remain public. Three pooled graphs remain wrong, and the donor alone recovers the same 239 banks. [Fresh result, correction and all failures](research/20261114/foureyes/REPORT-fresh-pooled-donor.md) · [Earlier examined-data comparison: 254 versus 229](research/20261114/foureyes/REPORT-pooled-donor.md)
 
 Earlier detector controls remain informative: removing every false positive leaves recovery at **130/256**, while randomly selecting the same number of actual corruptions per row reaches **237/256**. Both masks use privileged corruption locations, and both prespecified detector targets fail. [Mask-selection mechanism and retained failures](research/20261114/foureyes/REPORT-purified-detector.md)
 

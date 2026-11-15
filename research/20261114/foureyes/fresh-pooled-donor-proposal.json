@@ -1,0 +1,76 @@
+{
+  "id": "H4bc-fresh-pooled-donor",
+  "status": "design_only_before_new_source_draws_or_implementation",
+  "hypothesis": "On 256 new synthetic banks, pooling 1800 noisy rows recovers at least245/256 exact graphs and loses at most4/256 cases solved by a disjoint1200-row donor followed by masking/refitting the600-row target. Assess endpoints separately with unresolved status in either arm included in conservative paired bounds.",
+  "motivation": "H4bb recovered254 versus229 on examined banks with25gains/0losses at the same observation budget. H4bc tests fresh-bank generalization and reinfers degree from the fresh600-row prefix, rather than inheriting any examined-bank degree.",
+  "cohort": {
+    "banks": 256,
+    "banks_per_family": 64,
+    "families": [
+      "cycle81",
+      "power2",
+      "power3",
+      "cliques9"
+    ],
+    "n_cells": 81,
+    "n_labels": 9,
+    "rows_per_bank": 1800,
+    "index": "4*group+family_index; groups0..63; no family pooling beyond the prespecified256-bank primary"
+  },
+  "source": "Use immutable varying_degree_sampling and cycle_power_sampling with rows=1800, q=9, candidate_cap=10000, batch=512. Each graph is independently randomly relabeled. Seal all256 graph orders and18-hot-cell sets before drawing any colorings/noise. Retain first1800 accepted proper colorings and all duplicates; preserve candidate counts/indices. Explicitly use1800-row samplers, not an undeclared prefix of a different RNG shape. No official source rows or puzzle inputs.",
+  "noise": "All81cells observed/free. Unchanged regularity_intensity_study.corrupt exponential race chooses exactly9 cells/row, hot18 weight32/cold1; stable cell-index ties. Per bank draw uniforms=1-rng.random((1800,81)), then int64 offsets rng.integers(1,9,(1800,81)); corrupt once. All methods share this exact noisy observation union. Independently replay full1800-row streams. Keep only noisy labels in production input files; orders, clean labels, hotmap and actual masks stay in audit namespace.",
+  "arms": [
+    "adamw32",
+    "pooled1800",
+    "donor1200_mask600"
+  ],
+  "degree": "One shared fresh600-row raw-count grid per bank: analytic degree0, exact degree1..40 LPs, maximum twice-objective second difference over1..39, lower-degree tie. No family, order, true degree, edge count or geometry enters selection. Any uncertified required grid point leaves both structural arms unresolved. Each downstream LP uses selected degree; wrong degree remains a scientific outcome, not an audit error.",
+  "pooled": "One unchanged raw-equality-count LP on all1800rows at the shared inferred degree. No normalization, threshold tuning, count censoring or rounding of literal fractional outputs.",
+  "donor": "Fit raw counts on disjoint rows600..1799 at the same inferred degree. Globally seal all donor and pooled attempts. From literal certified donor primal, compute unchanged H4ba per-row conflict scores and flag9 cells in each target row0..599, with original deterministic tie rule. Censor target pair observations incident to flags and fit the unchanged LP. Fractional certified donor is used literally if inherited method allows; uncertified donor skips masked fit as unresolved. The supplied9flags/row is a corruption-count prior; actual masks remain withheld. Retain donor-only exactness diagnostically.",
+  "adamw": "BP AdamW first in all method comparison tables. Independently train one fresh zero-initialized unrestricted W/B energy on each bank using immutable noisy_pl_long.fit_adam and transform:32full1800-row updates, lr0.01 cosine decay, weight_decay0.01, default betas0.9/0.999 eps1e-8, FP32 fit/FP64 transform, TF32off. Independent frozen per-bank global-digit augmentation draws torch.rand((32,1800,9)) on CPU generator; no degree/family/truth passed. Finite training recipe is a descriptive control, no matched-compute or optimizer-optimum claim. Degenerate graph threshold is retained as nonexact/eligiblefalse; nonfinite training or runtime failures leave control unresolved. Any nonfinite training or BP runtime failure records that control unresolved and terminates the whole study as technically incomplete, preserving partial artifacts; no primary decision is emitted. This is a global completeness requirement, not a negative algorithm outcome or bank exclusion.",
+  "sealing": "Before any outcome/truth diagnostics, globally seal source/noisy input records, complete shared grids, all pooled/donor attempts, all masked-target attempts and all BP checkpoints. No pilot, retry, extra budget, outcome filtering or post-hoc threshold choice. Production workers cannot read clean/truth namespace by interface; full source review and mutation gates verify this. Independent auditors may access truth only after global final seal. Source proper-coloring and noise-provenance verification may inspect sealed orders/clean labels before fitting, but may not join any fitted graph, selected degree or recovery outcome until final seal.",
+  "primary": {
+    "pooled_exact": "At least245/256. lower=known exact, upper adds unresolved. support lower>=245, falsify upper<245, otherwise inconclusive.",
+    "paired_regressions": "At most4/256 cases where donor+mask exact and pooled nonexact. Lower counts known donor+mask exact with resolved pooled failure; upper includes any possible donor+mask exact and possible pooled nonexact, including either arm unresolved. Support upper<=4; falsify lower>4; otherwise inconclusive."
+  },
+  "diagnostics": "All banks/families retained; report exact/fractional/nonexact/unresolved per arm, inferred degree and curvature ties, per-family degree errors, paired gains/losses, donor-only graph flags, all selected exact truth gaps, observed-row and corruption rates, duplicates, all compute and live counters. Family strata and BP comparison are descriptive, no extra significance claims. Exact optimality is not uniqueness or puzzle accuracy. For an inferred degree differing from truth, truth is infeasible: label resolved nonexact if certified, report degree-feasibility=false and no comparable truth gap. Only compare truth objective when it satisfies the inferred degree constraints; do not require nonnegative infeasible-truth gaps.",
+  "seeds": {
+    "graph": 202613700000,
+    "coloring": 202613710000,
+    "heatmap": 202613720000,
+    "noise": 202613730000,
+    "adamw_augmentation": 202613740000,
+    "solver": 2102531702
+  },
+  "seed_rule": "Acquisition bases+bank0..255. Solver base+44*bank+degree0..40 for grid; +41 donor;+42pooled;+43masked. Verify actual expansions in all recent root/Ripper protocols and solver wrapper offset before freeze; distinct integer seeds are not a statistical independence guarantee.",
+  "budget": {
+    "source_rows": 460800,
+    "noisy_cell_observations_union": 37324800,
+    "maximum_new_LPs": 11008,
+    "analytic_zero_witnesses": 256,
+    "BP_fits": 256,
+    "BP_updates_per_fit": 32,
+    "CPU_workers": 8,
+    "GPUs": 4,
+    "source_phase_wall_seconds": 120,
+    "LP_and_audit_aggregate_CPU_seconds": 3600,
+    "LP_and_audit_wall_seconds": 600,
+    "BP_phase_wall_seconds_per_GPU": 600,
+    "BP_job_wall_seconds": 30,
+    "complete_run_wall_seconds": 900,
+    "no_extensions": true,
+    "complete_aggregate_CPU_seconds": 7200
+  },
+  "budget_scope": "Charge full source/preparation independent replay; all grid/donor/pooled/masked LPs and proof audits; BP preparation/readiness/training/transformation/checkpoint writing; seals/monitor/export. Independent CPU/GPU phases may overlap after source checks; final truth audit waits for all final seals. Each capped/missing arm remains in full denominator; orchestration failures remain incomplete with retained artifacts. Gates and public replays separately charged. The complete7200CPU-second limit includes parent and all source, LP, BP-host and audit child CPU from first acquisition to final export; parallel8CPU/4GPU worker elapsed times are not summed as CPU. Stage limits and complete wall limit all apply independently. A BP worker failure prevents the global final seal and whole-study completeness, even if structural fits finish. A separate parent watchdog enforces each active30s BP job, including checkpoint/receipt writes; any short polling/termination overrun is recorded as failed/incomplete, never reported as a within-cap success.",
+  "gates": "Before freeze: independent source sampler/proper-coloring/noise proof and full-shape reconstruction; uint8 dtype/count/range; exact600/1200/1800 boundaries; full degree grid/curvature tie/missing/fractional states; inherited donor/mask literal calculation parity; all16paired uncertainty combinations; independent exact certificate mutations; graph-order/phase seals, missing-file/overwrite and source isolation failures; actual seed ranges and bound inputs. BP independent NumPy loss/gradient on synthetic fixtures on all4GPUs; inherited transformer NumPy parity including ties and degenerate outputs; all256budgets and no finite-result omission. Also run one unrelated synthetic1800-row32-update BP feasibility gate on each GPU using exact recipe and transform, requiring finite checkpoints and job<30wall seconds, with live utilization and complete setup/readiness/gate cost recorded. No cohort seeds or source rows used by gate.",
+  "optimization": "Eight persistent single-thread CPU workers; four one-GPU BP workers with independent queued banks; overlap eligible fits and host preparation, audit only after final seal. First measure exact pipeline bottlenecks on synthetic noncohort fixtures; implement optimizations only with equivalent source/count/proof parity. Log per-phase durations and live GPU utilization/PIDs/LP counts; no filler or unrelated process changes.",
+  "review": "Design-only. No fresh graph, source, heatmap, noise or augmentation draws; no new costs, estimates, fits or implementation. Requires independent design review then complete source/gates review before freeze.",
+  "prefreeze_revision": {
+    "original_design_sha256": "0da38e8cf6563bfe88044a98bf16fb0eae64fdb24fbf7c384a40b981a5b044d7",
+    "reason": "Independent design review clarified infeasible truth gaps, source provenance versus outcome separation, and complete CPU plus BP feasibility gates. No source draws or implementation occurred before revision."
+  },
+  "prefreeze_revision_v3": {
+    "previous_design_sha256": "9430ef997ffb2fcf142d2f07a06a56a12633596d87d9f666efc0ae98ad9e6ccf",
+    "reason": "Independent final source review required explicit whole-study incompleteness for BP failures to match global sealing; add external per-job watchdog, exact reviewed BP gate bindings and GPU environment provenance. No cohort draws or outcomes exist."
+  }
+}

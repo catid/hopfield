@@ -289,3 +289,15 @@ The figure retains all 1,024 pairs, the 11.21% cost saving and the single lost i
 ![Scalar and privileged per-cell-channel comparison](../assets/figures/cell_channel.png)
 
 All 72 paired banks, two failures and the scalar calibration distribution are retained. [Report](../research/20261114/ripper/REPORT-cell-channel.md) · [Renderer](../scripts/plot_cell_channel.py) · [Provenance](../assets/figures/cell_channel-provenance.json).
+
+### Fresh pooling confirmation with an audit correction (H4bc/H4bd)
+
+![All fresh synthetic graph outcomes](../assets/figures/fresh-pooled-donor.png)
+
+The figure shows BP AdamW first, all four families, the one paired regression and three remaining pooled failures. [Report](../research/20261114/foureyes/REPORT-fresh-pooled-donor.md) · [Renderer](../scripts/plot_fresh_pooled_donor.py) · [Provenance](../assets/figures/fresh-pooled-donor-provenance.json).
+
+### Mixed-maze dispatch fails both cost targets (H2br)
+
+![Mixed endpoints preserve accuracy but increase complete cost](../results/research/work/bp-first-endpoint-dispatch/bp-first-endpoint-dispatch.png)
+
+All six three-arm timing blocks and both failures remain visible. [Report](../research/20261114/work/REPORT.md#h2br-endpoint-dispatch-preserves-accuracy-but-falsifies-both-cost-targets) · [Renderer](../research/20261114/work/plot_endpoint_dispatch.py).

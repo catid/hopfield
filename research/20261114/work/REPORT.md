@@ -1535,3 +1535,57 @@ This fresh experiment adds **48 planned jobs and 36,864 primary logical arm eval
 ![H2bq supports separate accuracy, noninferiority and complete-cost targets on its opposite-region endpoint distribution.](../../../results/research/work/bp-first-far-placement/bp-first-far-placement.png)
 
 ![All four complete-cost pairs and medians remain visible for each of three distinct fresh endpoint distributions.](../../../results/research/work/endpoint-cost-three-cohorts/endpoint-cost-three-cohorts.png)
+
+
+### H2br: endpoint dispatch preserves accuracy but falsifies both cost targets
+
+The Manhattan182 dispatcher solves **4,096/4,096 fresh mixture mazes jointly across all three fixed models**, supporting its separate **99.9% absolute success** and **−0.1 percentage-point LP96 noninferiority** targets. **Both prespecified cost targets are falsified:** median complete answer cost is **14.040812% higher than LP96** and **30.414958% higher than the always-BP geometry cascade**. The dispatcher is slower than both controls in every one of the six balanced blocks. Accuracy success does not establish a useful speed improvement.
+
+| Actual fresh arm | Joint solved / 4,096 | Model-input solved / 12,288 | Role |
+|---|---:|---:|---|
+| BP AdamW executed prefix | 4,048 | 12,150 | Actual full BP prefix of always-cascade; standalone service time unmeasured |
+| LP96 standalone | 4,096 | 12,288 | Full-cohort accuracy and complete-cost control |
+| Always BP → geometry → LP96 subset | 4,096 | 12,288 | Full-cohort cascade control |
+| Manhattan182 dispatcher | 4,096 | 12,288 | Token-only candidate |
+
+The [frozen protocol](bp-first-endpoint-dispatch-protocol.json) uses seed **2026111532**, 180×180 loop80 walls and three immutable models. Each maze independently draws a fair mixture coin: uniform ordered distinct endpoints over all open cells, or uniform endpoints within one of the four oriented opposite 45×45 region pairs. The realized cohort contains **2,065 uniform** and **2,031 opposite-region** mazes. There is no fixed quota, shortest-distance filter, rejection, replacement or redraw. Generation takes **32.114 seconds**; the independent eight-process input audit takes **41.004 seconds**, replays all wall/mixture/endpoint draws and labels, and finds no token-grid or wall-mask overlap with **664 distinct prior files in 29 manifests**.
+
+The dispatcher extracts actual endpoints and computes Manhattan distance inside the charged answer interval. **D < 182** goes directly to LP96. **D ≥ 182** runs BP, retains a simple-path geometry-valid answer and otherwise executes the actual LP96 rescue subset. Hidden/readout couplings are computed once for the original batch. Labels, shortest paths, mixture tags and known failures do not enter the policy. Each replay runs **7,110 BP model-inputs**, **5,178 direct LP96 model-inputs** and **109 BP-to-LP rescues**. The always-cascade control rescues **138**.
+
+Block 0 is the predetermined accuracy copy. All other blocks must preserve its source selections, outputs, flags, counters, couplings and internal subset trajectories; they add no independent accuracy observations. The one-sided 95% absolute lower bound is **99.926889%**. Paired gains and losses versus LP96 are both zero, with separately one-sided 95% net lower bound **−0.090020 percentage points**. There are zero hidden, nonfinite, stopping, numerical or native/block-cap failures, and zero geometry-valid-but-longer BP paths. Geometry still cannot certify shortestness generally. The accuracy endpoints and each cost endpoint remain separate; there is no simultaneous 95% claim.
+
+| Block | GPU | Execution order | LP96 seconds | Always-cascade seconds | Dispatcher seconds | Saving vs LP96 | Saving vs cascade |
+|---|---:|---|---:|---:|---:|---:|---:|
+| 0 | 0 | LP96, cascade, dispatcher | 104.123923 | 90.838686 | 119.341539 | -14.614908% | -31.377439% |
+| 1 | 0 | cascade, dispatcher, LP96 | 104.596731 | 91.514001 | 118.682476 | -13.466716% | -29.687780% |
+| 2 | 0 | dispatcher, LP96, cascade | 106.271433 | 90.895575 | 118.510318 | -11.516628% | -30.380734% |
+| 3 | 1 | dispatcher, cascade, LP96 | 106.223269 | 93.133509 | 122.524060 | -15.345782% | -31.557439% |
+| 4 | 1 | LP96, dispatcher, cascade | 106.014341 | 94.149551 | 121.617664 | -14.718125% | -29.174981% |
+| 5 | 1 | cascade, LP96, dispatcher | 108.356540 | 93.376952 | 121.809470 | -12.415429% | -30.449182% |
+
+Complete answer cost charges fresh model readiness, endpoint extraction, transfer, hidden/readout, all actually executed solver stages, geometry, original-model certificates, subset gathers, returns and scatter. Host synchronization waits, diagnostics and archives are separately recorded outside answer cost and inside the worker wall limit. Both workers drain archives before either timed segment and finish answers before either diagnostic phase. All six blocks and both negative endpoints are retained without replacements or extra repetitions. Each exact-rational median averages sorted positions 3 and 4: **-451336619723022399108904/3214462314388236813145889** versus LP96 and **-1523839954056338219799653/5010166225861954047031044** versus always-cascade. These are measured costs under the declared warmed runtime/filesystem-cache regime.
+
+The fixed operation accounting identifies a practical bottleneck to test. In block 0, the dispatcher executes BP in **384/384 batches** and an LP subset in **384/384 batches**; the always-cascade executes LP subsets in only **104/384 batches**. Across the six blocks, the dispatcher has **59.159 seconds** median BP-native work and **46.214 seconds** median complete LP-prefix work, versus **67.380** and **10.412 seconds** for always-cascade. Endpoint extraction itself has median **1.061 seconds**. These are full-cohort operation measurements, not costs attributed to mixture strata or proof that a single mechanism caused the slowdown. The separately proposed H2bs packing test was written before the H2br outcome join and retains its original ≥10% target.
+
+| Prespecified partition | Bin | Mazes | BP AdamW joint solved | LP96 / cascade / dispatcher joint solved | Dispatcher direct LP inputs | Dispatcher rescues |
+|---|---|---:|---:|---|---:|---:|
+| mixture_component | uniform | 2,065 | 2,051 | 2,065 / 2,065 / 2,065 | 5,178 | 7 |
+| mixture_component | opposite_regions | 2,031 | 1,997 | 2,031 / 2,031 / 2,031 | 0 | 102 |
+| token_dispatch | D<182 | 1,726 | 1,715 | 1,726 / 1,726 / 1,726 | 5,178 | 0 |
+| token_dispatch | D>=182 | 2,370 | 2,333 | 2,370 / 2,370 / 2,370 | 0 | 109 |
+| shortest_edges | 1..64 | 398 | 397 | 398 / 398 / 398 | 1,194 | 0 |
+| shortest_edges | 65..128 | 768 | 763 | 768 / 768 / 768 | 2,304 | 0 |
+| shortest_edges | 129..256 | 1,469 | 1,452 | 1,469 / 1,469 / 1,469 | 1,680 | 34 |
+| shortest_edges | >=257 | 1,461 | 1,436 | 1,461 / 1,461 / 1,461 | 0 | 75 |
+
+All eight bins and every denominator are retained in the [descriptive receipt](../../../results/research/work/bp-first-endpoint-dispatch/descriptive-strata-and-costs.json). The partitions supply no additional confidence or causal claims, and mixed-batch operation cost is not assigned to individual inputs or mixture components.
+
+Both timed workers finish in **1,387.115 and 1,387.118 seconds**, within 3,000 seconds, with **1,312 live device/process samples**, no forced signals and no independent CPU audit overlap. All **53 receipts** are [sealed before the outcome join](../../../results/research/work/bp-first-endpoint-dispatch/sealed-replays.json). The [full audit](../../../results/research/work/bp-first-endpoint-dispatch/audit.json) passes in **313.632 seconds** with 16 CPU processes, within 1,200 seconds: **98,304 direct final/internal states**, **362,995 original-factor candidate checks**, **21,820 accepted moves**, all **221,184 timed model-pipeline copies**, **2,530,620 replay candidate comparisons**, **276,972 active trace states** and **3,456 source/warmup copies**. Direct margin, energy and candidate discrepancies remain below 9.38e−15, 5.10e−10 and 2.74e−13 respectively.
+
+The public package contains [all 49,152 primary scalar rows](../../../results/research/work/bp-first-endpoint-dispatch/per-model-input.csv), [4,096 joint rows](../../../results/research/work/bp-first-endpoint-dispatch/per-input.csv), [all input endpoint records](../../../results/research/work/bp-first-endpoint-dispatch/input-endpoint-records.csv), complete receipts and the original bytes of **14,166 barrier markers**. Its [state supplement](../../../results/research/work/bp-first-endpoint-dispatch/state-fixtures/manifest.json) retains every **138 rescue/error cases** plus **96 fixed dispatch-stratum controls**, totaling **234 cases and 5,616 actual six-block final states**. Full internal trajectories remain separately hash-bound on Work. Extraction takes **26.840 seconds** with a bounded 18-batch cache.
+
+The [portable independent checker](../../../results/research/work/bp-first-endpoint-dispatch/public-verification.json) passes in **6.877 seconds** with production solver/statistics imports blocked. It verifies all scalar and joint outcomes, all **4,096 endpoint rules**, all **12,288 scalar source selections**, three descriptive partitions, both exact cost medians, **13,878 measured barrier events** and all 5,616 supplement states. Its maximum direct margin discrepancy is 6.38e−15. [Independent SciPy inversion](../../../results/research/work/bp-first-endpoint-dispatch/scipy-verification.json) agrees within 5.45e−15. Run `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 upstream/.venv/bin/python research/20261114/work/run_endpoint_dispatch_public_check.py results/research/work/bp-first-endpoint-dispatch`. The figure is visually inspected and [two renders are byte-identical](../../../results/research/work/bp-first-endpoint-dispatch/figure-determinism.json).
+
+This experiment adds **48 planned jobs, 192 run-arm rows and 49,152 primary logical arm evaluations**. Work totals are **2,314 planned jobs / 1,765,118 primary evaluations**, or **2,320 included jobs / 1,765,250 evaluations**, with **7,647 run-arm rows**. BP-prefix reuse, internal states, source gates, warmups and repeated timings add no scientific counts.
+
+![H2br supports its separate accuracy endpoints while falsifying both complete-cost saving targets in every block.](../../../results/research/work/bp-first-endpoint-dispatch/bp-first-endpoint-dispatch.png)
