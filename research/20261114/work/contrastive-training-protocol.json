@@ -1,0 +1,602 @@
+{
+  "id": "answer-only-endpoint-contrastive-training",
+  "frozen_utc": "2026-11-15T01:43:56.465610+00:00",
+  "status": "frozen_before_scientific_fits_and_fresh_cohort",
+  "hypothesis_id": "H2v",
+  "arms": [
+    "unchanged",
+    "pl",
+    "contrastive"
+  ],
+  "models": {
+    "0": {
+      "path": "artifacts/research/20261114/work/models/seed0.pt",
+      "sha256": "84d694828c90cbf55bcf2eb84136324e2a5d482e4847e50d7b9f67b39c8aa230"
+    },
+    "1": {
+      "path": "artifacts/research/20261114/work/models/seed1.pt",
+      "sha256": "21004b8bca2fde7ae23825e874a30e15d28174ae5da16382420a1743d8ad2881"
+    },
+    "2": {
+      "path": "artifacts/research/20261114/work/models/seed2.pt",
+      "sha256": "5f350d5de1f42ef627a2dd6052bcdcb722bd965d1ef940863ed4f6955e4a73e3"
+    }
+  },
+  "source_sha256": {
+    "research/20261114/work/contrastive_objective.py": "c3485554dc5e1a3348bb8b90708a0c9dc425bcdb1979c0bd03482c47ebebab98",
+    "research/20261114/work/contrastive_training.py": "17317d2fe951a356a63da64281151f0a51c1582d3334702de5537ffabfdf7320",
+    "research/20261114/work/study.py": "c912470b19d0d13b151a4cac9a276455a915adeecf15088d1c5d43db66dbf721",
+    "research/20261114/work/larger_relaxation.py": "6be58f66b7d354f7d47da697520bddb73dcadc6114cedcde0885ad5e61ea4cd1",
+    "research/20261114/work/binary_preserving.py": "a97d86dd91d830c7982c14fcaf48c61cfd0bc0962f93f1459e30b201e49777b2",
+    "research/20261114/work/selective_fallback.py": "ba53eceeb5807c5b7b0454b18266aad7e847ef72b0b6c7fdf66dce5b90e7a5aa",
+    "research/20261114/work/gate_contrastive.py": "0af86dcacbf397c4a6b5ba10fb56337af97523956bc56023fad8534318d71764",
+    "upstream/cram/__init__.py": "ada20986bead2aa2d77dcc358af07dbc01b569b1765c83560e917d5cc2bd032f",
+    "upstream/cram/cram_graph_coloring.py": "ed6158d983be48082f851dcdb5175bad7aab6408ac73f14659825e90c67f5275",
+    "upstream/cram/cram_maze.py": "c9f9fa5718fdf7ce1f8ad33dc7dc9481e43c6084a31516ac1c88451dba03ead8",
+    "upstream/cram/cram_maze_hard_graph.py": "967c573a3b3dee6c015bf373b7858b856ae0e639bdfa1a8c302b65af87a19717",
+    "upstream/cram/cram_maze_hard_simple.py": "07e64a9383c4b2b1ea30021063d93e302a794023accbf6effbf188892220b2a8",
+    "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "upstream/cram/cram_sudoku.py": "2c6b53d1b81d54e35c484a3565abd60e778716d6e6121e424aede826a5ab0ed2",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "upstream/cram/graph_coloring_data.py": "b04e61911aa55d437ab3c9d602832c3df09f285f2605aba2e9a3d78c18d9cb04",
+    "upstream/cram/latent_settle_triton.py": "7eca3fdf03ec6d5eb847e0dcbcdad61c74b56c084c363190d2c32a1737f19072",
+    "upstream/cram/maze_h3.py": "dd13a3038830bf1e2db83854704fcb39167a3f76ee9de01832de9b3187ee7acd",
+    "upstream/cram/maze_h3p.py": "dd26d260efea3a84f224743e14ae8383d967dfdafb0b4409bd05e864fe7ce92a",
+    "upstream/cram/maze_learned.py": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "upstream/cram/maze_unique.py": "3ceb56a61d92c3fa52a7d84876314abe31909780159fa53560692c19b306d213",
+    "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623",
+    "upstream/cram/opcount.py": "2ddf7373d227f50f43b06cf8e129cb727a85a3e2e86065e7081ba477997e924d",
+    "upstream/cram/paths.py": "d3af83d2c75e9165b88fbaf09d35ee352523fa79e5b3b02163d0dfbaae8602b8",
+    "upstream/cram/table.py": "bbf1fdce8a9e2fa836f5a3800746671b62f740e28c1986029bb53b608ebd0493",
+    "upstream/experiments/compute_curve_export.py": "951515d262bab6599bee08af08343d039ddc57a3da5b8f38841bccccdb1b47d2",
+    "upstream/experiments/data_efficiency.py": "5f16479ed5428a192ce431e1ebc8715a5ffabeae4aeaefc9448dd4d038495c22",
+    "upstream/experiments/data_efficiency_baselines.py": "08fb19aaf0eff7ddd02fffee3a6e552c7f14e3990384806f75ec3b515f76f383",
+    "upstream/experiments/data_efficiency_common.py": "fd9736215f5268f445f089eaedc84360edbe0aa00abc8af861bf03b98eb1ba01",
+    "upstream/experiments/difficulty_export.py": "946e006435e75bdf36793f0f6dd15a830b44fc076f1ef60f27e492809eb8f051",
+    "upstream/experiments/graph_coloring.py": "156b3c5c4dd377870c10ef6caca20e5ccbf0a6921e0bec997a52d6a03443a972",
+    "upstream/experiments/graph_coloring_export.py": "6823486a862b19e0109ae9df4fca983ba43688daeeef24686450cd1c36a4541d",
+    "upstream/experiments/graph_coloring_hand_set.py": "c0dbce040824dd42d9195305ec8bc5cce581c55143cdf330b7cac8fda3586cdf",
+    "upstream/experiments/hand_set.py": "8fc4f15271655ec5b1e17eec29a48d8f11f8489ca0d1df79f0a7df4f37bac136",
+    "upstream/experiments/maze_hard_figure_export.py": "02e17d0728a458d69428a6e215a33c9d3d5f1f68bb5d49a02a5fac59bb8b037e",
+    "upstream/experiments/maze_hard_latent.py": "fad4c9c05c41ab2e3dcd997c666a2bbf0fdcca5ae894e2e90f1540d6d2cb4d77",
+    "upstream/experiments/maze_hard_support.py": "936caed5f90ef275199c73e26a437b4b6e6dc814b11e6955bb741b33e30b5c49",
+    "upstream/experiments/maze_unique.py": "042e1b0d0c760bfb7b3c4c9a6cd30785e95255ab570a5810bd80cfbf1ac651eb",
+    "upstream/experiments/maze_unique_fit_time.py": "07f0d25ea1f9a244dfba9ce031523400ba6cafa3ecb339ab8a84ade2ac3b31d6",
+    "upstream/experiments/multi_solution_export.py": "7462da58650d6b3c416e7a58b8526899543ae18fe9c05ed0ebd671875cb3317c",
+    "upstream/experiments/nqueens_coverage.py": "2694c01cb6b37b714dcb70b040317aed2789b9ae3207eb2b2c6c54254d41910c",
+    "upstream/experiments/nqueens_emptied.py": "e5d01938ef08469198028547e27cc9789336d3bec7a41cdf88bb2fec37ebeb6e",
+    "upstream/experiments/nqueens_export.py": "79bf0074e470bc6a2bfe1f2dfe5c376b38e96ef98f527a733f01f0b44ce76c96",
+    "upstream/experiments/nqueens_free.py": "67b4f3fd4188714cf04c50f0ecd6b73754c8132e3ed10e7877e17a225e875f08",
+    "upstream/experiments/nqueens_free_export.py": "6bbf21ad9d9864a21dd9f4dda8417a832f4008e7940a5c1b2d8f61162c13156d",
+    "upstream/experiments/nqueens_offset.py": "f9f0641aa33f5a6f80161f20ef55c5bfd6cb28b439439e0162176428a30df0f3",
+    "upstream/experiments/nqueens_offset_export.py": "85a2b6f5bd0d3d56b6ec52b30d22e15d08d8c70f5dca3da9039b3b99f4641127",
+    "upstream/experiments/sudoku.py": "b73f72c8e874711d0d05fa75de0043442a20297618de62e5bb714b76aa09f20b",
+    "upstream/experiments/training_curves.py": "f9c577da0d83a13a53e33ad859d9abe37fbb1cef52c42efb54424f94b6cb2e07",
+    "upstream/experiments/training_methods.py": "13ee258293c6b0883d8dbf93b14533460d402e8bd9d61f306c7d6832f46919e9",
+    "upstream/experiments/training_methods_export.py": "d60a18693e9cc488c239955b952d4f2f34c76eb3f1ed195b793ec4af35341561",
+    "research/20261114/work/reference_src/hopfield_cram/__init__.py": "724aaf62e72b0a7f840f03dc771f28e768cfa657564480c6fe51d788e4983613",
+    "research/20261114/work/reference_src/hopfield_cram/energy.py": "7d26f03acd9769c03b119c4bf2b76a2102283bb401b553feffba26ef1159c578",
+    "research/20261114/work/reference_src/hopfield_cram/inference.py": "7cde7a9af92c833ebdf9a430dab275fc2928acfca3c53c25e98b1d656bf30ff3",
+    "research/20261114/work/reference_src/hopfield_cram/latent.py": "55cb88ab4f87e5193c68a71173041d06c7a7c60d3ac50f2af3fab269f9a0333b",
+    "research/20261114/work/reference_src/hopfield_cram/training.py": "271568e0f2d951a4b4dcb61207b95593dc163f4207ac11366dcb2c7a420fe1f8"
+  },
+  "gates": {
+    "artifacts/research/20261114/work/contrastive_training/numerical-gate.json": "ee90ba8f0628d0c543eb0f123157645291223b9946820eb459945a42e09b1373",
+    "artifacts/research/20261114/work/contrastive_training/performance-gate-gpu0.json": "6d35bfa527a64f9a1925cd3644e2667b2ac687af09072fa646908d65789792ba",
+    "artifacts/research/20261114/work/contrastive_training/performance-gate-gpu1.json": "8a87c50267cd7120e55592019f8bd02a6ee075a196ff09b4956e69ac13ce862d"
+  },
+  "training_manifest": {
+    "utc": "2026-11-15T01:37:29.513576+00:00",
+    "source": "Actual upstream data/maze-hard/train.csv loaded by original maze_learned.load; not recreated or generated.",
+    "source_csv_path": "upstream/data/maze-hard/train.csv",
+    "source_csv_sha256": "25f9e39b5aee16967da41ba63b2d1d75cf608c2360d8a1419d827f9859dbafa0",
+    "loader_sha256": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "n_training": 1000,
+    "shape": [
+      1000,
+      30,
+      30
+    ],
+    "arrays_sha256": "2ac6e034cf09cfdfcd00d81b51088c66042b2ec738e39b33496a75aa70aa777d",
+    "tokens_sha256": "5497e6927a10b71c7754634431ad43ad459c6698e238930feaebe18d0fcd651b",
+    "labels_sha256": "644c4eba45a4c2a875ba90bd21f1783301c2ec9340b680c3f61aa12326634703",
+    "script_sha256": "8bce0157edecd6d5c64ab2c855886bba5d4f1c286032d6a34c70ca45b24d03c0",
+    "numpy": "2.5.4"
+  },
+  "training_manifest_sha256": "009959e7ec4705ea529bf3e205ca4b0b4d86542e241f94077d7d2789ad896854",
+  "readout_manifests": {
+    "0": {
+      "manifest": {
+        "seed": 0,
+        "gpu": 0,
+        "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+        "arrays_sha256": "2ac6e034cf09cfdfcd00d81b51088c66042b2ec738e39b33496a75aa70aa777d",
+        "checkpoint_sha256": "84d694828c90cbf55bcf2eb84136324e2a5d482e4847e50d7b9f67b39c8aa230",
+        "readout_sha256": "8512aae4a4ca418b684ce37c032a9350398dddf92f0694b58aa49509888d41f6",
+        "coupling_array_sha256": "9e3d861a04a0f3eceea22136d2e4b2e5a83ee5d85216dbd47f1a3a087e4af678",
+        "hidden_batch_size": 64,
+        "tol": 1e-06,
+        "cap": 4000,
+        "check_every": 8,
+        "frozen_parameters": [
+          "mu",
+          "beta"
+        ],
+        "script_sha256": "8bce0157edecd6d5c64ab2c855886bba5d4f1c286032d6a34c70ca45b24d03c0"
+      },
+      "sha256": "d292856fcbc75b6a01ea16a25ffcc0db608dfd0ca558c907a43b3e84d398cc26"
+    },
+    "1": {
+      "manifest": {
+        "seed": 1,
+        "gpu": 1,
+        "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+        "arrays_sha256": "2ac6e034cf09cfdfcd00d81b51088c66042b2ec738e39b33496a75aa70aa777d",
+        "checkpoint_sha256": "21004b8bca2fde7ae23825e874a30e15d28174ae5da16382420a1743d8ad2881",
+        "readout_sha256": "7899886bdf87152abd18d836b2f7eb0d0be5a3e0a91890b6594d5e3150e85da4",
+        "coupling_array_sha256": "307045eb96abd50eb9ffe15bc1d6ab66c75df44fe49a91d7e490e3694c121209",
+        "hidden_batch_size": 64,
+        "tol": 1e-06,
+        "cap": 4000,
+        "check_every": 8,
+        "frozen_parameters": [
+          "mu",
+          "beta"
+        ],
+        "script_sha256": "8bce0157edecd6d5c64ab2c855886bba5d4f1c286032d6a34c70ca45b24d03c0"
+      },
+      "sha256": "320d46027f8ffe0e7fbc51bb535412d1eee35c64c94326dcc601a4a4f11f6922"
+    },
+    "2": {
+      "manifest": {
+        "seed": 2,
+        "gpu": 0,
+        "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+        "arrays_sha256": "2ac6e034cf09cfdfcd00d81b51088c66042b2ec738e39b33496a75aa70aa777d",
+        "checkpoint_sha256": "5f350d5de1f42ef627a2dd6052bcdcb722bd965d1ef940863ed4f6955e4a73e3",
+        "readout_sha256": "7383a2395eb9b61c2a843fc788289578877897059ddefd17a4f571c96fd170c5",
+        "coupling_array_sha256": "d4ae5d9581e755fbeee30d1caf386fe2d9e29121b6a6b2145b71b9075b67231c",
+        "hidden_batch_size": 64,
+        "tol": 1e-06,
+        "cap": 4000,
+        "check_every": 8,
+        "frozen_parameters": [
+          "mu",
+          "beta"
+        ],
+        "script_sha256": "8bce0157edecd6d5c64ab2c855886bba5d4f1c286032d6a34c70ca45b24d03c0"
+      },
+      "sha256": "ab9961d105eb2fdcf213327a1e8b440612ff5b40e7631c3789a27e0b922fc86b"
+    }
+  },
+  "minibatch_schedules": {
+    "0": {
+      "path": "artifacts/research/20261114/work/contrastive_training/minibatches-seed0.npz",
+      "sha256": "43478eb6ea89e810d03a088d5d2f342d801c3db40c378275ea8d4062b1ab1a1b"
+    },
+    "1": {
+      "path": "artifacts/research/20261114/work/contrastive_training/minibatches-seed1.npz",
+      "sha256": "d2147f3586c185c6ed969df82a3da6e85c11c6ce0c3f0a238d812f094cb9bcaa"
+    },
+    "2": {
+      "path": "artifacts/research/20261114/work/contrastive_training/minibatches-seed2.npz",
+      "sha256": "8358f0160160a69707b22a90b48f5223b213db03e7a3cab01e82e1e1378952bc"
+    }
+  },
+  "training": {
+    "data": "Actual original1000train.csv30x30mazes. Not regenerated. Frozen training arrays/readouts are retained.",
+    "trainable": [
+      "T",
+      "b",
+      "kappa"
+    ],
+    "n_trainable": 23,
+    "frozen": [
+      "mu",
+      "beta",
+      "all nontrainable buffers"
+    ],
+    "readout": "Fixed original-model couplings, float32, batches64, hidden tol1e-6 cap4000 check8. Both fits use identical arrays.",
+    "optimizer": "BP AdamW",
+    "updates": 400,
+    "lr": 0.01,
+    "weight_decay": 0.0,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "foreach": false,
+    "batch_size": 64,
+    "minibatches": "Identical seed-specific400x64fixed schedule sampled uniformly with replacement; both arms start from identical immutable checkpoint and optimizer state.",
+    "loss": "PL + weight*mean(softplus(1+(E(label)-E(endpoints))/max(1,selected free label cells)))",
+    "contrastive_weight": 0.1,
+    "control_weight": 0.0,
+    "matched_compute": "Both arms construct PL and contrastive computational graphs; only fixed scalar weight differs. No hidden-layer training or implicit adjoint.",
+    "scope": "Answer-only continued fine-tuning, intentionally different from original full-model training. No target/development accuracy, margin, weight, update or learning-rate tuning."
+  },
+  "cohort": {
+    "n_unique": 4096,
+    "length": 120,
+    "loop_rate": 0.2,
+    "base_seed": 2026111508,
+    "generator": "study.maze; SeedSequence([2026111508,120,20,index]), index0..4095",
+    "shards": 16,
+    "shard_size": 256,
+    "prior_disjointness": "Distinct fixed base seed; additionally SHA256 tokens must not overlap prior H2r/H2s/H2t/H2ucohorts. No pooling."
+  },
+  "inference": {
+    "decoder": "Native CRAM only; no graph-informed selection, lambda, BFS repair or label feedback.",
+    "dtype": "float32",
+    "hidden_tol": 1e-06,
+    "hidden_cap": 4000,
+    "hidden_check": 8,
+    "answer_initial_u": 3.0,
+    "answer_eta": 0.5,
+    "answer_cap": 8192,
+    "answer_check": 16,
+    "batch_size": 64,
+    "certificate": "Original model flip_delta >= -1e-6, finite answer and converged hidden layer",
+    "shared_readout": "One unchanged hidden solve per input/model shared identically by all three arms. Fixed mu/beta are audited unchanged.",
+    "arm_order": "Rotate arm order by job index plus minibatch index."
+  },
+  "primary_ranking": {
+    "hypothesis": "Contrastive fine-tuning improves joint-three-model label-over-endpoints ranking by at least90percentage points relative to continued PL.",
+    "target_pp": 90.0,
+    "success": "All three fixed models have float64[E(label)-E(endpoints)] / max(1,selected free label cells) < -1e-6. Ambiguous/zero/nonfinite gaps count false.",
+    "decision": "Paired gains and losses over4096 independent inputs. CPgainlower(alpha.025)-CPlossupper(alpha.025) gives separately one-sided95net lower; upper analogously. Support if lower>=90pp; falsify if upper<90pp; otherwise inconclusive.",
+    "scope": "Pairwise ranking only; not a globalminimum certificate."
+  },
+  "primary_accuracy": {
+    "hypothesis": "Contrastive joint-three-model valid-shortest accuracy is noninferior to continued PL within0.1percentage point.",
+    "margin_pp": 0.1,
+    "success": "All three outputs independently graph-valid shortest simple paths, finite, certified and hidden-converged.",
+    "decision": "Paired loss event = PLjointsuccess and contrastivejointfailure. Conservative noninferiority support if exactCPone-sided95lossprobability upper(alpha.05)<=0.1pp; falsify if corresponding lower>0.1pp; otherwise inconclusive. Report gains/losses and net accuracy separately.",
+    "unit": "Independent input; three fixed models are not independent repeats."
+  },
+  "overall": "Supported only if both separately frozen endpoints support; falsified if either falsifies; otherwise inconclusive. Ranking cannot substitute for solvequality. No multiplicity-adjusted jointconfidence claim.",
+  "secondary": "Per-model ranking, solves, certification, endpoint outputs, path length, training loss/parameter change and measured runtime descriptive. Unchanged control retained.",
+  "budget": {
+    "total_gpu_minute_envelope": 30,
+    "training_worker_seconds": 300,
+    "evaluation_worker_seconds": 600,
+    "watchdog": "Check every training update and evaluation batch. Preserve partial checkpoints/results on timeout; no cap/sample changes or resumed budget extension after outcomes. Preparation/numerical gates recorded separately."
+  },
+  "fit_jobs": [
+    {
+      "id": "s0-pl",
+      "seed": 0,
+      "arm": "pl",
+      "weight": 0.0,
+      "gpu": 0
+    },
+    {
+      "id": "s0-contrastive",
+      "seed": 0,
+      "arm": "contrastive",
+      "weight": 0.1,
+      "gpu": 1
+    },
+    {
+      "id": "s1-pl",
+      "seed": 1,
+      "arm": "pl",
+      "weight": 0.0,
+      "gpu": 1
+    },
+    {
+      "id": "s1-contrastive",
+      "seed": 1,
+      "arm": "contrastive",
+      "weight": 0.1,
+      "gpu": 0
+    },
+    {
+      "id": "s2-pl",
+      "seed": 2,
+      "arm": "pl",
+      "weight": 0.0,
+      "gpu": 0
+    },
+    {
+      "id": "s2-contrastive",
+      "seed": 2,
+      "arm": "contrastive",
+      "weight": 0.1,
+      "gpu": 1
+    }
+  ],
+  "jobs": [
+    {
+      "id": "shard00-s0",
+      "shard": 0,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard00-s1",
+      "shard": 0,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard00-s2",
+      "shard": 0,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard01-s0",
+      "shard": 1,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard01-s1",
+      "shard": 1,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard01-s2",
+      "shard": 1,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard02-s0",
+      "shard": 2,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard02-s1",
+      "shard": 2,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard02-s2",
+      "shard": 2,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard03-s0",
+      "shard": 3,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard03-s1",
+      "shard": 3,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard03-s2",
+      "shard": 3,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard04-s0",
+      "shard": 4,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard04-s1",
+      "shard": 4,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard04-s2",
+      "shard": 4,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard05-s0",
+      "shard": 5,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard05-s1",
+      "shard": 5,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard05-s2",
+      "shard": 5,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard06-s0",
+      "shard": 6,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard06-s1",
+      "shard": 6,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard06-s2",
+      "shard": 6,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard07-s0",
+      "shard": 7,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard07-s1",
+      "shard": 7,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard07-s2",
+      "shard": 7,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard08-s0",
+      "shard": 8,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard08-s1",
+      "shard": 8,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard08-s2",
+      "shard": 8,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard09-s0",
+      "shard": 9,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard09-s1",
+      "shard": 9,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard09-s2",
+      "shard": 9,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard10-s0",
+      "shard": 10,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard10-s1",
+      "shard": 10,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard10-s2",
+      "shard": 10,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard11-s0",
+      "shard": 11,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard11-s1",
+      "shard": 11,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard11-s2",
+      "shard": 11,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard12-s0",
+      "shard": 12,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard12-s1",
+      "shard": 12,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard12-s2",
+      "shard": 12,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard13-s0",
+      "shard": 13,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard13-s1",
+      "shard": 13,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard13-s2",
+      "shard": 13,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard14-s0",
+      "shard": 14,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard14-s1",
+      "shard": 14,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard14-s2",
+      "shard": 14,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard15-s0",
+      "shard": 15,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard15-s1",
+      "shard": 15,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard15-s2",
+      "shard": 15,
+      "seed": 2,
+      "gpu": 1
+    }
+  ],
+  "retained": "Source/model/data/schedule hashes; all400updatesloss traces; final checkpoint and optimizer state; frozen-readout caches; freshinput graphs/labels; all final logits/boards/flags/steps, couplings, float64ranking gaps, nativeflipmargins, energy, per-worker timings/progress and failures."
+}

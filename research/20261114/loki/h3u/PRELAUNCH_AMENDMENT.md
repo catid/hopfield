@@ -1,0 +1,5 @@
+# Prelaunch float64 fixture correction
+
+The first frozen protocol was `bca22563d343df84a17a23502d33fa32714ceb21626dc6802b853608fc7b1144`, preserved in [prelaunch-v1/protocol.json](prelaunch-v1/protocol.json), with its original [preflight](prelaunch-v1/preflight.py).
+
+The independent float64 loss fixture failed before any optimizer fit or target search: the literal loss was 1.3898335304870004 versus aggregated 1.3898335164557634, an absolute difference of 1.4031237061118418e-08 exceeding the frozen 1e-10 absolute tolerance. The fixture created multiplicity weights with Python scalar branches of `torch.where`, which defaulted to float32 despite float64 target labels. The corrected fixture explicitly constructs its constants in the target dtype before normalization. No model, fitting implementation, data, hypothesis, threshold, calibration, budget or tolerance changes. The protocol is re-frozen to pin the corrected independent validation source. The actual fit already uses float32 consistently.

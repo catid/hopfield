@@ -1,0 +1,51 @@
+{
+  "id": "H1aa-repeated-query-implementation-pilot",
+  "frozen_utc": "2026-11-15T01:49:19.125871+00:00",
+  "scope": "Implementation and cost only on previously used boards. M10000, N1500, 5 pp NI margin and all streams are fixed before this pilot. No outcome-dependent setting choice.",
+  "training_manifest": "artifacts/research/20261114/ripper/clues/input_manifest.json",
+  "training_manifest_sha256": "838908435ae82b9f617eb92d821341ec8b6c1792329b7a05d192815aff859eae",
+  "calibration_pool_manifest": "artifacts/research/20261114/ripper/recovery_confirm/input_manifest.json",
+  "calibration_pool_manifest_sha256": "a2320e4317b854bbdd239589b90e2359b57570e406fbc1b5a2817c6a41f7a861",
+  "calibration_pool_rule": "Unique source-row union of the prior H1x banks, sorted by source row. It is disjoint from the original clues banks. For each pilot seed0..5 draw10000 rows without replacement using RNG20284000+s.",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "rows": 1500,
+  "calibration_pairs": 10000,
+  "queries": 25,
+  "arms": [
+    "exact",
+    "learned",
+    "fixed_upper"
+  ],
+  "actual_eta": "1/100",
+  "q1": "1/9",
+  "calibration_alpha": "1/200",
+  "edge_alpha": "1/200",
+  "edge_crossing_boundary": 648000,
+  "eta_grid": 1000000,
+  "streams": {
+    "calibration_source": 20284000,
+    "calibration_cell": 20285000,
+    "calibration_noise": 20286000,
+    "training_noise": 20287000,
+    "ties": 20288000
+  },
+  "noise_draw_rule": "Independent Bernoulli(.01) flips followed by uniform int8 offsets1..8. Calibration draws arrays(10000,2), then offsets of the same shape; cells use integers0..80. Training draws81flips then81offsets per row, after all current masks finalize.",
+  "policy_sha256": "0c07514e139bb82e4199485876ef36f9859583b18c6e9c44246bc31e3c0daf7a",
+  "estimator_sha256": "7e1c8433219297d2309d585db4d0b0517435fae035ac36d8a43f193d8d188311",
+  "proof_sha256": "3c96efaa00ebbe289db91cc034bf402bdceea980602fad4aed4f009fbb769043",
+  "preflight_path": "artifacts/research/20261114/ripper/calibrated_preflight.json",
+  "preflight_sha256": "a9ac130423e2171ce106c8b869d577052229f01bc842665c8ac69a089cbdde7c",
+  "label_costs": {
+    "exact": 37500,
+    "learned": 57500,
+    "fixed_upper": 37500
+  },
+  "budget": "Six old training banks and six independent calibration draws only; no solver inference and no extension."
+}

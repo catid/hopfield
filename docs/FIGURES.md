@@ -18,7 +18,12 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 | Sudoku fresh-bank noisy-label recovery | [Fresh-bank exports](../results/research/foureyes/noise_source_replication/) | [plot_noise_source_replication.py](../scripts/plot_noise_source_replication.py) |
 | Sudoku noise replication and failure diagnosis | [Noise exports](../results/research/foureyes/noise_replication/) | [plot_noise_replication.py](../scripts/plot_noise_replication.py) |
 | Maze selective fallback and complete timing | [Selective exports](../results/research/work/selective-fallback-summary.json) | [plot_selective_fallback.py](../research/20261114/work/plot_selective_fallback.py) |
+| Maze objective ranking versus solving accuracy | [Matched training exports](../results/research/work/contrastive-training-summary.json) | [plot_contrastive.py](../research/20261114/work/plot_contrastive.py) |
 | Sudoku noisy adaptive querying | [Noisy-query exports](../results/research/ripper/noisy.json) | [plot_noisy_acquisition.py](../scripts/plot_noisy_acquisition.py) |
+| Sudoku conservative noise-bound accuracy cost | [Noise-bound exports](../results/research/ripper/noise_bound.json) | [plot_noise_bound_results.py](../scripts/plot_noise_bound_results.py) |
+| Sudoku repeated-query noise calibration | [Calibration exports](../results/research/ripper/calibrated.json) | [plot_repeated_query_calibration.py](../scripts/plot_repeated_query_calibration.py) |
+| Sudoku noisy-label likelihood and count controls | [Noisy-PL exports](../results/research/foureyes/noisy_pl/) | [plot_noisy_pl_results.py](../scripts/plot_noisy_pl_results.py) |
+| Queen-plus-camel soft-weight transfer and wrong stops | [Matched transfer exports](../results/research/loki/h3u/) | [plot_public.py](../research/20261114/loki/h3u/plot_public.py) |
 | Sudoku independent recovery confirmation | [Fresh recovery exports](../results/research/ripper/recovery_confirm.json) | [plot_recovery_confirmation.py](../scripts/plot_recovery_confirmation.py) |
 | Sudoku sample-count recovery | [Recovery exports](../results/research/ripper/recovery.json) | [plot_recovery_results.py](../scripts/plot_recovery_results.py) |
 | Maze binary-preserving continuous relaxation | [Maze exports](../results/research/work/) | [plot_native_relaxation.py](../research/20261114/work/plot_native_relaxation.py) |

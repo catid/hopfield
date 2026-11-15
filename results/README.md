@@ -1,6 +1,6 @@
 # Public results
 
-These compact exports contain the measurements and provenance used by the repository's figures. They do not contain the full raw datasets, checkpoints, or predicted-board archives.
+These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
 - [Sudoku projection, sparsity and held-out tests](research/ripper/README.md)
 - [Sudoku count-energy and long-budget study](../research/20261114/foureyes/REPORT-budget.md)
@@ -13,6 +13,7 @@ These compact exports contain the measurements and provenance used by the reposi
 - [Sudoku label noise and tolerant counting](../research/20261114/foureyes/REPORT-noise.md)
 - [Sudoku noise curve and a fixed adaptive count threshold](../research/20261114/foureyes/REPORT-noise-curve.md)
 - [Sudoku exact-recovery scores versus solve accuracy](../research/20261114/foureyes/REPORT-noise-solver.md)
+- [Sudoku noisy-label likelihood fits and count controls](../research/20261114/foureyes/REPORT-noisy-pl.md)
 - [Sudoku noise-law thresholds: safety versus exact recovery](../research/20261114/foureyes/REPORT-chernoff-replication.md)
 - [Sudoku restricted-gap threshold confirmation](../research/20261114/foureyes/REPORT-restricted-gap.md)
 - [Sudoku independent fresh-bank and corruption replication](../research/20261114/foureyes/REPORT-noise-source-replication.md)
@@ -28,6 +29,7 @@ These compact exports contain the measurements and provenance used by the reposi
 - [Sudoku fresh-bank recovery confirmation at fixed N600](../research/20261114/ripper/REPORT-recovery-confirm.md)
 - [Sudoku noisy adaptive acquisition and sequential evidence](../research/20261114/ripper/REPORT-noisy.md)
 - [Sudoku conservative noise calibration and its power cost](../research/20261114/ripper/REPORT-noise-bound.md)
+- [Sudoku noise calibration learned from repeated queries](../research/20261114/ripper/REPORT-calibrated.md)
 - [Sudoku stopping interventions](research/foureyes/README.md)
 - [Maze transfer and inference acceleration](../research/20261114/work/REPORT.md)
 - [N-Queens optimizer controls](research/loki/README.md)
@@ -45,6 +47,7 @@ These compact exports contain the measurements and provenance used by the reposi
 - [Superqueen source-exposure filter](../research/20261114/loki/h3r/REPORT.md)
 - [Source-record replication sensitivity](../research/20261114/loki/h3s/REPORT.md)
 - [Queen-plus-camel transfer test](../research/20261114/loki/h3t/REPORT.md)
+- [Queen-plus-camel learned soft weights and incorrect certificates](../research/20261114/loki/h3u/REPORT.md)
 - [Original reproduction evidence](reproduction/README.md)
 
 Audits retain SHA-256 identities for the source files and raw results they checked. A hash is a provenance reference, not a substitute for the missing raw array. The full saved-board audits require the local artifact archive. The README figures can be regenerated from the public JSON/CSV files alone; see [the figure guide](../docs/FIGURES.md).

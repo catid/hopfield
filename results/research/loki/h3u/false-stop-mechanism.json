@@ -1,0 +1,124 @@
+{
+  "status": "validated_posthoc",
+  "wrong_stopped_states": 9965,
+  "all_q13": true,
+  "all_one_queen_per_row_and_column": true,
+  "conflict_edges": {
+    "diagonal": 16941,
+    "camel": 1670
+  },
+  "minimum_free_margin": {
+    "min": 4.040924780070782,
+    "max": 4.917302918154746,
+    "mean": 4.2517433111210075
+  },
+  "frozen_required_margin": 4.040771471500396,
+  "energy_components": {
+    "inferred_line": {
+      "min": 0.0,
+      "max": 9.846494197845459,
+      "mean": 3.3479068380471633
+    },
+    "camel": {
+      "min": 0.0,
+      "max": 3.372617483139038,
+      "mean": 0.1884017794561697
+    },
+    "source_global_extra": {
+      "min": 0.0,
+      "max": 4.275861144065857,
+      "mean": 0.312793167942562
+    },
+    "other_source_finite": {
+      "min": -47.634466618299484,
+      "max": -36.58055879175663,
+      "mean": -43.711670340726556
+    },
+    "new_offline": {
+      "min": -2.0,
+      "max": -2.0,
+      "mean": -2.0
+    },
+    "unary": {
+      "min": 5.244191914796829,
+      "max": 5.244191914796829,
+      "mean": 5.244191914796829
+    }
+  },
+  "new_offline_occupied_pairs": {
+    "min": 2.0,
+    "max": 2.0,
+    "mean": 2.0
+  },
+  "new_offline_interpretation": "Exactly two newly representable off-line occupied pairs appear in every false stop. Each carries the shared default\u22121coefficient. Their total\u22122energy is constant within these states, while incident local margins still include those terms. No observed false conflict uses a new endpoint line offset.",
+  "example": {
+    "seed": 0,
+    "input_index": 5,
+    "chain_index": 6,
+    "given_cells": [
+      0,
+      18,
+      82
+    ],
+    "occupied_cells": [
+      0,
+      18,
+      36,
+      50,
+      55,
+      73,
+      82,
+      100,
+      105,
+      119,
+      137,
+      155,
+      162
+    ],
+    "true_conflict_edges": [
+      {
+        "i": 36,
+        "j": 50,
+        "dr": 1,
+        "dc": 1,
+        "coupling": 1.9692988395690918,
+        "i_given": false,
+        "j_given": false,
+        "i_remove_cost": 5.14540496468544,
+        "j_remove_cost": 5.412044273689389
+      },
+      {
+        "i": 105,
+        "j": 119,
+        "dr": 1,
+        "dc": 1,
+        "coupling": 1.9692988395690918,
+        "i_given": false,
+        "j_given": false,
+        "i_remove_cost": 5.068999916315079,
+        "j_remove_cost": 4.841067880392075
+      }
+    ],
+    "energy": -38.202859902754426,
+    "minimum_free_margin": 4.63664797693491,
+    "energy_components": {
+      "inferred_line": 3.9385976791381836,
+      "camel": 0.0,
+      "source_global_extra": 0.0,
+      "other_source_finite": -45.38564949668944,
+      "new_offline": -2.0,
+      "unary": 5.244191914796829
+    }
+  },
+  "interpretation": "Positive diagonal/camel coefficients do not imply constraint enforcement: negative couplings to other occupied cells can leave every free-cell removal cost above the source-calibrated threshold even when true conflicts remain. This is posthoc mechanism evidence, not a tuned repair.",
+  "input_sha256": {
+    "research/20261114/loki/h3u/mechanism.py": "ae8c553d6a84e2edf6f1accdcda0a75d0978093a41f8145d524f905cf84913e3",
+    "research/20261114/loki/h3u/protocol.json": "d93afc225cd263e15b4d3e264c2c60fec084f2c8f3883b6d333880a6cc10d4de",
+    "artifacts/research/20261114/loki/h3u/models/bp-adamw-grouped/model.pt": "e55c20a81891fc3d16e3aa07ae736d0dcc8f77225884b99e811ebad44452523c",
+    "artifacts/research/20261114/loki/h3u/source-design.npz": "b9b61ddad7f128798724c50a8d3d49b9b87c24ae253a678bce3bb29d17a7aedc",
+    "results/research/loki/h3u/summary.json": "4cd0c822b98d916a10e49ea947eecd4a943a6836ced4537b1e44b366db4f0881",
+    "artifacts/research/20261114/loki/h3u/search/bp-adamw-grouped/s0/records.npz": "e68cc0c392f1fe411e13fe6eb8d8b08025ac0a68c7ec0c4de597d0e25af06e19",
+    "artifacts/research/20261114/loki/h3u/search/bp-adamw-grouped/s1/records.npz": "a2c820654d447eba58131505fdf23730483928c846eff7ce0ae361b8d5a6f28c",
+    "artifacts/research/20261114/loki/h3u/search/bp-adamw-grouped/s2/records.npz": "e8037e04c48034042818036d8b7a505c19a6432bba8233713ca2caf14896d531"
+  }
+}

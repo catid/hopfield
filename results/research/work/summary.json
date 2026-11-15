@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-15T01:30:04.448820+00:00",
+  "updated_utc": "2026-11-15T01:58:10.626751+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
-  "status": "twenty planned studies, two selected-case interventions, and exhaustive shortest-answer energies complete; ongoing research continues separately",
+  "status": "twenty-one planned studies, two selected-case interventions, exhaustive shortest-answer energies, exact objective certificate and BFSscope control complete; ongoing research continues separately",
   "host": "work",
-  "jobs": 1258,
-  "run_arm_rows": 3279,
-  "model_maze_evaluations": 647042,
+  "jobs": 1312,
+  "run_arm_rows": 3423,
+  "model_maze_evaluations": 683906,
   "hypotheses": [
     {
       "campaign": "discovery",
@@ -526,6 +526,33 @@
         "runtime_decision": "falsified",
         "decision": "falsified"
       }
+    },
+    {
+      "campaign": "contrastive_training",
+      "hypothesis": "H2v ranking gain>=90pp and separate solve noninferiority<=0.1pp",
+      "outcome": {
+        "ranking": {
+          "gains": 4096,
+          "losses": 0,
+          "observed_net_gain_pp": 100.0,
+          "separately_one_sided95_net_lower_pp": 99.81996001755915,
+          "separately_one_sided95_net_upper_pp": 100.0,
+          "target_pp": 90.0,
+          "decision": "supported"
+        },
+        "accuracy": {
+          "gains": 0,
+          "losses": 4089,
+          "observed_net_gain_pp": -99.8291015625,
+          "separately_one_sided95_net_lower_pp": -99.93126322639807,
+          "separately_one_sided95_net_upper_pp": -99.55818289075167,
+          "loss_one_sided95_lower_pp": 99.67924200948866,
+          "loss_one_sided95_upper_pp": 99.91976549986981,
+          "noninferiority_margin_pp": 0.1,
+          "decision": "falsified"
+        },
+        "conjunction": "falsified"
+      }
     }
   ],
   "run_tables": [
@@ -545,7 +572,8 @@
     "native-relaxation-runs.csv",
     "larger-relaxation-runs.csv",
     "selective-fallback-runs.csv",
-    "window-fallback-runs.csv"
+    "window-fallback-runs.csv",
+    "contrastive-training-runs.csv"
   ],
   "protocols": {
     "protocol": {
@@ -641,6 +669,10 @@
     "window_fallback-protocol": {
       "sha256": "eec1107deebc58204c04a870b1f4ff67b188486771cc4fa18e192db6d637fda9",
       "frozen_utc": "2026-11-15T01:02:31.577086+00:00"
+    },
+    "contrastive-training-protocol": {
+      "sha256": "0656e576103ad828d2e0c5d2f3f59e3db9e5ef2cdeab267c5399944206557e47",
+      "frozen_utc": "2026-11-15T01:43:56.465610+00:00"
     }
   },
   "audit_sha256": {
@@ -665,7 +697,8 @@
     "artifacts/research/20261114/work/native_relaxation/audit.json": "6f6ed1a99b621c1a027aeb107693fffb7b1cbe1e54e2695bc67f63c868089ea4",
     "artifacts/research/20261114/work/larger_relaxation/audit.json": "bdfcfe2ef1b01c1b8f04fc4f913107b45f641a0f9bff6623c975e778499ae715",
     "artifacts/research/20261114/work/selective_fallback/audit.json": "f1e6cdb962bb6ca707322f9dd1f829bf89d955f5454b59cc36c78b3dc694ec7d",
-    "artifacts/research/20261114/work/window_fallback/audit.json": "e55c7ab270ba2cbf4b79d89dde1b88700c06e8acdb0ed8358598da28b5c3d176"
+    "artifacts/research/20261114/work/window_fallback/audit.json": "e55c7ab270ba2cbf4b79d89dde1b88700c06e8acdb0ed8358598da28b5c3d176",
+    "artifacts/research/20261114/work/contrastive_training/audit.json": "625e3f2d1e047a28726b7d4646bff682d0cf1000cdc2cc8c33604bc3c3b03c3f"
   },
   "model_sha256": {
     "0": {
@@ -698,8 +731,8 @@
     "case": "cyclic-failure-classification.json",
     "scope": "The same cyclic maze fails for model seeds1and2; these are true invalid fixed points or a period-two timeout, not hidden/nonfinite failures."
   },
-  "primary_jobs": 1252,
-  "primary_model_maze_evaluations": 646910,
+  "primary_jobs": 1306,
+  "primary_model_maze_evaluations": 683774,
   "descriptive_jobs": 6,
   "descriptive_model_maze_evaluations": 132,
   "selected_case_interventions": {
@@ -770,5 +803,14 @@
     "single_threaded": true,
     "complete_timing_repetitions": 3,
     "scope": "Hand-engineered exact supplied-graph solver, outside learned/CRAMbaseline and never used in its inference."
+  },
+  "answer_only_training": {
+    "fit_jobs": 6,
+    "updates": 2400,
+    "minibatch_presentations_separate": 153600,
+    "new_eval_inputs": 4096,
+    "new_eval_model_maze_arms": 36864,
+    "original_training_arrays": true,
+    "baseline": "Matched BPAdamWcontinuedPL; unchanged original checkpoint control also retained."
   }
 }

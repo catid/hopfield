@@ -1,0 +1,54 @@
+"""Audited H4r likelihood/count comparison; public JSON only."""
+from pathlib import Path
+import hashlib
+import json
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import numpy as np
+
+ROOT=Path(__file__).resolve().parents[1]
+source='results/research/foureyes/noisy_pl/summary.json'
+data=json.loads((ROOT/source).read_text())
+assert data['status']=='validated' and data['primary']['decision']=='falsified'
+out=ROOT/'assets/figures'
+plt.rcParams.update({'font.family':'DejaVu Sans','font.size':11,'axes.spines.top':False,'axes.spines.right':False,
+ 'text.color':'#17243a','axes.labelcolor':'#273449','xtick.color':'#273449','ytick.color':'#273449','svg.hashsalt':'noisy-pl-v1'})
+arms=['adamw','paper_pl','restricted','chernoff9']
+labels=['BP AdamW\n+ transform','Paper SGD\n+ transform','Restricted\ncounts','Known-noise\nChernoff']
+colors=['#447bb7','#b7503c','#16887d','#8b68a8']
+fig,axes=plt.subplots(1,2,figsize=(12.8,6.2),gridspec_kw={'width_ratios':[1.15,1]})
+for i,arm in enumerate(arms):
+    row=next(r for r in data['grouped'] if r['arm']==arm)
+    scores=[r['accuracy_pct'] for r in data['logical_bank_outcomes'] if r['arm']==arm]
+    axes[0].bar(i,row['mean_accuracy_pct'],color=colors[i],width=.65,zorder=2)
+    axes[0].scatter(i+np.linspace(-.17,.17,32),scores,s=11,color='#17243a',alpha=.4,zorder=3)
+    axes[0].text(i,86,f"{row['mean_accuracy_pct']:.2f}%",ha='center',color=colors[i],weight='bold')
+axes[0].set(xticks=range(4),xticklabels=labels,ylim=(0,100),ylabel='Returned-board accuracy (%)')
+axes[0].set_title('Fixed noisy data and common search',loc='left',weight='bold',pad=16)
+axes[0].grid(axis='y',alpha=.15)
+struct={r['arm']:r for r in data['source_audit']['grouped']}
+x=np.arange(4)
+axes[1].bar(x-.17,[struct[a]['exact_banks'] for a in arms],width=.32,color='#447bb7',label='Exact graph',zorder=2)
+axes[1].bar(x+.17,[struct[a]['all_true_retained'] for a in arms],width=.32,color='#16887d',label='Every true edge retained',zorder=2)
+for i,a in enumerate(arms):
+    for offset,key in [(-.17,'exact_banks'),(.17,'all_true_retained')]:
+        y=struct[a][key];axes[1].text(i+offset,y+.7,str(y),ha='center',fontsize=10)
+axes[1].set(xticks=x,xticklabels=labels,ylim=(0,39),yticks=[0,8,16,24,32],ylabel='Training banks (of 32)')
+axes[1].set_title('The fixed PL transform drops true edges',loc='left',weight='bold',pad=16)
+axes[1].legend(frameon=False,fontsize=9,loc='upper left',ncol=1)
+axes[1].grid(axis='y',alpha=.15)
+fig.suptitle('A clean-data transformation fails under label noise',x=.065,ha='left',fontsize=20,weight='bold')
+fig.text(.065,.205,'Paper recipe vs restricted counts: −59.98 pp [−72.27, −46.94]; frozen 2 pp NI target falsified.',fontsize=12,weight='bold',color='#a44330')
+fig.text(.065,.055,
+ '32 fresh banks × 600 boards; nine wrong free digits per board. 10,000 shared research puzzles, fixed search seed 0.\n'
+ 'Four chains × 262,144 moves; unit weights, zero biases and stopping threshold. 128 logical cells → 53 unique searches.\n'
+ 'Wrong certified stops: paper recipe 240,000 / 320,000; all other arms 0. Zero observed errors do not prove soundness.\n'
+ 'AdamW is a fixed untuned control with different regularization. Dots show banks; the interval resamples banks and puzzles.',
+ fontsize=9.3,color='#526075',linespacing=1.45)
+fig.subplots_adjust(left=.075,right=.98,top=.82,bottom=.36,wspace=.25)
+for extension in ['png','svg']:
+    fig.savefig(out/f'noisy-pl.{extension}',dpi=190,bbox_inches='tight',facecolor='white',metadata={'Date':None} if extension=='svg' else None)
+plt.close(fig)
+(out/'noisy-pl-provenance.json').write_text(json.dumps(dict(renderer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+ inputs_sha256={source:hashlib.sha256((ROOT/source).read_bytes()).hexdigest()},matplotlib=matplotlib.__version__,numpy=np.__version__),indent=2)+'\n')

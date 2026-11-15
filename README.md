@@ -26,6 +26,10 @@ Hidden solution labels can also be removed: counts from **3,000 partially observ
 
 ![Graph recovery under label noise across independent fresh training banks](assets/figures/noise-source-replication.png)
 
+The fixed learned transformation is less robust at 600 noisy boards: the paper recipe solves **20.27%**, versus **80.25%** for restricted counts, and produces 240,000 wrong stops across 320,000 logical evaluations. An untuned AdamW control reaches 78.03% with zero observed wrong stops. All arms use the same zero-threshold search; optimizer and regularization differences remain explicit. [Noisy-label comparison and audited graph failures →](research/20261114/foureyes/REPORT-noisy-pl.md)
+
+![Noisy-label likelihood fits versus count controls, including true-edge retention](assets/figures/noisy-pl.png)
+
 The earlier intervention result remains useful: digit symmetry and repulsion increased low-data accuracy by **47.83 points** on a separate reserved slice. Counting explains why the transformed models recover the same graph. [Earlier matched results →](research/20261114/ripper/REPORT-heldout.md)
 
 ## Choose useful clues—even when labels are noisy
@@ -36,7 +40,11 @@ With **1% independent noise in queried labels**, adaptive querying plus a sequen
 
 Each policy receives **1,500 training boards × 25 queries** per board. The 32 source-bank runs share the same 10,000 test puzzles and fixed short search budget. Complete stored solutions act as a simulated label oracle; only queried, corrupted digits reach the policy. The evidence rule is supplied the **exact 1% noise law**. Its conditional guarantee protects true constraints under that law; it does not guarantee exact graph recovery or solve accuracy. [Sequential evidence proof, controls and audit →](research/20261114/ripper/REPORT-noisy.md)
 
-Noise calibration matters: using a conservative **2% upper bound when actual noise is 1%** preserves true constraints but falls to **57.10%** versus **78.98%** for exact calibration on a separate fresh cohort, falsifying the frozen 10-point noninferiority target. [Conservative-bound control →](research/20261114/ripper/REPORT-noise-bound.md)
+**The noise bound can be estimated from repeated queries.** On a fresh cohort, a bound learned from 10,000 independently corrupted query pairs reaches **74.21%**, versus **76.13%** with exact noise knowledge. The paired difference is −1.93 points, with a 95% interval of [−4.42, +0.61], passing the frozen 5-point noninferiority margin with zero wrong stops. This costs **57,500 total queries per bank**, versus 37,500 for the known-noise controls; query efficiency remains a separate question. [Calibration proof, costs and independent replay →](research/20261114/ripper/REPORT-calibrated.md)
+
+![Estimated noise bounds recover most of the exact-calibration accuracy, with query costs shown](assets/figures/repeated-query-noise-calibration.png)
+
+Noise calibration matters: using a conservative **2% upper bound when actual noise is 1%** preserves true constraints but falls to **57.10%** versus **78.98%** for exact calibration on a separate fresh cohort, falsifying the frozen 10-point noninferiority target. [Conservative-bound control and figure →](research/20261114/ripper/REPORT-noise-bound.md)
 
 The noiseless experiments remain separate: a mixture query score reduced extra constraints by **50.6%** versus the previous policy; a fresh ablation found the simpler exponential score noninferior under the frozen margin. At **600 boards × 25 queries**, exponential querying recovered the exact graph in **243/256 fresh source-bank draws**, passing the frozen 90% recovery target. [Original improvement](research/20261114/ripper/REPORT-spike.md) · [Ablation](research/20261114/ripper/REPORT-exponential.md) · [Independent recovery confirmation](research/20261114/ripper/REPORT-recovery-confirm.md)
 
@@ -82,11 +90,15 @@ The maze step-size benefit has a limit: a new maze with many tied shortest paths
 
 A stronger check proves that the invalid endpoint-only answer is the **unique global binary minimum** on one selected maze, for all three frozen models. A public verifier checks exact rational certificates over **4,434 free binary cells**, with the hidden readout and wall/endpoint clamps fixed. This is an objective-level counterexample, not a claim about other graphs or the continuous energy. [Derivation and full certificates](research/20261114/work/global-bound-derivation.md) · [Standalone verifier](research/20261114/work/verify_global_bound.py)
 
+A matched training intervention then fixes label-versus-endpoint ranking on all **4,096 fresh mazes**, but drops joint shortest-path solves from **4,089 to zero**. The failed outputs select about 92% of free cells; nearly every correct label still remains a local minimum. Improving one energy ranking is insufficient to make the decoder solve the task. [Training controls, full diagnostics and figure →](research/20261114/work/REPORT.md)
+
 The learned Sudoku pipeline's four-million-move **99% all-seed joint-success hypothesis was inconclusive**, despite 99.635% mean accuracy. The sixteen-million-move secondary endpoint passed. Projection still fails at extremely low data; largest-gap pruning collapses without spatial augmentation; and maze mass rescaling gives no improvement. [All hypotheses, including negative and inconclusive outcomes →](results/README.md)
 
 Learning valid constraints at one board size does not guarantee transfer to a larger board. For superqueens, a source-based hybrid model reaches **37.23%** on larger N13 boards while the supplied-rule oracle reaches 100%. Some exclusions inferred from all N12 solutions become false at N13. Adding every N11 solution leaves the model unchanged. [Superqueen boundary →](research/20261114/loki/h3l/REPORT.md) · [Smaller-source control →](research/20261114/loki/h3m/REPORT.md)
 
 A larger prospective upward-transfer test also **falsifies** the frozen 0.1-point noninferiority target: the full N14 superqueen source gives **99.6419%** on N15 versus **99.9410%** for the supplied-rule oracle. Extra exclusions leave 49 of 16,384 inputs without any valid certificate. The earlier smaller test remains inconclusive. [Confirmation and structural audit →](research/20261114/loki/h3p/REPORT.md)
+
+Learning soft weights does not automatically fix transfer. On queen-plus-camel boards, grouped BP AdamW reaches **75.63%** versus **88.75%** for matched filtered counts, with **9,965 wrong stopped chains**. Independent energy reconstruction confirms that negative interactions can compensate for real conflicts and satisfy the source-trained certificate. [Matched optimizer control and failure mechanism →](research/20261114/loki/h3u/REPORT.md)
 
 Fixed Sudoku restarts also failed their frozen +0.1-point improvement target: the gain was +0.012 points, with a paired 95% interval [−0.068, +0.093]. [Restart control and full curve →](research/20261114/foureyes/REPORT-restart.md)
 
@@ -123,6 +135,6 @@ This [small public API](src/hopfield_cram/counting.py) supplies no cell geometry
 
 The readable implementation is in [src/hopfield_cram](src/hopfield_cram/). Full-scale runs use the pinned upstream kernels and the isolated [research runners](research/20261114/). [Setup, data preparation and rerun instructions](docs/RERUN_GUIDE.md) explain their hardware and dataset requirements; [implementation notes](docs/IMPLEMENTATION.md) explain the algorithms.
 
-Public [JSON/CSV results](results/README.md), [figure sources](docs/FIGURES.md), protocols and audit hashes are included. Large datasets, checkpoints and raw board archives are excluded from Git. The [development history and original completion snapshot](results/reproduction/README.md) are retained separately. Research is ongoing; only audited results appear above.
+Public [JSON/CSV results](results/README.md), [figure sources](docs/FIGURES.md), protocols and audit hashes are included. Large datasets and raw board archives are excluded from Git; the small maze training checkpoints and source fixtures are included. The [development history and original completion snapshot](results/reproduction/README.md) are retained separately. Research is ongoing; only audited results appear above.
 
 Code: [Apache 2.0](LICENSE). Paper and its converted assets: CC BY 4.0. [Attribution and scope](NOTICE.md).

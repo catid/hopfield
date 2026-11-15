@@ -1,0 +1,131 @@
+{
+  "id": "H3u-grouped-soft-weight-transfer",
+  "frozen_utc": "2026-11-15T01:37:54.297608+00:00",
+  "hypothesis": "Matched grouped BP AdamW improves certificate-first N20 accuracy over the exposure-filtered count control by at least5percentage points, with zero wrong stopped chains.",
+  "antecedent": "Adaptive follow-up to H3t camel-family filter falsification. No H3u optimizer fit or target search has been run. Target universe and prior cohorts are known; this reserves new search keys.",
+  "arms": [
+    {
+      "arm": "bp-adamw-grouped"
+    },
+    {
+      "arm": "count-hybrid"
+    },
+    {
+      "arm": "exposure-filtered"
+    },
+    {
+      "arm": "supplied-rule-oracle"
+    }
+  ],
+  "architecture": "Use all176 unique N12 camel-family source patterns. Infer primitive homogeneous lines by unchanged H3t rule; four disjoint lines share one coefficient each. Each of220 off-line finite offsets gets its own coefficient. One shared unary. Total224couplings+1unary. All arms use this SAME parameterization; old264+1untied architecture is outside this study.",
+  "line_family": "Enumerate integer(a,b) in[-2,2]^2 except(0,0), gcd(abs(a),abs(b))=1, canonical sign(first nonzero positive). A line is a*dr+b*dc=0. Retain iff it contains>=3 zero-count offsets in that arms source domain and0 positive-count offsets. Retain all qualifying lines; no target selection.",
+  "controls": "Source J=12*forbidden\u22121,b=0. Count retains every observed-zero finite offset; filter retains iff E=sum(m_i*m_j)/176 >=ln(264/.01). Inferred lines are retained unfiltered. Privileged oracle supplies queen+camel attacks under the same grouping, scale and source calibration.",
+  "fit": {
+    "optimizer": "torch.optim.AdamW",
+    "lr": 0.3,
+    "weight_decay": 0.01,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "foreach": false,
+    "preconditioner": false,
+    "updates": 4000,
+    "cosine_denominator": 4000,
+    "initialization": "allcouplings and unary zero",
+    "seed": 0,
+    "dtype": "float32",
+    "tf32": false,
+    "objective": "Exact full PL over all176 solutions and each of their298 one/two/three-clue subsets. Occupied free-cell multiplicity231, empty298; normalize by sum of free-cell counts. No target label or partial-input multiplicity used.",
+    "calibration": "Independent float64 reconstruction from final stored float32 source parameters: delta=min allsource/cell flip margin; tau=max source energy; unit=mean absolute source field. Equal complete-source multiplicity298 cancels in unit. Transfer all three scalars unchanged.",
+    "eligibility": "Require finite parameters, finite delta/tau/unit, unit>0 and delta>0. Any failed source-fit eligibility criterion falsifies the primary as source-fit failure: save fit evidence, do not retune, do not run optimizer target searches. All fixed controls still run."
+  },
+  "transfer": "Copy every source coupling and shared unary unchanged to N13. Extend each inferred line coefficient to all target offsets on that line. For newly representable off-line offsets use fixed\u22121background. Same convention for all arms. q13 is supplied only as common cardinality stop gate. No q-based coefficient, delta or temperature rescaling; differs from H3tJ13, so all controls rerun.",
+  "search": {
+    "n": 13,
+    "unique_inputs": 4096,
+    "chains": 20,
+    "cap": 20000,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "temperature": 1.0,
+    "margin": 0.001,
+    "stop": "strict local margin plus q13gate",
+    "floating_operations": "57461+859*moves",
+    "cardinality_integer_additions": "168*(moves+1)"
+  },
+  "primary": {
+    "arm": "bp-adamw-grouped",
+    "control": "exposure-filtered",
+    "accuracy_gain_pp": 5.0,
+    "required_wrong_stops": 0
+  },
+  "decision": "If source gate fails: falsified(source-fit eligibility). Else support iff paired-input bootstrap one-sided95% lower accuracy gain>=5pp and wrong stopped chains=0; falsify iff upper gain<5pp OR any wrong stopped chain; otherwise inconclusive. Bootstrap2000draws, seed20261114, three search seeds clustered within each input. All other comparisons and coverage descriptive.",
+  "numeric_audit": "Independently reconstruct source calibration, all target coefficients and unary in float64; recompute every saved board energy and free-cell margin. Report energy error extrema/quantiles, strict negative stopped gaps and counts below\u22121e\u22126/\u22121e\u22124/\u22121e\u22123, near-threshold counts at1e\u22126/1e\u22124/1e\u22123, and exact-energy selector disagreements. Any stopped deficit below\u2212.001 or maximum saved energy discrepancy>.1 prevents a supported conclusion (numerical audit inconclusive) without retuning or rerunning. Wrong-stop falsification takes precedence. Exact certificate capacity includes unary terms.",
+  "identity": "Deduplicate exact S,B,q,delta,tau,unit only, before target inference; retain every logical arm with explicit outcome mappings if any.",
+  "validation": "Before fit compare grouped binary PL to literal two-state full-row source fixture in float64 and CPU/GPU loss/gradients on actual176source patterns; verify two AdamW updates against independent moment equations. Before search independently reconstruct all groups, coefficients, source calibration, transfer and every dataset count; frozen backend synthetic parity on CPU/GPU.",
+  "dataset": {
+    "status": "reserved_before_soft_fitting",
+    "utc": "2026-11-15T01:37:54.259970+00:00",
+    "source_patterns": 176,
+    "source_n": 12,
+    "target_n": 13,
+    "target_solutions": 1932,
+    "target_unique_inputs": 4096,
+    "target_input_seed": 2026112511,
+    "target_eligible_pool": 177697,
+    "prior_target_keys": 22528,
+    "prior_target_input_overlap": 0,
+    "target_by_clues": {
+      "1": 2,
+      "2": 218,
+      "3": 3876
+    },
+    "all_compatible_target_completions": 15639,
+    "distribution": "Uniform unique valid1/2/3-clue inputs, excluding H3j/k/l/m/n/t N13 search keys. Target universe was already enumerated in H3t.",
+    "input_sha256": {
+      "research/20261114/loki/h3u/prepare.py": "21091a0eb35e101bb6a281902e7dc8c6be6f874462aa9c7023f89d9b286fe70f",
+      "artifacts/research/20261114/loki/h3t/input-universe.npz": "b16569ce94a255103a42ed81c1ecf0873f4fe56ddd50a1658694eae19ec82fe8",
+      "artifacts/research/20261114/loki/h3t/data.npz": "94b14cc9f8de57674b4877662f46501c907bfe29fc08e8b12ea790ad800f1220",
+      "artifacts/research/20261114/loki/h3t/solutions-n12.npy": "509cca770756fdce427345ef6400d69e1f96e4677d30535ee62f8d2385a71ba8",
+      "artifacts/research/20261114/loki/h3t/solutions-n13.npy": "c6d9786fbeb885aed2e69ec37ebcfa0904caab7d5a2e90064b3e8c650aba56cf"
+    },
+    "output_sha256": {
+      "training.npz": "d81d6f9425378a0529a79ebfb08d2a5546e8f8d9eb693dba2c5d2f8f71034466",
+      "data.npz": "cff2fa017a5bbc259fb4725a6a711812940dd33d76552be123ca3bd8be9a8263"
+    }
+  },
+  "budget": {
+    "fit_gpu_worker_seconds_envelope": 120,
+    "search_gpu_minutes_envelope": 20,
+    "logical_search_jobs": 12,
+    "optimizer_fits": 1
+  },
+  "source_sha256": {
+    "research/20261114/loki/h3u/driver.py": "ceb8eae804643b6fd08eaa442475c494ec614653b348bd0403238c4c9f565b38",
+    "research/20261114/loki/h3u/prepare.py": "21091a0eb35e101bb6a281902e7dc8c6be6f874462aa9c7023f89d9b286fe70f",
+    "research/20261114/loki/h3u/preflight.py": "2862719850d051cddfb3f3d615392156b80abb4ca409b028501c864546d03cc7",
+    "research/20261114/loki/h3u/reuse_identities.py": "f30901d5e1630be1698db0b5cbef2b179e936cdfb3c9808d921cabf2e366f1f7",
+    "research/20261114/loki/h3i/backend.py": "7aeda1358924718b3547797dd885b4fdb7fffb650284c29a11f5135451deba4b",
+    "research/20261114/loki/study.py": "7c48de391879dc2f4b4f14459698afbc84c82cb3e89030e0ba4814d4fd74b552",
+    "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623",
+    "research/20261114/loki/h3t/protocol.json": "b706b739d5d0bb9d8d94033e1e79d4d4ba9b71c13cdbb37b89ff0b161d9826a9"
+  },
+  "data_sha256": {
+    "artifacts/research/20261114/loki/h3u/training.npz": "d81d6f9425378a0529a79ebfb08d2a5546e8f8d9eb693dba2c5d2f8f71034466",
+    "artifacts/research/20261114/loki/h3u/data.npz": "cff2fa017a5bbc259fb4725a6a711812940dd33d76552be123ca3bd8be9a8263",
+    "artifacts/research/20261114/loki/h3u/dataset.json": "19c5066ff85f78273cfbb29c66892301d1fdee4a71035d4df1bf629044d24a9f"
+  },
+  "limits": [
+    "One complete source universe, one zero-initialized optimizer trajectory; search seeds are not independent source/fitting replicas.",
+    "Shared line architecture, default\u22121background and q13 are supplied priors. The grouped BP AdamW is a matched control, not the original264+1model.",
+    "Native source calibration may transfer poorly. No N13 calibration or target-driven tuning.",
+    "New matched energies/settings differ from H3t symbolic q13 construction; do not pool or relabel its results.",
+    "Exposure filtering remains an independence-model heuristic."
+  ]
+}

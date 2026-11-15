@@ -22,3 +22,5 @@ Inference uses the same 10,000 new full-all inputs [230000,240000) across 32 pai
 The earlier exact-calibration H1y result remains unchanged. The implementation pilot and earlier studies are not pooled. Other accuracy contrasts and structural comparisons are descriptive and unadjusted.
 
 [Protocol](protocol-noise-bound.json) · [Upper-bound proof](NOISE_UPPER_BOUND_EPROCESS.md) · [Policy](noise_bound_policy.py) · [Acquisition](noise_bound_acquire.py) · [Replay](audit_noise_bound_acquisition.py) · [Search](noise_bound_search.py) · [Audit](audit_noise_bound.py) · [Public results](../../../results/research/ripper/noise_bound.json)
+
+![Accuracy cost of conservative noise calibration](../../../assets/figures/conservative-noise-calibration.png)
