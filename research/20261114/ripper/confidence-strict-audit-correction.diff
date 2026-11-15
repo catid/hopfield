@@ -1,0 +1,61 @@
+--- audit_confidence_strict.py
++++ audit_confidence_strict_corrected.py
+@@ -13,6 +13,10 @@
+ 
+ def main():
+     p = load_protocol()
++    amendment = json.loads((HERE/'confidence-strict-audit-correction.json').read_text())
++    assert amendment['corrected_auditor_sha256'] == sha(__file__)
++    assert amendment['original_auditor_sha256'] == sha(HERE/'audit_confidence_strict.py')
++    assert amendment['protocol_sha256'] == sha(PROTOCOL)
+     manifest = json.loads((OUT/'models.json').read_text())
+     model_audit = json.loads((OUT/'model_audit.json').read_text())
+     input_audit = json.loads((OUT/'input_audit.json').read_text())
+@@ -34,9 +38,9 @@
+         path = ROOT/entry['path']
+         assert sha(path) == entry['sha256']
+         z = np.load(path)
+-        weight = z['weight 16']
++        weight = z['weight16']
+         assert np.array_equal(z['support'], weight > 0)
+-        assert hashlib.sha256(weight.tobytes()).hexdigest() == entry['weight 16_bytes_sha256']
++        assert hashlib.sha256(weight.tobytes()).hexdigest() == entry['weight16_bytes_sha256']
+         models[entry['arm'], entry['seed']] = weight
+     datafile = ROOT/'upstream/data/full-test/full-all.npz'
+     assert sha(datafile) == p['test_data_sha256']
+@@ -54,7 +58,7 @@
+         directory = entry['canonical_directory']
+         key = entry['arm'], entry['seed']
+         weight = models[key]
+-        assert hashlib.sha256(weight.tobytes()).hexdigest() == entry['weight 16_bytes_sha256']
++        assert hashlib.sha256(weight.tobytes()).hexdigest() == entry['weight16_bytes_sha256']
+         assert np.all(weight[true] > 0)
+         if directory in seen:
+             assert np.array_equal(weight, seen[directory]['weight']) and entry['seed'] == seen[directory]['seed']
+@@ -74,7 +78,7 @@
+         expected = dict(temp=.4, theta=.45, focused=True, C=4, tau=0., tol=.001, ebar=0.,
+                         cap=4e11, check=4096, seed=entry['seed'], anneal=[.4,.31,524288])
+         assert receipt['search_kwargs'] == expected
+-        assert receipt['weight 16_bytes_sha256'] == hashlib.sha256(weight.tobytes()).hexdigest()
++        assert receipt['weight16_bytes_sha256'] == hashlib.sha256(weight.tobytes()).hexdigest()
+         for name, digest in receipt['output_sha256'].items():
+             assert sha(d/name) == digest
+         if not is_new:
+@@ -82,7 +86,7 @@
+             assert sha(d/'receipt.json') == previous['artifact_sha256'][relative]
+         searched = torch.load(d/'searched_model.pt', weights_only=True, map_location='cpu')
+         assert torch.equal(searched['W'], torch.from_numpy(weight.astype(np.float32)/16)[:,None,None]*torch.eye(9))
+-        assert not searched['B'].any() and np.array_equal(searched['weight 16'].numpy(), weight)
++        assert not searched['B'].any() and np.array_equal(searched['weight16'].numpy(), weight)
+         z = np.load(d/'boards.npz')
+         boards, stopped, moves = z['boards'], z['stopped'], z['moves']
+         assert np.array_equal(z['solutions'], target) and np.array_equal(z['free'], free)
+@@ -174,7 +178,7 @@
+         'total_allocated_gpu_s':gpu_seconds,'new_queries':0,'queries_per_original_fit':29750,
+         'fresh_test_inputs':5000,'bootstrap_draws':5000,'bootstrap_seed':p['bootstrap_seed'],
+         'artifact_sha256':hashes,'protocol_sha256':sha(PROTOCOL),'audit_sha256':sha(__file__),
+-        'limitations':p['limitations']}
++        'limitations':p['limitations'],'audit_correction':amendment}
+     # Recheck complete-board source overlap for the NEW cohort, independently of prior H1ai outcomes.
+     sources=json.loads((prior/'input_manifest.json').read_text());targetbytes=np.ascontiguousarray(target).view(np.dtype((np.void,81))).ravel();overlaps=[]
+     for entry in sources['inputs']:

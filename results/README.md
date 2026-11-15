@@ -3,12 +3,14 @@
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
 - [Exact compilation of learned queen constraints versus GPU search](../research/20261114/loki/h3ae/REPORT.md)
+- [Stricter confidence weights on fresh puzzles: retained failed targets and auditor correction](../research/20261114/ripper/REPORT-confidence-strict.md)
 - [Oracle diagnosis of the confidence-weight budget boundary](../research/20261114/ripper/REPORT-confidence-oracle.md)
 - [Confidence-weighted Sudoku under 5% query noise](../research/20261114/ripper/REPORT-confidence-weight.md)
 - [Confidence weighting at half the training budget](../research/20261114/ripper/REPORT-confidence-budget.md)
 - [Queen search across four freshly fitted source banks](../research/20261114/loki/h3ac/REPORT.md)
 - [Matched-time search on two additional queen families](../research/20261114/loki/h3ad/REPORT.md)
 - [Maze hard-negative constraints and fresh transfer](../research/20261114/work/REPORT.md)
+- [Coefficient-magnitude weights on fixed likelihood supports](../research/20261114/foureyes/REPORT-canonical-weights.md)
 - [Convex digit-invariant PL: accuracy, incorrect stops and exact soundness proofs](../research/20261114/foureyes/REPORT-canonical-study.md)
 - [Sudoku projection, sparsity and held-out tests](research/ripper/README.md)
 - [Sudoku count-energy and long-budget study](../research/20261114/foureyes/REPORT-budget.md)

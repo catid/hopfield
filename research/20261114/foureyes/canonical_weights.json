@@ -1,0 +1,55 @@
+{
+  "id": "H4x-coefficient-magnitude-weights",
+  "frozen_utc": "2026-11-15T04:26:16.717801+00:00",
+  "scope": "Adaptive post-hoc mechanism study on H4w64 frozen weak-penalty fits and the same already-seen10k inputs. No fresh generalization claim.",
+  "arms": [
+    "uniform",
+    "magnitude",
+    "shuffled"
+  ],
+  "banks": 64,
+  "rows_half_open": [
+    390000,
+    400000
+  ],
+  "search_seed": 0,
+  "rule": "For each canonical_weak J: threshold=np.median(J[J>0])/4 inFP64; J>=threshold gets16,0<J<threshold gets1,else0; divideby16 forinference. No geometry or labels inassignment.",
+  "shuffle": "Permute magnitude weight16 values only among positive-support positions with NumPy default_rng(202611330000+bank). Same multiset and support.",
+  "shuffle_seed_base": 202611330000,
+  "primary": "Magnitude minus uniform >=10pp AND magnitude minus shuffled >=10pp, withzero invalid certified stops across allarms.",
+  "interval": "5000paired two-waybank/input bootstrapdraws; seed20261116011 foruniform and20261116012 forshuffled. Marginal95 intervals, no simultaneouscoverageclaim.",
+  "secondary": "Absoluteaccuracy andcertified/capped decomposition descriptive; no accuracyfloor target.",
+  "numerical_gate": "Every newsearch uses150general/sparse,132hidden-target and6scaled-integer checks, including127unrefreshedmoves. ExactASTequivalence validates archivedrestart0backend reuse.",
+  "inference": "Unchanged unit1,temp.4->.31,theta.45,C4,tau0,ebar0,tol.001,cap262144moves,anneal524288,check4096,seed0. Positiveweights preservezero set.",
+  "budget": {
+    "search_phase_wall_seconds": 450,
+    "total_gpu_minutes_upper_bound": 30
+  },
+  "source_sha256": {
+    "research/20261114/foureyes/canonical_weights.py": "fe6517ee7403fb0d5edc147bb56f2a29d1edfa9679fb701c5e3e7231438261e4",
+    "research/20261114/foureyes/audit_canonical_weights.py": "3bb0c67b75099c3d048369ebaf2b00127ea0b22085b0598b3062622bd8dbc22a",
+    "research/20261114/ripper/confidence_weight_search.py": "008402a6bbaa3a892e1b3f5fcf88a20d5f9484f85cdf79735b06bde4161d1e56",
+    "research/20261114/ripper/confidence_weight_common.py": "91c037edd774ac77ddd02c768f543c8bcca625ca48492862154e10eb01ffd696",
+    "research/20261114/ripper/confidence_integer_audit.py": "409697edab28ed19a42c93d60864bd2c9a7152880f3e2d3b9a0cb5e25869a248",
+    "research/20261114/ripper/sparse_backend.py": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+    "research/20261114/ripper/run.py": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+    "research/20261114/ripper/bootstrap_two_way.py": "b4ae5dbccbc7f893f509eaf7b35ae239055f6f7633ac00921b45008761949e43",
+    "research/20261114/foureyes/restart_capture.py": "801f17ab24fe6d8d7f7fe381f7829ab65bed56625413bd7d1b1461b95ef7c7a4",
+    "research/20261114/foureyes/restart_backend.py": "fd02c4f71574a6e0545c4f7aae54f3ddfeb9321f4c4f840c02ee5a213d814c0e",
+    "research/20261114/foureyes/canonical_study.json": "5196283d1fbf72f057ea24becd7ab4b4fb0f7b82be6f85ecaafe4b0f38e45e37",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871"
+  },
+  "input_sha256": {
+    "results/research/foureyes/canonical_study/models.npz": "202143b642ece4944303766d48845250a5f1cc89e89edde153124047ed37ac03",
+    "results/research/foureyes/canonical_study/summary.json": "fb87aebb114110c589de5ecba359120a1babc9d06f5cfd215e0594355fc97ca6",
+    "results/research/foureyes/canonical_study/audited-outcome-bits.npz": "5ad516b41c55fd3aca6dfa08ec534f4c60af97770e6903f4d2b56a9f5ca27d4a",
+    "results/research/foureyes/canonical_study/certificates.json": "cc387856cc559d212854d91f02182f905baa0c0f2429c4ae0f3418dd6f32c95f",
+    "upstream/data/full-test/full-all.npz": "2fdc470ee042f11ffa61c89f606f39004d8914fca3312c88602d9f68212dec6c"
+  },
+  "baseline_equivalence": {
+    "capture_ast_equal_at_restart_zero": true,
+    "sparse_class_ast_equal": true
+  }
+}

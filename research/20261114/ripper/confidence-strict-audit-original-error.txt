@@ -1,0 +1,11 @@
+Captured original audit failure, tool session76027, after all96 H1ak searches completed:
+Traceback (most recent call last):
+  File "/home/catid/hopfield/research/20261114/ripper/audit_confidence_strict.py", line 212, in <module>
+    main()
+    ~~~~^^
+  File "/home/catid/hopfield/research/20261114/ripper/audit_confidence_strict.py", line 37, in main
+    weight = z['weight 16']
+             ~^^^^^^^^^^^^^
+  File "/home/catid/hopfield/upstream/.venv/lib/python3.13/site-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'weight 16 is not a file in the archive'

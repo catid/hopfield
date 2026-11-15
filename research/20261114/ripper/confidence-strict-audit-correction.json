@@ -1,0 +1,13 @@
+{
+  "id": "H1ak-final-auditor-schema-correction",
+  "frozen_utc": "2026-11-15T04:33:31.857689+00:00",
+  "protocol_sha256": "a92470f41aa8f7b98237f5069eab6352151d99a0caedd864f08e10cc31cd76ea",
+  "original_auditor_sha256": "c543ad2b16f770667c7d4198ec61c1de2ea38c185a6c684119d7c48e4359a470",
+  "corrected_auditor_sha256": "847a6b1b531a330b2488d3d65ebddff80e9fe7b84bd01e730326a85b3ec16abf",
+  "failure": "Original auditor failed before board decoding or aggregate outcomes: KeyError: 'weight 16 is not a file in the archive'.",
+  "cause": "A prose-spacing replacement in final-auditor preparation accidentally changed five schema-key literals weight16 or weight16_bytes_sha256 to weight 16 or weight 16_bytes_sha256.",
+  "correction": "Restore those five schema reads to the existing saved-artifact names. Add self-hash/original-hash/protocol-hash provenance checks and retain this addendum in the result. No other computation changes.",
+  "unchanged": "Original protocol, source/model assignments, inputs, search code, all96 completed GPU searches, budgets, bootstrap seed/draws, endpoints and decisions. Original failed auditor preserved.",
+  "new_gpu_runs": 0,
+  "numeric_or_statistical_changes": false
+}
