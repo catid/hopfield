@@ -7,6 +7,7 @@ These compact exports contain the measurements and provenance used by the reposi
 - [Queen search across four freshly fitted source banks](../research/20261114/loki/h3ac/REPORT.md)
 - [Matched-time search on two additional queen families](../research/20261114/loki/h3ad/REPORT.md)
 - [Maze hard-negative constraints and fresh transfer](../research/20261114/work/REPORT.md)
+- [Convex digit-invariant PL: accuracy, incorrect stops and exact soundness proofs](../research/20261114/foureyes/REPORT-canonical-study.md)
 - [Sudoku projection, sparsity and held-out tests](research/ripper/README.md)
 - [Sudoku count-energy and long-budget study](../research/20261114/foureyes/REPORT-budget.md)
 - [Sudoku fixed-restart control](../research/20261114/foureyes/REPORT-restart.md)

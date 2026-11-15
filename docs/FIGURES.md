@@ -9,6 +9,7 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 | Queen search across four source-bank fits | [Four-bank exports](../results/research/loki/h3ac/) | [plot_public.py](../research/20261114/loki/h3ac/plot_public.py) |
 | Queen search on two additional families | [New-family exports](../results/research/loki/h3ad/) | [plot_public.py](../research/20261114/loki/h3ad/plot_public.py) |
 | Maze hard-negative constraint transfer | [Hard-negative exports](../results/research/work/hard-negative-transfer-summary.json) | [plot_hard_negative_transfer.py](../research/20261114/work/plot_hard_negative_transfer.py) |
+| Convex digit-invariant PL and zero-stop soundness | [Canonical study](../results/research/foureyes/canonical_study/) | [plot_canonical_pl.py](../scripts/plot_canonical_pl.py) |
 | No-optimizer Sudoku and budget curve | [Count and learned exports](../results/research/foureyes/) | [plot_count_results.py](../scripts/plot_count_results.py) |
 | Sudoku counts from raw solutions | [Raw-count and PL exports](../results/research/ripper/) | [plot_raw_count_results.py](../scripts/plot_raw_count_results.py) |
 | Sudoku matched transformation control | [Transformed-PL exports](../results/research/foureyes/raw_transform/) | [plot_raw_transform_results.py](../scripts/plot_raw_transform_results.py) |

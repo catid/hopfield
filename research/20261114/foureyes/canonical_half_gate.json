@@ -1,0 +1,42 @@
+{
+  "id": "canonical-PL-half-penalty-positive-support-gate",
+  "frozen_utc": "2026-11-15T03:49:02.506737+00:00",
+  "banks": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "n": 600,
+  "raw_lambda": 0.00016666666666666666,
+  "updates": 256,
+  "initial_step": 540.0,
+  "dtype": "float64",
+  "input": "artifacts/research/20261114/foureyes/chernoff_replication/inputs-00.npz",
+  "noise": "artifacts/research/20261114/foureyes/chernoff_replication/shard-00/corruptions.npz",
+  "source_sha256": {
+    "research/20261114/foureyes/canonical_pl_gate.py": "9d325ee50a7493fc9a7b97e6edb55971abcd9a138892876cfab849f4091b8242",
+    "research/20261114/foureyes/canonical_pl.py": "8fdf94353b5144414e3f2697ad22e0e5207b7d26ee46463442fda83675dd1ab3",
+    "upstream/experiments/sudoku.py": "b73f72c8e874711d0d05fa75de0043442a20297618de62e5bb714b76aa09f20b",
+    "research/20261114/foureyes/canonical_half_gate.py": "7e2795dc8efa0c1815fe8d49e21c8823464077d2e01648e1116af7c4ed070eab"
+  },
+  "inputs_sha256": {
+    "artifacts/research/20261114/foureyes/chernoff_replication/inputs-00.npz": "9c68907b52ef453b406dc2cc35e2b4440f8c817b9be411f49b1c63f5595ef44e",
+    "artifacts/research/20261114/foureyes/chernoff_replication/shard-00/corruptions.npz": "be6b7dd6986bb6ad3d55cf51103563918da67b06f624e7138df40b876bb04511"
+  },
+  "conditions": [
+    "manualgradient equalsautograd",
+    "centralfinite-differences",
+    "independentraw-fullenergy loss equalscanonical",
+    "per-row digitpermutation invariance",
+    "exactorigin-gradient countidentity",
+    "CPU64/GPU64 supportsidentical andcoefficienterror<quarterthresholdseparation",
+    "everyaccepted objective/majorizergatepasses",
+    "CPU64/GPU64 exactpositive-support identity andminimumpositivecoefficient>4*coefficientdifference"
+  ],
+  "max_case_seconds": 120,
+  "scope": "Fourpreviousnoisysourcefixtures only; nofreshsourcegeneration,hyperparamsearch,targetdata orscientificinference.",
+  "proof_scope": "Uniformall9!digit-averagedrawPL withunorderedWentrywiseL1 hasaglobalmin atW=JI,B0,unrestrictedrealJ,penalty9lambda|J|. No samefiniteoptimizerpath orconvergenceclaim.",
+  "adaptive_reason": "Afterlambda/10canonicalfits passednumericalchecks butlargestgap retained1/3edges in2fixtures, plan directpositiveL1support. Lambda/2 is motivated by prior exactorigin/momentumfixed-point analysis; it is not equivalent to the paperfiniteoptimizer.",
+  "next_scientific_design": "Ifsourcegatespass, freeze64freshbanks: canonicallambda/2 positivesupport primary, canonicallambda/10 positivesupport secondary, conventionalBPAdamW32+fixedtransform, restrictedcount control. Primary2ppNIandzerowrongstops; nofreshdataaccessatgate."
+}
