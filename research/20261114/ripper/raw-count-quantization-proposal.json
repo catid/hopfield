@@ -1,0 +1,55 @@
+{
+  "id": "H1by-raw-count-quantization",
+  "status": "prospective_before_rawcount_study_objectives_or_new_LPs",
+  "hypothesis": "Replacing rounded Laplace pair costs with raw equality counts yields at least3 net triple90 recoveries and at most1 regression among previously exact triple90 banks, as separate finite targets.",
+  "scope": "All128 examined H1bw arms/full degree grids rerun on unchanged acquired observations. 64single270+64triple90; no new source/noise/label draws. Isolates rounded-cost objective from its unrounded equivalent under constant coquery exposure; solver tie outcomes may also change. Conditional archived-cohort intervention, not fresh reliability.",
+  "arms": [
+    "single270",
+    "triple90"
+  ],
+  "banks": 64,
+  "grids": 128,
+  "score": "For each pair use raw integer equal_count, with all pairs present. Verify joint_count identical across pairs:213single270 and71triple90. No smoothing, rate rounding, imputation, geometry or degree prior in cost construction.",
+  "equivalence": "Within an arm joint exposure m is constant. Exact unrounded Laplace rate objective=sum_e[(equal_e+1)/(m+2)]x_e=(raw_count_objective+81*d/2)/(m+2) at degree d. Positive scaling preserves within-degree optima. The degree-linear added term cancels exact second differences, so unrounded rate and raw-count curvature selectors agree, including lower-degree ties. This does not imply agreement with finite rounded costs or a particular optimal graph.",
+  "inference": "Fresh single-threadHiGHS degree1..40LPs for every arm, analyticdegree0, exact raw-count curvature1..39 lower-degree tie. Literal halfintegral proof, no snapping. Certified intermediate fractional LPs valid; selected fractional resolved failure; any uncertified required grid unresolved.",
+  "primary": {
+    "net_triple_gain": {
+      "required": 3,
+      "decision": "Newtriple S minus archived50; lower=S-50,upper=S+U-50; support lower>=3,falsify upper<3,otherwiseinconclusive."
+    },
+    "triple_regression": {
+      "maximum": 1,
+      "decision": "Fixed50 archived triple90successes. Lower=newresolvedfailures amongthem;upperaddsnewunresolved amongthem. Supportupper<=1,falsifylower>1,otherwiseinconclusive."
+    },
+    "separate_targets": true
+  },
+  "controls": "Fresh raw-count solves for all64single270 arms retained against their archived64/64 outputs. Every128old selected proof rechecked; old fullgrid selection/count/label provenance inherited from hash-bound H1bw. Prior H1bx9strict5cooptimal findings motivate this test, not evidence of rawcount causality.",
+  "diagnostics": "Every exact/nonexact/fractional/unresolved output; selecteddegree and ties; raw fixed20/top810diagnostics; single/triple pairedgainslosses; compare all oldselectedcertificates. Truth only after fitting. Optional exact truth-objective gap for newselecteddegree20 after fit; if degree differs, report degree mismatch rather than infeasiblegraphgap. Preserve original tiny rounded gaps, do not automatically reinterpret them.",
+  "source_data": "Only archived pair joint_count/equal_count plus parentprovenance available to scorer. No rawsource labels, cleanboards, latentnoise or truth graph. All128 parentmodel/receipt/protocol/summary hashes frozen before rawscore calculations.",
+  "solver_seed_base": 2028431502,
+  "seed_rule": "base+41*index+degree;index=2*bank+armindex;freshunusedexplicitseed scan before freeze, coverage limited to explicit seed fields.",
+  "budget": {
+    "max_cpu_workers": 8,
+    "aggregate_cpu_seconds": 900,
+    "wall_seconds": 180,
+    "new_LPs": 5120,
+    "new_analytic_zero_witnesses": 128,
+    "lp_wall_seconds": 1.0,
+    "gpu_seconds": 0
+  },
+  "budget_scope": "Inputsourcehashverification,all128countscore constructions,all5120LPs,independentnewgrids+128archivedselectedproofs+15744mutations if allcertified,pairedendpointsandexport. Registration/syntheticgates outside;publicreplays separate. No reduceddenominators/retries/extensions.",
+  "query_accounting": {
+    "new_source_draws": 0,
+    "new_noisy_queries": 0,
+    "new_clean_oracle_queries": 0,
+    "parent_physical_noisy_union": 2073600,
+    "parent_each_deployment_queries": 1244160,
+    "parent_shared_first_query90": 414720,
+    "official_noisy_label_sequence": 14687319,
+    "declared_combined_source_ledger": 2414270
+  },
+  "performance": "Reuse eight persistent bankworkers; avoid one Python startup pergrid. Bounded toy measurement checks constructingrawcosts and independentexact equivalence; no fillerGPU work or crossstudyfullspeedclaim.",
+  "synthetic_gate": "Exact rational affineobjectiverelation on feasibleintegral/fractionalgraphs;degreecurvatureaffineidentityandties;fixture where rounding breaks an exactrawcount tie;rawcostshape/range/exposure rejection;newproofmutations;allprimaryboundary/unresolved/pairedcases;sourcehash+seedbindings. No rawscore studyoutcomes beforefreeze.",
+  "interpretation": "Tests a particular quantization change on examineddata. Gains would not identify a deployable universal tie rule or fresh accuracy; losses/fractions/unresolved all retained. BP AdamWoutside scope,notrerun andfirstintables.",
+  "review": "Root design/source review beforefreeze andrun."
+}

@@ -1,0 +1,3 @@
+# H3bv: incomplete after 3,836 cases
+
+[Full report](../../../../research/20261114/loki/h3bv/REPORT.md). Certified Huffman pruning, compact RAM caches and canonical depth reuse extend coverage to 3,836/4,096 cases before the unchanged 2,000,000-state cap. All 260 pending cases and 9,515 paid queries remain. There is no primary outcome or partial-cohort saving claim. Complete external-archive auditing verifies the completed proofs, exact guards, reuse identities and query ledger; the compact package publishes its receipt and every raw/compressed proof hash. Full proof payloads remain outside Git on Loki and locally. Portable verification covers metadata/ledger; full optimality replay requires the external archive.

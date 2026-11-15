@@ -1,0 +1,71 @@
+{
+  "hypothesis_id": "H2bn",
+  "status": "proposal_before_source_review_freeze_or_execution",
+  "scope": "Actual BP-first geometry-routed LP96 execution on the complete already-examined H2bh cohort: 4096 mazes, three immutable model seeds, 12288 model-inputs. Source replay and implementation/cost study only; zero fresh accuracy samples or scientific-count increment.",
+  "motivation": "H2bm finds all 510 source BP errors have invalid simple-path geometry, whereas local certificates reject only one. The source mapping is already known and cannot supply new accuracy evidence. Test whether actual geometry-based routing preserves the archived LP96 successes and reduces complete answer-production cost when all required BP work, geometry, readiness, subset LP execution and mapping are charged.",
+  "review_only_timing_basis": {
+    "H2bh_published_answer_seconds": {"BP_native": 80.92307501111645, "LP96": 252.56626691942802},
+    "H2bh_published_separate_input_seconds": 0.4708617788273841,
+    "H2bh_published_separate_hidden_seconds": 13.88209523120895,
+    "scope_warning": "These existing receipts inform the bounded design only. They exclude hidden/input/model readiness from their charged-arm figures and are not the new complete-cost denominator or an assumed speedup. No new pilot, outcome mining or threshold search precedes freeze."
+  },
+  "controls_in_table_order": [
+    "BP AdamW native output actually executed as the candidate's first stage; accuracy/control context and separately labeled measured prefix cost",
+    "LP96 standalone control, independently executed on every source input",
+    "BP-first simple-path geometry screen with actual LP96 execution only on dynamically routed subsets"
+  ],
+  "routing": {
+    "predicate": "Run the unchanged BP native solver on each original batch of 32. On its actual returned board and input tokens, apply the frozen H2bm simple-path predicate. Retain a geometry-valid BP board; route a geometry-invalid board to LP96. No numerical certificate, hidden-convergence flag, label, shortest distance, success flag, input identifier, cross-model vote or source outcome enters routing.",
+    "numerical_accounting": "Numerical/hidden failures are retained as output failures under the original final acceptance rules; they do not change the geometry-only route rule. No failed or timed-out case is dropped. Full hidden convergence, finite/stopped flags, original own-model float64 margin at fixed -1e-6, fixed clamps and LP native/block caps remain explicit in final output acceptance and graph evaluation.",
+    "LP_subset": "Gather the routed token/coupling rows within each original 32-input batch and run the complete unchanged LP96 binary/veto/cycle/terminal dependency chain. The subset has its own actual solver trajectory. Scatter its final board, iterations, flags, caps, own margin and model provenance into the candidate output. Empty subsets receive explicit zero-execution receipts. The separately executed full LP96 control cannot substitute for subset execution.",
+    "hidden": "The candidate computes the original shared float32 hidden/readout once per full batch and gathers its couplings for routed LP rows. The standalone LP96 control independently recomputes its own hidden/readout; it cannot borrow candidate results.",
+    "limitations": "Simple-path geometry does not establish shortestness. Valid-but-longer BP paths would be retained and count as failures. This source cohort happens to contain none; the source experiment cannot establish a fresh absence or population guarantee."
+  },
+  "endpoints": [
+    {
+      "id": "source_LP96_joint_success_preservation",
+      "claim": "The actual candidate preserves every source maze jointly solved by LP96 across all three fixed models.",
+      "decision": "Support iff each of the four complete paired replays has zero joint losses relative to its verified LP96 control on all 4096 mazes; otherwise falsify. LP96 must reproduce the original 4095 joint source successes and 12285 model successes or the experiment is incomplete. Report paired gains/losses and model-level failures separately. No confidence interval or fresh accuracy claim."
+    },
+    {
+      "id": "complete_answer_cost_saving10",
+      "claim": "Median measured complete answer-production cost saving is at least 10 percent across four balanced complete-cohort pairs.",
+      "decision": "For each pair compute saving = 1 - candidate_complete_answer_seconds / control_complete_answer_seconds. Support iff the ordinary median of all four prespecified savings is at least 0.10; otherwise falsify. Report all four component totals, ratios and savings. No discarded timing pair, confidence interval, sequential stopping, extra repetitions or multiplication by earlier unrelated speedups."
+    }
+  ],
+  "cost_scope": {
+    "request_boundary": "Host token arrays are already loaded. Each arm's measured answer cost includes actual model construction, checkpoint loading, GPU transfer and required double-precision model readiness once per full three-model cohort; all host-token to GPU transfers; full hidden settlement/readout; all required decoders; required numeric acceptance margins and flags; geometry/scalar transfers; subset gather; final CPU board/counter/flag/certificate returns; and scatter/provenance mapping. All GPU segment endpoints synchronize. Each arm performs its own readiness and hidden work.",
+    "candidate": "Charge BP and LP model readiness even when a particular seed or batch has no route. Charge all BP inference, original own-margin computation, board transfer and geometry work on every input, plus every actual LP subset prefix/terminal operation, required margin/return and mapping. The BP first-stage cost is separately recorded, including its share of BP readiness/input/hidden/native/margin/return, and is labeled an executed candidate prefix rather than an independent paired BP service benchmark.",
+    "LP_control": "Load only the required LP model and its double precision diagnostic/certificate form. Execute its complete LP96 dependency chain on every input, preserving internal states for later audit but omitting unrelated BP inference and unnecessary intermediate-arm CPU returns. Exact full-prefix parity is mandatory before timings.",
+    "exclusions": "Interpreter/CUDA initialization, module imports, preloading host token arrays, provenance hashing, fixed warmups, independent audits and scientific serialization are outside the measured answer endpoint but inside their appropriate wall budgets. No physical disk durability or end-user service latency claim. Checkpoint loading occurs afresh inside each measured arm after common initialization and uses the same warm filesystem-cache regime.",
+    "measurement": "Complete answer cost is the sum of actual nonoverlapping readiness and per-batch answer-production wall segments, each containing all required CPU/GPU work; it is not a sum of modeled kernel estimates. Host-wide two-worker barriers require both workers to drain their archive tasks before model readiness and every answer segment, and both to finish timing before either performs diagnostic copies, archives or source-parity audits. The after-answer barrier is inside batch.run immediately after fixing answer_seconds, before any scientific coupling/state CPU copies. The two archive threads may overlap each other and untimed source-parity audits between timed stages. No independent CPU audit overlaps timed phases. Record all barrier waits, drain, setup and join separately inside the worker wall budget and outside answer cost. Barriers have a fixed 60-second wait cap, fail on peer failure/death and never retry. Preserve shared-host monotonic interval/arrival records and hashes for independent ordering verification."
+  },
+  "paired_schedule": {
+    "cohort_per_arm": "Every pair covers all 4096 original inputs and all three models in fixed seed-major, shard-major, batch-major order; no reduced shard cohort.",
+    "GPU0": [{"pair": 0, "order": ["LP96", "BP_geometry_LP96"]}, {"pair": 1, "order": ["BP_geometry_LP96", "LP96"]}],
+    "GPU1": [{"pair": 2, "order": ["BP_geometry_LP96", "LP96"]}, {"pair": 3, "order": ["LP96", "BP_geometry_LP96"]}],
+    "warmup": "Before timed pairs, both arms execute only the original first 32 source inputs for all three model seeds on each GPU. Warmups are fixed in advance, retained as source verification, excluded from the timing endpoint and included in the worker wall budget.",
+    "model_lifetime": "Construct/load each arm's required models afresh per measured full-cohort execution, retain them for all its batches, then release them. Neither arm receives an uncharged already-resident model from the preceding arm. Fixed source models and solver settings cannot change between pairs."
+  },
+  "mandatory_gates": {
+    "synthetic": "Test simple-path routing boundaries including valid longer paths, arbitrary numerical flags, all/empty/mixed route sets, source-index-preserving gather/scatter, explicit empty subsets, charge-component completeness, overwrite refusal and watchdog failure receipts. Numerical flags must not affect geometry routing.",
+    "complete_source_gate": "Before any timed replay, split even/odd original shards across the two GPUs and verify all 12288 source model-inputs. Recompute hidden/couplings and full BP and full LP96 outputs against the original archives. Execute every dynamically routed LP subset and compare all seven LP internal/final prefix states, iterations, finite/stopped/cap flags and decision traces to the corresponding original full-batch paths, after index normalization; compare couplings and final original margins. All source gates must pass a complete barrier before timing starts. A parity mismatch makes the experiment incomplete, not a reason to choose a different subset or solver.",
+    "review_freeze": "Parent design and full implementation review precede freeze. Bind proposal, complete implementation, synthetic gate, all source output/dataset/checkpoint/audit hashes and published timing evidence. No GPU source gate, source pilot or paired timing may run before that freeze."
+  },
+  "verification": "Preserve every actual BP prefix, standalone LP96 output, routed LP96 trajectory and candidate mapping, with immutable receipts and per-batch timing vectors. An independent CPU checker verifies complete identity with source full-batch boards/counters/flags, source-index normalized subset traces, every route using a separate degree/connectivity implementation, all acceptance flags and source graph outcomes, all complete-cohort joint comparisons, all four timing ratios/median, model-readiness charges, archive bounds and no overwritten/reduced output. Direct original-factor checks use the hash-bound source couplings and parameters. Fixed public controls plus all routed cases and any preservation failure are published; complete scalar rows cover all inputs and repetitions.",
+  "budgets": {
+    "source_gate_wall_seconds_per_GPU": 300,
+    "timed_worker_wall_seconds_including_warmups": 1500,
+    "two_GPU_timed_envelope_minutes": 50,
+    "host_barrier_maximum_wait_seconds": 60,
+    "two_GPU_source_gate_envelope_minutes": 10,
+    "CPU_independent_audit_wall_seconds": 600,
+    "CPU_audit_processes": 16,
+    "peak_CPU_RSS_GiB_per_GPU_worker": 8,
+    "bounded_archive_threads": 2,
+    "maximum_pending_archive_batches": 2,
+    "no_extension_or_replacement_pairs": true
+  },
+  "performance": "Use both Work GPUs for balanced complete-cohort pairs with host-wide timing/archival phase barriers, and split mandatory source gates by shard. Keep the existing bounded asynchronous lossless writer. Read only required source arrays; preserve full trace evidence for source parity while excluding scientific archive work from answer timing. The prefreeze timed-worker cap is 1500 seconds, based on four published LP cohort costs of about253 seconds plus fixed warmup/archive/audit/barrier allowance, not a new pilot or observed outcome. Live UUID/PID/process and per-batch counters verify useful progress. The 16-process independent CPU audit starts only after all timing receipts are sealed. No filler workload or timing-driven postfreeze optimization.",
+  "reporting": "Keep source execution preservation and measured cost hypotheses separate. BP AdamW appears first with clear prefix/published-scope labels. Report complete 4096-input denominators, actual routed counts, accepted-valid-longer failures if any, all four pairs including slow ones, exact cost inclusions/exclusions, and every incomplete or infrastructure failure. Even a successful source cascade requires a later fresh-cohort test before any new accuracy/generalization claim."
+}

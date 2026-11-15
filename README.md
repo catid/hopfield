@@ -4,7 +4,7 @@
 
 Independent implementation, reproduction and research extensions of [*Classical Energies Learn to Reason 1,000× Faster than Looped Models*](https://arxiv.org/abs/2611.17309v1), by Benjamin Hoover, Hugh Blayney and James C. R. Whittington. CRAM learns an energy function, then searches for low-energy answers. We test what learning, data and search each contribute.
 
-**Fresh dense-maze result:** all **4,096/4,096** 180×180 mazes solved across three fixed models, versus **3,905** for BP AdamW. [Audited results and limits](research/20261114/work/REPORT.md#h2bk-fresh-lp96-solves-40964096-the-fallback-branch-is-never-used)
+**Fresh dense mazes:** **4,096/4,096** solved across three fixed models, versus **3,905** for BP AdamW. A separate examined-cohort cascade cuts measured answer cost **37.03%**, preserves every LP96 success and rescues its one failure. [Results and scope](research/20261114/work/REPORT.md)
 
 [Reviewed paper](references/2611.17309v1.md) · [All results](results/README.md) · [Reproduction](REPRODUCTION.md) · [Run the code](docs/RERUN_GUIDE.md)
 
@@ -16,107 +16,41 @@ Connect cells that **never share a digit in training solutions**, assign weight 
 
 This headline uses ten base solutions with 99 stored Sudoku-symmetry variants each. **Augmentation supplies task knowledge.** A separate control recovers the same constraint graph from 100 distinct unaugmented solutions in all six samples. The estimator receives no cell geometry. [Budget, uncertainty and stopping proof](research/20261114/foureyes/REPORT-budget.md) · [Raw-data control](research/20261114/ripper/REPORT-raw-count.md)
 
-Under strong, concentrated label corruption, **LP cost curvature recovers all 64 graphs in a fresh confirmation without being given degree twenty**. Each bank contains 2,400 distinct rows, drawn after excluding 2,134,884 declared prior source IDs. Every bank selects twenty from the frozen degree grid, and all 2,560 optimizations have exact proof certificates. Equal degree and the bounded 0–40 grid remain supplied priors. Raw regularity recovers 3/64 and centered regularity 29/64 on the same observations. This measures graph recovery; it adds no new puzzle-solving result. [Fresh confirmation, controls and costs](research/20261114/foureyes/REPORT-fresh-curvature.md) · [Earlier examined-input study](research/20261114/foureyes/REPORT-degree-curvature.md)
-
-![Fresh confirmation: LP cost curvature recovers all 64 strongly corrupted graphs](assets/figures/fresh-curvature.png)
-
-The same selector also recovers **64/64 graphs in each of four synthetic families**, selecting degrees two, four, six and eight. These are randomly permuted cycles, cycle squares, cycle cubes and nine-clique graphs, with uniform proper-coloring samples and the same concentrated corruption. These specified families do not establish arbitrary regular-graph recovery. With only 600 rows, exact recovery falls to **55/64, 40/64, 30/64 and 4/64**, even though all degrees remain correct. [Reduced-data test and all failed targets](research/20261114/foureyes/REPORT-prefix-budget.md). [Degree-two/eight evidence](research/20261114/foureyes/REPORT-varying-degree.md) · [Connected degree-four/six evidence and inline graph](research/20261114/foureyes/REPORT-cycle-power.md)
-
-![Correct degree persists while exact graph recovery falls at smaller sample sizes](assets/figures/prefix-budget.png)
-
-**Most of these failures are not ties:** the true graph has strictly higher empirical LP cost in **385/394** failed cases. For 331, a wrong integral graph is cheaper; another 54 have a cheaper fractional optimum. Only nine failures leave truth co-optimal. [Exact gap diagnosis and implications](research/20261114/foureyes/REPORT-objective-gap.md)
-
-Three refinements fail on the examined 600-row banks: bootstrap voting reduces recovery from **129/256 to 108/256**, per-cell deficit normalization reaches **98/256**, and an attenuation correction given the **actual corruption locations** reaches **88/256**. All fail their separate recovery and loss targets. The last method uses privileged information; its failure does not rule out other uses of those masks. [Bootstrap and exact loss diagnosis](research/20261114/foureyes/REPORT-consensus-gap.md) · [Observable normalization](research/20261114/foureyes/REPORT-normalized-deficit.md) · [Privileged-mask correction](research/20261114/foureyes/REPORT-oracle-attenuation.md)
-
-**Known corruption locations recover all 256/256 graphs** when observations involving corrupted cells are discarded, versus 129/256 from the original counts. This uses privileged masks and row-aligned noisy observations on the same examined banks. Every resulting never-equal support already matches truth, so these supports need no LP. Both recovery and loss targets pass; learning such masks remains untested. [Complete observations, certificates and scope](research/20261114/foureyes/REPORT-corruption-censor.md)
-
-![Discarding known-corrupted observations recovers all 256 examined graphs](assets/figures/corruption-censor.png)
-
-**Spend the same label budget on more cells per board:** querying 72 cells on 200 boards recovers **32/32 noisy Sudoku graphs**, versus **6/32** from 32 cells on 450 boards. Both cost 14,400 labels per bank. This fresh paired experiment changes both pair coverage and the number of independent boards; it does not isolate either as the sole cause. [Frozen targets, query accounting and controls](research/20261114/ripper/REPORT-coverage-tradeoff.md)
-
-![Same label budget: broader observation per board recovers more exact graphs](assets/figures/coverage_tradeoff.png)
-
-When total pair coqueries are matched instead, dense acquisition recovers **31/32**, versus **30/32** for sparse acquisition, using 8,928 versus 20,448 labels per bank. The separate target of two additional recoveries is **falsified**. This fresh follow-up limits the advantage claim; equal pair totals still leave different exposure variance and dependencies. [Matched-pair-budget control](research/20261114/ripper/REPORT-matched-coquery.md)
-
-**Noise structure matters as well as its marginal rate.** On fresh 124-row banks, independent 5% digit corruption recovers **15/32 graphs**, versus **30/32** for bursty corruption at the same marginal rate. Matching true-edge collision probability instead restores 30/32. A separate fresh test recovers **32/32** under independent 5% noise with 248 rows, versus **12/32** on their literal 124-row prefixes. [Corruption-law control](research/20261114/ripper/REPORT-corruption-law.md) · [Doubled-data confirmation](research/20261114/ripper/REPORT-iid-row-budget.md)
-
-Balancing every pair’s exposure gives **32/32**, tying uniform masks at 5% noise. At 7.5% noise, it reaches **26/32 versus 25/32**; the prespecified four-recovery advantage fails. Equal exposure alone does not guarantee better recovery. [Balanced-mask control](research/20261114/ripper/REPORT-balanced-masks.md) · [Harder-noise test](research/20261114/ripper/REPORT-higher-noise.md)
-
-The curvature signal survives a stricter control: **all 32 real banks beat shuffled controls in both mask arms**, even when every cell’s observed digit histogram is preserved exactly. All 13 nonexact real graphs also pass this contrast, so detecting structure does not certify graph recovery. [Histogram-preserving control](research/20261114/ripper/REPORT-marginal-shuffle.md) · [Independent-label null](research/20261114/ripper/REPORT-null-signal.md) A subsequent fixed permutation test signals on **32/32 examined real banks and 0/32 fresh IID null banks**, while accepting all 13 nonexact real graphs. Its null calibration concerns structure detection; the real sensitivity is retrospective. [Signal test and its limits](research/20261114/ripper/REPORT-signal-detection.md)
-
-At **7.5% independent noise**, a fresh confirmation recovers **64/64 graphs from 270 rows**, versus **58/64 from their 180-row prefixes**. Every row queries 72 cells, for 19,440 noisy labels per bank. The ≥61 recovery target passes; the separate target of eight additional recoveries fails with six gains and no losses. [Fresh sources, fixed protocol and full costs](research/20261114/ripper/REPORT-fixed-270-confirm.md)
-
-![Fresh noisy Sudoku confirmation: all 64 graphs recovered, paired gain below target](assets/figures/fixed_270_confirm.png)
-
-**More boards beat repeated labels at equal query cost:** 270 boards queried once recover **64/64 graphs**, versus **50/64** from 90 boards queried three times. Majority decoding reduces observed label error to 1.148%, but both graph-recovery targets fail. Each arm spends 19,440 queries per bank. An exact follow-up finds truth strictly excluded in nine of the 14 failures and co-optimal in five; its separate ten-exclusion target also fails. [Fresh paired acquisition test](research/20261114/ripper/REPORT-repeat-query-tradeoff.md) · [Exact objective diagnosis](research/20261114/ripper/REPORT-repeated-objective-gap.md)
-
-![Equal query budget: more independent boards outperform repeated labels](assets/figures/repeat_query_tradeoff.png)
-
-An earlier repeated-graph stopping rule recovers 32/32 but needs 281.25 rows on average, missing its separate ≤270-row target. Its stopping costs are evaluated on physically acquired 360-row prefixes. [Stopping experiment and budget limit](research/20261114/ripper/REPORT-stability-stopping.md)
-
 ## Cycle cuts solve fresh dense mazes
 
 ![Fresh dense-maze confirmation: all inputs solved, with zero fallback calls](results/research/work/fallback-confirmation/fallback-confirmation.png)
 
-At **180×180 and 80% loop density**, LP96 solves **4,096/4,096 new mazes jointly across all three fixed models**, versus **3,905** for BP AdamW. All 12,288 LP outputs pass numerical acceptance. The two tested hybrid policies therefore return those same LP outputs: **no input invokes the BP fallback**. Both prespecified 99.9% hybrid-success endpoints pass, with a one-sided 95% lower bound of **99.9269%**. BP noninferiority and the separate added-cost target also pass. [Fresh cohort, separate endpoints and full audit](research/20261114/work/REPORT.md#h2bk-fresh-lp96-solves-40964096-the-fallback-branch-is-never-used)
+At **180×180 and 80% loop density**, LP96 solves **4,096/4,096 new mazes jointly across all three fixed models**, versus **3,905** for BP AdamW. The prespecified 99.9% success target passes, with a one-sided 95% lower bound of **99.9269%**. All LP outputs pass numerical acceptance, so the tested fallback policies invoke no BP rescue on this fresh cohort. [Frozen protocol and complete audit](research/20261114/work/REPORT.md#h2bk-fresh-lp96-solves-40964096-the-fallback-branch-is-never-used)
 
-Keeping the fallback ready adds **0.153%** measured answer cost, including BP model loading. This cohort tests accepted LP96 outputs and unused fallback readiness; it supplies no fresh conditional rescue evidence. An earlier cohort retained one LP96 failure that BP solved, and actual numerical-only fallback was verified there. That earlier 99.9% endpoint remains **inconclusive**. [Retained failure](research/20261114/work/REPORT.md#h2bh-fresh96-reaches-40954096-the-absolute-999-target-remains-inconclusive) · [Source fallback verification](research/20261114/work/REPORT.md#h2bj-the-known-bp-rescue-executes-correctly-and-also-passes-the-original-lp-certificate)
+Running BP first and routing invalid paths to LP96 separately reaches **4,096/4,096** on an already examined cohort, versus **4,095** for LP96 and **3,917** for BP. Across four balanced paired replays, median complete answer cost falls **37.03%** with zero lost LP96 successes. Model readiness, screening and actual fallback computation are charged. This is an examined-cohort routing result; fresh validation is still pending. [All paired costs, routes and limitations](research/20261114/work/REPORT.md#h2bn-the-actual-bp-first-geometry-cascade-preserves-source-success-and-saves-3703-complete-answer-cost)
 
-The decoder supplies an explicit graph prior and permits moves that increase the learned energy. Choosing cycle cuts by learned energy did not improve the earlier matched comparison over lexicographic ordering. Local energy certificates alone do not establish graph validity, shortestness or global optimality; all reported solves receive independent graph checks.
+![Actual maze cascade: all source successes preserved and 37.03% median complete answer cost saved](results/research/work/bp-first-geometry-cascade/bp-first-geometry-cascade.png)
 
-Testing that limitation directly, an additional LP energy certificate rejects only **1 of 510 archived wrong BP answers**, while retaining all 11,778 correct answers. Its ≥90% error-rejection target fails. [Complete failure cases and independent verification](research/20261114/work/REPORT.md#h2bl-an-additional-lp-certificate-rejects-only-1-of-510-bp-graph-errors)
+The decoder supplies an explicit graph prior. Geometry alone does not prove shortestness, and energy certificates do not prove graph validity. All reported solves receive independent graph checks. [Decoder controls and earlier failures](docs/RESEARCH_DETAILS.md#cycle-cuts-solve-fresh-dense-mazes)
 
-An independent geometry analysis catches **all 510 errors**: each violates simple-path geometry. This analyzes the same existing answers; it does not yet measure a faster routing policy or fresh accuracy. [Full failure decomposition](research/20261114/work/REPORT.md#h2bm-all-510-archived-bp-failures-violate-simple-path-geometry)
+## Change the search, keep the learned energy
 
-The earlier fresh confirmations also solve **8,192/8,192 at 120×120**, **4,096/4,096 at 180×180 with a larger move limit**, and **4,096/4,096 at 50% loop density** across all three fixed models. These are separate finite cohorts and policies; their prespecified minimum-gain endpoints have different outcomes. [120×120 transfer](research/20261114/work/REPORT.md#h2au-fixed-cycle-cut-policies-solve-the-fresh-8192-input-cohort) · [Larger-move confirmation](research/20261114/work/REPORT.md#h2ax-fresh-180180-cap-confirmation-supports-safety-and-bp-noninferiority-the-minimum-gain-target-remains-inconclusive) · [50% density confirmation](research/20261114/work/REPORT.md#h2bc-fresh-bounded-decoder-confirmation-supports-the-budget-mechanism-while-the-one-point-gain-target-remains-inconclusive)
+![Same learned energies, different proposals: two new queen variants at matched measured GPU time](results/research/loki/h3ad/new-family-replication.png)
 
-Exact geometry optimizations produce **1.33×** and **1.46×** complete-policy speedups on separate fixed replay cohorts, preserving boards and search traces. Bounded asynchronous archive writes improve complete research-pipeline throughput **1.28×**, with every scientific archive byte-identical. These measure different scopes and cohorts; the ratios should not be multiplied. [Bridge geometry](research/20261114/work/REPORT.md#h2bd-exact-bridge-geometry-meets-separate-geometry-and-complete-policy-speed-targets) · [Veto geometry](research/20261114/work/REPORT.md#h2bf-exact-veto-geometry-meets-its-own-local-and-complete-policy-speed-targets) · [Archive throughput](research/20261114/work/REPORT.md#h2bi-bounded-asynchronous-archives-improve-complete-research-pipeline-throughput-by-1279)
+Keep one queen in each row and column while proposing moves. With identical fitted weights and starting boards, this raises certified success from **5.75% to 99.78%** for queen-plus-zebra and **7.68% to 99.87%** for queen-plus-(2,5)-leaper. Median complete GPU solve times are within **1.2% and 4.2%**, respectively. Both frozen 50-point gain targets pass, with zero wrong stops.
 
-## A search prior makes the same learned energy much more useful
+Each family uses a complete N12 training universe and 4,096 fresh N13 inputs, with 20 chains and three search seeds. These are two fixed families with a supplied permutation prior. [Matched-time replication and controls](research/20261114/loki/h3ad/REPORT.md) · [Question-selection experiments and retained failures](docs/RESEARCH_DETAILS.md#a-search-prior-makes-the-same-learned-energy-much-more-useful)
 
-![Same learned energies, different proposals: replicated across two new queen variants at matched measured GPU time](results/research/loki/h3ad/new-family-replication.png)
+## More boards can beat cleaner labels
 
-Keep one queen in each row and column while proposing moves. With identical fitted weights and starting boards, this raises certified success from **5.75% to 99.78%** for queen-plus-zebra and **7.68% to 99.87%** for queen-plus-(2,5)-leaper. Median complete GPU solve times are within **1.2% and 4.2%**, respectively. Both frozen ≥50-point gain targets pass, with zero wrong stops.
+![Equal query budget: more independent boards outperform repeated labels](assets/figures/repeat_query_tradeoff.png)
 
-Each family uses a complete N12 training universe and 4,096 fresh N13 inputs, with 20 chains and three search seeds. These are **two fixed families**, not representative sampling over all rules; preserving a permutation adds a search prior. Learned supports exactly match the target attack graphs here. [Protocol, timing costs and audit](research/20261114/loki/h3ad/REPORT.md)
+At 7.5% independent label noise, **270 boards queried once recover 64/64 graphs**, versus **50/64** from 90 boards queried three times. Both arms spend 19,440 noisy cell queries per bank. Majority decoding lowers observed label error to **1.148%**, but both graph-recovery targets fail. The degree selector receives no Sudoku geometry or supplied degree twenty. [Fresh paired study and complete query accounting](research/20261114/ripper/REPORT-repeat-query-tradeoff.md)
 
-**A practical CPU control is faster still for these fixed N13 models.** Compile the complete learned zero-energy set once, then answer three batches of 4,096 clue queries: **100% certified success**, with total compile/load/query wall time **32.9× and 16.6× lower** than the GPU permutation solver for the two families. This includes independent completeness verification and cache construction. The complete sets contain only 2,696 and 6,368 boards; this is a reusable fixed-size cache comparison across different hardware, not a general scaling result. [Exact compiler, label-free queries and full cost accounting](research/20261114/loki/h3ae/REPORT.md) · [N15 verification-budget boundary](research/20261114/loki/h3af/REPORT.md)
+A separate fresh confirmation also recovers **64/64 from 270 rows**, versus 58/64 from their 180-row prefixes. Counting and exact LP certificates expose the difference between detecting structure and recovering the right graph. [Confirmation](research/20261114/ripper/REPORT-fixed-270-confirm.md) · [Objective, rounding and acquisition controls](docs/RESEARCH_DETAILS.md#sudoku-from-simple-counts)
 
-An earlier queen-plus-camel replication fits **four independent source-bank draws**: permutation search reaches **92.47–94.49%**, versus **19.45–21.06%** for arbitrary-cell proposals at matched measured GPU time. The four fits have two distinct supports; extra exclusions limit their certified accuracy. [Four-bank replication](research/20261114/loki/h3ac/REPORT.md) · [Initialization versus proposal control](research/20261114/loki/h3aa/REPORT.md)
+## What known corruption locations buy
 
-## Better questions identify hard rules
+![Graph recovery with incomplete, perfectly precise corruption masks](assets/figures/partial-mask-recall.png)
 
-With a supplied class of **1,541 queen rules**, 16 valid N12 examples and at most eight binary N13 membership queries, bounded decision trees identify **1,408/1,408 models** across fresh banks from 22 selected hard rules. The preceding MAP-guided policy identifies 1,371; the paired comparison has 37 gains and zero losses. Both frozen success targets pass. The tree policy uses 19 more membership labels in aggregate, so this is a recovery improvement with a slightly higher observed label cost. [Fresh paired study, supplied priors and full query ledger](research/20261114/loki/h3bj/REPORT.md)
+Discard observations involving known-corrupted cells, then fit the original inferred degree. Revealing **90% of the actual corruption locations recovers 256/256 graphs**, versus **129/256** from the original noisy counts. The sole prospective target of at least 245 recoveries passes. At 50% recall, the diagnostic arm recovers 251/256.
 
-![Fresh paired rule-identification study: complete recovery with a higher observed label cost](results/research/loki/h3bj/fresh-paired-policy.png)
-
-The source-example budget matters: on a new paired cohort, **eight positives identify 1,354/1,408 rules, versus 1,408/1,408 with sixteen** under the same query policy. All 54 failures reach candidate sets too large to identify within the remaining four binary questions. The frozen per-rule reliability target fails for five of the 22 selected rules. [Paired evidence-budget test and information bounds](research/20261114/loki/h3bm/REPORT.md)
-
-**Which question weights help depends on how the rules are sampled.** On fresh banks from the same 22 selected hard rules, uniform trees use **2,651 continuation calls**, versus 2,761 for first-lex trees and 2,882 for posterior-weighted trees. The separate 2% and 5% reduction targets pass; all three policies identify the same 1,368/1,408 cases. [Fresh selected-rule confirmation](research/20261114/loki/h3bq/REPORT.md)
-
-![Fresh selected-rule banks: uniform trees meet both declared cost targets](results/research/loki/h3bq/fresh-three-policy-cost.png)
-
-When 4,096 fresh rule-and-example cases are instead sampled from the declared prior, posterior weighting uses **422 continuation calls versus 488 for uniform (13.52% fewer)**, supporting its separate 2% target. Including the shared MAP questions, total policy cost falls only **0.63%: 10,421 → 10,355**. All policies identify 4,083/4,096 cases. These are finite cohorts within the supplied rule class. [Matched-prior test, full costs and sampling audit](research/20261114/loki/h3br/REPORT.md)
-
-Earlier failures remain explicit: posterior weighting increased actual cost on selected checkpoints, and uniform weighting's initial 2.83% saving missed its frozen 5% target. [Expected-versus-actual discrepancy](research/20261114/loki/h3bn/REPORT.md) · [Selected posterior diagnostic](research/20261114/loki/h3bo/REPORT.md) · [Retained uniform-target failure](research/20261114/loki/h3bp/REPORT.md)
-
-Switching to a question tree as soon as one fits also fails: it preserves the same 4,083 exact results but raises total paid calls from **10,355 to 10,937 (+5.62%)** on the archived cohort. Fewer preliminary questions do not necessarily mean fewer total labels. [Early-handoff test and cost decomposition](research/20261114/loki/h3bs/REPORT.md)
-
-Requiring the tree's exact expected cost to beat the remaining baseline lowers total calls to **10,291**, with the same 4,083 exact results. The **0.62%** saving misses the frozen 2% target: an expected-cost guarantee does not guarantee that finite-cohort reduction. [Guarded handoff, every paid query and proof](research/20261114/loki/h3bt/REPORT.md)
-
-![Exact expected-cost guard saves 0.62% of calls, below its 2% target](results/research/loki/h3bt/guarded-handoff-total-cost.png)
-
-A deeper-tree follow-up reaches its frozen two-million-state cap after **1,779/4,096 cases**. The study remains incomplete, with no primary decision or partial-cohort saving claim. [Retained costs, audit and external proof-archive boundary](research/20261114/loki/h3bu/REPORT.md)
-
-## Confidence weights recover answers under noisy labels
-
-![Confidence weights improve capped-return accuracy, with uniform and shuffled-weight controls](assets/figures/confidence-weighted-inference.png)
-
-At **5% queried-label noise**, evidence-based weights raise Sudoku exact-match accuracy from **19.87% to 76.57%** on the same learned supports. Shuffling the same weights gives **15.32%**. The evidence-minus-uniform gain is **56.70 points**, with a paired 95% interval of **[51.50, 61.67]**.
-
-This compares 32 shared fits, each costing 57,500 label queries, on 10,000 fresh puzzles. **The gain comes from correct answers returned at the search cap:** 65.98% are correct capped returns and 10.59% are correct certified stops. Positive weights preserve the zero set; they improve search without making more solutions certifiable. Zero invalid certificates were observed. [Frozen targets, controls and full audit](research/20261114/ripper/REPORT-confidence-weight.md)
-
-The budget boundary matters: with half as many training boards and 29,750 total queries, accuracy falls to **23.55%**, falsifying the frozen 70% target. No certificates occur in that study. [Retained negative result](research/20261114/ripper/REPORT-confidence-budget.md)
+These are the same examined 600-row synthetic-family banks. **Mask precision is supplied and perfect; no detector is trained.** At 90% recall, none of the raw never-equal supports is exact, but every degree-constrained LP recovers truth. This establishes a specific use of privileged supervision, with no new puzzle-solving claim. [Partial-mask experiment and full evidence](research/20261114/foureyes/REPORT-partial-mask-recall.md) · [Complete-mask control](research/20261114/foureyes/REPORT-corruption-censor.md)
 
 ## Faster inference
 
@@ -130,7 +64,7 @@ The original campaign measured **99.996689% Sudoku accuracy** across three full 
 
 Baselines are explicitly **published results**. The paper's H200 **“1,000×” speed claim is not independently established** by our Blackwell experiments. [Reproduction evidence and limits](REPRODUCTION.md) · [Paper coverage](docs/PAPER_COVERAGE.md)
 
-Negative results remain public: learned certificates can accept invalid boards, better energy rankings can worsen solving, and more training can damage a fixed transformation pipeline. [All hypotheses and outcomes](results/README.md) · [Expanded research history](docs/RESEARCH_TOUR.md)
+Negative and incomplete results remain public, including failed weighting and rounding refinements, misleading energy certificates, and capped exact-tree searches. [All hypotheses and outcomes](results/README.md) · [Detailed comparisons](docs/RESEARCH_DETAILS.md) · [Development history](docs/RESEARCH_TOUR.md)
 
 ## Get started
 
@@ -156,7 +90,7 @@ energy, equality_counts = fit_never_equal(training_solutions, n_values=9)
 
 The [public API](src/hopfield_cram/counting.py) receives no cell geometry; insufficient data can still create false exclusions. All 38 reference/counting tests pass. The sparse checkout above downloads the code needed for this quickstart. Run `git sparse-checkout disable` to fetch the research evidence, figures and [research runners](research/20261114/); the full proof collection is several gigabytes.
 
-[Setup and rerun guide](docs/RERUN_GUIDE.md) · [Implementation](docs/IMPLEMENTATION.md) · [Figure data and renderers](docs/FIGURES.md) · [Original development record](results/reproduction/README.md)
+[Setup and rerun guide](docs/RERUN_GUIDE.md) · [Implementation](docs/IMPLEMENTATION.md) · [Figure data and renderers](docs/FIGURES.md) · [Detailed comparisons](docs/RESEARCH_DETAILS.md) · [Original development record](results/reproduction/README.md)
 
 Public JSON/CSV measurements, protocols and audit hashes are included. Large datasets and raw board archives stay outside Git. Research is ongoing; highlights above are audited.
 

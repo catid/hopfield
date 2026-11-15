@@ -1,0 +1,38 @@
+{
+  "hypothesis_id": "H4au",
+  "status": "prospective_before_partial_mask_draws_scores_or_LPs",
+  "motivation": "H4at supplied all actual corruption locations and recovered256/256 examined graphs. Test sensitivity to missed corruptions while detection precision remains exactly one. This does not test an observable or learned detector.",
+  "scope": "All256 examined H4at600-row banks, four families and original inferred degrees; same noisy observations. No new source, label, corruption or puzzle draws. New random draws determine only which already-known corruptions are revealed. Full masks and generation provenance are inherited from H4at.",
+  "recall_percent": [50, 75, 90, 95, 99],
+  "primary": {
+    "nominal_recall_percent": 90,
+    "required_exact_graphs": 245,
+    "total": 256,
+    "decision": "At90percent only: lower=exact, upper=exact+unresolved. Support if lower>=245; falsify if upper<245; otherwise inconclusive. All other recalls, paired changes and families are prespecified diagnostics, not additional primary tests."
+  },
+  "thinning": {
+    "seed_base": 2120131601,
+    "generator": "NumPy PCG64(SeedSequence([seed_base, bank_index])). random_raw(5400), reshaped row-major600x9 in the original exported corrupted-index order. One uint64 per true corruption location, independent of noisy values and fitted outcomes. The same raw array couples every recall arm.",
+    "threshold": "At integer nominal percent p, reveal a true corruption iff its raw uint64 is less than floor(p*2^64/100). Thus nominal recall is approximated downward within2^-64 under the uniform integer model; realized retained fraction is measured, not forced to equal p. No false positive locations are added.",
+    "nesting": "Revealed masks nest across50,75,90,95,99percent. They are not independent arms. Original index ordering and one fixed stream per bank are retained; no resampling for a desired realized recall or graph result. Zero/100percent identities are synthetic gates and inherited cohort controls, not additional new fits."
+  },
+  "scoring": "Discard a pair observation iff either cell is in the revealed mask; use the raw count of equal retained digits, with zero-exposure pairs retaining cost0. No smoothing, rate normalization, confidence correction, truth geometry or clean digit input. Same H4at scorer and exact LP at the original inferred degree. The scorer receives only noisy observations and the partial Boolean mask.",
+  "inference": "1280 new LPs, all5 arms for every bank. Single-thread HiGHS with original fixed tolerances and exact scale-two primal/dual certificates. Literal fractional optima are resolved graph failures; uncertified LPs unresolved; no snapping. No truth-derived postprocessing, ties selected by unchanged solver with frozen unused seeds.",
+  "solver_seed_base": 2120131702,
+  "solver_seed_rule": "seed_base + 5*bank_index + recall_arm_index, bank0..255 and arm0..4.",
+  "controls": "The same256 H4an0percent-mask original-count outputs recover129/256; H4at100percent-mask outputs recover256/256. Recheck both selected certificates per bank and inherited observed-value/mask correspondence. No new fit or independently timed control at0/100percent. BP AdamW outside this source intervention, explicitly not rerun and first in tables.",
+  "diagnostics": "All five curves and all four families; realized revealed indices and mask nesting; pair exposures, zero exposures, true-edge nonzero equality counts, zero-support false/missing edges, exact objective and truth gaps, gains/losses versus each inherited comparator, selected integral/fractional/unresolved status. Truth used only after fitting. Correctness of supplied masks does not imply zero true-edge costs under incomplete recall; preserve positive costs and nonzero optima as ordinary outcomes.",
+  "audit": "Independently replay raw PCG64 draws in row-sized calls and build masks using scalar index iteration. Independently select available rows per pair and reconstruct every count/exposure, checking against producer dense matrices. Recheck512 inherited and every new available proof, rejecting three mutations each. Reconstruct truth independently from archived permutations only for diagnostics. Publish draws, partial masks, scores, receipts/proofs and complete1280 outcomes; noisy observations and full masks remain in the hash-bound public H4at package.",
+  "gates": "Synthetic-only before freeze: threshold boundaries including0/100, nesting/no false positives, random_raw scalar/batched parity, index permutation with correspondingly permuted draws, full/empty mask score identities, deliberately missed corruption that gives positive true-edge cost, zero exposures, invalid shape/dtype/range inputs, LP proof/mutation checks, all primary boundary/unresolved cases. Benchmark only unrelated fixtures and retain evidence for any worthwhile optimization.",
+  "budget": {
+    "new_LPs": 1280,
+    "workers": 8,
+    "aggregate_cpu_seconds": 900,
+    "wall_seconds": 180,
+    "gpu_seconds": 0,
+    "no_extensions": true
+  },
+  "budget_scope": "Hash checks, extraction, thinning, all scores/LPs, inherited proof replay, independent per-bank audits and public export. Preflight and later publication replay separate. Whole-run provenance/budget failure means incomplete; never select a smaller successful cohort.",
+  "interpretation": "An examined-cohort sensitivity intervention with privileged partial labels, not fresh generalization or a deployment claim. Precision remains artificially perfect. Neither a pass nor failure establishes behavior of any practical detector, a population recall threshold or superiority over other estimators.",
+  "review": "Independent design and implementation review before freeze, study partial-mask generation and new scoring. No partial-mask cohort scores or outcomes are included here."
+}

@@ -4,6 +4,10 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Actual maze routing and complete answer costs | [All outcomes, paired costs and routed states](../results/research/work/bp-first-geometry-cascade/) | [plot_bp_first_geometry.py](../research/20261114/work/plot_bp_first_geometry.py) |
+| Partial corruption masks with supplied perfect precision | [All thinning draws, masks and certificates](../results/research/foureyes/partial_mask_recall/) | [plot_partial_mask_recall.py](../scripts/plot_partial_mask_recall.py) |
+| Raw counts versus rounded rates on repeated labels | [Complete refits and paired outcomes](../results/research/ripper/raw_count_quantization/) | [plot_raw_count_quantization.py](../scripts/plot_raw_count_quantization.py) |
+| Exact tree pruning still reaches its declared state cap | [Complete status ledger and compact audit evidence](../results/research/loki/h3bv/) | [plot_public.py](../research/20261114/loki/h3bv/plot_public.py) |
 | Known-mask censoring recovers every examined graph | [All noisy rows, masks, counts and certificates](../results/research/foureyes/corruption_censor/) | [plot_corruption_censor.py](../scripts/plot_corruption_censor.py) |
 | More boards versus repeated labels at equal query cost | [Fresh sources, decoded observations and proofs](../results/research/ripper/repeat_query_tradeoff/) | [plot_repeat_query_tradeoff.py](../scripts/plot_repeat_query_tradeoff.py) |
 | Strict exclusions versus cooptimal repeated-query failures | [All 128 exact objective gaps](../results/research/ripper/repeated_objective_gap/) | [plot_repeated_objective_gap.py](../scripts/plot_repeated_objective_gap.py) |

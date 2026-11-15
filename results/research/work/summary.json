@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-15T12:32:11.516117+00:00",
+  "updated_utc": "2026-11-15T13:36:37.111891+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
   "status": "Ongoing research; H2aj prospective factorial complete with independent state and trace audits",
   "host": "work",
@@ -1417,6 +1417,107 @@
         "minimum_percent": 90,
         "decision": "supported"
       }
+    },
+    {
+      "campaign": "bp_first_geometry_cascade",
+      "hypothesis": "H2bn_source_preservation",
+      "outcome": {
+        "pairs": [
+          {
+            "pair": 0,
+            "BP_executed_prefix_joint": 3917,
+            "BP_executed_prefix_model_successes": 11778,
+            "LP96_joint": 4095,
+            "candidate_joint": 4096,
+            "model_successes": {
+              "LP96": 12285,
+              "BP_geometry_LP96": 12288
+            },
+            "gains": 1,
+            "losses": 0,
+            "decision": "supported"
+          },
+          {
+            "pair": 1,
+            "BP_executed_prefix_joint": 3917,
+            "BP_executed_prefix_model_successes": 11778,
+            "LP96_joint": 4095,
+            "candidate_joint": 4096,
+            "model_successes": {
+              "LP96": 12285,
+              "BP_geometry_LP96": 12288
+            },
+            "gains": 1,
+            "losses": 0,
+            "decision": "supported"
+          },
+          {
+            "pair": 2,
+            "BP_executed_prefix_joint": 3917,
+            "BP_executed_prefix_model_successes": 11778,
+            "LP96_joint": 4095,
+            "candidate_joint": 4096,
+            "model_successes": {
+              "LP96": 12285,
+              "BP_geometry_LP96": 12288
+            },
+            "gains": 1,
+            "losses": 0,
+            "decision": "supported"
+          },
+          {
+            "pair": 3,
+            "BP_executed_prefix_joint": 3917,
+            "BP_executed_prefix_model_successes": 11778,
+            "LP96_joint": 4095,
+            "candidate_joint": 4096,
+            "model_successes": {
+              "LP96": 12285,
+              "BP_geometry_LP96": 12288
+            },
+            "gains": 1,
+            "losses": 0,
+            "decision": "supported"
+          }
+        ],
+        "decision": "supported"
+      }
+    },
+    {
+      "campaign": "bp_first_geometry_cascade",
+      "hypothesis": "H2bn_complete_answer_cost_saving10",
+      "outcome": {
+        "pairs": [
+          {
+            "pair": 0,
+            "LP96_seconds": 208.23947175685316,
+            "candidate_seconds": 130.6841700502555,
+            "saving": 0.37243324261383853
+          },
+          {
+            "pair": 1,
+            "LP96_seconds": 209.73563963139895,
+            "candidate_seconds": 131.04097798233852,
+            "saving": 0.37520881900359326
+          },
+          {
+            "pair": 2,
+            "LP96_seconds": 210.11497602943564,
+            "candidate_seconds": 132.7385155268712,
+            "saving": 0.3682577128234997
+          },
+          {
+            "pair": 3,
+            "LP96_seconds": 210.80650377518032,
+            "candidate_seconds": 133.3723627855652,
+            "saving": 0.3673233017146218
+          }
+        ],
+        "median_saving": 0.37034547771866916,
+        "exact_median_fraction": "1913052126576645163641753/5165587921745555714341792",
+        "minimum_saving": 0.1,
+        "decision": "supported"
+      }
     }
   ],
   "run_tables": [
@@ -1763,6 +1864,12 @@
       "frozen_utc": "2026-11-15T12:23:31.274878+00:00",
       "hypothesis": "H2bm",
       "status": "completed"
+    },
+    "bp-first-geometry-cascade-protocol": {
+      "sha256": "0720259704d3ab4dd668984b98d1e8d9a9ec52856601c970cbcc7842c983317b",
+      "frozen_utc": "2026-11-15T13:08:03.093297+00:00",
+      "hypothesis": "H2bn",
+      "status": "completed"
     }
   },
   "audit_sha256": {
@@ -1818,7 +1925,8 @@
     "artifacts/research/20261114/work/certificate_fallback/audit.json": "477f73438466cffda3ffbecf7d3d8316d7bdbec2155c8be6c8f7556801565602",
     "artifacts/research/20261114/work/fallback_confirmation/audit.json": "ab5fe39fac71429098782c5a4ac753c053b10d6ad40b71a9295910d9eb4a589c",
     "artifacts/research/20261114/work/cross_certificate_screen/audit.json": "ffde9bfd18a5ceaef5a9747d95c03eba6b2a61f9eb7998f4fc9a8250f47359b9",
-    "artifacts/research/20261114/work/bp_geometry_decomposition/analysis/analysis.json": "3b1c8e0dd814c87a913f255a046b2f43085922d6b1c452cf2cb9347bf4f087f3"
+    "artifacts/research/20261114/work/bp_geometry_decomposition/analysis/analysis.json": "3b1c8e0dd814c87a913f255a046b2f43085922d6b1c452cf2cb9347bf4f087f3",
+    "artifacts/research/20261114/work/bp_first_geometry_cascade/audit.json": "b9f880273ad5febba14cc3dee585fb97d2b8a94844b47a8f95dc9f672dd7cbde"
   },
   "model_sha256": {
     "0": {
@@ -3047,5 +3155,106 @@
     },
     "retention": "Definitional shortest-implies-simple-path invariant, not a scientific endpoint.",
     "scope": "Analysis of sealed H2bl fields; no fresh accuracy, inference speed or executed cascade claim."
+  },
+  "bp_first_geometry_cascade": {
+    "hypothesis": "H2bn",
+    "fresh_inputs": 0,
+    "new_scientific_evaluations": 0,
+    "source_model_inputs": 12288,
+    "paired_full_cohort_replays": 4,
+    "source_preservation": {
+      "pairs": [
+        {
+          "pair": 0,
+          "BP_executed_prefix_joint": 3917,
+          "BP_executed_prefix_model_successes": 11778,
+          "LP96_joint": 4095,
+          "candidate_joint": 4096,
+          "model_successes": {
+            "LP96": 12285,
+            "BP_geometry_LP96": 12288
+          },
+          "gains": 1,
+          "losses": 0,
+          "decision": "supported"
+        },
+        {
+          "pair": 1,
+          "BP_executed_prefix_joint": 3917,
+          "BP_executed_prefix_model_successes": 11778,
+          "LP96_joint": 4095,
+          "candidate_joint": 4096,
+          "model_successes": {
+            "LP96": 12285,
+            "BP_geometry_LP96": 12288
+          },
+          "gains": 1,
+          "losses": 0,
+          "decision": "supported"
+        },
+        {
+          "pair": 2,
+          "BP_executed_prefix_joint": 3917,
+          "BP_executed_prefix_model_successes": 11778,
+          "LP96_joint": 4095,
+          "candidate_joint": 4096,
+          "model_successes": {
+            "LP96": 12285,
+            "BP_geometry_LP96": 12288
+          },
+          "gains": 1,
+          "losses": 0,
+          "decision": "supported"
+        },
+        {
+          "pair": 3,
+          "BP_executed_prefix_joint": 3917,
+          "BP_executed_prefix_model_successes": 11778,
+          "LP96_joint": 4095,
+          "candidate_joint": 4096,
+          "model_successes": {
+            "LP96": 12285,
+            "BP_geometry_LP96": 12288
+          },
+          "gains": 1,
+          "losses": 0,
+          "decision": "supported"
+        }
+      ],
+      "decision": "supported"
+    },
+    "cost_endpoint": {
+      "pairs": [
+        {
+          "pair": 0,
+          "LP96_seconds": 208.23947175685316,
+          "candidate_seconds": 130.6841700502555,
+          "saving": 0.37243324261383853
+        },
+        {
+          "pair": 1,
+          "LP96_seconds": 209.73563963139895,
+          "candidate_seconds": 131.04097798233852,
+          "saving": 0.37520881900359326
+        },
+        {
+          "pair": 2,
+          "LP96_seconds": 210.11497602943564,
+          "candidate_seconds": 132.7385155268712,
+          "saving": 0.3682577128234997
+        },
+        {
+          "pair": 3,
+          "LP96_seconds": 210.80650377518032,
+          "candidate_seconds": 133.3723627855652,
+          "saving": 0.3673233017146218
+        }
+      ],
+      "median_saving": 0.37034547771866916,
+      "exact_median_fraction": "1913052126576645163641753/5165587921745555714341792",
+      "minimum_saving": 0.1,
+      "decision": "supported"
+    },
+    "scope": "Actual BP-first geometry-routed LP96 source replays. Complete measured answer-production cost includes independent readiness/input/hidden/solver/geometry/certificate/return/mapping, excludes scientific diagnostics/archive/audit and barrier waits. No fresh accuracy/population claim."
   }
 }

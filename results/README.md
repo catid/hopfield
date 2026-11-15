@@ -2,6 +2,10 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Actual BP-first maze cascade preserves source success and saves 37.03% complete answer cost](../research/20261114/work/REPORT.md#h2bn-the-actual-bp-first-geometry-cascade-preserves-source-success-and-saves-3703-complete-answer-cost)
+- [Partial masks: 256/256 graphs at 90% corruption-location recall, with supplied perfect precision](../research/20261114/foureyes/REPORT-partial-mask-recall.md)
+- [Raw-count quantization control recovers 49/64 versus 50/64, failing both improvement targets](../research/20261114/ripper/REPORT-raw-count-quantization.md)
+- [Exact pruning reaches 3,836/4,096 cases before its state cap; study remains incomplete](../research/20261114/loki/h3bv/REPORT.md)
 - [Discarding known-corrupted pair observations recovers 256/256 examined graphs; privileged masks required](../research/20261114/foureyes/REPORT-corruption-censor.md)
 - [Equal query cost: 270 boards once recover 64/64 graphs versus 50/64 from 90 boards three times](../research/20261114/ripper/REPORT-repeat-query-tradeoff.md)
 - [Exact diagnosis: nine strict exclusions among 14 repeated-query failures; ten-exclusion target fails](../research/20261114/ripper/REPORT-repeated-objective-gap.md)
