@@ -1,0 +1,115 @@
+{
+  "id": "H3aj-incomplete-bank-N15-exact-capacity",
+  "frozen_utc": "2026-11-15T05:15:38.555505+00:00",
+  "hypothesis": "Every one of the four fixed H3ac128/176 N12 BP AdamW fits, transferred unchanged to N15, provides a valid zero-F completion for at least95% of the complete remaining eligible true queen-plus-camel1/2/3-clue input universe, with zero invalid zero-F states.",
+  "models": [
+    {
+      "bank": 0,
+      "family": "queen-plus-camel",
+      "parameters_path": "artifacts/research/20261114/loki/h3ac/b0/parameters.npz",
+      "source_design_path": "artifacts/research/20261114/loki/h3ac/b0/source-design.npz",
+      "inherited_n13_model_path": "artifacts/research/20261114/loki/h3ac/b0/model.npz"
+    },
+    {
+      "bank": 1,
+      "family": "queen-plus-camel",
+      "parameters_path": "artifacts/research/20261114/loki/h3ac/b1/parameters.npz",
+      "source_design_path": "artifacts/research/20261114/loki/h3ac/b1/source-design.npz",
+      "inherited_n13_model_path": "artifacts/research/20261114/loki/h3ac/b1/model.npz"
+    },
+    {
+      "bank": 2,
+      "family": "queen-plus-camel",
+      "parameters_path": "artifacts/research/20261114/loki/h3ac/b2/parameters.npz",
+      "source_design_path": "artifacts/research/20261114/loki/h3ac/b2/source-design.npz",
+      "inherited_n13_model_path": "artifacts/research/20261114/loki/h3ac/b2/model.npz"
+    },
+    {
+      "bank": 3,
+      "family": "queen-plus-camel",
+      "parameters_path": "artifacts/research/20261114/loki/h3ac/b3/parameters.npz",
+      "source_design_path": "artifacts/research/20261114/loki/h3ac/b3/source-design.npz",
+      "inherited_n13_model_path": "artifacts/research/20261114/loki/h3ac/b3/model.npz"
+    }
+  ],
+  "source": "Four independently sampled overlapping128-of176 source banks, four different fitted weight arrays, potentially fewer full support graphs. No new fit, replacement, rule-family pooling or target tuning.",
+  "transfer": "Same frozen source counts/exposure/line-union positive-F recipe; retain positive weights only on F, zero unary/off-F, unchanged source unit. Reconstruct inherited N13 J/F/h/unit exactly before N15. Learned enumeration sees only its transferred F.",
+  "deduplication": "Deduplicate only byte-equal full225x225 learned F arrays after checking eligibility of every separately transferred model; all4 banks remain separate results. Positive J exactly on F and zero h make zero-set enumeration independent of positive weight magnitudes.",
+  "true_universe": "Supplied ordinary queen plus camel displacements(1,3)/(3,1). Build graph with independent vector and literal coordinate predicates; require complete array equality among general Python forward-F recursion, compiled literal reverse-F recursion and a separately compiled queen-bitboard recursion with direct camel row-distance checks. No partial truth universe.",
+  "build": {
+    "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "flags": [
+      "-O3",
+      "-std=c++17",
+      "-DNDEBUG",
+      "-Wall",
+      "-Wextra",
+      "-Werror"
+    ],
+    "threads": 1
+  },
+  "validation": "Fresh builds;42 fixed random/edge q2..7 clique-preserving grids with original Python, compiled and exhaustive permutation reference; supplied-rule q2..7 plus N12/N13 truth parity with prior complete universes; original/compiled Python N13 parity per unique learned support and filtered complete truth. All costs included.",
+  "validation_seed": 2026113104,
+  "prior_true_solutions": {
+    "12": "artifacts/research/20261114/loki/h3t/solutions-n12.npy",
+    "13": "artifacts/research/20261114/loki/h3t/solutions-n13.npy"
+  },
+  "exclusion": {
+    "domain": "N15 only:225cells and base226 sorted1/2/3-clue encoding; no mixing N13 encoded keys.",
+    "prior_N15_data_paths": [
+      "artifacts/research/20261114/loki/h3ag/b0/data.npz",
+      "artifacts/research/20261114/loki/h3ag/b1/data.npz"
+    ],
+    "rule": "Exactly union both H3ag4096-key cohorts,8192 distinct prior keys; remove its intersection from complete true camel input universe. Same remaining universe for all4 banks. H3af generated no target cohort; H3ah arbitrary states and H3ai compiler outputs are not puzzle-input cohorts. No further exclusions."
+  },
+  "capacity": "Enumerate all575 one/two/three-clue subsets from each complete true solution and every valid learned zero-F solution. A true eligible key has capacity iff its exact learned-valid histogram count>0. Report integer numerator/denominator and exact finite-universe fraction; no bootstrap or sampling uncertainty. Invalid zero-F states are separately counted and prevent support; do not repair learned graph.",
+  "diagnostics": [
+    "Complete true-state retention by each fit",
+    "Capacity separately for1/2/3clues with exact denominators",
+    "False and missed forbidden edges",
+    "Complete zero-F states and invalid zero-F states",
+    "Total compatible true and learned-valid completions",
+    "All source/model/support identities and deduplication mapping"
+  ],
+  "gates": "All four models and every unique learned zero set and supplied true universe must completely enumerate and independently verify before any key-capacity calculation. Entire stage includes full key enumeration, counts and all serialization within120CPU/180wall. Timeout or incomplete universe means inconclusive; no partial substitution, dropped bank or extension.",
+  "decision": "Conjunction supported only if all4 capacity fractions>=95% and no invalid zero-F states. Any completed failing bank falsifies conjunction. All outcomes retained. Exact finite-universe endpoints, not learning confidence intervals.",
+  "budget": {
+    "aggregate_cpu_seconds": 120,
+    "wall_seconds": 180,
+    "GPUs": 0
+  },
+  "scope": "CPU-only capacity stage on fixed models; no new puzzle cohort or GPU search. Optional GPU endpoints are held until this exact stage is audited. N13 prior cohort percentages are descriptive context, not a paired size comparison.",
+  "source_sha256": {
+    "research/20261114/loki/h3aj/common.py": "1aed41b6633dcd059cf3aad5ff2c0f33857880a3cf9e8e615b6b1e0a840b9f64",
+    "research/20261114/loki/h3aj/transfer.py": "c8545b28f6eddbe6fd4a8e7f3c814a1a25bbc293615d11eb3174ae933bdd2daa",
+    "research/20261114/loki/h3aj/enumerators.py": "08d9af01989399365681bd4d0b2682219f722302e782da597dce5cfa8e404624",
+    "research/20261114/loki/h3aj/verification.py": "02c4cbc9046559cd7fbc18b76f36bd76f6c8b0df31c61c451f550b4d2d7594a5",
+    "research/20261114/loki/h3aj/study.py": "73f657fedc7ee3200e3157d65f277b0c79117e67c689be45058974c33b8e230b",
+    "research/20261114/loki/h3aj/gate.py": "0bd24c3c476105ef1804263177b7fe63769d3bb41a143cba38420c9aa7df954f",
+    "research/20261114/loki/h3aj/freeze.py": "d8e967ca2ca3f23517f916c974b65c19863ec984f0c04e806555f55a59dd83a0",
+    "research/20261114/loki/h3aj/reverse_literal.cpp": "efacb8de87c2a1dce7540e4f42b036a2f1f9a07601f70ee20dc8b09bfcb3d719",
+    "research/20261114/loki/h3aj/truth_camel.cpp": "88cffd1a8042f28a6eef369aa2138f9f3cddb538428aec4cb9e8ddff043f1307",
+    "research/20261114/loki/h3ac/protocol.json": "7e955fee208609f6c0dfbbe834f38ac98a1777f19e4ff222eac83bc2cc406608",
+    "research/20261114/loki/h3ag/protocol.json": "4d99d76af68d8f7134c4f2250d2a81d9996e1eaaf79546357ebc505781dedca2",
+    "research/20261114/loki/h3ah/protocol.json": "ee5fa015b7f0d14bd216b263ed0483a58b09f3ce21687287b7ec401d09636cd7",
+    "research/20261114/loki/h3ai/protocol.json": "d33266d869a5702f4c30c6086242758a11e6fd487a1d4846c219bdd4ec3652a4"
+  },
+  "input_sha256": {
+    "artifacts/research/20261114/loki/h3ac/b0/parameters.npz": "824f8618f3a560ee64418389cd693ea0d64adc1da81274229f7bece46ca39d80",
+    "artifacts/research/20261114/loki/h3ac/b0/source-design.npz": "ceaa9d6f5655e80333d609602a0568c544280feb11fe4dd22582307a8ec33cd5",
+    "artifacts/research/20261114/loki/h3ac/b0/model.npz": "54888df67da6b4ffffcf027ac22a7ca69d3a05729741ab20774bb79e73b94e7e",
+    "artifacts/research/20261114/loki/h3ac/b1/parameters.npz": "7159b12cb3a16f43ed3251f7150d8b367c2186e9b682e4457e6fd702464354ec",
+    "artifacts/research/20261114/loki/h3ac/b1/source-design.npz": "766e21969d7355abd803e0c918787b3e7836ba2afc1fa748e8a4556f62a3d7d9",
+    "artifacts/research/20261114/loki/h3ac/b1/model.npz": "4d336dc387292763b2b88cd32fca3fa314441b9c1b0ce1f3f1aa369b698b2a35",
+    "artifacts/research/20261114/loki/h3ac/b2/parameters.npz": "ccd2e719f570d26a7e8ab9b155fd5bebddee161eb59e9fbd898570efbfbe71e3",
+    "artifacts/research/20261114/loki/h3ac/b2/source-design.npz": "e3f2c97b1ca61526833c84c463ff1e900d49de76ab4c10b860e6aec7f21cdbd6",
+    "artifacts/research/20261114/loki/h3ac/b2/model.npz": "3c40182b4175c6986bcf993a6bd8d9555697cc369de5f5f78bae96aaebe525ba",
+    "artifacts/research/20261114/loki/h3ac/b3/parameters.npz": "f6f43e83b371fd0e3a53026e13b4354d6539f831032609e3c16c42de9d2a83c0",
+    "artifacts/research/20261114/loki/h3ac/b3/source-design.npz": "6d46f440b997569c3ba3859fb3c7c4fce732bcffb90b85ca917b231a05333371",
+    "artifacts/research/20261114/loki/h3ac/b3/model.npz": "27ce9527607bbf85ed45e25c6a9338fac1fbd395be1d71dcb8cfe49b7e96a1f4",
+    "artifacts/research/20261114/loki/h3t/solutions-n12.npy": "509cca770756fdce427345ef6400d69e1f96e4677d30535ee62f8d2385a71ba8",
+    "artifacts/research/20261114/loki/h3t/solutions-n13.npy": "c6d9786fbeb885aed2e69ec37ebcfa0904caab7d5a2e90064b3e8c650aba56cf",
+    "artifacts/research/20261114/loki/h3ag/b0/data.npz": "b54c4371acf41b6990cc1b522a736361a8de0ea814a159b0066f3a9b7f6e4314",
+    "artifacts/research/20261114/loki/h3ag/b1/data.npz": "d7ed103f650c15caf1930cb0d81d285881bacf836e63174e95d2e46e47b10b67"
+  }
+}

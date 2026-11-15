@@ -4,6 +4,10 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Weaker positive Sudoku penalties | [Penalty-strength exports](../results/research/foureyes/weak_weight_study/) | [plot_weak_weight_study.py](../scripts/plot_weak_weight_study.py) |
+| Clean positive witnesses on fixed observed streams | [Witness exports](../results/research/ripper/positive_witness.json) | [plot_positive_witness.py](../scripts/plot_positive_witness.py) |
+| Multiplicity filter under shared collapse | [Filter exports](../results/research/ripper/balanced_filter.json) | [plot_balanced_filter.py](../scripts/plot_balanced_filter.py) |
+| Complete N15 camel capacity census | [Capacity exports](../results/research/loki/h3aj/) | [plot_public.py](../research/20261114/loki/h3aj/plot_public.py) |
 | Destructive shared label noise | [Collapse exports](../results/research/ripper/collapsed_noise.json) | [plot_collapsed_noise.py](../scripts/plot_collapsed_noise.py) |
 | N15 compiled reverse verifier | [Compiled-verifier exports](../results/research/loki/h3ag/) | [plot_public.py](../research/20261114/loki/h3ag/plot_public.py) |
 | Exact occupied-pair certificates | [Certificate benchmark](../results/research/loki/h3ah/) | [plot_public.py](../research/20261114/loki/h3ah/plot_public.py) |

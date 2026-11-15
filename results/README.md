@@ -2,6 +2,10 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Weaker positive Sudoku penalties: retained failed five-point gain target](../research/20261114/foureyes/REPORT-weak-weight-study.md)
+- [Clean positive witnesses recover all 32 graphs on fixed filtered streams](../research/20261114/ripper/REPORT-positive-witness.md)
+- [Shared-collapse filter: true constraints retained, exact-recovery target fails](../research/20261114/ripper/REPORT-balanced-filter.md)
+- [Complete N15 camel capacity census: extra exclusions limit every fit](../research/20261114/loki/h3aj/REPORT.md)
 - [Destructive shared label noise: true constraints lost in all 32 banks](../research/20261114/ripper/REPORT-collapsed-noise.md)
 - [N15 compiler integration: exact certificates and measured total cost](../research/20261114/loki/h3ai/REPORT.md)
 - [Occupied-pair certificates: exact-count microbenchmark](../research/20261114/loki/h3ah/REPORT.md)

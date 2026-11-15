@@ -128,3 +128,11 @@ Noise correlation can destroy the constraint-retention premise even at the same 
 
 A fresh **4,096-maze** factorial separates training from inference. New hard-negative training leaves binary predictions unchanged; block moves add 63 joint solves but lose 40, for a net **+0.562 points**. All 40 losses disconnect endpoints on the first accepted energy-decreasing deletion. The combined method still fails the frozen noninferiority target against BP AdamW. [All states, candidate deltas and connectivity audit](../research/20261114/work/REPORT.md)
 
+Reducing weak Sudoku penalties from 1/16 to 1/256 raises accuracy by **1.355 points**, below the frozen five-point target. All three weight levels preserve the same zero set and produce no certificates. This is a mechanism test on already-seen inputs, with a full integer arithmetic and board audit. [Penalty strength and paired uncertainty](../research/20261114/foureyes/REPORT-weak-weight-study.md)
+
+![Weak penalty strength and failed gain target](../assets/figures/weak-weight-study.png)
+
+Under the specified shared-collapse noise law, a supplied digit-multiplicity prior rejects every corrupted training board while preserving every clean one. The original evidence rule nevertheless recovers only **9/32** graphs exactly. Reusing the same accepted observations, a rule that removes a constraint after any clean equality witness recovers **32/32**. The first result misses its target; the second isolates overly conservative retention. Both depend on the declared corruption model, and neither measures solver accuracy. [Filter study](../research/20261114/ripper/REPORT-balanced-filter.md) · [Fixed-evidence ablation](../research/20261114/ripper/REPORT-positive-witness.md)
+
+An exact census over **831,605 eligible N15 camel clue inputs** puts certified capacity at **89.54–92.32%** across four fitted source banks. Every learned zero-energy state is valid, but extra exclusions remove valid completions. All four fits fail the frozen 95% capacity target; more search cannot overcome this ceiling. [Complete public census and verifier](../research/20261114/loki/h3aj/REPORT.md)
+

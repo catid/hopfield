@@ -1,0 +1,50 @@
+{
+  "id": "H4z-positive-weak-penalty-strength",
+  "frozen_utc": "2026-11-15T05:20:39.918344+00:00",
+  "scope": "Post-hoc mechanism study on all64 H4y canonical fits and the same already-seen5000 puzzles; no fresh-generalization claim.",
+  "arms": [
+    "weak16",
+    "weak64",
+    "weak256"
+  ],
+  "banks": 64,
+  "rows_half_open": [
+    410000,
+    415000
+  ],
+  "search_seed": 0,
+  "rule": "Same H4y support and median-positive-J/4 threshold. Strong coefficient stays1. Weak coefficient is1/16,1/64 or1/256. No geometry/label in assignment.",
+  "representation": "uint16 weight256 numerators{0,16,256},{0,4,256},{0,1,256}; inferencefloat32 dividedby256. Minimumpositive1/256>.001 stop tolerance.",
+  "primary": "weak256 minus weak16 >=5percentage points withzero weak256 invalidcertifiedstops.",
+  "uncertainty": "5000paired two-waybank/input bootstrapdraws,primaryseed20261116031. weak64 contrast descriptive,seed20261116032.",
+  "decision": "Supported if primary95lower>=5 andzero primarywrongstops; falsified ifupper<5 oranyprimarywrongstop; otherwiseinconclusive.",
+  "secondary": "Absoluteaccuracy,weak64dose response andcertified/capped decomposition descriptive. BPAdamW/counts are inherited separately fitted H4y controls.",
+  "inference": "C4,seed0,unit1,temp.4->.31,theta.45,tau0,ebar0,tol.001,anneal524288,check4096,262144moves/chain. No temperature renormalization.",
+  "numerical_gate": "Four prior-source model prefixes comparegeneral/sparse/hidden-target states and scaled-integer fields; toy unavoidable single-weak-conflict cases may not stop, whilezero-energy cases must stop. Per-new-search gates also retained.",
+  "budget": {
+    "gate_phase_wall_seconds": 45,
+    "search_phase_wall_seconds": 255,
+    "total_gpu_minutes_upper_bound": 20
+  },
+  "source_sha256": {
+    "research/20261114/foureyes/weak_weight_study.py": "6c1134c255d704a052c530d2d237f65002fa0bdc608dde43590e58eed937f0f3",
+    "research/20261114/foureyes/weak_weight_search.py": "7fb8d020cd11b1ea78b0c7bebf7fac41814d89c474b48b3b167f111100bc58e2",
+    "research/20261114/foureyes/weak_weight_math.py": "cbe164cf3c963eed6d3ab388fe2e832912ba58d2894fb5b4feff221f6f88878b",
+    "research/20261114/foureyes/weak_weight_gate.py": "b011b06119f095abfbf8dc837e3754ec66cb74ac3ebcff469931374d0e6041db",
+    "research/20261114/foureyes/audit_weak_weight_study.py": "e90d448662faa32650a2a0d36c54aab043dbde547f531bd94f4b5bd10a0d8637",
+    "research/20261114/ripper/run.py": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+    "research/20261114/ripper/sparse_backend.py": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+    "research/20261114/ripper/bootstrap_two_way.py": "b4ae5dbccbc7f893f509eaf7b35ae239055f6f7633ac00921b45008761949e43",
+    "research/20261114/ripper/confidence_weight_search.py": "008402a6bbaa3a892e1b3f5fcf88a20d5f9484f85cdf79735b06bde4161d1e56",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871"
+  },
+  "input_sha256": {
+    "results/research/foureyes/canonical_confirm/models.npz": "9b3675686e035dc3ff3436fce53af96bb43e677d7c9820b47d82f4735e693e55",
+    "results/research/foureyes/canonical_confirm/summary.json": "d4f58f8dd114c84f0f500e9f4224850a21afc34242290c0296d8d4ee2dcfc0ec",
+    "results/research/foureyes/canonical_confirm/audited-outcome-bits.npz": "0564dca765d28582ab1f7c0b63da8653ee9ca9ca94436299bf3281357b218e43",
+    "upstream/data/full-test/full-all.npz": "2fdc470ee042f11ffa61c89f606f39004d8914fca3312c88602d9f68212dec6c",
+    "research/20261114/foureyes/canonical_confirm.json": "d41e5ed81487d410f8fd748756e9fc9b99de225f530f70e8718ca78e36ec9810"
+  }
+}
