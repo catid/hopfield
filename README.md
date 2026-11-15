@@ -26,7 +26,7 @@ The same selector also recovers **64/64 graphs in each of four synthetic familie
 
 **Most of these failures are not ties:** the true graph has strictly higher empirical LP cost in **385/394** failed cases. For 331, a wrong integral graph is cheaper; another 54 have a cheaper fractional optimum. Only nine failures leave truth co-optimal. [Exact gap diagnosis and implications](research/20261114/foureyes/REPORT-objective-gap.md)
 
-Two refinements fail on the examined 600-row banks: bootstrap voting reduces recovery from **129/256 to 108/256**, and per-cell deficit normalization reaches **98/256**. Both fail their separate recovery and loss targets. Thirty of the 31 graphs lost by bootstrap voting are strictly disfavored by its vote objective, so changing tie-breaking cannot repair them. [Bootstrap results](research/20261114/foureyes/REPORT-bootstrap-consensus.md) · [Exact loss diagnosis](research/20261114/foureyes/REPORT-consensus-gap.md) · [Normalization test](research/20261114/foureyes/REPORT-normalized-deficit.md)
+Three refinements fail on the examined 600-row banks: bootstrap voting reduces recovery from **129/256 to 108/256**, per-cell deficit normalization reaches **98/256**, and an attenuation correction given the **actual corruption locations** reaches **88/256**. All fail their separate recovery and loss targets. The last method uses privileged information; its failure does not rule out other uses of those masks. [Bootstrap and exact loss diagnosis](research/20261114/foureyes/REPORT-consensus-gap.md) · [Observable normalization](research/20261114/foureyes/REPORT-normalized-deficit.md) · [Privileged-mask correction](research/20261114/foureyes/REPORT-oracle-attenuation.md)
 
 **Spend the same label budget on more cells per board:** querying 72 cells on 200 boards recovers **32/32 noisy Sudoku graphs**, versus **6/32** from 32 cells on 450 boards. Both cost 14,400 labels per bank. This fresh paired experiment changes both pair coverage and the number of independent boards; it does not isolate either as the sole cause. [Frozen targets, query accounting and controls](research/20261114/ripper/REPORT-coverage-tradeoff.md)
 
@@ -40,7 +40,11 @@ Balancing every pair’s exposure gives **32/32**, tying uniform masks at 5% noi
 
 The curvature signal survives a stricter control: **all 32 real banks beat shuffled controls in both mask arms**, even when every cell’s observed digit histogram is preserved exactly. All 13 nonexact real graphs also pass this contrast, so detecting structure does not certify graph recovery. [Histogram-preserving control](research/20261114/ripper/REPORT-marginal-shuffle.md) · [Independent-label null](research/20261114/ripper/REPORT-null-signal.md) A subsequent fixed permutation test signals on **32/32 examined real banks and 0/32 fresh IID null banks**, while accepting all 13 nonexact real graphs. Its null calibration concerns structure detection; the real sensitivity is retrospective. [Signal test and its limits](research/20261114/ripper/REPORT-signal-detection.md)
 
-A prospective stopping rule—stop at the first two consecutive identical integral graphs—recovers **32/32 fresh graphs** at 7.5% independent noise. It needs **281.25 rows on average**, missing the separate ≤270-row target. All 360 rows were physically acquired; this evaluates stopping on their literal prefixes. [Accuracy, full acquisition costs and failed budget target](research/20261114/ripper/REPORT-stability-stopping.md)
+At **7.5% independent noise**, a fresh confirmation recovers **64/64 graphs from 270 rows**, versus **58/64 from their 180-row prefixes**. Every row queries 72 cells, for 19,440 noisy labels per bank. The ≥61 recovery target passes; the separate target of eight additional recoveries fails with six gains and no losses. [Fresh sources, fixed protocol and full costs](research/20261114/ripper/REPORT-fixed-270-confirm.md)
+
+![Fresh noisy Sudoku confirmation: all 64 graphs recovered, paired gain below target](assets/figures/fixed_270_confirm.png)
+
+An earlier repeated-graph stopping rule recovers 32/32 but needs 281.25 rows on average, missing its separate ≤270-row target. Its stopping costs are evaluated on physically acquired 360-row prefixes. [Stopping experiment and budget limit](research/20261114/ripper/REPORT-stability-stopping.md)
 
 ## Cycle cuts solve fresh dense mazes
 
@@ -53,6 +57,8 @@ Keeping the fallback ready adds **0.153%** measured answer cost, including BP mo
 The decoder supplies an explicit graph prior and permits moves that increase the learned energy. Choosing cycle cuts by learned energy did not improve the earlier matched comparison over lexicographic ordering. Local energy certificates alone do not establish graph validity, shortestness or global optimality; all reported solves receive independent graph checks.
 
 Testing that limitation directly, an additional LP energy certificate rejects only **1 of 510 archived wrong BP answers**, while retaining all 11,778 correct answers. Its ≥90% error-rejection target fails. [Complete failure cases and independent verification](research/20261114/work/REPORT.md#h2bl-an-additional-lp-certificate-rejects-only-1-of-510-bp-graph-errors)
+
+An independent geometry analysis catches **all 510 errors**: each violates simple-path geometry. This analyzes the same existing answers; it does not yet measure a faster routing policy or fresh accuracy. [Full failure decomposition](research/20261114/work/REPORT.md#h2bm-all-510-archived-bp-failures-violate-simple-path-geometry)
 
 The earlier fresh confirmations also solve **8,192/8,192 at 120×120**, **4,096/4,096 at 180×180 with a larger move limit**, and **4,096/4,096 at 50% loop density** across all three fixed models. These are separate finite cohorts and policies; their prespecified minimum-gain endpoints have different outcomes. [120×120 transfer](research/20261114/work/REPORT.md#h2au-fixed-cycle-cut-policies-solve-the-fresh-8192-input-cohort) · [Larger-move confirmation](research/20261114/work/REPORT.md#h2ax-fresh-180180-cap-confirmation-supports-safety-and-bp-noninferiority-the-minimum-gain-target-remains-inconclusive) · [50% density confirmation](research/20261114/work/REPORT.md#h2bc-fresh-bounded-decoder-confirmation-supports-the-budget-mechanism-while-the-one-point-gain-target-remains-inconclusive)
 
@@ -119,8 +125,9 @@ Negative results remain public: learned certificates can accept invalid boards, 
 ## Get started
 
 ```sh
-git clone https://github.com/catid/hopfield.git
+git clone --depth 1 --filter=blob:none --sparse https://github.com/catid/hopfield.git
 cd hopfield
+git sparse-checkout set src tests
 git clone https://github.com/Prefrontal-AI/CRAM.git upstream
 git -C upstream checkout --detach 62bbe830c7d6f87f2ba18f30a28039258b986454
 uv sync --project upstream --frozen --python 3.13.13
@@ -137,7 +144,7 @@ from hopfield_cram import fit_never_equal
 energy, equality_counts = fit_never_equal(training_solutions, n_values=9)
 ```
 
-The [public API](src/hopfield_cram/counting.py) receives no cell geometry; insufficient data can still create false exclusions. All 38 reference/counting tests pass. Full-scale experiments use pinned upstream kernels and [research runners](research/20261114/).
+The [public API](src/hopfield_cram/counting.py) receives no cell geometry; insufficient data can still create false exclusions. All 38 reference/counting tests pass. The sparse checkout above downloads the code needed for this quickstart. Run `git sparse-checkout disable` to fetch the research evidence, figures and [research runners](research/20261114/); the full proof collection is several gigabytes.
 
 [Setup and rerun guide](docs/RERUN_GUIDE.md) · [Implementation](docs/IMPLEMENTATION.md) · [Figure data and renderers](docs/FIGURES.md) · [Original development record](results/reproduction/README.md)
 

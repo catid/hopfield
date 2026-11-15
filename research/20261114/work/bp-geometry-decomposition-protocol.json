@@ -1,0 +1,59 @@
+{
+  "hypothesis_id": "H2bm",
+  "status": "frozen_before_first_geometry_aggregate",
+  "scope": "Analysis of sealed H2bl source fields describing all 12288 unchanged H2bh BP boards: 4096 original mazes and three fixed model seeds. Zero new trajectories, samples, optimizer updates or scientific evaluation counts.",
+  "motivation": "H2bl's original LP local certificate rejects only 1 of 510 BP graph-shortest failures. Determine whether those failures instead violate simple-path geometry. Existing H2bk reports on a different fresh cohort motivate this question but are not pooled; H2bl graph_valid_path was computed during its audit but its failure-class aggregate has not been viewed.",
+  "sole_falsifiable_endpoint": {
+    "claim": "Invalid simple-path geometry identifies at least 90 percent of the 510 BP graph-shortest failures in the sealed H2bh source cohort.",
+    "denominator": 510,
+    "numerator": "All source rows with graph_valid_shortest == 0 and graph_valid_path == 0, without numerical-acceptance conditioning.",
+    "decision": "Support iff 100 * invalid_geometry_failures >= 90 * 510; otherwise falsify. The threshold is fixed before viewing the aggregate. Report exact finite counts without confidence or population claims."
+  },
+  "geometry_definition": "The selected board contains both unique endpoints and no wall cells; each selected endpoint has exactly one selected four-neighbor and each selected nonendpoint exactly two; all selected cells form one connected component. No labels or shortest distance enter this geometry predicate.",
+  "partition": [
+    "graph_valid_shortest == 1: valid shortest paths; geometry must be valid as a definitional invariant",
+    "graph_valid_shortest == 0 and graph_valid_path == 0: invalid simple-path geometry",
+    "graph_valid_shortest == 0 and graph_valid_path == 1: valid but longer paths, independently verifying selected edges exceed BFS shortest distance in every published negative fixture"
+  ],
+  "controls_in_table_order": [
+    "BP AdamW own numerical acceptance, archived H2bl control",
+    "BP plus original LP certificate, archived H2bl dual screen",
+    "BP source board simple-path geometry, descriptive source screen independent of numerical flags"
+  ],
+  "retention_invariant": "Every true shortest path is a valid simple path by definition. Check and report this consistency invariant; do not call its retention a new scientific endpoint, independent efficacy evidence or accuracy result.",
+  "design_freeze": "Parent review precedes protocol freezing. Freeze proposal, analysis and independent geometry-checker hashes, synthetic-gate evidence, H2bl row/audit/fixture manifest hashes, H2bh audit hash and publication verification. Only after freeze may any failure-class geometry aggregate be computed. No source-outcome reads occur in the synthetic gate or freeze step.",
+  "analysis": "Check all 12288 unique input/seed identities, 48 source jobs, original 11778/510 graph denominators, source hashes and numerical flags. Preserve every row and partition. Report total and per-seed descriptive counts and the sole fixed 90 percent decision. Keep any numerical failures in the denominator and explicitly report them. Any changed denominator, malformed field, impossible shortest/geometry pair or hash mismatch makes the analysis incomplete.",
+  "independent_check": "Using only NumPy and standard library, reconstruct simple-path geometry with an endpoint-walking implementation and an independent full-grid BFS shortest distance on all 510 original failed-case fixtures plus the 48 fixed controls. Compare each to the sealed fields. The complete scalar cohort is analysed; remaining positive full states inherit the H2bl complete independent audit. No claim of reconstructing their unpublished couplings or outputs.",
+  "synthetic_gate": "Before freeze, exercise valid shortest paths, valid longer paths, missing endpoints, selected walls, disconnections, detached cycles, branches and malformed token/board shapes. Compare the endpoint-walking predicate against the frozen independent degree/connectivity definition on all 4096 selections of the 12 free cells of a fixed 4x4 synthetic grid, with two endpoints always selected and the other two corners fixed as walls. Synthetic truth-table coverage is validation, not fresh scientific evidence.",
+  "budgets": {
+    "work_analysis_wall_seconds": 120,
+    "cpu_processes": 1,
+    "peak_cpu_rss_gib": 2,
+    "gpu_seconds": 0,
+    "no_extension": true
+  },
+  "performance": "This bounded scalar analysis and complete-negative fixture check are CPU-only. Read only tokens and board arrays from each fixture; avoid coupling decompression and duplicate graph checks through caching identical token/board hashes. Measure wall time and process CPU separately, RSS and checked-case progress; do not infer screen cost or decoder speed from audit runtime. A 120-second wall watchdog preserves an incomplete receipt on failure, and the runner refuses any existing output directory. GPUs stay available for a later separately frozen inference experiment, with no filler replay.",
+  "reporting": "Publish protocol, synthetic gate, analysis summary, complete per-row partition, all per-seed counts, independent fixture-check receipt and source provenance. Reference the complete existing negative fixtures without duplicating artifacts. No cascade execution, fresh accuracy, conditional rescue, screen-latency or population claim; those require separately frozen later experiments.",
+  "frozen_utc": "2026-11-15T12:23:31.274878+00:00",
+  "review": "Root reviewed predicate, BFS, cohort identity, denominator and complete-negative audit; authorized freezing and execution after separate process CPU/wall accounting, overwrite refusal and watchdog failure receipts were gated.",
+  "proposal_sha256": "58a0ccc78dfb997d52aa7d8d29e91dfe18035fdef9cfbcaa197c4af1ba3b01ad",
+  "synthetic_gate_sha256": "f7da81e15efd2b632a437530f3c688686fc0ef5cebd9204be135046883a4c36d",
+  "analysis_source_sha256": {
+    "bp_geometry_checks.py": "d6e7afb8e8206ce5397803512d168c85953fa3d2e6d7fc01fab79401fc043585",
+    "preflight_bp_geometry_decomposition.py": "a5738feb2394546feb6925710d165b6cf82fe9367674c5176bea0fcbb5ccc50a",
+    "analyze_bp_geometry_decomposition.py": "d1309d802bd88ac308e6072b15977f15b9cd3261e081394759d2680263f81615",
+    "freeze_bp_geometry_decomposition.py": "e2ce4dc81be73e68066569bf3e503d24f2e532d2ffa12f47c12929c44596ad08",
+    "audit_connectivity_screen.py": "04931d25d3a467cb2e972ca8f946c107c0fb4370c7e820570416644962f8c5c9"
+  },
+  "sealed_source_sha256": {
+    "protocol.json": "ddb55eb1b0bec33db6c830f4200c82f3b60d52ac5b2c76d79deade02f9a737e9",
+    "audit.json": "ffde9bfd18a5ceaef5a9747d95c03eba6b2a61f9eb7998f4fc9a8250f47359b9",
+    "sealed-margins.json": "26b0456126d468bc5f9dd390fcf15629579f7b71343f9f076f901954e25563e5",
+    "per-model-input.csv": "d473c1fff7326670991786bfef7b9c2d08105a9a61414f6e2baa1fd51215658c",
+    "public-fixtures/manifest.json": "0585cd3d9f8c5d978df0bdbc6959e67f21834ac7490d4f5d0163943288545313",
+    "public-fixtures/source-audit.json": "bcf56c42c1696bd29f94dddec675e81820ea29a845ae976eb2c7d0febe23eb1c"
+  },
+  "source_public_verification_sha256": "8f6238263d0422ed8344e1bd57173f571374cc908862be245d3707ccd7ac8e05",
+  "original_geometry_definition_sha256": "04931d25d3a467cb2e972ca8f946c107c0fb4370c7e820570416644962f8c5c9",
+  "freeze_reads_real_outcome_fields": false
+}

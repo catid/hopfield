@@ -2,6 +2,9 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Fresh 270-row confirmation recovers 64/64; paired gain of six misses its eight-gain target](../research/20261114/ripper/REPORT-fixed-270-confirm.md)
+- [All 510 archived BP errors violate simple-path geometry](../research/20261114/work/REPORT.md#h2bm-all-510-archived-bp-failures-violate-simple-path-geometry)
+- [Privileged corruption masks do not rescue the attenuation correction: 88/256 versus 129/256](../research/20261114/foureyes/REPORT-oracle-attenuation.md)
 - [Stopping on repeated graphs recovers 32/32; its separate label-budget target fails](../research/20261114/ripper/REPORT-stability-stopping.md)
 - [Additional LP certificate rejects only 1 of 510 BP graph errors](../research/20261114/work/REPORT.md#h2bl-an-additional-lp-certificate-rejects-only-1-of-510-bp-graph-errors)
 - [Exact expected-cost guard saves 0.62% of total queries, missing its 2% target](../research/20261114/loki/h3bt/REPORT.md)

@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-15T12:16:26.520948+00:00",
+  "updated_utc": "2026-11-15T12:32:11.516117+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
   "status": "Ongoing research; H2aj prospective factorial complete with independent state and trace audits",
   "host": "work",
@@ -1406,6 +1406,17 @@
         "minimum_percent": 99.0,
         "decision": "supported"
       }
+    },
+    {
+      "campaign": "bp_geometry_decomposition",
+      "hypothesis": "H2bm_invalid_geometry_detects90",
+      "outcome": {
+        "invalid_geometry_failures": 510,
+        "all_shortestness_failures": 510,
+        "observed_percent": 100.0,
+        "minimum_percent": 90,
+        "decision": "supported"
+      }
     }
   ],
   "run_tables": [
@@ -1746,6 +1757,12 @@
       "frozen_utc": "2026-11-15T12:02:24.348055+00:00",
       "hypothesis": "H2bl",
       "status": "completed"
+    },
+    "bp-geometry-decomposition-protocol": {
+      "sha256": "5677890963c5d4f1e43ca98c128ae87ebdeb39c85a6e09ab0423a4d3c986abe5",
+      "frozen_utc": "2026-11-15T12:23:31.274878+00:00",
+      "hypothesis": "H2bm",
+      "status": "completed"
     }
   },
   "audit_sha256": {
@@ -1800,7 +1817,8 @@
     "artifacts/research/20261114/work/artifact_overlap/audit.json": "47cc37b529f2031adf7dca3c6e64793309d33c3532dd4ef09568a1279d529d54",
     "artifacts/research/20261114/work/certificate_fallback/audit.json": "477f73438466cffda3ffbecf7d3d8316d7bdbec2155c8be6c8f7556801565602",
     "artifacts/research/20261114/work/fallback_confirmation/audit.json": "ab5fe39fac71429098782c5a4ac753c053b10d6ad40b71a9295910d9eb4a589c",
-    "artifacts/research/20261114/work/cross_certificate_screen/audit.json": "ffde9bfd18a5ceaef5a9747d95c03eba6b2a61f9eb7998f4fc9a8250f47359b9"
+    "artifacts/research/20261114/work/cross_certificate_screen/audit.json": "ffde9bfd18a5ceaef5a9747d95c03eba6b2a61f9eb7998f4fc9a8250f47359b9",
+    "artifacts/research/20261114/work/bp_geometry_decomposition/analysis/analysis.json": "3b1c8e0dd814c87a913f255a046b2f43085922d6b1c452cf2cb9347bf4f087f3"
   },
   "model_sha256": {
     "0": {
@@ -3009,5 +3027,25 @@
       }
     },
     "scope": "All H2bh BP source boards, margins sealed before labels. The dual screen retains all11778 shortest boards but rejects only1/510 graph failures, falsifying90% rejection. No fresh accuracy or certificate-only cascade claim."
+  },
+  "bp_geometry_decomposition": {
+    "hypothesis": "H2bm",
+    "fresh_inputs": 0,
+    "new_scientific_evaluations": 0,
+    "source_model_inputs": 12288,
+    "partition": {
+      "valid_shortest": 11778,
+      "invalid_geometry": 510,
+      "valid_longer": 0
+    },
+    "sole_endpoint": {
+      "invalid_geometry_failures": 510,
+      "all_shortestness_failures": 510,
+      "observed_percent": 100.0,
+      "minimum_percent": 90,
+      "decision": "supported"
+    },
+    "retention": "Definitional shortest-implies-simple-path invariant, not a scientific endpoint.",
+    "scope": "Analysis of sealed H2bl fields; no fresh accuracy, inference speed or executed cascade claim."
   }
 }

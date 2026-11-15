@@ -1333,3 +1333,33 @@ The [public package](../../../results/research/work/cross-certificate-screen/pub
 This source diagnostic adds **zero fresh jobs or scientific evaluations**. Totals remain **2,122 planned jobs / 1,605,374 primary evaluations**, or **2,128 included jobs / 1,605,506 evaluations**. H2bh and H2bk retain their original, separate fresh-cohort conclusions.
 
 ![H2bl falsifies strong error rejection while separately retaining all known shortest BP boards.](../../../results/research/work/cross-certificate-screen/cross-certificate-screen.png)
+
+### H2bm: all 510 archived BP failures violate simple-path geometry
+
+The [frozen source analysis](bp-geometry-decomposition-protocol.json) finds **510/510 invalid simple-path boards and zero valid-but-longer paths** among H2bh's BP shortestness failures. This **supports the sole prespecified 90% detection target** at 100% on the complete finite source cohort. The geometry field was already computed in H2bl; its aggregate by failure class was first examined after H2bm's protocol and source freeze. This is an analysis of sealed source fields, with no fresh measurements of model accuracy, no new trajectories and no population claim.
+
+| Source control | Accepted shortest / 11,778 | Accepted wrong / 510 | Rejected wrong / 510 |
+|---|---:|---:|---:|
+| BP AdamW own numerical acceptance | 11,778 | 510 | 0 |
+| BP plus original LP certificate, archived H2bl dual | 11,778 | 509 | 1 |
+| Simple-path geometry on the unchanged BP board | 11,778 | 0 | 510 |
+
+Geometry requires both unique endpoints, no selected walls, degree one at each selected endpoint, degree two at every selected nonendpoint, and connectivity of all selected cells. It uses neither a shortest-distance calculation nor a label. All **11,778 true shortest paths** satisfy this predicate by definition; their retention is a consistency invariant, **not another scientific endpoint**. A valid simple path can still be longer than shortest on other inputs. The finite source partition therefore does not establish fresh generalization or justify accepting every simple path as shortest.
+
+| Fixed BP model seed | Valid shortest | Invalid geometry | Valid but longer |
+|---|---:|---:|---:|
+| 0 | 3,924 | 172 | 0 |
+| 1 | 3,925 | 171 | 0 |
+| 2 | 3,929 | 167 | 0 |
+
+The [complete analysis](../../../results/research/work/bp-geometry-decomposition/analysis.json) preserves all **12,288 unique model-input rows**, all 48 source jobs and the original **11,778/510** shortestness denominators. It does not condition the failure denominator on numerical acceptance. There are no hidden, finite/stopping, clamp or BP numerical-acceptance failures. The [per-model rows](../../../results/research/work/bp-geometry-decomposition/per-model-input.csv) retain every original source field and add only the geometry partition.
+
+The independent checker walks the sole continuation from the start endpoint and rejects branches, cycles and leftover components, then computes full-grid BFS distance. This differs from H2bl's degree/connectivity implementation. Before freeze, a [synthetic gate](../../../results/research/work/bp-geometry-decomposition/synthetic-gate.json) establishes agreement on all **4,096 selections** of a fixed synthetic grid, plus explicit shortest and longer paths, missing endpoints, walls, disconnections, branches, detached cycles, malformed arrays and the exact **459-of-510** decision boundary. Lifecycle tests verify preservation of incomplete receipts, refusal to overwrite existing output and the watchdog's failure path.
+
+On Work, the analysis independently reconstructs **all 510 failed-case fixtures plus 48 fixed controls**, covering 558 fixture records and 202 distinct token/board combinations, with zero disagreement. It takes **2.026544 seconds wall time and 2.026504 seconds process CPU**, with **49,152 KiB peak RSS**, inside the frozen 120-second wall and 2 GiB memory limits. It uses one CPU process and no GPU. These are analysis costs, **not geometry-screen latency or a decoder speed result**. The already-published [complete failure fixtures](../../../results/research/work/cross-certificate-screen/public-fixtures/manifest.json) are referenced by immutable hashes instead of copied again.
+
+The [portable independent verification](../../../results/research/work/bp-geometry-decomposition/public-verification.json) reconstructs every scalar partition and the fixed endpoint, all 558 fixture records and 195 distinct shortest labels. It uses the separate degree/connectivity and shortest-path verifier, with the proposed walker, analysis implementation, Torch, SciPy, study and production policy imports blocked. The remaining positive full states inherit the complete H2bl audit. Run `upstream/.venv/bin/python research/20261114/work/verify_bp_geometry_decomposition_public.py results/research/work/bp-geometry-decomposition results/research/work/cross-certificate-screen`. The figure is visually inspected and [two renders are byte-identical](../../../results/research/work/bp-geometry-decomposition/figure-determinism.json).
+
+This source analysis adds **zero fresh jobs or scientific evaluations**. Totals remain **2,122 planned jobs / 1,605,374 primary evaluations**, or **2,128 included jobs / 1,605,506 evaluations**. An actual BP-first geometry-routed LP96 execution and its complete cost require a separately frozen later experiment.
+
+![H2bm identifies invalid simple-path geometry in every archived BP failure, with no valid-longer source case and no fresh accuracy claim.](../../../results/research/work/bp-geometry-decomposition/bp-geometry-decomposition.png)

@@ -1,0 +1,96 @@
+{
+  "status": "passed",
+  "hypothesis": "H2bm",
+  "protocol_sha256": "5677890963c5d4f1e43ca98c128ae87ebdeb39c85a6e09ab0423a4d3c986abe5",
+  "source_rows": 12288,
+  "source_inputs": 4096,
+  "fixed_model_seeds": [
+    0,
+    1,
+    2
+  ],
+  "partition": {
+    "valid_shortest": 11778,
+    "invalid_geometry": 510,
+    "valid_longer": 0
+  },
+  "sole_endpoint": {
+    "invalid_geometry_failures": 510,
+    "all_shortestness_failures": 510,
+    "observed_percent": 100.0,
+    "minimum_percent": 90,
+    "decision": "supported"
+  },
+  "per_seed_partition": {
+    "0": {
+      "valid_shortest": 3924,
+      "invalid_geometry": 172,
+      "valid_longer": 0
+    },
+    "1": {
+      "valid_shortest": 3925,
+      "invalid_geometry": 171,
+      "valid_longer": 0
+    },
+    "2": {
+      "valid_shortest": 3929,
+      "invalid_geometry": 167,
+      "valid_longer": 0
+    }
+  },
+  "controls_in_bp_first_order": [
+    {
+      "control": "BP AdamW own numerical acceptance",
+      "source_field": "bp_own_accept",
+      "accepted_shortest": 11778,
+      "accepted_wrong": 510,
+      "rejected_wrong": 0
+    },
+    {
+      "control": "BP plus original LP certificate, archived dual",
+      "source_field": "dual_accept",
+      "accepted_shortest": 11778,
+      "accepted_wrong": 509,
+      "rejected_wrong": 1
+    },
+    {
+      "control": "Simple-path geometry on the BP source board",
+      "source_field": "graph_valid_path",
+      "accepted_shortest": 11778,
+      "accepted_wrong": 0,
+      "rejected_wrong": 510
+    }
+  ],
+  "shortest_implies_valid_geometry_invariant": {
+    "checked_shortest_rows": 11778,
+    "violations": 0,
+    "meaning": "Definitional consistency only, not an efficacy endpoint or new accuracy evidence."
+  },
+  "numerical_source_accounting": {
+    "hidden_good": 0,
+    "BP_finite": 0,
+    "BP_stopped": 0,
+    "clamps_ok": 0,
+    "bp_own_accept": 0
+  },
+  "independent_fixture_check": {
+    "records": 558,
+    "fixed_controls": 48,
+    "all_failure_cases": 510,
+    "unique_geometry_calculations": 202,
+    "mismatches": 0,
+    "complete_failure_supplement": true,
+    "method": "Independent endpoint walk for geometry and full-grid BFS for shortest distance."
+  },
+  "wall_seconds": 2.0265441039809957,
+  "process_cpu_seconds": 2.026504175,
+  "peak_cpu_rss_kib": 49152,
+  "cpu_processes": 1,
+  "gpu_seconds": 0,
+  "new_scientific_evaluations": 0,
+  "fresh_inputs": 0,
+  "per_model_input_sha256": "b67e5605a2663a54c5967c1c08b111dc4711b36e3152989c6154beb41a1316ff",
+  "fixture_checks_sha256": "f50a2a25c85b787639c36ff3eed56b76523448c7406d246622acfc910071baf7",
+  "analysis_sha256": "d1309d802bd88ac308e6072b15977f15b9cd3261e081394759d2680263f81615",
+  "scope": "Analysis of sealed H2bl fields and existing H2bh source boards. Finite source decomposition only. No fresh accuracy, population claim, executed cascade, conditional rescue or geometry-screen cost inference. Remaining positive full states inherit the complete H2bl independent audit."
+}

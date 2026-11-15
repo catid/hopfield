@@ -4,6 +4,9 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Fresh fixed 270-row graph-recovery confirmation | [All fresh sources, prefixes and certificates](../results/research/ripper/fixed_270_confirm/) | [plot_fixed_270_confirm.py](../scripts/plot_fixed_270_confirm.py) |
+| Geometry identifies all archived BP errors | [Complete source partition and fixture checks](../results/research/work/bp-geometry-decomposition/) | [plot_bp_geometry_decomposition.py](../research/20261114/work/plot_bp_geometry_decomposition.py) |
+| Privileged-mask attenuation loses graph recoveries | [Every mask, corrected score and certificate](../results/research/foureyes/oracle_attenuation/) | [plot_oracle_attenuation.py](../scripts/plot_oracle_attenuation.py) |
 | Repeated-graph stopping accuracy and acquisition budget | [All prefixes, stops and certificates](../results/research/ripper/stability_stopping/) | [plot_stability_stopping.py](../scripts/plot_stability_stopping.py) |
 | Additional maze certificate rarely rejects wrong answers | [Every failure and all scalar decisions](../results/research/work/cross-certificate-screen/) | [plot_cross_certificate_screen.py](../research/20261114/work/plot_cross_certificate_screen.py) |
 | Exact expected-cost guard misses the realized saving target | [All routes, counterfactuals and charged calls](../results/research/loki/h3bt/) | [plot_public.py](../research/20261114/loki/h3bt/plot_public.py) |
