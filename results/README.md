@@ -2,6 +2,12 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Fresh dense mazes: 4,095/4,096 at 96 rounds; the 99.9% reliability target remains inconclusive](../research/20261114/work/REPORT.md#h2bh-fresh96-reaches-40954096-the-absolute-999-target-remains-inconclusive)
+- [Smaller synthetic samples: all degrees correct, all four 600-row exact-graph targets fail](../research/20261114/foureyes/REPORT-prefix-budget.md)
+- [Independent 5% noise: doubling fresh data recovers 32/32 graphs versus 12/32 prefix graphs](../research/20261114/ripper/REPORT-iid-row-budget.md)
+- [Equal marginal noise rates differ: 30/32 bursty versus 15/32 independent corruption](../research/20261114/ripper/REPORT-corruption-law.md)
+- [Uniform question trees save 2.83% actual calls but fail the 5% target](../research/20261114/loki/h3bp/REPORT.md)
+- [Selected source-posterior diagnostic: 0.811 bits worse true-model logloss than uniform](../research/20261114/loki/h3bo/REPORT.md)
 - [Weighted question planning reduces its expected objective but raises actual query cost6.90%](../research/20261114/loki/h3bn/REPORT.md)
 - [Connected synthetic graphs:64/64 exact at degrees four and six](../research/20261114/foureyes/REPORT-cycle-power.md)
 - [Matched pair budgets:31/32 dense versus30/32 sparse; the two-recovery advantage target fails](../research/20261114/ripper/REPORT-matched-coquery.md)

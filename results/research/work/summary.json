@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-15T10:05:00.677634+00:00",
+  "updated_utc": "2026-11-15T10:33:24.380532+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
   "status": "Ongoing research; H2aj prospective factorial complete with independent state and trace audits",
   "host": "work",
-  "jobs": 2032,
-  "run_arm_rows": 6639,
-  "model_maze_evaluations": 1507202,
+  "jobs": 2080,
+  "run_arm_rows": 6831,
+  "model_maze_evaluations": 1556354,
   "hypotheses": [
     {
       "campaign": "discovery",
@@ -1261,6 +1261,70 @@
         "all148_rescued": "supported",
         "size512_no_change": "supported"
       }
+    },
+    {
+      "campaign": "confirmation96",
+      "hypothesis": "H2bh four separate fresh accuracy decisions:96joint>=99.9%,96gain>=0.5ppvs48,96regression<=0.1%vs48,BPnetNI>=-0.1pp; separate measured96chargedoverhead<=10%.",
+      "outcome": {
+        "absolute96": {
+          "kind": "absolute_success",
+          "candidate": "unified96",
+          "minimum_success_pp": 99.9,
+          "successes": 4095,
+          "failures": 1,
+          "observed_success_pp": 99.9755859375,
+          "one_sided95_success_lower_pp": 99.88423591176345,
+          "one_sided95_success_upper_pp": 99.99874773014596,
+          "decision": "inconclusive"
+        },
+        "gain96_vs48": {
+          "gains": 75,
+          "losses": 0,
+          "observed_net_gain_pp": 1.8310546875,
+          "separately_one_sided95_net_lower_pp": 1.3528750130825817,
+          "separately_one_sided95_net_upper_pp": 2.2899003396202584,
+          "kind": "paired_net",
+          "candidate": "unified96",
+          "control": "unified48",
+          "minimum_net_gain_pp": 0.5,
+          "decision": "supported"
+        },
+        "regression96_vs48": {
+          "gains": 75,
+          "losses": 0,
+          "observed_net_gain_pp": 1.8310546875,
+          "separately_one_sided95_net_lower_pp": 1.3528750130825817,
+          "separately_one_sided95_net_upper_pp": 2.2899003396202584,
+          "kind": "regression_probability",
+          "candidate": "unified96",
+          "control": "unified48",
+          "maximum_regression_probability_pp": 0.1,
+          "one_sided95_regression_lower_pp": 0.0,
+          "one_sided95_regression_upper_pp": 0.07311125564754345,
+          "decision": "supported",
+          "observed_zero_regressions": true
+        },
+        "BP_noninferiority96": {
+          "gains": 179,
+          "losses": 1,
+          "observed_net_gain_pp": 4.345703125,
+          "separately_one_sided95_net_lower_pp": 3.628662056179335,
+          "separately_one_sided95_net_upper_pp": 5.0411157227997405,
+          "kind": "paired_net",
+          "candidate": "unified96",
+          "control": "pl",
+          "minimum_net_gain_pp": -0.1,
+          "decision": "supported"
+        },
+        "charged_cost": {
+          "candidate": "unified96",
+          "control": "unified48",
+          "measured_charged_answer_overhead_percent": 3.2428710793589675,
+          "maximum_overhead_percent": 10.0,
+          "decision": "supported",
+          "scope": "One fixed-cohort aggregate charged decoder cost, prefixes fully shared/accounted; no timing confidence interval or hardware-general speed claim."
+        }
+      }
     }
   ],
   "run_tables": [
@@ -1295,7 +1359,8 @@
     "cap-transfer-runs.csv",
     "density-transfer-runs.csv",
     "unified-cycle/runs.csv",
-    "loop80-transfer/runs.csv"
+    "loop80-transfer/runs.csv",
+    "confirmation96/runs.csv"
   ],
   "protocols": {
     "protocol": {
@@ -1569,6 +1634,12 @@
       "frozen_utc": "2026-11-15T09:57:28.304646+00:00",
       "hypothesis": "H2bg",
       "status": "completed_source_intervention"
+    },
+    "confirmation96-protocol": {
+      "sha256": "09616973cf71dc5717dfbb4e5f491b534ba2a122d9bf649f7f04c83b3b840058",
+      "frozen_utc": "2026-11-15T10:17:08.465127+00:00",
+      "hypothesis": "H2bh",
+      "status": "completed"
     }
   },
   "audit_sha256": {
@@ -1618,7 +1689,8 @@
     "artifacts/research/20261114/work/geometry_speed/audit.json": "a6d4d545bd36a98bd1fe8fe484b5c3d8f42680b69bef562472b335263e926298",
     "artifacts/research/20261114/work/loop80_transfer/audit.json": "8cc32f2c449065b547a94deb63e011aeb42d76c0d601ba774e43fecf2bdb38fb",
     "artifacts/research/20261114/work/veto_speed/audit.json": "3358adf486fd4226934be09874d7fe6dbb1cd886c93244b15781a61b21954170",
-    "artifacts/research/20261114/work/loop80_continuation/audit.json": "9a95fa1b6cdfc1c4b8e9b05a23b10326a142f90434d9c08b364f79451fdfe83a"
+    "artifacts/research/20261114/work/loop80_continuation/audit.json": "9a95fa1b6cdfc1c4b8e9b05a23b10326a142f90434d9c08b364f79451fdfe83a",
+    "artifacts/research/20261114/work/loop80_confirmation/audit.json": "bcf56c42c1696bd29f94dddec675e81820ea29a845ae976eb2c7d0febe23eb1c"
   },
   "model_sha256": {
     "0": {
@@ -1651,8 +1723,8 @@
     "case": "cyclic-failure-classification.json",
     "scope": "The same cyclic maze fails for model seeds1and2; these are true invalid fixed points or a period-two timeout, not hidden/nonfinite failures."
   },
-  "primary_jobs": 2026,
-  "primary_model_maze_evaluations": 1507070,
+  "primary_jobs": 2074,
+  "primary_model_maze_evaluations": 1556222,
   "descriptive_jobs": 6,
   "descriptive_model_maze_evaluations": 132,
   "selected_case_interventions": {
@@ -2599,5 +2671,84 @@
     "primary_all148_decision": "supported",
     "size512_contrast_decision": "supported",
     "scope": "Archived H2be cap continuation only. All148 cases retained; source BP control and4096-row denominator preserved. Total96 repairs all source failures; fresh confirmation required."
+  },
+  "confirmation96": {
+    "fresh_inputs": 4096,
+    "new_model_maze_arm_evaluations": 49152,
+    "new_optimizer_updates": 0,
+    "reported_arms": [
+      "pl",
+      "unified48",
+      "unified64",
+      "unified96"
+    ],
+    "joint_success": {
+      "pl": 3917,
+      "unified48": 4020,
+      "unified64": 4083,
+      "unified96": 4095
+    },
+    "primary_endpoints": {
+      "absolute96": {
+        "kind": "absolute_success",
+        "candidate": "unified96",
+        "minimum_success_pp": 99.9,
+        "successes": 4095,
+        "failures": 1,
+        "observed_success_pp": 99.9755859375,
+        "one_sided95_success_lower_pp": 99.88423591176345,
+        "one_sided95_success_upper_pp": 99.99874773014596,
+        "decision": "inconclusive"
+      },
+      "gain96_vs48": {
+        "gains": 75,
+        "losses": 0,
+        "observed_net_gain_pp": 1.8310546875,
+        "separately_one_sided95_net_lower_pp": 1.3528750130825817,
+        "separately_one_sided95_net_upper_pp": 2.2899003396202584,
+        "kind": "paired_net",
+        "candidate": "unified96",
+        "control": "unified48",
+        "minimum_net_gain_pp": 0.5,
+        "decision": "supported"
+      },
+      "regression96_vs48": {
+        "gains": 75,
+        "losses": 0,
+        "observed_net_gain_pp": 1.8310546875,
+        "separately_one_sided95_net_lower_pp": 1.3528750130825817,
+        "separately_one_sided95_net_upper_pp": 2.2899003396202584,
+        "kind": "regression_probability",
+        "candidate": "unified96",
+        "control": "unified48",
+        "maximum_regression_probability_pp": 0.1,
+        "one_sided95_regression_lower_pp": 0.0,
+        "one_sided95_regression_upper_pp": 0.07311125564754345,
+        "decision": "supported",
+        "observed_zero_regressions": true
+      },
+      "BP_noninferiority96": {
+        "gains": 179,
+        "losses": 1,
+        "observed_net_gain_pp": 4.345703125,
+        "separately_one_sided95_net_lower_pp": 3.628662056179335,
+        "separately_one_sided95_net_upper_pp": 5.0411157227997405,
+        "kind": "paired_net",
+        "candidate": "unified96",
+        "control": "pl",
+        "minimum_net_gain_pp": -0.1,
+        "decision": "supported"
+      }
+    },
+    "cost_endpoint": {
+      "candidate": "unified96",
+      "control": "unified48",
+      "measured_charged_answer_overhead_percent": 3.2428710793589675,
+      "maximum_overhead_percent": 10.0,
+      "decision": "supported",
+      "scope": "One fixed-cohort aggregate charged decoder cost, prefixes fully shared/accounted; no timing confidence interval or hardware-general speed claim."
+    },
+    "full_independent_internal_and_final_state_checks": 98304,
+    "scope": "Fresh4096loop80,3fixedmodels,fourreportedBP/48/64/96policies. Internal binary/veto/16prefixstates retained and independentlyaudited; not additional counted experiments. Four accuracy decisions and costdecision separately labeled;64descriptive. No pooling/sourcegeneralization/familywiseconfidenceclaim."
   }
 }

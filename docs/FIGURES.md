@@ -4,6 +4,12 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Synthetic sample-budget limits | [All prefix counts and proofs](../results/research/foureyes/prefix_budget/) | [plot_prefix_budget.py](../scripts/plot_prefix_budget.py) |
+| Fresh 96-round dense-maze confirmation | [All paired outcomes and costs](../results/research/work/confirmation96/) | [plot_confirmation96.py](../research/20261114/work/plot_confirmation96.py) |
+| Corruption-law control | [All three laws and exact proofs](../results/research/ripper/corruption_law/) | [plot_corruption_law.py](../scripts/plot_corruption_law.py) |
+| Independent-noise row budget | [Full banks and literal prefixes](../results/research/ripper/iid_row_budget/) | [plot_iid_row_budget.py](../scripts/plot_iid_row_budget.py) |
+| Selected posterior mismatch | [All checkpoint diagnostics](../results/research/loki/h3bo/) | [plot_public.py](../research/20261114/loki/h3bo/plot_public.py) |
+| Uniform question-tree costs | [All proofs and paid calls](../results/research/loki/h3bp/) | [plot_public.py](../research/20261114/loki/h3bp/plot_public.py) |
 | Expected versus realized question costs | [Every tree proof and paid call](../results/research/loki/h3bn/) | [plot_public.py](../research/20261114/loki/h3bn/plot_public.py) |
 | Connected cycle-power graph recovery | [All source and LP evidence](../results/research/foureyes/cycle_power/) | [plot_cycle_power.py](../scripts/plot_cycle_power.py) |
 | Matched pair coquery acquisition | [Masks, rates and exact proofs](../results/research/ripper/matched_coquery/) | [plot_matched_coquery.py](../scripts/plot_matched_coquery.py) |

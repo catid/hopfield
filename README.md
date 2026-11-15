@@ -18,13 +18,17 @@ Under strong, concentrated label corruption, **LP cost curvature recovers all 64
 
 ![Fresh confirmation: LP cost curvature recovers all 64 strongly corrupted graphs](assets/figures/fresh-curvature.png)
 
-The same selector also recovers **64/64 graphs in each of four synthetic families**, selecting degrees two, four, six and eight. These are randomly permuted cycles, cycle squares, cycle cubes and nine-clique graphs, with uniform proper-coloring samples and the same concentrated corruption. These specified families do not establish arbitrary regular-graph recovery. [Degree-two/eight evidence](research/20261114/foureyes/REPORT-varying-degree.md) · [Connected degree-four/six evidence and inline graph](research/20261114/foureyes/REPORT-cycle-power.md)
+The same selector also recovers **64/64 graphs in each of four synthetic families**, selecting degrees two, four, six and eight. These are randomly permuted cycles, cycle squares, cycle cubes and nine-clique graphs, with uniform proper-coloring samples and the same concentrated corruption. These specified families do not establish arbitrary regular-graph recovery. With only 600 rows, exact recovery falls to **55/64, 40/64, 30/64 and 4/64**, even though all degrees remain correct. [Reduced-data test and all failed targets](research/20261114/foureyes/REPORT-prefix-budget.md). [Degree-two/eight evidence](research/20261114/foureyes/REPORT-varying-degree.md) · [Connected degree-four/six evidence and inline graph](research/20261114/foureyes/REPORT-cycle-power.md)
+
+![Correct degree persists while exact graph recovery falls at smaller sample sizes](assets/figures/prefix-budget.png)
 
 **Spend the same label budget on more cells per board:** querying 72 cells on 200 boards recovers **32/32 noisy Sudoku graphs**, versus **6/32** from 32 cells on 450 boards. Both cost 14,400 labels per bank. This fresh paired experiment changes both pair coverage and the number of independent boards; it does not isolate either as the sole cause. [Frozen targets, query accounting and controls](research/20261114/ripper/REPORT-coverage-tradeoff.md)
 
 ![Same label budget: broader observation per board recovers more exact graphs](assets/figures/coverage_tradeoff.png)
 
 When total pair coqueries are matched instead, dense acquisition recovers **31/32**, versus **30/32** for sparse acquisition, using 8,928 versus 20,448 labels per bank. The separate target of two additional recoveries is **falsified**. This fresh follow-up limits the advantage claim; equal pair totals still leave different exposure variance and dependencies. [Matched-pair-budget control](research/20261114/ripper/REPORT-matched-coquery.md)
+
+**Noise structure matters as well as its marginal rate.** On fresh 124-row banks, independent 5% digit corruption recovers **15/32 graphs**, versus **30/32** for bursty corruption at the same marginal rate. Matching true-edge collision probability instead restores 30/32. A separate fresh test recovers **32/32** under independent 5% noise with 248 rows, versus **12/32** on their literal 124-row prefixes. [Corruption-law control](research/20261114/ripper/REPORT-corruption-law.md) · [Doubled-data confirmation](research/20261114/ripper/REPORT-iid-row-budget.md)
 
 ## Cycle cuts solve fresh mazes at two sizes
 
@@ -42,9 +46,9 @@ The revised decoder also solves **4,096/4,096 fresh 180×180 mazes at 50% loop d
 
 ![Fresh dense-maze confirmation: perfect finite-cohort success with separate endpoint decisions](results/research/work/unified-cycle/unified-cycle.png)
 
-At **80% loop density**, the same decoder solves **4,044/4,096 fresh mazes jointly**, versus 3,911 for BP AdamW and 3,623 for the original 16-round decoder. All four relative improvement targets pass, but the separate **99.9% success target is falsified**: 52 inputs remain unsolved. The BP comparison includes 178 gains and 45 losses. [Density limit, paired outcomes and full audit](research/20261114/work/REPORT.md#h2be-denser-mazes-falsify-999-sufficiency-of-the-fixed-48-round-decoder)
+At **80% loop density**, a 96-round decoder solves **4,095/4,096 fresh mazes jointly across all three models**, versus 4,020 for 48 rounds and 3,917 for BP AdamW. It gains 75 inputs over 48 rounds with zero losses, adding **3.24%** measured answer cost. The separate **99.9% reliability target remains inconclusive**: its one-sided 95% lower bound is 99.884%. The single failure is retained; BP solves it. [Fresh confirmation, all endpoint decisions and full costs](research/20261114/work/REPORT.md#h2bh-fresh96-reaches-40954096-the-absolute-999-target-remains-inconclusive) · [Earlier density limit](research/20261114/work/REPORT.md#h2be-denser-mazes-falsify-999-sufficiency-of-the-fixed-48-round-decoder) · [Archived-input intervention](research/20261114/work/REPORT.md#h2bg-more-rounds-repair-every-archived-loop80-cap-a-larger-chain-limit-changes-nothing)
 
-Extending the decoder to **96 cycle rounds rescues all 148 capped model-input cases** on that already examined cohort, bringing all-model success to **4,096/4,096**. Increasing the move-size limit from 256 to 512 changes no choices or outcomes. This is an archived-input intervention; a fresh confirmation is separate. [Complete continuation evidence](research/20261114/work/REPORT.md#h2bg-more-rounds-repair-every-archived-loop80-cap-a-larger-chain-limit-changes-nothing)
+![Fresh dense-maze result retains its one failure and separates accuracy from added cost](results/research/work/confirmation96/confirmation96.png)
 
 An exact geometry optimization makes this complete inference policy **1.33× faster** on a fixed 768-model-input replay cohort, with identical boards, counters, flags and search traces. Candidate generation alone is 4.98× faster. Both frozen speed targets pass across four balanced paired repetitions; this is a measured source-cohort speed result, with no new accuracy samples. [Correctness gates, timing scope and all pairs](research/20261114/work/REPORT.md#h2bd-exact-bridge-geometry-meets-separate-geometry-and-complete-policy-speed-targets)
 
@@ -73,6 +77,8 @@ The source-example budget matters: on a new paired cohort, **eight positives ide
 **Lower expected query cost did not translate to fewer actual queries.** Exact posterior-weighted trees reduce expected continuation cost by 13.99% on an earlier checkpoint study. In the subsequent eight-positive study, weighting improves the posterior objective by **17.16%**, yet actual continuation calls rise from **2,725 to 2,913 (+6.90%)**, falsifying the frozen savings target. All 1,354 previously recovered cases remain exact. [Original expected-cost result](research/20261114/loki/h3bl/REPORT.md) · [Retained actual-cost failure and complete query ledger](research/20261114/loki/h3bn/REPORT.md)
 
 ![Weighted trees lower expected cost but increase actual paid questions](results/research/loki/h3bn/expected-versus-actual-cost.png)
+
+Uniform candidate weights reduce actual continuation calls to **2,648**, a **2.83%** saving over the original 2,725 calls, while preserving all 1,354 recovered cases. The frozen **5% savings target still fails**. A diagnostic finds the source posterior has 0.811 bits worse true-model logloss than uniform on these selected checkpoints; this is not population calibration evidence. [Uniform-tree intervention](research/20261114/loki/h3bp/REPORT.md) · [Posterior diagnostic](research/20261114/loki/h3bo/REPORT.md)
 
 ## Confidence weights recover answers under noisy labels
 

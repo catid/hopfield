@@ -1,0 +1,106 @@
+{
+  "utc": "2026-11-15T10:26:54.902638+00:00",
+  "uniform_fixture": {
+    "distribution": {
+      "candidates": [
+        0,
+        1
+      ],
+      "weights": [
+        "1",
+        "1"
+      ],
+      "weight_sum": "2",
+      "MAP_ties": [
+        0,
+        1
+      ],
+      "MAP_lex_candidate": 0,
+      "MAP_confidence": {
+        "numerator": "1",
+        "denominator": "2"
+      },
+      "entropy_bits": "1.0"
+    },
+    "diagnostic": {
+      "true_probability": {
+        "numerator": "1",
+        "denominator": "2"
+      },
+      "true_rank_best": 1,
+      "true_rank_worst": 2,
+      "true_rank_midpoint": {
+        "numerator": "3",
+        "denominator": "2"
+      },
+      "log2_midrank": "0.58496250072115618145373894394781650875981440769240",
+      "posterior_logloss_bits": "1",
+      "uniform_logloss_bits": "1",
+      "excess_logloss_bits": "0",
+      "MAP_lex_correct": false,
+      "true_in_MAP_tie": true
+    }
+  },
+  "unequal_fixture": {
+    "distribution": {
+      "candidates": [
+        0,
+        1
+      ],
+      "weights": [
+        "3",
+        "1"
+      ],
+      "weight_sum": "4",
+      "MAP_ties": [
+        0
+      ],
+      "MAP_lex_candidate": 0,
+      "MAP_confidence": {
+        "numerator": "3",
+        "denominator": "4"
+      },
+      "entropy_bits": "0.81127812445913286390969579203913761843013919423067"
+    },
+    "diagnostic": {
+      "true_probability": {
+        "numerator": "1",
+        "denominator": "4"
+      },
+      "true_rank_best": 2,
+      "true_rank_worst": 2,
+      "true_rank_midpoint": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "log2_midrank": "1",
+      "posterior_logloss_bits": "2.0000000000000000000000000000000000000000000000000",
+      "uniform_logloss_bits": "1",
+      "excess_logloss_bits": "0.99999999999999999999999999999999999999999999999997",
+      "MAP_lex_correct": false,
+      "true_in_MAP_tie": false
+    }
+  },
+  "guard_values": [
+    "0.250000000001",
+    "0.25",
+    "0.249999999999",
+    "0.249999999998999999"
+  ],
+  "guard_expected": [
+    "supported",
+    "inconclusive_numerical_guard",
+    "inconclusive_numerical_guard",
+    "falsified"
+  ],
+  "empty_aggregate": {
+    "cases": 0,
+    "mean_posterior_logloss_bits": null,
+    "mean_uniform_logloss_bits": null,
+    "mean_excess_logloss_bits": null,
+    "mean_true_probability": null,
+    "mean_midrank": null,
+    "MAP_lex_accuracy": null
+  },
+  "all_analytic_tests_passed": true
+}

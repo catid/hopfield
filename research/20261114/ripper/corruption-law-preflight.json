@@ -1,0 +1,147 @@
+{
+  "status": "passed",
+  "host": "ripper",
+  "scope": "Synthetic124row labels/masks/noise and toyIDs only; no official H1bn draws.",
+  "pair_p_float": 0.022792210226441033,
+  "pair_p_hex": "0x1.756d7561abf76p-6",
+  "pair_probability_error": -3.649590513290903e-19,
+  "enumerated_bursty_wrong_cell": "1/20",
+  "enumerated_bursty_true_edge_collision": "9/1600",
+  "enumerated_iid5_true_edge_collision": "311/25600",
+  "threshold_boundary_cases": [
+    {
+      "arm": "bursty",
+      "threshold": 0.05625,
+      "matched_reference": true
+    },
+    {
+      "arm": "iid5",
+      "threshold": 0.05,
+      "matched_reference": true
+    },
+    {
+      "arm": "iid_pair",
+      "threshold": 0.022792210226441033,
+      "matched_reference": true
+    }
+  ],
+  "nonzero_offsets_required": true,
+  "independent_noise_replay": true,
+  "mask_latent_invariance": true,
+  "all_observation_counts_match": true,
+  "complete_label_gates": [
+    {
+      "arm": "bursty",
+      "status": "passed",
+      "source_rows": 124,
+      "all_source_and_queried_values_changed": true,
+      "every_mask_and_joint_count_unchanged": true,
+      "equality_counts_changed": true,
+      "original_source_sha256": "a7e49bd3e5576f4fda0c2cd19ba2eb7cfbf517737526fccc9d510471cb71a729",
+      "changed_source_sha256": "a9ba82f97fe6e41bb7a5e37b117c12009b5f9b84817a3873ec5d9c007413a1da"
+    },
+    {
+      "arm": "iid5",
+      "status": "passed",
+      "source_rows": 124,
+      "all_source_and_queried_values_changed": true,
+      "every_mask_and_joint_count_unchanged": true,
+      "equality_counts_changed": true,
+      "original_source_sha256": "a7e49bd3e5576f4fda0c2cd19ba2eb7cfbf517737526fccc9d510471cb71a729",
+      "changed_source_sha256": "a9ba82f97fe6e41bb7a5e37b117c12009b5f9b84817a3873ec5d9c007413a1da"
+    },
+    {
+      "arm": "iid_pair",
+      "status": "passed",
+      "source_rows": 124,
+      "all_source_and_queried_values_changed": true,
+      "every_mask_and_joint_count_unchanged": true,
+      "equality_counts_changed": true,
+      "original_source_sha256": "a7e49bd3e5576f4fda0c2cd19ba2eb7cfbf517737526fccc9d510471cb71a729",
+      "changed_source_sha256": "a9ba82f97fe6e41bb7a5e37b117c12009b5f9b84817a3873ec5d9c007413a1da"
+    }
+  ],
+  "query_accounting": {
+    "bursty_queries": 8928,
+    "iid5_queries": 8928,
+    "iid_pair_queries": 8928,
+    "shared_noisy_queries": 0,
+    "new_union_queries": 26784
+  },
+  "endpoint_bound_cases": [
+    {
+      "iid5": {
+        "decision": "supported",
+        "lower": 31,
+        "upper": 31,
+        "required": 31
+      },
+      "iid_pair": {
+        "decision": "supported",
+        "lower": 31,
+        "upper": 31,
+        "required": 31
+      }
+    },
+    {
+      "iid5": {
+        "decision": "falsified",
+        "lower": 30,
+        "upper": 30,
+        "required": 31
+      },
+      "iid_pair": {
+        "decision": "falsified",
+        "lower": 30,
+        "upper": 30,
+        "required": 31
+      }
+    },
+    {
+      "iid5": {
+        "decision": "inconclusive",
+        "lower": 30,
+        "upper": 31,
+        "required": 31
+      },
+      "iid_pair": {
+        "decision": "inconclusive",
+        "lower": 30,
+        "upper": 31,
+        "required": 31
+      }
+    },
+    {
+      "iid5": {
+        "decision": "falsified",
+        "lower": 0,
+        "upper": 2,
+        "required": 31
+      },
+      "iid_pair": {
+        "decision": "falsified",
+        "lower": 0,
+        "upper": 2,
+        "required": 31
+      }
+    }
+  ],
+  "all96_arm_indices_checked": true,
+  "toy_sources_disjoint": true,
+  "source_sha256": {
+    "research/20261114/ripper/corruption_law_study.py": "a2d98e6bf0d49183bf857cb7b72974d32b050ef704e98cfad4d43e8309d1c31f",
+    "research/20261114/ripper/audit_corruption_law.py": "259da6f813b0ed3abb80082e1e03a05e8da6b275174552be22c2151e7b3cfb09",
+    "research/20261114/ripper/preflight_corruption_law.py": "947439519dc95aa9839c1ce7a48f58cf5a6b1cf56603e39e99ef8be459fc94d6",
+    "research/20261114/ripper/run_corruption_law.py": "9711ac0533eff71897bcf480df2f978ff5c26b48f7d39e2f7c8d351f457fdb98",
+    "research/20261114/ripper/partial_degree_study.py": "054cb8d1c4eebda07816735d23d57213052b563cc0a924ec006e6ac965fc8013",
+    "research/20261114/ripper/audit_partial_degree.py": "f867b787e7253ea835be574ed6ffcb82ec8d1a53438aaf75895ffaf5267ddde4",
+    "research/20261114/ripper/extra_coverage_study.py": "ecad651aa4baa117e50acf3afab9b66e323834719ae959aaf7db580af3780e8a",
+    "research/20261114/ripper/audit_extra_coverage.py": "58d0d10e1974506cbca83c37fabd403de17bae46e5683eb89413fdac95982a63",
+    "research/20261114/ripper/run.py": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+    "research/20261114/ripper/degree_prior_solver.py": "2af92a5d4326e74813f514291a7a76e6ac92778335e1dd76ffbb01f83d474c43",
+    "research/20261114/ripper/degree_prior_math.py": "5a3ad2c21f59dfe0d2de40065385d484e171c0f854c49c649e868ce5a98a1f8e",
+    "research/20261114/ripper/audit_degree_prior.py": "179feb9815c787a5381d1924ccb0ac41af49e103222503f5ff988dc13559f55b",
+    "research/20261114/ripper/audit_laplace_rate.py": "378e36af14e26bfb53d7f876d123cc24b3151273d6bb2a015a3f2b5e0dfeddcd",
+    "research/20261114/ripper/laplace_rate_math.py": "439d2edecdf2e518f243b27cc20676a24e561e4260217876230edf6023939093"
+  }
+}

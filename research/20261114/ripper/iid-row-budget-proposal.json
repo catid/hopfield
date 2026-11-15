@@ -1,0 +1,55 @@
+{
+  "id": "H1bo-iid-row-budget",
+  "status": "prospective_design_no_new_draws",
+  "banks": 32,
+  "rows": 248,
+  "queried_cells": 72,
+  "arms": [
+    "prefix124",
+    "full248"
+  ],
+  "prior_combined_excluded_ids": 2349014,
+  "prior_ripper_ledger_ids": 2112589,
+  "eligible_rows": 1482980,
+  "source": "Fresh official rows outside declared combined Ripper/H4ak ledger through H1bn; each248-row bank without replacement, crossbank repeats retained.",
+  "acquisition": "One uniform72-cell subset perrow; common literal first124-row prefix and full248-row views. Seal allIDs then all32fullmaskstreams before selectedCSVlabels. No label feedback, donors, row selection or rescue.",
+  "noise": "One fresh mask-independent iid cell-error realization per full248-row bank: uniforms then offsets1..8; add offsetmod9 iffU<0.05. Prefix receives literal first124 clean/noise/mask rows. Noise parameter not supplied to estimator.",
+  "primary": {
+    "arm": "full248",
+    "required_exact": 31,
+    "total": 32
+  },
+  "decision": "Lower=exact;upper=exact+unresolved. Supported iff lower>=31;falsified iff upper<31;otherwise inconclusive. Any uncertified griddegree makesbank unresolved; selectedfractional/nonexact isfailure. Runtime failure incomplete.",
+  "diagnostics": "Prefix124 exact recovery,pairedwins/losses including any regression,degree20,fixed20/top810,realizednoise counts descriptive. H1bn iid5 15/32 is unpairedcontext. No causal-mechanism or universal robustness claim.",
+  "inference": "Unchanged exact half-even Laplace rates, fresh degree1..40LPs, zero witness, exact curvature1..39 lowerdegree ties. Common-degree prior/grid retained; no20/810/geometry/noiseparameters.",
+  "seeds": {
+    "source": 202612300000,
+    "mask": 202612310000,
+    "noise": 202612320000,
+    "solver_base": 2026211502
+  },
+  "seed_rule": "Drawstreams add bank; solverindex=2*bank+arm_index; sharedsolver offset100000+index*41+d.",
+  "budget": {
+    "new_LPs": 2560,
+    "analytic_zero_witnesses": 64,
+    "max_cpu_workers": 8,
+    "aggregate_cpu_seconds": 900,
+    "wall_seconds": 180,
+    "lp_wall_seconds": 1.0,
+    "gpu_seconds": 0,
+    "new_noisy_cell_queries_cap": 571392,
+    "clean_oracle_unique_cell_queries_cap": 642816
+  },
+  "query_accounting": {
+    "prefix_deployment": 285696,
+    "full_deployment": 571392,
+    "shared_prefix_queries": 285696,
+    "new_noisy_research_union": 571392,
+    "clean_materialized_source_instances": 7936,
+    "clean_materialized_cell_instances": 642816,
+    "clean_unique_oracle_rule": "81*new_unique_sourceIDs; cleanrepeatIDs reused. NoisyrepeatIDs have distinctlatentinstances and remaincharged.",
+    "noisy_label_sequence_through_H1bn": 9047097,
+    "noisy_label_sequence_through_H1bo_if_complete": 9618489
+  },
+  "interpretation": "Prospective sample-budget rescue on freshbanks; doubledrows also doublequeriedlabels andpaircoqueries. Exact common positive-affine transforms of costs preserve fixeddegreeLP optimumfaces and curvature choice, but finite rounding, smoothing and solver tiechoices need separatecare; no new noisecorrection arm."
+}

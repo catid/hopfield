@@ -1,0 +1,3 @@
+# H3bp: uniform actual-cost target falsified
+
+[Full report](../../../../research/20261114/loki/h3bp/REPORT.md). Actual continuation calls decrease from 2,725 to 2,648 (2.83%), short of the frozen ≥5% reduction / ≤2,588-call target. The 265-call benefit versus posterior-weighted H3bn and 3.38% uniform expected-cost decrease are descriptive. Exactly 1,354 cases remain identified; 54 infeasible cases and 287 prior successes are retained. All 2,648 new calls charged, including 2,523 same-case archived-query reacquisitions across the H3bm/H3bn archives. Archived-source intervention; no independent confirmation or new positive examples.

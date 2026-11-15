@@ -1,0 +1,71 @@
+{
+  "id": "H1bn-corruption-law",
+  "status": "prospective_design_no_new_draws",
+  "banks": 32,
+  "rows": 124,
+  "queried_cells": 72,
+  "arms": [
+    "bursty",
+    "iid5",
+    "iid_pair"
+  ],
+  "prior_combined_excluded_ids": 2345051,
+  "prior_ripper_ledger_ids": 2108626,
+  "eligible_rows": 1486943,
+  "source": "Fresh official rows outside declared combined Ripper/H4ak ledger through H1bm. Within-bank without replacement; crossbank repeats retained and reported.",
+  "acquisition": "One uniform72-cell subset perrow, common to all3arms. Seal allsourceIDs, then all32sharedmaskstreams before materializing labels. No outcome feedback or donors.",
+  "noise": {
+    "bursty": "Whole-board uniform cell permutation iff U<9/160.",
+    "iid5": "Independently for eachcell, add a uniform offset1..8 modulo9 iff U<0.05.",
+    "iid_pair": "Same iid law with frozen smaller root of9p\u00b2\u221216p+0.36=0.",
+    "iid_pair_float": 0.022792210226441033,
+    "iid_pair_hex": "0x1.756d7561abf76p-6",
+    "iid_pair_decimal": "0.022792210226441034336971131279336741259227696822379997160466042239441580560452132",
+    "streams": "Independent corruption RNG streams for eachlaw, sharedclean/masks only; no probability supplied to estimator."
+  },
+  "primary_endpoints": {
+    "iid5": {
+      "required_exact": 31,
+      "total": 32
+    },
+    "iid_pair": {
+      "required_exact": 31,
+      "total": 32
+    }
+  },
+  "decision": "Each endpoint separately: exact lower=s; upper=s+unresolved. Supported if lower>=31; falsified if upper<31; otherwise inconclusive. Any uncertified degree unresolved; selected fractional/nonexact graph is failure. Budget failure incomplete.",
+  "diagnostics": "Bursty exact recovery, allpaired wins/losses contrasts,degree20/fixed20,top810,per-law realized wrong-cell counts and pair equalities are descriptive; no paired contrast target.",
+  "inference": "Unchanged Laplace rates, zero witness, fresh degree1..40LPs, exact curvature1..39 lowerdegree ties. Common-degree prior/grid supplied; no true20/810/geometry/corruption parameters.",
+  "seeds": {
+    "source": 202612250000,
+    "mask": 202612260000,
+    "bursty_noise": 202612270000,
+    "iid5_noise": 202612280000,
+    "iid_pair_noise": 202612290000,
+    "solver_base": 2026201502
+  },
+  "seed_rule": "Seedstream adds bank; solver index=3*bank+arm_index, offset90000+index*41+d in frozen shared solver.",
+  "budget": {
+    "new_LPs": 3840,
+    "analytic_zero_witnesses": 96,
+    "max_cpu_workers": 8,
+    "aggregate_cpu_seconds": 900,
+    "wall_seconds": 180,
+    "lp_wall_seconds": 1.0,
+    "gpu_seconds": 0,
+    "new_noisy_cell_queries": 857088,
+    "clean_oracle_unique_cell_queries_cap": 321408
+  },
+  "query_accounting": {
+    "each_alternative_deployment": 285696,
+    "each_alternative_perbank": 8928,
+    "new_noisy_research_union": 857088,
+    "shared_noisy_queries": 0,
+    "clean_materialized_source_instances": 3968,
+    "clean_materialized_cell_instances": 321408,
+    "clean_unique_oracle_cell_rule": "81*number_of_unique_selected_sourceIDs; repeated clean IDs are cached/reused, audit rereads are not new scientific queries.",
+    "noisy_label_sequence_through_H1bm": 8190009,
+    "noisy_label_sequence_through_H1bn_if_complete": 9047097
+  },
+  "limitations": "Thelaws share cleanboards and masks but have distinct latentcorruptedinstances; all3noisyquery sets charged separately even when realizedvalues agree. Clean-sourceoracle cost separately reports data-construction access and is not an algorithm deployment label. Equalmarginalerror does not matchequality: burstytrueedge collision9/1600=.005625; iid5collision=.0121484375. Pairmatched iid has lower marginalerror; binary64paircollision residual\u22123.65e\u221219. Matchingtrueedge pairrate doesnotmatch covariance/nonpeer collision rates or fullboarddigitcounts. No universal noise-robustness or isolated causal claim."
+}

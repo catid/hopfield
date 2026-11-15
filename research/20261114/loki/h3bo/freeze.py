@@ -1,0 +1,19 @@
+"""Freeze selected-truth diagnostic population, bins and guarded log-score test."""
+from common import ROOT,SRC,OUT,read,save,sha,now
+
+
+def main():
+    assert not(SRC/'protocol.json').exists() and not(OUT/'study-result.json').exists();prior=read(SRC.parent/'h3bn/protocol.json');ids=prior['optimized_parent_group_ids'];sources=[SRC/f'{name}.py' for name in ['common','metrics','synthetic_gate','study','gate','freeze']];inputs=['research/20261114/loki/h3bn/protocol.json','results/research/loki/h3bn/summary.json','results/research/loki/h3bn/case-results.json','results/research/loki/h3bn/score-values8.json','results/research/loki/h3bm/summary.json','results/research/loki/h3bm/case-results.json','results/research/loki/h3bm/score-values8.json',prior['normalizers']['selection_path']]+[f'results/research/loki/h3bn/group{i}/weights.json' for i in ids]
+    p=dict(id='H3bo-selected-checkpoint-posterior-logscore-diagnostic',frozen_utc=now(),normalizers=prior['normalizers'],truth_ids=[r['candidate'] for r in prior['truths']],parent_group_ids=ids,hypothesis='On all1067alreadyexamined feasible8positive checkpoints, mean true-model source-posterior logloss exceeds uniform-over-current-candidates logloss byatleast0.25bits, subjecttoexplicitnumericalguard. This is a selected-sample mechanismdiagnostic, not populationcalibration or independentconfirmation.',
+        primary='Mean over1067cases, eachweight1: excess=(ln(sum_i w_i)-ln(w_true)-ln(K))/ln(2), exactintegerweights w_i proportional1/[C(55,k_i)*C(M_i,8)]. Decimal precision50; same natural-log formula independently checked. Support ifmean>=0.25+1e-12; falsify ifmean<0.25-1e-12; otherwise inconclusive_numerical_guard. No roundeddisplaydecision.',
+        scope='All1408original cases retained;1067feasiblecheckpoint cases primary,54knowninfeasible and287prior singleton successes contextonly, never pooledinto primary. All439distinct posteriorgroups retained; no cases chosen bycostchange,rank oroutcome.',
+        diagnostics='For each primarycase retain exactrationaltrueprobability, best/worst posteriorrank under ties, midpointfraction, log2midrank, entropybits, posterior anduniform logloss, excess, MAPtiedIDs andlexfirstMAPcorrectness, old/new actualcontinuationcost anddelta. Labelsandcosts alreadyexamined;0newlabels/draws.',
+        calibration='Descriptivefixed10bins oftop1confidence[0,.1),[.1,.2),...,[.9,1]. Exactrationalbinassignment; lexsmallestMAPtie defines prediction. Keep emptybins withnullconfidence/accuracy/gap andzeroECE contribution. Reportmeanconfidence,accuracy,overconfidencegap andcaseweightedECE onselected1067cases only.',
+        strata='Descriptivecostchanges -3,-2,-1,0,1,2,3 allretained includingemptystrata; all22truth rows retained includingempties. No extra scientificthresholds or calibration significance tests.',
+        synthetic='Two-modeluniformties (lexwinner),3:1posterior analytic2bit lossforlowprobabilitytruth, independentemptyaggregate and guard boundarychecks. No realposterior/rank/logloss outputs computedbeforefreeze.',
+        budget=dict(aggregate_CPU_seconds=30,wall_seconds=60,GPUs=0,new_source_draws=0,new_oracle_labels=0,enforcement='Whole-study incomplete oncap/error; no partialprimary. Inherit auditedgraph/census/checkpointproofs byhash; independentlyrecompute all1541 eight-positive scores fromcomplete sourcecardinalities.'),
+        history='H3bn expectedcost fell17.156653% while actualcontinuationcalls rose2725to2913. This diagnostic evaluates a possible posterior-mismatch mechanism withoutassuming it. Subsequentuniform-treecontrol requiresitsown freeze beforetrees/queries.',
+        source_sha256={str(path.relative_to(ROOT)):sha(path) for path in sources},source_data_sha256={rel:sha(ROOT/rel) for rel in inputs},target_data_sha256={});save(SRC/'protocol.json',p);print('FROZEN',sha(SRC/'protocol.json'),flush=True)
+
+
+if __name__=='__main__':main()
