@@ -1,0 +1,182 @@
+{
+  "id": "second-original-training-hard-negative-feasibility",
+  "hypothesis_id": "H2ad",
+  "status": "frozen_before_mining_and_LP",
+  "frozen_utc": "2026-11-15T03:51:24.096896+00:00",
+  "hypothesis": "Every model yields at least one genuinely new source negative board and admits a real23-parameter vector satisfying every H2w/H2ab constraint plus every second-round Hamming-normalized unit margin.",
+  "training_manifest": {
+    "utc": "2026-11-15T01:37:29.513576+00:00",
+    "source": "Actual upstream data/maze-hard/train.csv loaded by original maze_learned.load; not recreated or generated.",
+    "source_csv_path": "upstream/data/maze-hard/train.csv",
+    "source_csv_sha256": "25f9e39b5aee16967da41ba63b2d1d75cf608c2360d8a1419d827f9859dbafa0",
+    "loader_sha256": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "n_training": 1000,
+    "shape": [
+      1000,
+      30,
+      30
+    ],
+    "arrays_sha256": "2ac6e034cf09cfdfcd00d81b51088c66042b2ec738e39b33496a75aa70aa777d",
+    "tokens_sha256": "5497e6927a10b71c7754634431ad43ad459c6698e238930feaebe18d0fcd651b",
+    "labels_sha256": "644c4eba45a4c2a875ba90bd21f1783301c2ec9340b680c3f61aa12326634703",
+    "script_sha256": "8bce0157edecd6d5c64ab2c855886bba5d4f1c286032d6a34c70ca45b24d03c0",
+    "numpy": "2.5.4"
+  },
+  "readouts": {
+    "0": {
+      "seed": 0,
+      "gpu": 0,
+      "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+      "arrays_sha256": "2ac6e034cf09cfdfcd00d81b51088c66042b2ec738e39b33496a75aa70aa777d",
+      "checkpoint_sha256": "84d694828c90cbf55bcf2eb84136324e2a5d482e4847e50d7b9f67b39c8aa230",
+      "readout_sha256": "8512aae4a4ca418b684ce37c032a9350398dddf92f0694b58aa49509888d41f6",
+      "coupling_array_sha256": "9e3d861a04a0f3eceea22136d2e4b2e5a83ee5d85216dbd47f1a3a087e4af678",
+      "hidden_batch_size": 64,
+      "tol": 1e-06,
+      "cap": 4000,
+      "check_every": 8,
+      "frozen_parameters": [
+        "mu",
+        "beta"
+      ],
+      "script_sha256": "8bce0157edecd6d5c64ab2c855886bba5d4f1c286032d6a34c70ca45b24d03c0"
+    },
+    "1": {
+      "seed": 1,
+      "gpu": 1,
+      "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+      "arrays_sha256": "2ac6e034cf09cfdfcd00d81b51088c66042b2ec738e39b33496a75aa70aa777d",
+      "checkpoint_sha256": "21004b8bca2fde7ae23825e874a30e15d28174ae5da16382420a1743d8ad2881",
+      "readout_sha256": "7899886bdf87152abd18d836b2f7eb0d0be5a3e0a91890b6594d5e3150e85da4",
+      "coupling_array_sha256": "307045eb96abd50eb9ffe15bc1d6ab66c75df44fe49a91d7e490e3694c121209",
+      "hidden_batch_size": 64,
+      "tol": 1e-06,
+      "cap": 4000,
+      "check_every": 8,
+      "frozen_parameters": [
+        "mu",
+        "beta"
+      ],
+      "script_sha256": "8bce0157edecd6d5c64ab2c855886bba5d4f1c286032d6a34c70ca45b24d03c0"
+    },
+    "2": {
+      "seed": 2,
+      "gpu": 0,
+      "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+      "arrays_sha256": "2ac6e034cf09cfdfcd00d81b51088c66042b2ec738e39b33496a75aa70aa777d",
+      "checkpoint_sha256": "5f350d5de1f42ef627a2dd6052bcdcb722bd965d1ef940863ed4f6955e4a73e3",
+      "readout_sha256": "7383a2395eb9b61c2a843fc788289578877897059ddefd17a4f571c96fd170c5",
+      "coupling_array_sha256": "d4ae5d9581e755fbeee30d1caf386fe2d9e29121b6a6b2145b71b9075b67231c",
+      "hidden_batch_size": 64,
+      "tol": 1e-06,
+      "cap": 4000,
+      "check_every": 8,
+      "frozen_parameters": [
+        "mu",
+        "beta"
+      ],
+      "script_sha256": "8bce0157edecd6d5c64ab2c855886bba5d4f1c286032d6a34c70ca45b24d03c0"
+    }
+  },
+  "initial_models": [
+    {
+      "seed": 0,
+      "path": "artifacts/research/20261114/work/training_feasibility/initial-seed0.npz",
+      "sha256": "59f860656a0b9d4f74c893b076ca079bd1792d1f322f70feceaf6d514ce32e4e",
+      "original_checkpoint_sha256": "84d694828c90cbf55bcf2eb84136324e2a5d482e4847e50d7b9f67b39c8aa230"
+    },
+    {
+      "seed": 1,
+      "path": "artifacts/research/20261114/work/training_feasibility/initial-seed1.npz",
+      "sha256": "281b7da1ab1401dea30596003bf4bced8e9600e69051b789df821542a2cd2016",
+      "original_checkpoint_sha256": "21004b8bca2fde7ae23825e874a30e15d28174ae5da16382420a1743d8ad2881"
+    },
+    {
+      "seed": 2,
+      "path": "artifacts/research/20261114/work/training_feasibility/initial-seed2.npz",
+      "sha256": "08c0840d920d017eb625471e0b4e6db8d628ece97746c147131f4524869df5c2",
+      "original_checkpoint_sha256": "5f350d5de1f42ef627a2dd6052bcdcb722bd965d1ef940863ed4f6955e4a73e3"
+    }
+  ],
+  "models": {
+    "0": {
+      "path": "artifacts/research/20261114/work/hard_negative_transfer/hard-negative-scaled-seed0.pt",
+      "sha256": "348d52169ef348df4e8559ea013f83f0ae0527daa14ab3d006ba7224ef5b19ea"
+    },
+    "1": {
+      "path": "artifacts/research/20261114/work/hard_negative_transfer/hard-negative-scaled-seed1.pt",
+      "sha256": "da79e01be4f40860727e2fed85a578f7a5774cef0082c85e1fc1d63c89b34115"
+    },
+    "2": {
+      "path": "artifacts/research/20261114/work/hard_negative_transfer/hard-negative-scaled-seed2.pt",
+      "sha256": "5da5d45728e249d59ae532aeff915dd2d6a40d983cd241e169943a8e66c44562"
+    }
+  },
+  "decoder_protocol_sha256": "c4e6db0bbfa17b33742b7ee6a02978dc7db0c96e941a23c039161295b56dd421",
+  "old_constraints_protocol_sha256": "ea25a2a233d47334d114a08e2f97ffbf4f8afbe79428d88dab3d7ab8ea6e7abb",
+  "mining": {
+    "source": "Allactualoriginal1000trainingarrays permodel, samefrozenfloat32hiddenreadouts; no generatedtrainingdata or targetdata.",
+    "decoder": "UnchangedH2aa: allopen, float64promotion, colors(0,0),(0,1),(1,0),(1,1), delta<-1e-8, max512sweeps.",
+    "batch": 64,
+    "negative_rule": "Retain everyfinitebinaryoutput thatfails independentvalidshortest checking onits suppliedgraph. Preservealloutputs/flags includinguncertifiedones; labelwrongstable status separately. Do not treat alternatevalidshortestboards asnegatives. Verify canonicaltraininglabels independently.",
+    "deduplication": "None. Retainallnegative rows, trainingindex/boardhash and identityrowmapping, evenifduplicates.",
+    "empty": "Amodelwithzero minedwrongboards is uninformative; no inventednegative or extra mininground.",
+    "timing": "Generation/loading,GPUmining andCPUgraphclassification reportedseparately and excludedfromLP120sbudget. Traininginputs reused, not newindependenttestevidence."
+  },
+  "constraints": {
+    "old": "Every H2w original source constraint and all855 H2ab mined-negative rows, unchanged, no deduplication.",
+    "new": "For eachretainedwrongboardz, E(z)-E(y)>=free-cellHamming(z,y)>0; dividebythatpositiveinteger forunitnormalizedrow.",
+    "parameters": "Unrestrictedreal23coordinates T[4,2,2],b[2],kappa[5]; hiddenmu/beta/readouts fixed. No artificialbound/gauge/signrestriction."
+  },
+  "solver": {
+    "method": "OneSciPyHiGHSdualsimplex call/model minimizingcoordinateLinf via free23theta andt>=0, with\u00b1theta<=t.",
+    "options": {
+      "presolve": true,
+      "threads": 1,
+      "small_matrix_value": 1e-12,
+      "primal_feasibility_tolerance": 1e-09,
+      "dual_feasibility_tolerance": 1e-09
+    },
+    "candidate": "Ifsolverreturns success, exactly2x returnedtheta once; no retuning/retries. Independently verifyallold/newunitmargins afterconservativefloat64allowance. Numericalminimum-normobjective doesnot constitute anoptimalitycertificate."
+  },
+  "decision": "Support only if all3 have >=1 genuinely new negative board and independently verified feasible primal for all old/new rows. Exact infeasibility certificate required to falsify real feasibility; numerical failure/timeout inconclusive. Empty or duplicate-only mining uninformative. No fresh test authorized.",
+  "budget": {
+    "aggregate_cpu_wall_seconds": 120,
+    "includes": "Solverrunentry imports, hashes/dataloading, all3coefficientextractions/LPs/primalchecks/receipts.",
+    "watchdog": "SIGALRM120 plusremainingHiGHStime_limit; no extension, alternate solver, additionaloptimization oroutcome-selectedconstraints. Read-onlyindependentcertificateaudits separate."
+  },
+  "primal_verification": "IndependentdirectNumPy extendedprecision pairtable/directedlink energy andflip arithmetic. Sameconservativefloat64allowance asH2w: m=256*900+1000,u=2^-53,gamma=m*u/(1-m*u),allowance=4gamma(10000max(1,||theta||inf)+1); requireallnormalizedmargins>1+allowance.",
+  "source_sha256": {
+    "research/20261114/work/mine_hard_negatives.py": "df702fcbba3ee2ab07cfc2db85f475df1cc573b50153ddd709de58a28ecfeadb",
+    "research/20261114/work/solve_hard_negatives.py": "b09864cd33a9e656baf609b1cf33d21cacfe9da287182763c1eac8ca5084ed5e",
+    "research/20261114/work/binary_coordinate.py": "657c33162a667f0304313612d51387b1d9638ca9290a4002411d7e9b78b5d21d",
+    "research/20261114/work/feasibility_features.py": "5d3f75d6eb23249ef1e4ba94303a9d01a8a9287db17de47e26ed59646702f00d",
+    "research/20261114/work/verify_training_feasibility.py": "3364c8127bea8589100fd6e405d3e6630457408742dc4b7cf48103adf41ed195",
+    "research/20261114/work/study.py": "c912470b19d0d13b151a4cac9a276455a915adeecf15088d1c5d43db66dbf721",
+    "research/20261114/work/audit.py": "d27d3397a620fa4998428baffeea704cff06c29111160246d17e684278522ec3",
+    "research/20261114/work/mine_second_hard_negatives.py": "f97a4239934f1541b1c5b98952bf22c8680a7c3eba963448ed568ed89d73cf97",
+    "research/20261114/work/solve_second_hard_negatives.py": "49ae2d854e737a9d566a01c4739b0c1ece056b875d0b415e34d4e416d79ab9ce",
+    "research/20261114/work/second_negative_novelty.py": "ca7edd3a0f6cefc1ba9479c51196cfa398fa6e5d1159f9f485d1475d623113e4"
+  },
+  "previous_feasibility_protocol_sha256": "6da2f14ed501b3a83a6f1ea2902e94ba8400a947577b438cf1285b0a2e651b9c",
+  "previous_witnesses": {
+    "0": {
+      "sha256": "facfe3014899ef87e79fa6dd075d9b59703b79564279aba9d6b0d006d75f1ce8",
+      "negative_archive_sha256": "00d35afa04683b0123c66ebfd85003173446d45e92430857473609438c18b558"
+    },
+    "1": {
+      "sha256": "1b2507b26df2f69c8d9b787e3a4d566546e6d91732cb7bac1dc50001b3cd7547",
+      "negative_archive_sha256": "4817d56edde66dc7088171d09c427f0c8ae0f668f8177661d8fb2e667ef69207"
+    },
+    "2": {
+      "sha256": "0469430c1323465689bb6f5fcc341851c61c4258c06274deab646cc527d7bf72",
+      "negative_archive_sha256": "6a239c190ce64dcaee50485b2dba79e8f57736c38a16762d26f8f0092922c327"
+    }
+  },
+  "informativeness": {
+    "board_novelty": "Training-index plus full-board identity versus H2ab and earlier rows; require>=1 genuinely new negative board/model for feasibility support.",
+    "constraint_novelty": "Exact rational normalized23-vector identity versus every prior H2w and H2ab row and earlier second-round rows. Rounded first18 coordinates only filter candidates; exact rational comparison decides. All rows retained even if duplicates.",
+    "violation": "Count exact normalized margin<1 under previous UNSCALED H2ab feasibility witness, with direct extended-precision energy cross-check and conservative allowance reported separately.",
+    "interpretation": "Novelty and violations reported separately. If zero violated rows, explicitly report absence of new ranking violations and do not attribute future changes to repairing them."
+  }
+}

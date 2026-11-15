@@ -1,0 +1,506 @@
+{
+  "id": "second-source-negative-unit-margin-binary-transfer",
+  "hypothesis_id": "H2ae",
+  "status": "frozen_before_fresh_generation_and_inference",
+  "frozen_utc": "2026-11-15T03:58:28.687661+00:00",
+  "parent_protocol_sha256": "c4e6db0bbfa17b33742b7ee6a02978dc7db0c96e941a23c039161295b56dd421",
+  "arms": [
+    "pl",
+    "hard_negative_binary",
+    "second_negative_binary"
+  ],
+  "models": {
+    "0": {
+      "pl": {
+        "path": "artifacts/research/20261114/work/contrastive_training/fits/s0-pl/checkpoint.pt",
+        "sha256": "0218e6d814f2ee5b6028877056fc9c705daf53e20233c2ebb083b46f5732752c"
+      },
+      "hard_negative_binary": {
+        "path": "artifacts/research/20261114/work/hard_negative_transfer/hard-negative-scaled-seed0.pt",
+        "sha256": "348d52169ef348df4e8559ea013f83f0ae0527daa14ab3d006ba7224ef5b19ea"
+      },
+      "second_negative_binary": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      }
+    },
+    "1": {
+      "pl": {
+        "path": "artifacts/research/20261114/work/contrastive_training/fits/s1-pl/checkpoint.pt",
+        "sha256": "3799b046bdfd3425b9603338f90bd60ccd6637707f20eac0d59139ce5d21445c"
+      },
+      "hard_negative_binary": {
+        "path": "artifacts/research/20261114/work/hard_negative_transfer/hard-negative-scaled-seed1.pt",
+        "sha256": "da79e01be4f40860727e2fed85a578f7a5774cef0082c85e1fc1d63c89b34115"
+      },
+      "second_negative_binary": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      }
+    },
+    "2": {
+      "pl": {
+        "path": "artifacts/research/20261114/work/contrastive_training/fits/s2-pl/checkpoint.pt",
+        "sha256": "76b8d4e38979cc5282d15b30f4b27c2468dbe5fe43426cfa6e085bb62b333672"
+      },
+      "hard_negative_binary": {
+        "path": "artifacts/research/20261114/work/hard_negative_transfer/hard-negative-scaled-seed2.pt",
+        "sha256": "5da5d45728e249d59ae532aeff915dd2d6a40d983cd241e169943a8e66c44562"
+      },
+      "second_negative_binary": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      }
+    }
+  },
+  "source_sha256": {
+    "upstream/cram/__init__.py": "ada20986bead2aa2d77dcc358af07dbc01b569b1765c83560e917d5cc2bd032f",
+    "upstream/cram/cram_graph_coloring.py": "ed6158d983be48082f851dcdb5175bad7aab6408ac73f14659825e90c67f5275",
+    "upstream/cram/cram_maze.py": "c9f9fa5718fdf7ce1f8ad33dc7dc9481e43c6084a31516ac1c88451dba03ead8",
+    "upstream/cram/cram_maze_hard_graph.py": "967c573a3b3dee6c015bf373b7858b856ae0e639bdfa1a8c302b65af87a19717",
+    "upstream/cram/cram_maze_hard_simple.py": "07e64a9383c4b2b1ea30021063d93e302a794023accbf6effbf188892220b2a8",
+    "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "upstream/cram/cram_sudoku.py": "2c6b53d1b81d54e35c484a3565abd60e778716d6e6121e424aede826a5ab0ed2",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "upstream/cram/graph_coloring_data.py": "b04e61911aa55d437ab3c9d602832c3df09f285f2605aba2e9a3d78c18d9cb04",
+    "upstream/cram/latent_settle_triton.py": "7eca3fdf03ec6d5eb847e0dcbcdad61c74b56c084c363190d2c32a1737f19072",
+    "upstream/cram/maze_h3.py": "dd13a3038830bf1e2db83854704fcb39167a3f76ee9de01832de9b3187ee7acd",
+    "upstream/cram/maze_h3p.py": "dd26d260efea3a84f224743e14ae8383d967dfdafb0b4409bd05e864fe7ce92a",
+    "upstream/cram/maze_learned.py": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "upstream/cram/maze_unique.py": "3ceb56a61d92c3fa52a7d84876314abe31909780159fa53560692c19b306d213",
+    "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623",
+    "upstream/cram/opcount.py": "2ddf7373d227f50f43b06cf8e129cb727a85a3e2e86065e7081ba477997e924d",
+    "upstream/cram/paths.py": "d3af83d2c75e9165b88fbaf09d35ee352523fa79e5b3b02163d0dfbaae8602b8",
+    "upstream/cram/table.py": "bbf1fdce8a9e2fa836f5a3800746671b62f740e28c1986029bb53b608ebd0493",
+    "upstream/experiments/compute_curve_export.py": "951515d262bab6599bee08af08343d039ddc57a3da5b8f38841bccccdb1b47d2",
+    "upstream/experiments/data_efficiency.py": "5f16479ed5428a192ce431e1ebc8715a5ffabeae4aeaefc9448dd4d038495c22",
+    "upstream/experiments/data_efficiency_baselines.py": "08fb19aaf0eff7ddd02fffee3a6e552c7f14e3990384806f75ec3b515f76f383",
+    "upstream/experiments/data_efficiency_common.py": "fd9736215f5268f445f089eaedc84360edbe0aa00abc8af861bf03b98eb1ba01",
+    "upstream/experiments/difficulty_export.py": "946e006435e75bdf36793f0f6dd15a830b44fc076f1ef60f27e492809eb8f051",
+    "upstream/experiments/graph_coloring.py": "156b3c5c4dd377870c10ef6caca20e5ccbf0a6921e0bec997a52d6a03443a972",
+    "upstream/experiments/graph_coloring_export.py": "6823486a862b19e0109ae9df4fca983ba43688daeeef24686450cd1c36a4541d",
+    "upstream/experiments/graph_coloring_hand_set.py": "c0dbce040824dd42d9195305ec8bc5cce581c55143cdf330b7cac8fda3586cdf",
+    "upstream/experiments/hand_set.py": "8fc4f15271655ec5b1e17eec29a48d8f11f8489ca0d1df79f0a7df4f37bac136",
+    "upstream/experiments/maze_hard_figure_export.py": "02e17d0728a458d69428a6e215a33c9d3d5f1f68bb5d49a02a5fac59bb8b037e",
+    "upstream/experiments/maze_hard_latent.py": "fad4c9c05c41ab2e3dcd997c666a2bbf0fdcca5ae894e2e90f1540d6d2cb4d77",
+    "upstream/experiments/maze_hard_support.py": "936caed5f90ef275199c73e26a437b4b6e6dc814b11e6955bb741b33e30b5c49",
+    "upstream/experiments/maze_unique.py": "042e1b0d0c760bfb7b3c4c9a6cd30785e95255ab570a5810bd80cfbf1ac651eb",
+    "upstream/experiments/maze_unique_fit_time.py": "07f0d25ea1f9a244dfba9ce031523400ba6cafa3ecb339ab8a84ade2ac3b31d6",
+    "upstream/experiments/multi_solution_export.py": "7462da58650d6b3c416e7a58b8526899543ae18fe9c05ed0ebd671875cb3317c",
+    "upstream/experiments/nqueens_coverage.py": "2694c01cb6b37b714dcb70b040317aed2789b9ae3207eb2b2c6c54254d41910c",
+    "upstream/experiments/nqueens_emptied.py": "e5d01938ef08469198028547e27cc9789336d3bec7a41cdf88bb2fec37ebeb6e",
+    "upstream/experiments/nqueens_export.py": "79bf0074e470bc6a2bfe1f2dfe5c376b38e96ef98f527a733f01f0b44ce76c96",
+    "upstream/experiments/nqueens_free.py": "67b4f3fd4188714cf04c50f0ecd6b73754c8132e3ed10e7877e17a225e875f08",
+    "upstream/experiments/nqueens_free_export.py": "6bbf21ad9d9864a21dd9f4dda8417a832f4008e7940a5c1b2d8f61162c13156d",
+    "upstream/experiments/nqueens_offset.py": "f9f0641aa33f5a6f80161f20ef55c5bfd6cb28b439439e0162176428a30df0f3",
+    "upstream/experiments/nqueens_offset_export.py": "85a2b6f5bd0d3d56b6ec52b30d22e15d08d8c70f5dca3da9039b3b99f4641127",
+    "upstream/experiments/sudoku.py": "b73f72c8e874711d0d05fa75de0043442a20297618de62e5bb714b76aa09f20b",
+    "upstream/experiments/training_curves.py": "f9c577da0d83a13a53e33ad859d9abe37fbb1cef52c42efb54424f94b6cb2e07",
+    "upstream/experiments/training_methods.py": "13ee258293c6b0883d8dbf93b14533460d402e8bd9d61f306c7d6832f46919e9",
+    "upstream/experiments/training_methods_export.py": "d60a18693e9cc488c239955b952d4f2f34c76eb3f1ed195b793ec4af35341561",
+    "research/20261114/work/lp_transfer.py": "226470cfc3356639c6605bf9d7cfd45f045264bcc8cd055502c4b21c66174e84",
+    "research/20261114/work/prepare_lp_transfer.py": "cc153944320896993b1f5d8dafbbd72fdaa10313462dec57754e51308a2aec17",
+    "research/20261114/work/study.py": "c912470b19d0d13b151a4cac9a276455a915adeecf15088d1c5d43db66dbf721",
+    "research/20261114/work/larger_relaxation.py": "6be58f66b7d354f7d47da697520bddb73dcadc6114cedcde0885ad5e61ea4cd1",
+    "research/20261114/work/binary_preserving.py": "a97d86dd91d830c7982c14fcaf48c61cfd0bc0962f93f1459e30b201e49777b2",
+    "research/20261114/work/selective_fallback.py": "ba53eceeb5807c5b7b0454b18266aad7e847ef72b0b6c7fdf66dce5b90e7a5aa",
+    "research/20261114/work/binary_coordinate_study.py": "0489a8e437b1640ed8c0c8b5054e6a9b62bd0446b2f6b3073d5c2369f57e9c95",
+    "research/20261114/work/binary_coordinate.py": "657c33162a667f0304313612d51387b1d9638ca9290a4002411d7e9b78b5d21d",
+    "research/20261114/work/gate_binary_coordinate.py": "089c4ec1e7c517814602460b9e5f70c2fa0efad86976a52084058e8fa6c0d6e1",
+    "research/20261114/work/gate_lp_relaxation.py": "dd890a122fae4781a1d7924b908ca5a23e19b12d49d7dbb1e4b82ededf4c8ad1",
+    "research/20261114/work/prepare_hard_negative_transfer.py": "5345d0f963e58c4a801ba3e3aa9a9e205cd41a7f83517e60f0125cc946494893",
+    "research/20261114/work/gate_hard_negative_transfer.py": "8ec579eea55219988579a6f234ae581d9fd31504e14b034781160e1459f40229",
+    "research/20261114/work/hard_negative_transfer.py": "df4c0e8f97e59c845afb6c50eca56eb1986125d912e478086d00d9385a5c64ec",
+    "research/20261114/work/verify_training_feasibility.py": "3364c8127bea8589100fd6e405d3e6630457408742dc4b7cf48103adf41ed195",
+    "research/20261114/work/prepare_second_negative_transfer.py": "6e9af0cf1cad13067291fb183c95157ce26cba129e61cbd3b822c6db732ecaba",
+    "research/20261114/work/gate_second_negative_transfer.py": "40bf7f7ad2324df1f387cdf7f276ebfe7482d34cbe84bc1467044e83272a1a8b",
+    "research/20261114/work/second_negative_transfer.py": "324b7f8da7af727480a15427a3e4f13008060ca3120109d081a5345be3b9a1dc"
+  },
+  "gates": {
+    "artifacts/research/20261114/work/binary_coordinate/numerical-gate.json": "e3dd25043d9fe985b8d8cb44f5bb9b51e1d4e42605fa59127bf7416c4dd1feca",
+    "artifacts/research/20261114/work/binary_coordinate/performance-gate-gpu0.json": "4cba7436ea1b96cc0a86c5ec808ac2bfb810337876e73d668e345e1cc6ed9e19",
+    "artifacts/research/20261114/work/binary_coordinate/performance-gate-gpu1.json": "fb5491332dc08d5075f1b095b4ea18d1b0d4fb4f0defab02bc306cebb965c261",
+    "artifacts/research/20261114/work/hard_negative_transfer/cast-gate.json": "ebdc68cd54dd38d7b8ad570716c1a2f4e96c3b64df48124f08cf67f21cf5ea01",
+    "artifacts/research/20261114/work/hard_negative_transfer/numerical-gate.json": "b234495bdd4b366a1079726ccb306629e3e8216a8c0f8579a916068c84ab08c2",
+    "artifacts/research/20261114/work/hard_negative_transfer/performance-gate-gpu0.json": "510250f68f122f7cdf284c83daa6a1259b2961037abb2248ce95d7469a8e2e6d",
+    "artifacts/research/20261114/work/hard_negative_transfer/performance-gate-gpu1.json": "2192d127333f8b436160ef5b07e35114b4c25384c8dc119845d4cdeb4eff027e",
+    "artifacts/research/20261114/work/hard_negative_feasibility/import-isolation.json": "899d8c5c13b8cd471d65e8b61c55c5e5f1c67f4405f7966e88d503f6f4fdc4dc",
+    "artifacts/research/20261114/work/second_negative_transfer/cast-gate.json": "24ed44d86d0c07b45bec8543853a1e507f4f13e4863f6a2e806d6b5f149c6568",
+    "artifacts/research/20261114/work/second_negative_transfer/numerical-gate.json": "ce43f3c1f3955462df7d3ccd966e8120754fc5e3348fdfe443584d6ff747d714",
+    "artifacts/research/20261114/work/second_negative_transfer/performance-gate-gpu0.json": "16017752965b4153336951125882ce136d7d8878f52ac9d59335ac54a4d0e4a7",
+    "artifacts/research/20261114/work/second_negative_transfer/performance-gate-gpu1.json": "18d8c77d5c72241fb2290d9ecf80f9ae570461c674faeaeea37b6312a8bf4cb1",
+    "artifacts/research/20261114/work/second_hard_negative_feasibility/import-isolation.json": "030c0f80dc1edfd140428581dcf8ab87c18bb75af7b1e79c0e1c948d1363de70"
+  },
+  "binary_decoder": {
+    "initialization": "Every suppliedopen cell selected, walls0/endpoints1; no continuousprefix.",
+    "dtype": "float64; exactpromotion of frozenfloat32answerparameters andsharedfloat32readout.",
+    "colors": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "flip_threshold": -1e-08,
+    "sweep_cap": 512,
+    "update": "At eachphase simultaneouslyflip freecells ofthatparitycolor withoriginalbinaryenergydelta<-1e-8. Fourphases compriseonesweep.",
+    "stop": "Aftera fullsweep withzeroeligibleflips. Cap512withoutrescue; finalminimumdelta recorded evenifnotstopped.",
+    "mathematical_scope": "Distinctsamecolorcells have no pair/linkinteraction. Aphaseenergychange equals the sum ofindividualflipcosts. Exactsourcefixtures verifyadditivity andstrictdecrease. Finitecap successnotguaranteed.",
+    "implementation": "Precomputedbinarylinear/symmetricpaircoefficients; sourcebench2alternatingpasses verifyexactdiscreteparity withuncachedfloat64upstreamflip_delta."
+  },
+  "controls": {
+    "pl": "Frozen H2v BP AdamW continued PL native float32; different objective/fitting budget from LP.",
+    "hard_negative_binary": "Frozen H2ac first-negative-round coefficients with unchanged H2aa decoder.",
+    "second_negative_binary": "Frozen H2ad second-margin-round coefficients with unchanged H2aa decoder.",
+    "hidden": "Same immutable mu/beta, shared float32 readout.",
+    "labels": "No labels, graph distance, graph search or repair in inference."
+  },
+  "cohort": {
+    "n_unique": 4096,
+    "length": 120,
+    "loop_rate": 0.2,
+    "base_seed": 2026111513,
+    "generator": "study.maze SeedSequence([2026111513,120,20,index]), index0..4095",
+    "shards": 16,
+    "shard_size": 256,
+    "disjointness": "Exact token digest checks against all prior cohorts including H2aa/H2ac, no pooling."
+  },
+  "native_inference": {
+    "dtype": "float32",
+    "hidden_tol": 1e-06,
+    "hidden_cap": 4000,
+    "hidden_check": 8,
+    "u0": 3.0,
+    "eta": 0.5,
+    "answer_cap": 8192,
+    "answer_check": 16,
+    "batch": 64,
+    "certificate": "Originalnativefloat32flip_delta>=-1e-6; preserve originalstopmask andbudget."
+  },
+  "evaluation": "Success requires declareddecoderstop, finiteanswer, hiddenconvergence, commonoriginalbinaryenergyfloat64minimumflip>=-1e-6, and independentvalidshortestgraph check. The binaryderivative explicitlychangesdecoder/arithmetic; no postcapcredit, globaloptimality claim or samecomputeclaim.",
+  "primary_gain": {
+    "hypothesis": "Second source-margin round improves joint-three-model valid-shortest success by at least1 percentage point versus H2ac.",
+    "target_pp": 1.0,
+    "decision": "Paired gain/loss over4096 independent inputs. Separately one-sided95 net bounds via CP alpha.025 marginal tails; support lower>=1pp, falsify upper<1pp, otherwise inconclusive."
+  },
+  "primary_noninferiority": {
+    "hypothesis": "Second source-margin round is noninferior within.1 percentage point to BP PL native on joint valid-shortest success.",
+    "margin_pp": 0.1,
+    "decision": "Pairedloss=BPPLjointsuccess andbinaryjointfailure. ExactCPone-sided95lossboundsalpha.05. Supportupper<=.1pp; falsifylower>.1pp; elseinconclusive. Reportgains/net separately."
+  },
+  "overall": "Supportifbothsupport; falsifyifeitherfalsifies; otherwiseinconclusive. Endpointsseparate, no simultaneous95claim. Modelrepeats are notindependentinputs.",
+  "secondary": "Wrong certified stops, timeouts/nonfinite/hidden failures, original energy certificates, selected cells, binary flips/sweeps, native updates, times descriptive. No new fitting or graph rescue.",
+  "budget": {
+    "total_gpu_minute_envelope": 20,
+    "per_worker_wall_seconds": 600,
+    "watchdog": "Every batch; preserve partial on expiry, no extension or rescue."
+  },
+  "timing": "Rotatedarmorder byjob/batch; CUDA-synchronized sharedhidden andperarmanswer. Binarycost includes float64readoutcast/cacheconstruction/solve. Nativecost includesoriginalsolver. Diagnostics/transfer/archive overhead separatelyinworkerwall; one scientificpass, no runtimeCI. Sourcewarmups/timingreplays separate.",
+  "retained": "All fresh inputs/labels, shared readouts, all predictions/flags, one native final-logit array, native update and binary sweep counts, both binary flip counts/cache margins, original-energy float64 diagnostics, native float32 margin, timings/hashes/failures.",
+  "jobs": [
+    {
+      "id": "shard00-s0",
+      "shard": 0,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard00-s1",
+      "shard": 0,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard00-s2",
+      "shard": 0,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard01-s0",
+      "shard": 1,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard01-s1",
+      "shard": 1,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard01-s2",
+      "shard": 1,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard02-s0",
+      "shard": 2,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard02-s1",
+      "shard": 2,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard02-s2",
+      "shard": 2,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard03-s0",
+      "shard": 3,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard03-s1",
+      "shard": 3,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard03-s2",
+      "shard": 3,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard04-s0",
+      "shard": 4,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard04-s1",
+      "shard": 4,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard04-s2",
+      "shard": 4,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard05-s0",
+      "shard": 5,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard05-s1",
+      "shard": 5,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard05-s2",
+      "shard": 5,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard06-s0",
+      "shard": 6,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard06-s1",
+      "shard": 6,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard06-s2",
+      "shard": 6,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard07-s0",
+      "shard": 7,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard07-s1",
+      "shard": 7,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard07-s2",
+      "shard": 7,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard08-s0",
+      "shard": 8,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard08-s1",
+      "shard": 8,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard08-s2",
+      "shard": 8,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard09-s0",
+      "shard": 9,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard09-s1",
+      "shard": 9,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard09-s2",
+      "shard": 9,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard10-s0",
+      "shard": 10,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard10-s1",
+      "shard": 10,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard10-s2",
+      "shard": 10,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard11-s0",
+      "shard": 11,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard11-s1",
+      "shard": 11,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard11-s2",
+      "shard": 11,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard12-s0",
+      "shard": 12,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard12-s1",
+      "shard": 12,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard12-s2",
+      "shard": 12,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard13-s0",
+      "shard": 13,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard13-s1",
+      "shard": 13,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard13-s2",
+      "shard": 13,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard14-s0",
+      "shard": 14,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard14-s1",
+      "shard": 14,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard14-s2",
+      "shard": 14,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard15-s0",
+      "shard": 15,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard15-s1",
+      "shard": 15,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard15-s2",
+      "shard": 15,
+      "seed": 2,
+      "gpu": 1
+    }
+  ],
+  "hard_negative_feasibility_protocol_sha256": "efdbad93f055bb969c23f5a91c75809a42a4c3849ffbd6eede30eedf7e8e9f89",
+  "binary_decoder_protocol_sha256": "f0b19a7d562b289574d6137ce979032d290e266a254f758010078912461cf308",
+  "candidate_selection": "Exactly H2ad independently verified witnesses, one positive uniform scale to original coefficient maximum, one float32 cast; all1699856 source inequalities verified positive. Fixed additional unit-margin constraints for source local traps; all14 new negatives already above their labels under the prior objective. No claim of correcting source energy ordering, no further mining or target use."
+}

@@ -2,6 +2,8 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Exact compilation of learned queen constraints versus GPU search](../research/20261114/loki/h3ae/REPORT.md)
+- [Oracle diagnosis of the confidence-weight budget boundary](../research/20261114/ripper/REPORT-confidence-oracle.md)
 - [Confidence-weighted Sudoku under 5% query noise](../research/20261114/ripper/REPORT-confidence-weight.md)
 - [Confidence weighting at half the training budget](../research/20261114/ripper/REPORT-confidence-budget.md)
 - [Queen search across four freshly fitted source banks](../research/20261114/loki/h3ac/REPORT.md)

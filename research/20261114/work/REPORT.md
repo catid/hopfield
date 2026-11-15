@@ -577,3 +577,61 @@ The remaining 420 wrong model-input outputs are all connected branched supersets
 See the [summary](../../../results/research/work/hard-negative-transfer-summary.json), [paired inputs](../../../results/research/work/hard-negative-transfer-per-input.csv), [model-input results](../../../results/research/work/hard-negative-transfer-per-model-input.csv), [diagnosis](../../../results/research/work/hard-negative-transfer-diagnosis.json), [independent state verification](../../../results/research/work/hard-negative-transfer-independent-state-verification.json), [statistics verification](../../../results/research/work/hard-negative-transfer-statistics-verification.json), and [figure](../../../results/research/work/hard-negative-transfer.png).
 
 Completed totals are now 1,498 planned jobs and 831,230 primary scientific model–maze–arm evaluations; including six descriptive jobs and 132 arms, 1,504 jobs and 831,362 evaluations. H2ab's 3,000 training-source mining trajectories and three LP solves remain separate, as do source gates, independent audits, saved-state diagnostics and timing repeats. These research derivatives do not alter the original reproduction.
+
+### H2ad: a second source round adds margin constraints, not energy-order reversals
+
+The [frozen source protocol](second-hard-negative-feasibility-protocol.json) mines the unchanged decoder on all original 1,000 training inputs using the H2ac coefficients. It retains every earlier H2w and H2ab row and tests whether all three systems remain feasible with at least one genuinely new negative board per model. Before mining, it also declares separate endpoints for new boards, new exact normalized constraint vectors, and violations of the unit Hamming-normalized margin under the previous **unscaled** H2ab feasibility witness.
+
+| Model seed | Wrong source outputs | New boards | New exact rows | Prior unit-margin violations | Feasible witness maximum coefficient |
+|---|---:|---:|---:|---:|---:|
+| 0 | 5 | 3 | 3 | 2 | 684.1270 |
+| 1 | 5 | 3 | 3 | 2 | 686.1777 |
+| 2 | 4 | 3 | 3 | 2 | 696.8620 |
+
+All 14 wrong outputs are retained, including five rows already present in H2ab. Board identity includes its original training index. Constraint identity compares exact rational 23-coordinate normalized vectors against every earlier row; all repeated rows remain in the LP. Nine boards and nine constraint rows are genuinely new. Six new rows violate the old unit margin, with normalized values approximately 0.2954–0.5685. **All 14 negatives already have energy above their labels.** The remaining novel row per model has normalized margin 34.39–37.53. This intervention strengthens margins for source local traps; it does not reverse a wrong source energy ordering.
+
+The feasibility hypothesis is supported by independent primal certificates. One fixed solve per model, retaining the earlier 855 negative rows plus these 14 rows, takes 12.168 aggregate CPU wall-seconds within the 120-second envelope. All 1,699,856 retained inequality rows pass direct extended-precision verification; the minimum certified normalized margin is 1.999284. Numerical minimum-norm solutions are not certified norm optima. The 3,000 source trajectories add no independent test inputs.
+
+A separate public-only checker recomputes integer pair histograms and exact rational directed-link sums. Every new row contains a fractional pair/bias coordinate, which algebraically excludes equality with all 564,329 single-flip rows per model. It then compares every endpoint/all-open and earlier mined row, verifies all new-row identities, and exactly checks the prior-witness margins. The complete verifier, including all source graph classifications and primal inequalities, takes 3.752 seconds and also passes with Torch, SciPy, the solver, the mining/novelty implementation, and the linear feature builder blocked from import. Source mining takes 1.553 and 1.288 GPU worker seconds; source graph classification and novelty accounting are separately timed.
+
+See the [summary](../../../results/research/work/second-hard-negative-feasibility-summary.json), [independent primal and novelty verification](../../../results/research/work/second-hard-negative-feasibility/independent-verification.json), and [public verifier](verify_second_hard_negatives.py).
+
+### H2ae: the second margin round has an inconclusive one-point gain
+
+The [frozen protocol](second-negative-transfer-protocol.json) uses the H2ad witnesses after one original-norm match and float32 cast. All 1,699,856 source inequality rows remain positive, with certified minimum margins 0.04224–0.04310. The intervention strengthens unit margins for source local traps; every newly mined source negative was already above its label in energy. The H2aa binary decoder is unchanged. The fresh cohort contains 4,096 independent 120×120 loop20 mazes, base seed 2026111513, with independent shortest-label, uniqueness and prior-cohort disjointness checks.
+
+| Arm | Joint solved / 4,096 | Model-input solved / 12,288 | Wrong certified | Timeouts | Answer seconds |
+|---|---:|---:|---:|---:|---:|
+| BP AdamW continued PL, native | 4,077 | 12,236 | 52 | 0 | 29.1006 |
+| First source round LP, binary | 3,955 | 11,868 | 420 | 0 | 15.6697 |
+| Second source round LP, binary | **3,986** | **11,961** | 327 | 0 | 15.4352 |
+
+The second round gains 31 inputs and loses none versus the first round: +0.756836 percentage point. The separately one-sided 95% net bounds [0.424776, 1.072562] straddle the prespecified one-point improvement, so **that hypothesis is inconclusive**. It gains none and loses 91 versus BP PL; the one-sided 95% lower bound on the loss rate is 1.85619 points, falsifying noninferiority within 0.1 point. The conjunction is falsified. Fixed models are repeated measurements on the same inputs, not extra independent samples; endpoint confidence statements are separate. LP and BP have different fitting objectives and budgets.
+
+All outputs are finite, hidden solves converge, and all binary outputs pass their local energy certificates. The new decoder takes 77–146 sweeps, median 113. The table includes 0.19265 and 0.09734 seconds of binary coefficient-cache construction, respectively. Worker walls are 69.720 and 70.338 seconds, or 2.334 GPU-minutes within the 20-minute envelope. All 36,864 retained diagnostics recheck exactly; 144 independent final-board and 48 label checks have maximum energy error 1.17e−10 and flip error 1.78e−15. The independent verifier also passes with the solver, Torch, SciPy, and feature-builder imports blocked. Independent SciPy confidence calculations agree within 3.48e−12 percentage points.
+
+All 327 wrong outputs are connected and branched. Of these, 213 have higher energy than the canonical label, 114 lower, and none is tied within 1e−6. These comparisons concern the supplied canonical valid-shortest label; they do not prove an invalid output beats every valid shortest solution. Three wrong model-input outputs, all from input 2722, miss 177 canonical cells; the first-round control already misses 171 there. Another ten **correct** model-input outputs use alternate shortest paths and are counted solved by the independent graph checker. The canonical labels are locally unstable in these 13 model-input cases; the remaining 12,275 are locally stable. The diagnosis therefore separates label identity, graph correctness, and energy order.
+
+Public [summary](../../../results/research/work/second-negative-transfer-summary.json), [paired outcomes](../../../results/research/work/second-negative-transfer-per-input.csv), [model-input rows](../../../results/research/work/second-negative-transfer-per-model-input.csv), [diagnosis](../../../results/research/work/second-negative-transfer-diagnosis.json), [independent verification](../../../results/research/work/second-negative-transfer-independent-state-verification.json), [confidence verification](../../../results/research/work/second-negative-transfer-statistics-verification.json), and [figure](../../../results/research/work/second-negative-transfer.png) retain the evidence.
+
+Completed fresh-study totals are 1,546 planned jobs and 868,094 primary model–maze–arm evaluations; including six descriptive jobs and 132 arms, 1,552 jobs and 868,226 evaluations. H2ab and H2ad source mining, source-only feasibility solves, gate replays, diagnostics and timings remain separate.
+
+### H2af: the leaf gate fails, and source decoding really regresses
+
+The [frozen source screen](leaf-removability-protocol.json) tests strict removability of every false-positive free leaf in the current H2ae decoder's wrong training outputs. A leaf must be selected, absent from the canonical training label, and have exactly one selected north/east/south/west neighbor. Every eligible leaf is retained. The protocol declares a model uninformative if any wrong board has no such leaf; it does not discard those boards to obtain a feasible subset.
+
+| Model seed | Wrong / 1,000 source inputs | Eligible leaf rows | Distinct exact leaf rows | Wrong boards without a leaf |
+|---|---:|---:|---:|---:|
+| 0 | 233 | 496 | 6 | 2 |
+| 1 | 114 | 224 | 3 | 2 |
+| 2 | 233 | 496 | 6 | 2 |
+
+**The predeclared no-leaf gate fails in all three models.** The affected training indices are 578 and 683. Consequently no feasibility LP or conditional Farkas LP was run; the source feasibility question is uninformative under this protocol. Its solver entry/eligibility checks take 0.126 seconds. The 3,000 source trajectories are kept separately from fresh-test counts, and all wrong boards and all 1,216 eligible leaf rows remain available.
+
+The source regression from the first-round fit's 5, 5 and 4 wrong outputs is real under the frozen decoder. A full read-only replay checks all 3,000 source inputs with both the cached and upstream-reference flip calculations: boards, sweeps, stopping flags and flip counters match exactly. It independently confirms original coefficient-norm matching, the single cast, checkpoint values, unchanged hidden tensors and exactly recomputed hidden readouts. The maximum final-margin discrepancy is 1.78e−15. These 6,000 replay trajectories add no independent observations. A separate NumPy/Fraction audit validates the 1,000 training labels, independently classifies every output, checks every source certificate, reconstructs each leaf mask and exact flip cost, and confirms all canonical training labels remain locally stable. The extra margin constraints therefore preserve the source label inequalities while substantially worsening this decoder's source basins.
+
+Every selected leaf has a **strictly positive** removal cost under the current objective: ranges 0.3125–12.3845, 5.2438–12.3717 and 0.3427–12.1762 by model. This is not a zero-cost tie or rounding artifact. All leaf-removal rows differ from prior constraints because their scalar products under the previous cast model are negative, while every prior normalized row has a certified positive margin. Repeated exact leaf rows are identified and retained.
+
+The leafless outputs contain the complete canonical label and have cycle ranks three and one. Their extra four-connected components contain 12 and 8 cells. Removing each complete extra component already lowers energy by approximately 0.51 and 0.34; these component-removal conditions coincide with earlier canonical-label ranking rows. The current one-bit decoder cannot execute those improving block moves. This source diagnosis uses labels to identify the erroneous components and is **not** an inference procedure: any future decoder must choose candidate moves without target labels.
+
+The [public source audit](../../../results/research/work/leaf-removability/independent-source-verification.json), [selection records](../../../results/research/work/leaf-removability/leaf-selection.json), [summary](../../../results/research/work/leaf-removability-summary.json) and [independent verifier](audit_leaf_selection.py) retain the failed gate and regression evidence. No fresh cohort was consumed for this screen.

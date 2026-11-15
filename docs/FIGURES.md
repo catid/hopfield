@@ -4,6 +4,9 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Exact compilation of learned queen models versus GPU search | [Exact-compilation exports](../results/research/loki/h3ae/) | [plot_public.py](../research/20261114/loki/h3ae/plot_public.py) |
+| Oracle diagnosis of confidence-weight budget boundary | [Oracle diagnostic](../results/research/ripper/confidence_oracle.json) | [plot_confidence_oracle.py](../scripts/plot_confidence_oracle.py) |
+| Second maze hard-negative round | [Second-round exports](../results/research/work/second-negative-transfer-summary.json) | [plot_second_negative_transfer.py](../research/20261114/work/plot_second_negative_transfer.py) |
 | Confidence weights and capped Sudoku returns | [Confidence exports](../results/research/ripper/confidence_weight.json) | [plot_confidence_weighting.py](../scripts/plot_confidence_weighting.py) |
 | Confidence weighting at half training budget | [Budget exports](../results/research/ripper/confidence_budget.json) | [plot_confidence_budget.py](../scripts/plot_confidence_budget.py) |
 | Queen search across four source-bank fits | [Four-bank exports](../results/research/loki/h3ac/) | [plot_public.py](../research/20261114/loki/h3ac/plot_public.py) |

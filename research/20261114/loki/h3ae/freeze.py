@@ -1,0 +1,45 @@
+"""Freeze a model-only exact-compilation benchmark before compiling or drawing."""
+from common import ROOT,SRC,OUT,OLD,BASE,sha,read,save,now
+
+def main():
+    assert not(SRC/'protocol.json').exists()and not(OUT/'compilation-gate.json').exists();OUT.mkdir(parents=True,exist_ok=True);gate=read(OUT/'query-validation.json');assert gate['status']=='passed';previous=read(SRC.parent/'h3ad/protocol.json');models=[]
+    for bank,family in enumerate(previous['families']):
+        selection=OLD/f'b{bank}/calibration-selection.json';s=read(selection);assert s['status']=='matched_source_median_times';model=OLD/f'b{bank}/model.npz';models.append(dict(bank=bank,family=family['name'],model_path=str(model.relative_to(ROOT)),model_sha256=sha(model),calibration_selection_path=str(selection.relative_to(ROOT)),calibration_selection_sha256=sha(selection),permutation_cap=s['selected_permutation_cap']))
+    p=dict(id='H3ae-model-only-zero-F-compilation-control',frozen_utc=now(),
+        hypothesis='For BOTH fixed H3ad models, complete model-only zero-F compilation pluscacheload andthree4096-input querycalls takesatmostone-tenth thetotal timeofthreefrozen permutationGPUsolve calls,while preserving zero-wrong-stop certifiedcorrectness and empiricalnoninferioritywithin0.1percentagepoint.',
+        interpretation='The genuinely empirical discriminator is the10xspeed threshold includingcompletecompilation/proofcost. Oncezero-Fcompleteenumeration andvalidityhold,certifiedcapacitycoverage is a completenessconsequence,notnewlearningevidence. Hardware-specific threebatchamortization,not equalFLOPs orsinglequeryspeed.',models=models,
+        arms=['BP AdamW arbitrary proposals','BP AdamW permutation proposals','BP AdamW exact zero-F compilation'],
+        eligibility='Modelonly: q13,symmetricbinaryFwithzerodiagonal,JstrictlypositiveexactlyonF,zeroh. Requirecomplete rowandcolumncliques inF. Then q13zero-Fstateshaveexactlyoneoccupiedcellperrow/column; everyzero-Fstate is a permutation.',
+        compilation=dict(cpu_seconds_ceiling=120,aggregate_both_families=True,source_inputs='Only thetwofrozenmodelNPZfiles plus sourcecode/selection/protocolintegrity. No targetsolutionarrays,labels,inputkeys,accuracy orfamily leaper rules used bycompiler.',
+            primary='Exhaustiveforward-row recursion, precomputingfuture-rowforbidden-column bitmasks fromF. Pruneonly byFconflicts.',
+            independent='Independent reverse-row recursion testingliteralF[cell,priorcell] against everyselectedcell; no sharedforwardmasks. Sortcompleteoutputs andrequireexactarrayequality, uniqueness,andliteralall-Fpairzero.',
+            cache='Allzero-Fboards andpackedcell-to-solution incidenceindex. Sealbothcompletecaches andproofreceipts beforeanyfreshcohortdraw. Failure/timeout preserves evidence but permitsno partialcacheuse orGPUstudy.',
+            gate='OneITIMER_PROF120aggregateCPU-second gate covers modelchecks,bothenumerators,independentproof,indexbuild andcacheserialization acrossbothmodels.'),
+        query=dict(outputs_per_input=20,seeds=[0,1,2],random_seed='numpy default_rng(2026112900+100*family_index+searchseed)',
+            recipe='Intersect invertedbitsets for givenclues; enumerateallmatchingcacheIDs. Choosemin(20,matches)uniformlywithoutreplacement. If fewerthan20,padwithuniformresampling frommatches. Ifzero,returnexplicitabstention withsentinelboards/indices,neverclaimacertificate. Preserveatmost20uniqueoutputs.',
+            access='Query loads only modelcache andseparate query-inputs.npy containingclues; itneveropens thelabel-containingdata.npz,targetsolutionbanks oraccuracyfiles. No targetlabel filtering ofcacheoutputs.',
+            consequence='For everyinputwithanyzero-Fcompletion,all20returnsarezero-Fandtheprimarydoesnotabstain. Diversitymaybenefitfromwithout-replacement selection; compareasdeclaredrecipe,notidentical RNGsemantics toGPUchains.'),
+        target=dict(unique_inputs_per_family=4096,input_seeds=[2026112519,2026112520],chains=20,search_seeds=[0,1,2],
+            exclusion='Union finalH3ad all_prior_and_calibration_excluded_keys andall_new_family_test_keys. Reservefamily0thenfamily1,andalsoexclude newfamily0keys fromfamily1. Drawuniformly fromeachcompleteH3ad inputuniverse AFTERbothcache/proofseals.',
+            GPU_starts='SamefrozenH3aaCPUpermutationinitial arrays forarbitrary/permutation withinfamily/seed; same20chains,sourceunit,caps,endtemperatureratio. NoGPUkernel/weight/temperature change orsource recalibration.',
+            caps='Arbitrary20000; permutationinherits11264/12000 ashash-pinned inmodels,unchangedafterfreshcosts.',
+            GPU_assignment='For eachfamily GPU0:arbitraryseed0,permutationseed1,arbitraryseed2; GPU1 complementary.',
+            GPU_warmups='Eachof12scoredjobs getsonefullshape32-proposalunscoredwarmup(seed100),chargedtobudget.'),
+        timing=dict(cpu_denominator='Perfamily modelhash/load/eligibility,forwardenumeration,independentreverseenumeration/completenessproof,all-Fverification,indexconstruction,cacheserialization walltime PLUScacheload walltime PLUSthree complete querycall walltimes. Everycompiledmodelcost countedonce, even across3queryseeds. No targetvalidityscoring/recordsserialization inquerycall timing.',
+            gpu_numerator='Sumofthree frozenpermutation completeGPUsolve-call walltimes, synchronizedbefore/after andincludinginitialtransfer/returnedCPUarrays. Modelparsing,warmups,validityscoring/serialization outside solve-call timingbutallGPUworker timecharged.',
+            comparison='Speedratio=GPUthree-solvecallseconds / CPUcompile+load+three-queryseconds. Singlecompilation permodel;threequeries repeatselection,notcompilation. No timingCIclaimfromonecompilation;thresholdusesmeasuredpoint ratio.',
+            scheduling='H3aeGPUstudy startsafterH3adcampaigncomplete. CPUcompilation precedescohortdraw/GPUwork. Label-freeCPUquerywork mayoverlapGPUcontroljobs; reporthardware andactualtimes.'),
+        decision=dict(speed_threshold=10.,quality_tolerance_pp=.1,wrong_stops=0,
+            quality='Independentcompleteenumeration,allcache/outputFcounts,q/givens,validityandabstentionaudits required. Empiricalprimaryexactaccuracy mustbe>=permutationaccuracy−0.1pp onbothfamilies. Wrongstopsorincorrectproof/outputsgatefalsifiescorrectness; numericalGPUauditlimit.1retained.',
+            speed='Bothfamilies mustpassqualitygateandmeasuredratio>=10. Ratio<10falsifiesspeedthresholdforitsfamily; anyfailurefalsifiestheconjunction. Gateincomplete/CPUtimeout/unfinishedGPUjobs=>inconclusive,noextension orpartialcaches.',
+            stats='Primaryspeedclaimisapointworkloadmeasurement; qualityisacompleteness/correctnessgate,notnewstatisticallearningclaim. Reportperseedquality,allcostcomponents,andbothfamilyratios separately.'),
+        capacity='Exactlearnedzero-Fcapacity is a ceilingforabstainingcertifiedprimary only. Exactmethodabstainsoutsideit. GPUpositive-energyfallback canbevalidoutsidezero-Fandisreportedseparately; donotattributeunsupportedfallbackaccuracytocachemethod.',
+        budget=dict(compilation_cpu_seconds=120,gpu_minutes=5,gpu_worker_seconds=300,gpu_wall_seconds=180,per_device_cumulative_worker_seconds=150,concurrent_gpu_workers=2,scored_GPU_jobs=12,warmup_GPU_jobs=12,
+            enforcement='Shared180sdeadline beginsfirstGPUworker; additionallyeachphysicalGPUgetsatmost150cumulativeworkerseconds acrossfamilies,ensuringaggregate<=300. Everywarmup/validation/scoring/serialization withinworkerscharged. CPUcompilation/querycostreportedseparately,withcompilegate; noH3adGPUoverlap,noresets.'),
+        limits=['FixedN13models withsmallcomplete zero-Fsets; fullcompilation maynot scaletolargerboards orotherfamilies.','Twofixedfamilies,not representative-family sampling.','Fandq,row/columnclique eligibility are supplied learned-modelstructure; no newmodellearning.','CPUversusGPUhardware-specific timing; noequalFLOPorenergyclaim.','Threebatches of4096queries amortizeonecache; reportedcompilecost prevents hidingpreprocessing.','Independentproofcostincluded; differentqueryselectionmayimprovecoveragewithoutreplacement.'],
+        source_sha256={},source_data_sha256={},target_data_sha256={})
+    sources=[SRC/f'{name}.py'for name in['common','compiler','query','validate_query','prepare','driver','campaign','freeze']]+[SRC.parent/f'h3aa/{name}.py'for name in['initialization','arbitrary_backend','permutation_backend']]+[SRC.parent/'h3ad/protocol.json']
+    source_data=[OUT/'query-validation.json']+[ROOT/m[k]for m in models for k in['model_path','calibration_selection_path']]
+    target_data=[OLD/'datasets.json',OLD/'campaign.json']+[OLD/f'b{b}/{name}'for b in range(2)for name in['input-universe.npz','solutions-n13.npy']]
+    p.update(source_sha256={str(x.relative_to(ROOT)):sha(x)for x in sources},source_data_sha256={str(x.relative_to(ROOT)):sha(x)for x in source_data},target_data_sha256={str(x.relative_to(ROOT)):sha(x)for x in target_data});save(SRC/'protocol.json',p);print('FROZEN',sha(SRC/'protocol.json'),flush=True)
+if __name__=='__main__':main()

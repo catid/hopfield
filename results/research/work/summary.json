@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-15T03:50:08.146599+00:00",
+  "updated_utc": "2026-11-15T04:23:00.470843+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
-  "status": "Twenty-five planned inference/training studies, selected-case diagnostics, objective/norm certificates and source-only feasibility screens complete; ongoing research continues separately",
+  "status": "Twenty-six planned inference/training studies, selected-case diagnostics, objective/norm certificates and source-only feasibility screens complete; ongoing research continues separately",
   "host": "work",
-  "jobs": 1504,
-  "run_arm_rows": 3999,
-  "model_maze_evaluations": 831362,
+  "jobs": 1552,
+  "run_arm_rows": 4143,
+  "model_maze_evaluations": 868226,
   "hypotheses": [
     {
       "campaign": "discovery",
@@ -687,6 +687,49 @@
         },
         "conjunction": "falsified"
       }
+    },
+    {
+      "campaign": "second_hard_negative_feasibility",
+      "hypothesis": "H2ad all three original-training mined-negative systems admit feasible real23-parameter witnesses",
+      "outcome": {
+        "decision": "supported_for_stated_source_constraints",
+        "fresh_test_inputs": 0
+      }
+    },
+    {
+      "campaign": "second_negative_transfer",
+      "hypothesis": "H2ae hard-negative LP joint gain>=1pp versus first-round LP binary and NI<=.1pp versus BP PL",
+      "outcome": {
+        "gain": {
+          "gains": 31,
+          "losses": 0,
+          "observed_net_gain_pp": 0.7568359375,
+          "separately_one_sided95_net_lower_pp": 0.42477582601561337,
+          "separately_one_sided95_net_upper_pp": 1.0725619005310687,
+          "target_pp": 1.0,
+          "decision": "inconclusive"
+        },
+        "noninferiority": {
+          "gains": 0,
+          "losses": 91,
+          "observed_net_gain_pp": -2.2216796875,
+          "separately_one_sided95_net_lower_pp": -2.720802728858364,
+          "separately_one_sided95_net_upper_pp": -1.702417654755221,
+          "loss_one_sided95_lower_pp": 1.8561863106943541,
+          "loss_one_sided95_upper_pp": 2.639028835266086,
+          "margin_pp": 0.1,
+          "decision": "falsified"
+        },
+        "conjunction": "falsified"
+      }
+    },
+    {
+      "campaign": "leaf_removability",
+      "hypothesis": "H2af every source wrong board has a false-positive free leaf and all such leaves can be made removable while preserving prior rows",
+      "outcome": {
+        "decision": "uninformative_no_leaf_gate",
+        "numerical_LP_solves": 0
+      }
     }
   ],
   "run_tables": [
@@ -711,7 +754,8 @@
     "lp-transfer-runs.csv",
     "lp-relaxation-runs.csv",
     "binary-coordinate-runs.csv",
-    "hard-negative-transfer-runs.csv"
+    "hard-negative-transfer-runs.csv",
+    "second-negative-transfer-runs.csv"
   ],
   "protocols": {
     "protocol": {
@@ -839,6 +883,18 @@
     "hard-negative-transfer-protocol": {
       "sha256": "c4e6db0bbfa17b33742b7ee6a02978dc7db0c96e941a23c039161295b56dd421",
       "frozen_utc": "2026-11-15T03:42:35.968174+00:00"
+    },
+    "second-hard-negative-feasibility-protocol": {
+      "sha256": "efdbad93f055bb969c23f5a91c75809a42a4c3849ffbd6eede30eedf7e8e9f89",
+      "frozen_utc": "2026-11-15T03:51:24.096896+00:00"
+    },
+    "second-negative-transfer-protocol": {
+      "sha256": "2738013f78d2984129d472ab56b031235eefd0141f6a3dec5888270b01870b2b",
+      "frozen_utc": "2026-11-15T03:58:28.687661+00:00"
+    },
+    "leaf-removability-protocol": {
+      "sha256": "fb78b9ec4f05091dfc24550219d352713f9b70ef241756f70e93bfed32e2c15e",
+      "frozen_utc": "2026-11-15T04:09:07.137384+00:00"
     }
   },
   "audit_sha256": {
@@ -868,7 +924,8 @@
     "artifacts/research/20261114/work/lp_transfer/audit.json": "4019fbd98cae812cc37baf1c6264696a721166578fe66177ddd1e8a9884837bf",
     "artifacts/research/20261114/work/lp_relaxation/audit.json": "2e8c2484f306960224a781532afa88f19496d8eb6f84516fbd16c8e801030c19",
     "artifacts/research/20261114/work/binary_coordinate/audit.json": "56af375421748d23272e68dde4ffee3d1a6021b8a62886a2ba56f8fcdbfd35da",
-    "artifacts/research/20261114/work/hard_negative_transfer/audit.json": "19f69bcc79d075554f809f244f4c8446231809aa3d8269a98c2b5244eaaa2e94"
+    "artifacts/research/20261114/work/hard_negative_transfer/audit.json": "19f69bcc79d075554f809f244f4c8446231809aa3d8269a98c2b5244eaaa2e94",
+    "artifacts/research/20261114/work/second_negative_transfer/audit.json": "6309e6e6091b24002513e4b36467bbdcdabea12d8b4fed36e910551be5c1d1ca"
   },
   "model_sha256": {
     "0": {
@@ -901,8 +958,8 @@
     "case": "cyclic-failure-classification.json",
     "scope": "The same cyclic maze fails for model seeds1and2; these are true invalid fixed points or a period-two timeout, not hidden/nonfinite failures."
   },
-  "primary_jobs": 1498,
-  "primary_model_maze_evaluations": 831230,
+  "primary_jobs": 1546,
+  "primary_model_maze_evaluations": 868094,
   "descriptive_jobs": 6,
   "descriptive_model_maze_evaluations": 132,
   "selected_case_interventions": {
@@ -1053,5 +1110,55 @@
       "hard_negative_binary": 3956
     },
     "scope": "Fixed source fit; unchanged binary decoder, original maximum coefficient norm, no target tuning or graph repair. Native updates and binary sweeps separate."
+  },
+  "second_hard_negative_feasibility": {
+    "source_model_input_trajectories": 3000,
+    "source_unique_training_inputs": 1000,
+    "fresh_test_inputs": 0,
+    "retained_negative_count": 869,
+    "constraint_count": 1699856,
+    "numerical_LP_solves": 3,
+    "new_mined_negative_count": 14,
+    "genuinely_new_board_count": 9,
+    "genuinely_new_constraint_count": 9,
+    "previous_unit_margin_violations": 6,
+    "previous_energy_order_violations": 0,
+    "scope": "All original training inputs with three fixed readouts. Feasible witnesses for stated old and mined-negative inequalities. No minimum-norm optimality, global-optimality, training decoder success after refit, or generalization claim. All new source negatives already above labels under previous witness; only unit-margin deficits addressed. Source mining and LP solves excluded from fresh inference totals."
+  },
+  "second_negative_transfer": {
+    "fresh_inputs": 4096,
+    "new_model_maze_arm_evaluations": 36864,
+    "coefficient_source": "H2ad original-training mined negatives only",
+    "new_optimizer_updates": 0,
+    "label_diagnostics_separate": 12288,
+    "source_constraints_verified_positive_after_cast": 1699856,
+    "joint_success": {
+      "pl": 4077,
+      "hard_negative_binary": 3955,
+      "second_negative_binary": 3986
+    },
+    "scope": "Fixed source fit; unchanged binary decoder, original maximum coefficient norm, no target tuning or graph repair. Native updates and binary sweeps separate."
+  },
+  "leaf_removability": {
+    "decision": "uninformative_no_leaf_gate",
+    "wrong_source_outputs_by_model": [
+      233,
+      114,
+      233
+    ],
+    "eligible_leaf_rows_by_model": [
+      496,
+      224,
+      496
+    ],
+    "leafless_source_indices": [
+      578,
+      683
+    ],
+    "source_model_input_trajectories": 3000,
+    "source_replay_trajectories_separate": 6000,
+    "fresh_test_inputs": 0,
+    "numerical_LP_solves": 0,
+    "scope": "Failed no-leaf screen preserved; all leaves retained, no selected subset or LP. Real source regression confirmed by exact scaling/readout/source identities and complete cached/reference replays. Source-only labels select leaves and components; not an inference procedure."
   }
 }
