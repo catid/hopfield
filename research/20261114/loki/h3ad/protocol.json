@@ -1,0 +1,187 @@
+{
+  "id": "H3ad-two-new-family-matched-compute-replication",
+  "frozen_utc": "2026-11-15T03:49:48.903066+00:00",
+  "hypothesis": "For BOTH fixed new rule families, the unchanged positive-BPAdamW permutation recipe improves abstaining valid certified completion by at least50percentage points over arbitrary proposals at source-calibrated matched solve time,withzero wrongstops.",
+  "antecedent": "Follow-up to H3ab/H3ac: previous search evidence concerns queen+camel. New fixedfamilies are queen+zebra(2,3) andqueen+(2,5). Their N12complete sources and structural H3y results are known; no N13search results are known or used for selection.",
+  "architecture": "Recompute264canonical sourceoffset counts/exposure and primitivehomogeneous lines for eachcomplete N12family. Onecoupling perinferredline, oneperremaining finiteoffset, oneunary. No forcednumberoflines orcouplings.",
+  "fit": {
+    "optimizer": "BP AdamW",
+    "updates": 4000,
+    "initialization": "allcouplings and shared unary zero",
+    "lr": 0.3,
+    "cosine_denominator": 4000,
+    "weight_decay": 0.01,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "foreach": false,
+    "dtype": "float32",
+    "tf32": false,
+    "seed": 0,
+    "preconditioner": false,
+    "objective": "Original hash-pinned H3u source_loss: exact full binaryPL over eachbank and its298one/two/three-clue subsets. Occupied free multiplicity231,empty298; normalized by sumweights.",
+    "eligibility": "Finite parameters, positive finite native minimum source flipmargin, and finite strictlypositive coefficients on every retained Foffset and transferred Fedge; source mean retainedweight>0. Failure is bankoutcome; no replacement/refit/retuning."
+  },
+  "positive_derivative": "Source F=(count==0 and marginal exposure>=ln(264/.01)) UNION every inferredline. Keep learnedpositive coefficients onlyon F,zero h/offF. Extend inferredlines toN13; finite offsetsunchanged; new off-lineoffsets0. Source temperatureunit=FP32 arithmeticmean learnedcoefficient across unique retained canonicalSOURCEoffsets after lineunion. This derivative discards native unary/allowed coefficients.",
+  "arms": [
+    "BP AdamW arbitrary",
+    "BP AdamW permutation"
+  ],
+  "calibration": {
+    "inputs_per_bank": 4096,
+    "clue_mix": {
+      "1": 2,
+      "2": 205,
+      "3": 3889
+    },
+    "input_seeds": [
+      2026112810,
+      2026112811
+    ],
+    "inputs": "Embed only thecurrentcompleteN12source intoN13coordinates; draw2/205/3889unique1/2/3clue subsets withfamilyseed. No targetarrays/keys/labels opened bysourcefit/calibration or itsintegrityguard; no targetaccuracy. Allnewcalibrationkeys frombothfamilies excluded frombothfresh cohorts.",
+    "reference_cap": 20000,
+    "permutation_grid": [
+      8000,
+      12000,
+      16000
+    ],
+    "streams": [
+      101,
+      102,
+      103
+    ],
+    "physical_gpus": [
+      0,
+      1
+    ],
+    "timings_per_configuration": 6,
+    "order": "BothphysicalGPUs runeachfamily ascending0,1; eachGPU runsall3streams/configurations withorderreversed byGPU+streamparity.",
+    "timing": "Synchronize before/after complete solvecall including inputtransfer and returnedCPUarrays; no targetvalidityscoring. Perphase bothkernels32proposal fullshape warmups, invariantchecked and budgetcharged.",
+    "selection": "Perbank choose cap minimizing abs(permutationmedian/arbitrarymedian-1), ties smallercap; accept within5%. If none, one linear interpolation within first adjacentascending gridcaps bracketing arbitrarymedian, rounded nearest128 with ties-to-even; measure same6trials. Noextrapolation. No bracket/repeatedcap/refinementfailure => inconclusivecalibration, skipthatbanktarget. Seal ALLbank outcomes/caps before common targetcohort.",
+    "uncertainty": "2000 source-stream bootstrap draws RNG2026112604;5/95ratio endpoints retainingbothphysicaldevices withinstream. Report everytrial anddevice medians. The source pointmedian gate is distinct from bootstrapuncertainty."
+  },
+  "target": {
+    "unique_inputs": 8192,
+    "chains": 20,
+    "search_seeds": [
+      0,
+      1,
+      2
+    ],
+    "q": 13,
+    "block": 65536,
+    "exclusion": "For eachfamily exclude finalH3ac all_excluded_keys/test_keys plusunionofbothnewcalibrationkeysets. Reservefamily0thenfamily1 with itsindependent seed; alsoexclude newfamily0testkeys fromfamily1. Drawuniformly fromthatfamily completevalidN13inputuniverse.",
+    "starts": "Within eachfamily use samecomplete saved H3aa permutationinitial arrays forbothkernels at eachinput/searchseed; CPUinitializer seed2026112600+seed, GPUproposal seedseparate. Familycohorts differ and have no sharedfreshkeys.",
+    "assignment": "For eachfamily GPU0:arbitraryseed0,permutationseed1,arbitraryseed2; GPU1 complementary. NoH3acGPUoverlap.",
+    "warmup": "Before each timedjob, unscored fullshape32proposals usingseed100. Time charged. Same complete solvecall timingscope assourcecalibration; scoring/serialization excluded fromsolve time but charged toworkerbudget.",
+    "input_seeds": [
+      2026112517,
+      2026112518
+    ],
+    "unique_inputs_per_family": 4096
+  },
+  "temperature": "T(k)=bank_source_unit*0.01**(k/(cap-1)). Cap-specific duration partof declaredrecipe; endpoints fixed. No targettuning.",
+  "certificate": "Exactinteger occupied Fedgecount0 including given-given edges; preserve q13. Primary abstains without independentlyvalid stoppedcompletion among20chains. Report anyinvalidstops.",
+  "primary": {
+    "required_gain_pp": 50.0,
+    "source_time_tolerance": 0.05,
+    "target_time_tolerance": 0.1,
+    "wrong_stops": 0,
+    "bootstrap_draws": 8000,
+    "bootstrap_seed": 20261114,
+    "endpoints": "8000paired-input bootstrapdraws,RNG20261114,all3searchseeds retainedinsideinput. Perfamily2.5/97.5percentiles are97.5%one-sidedbounds. Bonferroni givesfamilywise95%lowerendpoints across2families and separately95%upperendpoints,not simultaneous95%two-sidedintervals.",
+    "quality": "Perbank supportquality if lower>=50pp,zero wrongstops,numericalgatepass; falsifyquality if upper<50pp ORwrongstops; otherwiseinconclusive. Sourcefit eligibilityfailure falsifies allbank operability claim and is retained.",
+    "matched_compute": "Perbank supportmatchedclaim onlyif sourcepointmedians within5%,fresh targetmedian ratio within10%,andqualitysupported. Timingfailure is inconclusive matchedcompute,even if qualitysupported; no retuning.",
+    "conjunction": "Support onlyifBOTH fixedfamilies passsourceeligibility,quality,numericalaudit,source\u00b15%timing,andfresh\u00b110%timing. Anyfamilyqualityfalsification orsourcefiteligibilityfailure falsifies conjunction; otherwiseincomplete/calibration/time/numerical failures makeitinconclusive. Enumerationgatefailure meansnotrun,notnegativealgorithmresult."
+  },
+  "diagnostics": "Report distinctsource/targetsolutioncounts,fitcurves/parameters,sourceF/temperature,exact targetFcapacity andfalse/missededges,perseedquality/timings,allcaps,warmups,proposal/acceptancecounters andexactstateaudits. Capacitylimitscertifiedprimary only. No targetdiagnostic altersmodelorsearch.",
+  "validation": "Hash-pinned previouslyvalidated H3aa kernels/initializer and H3u loss/optimizer recipe. For eachnewbank independentlycount sourcepairs/exposures/lines/groups; compare literal expandedclue PL/gradients tocompressedloss, actualsource CPU/GPU loss/gradient tolerance1e-5; independentlyrebuild targetF/J and source meanunit. Source warmups validate integercounts/permutation/q/givens. Targetpreflight checks allfrozen caps/exclusions/validity counts andsharedinitialreconstruction.",
+  "budget": {
+    "whole_study_gpu_minutes": 30,
+    "whole_study_wall_seconds": 900,
+    "concurrent_gpu_workers": 2,
+    "fit_seconds_per_family_ceiling": 120,
+    "maximum_fits": 2,
+    "grid_trials": 48,
+    "maximum_refinement_trials": 12,
+    "maximum_scored_target_searches": 12,
+    "enumeration_cpu_seconds_ceiling": 120,
+    "includes": "Everyfit/lossvalidation/sourcecalibration/refinement/warmup/targetGPUworker charged. Singledeadline beginsfirstH3adfitworker onlyafterH3acGPUrelease. Aggregateworkerwall<=1800s. CompleteCPUenumeration/sourcecalibrationinputpreparation occurafterfreeze beforeGPUdeadline; reportedseparately.",
+    "expiry": "Preserve everyoutcome; noextension,partialuniverses,replacementfamilies,targettuning orbudgetreset."
+  },
+  "limits": [
+    "Twofixednewfamilies chosen prospectively fromknownN12structuralgrid,not a representativefamily sample.",
+    "CompleteN12sources differinsize472/1304; equal full-pattern weighting andsame4000updates aredeclared,not equalsamplecount.",
+    "Suppliedrow/column permutationprior is usefulforbothfamilies; this doesnotestablish transferoutsidequeens-like tasks.",
+    "PositiveFderivative mayhavefalseexclusions/missedattacks; exactcapacityandwrongstops retained.",
+    "Cap-specificschedule duration andsource-versus-target stoppingdifficulty maybreakfresh\u00b110%gate; noretargeting.",
+    "Researchderivative,not originalpaper reproduction."
+  ],
+  "families": [
+    {
+      "bank": 0,
+      "name": "queen-plus-zebra",
+      "leaper": [
+        2,
+        3
+      ],
+      "source_patterns": 472,
+      "source_path": "results/research/loki/h3y/sources/f1-n12.npy"
+    },
+    {
+      "bank": 1,
+      "name": "queen-plus-2-5-leaper",
+      "leaper": [
+        2,
+        5
+      ],
+      "source_patterns": 1304,
+      "source_path": "results/research/loki/h3y/sources/f2-n12.npy"
+    }
+  ],
+  "sampling": "Use eachcompleteN12source exactlyonce with equal sourcepattern weighting in its deterministic BPAdamWfit. No sourcebank subsampling, replacementfamilies, screening on targetquality or target-driven modelselection.",
+  "enumeration": {
+    "aggregate_cpu_seconds_ceiling": 120,
+    "primary": "Hash-pinned H3y general future-row blocked-bit enumeration for N13, including suppliedordinary-queenlines and family leaper. Source truth is provided only to dataset generation/independent validity audit, never modelproducer.",
+    "independent": "Different standard three-bitmask ordinaryqueen enumerator at N12/N13; require fullcounts14200/73712. Literal vectorized leaperpair filtering must exactlyequal eachhistorical completeN12source and eachnew N13primaryarray. Unique completeboards and exactarray equality required.",
+    "gate": "Single120aggregateCPU-second ITIMER_PROF envelope around bothordinaryuniverses and allfamily enumeration/independentverification. Gatefailure preserves partialevidence but permits noGPU fit/calibration/search and no partialuniverse substitution.",
+    "input_universe": "After completeverification, enumerate all377one/two/three-clue subsets perN13solution; count unique keys. Vectorizedsubset generation checkedagainst literal enumeration onfirst17boards. This CPU preparation is timedseparately and occursbeforeGPUdeadline."
+  },
+  "predecessor": {
+    "id": "H3ac",
+    "protocol_sha256": "7e955fee208609f6c0dfbbe834f38ac98a1777f19e4ff222eac83bc2cc406608",
+    "exclusion": "Final H3ac all_excluded_keys UNIONtest_keys, checkedagainst itsfixed datasetreceipt. Allhistory calibration exclusions remain. H3ad GPUworkstarts onlyafter H3ac campaigncomplete, nevercompetes forGPUs."
+  },
+  "source_sha256": {
+    "research/20261114/loki/h3ad/common.py": "ae521e064e9c74ae7a97c77710c71ffcdc383e59bd8111e768027e0de00e7543",
+    "research/20261114/loki/h3ad/source.py": "6827a4b72ddf05b606f188e0081e663c84feb7d652abaa286bdf05c38d23de7e",
+    "research/20261114/loki/h3ad/calibration.py": "78eb723a43fd0ce97f06f3d4e670bb4ea1500589015f4159aa4458c5121a5566",
+    "research/20261114/loki/h3ad/prepare.py": "fef58610e3fd2fd5ebeada0981a466a72a578c537891a853c60487a5c5ddeeb9",
+    "research/20261114/loki/h3ad/driver.py": "8b2976de8f9b9f35e18ad0862d6d721cbdbe5a7ef58ed27287428ddd51640a58",
+    "research/20261114/loki/h3ad/campaign.py": "d4b93f8ead3a20edae54b9484f4100ad6898dfc250d7d4429b8bd21d473b5c02",
+    "research/20261114/loki/h3ad/generate.py": "c72c05fbd39ea297daa3356f0ddd3fa914e567f7ac6554d11a968ad1d58a9b6d",
+    "research/20261114/loki/h3ad/freeze.py": "25e90e80afb76a724b2d3d3c7517bcff2948efca55c39295b28bc05b6e956104",
+    "research/20261114/loki/h3aa/initialization.py": "3f128033466fc61d75cbd6ab417041df83c0107c1bc5b678898a3b9a85efc20c",
+    "research/20261114/loki/h3aa/arbitrary_backend.py": "5fd01d224a47152f9e27db749814aa29aa3518fea046a494ab02521540c137c0",
+    "research/20261114/loki/h3aa/permutation_backend.py": "2d4504f0f3f19bf5d58e9dd23ed32478e18fc4a8912e75a5d8b5cd50b6c31292",
+    "research/20261114/loki/h3aa/gate.py": "28ca8f39290967b879dc178c11758790d1a240c0fea5c1549e25068d391a601f",
+    "research/20261114/loki/h3u/driver.py": "ceb8eae804643b6fd08eaa442475c494ec614653b348bd0403238c4c9f565b38",
+    "research/20261114/loki/h3u/preflight.py": "8b96e781584a392274f7a09daf2f95f0cd0264c013382a50958385532f48ea53",
+    "research/20261114/loki/h3u/protocol.json": "d93afc225cd263e15b4d3e264c2c60fec084f2c8f3883b6d333880a6cc10d4de",
+    "research/20261114/loki/h3y/common.py": "e15c9706e43f3e5de54f26617947ccfbf98c2675a11cf4d2cbdc122285d207c7",
+    "research/20261114/loki/h3ac/protocol.json": "7e955fee208609f6c0dfbbe834f38ac98a1777f19e4ff222eac83bc2cc406608",
+    "research/20261114/loki/study.py": "7c48de391879dc2f4b4f14459698afbc84c82cb3e89030e0ba4814d4fd74b552",
+    "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623"
+  },
+  "source_data_sha256": {
+    "results/research/loki/h3y/sources/f1-n12.npy": "53b1209b1ff5af4dbb9c652e574761cd710dbdebb260e8d2ad71d2d88c3465a4",
+    "results/research/loki/h3y/sources/f2-n12.npy": "d8ee10c015a7aa1131a9c573d8f8cbfd1f349f3587785dd30fa0cc9a5cb8862d",
+    "artifacts/research/20261114/loki/h3aa/gate-cpu.json": "3964b134aa7983d9c238eb810e1dd68022c333451e618d97a4e608623a3e318e",
+    "artifacts/research/20261114/loki/h3aa/gate-cuda.json": "d42a3574599b4e05ca1bab59df3aae8ed893807c723cec668610f2b3bf92ce3b",
+    "artifacts/research/20261114/loki/h3u/loss-validation.json": "b41f6f7c3ff105eabed199100638bc8e60e5de6dd2b0f922c26de681954e05b5"
+  },
+  "target_data_sha256": {}
+}

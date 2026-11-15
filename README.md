@@ -2,135 +2,55 @@
 
 **99.9567% Sudoku accuracy with a count-based energy and no optimizer.**
 
-An independent implementation, reproduction and experimental extension of [*Classical Energies Learn to Reason 1,000× Faster than Looped Models*](https://arxiv.org/abs/2611.17309v1), by Benjamin Hoover, Hugh Blayney and James C. R. Whittington. CRAM learns a classical energy function, then searches for low-energy solutions. Our follow-ups test what the optimizer, data augmentation and search each contribute.
+Independent implementation, reproduction and research extensions of [*Classical Energies Learn to Reason 1,000× Faster than Looped Models*](https://arxiv.org/abs/2611.17309v1), by Benjamin Hoover, Hugh Blayney and James C. R. Whittington. CRAM learns an energy function, then searches for low-energy answers. We test what learning, data and search each contribute.
 
-**A search prior also raises certified queen-plus-camel success from 21.06% to 88.77% at matched measured GPU time**, using identical learned weights. [Comparison and compute audit →](research/20261114/loki/h3ab/REPORT.md)
+[Reviewed paper](references/2611.17309v1.md) · [All results](results/README.md) · [Reproduction](REPRODUCTION.md) · [Run the code](docs/RERUN_GUIDE.md)
 
-[Paper in reviewed Markdown](references/2611.17309v1.md) · [Research results](results/README.md) · [Reproduction](REPRODUCTION.md) · [Run the code](docs/RERUN_GUIDE.md)
+## Sudoku from simple counts
 
-## Simple counts match the transformed Sudoku energy
+![Count-based Sudoku energy: matched accuracy and search-budget curves](assets/figures/count-energy.png)
 
-![Count-based Sudoku energy: matched short-budget accuracy and longer-budget failure curves](assets/figures/count-energy.png)
+Connect cells that **never share a digit in training solutions**, assign weight one, and search. On 10,000 reserved official puzzles across six search seeds, this solves **59,974/60,000 evaluations (99.9567%)**, with zero wrong stops. The transformed learned energy reaches **99.9417%** at the same budget: four chains, 16,777,216 moves per chain. At the shorter 262,144-move cap, counts reach 81.50%.
 
-Connect two cells if they **never share a digit in the training solutions**. Give each retained pair weight one, then run the same focused Gibbs search. This simple estimator recovers the same 810-edge constraint graph as our transformed learned energies, without an optimizer or a supplied Sudoku peer graph.
+This headline uses ten base solutions with 99 stored Sudoku-symmetry variants each. **Augmentation supplies task knowledge.** A separate control recovers the same constraint graph from 100 distinct unaugmented solutions in all six samples. The estimator receives no cell geometry. [Budget, uncertainty and stopping proof](research/20261114/foureyes/REPORT-budget.md) · [Raw-data control](research/20261114/ripper/REPORT-raw-count.md)
 
-On a reserved **10,000-puzzle official test slice**, the count energy solves **59,974/60,000 evaluations (99.9567%)** across six search seeds, with **zero wrong stops**, using four chains and **16,777,216 moves per chain**. The transformed learned energy reaches 99.9417% under the same budget. The paired difference is +0.015 points; its one-sided 95% lower bound of −0.0151 points passes the frozen 0.1-point noninferiority margin. At the shorter **262,144-move** cap, the count method solves **81.50%**.
+## A search prior makes the same learned energy much more useful
 
-**The augmentation prior matters.** These training counts use ten unique base solutions **plus 99 stored Sudoku-symmetry variants per base**. The transformations supply task knowledge. A larger one-base-solution study recovered the exact graph in **8,105/8,192 fresh trials** with 99 spatial variants. This uses augmentation-group knowledge; it is not one unaugmented example learning Sudoku. [Coverage theorem and fresh-RNG validation →](research/20261114/ripper/REPORT-coverage.md) The count comparison also reuses the official corpus and a follow-up cohort. [Protocols, full budget curve, stopping proof and limitations →](research/20261114/foureyes/REPORT-budget.md) · [Count and augmentation controls →](research/20261114/ripper/REPORT-count.md)
+![Same learned energies, different proposals: replicated across two new queen variants at matched measured GPU time](results/research/loki/h3ad/new-family-replication.png)
 
-**Spatial augmentation is not required with more raw solutions.** Counting recovers the exact graph from **100 distinct, unaugmented training solutions in all six samples**. A stronger matched control then compared counting with the fixed transformation pipeline applied to digit-relabeling PL fits. At 262,144 moves per chain, counting solves **80.79%** versus **80.46%** for transformed PL, with zero wrong stops; PL passes the frozen 2-point noninferiority margin. The simpler count estimator matches a properly transformed learned model. [Raw-count structure →](research/20261114/ripper/REPORT-raw-count.md) · [Matched transformation control →](research/20261114/foureyes/REPORT-raw-transform.md)
+Keep one queen in each row and column while proposing moves. With identical fitted weights and starting boards, this raises certified success from **5.75% to 99.78%** for queen-plus-zebra and **7.68% to 99.87%** for queen-plus-(2,5)-leaper. Median complete GPU solve times are within **1.2% and 4.2%**, respectively. Both frozen ≥50-point gain targets pass, with zero wrong stops.
 
-![Constraint recovery from raw solutions and the matched transformed-PL control](assets/figures/raw-count-transformed.png)
+Each family uses a complete N12 training universe and 4,096 fresh N13 inputs, with 20 chains and three search seeds. These are **two fixed families**, not representative sampling over all rules; preserving a permutation adds a search prior. Learned supports exactly match the target attack graphs here. [Protocol, timing costs and audit](research/20261114/loki/h3ad/REPORT.md)
 
-Hidden solution labels can also be removed: counts from **3,000 partially observed training puzzles** recover the same graph in all six samples. Masked digits never enter estimation or calibration. These are official clue masks, whose selection may carry useful information. [Clues-only experiment and leakage checks →](research/20261114/ripper/REPORT-clues.md)
+An earlier queen-plus-camel replication fits **four independent source-bank draws**: permutation search reaches **92.47–94.49%**, versus **19.45–21.06%** for arbitrary-cell proposals at matched measured GPU time. The four fits have two distinct supports; extra exclusions limit their certified accuracy. [Four-bank replication](research/20261114/loki/h3ac/REPORT.md) · [Initialization versus proposal control](research/20261114/loki/h3aa/REPORT.md)
 
-**More training data makes count recovery robust to label noise.** Change nine free digits in every training board, preserve its clues, and choose the threshold using the largest gap in equality counts. With 3,000 boards, this recovers the exact graph in **512/512 independent fresh-bank and corruption draws**, with a one-sided 95% lower recovery bound of **99.4166%**. At 600 boards it recovers 493/512 graphs; at 300, only 21/512. This measures graph recovery within the official training corpus under a declared random corruption law. [Fresh-bank replication and failure diagnosis →](research/20261114/foureyes/REPORT-noise-source-replication.md)
+## Confidence weights recover answers under noisy labels
 
-![Graph recovery under label noise across independent fresh training banks](assets/figures/noise-source-replication.png)
+![Confidence weights improve capped-return accuracy, with uniform and shuffled-weight controls](assets/figures/confidence-weighted-inference.png)
 
-The fixed learned transformation is less robust at 600 noisy boards: the paper recipe solves **20.27%**, versus **80.25%** for restricted counts, and produces 240,000 wrong stops across 320,000 logical evaluations. An untuned AdamW control reaches 78.03% with zero observed wrong stops. All arms use the same zero-threshold search; optimizer and regularization differences remain explicit. [Noisy-label comparison and audited graph failures →](research/20261114/foureyes/REPORT-noisy-pl.md)
+At **5% queried-label noise**, evidence-based weights raise Sudoku exact-match accuracy from **19.87% to 76.57%** on the same learned supports. Shuffling the same weights gives **15.32%**. The evidence-minus-uniform gain is **56.70 points**, with a paired 95% interval of **[51.50, 61.67]**.
 
-More training does not repair that fixed pipeline: a fresh 64-bank test scores **18.76% at 256 SGD updates**, versus **27.59% at 32 updates** and **79.99% for restricted counts**. The AdamW control now produces 838 wrong stops, underscoring the limits of an earlier zero-error observation. [Matched training-budget test and numerical checks →](research/20261114/foureyes/REPORT-noisy-pl-long.md)
+This compares 32 shared fits, each costing 57,500 label queries, on 10,000 fresh puzzles. **The gain comes from correct answers returned at the search cap:** 65.98% are correct capped returns and 10.59% are correct certified stops. Positive weights preserve the zero set; they improve search without making more solutions certifiable. Zero invalid certificates were observed. [Frozen targets, controls and full audit](research/20261114/ripper/REPORT-confidence-weight.md)
 
-![Noisy-label likelihood fits versus count controls, including true-edge retention](assets/figures/noisy-pl.png)
+The budget boundary matters: with half as many training boards and 29,750 total queries, accuracy falls to **23.55%**, falsifying the frozen 70% target. No certificates occur in that study. [Retained negative result](research/20261114/ripper/REPORT-confidence-budget.md)
 
-The earlier intervention result remains useful: digit symmetry and repulsion increased low-data accuracy by **47.83 points** on a separate reserved slice. Counting explains why the transformed models recover the same graph. [Earlier matched results →](research/20261114/ripper/REPORT-heldout.md)
+## Faster inference and fewer maze failures
 
-## Choose useful clues—even when labels are noisy
+![Sparse inference speedups with state-for-state parity](assets/figures/sparse-speed.png)
 
-![Noisy adaptive clue acquisition: solve accuracy and audited stopping errors](assets/figures/noisy-adaptive-acquisition.png)
+The sparse backend runs transformed Sudoku energies **2.82× faster** in warm inference, or **2.79× including search setup**, on RTX PRO 6000 Blackwell Max-Q. All 63 paired timing calls return identical states and boards. Compilation is excluded from warm timing. [Measurements and parity checks](research/20261114/ripper/REPORT-sparse.md)
 
-With **1% independent noise in queried labels**, adaptive querying plus a sequential evidence rule solves **78.65%**, versus **42.63%** for uniform querying with the same evidence rule: **+36.02 points**, with a paired 95% interval of **[33.01, 39.15]**. Both methods preserve every true constraint in all 32 fitted models and have zero wrong stops. Naively deleting a constraint after its first observed equality solves 0% and produces 320,000 wrong stops.
+![Selective maze fallback: fewer failures and complete measured overhead](results/research/work/selective-fallback.png)
 
-Each policy receives **1,500 training boards × 25 queries** per board. The 32 source-bank runs share the same 10,000 test puzzles and fixed short search budget. Complete stored solutions act as a simulated label oracle; only queried, corrupted digits reach the policy. The evidence rule is supplied the **exact 1% noise law**. Its conditional guarantee protects true constraints under that law; it does not guarantee exact graph recovery or solve accuracy. [Sequential evidence proof, controls and audit →](research/20261114/ripper/REPORT-noisy.md)
-
-**At a fixed query budget, spend more on training and less on calibration.** With 57,500 queries per bank, using 1,000 repeated-query pairs to estimate noise and 2,220 training boards solves **83.17%**, versus **76.31%** with 10,000 calibration pairs and 1,500 training boards. The observed gain is **6.86 points**, with a paired 95% interval of **[4.76, 9.14]**; the frozen 5-point noninferiority target passes, with zero wrong stops. All 32 cheaper-calibration models recover the exact graph and match the known-noise control's outcomes through identical energies. This result concerns the declared independent 1% noise law. [Equal-query controls, proof and audit →](research/20261114/ripper/REPORT-equal-budget.md)
-
-![Equal query budgets favor fewer calibration pairs and more training boards in this experiment](assets/figures/equal-query-budget.png)
-
-The earlier experiment established that repeated queries could estimate a useful noise bound, but charged the learned-bound arm extra queries. [Original calibration study and limits →](research/20261114/ripper/REPORT-calibrated.md)
-
-The economical allocation fails at **5% noise**: learned calibration solves **24.17%**, versus **52.32%** with exact noise knowledge, failing both the five-point accuracy margin and the frozen 70% accuracy floor. Both still have zero wrong stops; preserving true constraints does not guarantee useful solve accuracy. [Noise-rate transfer and retained calibration failure →](research/20261114/ripper/REPORT-rate-transfer.md)
-
-**Doubling training restores performance at 5% noise.** With 4,440 training boards and 1,000 calibration pairs, both learned and exact noise calibration recover all 32 graphs and solve **82.34%**, with zero wrong stops. This costs **113,000 queries** per bank for learned calibration and **111,000** for exact calibration. It passes the frozen accuracy and stopping targets; the gain comes with more data. [Fresh-bank test, nested controls and costs →](research/20261114/ripper/REPORT-scaled-noise.md)
-
-Noise calibration matters: using a conservative **2% upper bound when actual noise is 1%** preserves true constraints but falls to **57.10%** versus **78.98%** for exact calibration on a separate fresh cohort, falsifying the frozen 10-point noninferiority target. [Conservative-bound control and figure →](research/20261114/ripper/REPORT-noise-bound.md)
-
-The noiseless experiments remain separate: a mixture query score reduced extra constraints by **50.6%** versus the previous policy; a fresh ablation found the simpler exponential score noninferior under the frozen margin. At **600 boards × 25 queries**, exponential querying recovered the exact graph in **243/256 fresh source-bank draws**, passing the frozen 90% recovery target. [Original improvement](research/20261114/ripper/REPORT-spike.md) · [Ablation](research/20261114/ripper/REPORT-exponential.md) · [Independent recovery confirmation](research/20261114/ripper/REPORT-recovery-confirm.md)
-
-## The same transformed model, faster inference
-
-![Measured sparse backend speedup by batch size and training size](assets/figures/sparse-speed.png)
-
-A sparse backend runs the same repulsive energies **2.82× faster** in warm inference, or **2.79× including search setup**, on RTX PRO 6000 Blackwell Max-Q. All 63 paired warmup/timing calls produced identical final states and boards. Broader bounded checks covered 18 models, followed by a full 10,000-puzzle integration comparison. Compilation is excluded from warm timing. [Timing data, parity checks and limitations →](research/20261114/ripper/REPORT-sparse.md)
-
-## Fewer maze failures with a selective fallback
-
-![Selective maze fallback: fewer failures and measured inference overhead](results/research/work/selective-fallback.png)
-
-On **16,384 fresh 120×120 loopy mazes**, a selective fallback reduces joint failures across three frozen models from **44 to 20**: **24 gains and zero losses**. Median additional answer time is **1.31%** across three complete timing repetitions, including validation, queueing, setup and output transfer. The frozen accuracy and ≤2% overhead targets both pass.
-
-The decoder checks whether the native answer forms a valid path on the **supplied maze graph**, then retries rejected cases with a fixed continuous relaxation. This adds explicit graph knowledge; it uses no shortest-path oracle. Rejected cases are batched **at cohort end**, so the result measures offline throughput and does not establish low response latency. Only 114 of 49,152 model-inputs needed a retry. [Frozen protocol, complete timings and audit →](research/20261114/work/REPORT.md)
-
-A separate trial flushes rejected cases every **1,024 native inputs**. It keeps the accuracy benefit, but costs **6.9%** more answer time, falsifying the unchanged 2% target. This quantifies the batching-versus-delay tradeoff. [Bounded-delay trial and complete timing →](research/20261114/work/REPORT.md)
-
-A hand-engineered, single-threaded **BFS control solves all 16,384 supplied graphs in 1.679 CPU seconds**. That task-specific solver is much faster than the learned decoder; the report separates hardware, workload and timing scope. [Practical solver control →](research/20261114/work/REPORT.md)
-
-The retry adds $\lambda\sum_{i\in\mathrm{free}}p_i(1-p_i)$ with $\lambda=1$. It changes the continuous search while leaving every binary energy and the original flip certificate unchanged. Applying it to every maze also reduced failures on separate 90×90 and 120×120 cohorts, at about 18–19% more answer time; one 120×120 input regressed. [Derivation](research/20261114/work/binary-preserving-derivation.md) · [Always-on confirmation and regression case](research/20261114/work/REPORT.md)
-
-Earlier, changing the inference step size from **0.2 to 0.5** reduced median answer updates by **2.38× at 60×60** and **2.42× at 90×90**, with measured hidden-plus-answer runtime improvements of **2.09× and 2.21×**. Both arms solved all 768 generated inputs at the 8,192-update cap. These generated mazes differ from the original Maze-Hard distribution. [Step-size graph](results/research/work/eta-acceleration.png) · [All maze controls](research/20261114/work/REPORT.md)
-
-## N-Queens: unseen solutions from training counts
-
-![N-Queens-12 accuracy and solution coverage on inputs incompatible with every training pattern](results/research/loki/h3g/pattern-holdout.png)
-
-With **512 complete training patterns**, a count-based exclusion energy reaches **100% accuracy and 76.86% solution coverage** on 8,192 new N-Queens-12 partial inputs. Every valid completion lies outside the training bank, so retrieving compatible training examples cannot solve any of these inputs. Adam at 250 updates reaches 99.9919% accuracy and 67.93% coverage. The count method gains **8.94 coverage points**; the paired one-sided 95% lower bound is +8.78 points. Ordinary BP AdamW at 4,000 updates reaches 99.5321% accuracy and 53.10% coverage.
-
-These measurements use 20 search chains and three search seeds, with a certificate-first output rule. The count method uses no optimizer, but retains a fixed energy design and displacement-sharing architecture. The test distribution is conditioned on incompatibility with the training bank and consists almost entirely of three-clue inputs; it differs from the original benchmark. The 512 patterns expand into 152,576 labeled training examples. [Frozen split, all controls and independent 4.9-million-board audit →](research/20261114/loki/h3g/REPORT.md)
-
-Sharing is consequential: with 32 training patterns, removing displacement sharing drops accuracy from 97.39% to 0%. False exclusions can also make invalid initial boards pass the learned certificate. [Matched architecture ablation and certificate audit →](research/20261114/loki/h3h/REPORT.md)
-
-The earlier study included every complete pattern in training, where simple bank retrieval was already competitive. That control motivated this stricter follow-up. [Full-bank controls and limitations →](research/20261114/loki/h3f/REPORT.md)
-
-Earlier N-Queens-10 experiments showed faster fitting with Adam and a weight-decay gap. A learned-certificate-first output policy then fixed all 77 failed AdamW input–seed cases without extra search, showing that the gap depends on output selection. [Optimizer experiments →](research/20261114/loki/h3c/REPORT.md) · [Selection control →](research/20261114/loki/h3d/REPORT.md)
-
-**Preserving a permutation makes search much more effective at matched measured GPU time.** With identical learned weights, temperatures and permutation starting boards, permutation-preserving proposals reach **88.77%** certified queen-plus-camel success versus **21.06%** for arbitrary-cell proposals. The gain is **67.71 points**, with one-sided 95% endpoints [66.79, 68.56] and zero wrong stops. Median complete solve calls take **21.31 versus 21.86 seconds**, passing the frozen ±10% timing gate. Counts were selected using source-only timing before fresh targets: 12,000 versus 20,000 proposals per chain. This measures GPU time, not equal FLOPs, and uses one inherited fitted model. [Matched-time protocol, full calibration costs and audit →](research/20261114/loki/h3ab/REPORT.md)
-
-![Permutation proposals retain the large success gain at matched measured GPU time](results/research/loki/h3ab/matched-compute.png)
-
-An earlier three-arm control showed that changing initialization alone gives no demonstrated large gain; changing proposals with identical starts raises success by **66.36 points** at equal proposal caps. The added prior comes from source-inferred rows and columns. [Initialization/proposal decomposition →](research/20261114/loki/h3aa/REPORT.md) · [Original combined intervention →](research/20261114/loki/h3w/REPORT.md)
-
-**A complete source universe can support compact rule learning.** Given all 176 N12 queen-plus-camel solutions, an explicit completeness assumption, D4 symmetry and a preference for fewer rule generators, exhaustive selection identifies the single `(1,3)` leaper rule. Its N13 energy exactly matches the already-audited oracle, inheriting **100%** certified success without another search. This uses substantial extra priors and reused outcomes. A fixed 18-case stress grid succeeds in 12 cases and includes a unique wrong rule that certifies 12 invalid complete boards. [Exact selection and identity mapping](research/20261114/loki/h3x/REPORT.md) · [Full stress grid and counterexamples](research/20261114/loki/h3y/REPORT.md)
-
-## Failures are part of the result
-
-The maze step-size benefit has a limit: a new maze with many tied shortest paths produces certified branched or disconnected answers for two models. Simple tied-cycle controls still solve perfectly, so ties alone do not explain the failure. [Saved graph, boards and causal controls →](research/20261114/work/REPORT.md)
-
-A stronger check proves that the invalid endpoint-only answer is the **unique global binary minimum** on one selected maze, for all three frozen models. A public verifier checks exact rational certificates over **4,434 free binary cells**, with the hidden readout and wall/endpoint clamps fixed. This is an objective-level counterexample, not a claim about other graphs or the continuous energy. [Derivation and full certificates](research/20261114/work/global-bound-derivation.md) · [Standalone verifier](research/20261114/work/verify_global_bound.py)
-
-A matched training intervention then fixes label-versus-endpoint ranking on all **4,096 fresh mazes**, but drops joint shortest-path solves from **4,089 to zero**. The failed outputs select about 92% of free cells; nearly every correct label still remains a local minimum. Improving one energy ranking is insufficient to make the decoder solve the task. [Training controls, full diagnostics and figure →](research/20261114/work/REPORT.md)
-
-Linear programming can satisfy every declared training flip and sparse/dense ranking constraint, with public primal and dual certificates. Yet a norm-matched version still solves zero fresh mazes under native inference: its final probabilities are nearly stationary and fractional, and rounding remains invalid. A fresh binary-preserving penalty removes the fractional probabilities but still solves zero: every output rounds to the all-open board. [Feasibility, norm bounds and the failed decoder test →](research/20261114/work/REPORT.md)
-
-The learned Sudoku pipeline's four-million-move **99% all-seed joint-success hypothesis was inconclusive**, despite 99.635% mean accuracy. The sixteen-million-move secondary endpoint passed. Projection still fails at extremely low data; largest-gap pruning collapses without spatial augmentation; and maze mass rescaling gives no improvement. [All hypotheses, including negative and inconclusive outcomes →](results/README.md)
-
-Learning valid constraints at one board size does not guarantee transfer to a larger board. For superqueens, a source-based hybrid model reaches **37.23%** on larger N13 boards while the supplied-rule oracle reaches 100%. Some exclusions inferred from all N12 solutions become false at N13. Adding every N11 solution leaves the model unchanged. [Superqueen boundary →](research/20261114/loki/h3l/REPORT.md) · [Smaller-source control →](research/20261114/loki/h3m/REPORT.md)
-
-A larger prospective upward-transfer test also **falsifies** the frozen 0.1-point noninferiority target: the full N14 superqueen source gives **99.6419%** on N15 versus **99.9410%** for the supplied-rule oracle. Extra exclusions leave 49 of 16,384 inputs without any valid certificate. The earlier smaller test remains inconclusive. [Confirmation and structural audit →](research/20261114/loki/h3p/REPORT.md)
-
-Learning soft weights does not automatically fix transfer. On queen-plus-camel boards, grouped BP AdamW reaches **75.63%** versus **88.75%** for matched filtered counts, with **9,965 wrong stopped chains**. Independent energy reconstruction confirms that negative interactions can compensate for real conflicts and satisfy the source-trained certificate. [Matched optimizer control and failure mechanism →](research/20261114/loki/h3u/REPORT.md)
-
-Removing negative interactions and using a strict zero-conflict stop eliminates observed wrong stops, but learned positive weights find certified solutions on only **21.25%** of fresh inputs versus **83.41%** for uniform weights on the **same support and zero set**. This separates search behavior from which solutions the energy allows. [Fixed-support experiment, capacity census and kernel validation →](research/20261114/loki/h3v/REPORT.md)
-
-Fixed Sudoku restarts also failed their frozen +0.1-point improvement target: the gain was +0.012 points, with a paired 95% interval [−0.068, +0.093]. [Restart control and full curve →](research/20261114/foureyes/REPORT-restart.md)
+On 16,384 fresh 120×120 loopy mazes, selective fallback reduces joint failures across three frozen models from **44 to 20**, with **1.31%** median additional answer time. It validates paths using the supplied maze graph, then retries failures in one offline batch. This adds graph knowledge and does not establish low response latency. A task-specific BFS control solves all inputs in **1.679 CPU seconds**. [Complete comparison and timing scope](research/20261114/work/REPORT.md)
 
 ## What was reproduced?
 
-The original campaign reproduced **99.996689% Sudoku accuracy** over three full held-out runs, **100% Maze-Unique**, **99.9% Maze-Hard**, and every graph-coloring quality cell. It also completed all **84 objective runs, 100 training curves, 102 data-efficiency runs**, and the declared controls and supplemental ablations. The independent implementation passed 27 CPU tests; the pinned authors' implementation passed 91 tests.
+The original campaign measured **99.996689% Sudoku accuracy** across three full held-out runs, **100% Maze-Unique**, **99.9% Maze-Hard**, and all graph-coloring quality cells. It completed 84 objective runs, 100 training curves, 102 data-efficiency runs, and the declared controls and supplemental ablations. These original protocols differ from the research experiments above.
 
-![Original six-seed data-efficiency reproduction](results/reproduction/data_efficiency/figure3b.png)
+Baselines are explicitly **published results**. The paper's H200 **“1,000×” speed claim is not independently established** by our Blackwell experiments. [Reproduction evidence and limits](REPRODUCTION.md) · [Paper coverage](docs/PAPER_COVERAGE.md)
 
-This curve uses a seeded recreation of unreleased training arrays. Baselines are clearly labeled **published results**. The paper's H200 **“1,000×” training-speed claim is not independently established** by these Blackwell experiments. [Measured reproduction and limits →](REPRODUCTION.md) · [Paper coverage →](docs/PAPER_COVERAGE.md)
+Negative results remain public: learned certificates can accept invalid boards, better energy rankings can worsen solving, and more training can damage a fixed transformation pipeline. [All hypotheses and outcomes](results/README.md) · [Expanded research history](docs/RESEARCH_TOUR.md)
 
 ## Get started
 
@@ -144,7 +64,7 @@ uv pip install --python upstream/.venv/bin/python --no-deps -e .
 CUDA_VISIBLE_DEVICES= upstream/.venv/bin/python -m pytest -q tests/test_reference.py tests/test_counting.py
 ```
 
-Build the optimizer-free baseline from your own completed training states:
+Build the optimizer-free energy from completed training boards:
 
 ```python
 from hopfield_cram import fit_never_equal
@@ -153,10 +73,10 @@ from hopfield_cram import fit_never_equal
 energy, equality_counts = fit_never_equal(training_solutions, n_values=9)
 ```
 
-This [small public API](src/hopfield_cram/counting.py) supplies no cell geometry. For the declared noisy-label control, use `fit_rarely_equal(training_solutions, n_values=9, max_equal_count=1)`. Positive thresholds may add false exclusions and give training states positive energy; choose inference calibration separately. With insufficient data, even strict counts can exclude unseen valid boards. The [published binary model](results/research/foureyes/count_budget/model.json) retains the training provenance behind the measured Sudoku result. All 38 reference/counting tests pass; the tolerant API exactly matches all 24 noise-study model artifacts.
+The [public API](src/hopfield_cram/counting.py) receives no cell geometry; insufficient data can still create false exclusions. All 38 reference/counting tests pass. Full-scale experiments use pinned upstream kernels and [research runners](research/20261114/).
 
-The readable implementation is in [src/hopfield_cram](src/hopfield_cram/). Full-scale runs use the pinned upstream kernels and the isolated [research runners](research/20261114/). [Setup, data preparation and rerun instructions](docs/RERUN_GUIDE.md) explain their hardware and dataset requirements; [implementation notes](docs/IMPLEMENTATION.md) explain the algorithms.
+[Setup and rerun guide](docs/RERUN_GUIDE.md) · [Implementation](docs/IMPLEMENTATION.md) · [Figure data and renderers](docs/FIGURES.md) · [Original development record](results/reproduction/README.md)
 
-Public [JSON/CSV results](results/README.md), [figure sources](docs/FIGURES.md), protocols and audit hashes are included. Large datasets and raw board archives are excluded from Git; the small maze training checkpoints and source fixtures are included. The [development history and original completion snapshot](results/reproduction/README.md) are retained separately. Research is ongoing; only audited results appear above.
+Public JSON/CSV measurements, protocols and audit hashes are included. Large datasets and raw board archives stay outside Git. Research is ongoing; highlights above are audited.
 
-Code: [Apache 2.0](LICENSE). Paper and its converted assets: CC BY 4.0. [Attribution and scope](NOTICE.md).
+Code: [Apache 2.0](LICENSE). Paper and converted assets: CC BY 4.0. [Attribution](NOTICE.md).

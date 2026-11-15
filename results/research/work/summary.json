@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-15T03:29:52.626666+00:00",
+  "updated_utc": "2026-11-15T03:50:08.146599+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
-  "status": "twenty-four planned inference/trainingstudies, two selected-case interventions, exactobjective/norm certificates and source-onlyscreens complete; ongoingresearch continues separately",
+  "status": "Twenty-five planned inference/training studies, selected-case diagnostics, objective/norm certificates and source-only feasibility screens complete; ongoing research continues separately",
   "host": "work",
-  "jobs": 1456,
-  "run_arm_rows": 3855,
-  "model_maze_evaluations": 794498,
+  "jobs": 1504,
+  "run_arm_rows": 3999,
+  "model_maze_evaluations": 831362,
   "hypotheses": [
     {
       "campaign": "discovery",
@@ -652,6 +652,41 @@
         },
         "conjunction": "falsified"
       }
+    },
+    {
+      "campaign": "hard_negative_feasibility",
+      "hypothesis": "H2ab all three original-training mined-negative systems admit feasible real23-parameter witnesses",
+      "outcome": {
+        "decision": "supported_for_stated_source_constraints",
+        "fresh_test_inputs": 0
+      }
+    },
+    {
+      "campaign": "hard_negative_transfer",
+      "hypothesis": "H2ac hard-negative LP joint gain>=10pp versus earlier LP binary and NI<=.1pp versus BP PL",
+      "outcome": {
+        "gain": {
+          "gains": 992,
+          "losses": 0,
+          "observed_net_gain_pp": 24.21875,
+          "separately_one_sided95_net_lower_pp": 22.82330589843505,
+          "separately_one_sided95_net_upper_pp": 25.561043744443,
+          "target_pp": 10.0,
+          "decision": "supported"
+        },
+        "noninferiority": {
+          "gains": 0,
+          "losses": 132,
+          "observed_net_gain_pp": -3.22265625,
+          "separately_one_sided95_net_lower_pp": -3.810145210471559,
+          "separately_one_sided95_net_upper_pp": -2.613184303615489,
+          "loss_one_sided95_lower_pp": 2.7814954716108176,
+          "loss_one_sided95_upper_pp": 3.7142631007632874,
+          "margin_pp": 0.1,
+          "decision": "falsified"
+        },
+        "conjunction": "falsified"
+      }
     }
   ],
   "run_tables": [
@@ -675,7 +710,8 @@
     "contrastive-training-runs.csv",
     "lp-transfer-runs.csv",
     "lp-relaxation-runs.csv",
-    "binary-coordinate-runs.csv"
+    "binary-coordinate-runs.csv",
+    "hard-negative-transfer-runs.csv"
   ],
   "protocols": {
     "protocol": {
@@ -795,6 +831,14 @@
     "binary-coordinate-protocol": {
       "sha256": "f0b19a7d562b289574d6137ce979032d290e266a254f758010078912461cf308",
       "frozen_utc": "2026-11-15T03:10:24.133286+00:00"
+    },
+    "hard-negative-feasibility-protocol": {
+      "sha256": "6da2f14ed501b3a83a6f1ea2902e94ba8400a947577b438cf1285b0a2e651b9c",
+      "frozen_utc": "2026-11-15T03:27:54.103544+00:00"
+    },
+    "hard-negative-transfer-protocol": {
+      "sha256": "c4e6db0bbfa17b33742b7ee6a02978dc7db0c96e941a23c039161295b56dd421",
+      "frozen_utc": "2026-11-15T03:42:35.968174+00:00"
     }
   },
   "audit_sha256": {
@@ -823,7 +867,8 @@
     "artifacts/research/20261114/work/contrastive_training/audit.json": "625e3f2d1e047a28726b7d4646bff682d0cf1000cdc2cc8c33604bc3c3b03c3f",
     "artifacts/research/20261114/work/lp_transfer/audit.json": "4019fbd98cae812cc37baf1c6264696a721166578fe66177ddd1e8a9884837bf",
     "artifacts/research/20261114/work/lp_relaxation/audit.json": "2e8c2484f306960224a781532afa88f19496d8eb6f84516fbd16c8e801030c19",
-    "artifacts/research/20261114/work/binary_coordinate/audit.json": "56af375421748d23272e68dde4ffee3d1a6021b8a62886a2ba56f8fcdbfd35da"
+    "artifacts/research/20261114/work/binary_coordinate/audit.json": "56af375421748d23272e68dde4ffee3d1a6021b8a62886a2ba56f8fcdbfd35da",
+    "artifacts/research/20261114/work/hard_negative_transfer/audit.json": "19f69bcc79d075554f809f244f4c8446231809aa3d8269a98c2b5244eaaa2e94"
   },
   "model_sha256": {
     "0": {
@@ -856,8 +901,8 @@
     "case": "cyclic-failure-classification.json",
     "scope": "The same cyclic maze fails for model seeds1and2; these are true invalid fixed points or a period-two timeout, not hidden/nonfinite failures."
   },
-  "primary_jobs": 1450,
-  "primary_model_maze_evaluations": 794366,
+  "primary_jobs": 1498,
+  "primary_model_maze_evaluations": 831230,
   "descriptive_jobs": 6,
   "descriptive_model_maze_evaluations": 132,
   "selected_case_interventions": {
@@ -985,5 +1030,28 @@
     "new_training_updates": 0,
     "label_diagnostics_separate": 12288,
     "scope": "Objective-onlydecoder; no continuousprefix/graphrepair, labels evaluation-only. Nativeupdates andbinarysweeps notconflated."
+  },
+  "hard_negative_feasibility": {
+    "source_model_input_trajectories": 3000,
+    "source_unique_training_inputs": 1000,
+    "fresh_test_inputs": 0,
+    "retained_negative_count": 855,
+    "constraint_count": 1699842,
+    "numerical_LP_solves": 3,
+    "scope": "All original training inputs with three fixed readouts. Feasible witnesses for stated old and mined-negative inequalities. No minimum-norm optimality, global-optimality, training decoder success after refit, or generalization claim. Source mining and LP solves excluded from fresh inference totals."
+  },
+  "hard_negative_transfer": {
+    "fresh_inputs": 4096,
+    "new_model_maze_arm_evaluations": 36864,
+    "coefficient_source": "H2ab original-training mined negatives only",
+    "new_optimizer_updates": 0,
+    "label_diagnostics_separate": 12288,
+    "source_constraints_verified_positive_after_cast": 1699842,
+    "joint_success": {
+      "pl": 4088,
+      "lp_binary": 2964,
+      "hard_negative_binary": 3956
+    },
+    "scope": "Fixed source fit; unchanged binary decoder, original maximum coefficient norm, no target tuning or graph repair. Native updates and binary sweeps separate."
   }
 }

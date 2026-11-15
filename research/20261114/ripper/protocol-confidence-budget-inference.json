@@ -1,0 +1,158 @@
+{
+  "backend_sha256": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+  "capture_sha256": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+  "original_policy_sha256": "7be1d4c3f54ab61fa93c42ad478558163d3e080b4ad5ca877642f971fdf27bbe",
+  "original_noisy_policy_sha256": "31f4b5dbc64690db94fd3d8959c16dd85d9c8b2f891f893e7e9b77413df16c19",
+  "base_policy_sha256": "0c07514e139bb82e4199485876ef36f9859583b18c6e9c44246bc31e3c0daf7a",
+  "base_estimator_sha256": "7e1c8433219297d2309d585db4d0b0517435fae035ac36d8a43f193d8d188311",
+  "replay_optimization_validation_path": "artifacts/research/20261114/ripper/replay_optimization_validation.json",
+  "replay_optimization_validation_sha256": "852a77ec71dd1f99443690d883e93d68654665e44304fd059632e787a96f6b4a",
+  "fast_reference_mask_sha256": "c2c38e9eb65483d8503cb35d32a0d6688e083baff08fab646bd904ca6a38bf0e",
+  "policy_sha256": "622e5fa747b4e0956b873ff126cb3b4b9429c27bb2df9bdd0d057002510525bc",
+  "estimator_sha256": "ee8d23b74b87937a179fe7249fc3d64a427947e6cfda3424add88b33b27f6012",
+  "proof_sha256": "12cf4eb7284100d32e6e698b3789156fd1be1bd03be27be2f02879539196c4d0",
+  "integer_audit_sha256": "409697edab28ed19a42c93d60864bd2c9a7152880f3e2d3b9a0cb5e25869a248",
+  "arms": [
+    "uniform",
+    "evidence",
+    "shuffled"
+  ],
+  "rows": 1110,
+  "queries": 25,
+  "calibration_pairs": 1000,
+  "actual_eta": "1/20",
+  "q1": "1/9",
+  "calibration_alpha": "1/200",
+  "edge_alpha": "1/200",
+  "crossing_boundary": 648000,
+  "arm_rows": {
+    "uniform": 1110,
+    "evidence": 1110,
+    "shuffled": 1110
+  },
+  "label_costs": {
+    "uniform": {
+      "calibration": 2000,
+      "training": 27750,
+      "total": 29750
+    },
+    "evidence": {
+      "calibration": 2000,
+      "training": 27750,
+      "total": 29750
+    },
+    "shuffled": {
+      "calibration": 2000,
+      "training": 27750,
+      "total": 29750
+    }
+  },
+  "policy_preflight_path": "artifacts/research/20261114/ripper/confidence_weight_preflight.json",
+  "crossing_preflight_path": "artifacts/research/20261114/ripper/rate_transfer_preflight.json",
+  "policy_preflight_sha256": "057d1024380227fa54930d3913a909984a8f5c8719b9e4d43566762ff09058f3",
+  "crossing_preflight_sha256": "e1f7661ff639c80028ff796d580573553aee4d98fd5b2e1236fa84023d3b4cd6",
+  "gpu_preflight_seconds": 0,
+  "weights": "Uniform 1 on retained pairs. Evidence 1 if exact rational fixed-q1 LR<=1, otherwise1/16. Excluded weights0. No floating decision or outcome tuning.",
+  "shuffle": "Dedicated full3240-pair permutation generated before calibration/training observations; restrict to retainedpairs and assign firstK weak weights, withK from evidence multiset only. Fixed permodel across all inputs/searches; no observed weak-pair identities used.",
+  "normalization": "Strong penalty unit1, no mean/permodel normalization; temperature .4\u2192.31, theta .45, tau0, ebar0, tol.001, fourchains,262144moves.",
+  "shared_fit": "One unchanged source-stage learned exposure fit per bank, M1000/N1110; 29,750 queries. All three inference weightings share the same fit.",
+  "gates": "Independent source,calibration,threshold,mask/noise/path,exact LR classification,shuffle and weight audits. Nonuniform general/sparse parity and exact scaled-integer energy/field/focus/certificate checks, including127incremental moves without refresh, before fresh main inference.",
+  "wrong_certificate": "Invalid Sudoku completion or clue violation. Valid noncanonical completions reported separately; no unproved uniqueness assumption.",
+  "id": "H1ai-confidence-half-budget-inference",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "rows_half_open": [
+    400000,
+    405000
+  ],
+  "split": "full-all",
+  "streams": {
+    "pool_split": 20410000,
+    "calibration_source": 20411000,
+    "training_source": 20412000,
+    "ties": 20413000,
+    "calibration_noise": 20414000,
+    "training_noise": 20415000,
+    "calibration_cell": 20416000,
+    "weight_shuffle": 20417000,
+    "prospective_bootstrap": 20418000
+  },
+  "input_protocol_sha256": "7a3a5b4f40080269011c601314a7cfdf729ddd50f83ba39f5d3e0e3b3c02f2b4",
+  "primary_hypothesis": "Evidence minus uniform canonical exact-match accuracy>=10pp; evidence minus shuffled accuracy>=10pp; evidence accuracy>=70%; zero invalid certified stops across all3arms.",
+  "primary_interval": "5000 paired two-way bootstrap draws over32 banks and the same5000 puzzle indices, seed20418000. Each gain supports if lower95%>=10pp, falsifies if upper<10pp; floor supports if lower>=70%, falsifies if upper<70%; otherwise inconclusive. Marginal95% intervals only; no simultaneous-coverage claim.",
+  "conjunction": "Supported iff all3interval endpoints and zero-wrong-stop gate pass; falsified if any interval endpoint falsifies or gate fails; otherwise inconclusive.",
+  "primary_accuracy": "Exact match to stored canonical solution, including capped returns. Certified accuracy, correct capped returns, validity, compatibility and given-given conflicts reported separately.",
+  "uncertainty_limit": "32 independent source-bank/noise/tie draws with one independently drawn shuffle and paired search seed per bank. The same5000 puzzles repeat across banks; approximate bootstrap uncertainty, not a universal guarantee.",
+  "budget": "At most30 GPU-min total, measured as four-GPU inference wall envelope including per-search parity and integer checks. No new standalone GPU preflights. Historical unchanged H1ah preflights are reused and not charged again. No adaptive extension.",
+  "stopping_rule": "Exactly all32 frozen source banks and3 weight arms on fresh [400000,405000),96 requested cells except identical complete weight/settings/seed/input reuse. No tuning, bank filtering, extra inputs or cap extension after outcomes.",
+  "limitations": [
+    "Independent replacement noise family only.",
+    "Positive weights preserve zero set; they cannot increase canonical certificate capacity.",
+    "Canonical compatibility only unless independently proven unique.",
+    "Primary canonical exact-match accuracy includes correct positive-energy capped returns.",
+    "Shared true-edge retention event protects all three positive-weight models of one fit; no joint1% guarantee across32banks.",
+    "Each interval marginal95%; no simultaneouscoverage.",
+    "BP AdamW outside this inference-weighting mechanism study; not run.",
+    "The source-only zero-weak-true-edge hypothesis failed separately before this inference stage. All32 banks remain included.",
+    "No direct paired comparison with H1ah full-budget accuracy; the same frozen absolute and matched-control endpoints are tested at lower training cost."
+  ],
+  "frozen_utc": "2026-11-15T04:07:04.447536+00:00",
+  "source_protocol_sha256": "cb8a5c6e44ba3320d47e4cd138cab3a84c460aaf60db51a57688735571d1f768",
+  "source_audit_sha256": "f5648abedd45dfe67e40bd49b2b822310845d16da616e58952087e5f5408a0de",
+  "input_manifest_sha256": "33eb832ffcce3570f15935eb469a79fc8763a005bee2f290e0f26e8182a739d7",
+  "source_result_handling": "The source finite-bank conjunction failed because 82 true edge-bank pairs were weak. Every one of the32 banks remains included unchanged. This result is separate from accuracy and zero-energy certificate validity.",
+  "reused_gpu_preflights": [
+    {
+      "path": "artifacts/research/20261114/ripper/confidence_backend_preflight.json",
+      "sha256": "68e6cdc6cea4fda2af802aaa4918b297391d1a3ee32b110bbcdb055f025c5d65",
+      "allocated_gpu_seconds": 2.355028484016657
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/confidence_incremental_preflight.json",
+      "sha256": "d1e9dd6463b6f2bb4da34541959f00cddf58b5a4fe8893b9d3a781f55607d181",
+      "allocated_gpu_seconds": 4.479088535008486
+    }
+  ],
+  "code_sha256": {
+    "confidence_budget_search.py": "a4e3e055cf3ebf11d30b65462e138bf42a4c01bc671ab46d068185b0efa8ea66",
+    "confidence_budget_inference_common.py": "c7fc08333450fe6fdeda9d7cb31659eebc71bed8d66fd74167fba9ab9482768f",
+    "watch_confidence_budget.py": "921791ae9f5582e48a0f24c0c6891f89b8a71a348c0e3b5e702d6fa2450ae024",
+    "audit_confidence_budget.py": "30baa706b1db1749fb1c57564c4ae06d80628113b75d86f717aaf6f1f8c8dd6e",
+    "confidence_integer_audit.py": "409697edab28ed19a42c93d60864bd2c9a7152880f3e2d3b9a0cb5e25869a248",
+    "sparse_backend.py": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+    "run.py": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+    "bootstrap_two_way.py": "b4ae5dbccbc7f893f509eaf7b35ae239055f6f7633ac00921b45008761949e43"
+  }
+}

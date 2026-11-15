@@ -1,0 +1,93 @@
+{
+  "backend_sha256": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+  "capture_sha256": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+  "original_policy_sha256": "7be1d4c3f54ab61fa93c42ad478558163d3e080b4ad5ca877642f971fdf27bbe",
+  "original_noisy_policy_sha256": "31f4b5dbc64690db94fd3d8959c16dd85d9c8b2f891f893e7e9b77413df16c19",
+  "base_policy_sha256": "0c07514e139bb82e4199485876ef36f9859583b18c6e9c44246bc31e3c0daf7a",
+  "base_estimator_sha256": "7e1c8433219297d2309d585db4d0b0517435fae035ac36d8a43f193d8d188311",
+  "replay_optimization_validation_path": "artifacts/research/20261114/ripper/replay_optimization_validation.json",
+  "replay_optimization_validation_sha256": "852a77ec71dd1f99443690d883e93d68654665e44304fd059632e787a96f6b4a",
+  "fast_reference_mask_sha256": "c2c38e9eb65483d8503cb35d32a0d6688e083baff08fab646bd904ca6a38bf0e",
+  "policy_sha256": "622e5fa747b4e0956b873ff126cb3b4b9429c27bb2df9bdd0d057002510525bc",
+  "estimator_sha256": "ee8d23b74b87937a179fe7249fc3d64a427947e6cfda3424add88b33b27f6012",
+  "proof_sha256": "12cf4eb7284100d32e6e698b3789156fd1be1bd03be27be2f02879539196c4d0",
+  "integer_audit_sha256": "409697edab28ed19a42c93d60864bd2c9a7152880f3e2d3b9a0cb5e25869a248",
+  "frozen_utc": "2026-11-15T03:43:58.569376+00:00",
+  "arms": [
+    "uniform",
+    "evidence",
+    "shuffled"
+  ],
+  "rows": 2220,
+  "queries": 25,
+  "calibration_pairs": 1000,
+  "actual_eta": "1/20",
+  "q1": "1/9",
+  "calibration_alpha": "1/200",
+  "edge_alpha": "1/200",
+  "crossing_boundary": 648000,
+  "arm_rows": {
+    "uniform": 2220,
+    "evidence": 2220,
+    "shuffled": 2220
+  },
+  "label_costs": {
+    "uniform": {
+      "calibration": 2000,
+      "training": 55500,
+      "total": 57500
+    },
+    "evidence": {
+      "calibration": 2000,
+      "training": 55500,
+      "total": 57500
+    },
+    "shuffled": {
+      "calibration": 2000,
+      "training": 55500,
+      "total": 57500
+    }
+  },
+  "policy_preflight_path": "artifacts/research/20261114/ripper/confidence_weight_preflight.json",
+  "crossing_preflight_path": "artifacts/research/20261114/ripper/rate_transfer_preflight.json",
+  "policy_preflight_sha256": "057d1024380227fa54930d3913a909984a8f5c8719b9e4d43566762ff09058f3",
+  "crossing_preflight_sha256": "e1f7661ff639c80028ff796d580573553aee4d98fd5b2e1236fa84023d3b4cd6",
+  "gpu_preflights": [
+    {
+      "path": "artifacts/research/20261114/ripper/confidence_backend_preflight.json",
+      "sha256": "68e6cdc6cea4fda2af802aaa4918b297391d1a3ee32b110bbcdb055f025c5d65",
+      "allocated_gpu_seconds": 2.355028484016657
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/confidence_incremental_preflight.json",
+      "sha256": "d1e9dd6463b6f2bb4da34541959f00cddf58b5a4fe8893b9d3a781f55607d181",
+      "allocated_gpu_seconds": 4.479088535008486
+    }
+  ],
+  "gpu_preflight_seconds": 6.834117019025143,
+  "weights": "Uniform 1 on retained pairs. Evidence 1 if exact rational fixed-q1 LR<=1, otherwise1/16. Excluded weights0. No floating decision or outcome tuning.",
+  "shuffle": "Dedicated full3240-pair permutation generated before calibration/training observations; restrict to retainedpairs and assign firstK weak weights, withK from evidence multiset only. Fixed permodel across all inputs/searches; no observed weak-pair identities used.",
+  "normalization": "Strong penalty unit1, no mean/permodel normalization; temperature .4\u2192.31, theta .45, tau0, ebar0, tol.001, fourchains,262144moves.",
+  "shared_fit": "One learned support/count fit perbank shared by all3 inferencearms. Costs perfit/arm57500; no claim of3 independent trainingfits.",
+  "gates": "Independent source,calibration,threshold,mask/noise/path,exact LR classification,shuffle and weight audits. Nonuniform general/sparse parity and exact scaled-integer energy/field/focus/certificate checks, including127incremental moves without refresh, before fresh main inference.",
+  "wrong_certificate": "Invalid Sudoku completion or clue violation. Valid noncanonical completions reported separately; no unproved uniqueness assumption.",
+  "id": "H1ah-confidence-weights-implementation-pilot",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "streams": {
+    "calibration_cell": 20404000,
+    "calibration_noise": 20405000,
+    "training_noise": 20406000,
+    "ties": 20407000,
+    "weight_shuffle": 20408000
+  },
+  "prior_input_manifest": "artifacts/research/20261114/ripper/scaled_noise_pilot/input_manifest.json",
+  "prior_input_manifest_sha256": "a57bc6e0c7d27d8fb4247ca97344366637d169afce2d0f99eefb9eb8cc2600f7",
+  "budget": "Six old-board calibration/training fits, no solver inference or extension; pilot not pooled."
+}

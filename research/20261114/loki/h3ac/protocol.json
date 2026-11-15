@@ -1,0 +1,162 @@
+{
+  "id": "H3ac-independent-source-bank-fitted-energy-replication",
+  "frozen_utc": "2026-11-15T03:33:39.658550+00:00",
+  "hypothesis": "For ALL four independent128/176source-bank draws, fixed permutation proposals improve abstaining valid certified completion by at least50percentage points over arbitrary proposals at source-calibrated matched solve time, with zero wrong stops.",
+  "antecedent": "H3ab found a67.71point matched-time gain using one inherited complete-source fitted energy. H3ac tests whether the fixed recipe survives refitting on separately drawn incomplete source banks, conditional on this one finite N12camel-family population.",
+  "source_banks": {
+    "population": 176,
+    "bank_size": 128,
+    "banks": 4,
+    "seeds": [
+      2026112700,
+      2026112701,
+      2026112702,
+      2026112703
+    ],
+    "draw": "Independent numpy default_rng choice without replacement within eachbank; sort population indices. Overlap acrossbanks allowed and reported. Zero-initialized deterministic fits vary throughbank only; search seeds are not trainingreplicas.",
+    "no_replacement_or_tuning": true
+  },
+  "architecture": "Recompute canonical264sourceoffset counts and marginalexposure, primitive normal lines(a,b)in[-2,2] with coprime canonicalsign and at least3zero-count offsets/no positive member. Group eachline and separately eachoff-line offset; one unary. Do not force224couplings if a bank yields different lines.",
+  "fit": {
+    "optimizer": "BP AdamW",
+    "updates": 4000,
+    "initialization": "allcouplings and shared unary zero",
+    "lr": 0.3,
+    "cosine_denominator": 4000,
+    "weight_decay": 0.01,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "foreach": false,
+    "dtype": "float32",
+    "tf32": false,
+    "seed": 0,
+    "preconditioner": false,
+    "objective": "Original hash-pinned H3u source_loss: exact full binaryPL over eachbank and its298one/two/three-clue subsets. Occupied free multiplicity231,empty298; normalized by sumweights.",
+    "eligibility": "Finite parameters, positive finite native minimum source flipmargin, and finite strictlypositive coefficients on every retained Foffset and transferred Fedge; source mean retainedweight>0. Failure is bankoutcome; no replacement/refit/retuning."
+  },
+  "positive_derivative": "Source F=(count==0 and marginal exposure>=ln(264/.01)) UNION every inferredline. Keep learnedpositive coefficients onlyon F,zero h/offF. Extend inferredlines toN13; finite offsetsunchanged; new off-lineoffsets0. Source temperatureunit=FP32 arithmeticmean learnedcoefficient across unique retained canonicalSOURCEoffsets after lineunion. This derivative discards native unary/allowed coefficients.",
+  "arms": [
+    "BP AdamW arbitrary",
+    "BP AdamW permutation"
+  ],
+  "calibration": {
+    "inputs_per_bank": 4096,
+    "clue_mix": {
+      "1": 2,
+      "2": 205,
+      "3": 3889
+    },
+    "input_seeds": [
+      2026112710,
+      2026112711,
+      2026112712,
+      2026112713
+    ],
+    "inputs": "Embed only thatbank N12boards at13*r+c; enumerate unique1/2/3clue subsets; independently draw fixedmix. No target arrays,keys,labels or targetartifact bytes opened by source fit/calibration integrityguard. Source files and source-only historical gates are hashchecked. Allcalibrationkeys excluded from newtargets.",
+    "reference_cap": 20000,
+    "permutation_grid": [
+      8000,
+      12000,
+      16000
+    ],
+    "streams": [
+      101,
+      102,
+      103
+    ],
+    "physical_gpus": [
+      0,
+      1
+    ],
+    "timings_per_configuration": 6,
+    "order": "Each GPU runs all3streams and everyconfiguration; reverse configurationorder when(gpu+stream_index)isodd. Banksrun ascending0..3 onbothdevices.",
+    "timing": "Synchronize before/after complete solvecall including inputtransfer and returnedCPUarrays; no targetvalidityscoring. Perphase bothkernels32proposal fullshape warmups, invariantchecked and budgetcharged.",
+    "selection": "Perbank choose cap minimizing abs(permutationmedian/arbitrarymedian-1), ties smallercap; accept within5%. If none, one linear interpolation within first adjacentascending gridcaps bracketing arbitrarymedian, rounded nearest128 with ties-to-even; measure same6trials. Noextrapolation. No bracket/repeatedcap/refinementfailure => inconclusivecalibration, skipthatbanktarget. Seal ALLbank outcomes/caps before common targetcohort.",
+    "uncertainty": "2000 source-stream bootstrap draws RNG2026112604;5/95ratio endpoints retainingbothphysicaldevices withinstream. Report everytrial anddevice medians. The source pointmedian gate is distinct from bootstrapuncertainty."
+  },
+  "target": {
+    "unique_inputs": 4096,
+    "input_seed": 2026112516,
+    "chains": 20,
+    "search_seeds": [
+      0,
+      1,
+      2
+    ],
+    "q": 13,
+    "block": 65536,
+    "exclusion": "Union H3ab all_excluded_keys and H3ab test_keys, plus every new bankcalibrationkey including failedbanks. Never drop priorcalibration exclusions. Uniform draw from remaining validN13one/two/three-clue universe.",
+    "starts": "Same saved complete frozen H3aa permutationinitial arrays for bothkernels ANDallbanks perseed. Initializer seed2026112600+seed; GPUproposal generatorseed separate. Calibrations also sharesame perbankstarts across kernels/caps/devices.",
+    "assignment": "For everybank GPU0:arbitraryseed0,permutationseed1,arbitraryseed2; GPU1:permutationseed0,arbitraryseed1,permutationseed2. Physical device crossover retained.",
+    "warmup": "Before each timedjob, unscored fullshape32proposals usingseed100. Time charged. Same complete solvecall timingscope assourcecalibration; scoring/serialization excluded fromsolve time but charged toworkerbudget."
+  },
+  "temperature": "T(k)=bank_source_unit*0.01**(k/(cap-1)). Cap-specific duration partof declaredrecipe; endpoints fixed. No targettuning.",
+  "certificate": "Exactinteger occupied Fedgecount0 including given-given edges; preserve q13. Primary abstains without independentlyvalid stoppedcompletion among20chains. Report anyinvalidstops.",
+  "primary": {
+    "required_gain_pp": 50.0,
+    "source_time_tolerance": 0.05,
+    "target_time_tolerance": 0.1,
+    "wrong_stops": 0,
+    "bootstrap_draws": 8000,
+    "bootstrap_seed": 20261114,
+    "endpoints": "Paired inputbootstrap retaining all3searchseeds insideinput. Perbank1.25/98.75percentiles are98.75% one-sidedbounds; Bonferroni yields familywise95% lowerendpoints across4banks and, separately,familywise95% upperendpoints. Not simultaneous95%two-sidedintervals. No pooledbank/search pseudo-replication.",
+    "quality": "Perbank supportquality if lower>=50pp,zero wrongstops,numericalgatepass; falsifyquality if upper<50pp ORwrongstops; otherwiseinconclusive. Sourcefit eligibilityfailure falsifies allbank operability claim and is retained.",
+    "matched_compute": "Perbank supportmatchedclaim onlyif sourcepointmedians within5%,fresh targetmedian ratio within10%,andqualitysupported. Timingfailure is inconclusive matchedcompute,even if qualitysupported; no retuning.",
+    "conjunction": "Support onlyifALL4banks pass matchedcompute andquality. Anyeligiblebank qualityfalsification ORsourcefiteligibilityfailure falsifies conjunction; otherwise anyincomplete/timing/numerical outcome makesconjunctioninconclusive."
+  },
+  "diagnostics": "Allbank sourceindices/overlaps,fitcurves/parameters,source support/temperature,exact targetFcapacity/true-false-missed edgecounts,perseed timings,original/certificate-first fallbackaccuracy,coverage,allcapreturns,proposals/accepts,perproposal cost; audit every scoredsavedstate q/givens/validity/integercertificate/exactfloat64energy. Maxenergyerror>.1prevents support. Exact re-selection accuracy reported.",
+  "validation": "Hash-pinned previouslyvalidated H3aa kernels/initializer and H3u loss/optimizer recipe. For eachnewbank independentlycount sourcepairs/exposures/lines/groups; compare literal expandedclue PL/gradients tocompressedloss, actualsource CPU/GPU loss/gradient tolerance1e-5; independentlyrebuild targetF/J and source meanunit. Source warmups validate integercounts/permutation/q/givens. Targetpreflight checks allfrozen caps/exclusions/validity counts andsharedinitialreconstruction.",
+  "budget": {
+    "whole_study_gpu_minutes": 60,
+    "whole_study_wall_seconds": 1800,
+    "concurrent_gpu_workers": 2,
+    "fit_seconds_per_bank_ceiling": 120,
+    "maximum_fits": 4,
+    "grid_trials": 96,
+    "maximum_refinement_trials": 24,
+    "maximum_scored_target_searches": 24,
+    "includes": "Everyfit/lossvalidation/sourcecalibration/refinement/warmup/target GPUworker charged. Singledeadline starts firstfitworker. CPU sourcebank/calibrationinput preparation occurs afterfreeze beforedeadline. No reset betweenphases; actualaggregateworkerwall<=3600s.",
+    "expiry": "Retain evidence and mark unfinished outcomes incomplete. Do notextend,replaceseeds,dropfailedbanks orretune."
+  },
+  "limits": [
+    "Four overlapping independentlysampled banks fromonefinite176board population, not fourindependent rulefamilies or broad generalization.",
+    "Fixed source-only filtering heuristic mayexclude true targets ormiss forbiddenedges. Exactcapacity constrains onlyabstaining certifiedprimary, not fallbackaccuracy.",
+    "Incomplete sourcebanks do not inherit completeness-derivednegative evidence fromH3x.",
+    "Cap-specific schedules and source-derived timinginputs maychange freshcost ratios; reportgateswithout tuning.",
+    "Protocol follows H3ab evidence; this is a fresh conditional replication, not originalpaper reproduction."
+  ],
+  "source_sha256": {
+    "research/20261114/loki/h3ac/common.py": "e037d2ea8700558eff319c65a4fbb3894458d164233e74ef19206e7ea6e887b9",
+    "research/20261114/loki/h3ac/source.py": "bc767101e39ca2c16415964d2514bf6e6b129b1a84564f090f208b1e3165dc99",
+    "research/20261114/loki/h3ac/calibration.py": "8a6219600016ee635dce79dc6b3dce529eff56fab926135387be0f0097d1e275",
+    "research/20261114/loki/h3ac/prepare.py": "6fea5facd8fffeeb99e46d6a81e7c8905dda46b4ab5fc3703908707cb9f729f8",
+    "research/20261114/loki/h3ac/driver.py": "bdcde284727a507af42fcb1a2a4e96af0d3373c6411292916bb4fcd8616c9711",
+    "research/20261114/loki/h3ac/campaign.py": "ed0cd94b4fa438ee6887daaada47bab5380c73c2da46201fdac372cf3b915a2a",
+    "research/20261114/loki/h3ac/freeze.py": "df6127b67a62bae09027320a5e35daa19d301a2ab0b301009c33939a65ca2a01",
+    "research/20261114/loki/h3aa/initialization.py": "3f128033466fc61d75cbd6ab417041df83c0107c1bc5b678898a3b9a85efc20c",
+    "research/20261114/loki/h3aa/arbitrary_backend.py": "5fd01d224a47152f9e27db749814aa29aa3518fea046a494ab02521540c137c0",
+    "research/20261114/loki/h3aa/permutation_backend.py": "2d4504f0f3f19bf5d58e9dd23ed32478e18fc4a8912e75a5d8b5cd50b6c31292",
+    "research/20261114/loki/h3aa/gate.py": "28ca8f39290967b879dc178c11758790d1a240c0fea5c1549e25068d391a601f",
+    "research/20261114/loki/h3aa/protocol.json": "bb39b64ba015da8c8184ed7bcddd65f985bd383e8b1b70802fea09465e43a5db",
+    "research/20261114/loki/h3u/driver.py": "ceb8eae804643b6fd08eaa442475c494ec614653b348bd0403238c4c9f565b38",
+    "research/20261114/loki/h3u/preflight.py": "8b96e781584a392274f7a09daf2f95f0cd0264c013382a50958385532f48ea53",
+    "research/20261114/loki/h3u/protocol.json": "d93afc225cd263e15b4d3e264c2c60fec084f2c8f3883b6d333880a6cc10d4de",
+    "research/20261114/loki/study.py": "7c48de391879dc2f4b4f14459698afbc84c82cb3e89030e0ba4814d4fd74b552",
+    "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623"
+  },
+  "source_data_sha256": {
+    "artifacts/research/20261114/loki/h3t/solutions-n12.npy": "509cca770756fdce427345ef6400d69e1f96e4677d30535ee62f8d2385a71ba8",
+    "artifacts/research/20261114/loki/h3aa/gate-cpu.json": "3964b134aa7983d9c238eb810e1dd68022c333451e618d97a4e608623a3e318e",
+    "artifacts/research/20261114/loki/h3aa/gate-cuda.json": "d42a3574599b4e05ca1bab59df3aae8ed893807c723cec668610f2b3bf92ce3b",
+    "artifacts/research/20261114/loki/h3u/loss-validation.json": "b41f6f7c3ff105eabed199100638bc8e60e5de6dd2b0f922c26de681954e05b5"
+  },
+  "target_data_sha256": {
+    "artifacts/research/20261114/loki/h3ab/data.npz": "8fe9c8052803eaa260ea4e30b99118503b293a2fe9cfaeaff0dcbefa3de4027d",
+    "artifacts/research/20261114/loki/h3t/solutions-n13.npy": "c6d9786fbeb885aed2e69ec37ebcfa0904caab7d5a2e90064b3e8c650aba56cf",
+    "artifacts/research/20261114/loki/h3t/input-universe.npz": "b16569ce94a255103a42ed81c1ecf0873f4fe56ddd50a1658694eae19ec82fe8"
+  }
+}
