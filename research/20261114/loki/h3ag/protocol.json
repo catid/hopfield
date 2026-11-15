@@ -1,0 +1,194 @@
+{
+  "id": "H3ag-compiled-literal-reverse-verifier-N15",
+  "frozen_utc": "2026-11-15T04:50:38.830069+00:00",
+  "hypothesis": "For both unchanged N12 learned positive-F recipes extended to N15, a complete CPU compile, independently verified by a compiled literal reverse enumerator, plus the external graph gate, cache loading and three 4096-input queries is at least 10 times faster than three frozen GPU permutation solve calls. Full C++ build and equivalence validation cost is conservatively charged to each family.",
+  "interpretation": "One algorithm-implementation change relative to failed H3af: the same independent reverse-row literal-F recursion is translated to single-thread C++. Forward Python enumeration, dense all-cell-pair certificate formula, source models, GPU kernels and inherited caps are unchanged. A new experiment, not an extension of H3af. Fixed-cap heterogeneous CPU/GPU timing, not newly matched N15 time.",
+  "models": [
+    {
+      "bank": 0,
+      "family": "queen-plus-zebra",
+      "parameters_path": "artifacts/research/20261114/loki/h3ad/b0/parameters.npz",
+      "source_design_path": "artifacts/research/20261114/loki/h3ad/b0/source-design.npz",
+      "inherited_n13_model_path": "artifacts/research/20261114/loki/h3ad/b0/model.npz",
+      "calibration_selection_path": "artifacts/research/20261114/loki/h3ad/b0/calibration-selection.json",
+      "calibration_selection_sha256": "8e72867593f915b4ac4d048fb8bef3669f6290b22a6ce576a74ab33f2d64cd23",
+      "permutation_cap": 11264
+    },
+    {
+      "bank": 1,
+      "family": "queen-plus-2-5-leaper",
+      "parameters_path": "artifacts/research/20261114/loki/h3ad/b1/parameters.npz",
+      "source_design_path": "artifacts/research/20261114/loki/h3ad/b1/source-design.npz",
+      "inherited_n13_model_path": "artifacts/research/20261114/loki/h3ad/b1/model.npz",
+      "calibration_selection_path": "artifacts/research/20261114/loki/h3ad/b1/calibration-selection.json",
+      "calibration_selection_sha256": "57c1d41a7cf94402ee1c9c93e5fc07eeb3b37c0e0dc1cc2bbf6102b69d8b56b0",
+      "permutation_cap": 12000
+    }
+  ],
+  "arms": [
+    "BP AdamW arbitrary proposals",
+    "BP AdamW permutation proposals",
+    "BP AdamW exact zero-F compilation"
+  ],
+  "eligibility": "q=15; positive J exactly on binary symmetric F with zero diagonal, zero h, complete row and column cliques. Thus cardinality-15 zero-F states are exactly row/column permutations. Full forward and independent compiled reverse enumeration must agree exactly.",
+  "compilation": {
+    "cpu_seconds_ceiling": 120,
+    "aggregate_both_families": true,
+    "source_inputs": "Only frozenN12parameters/source-design,inheritedlearnedN13model,andsourcecode/calibrationreceiptintegrity. No targetlabels,solutionarrays,inputkeys,accuracy orfamily leaper rules used intransfer/compiler.",
+    "primary": "Unchanged H3af Python forward-row future-row F-mask recursion.",
+    "independent": "Single-thread C++ translation of H3af reverse_literal: rows q-1 down to 0, columns 0 through q-1, literal F[cell,old] against each selected cell; sort all complete columns. No forward masks, supplied graph or special leaper rules.",
+    "cache": "Both complete caches must be sealed before external geometry or target cohorts. Rerun from frozen source models; H3af provisional outputs and completed N15 cache are never inputs.",
+    "gate": "Fresh 120 aggregate CPU-second gate includes monitor and child processes, C++ build, all parity/query verification, source transfer, both N15 enumerations, unchanged dense all-cell-pair certificates, index and cache serialization. Live /proc process-tree CPU monitoring plus final self+children rusage; conservative 120 wall-second guard. Failure stops entire study without partial substitution, extension or dropped family."
+  },
+  "query": {
+    "outputs_per_input": 20,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "random_seed": "numpy default_rng(2026113100+100*family_index+searchseed)",
+    "recipe": "Intersect invertedbitsets for givenclues; enumerateallmatchingcacheIDs. Choosemin(20,matches)uniformlywithoutreplacement. If fewerthan20,padwithuniformresampling frommatches. Ifzero,returnexplicitabstention withsentinelboards/indices,neverclaimacertificate. Preserveatmost20uniqueoutputs.",
+    "access": "Separateclue-onlyN15query-inputs.npy andmodelcache only; neverlabel-containingdata.npz orfamilyrules. Sameunique-then-padding20-outputrecipe.",
+    "consequence": "For everyinputwithanyzero-Fcompletion,all20returnsarezero-Fandtheprimarydoesnotabstain. Diversitymaybenefitfromwithout-replacement selection; compareasdeclaredrecipe,notidentical RNGsemantics toGPUchains."
+  },
+  "target": {
+    "unique_inputs_per_family": 4096,
+    "input_seeds": [
+      2026112523,
+      2026112524
+    ],
+    "chains": 20,
+    "search_seeds": [
+      0,
+      1,
+      2
+    ],
+    "exclusion": "H3af produced no N15 cohort. Reserve family0 then family1; exclude first new family keys from second. Uniform over remaining eligible keys. N13 key domain is distinct.",
+    "GPU_starts": "FrozenH3aaCPUinitializer atq15,20chains,seed0/1/2,sharedbetweenGPUmethods. Sourceunits unchanged;T(k)=u*.01**(k/(cap-1)).",
+    "caps": "Arbitrary20000; permutation11264/12000inheritedfromN13sourcecalibration unchanged. NoN15source timingcalibration; explicitlyfixedcap hardwarecomparison.",
+    "GPU_assignment": "For eachfamily GPU0:arbitraryseed0,permutationseed1,arbitraryseed2; GPU1 complementary.",
+    "GPU_warmups": "Eachof12scoredjobs getsonefullshape32-proposalunscoredwarmup(seed100),chargedtobudget.",
+    "q": 15,
+    "sampling": "Uniform fromremainingeligiblecluekeys ineachcompleteN15family inputuniverse AFTERcross-familyexclusion,not uniformoverunrestrictedfamilyuniverse. Enumerateall575one/two/three-clue subsets percompletesolution."
+  },
+  "timing": {
+    "cpu_denominator": "Full shared build/equivalence/query-validation/monitor overhead charged separately to EACH family, plus its source transfer/N13 identity checks, eligibility, forward and compiled reverse enumerations, unchanged dense pair verification, indexing/serialization, external graph gate, cache load and three query calls. Failed costs retained. Cohort preparation/shared starts and target scoring are reported separately.",
+    "gpu_numerator": "Sumofthree frozenpermutation completeGPUsolve-call walltimes, synchronizedbefore/after andincludinginitialtransfer/returnedCPUarrays. Modelparsing,warmups,validityscoring/serialization outside solve-call timingbutallGPUworker timecharged.",
+    "comparison": "GPU three synchronized solve-call wall times divided by full shared prerequisite wall cost plus per-family compile, external graph gate, load and three queries. Conservative double charge of shared build/validation across family denominators, actual aggregate costs reported once. No repeated-compilation confidence interval.",
+    "scheduling": "Compilation prerequisites and both complete N15 caches before external graph gate/cohorts/GPU work. Unchanged GPU kernels, same inherited source units and caps. Query worker may overlap GPU controls; no other Loki experiment concurrently.",
+    "amortization": "Descriptiveonly: C=compile+externalgate+load, tCPU=meanthreequerytimes,tGPU=meanthreepermutationtimes. Break-even batches C/(tGPU\u2212tCPU)ifdenominatorpositive;10xspeedbatches10C/(tGPU\u221210tCPU)ifpositive. Reportfractionalandceilingintegercounts,explicitlinearreuseextrapolation beyondobserved3batches; neveradjustcohort/recipe basedonit."
+  },
+  "decision": {
+    "speed_threshold": 10.0,
+    "quality_tolerance_pp": 0.1,
+    "wrong_stops": 0,
+    "quality": "Correctness/completeness andexternalgraph-equivalence gates; exactcertifiedsuccess>=permutation\u22120.1pp,zerowrongstops,numericalGPUauditlimit.1. Globalcompleteenumeration orgraphgate failure meansnotrun/inconclusive speed,notanaccuracyfailure. Keepfailurecosts visible.",
+    "speed": "Bothfamilies mustpassqualitygateandmeasuredratio>=10. Ratio<10falsifiesspeedthresholdforitsfamily; anyfailurefalsifiestheconjunction. Gateincomplete/CPUtimeout/unfinishedGPUjobs=>inconclusive,noextension orpartialcaches.",
+    "stats": "Primaryspeedclaimisapointworkloadmeasurement; qualityisacompleteness/correctnessgate,notnewstatisticallearningclaim. Reportperseedquality,allcostcomponents,andbothfamilyratios separately."
+  },
+  "capacity": "Exactlearnedzero-Fcapacity is a ceilingforabstainingcertifiedprimary only. Exactmethodabstainsoutsideit. GPUpositive-energyfallback canbevalidoutsidezero-Fandisreportedseparately; donotattributeunsupportedfallbackaccuracytocachemethod.",
+  "budget": {
+    "compilation_cpu_seconds": 120,
+    "gpu_minutes": 10,
+    "gpu_worker_seconds": 600,
+    "gpu_wall_seconds": 360,
+    "per_device_cumulative_worker_seconds": 300,
+    "concurrent_gpu_workers": 2,
+    "scored_GPU_jobs": 12,
+    "warmup_GPU_jobs": 12,
+    "enforcement": "120 aggregate CPU seconds including subprocess compiler/build/parity and monitor, additionally 120 wall-second guard. Stop signal at119.8 allows receipt shutdown; final pass requires both totals<=120. After complete compilation and external gate/cohorts, unchanged 600 aggregate GPU-worker seconds, 300 cumulative per GPU and360 GPU-phase wall seconds; all warmups/scoring/serialization included. No reset/extension/partial cache.",
+    "compilation_wall_seconds_guard": 120
+  },
+  "limits": [
+    "N15sourceextrapolationofsameN12models; fixedinheritedN13caps arenot newly matchedN15compute.",
+    "Twofixedrulefamilies andremaining-eligible-keycohorts,notrepresentative task sampling.",
+    "Externalgraph equality is apostcompilevalidationgate,not an inputtocompiler.",
+    "CPU/GPUheterogeneoushardware timing,not equalFLOPs/energy orsinglequerylatency.",
+    "Threebatchesamortizeonecache; break-even extrapolation isdescriptive only.",
+    "Independentverificationcostincluded; timeout stopsstudy withoutpartialcache orfamilyreplacement.",
+    "Compiled verifier optimization includes full build and equivalence-validation cost in each family denominator; this tests an implementation bottleneck, not a changed model or general N15 solver claim."
+  ],
+  "source_sha256": {
+    "research/20261114/loki/h3ag/common.py": "8e7f6a847a4fcec1585a4010dc7d71424e60134dc3373bebf92d97694f0d22d4",
+    "research/20261114/loki/h3ag/transfer.py": "c8545b28f6eddbe6fd4a8e7f3c814a1a25bbc293615d11eb3174ae933bdd2daa",
+    "research/20261114/loki/h3ag/compiler.py": "7894eb63eb047d41aa8f43a4d34c5a167659b2df580ec5b3fd01fa2e72f7b1aa",
+    "research/20261114/loki/h3ag/compile_gate.py": "39b4acb11680c24ec34e2b3029c7a0415a5febac125083c8f4c0bd2276142515",
+    "research/20261114/loki/h3ag/cpp_verifier.py": "eebc47fd380b6a21b521fed729e9f6ac58430c862544dabf25de2fb16b2b18a9",
+    "research/20261114/loki/h3ag/graph_gate.py": "c08e720d2fbd2aa3b4826462cbba884b68cedbb4e1cb9b72ff03c68234e9bbc6",
+    "research/20261114/loki/h3ag/query.py": "b748d2d3658b9f3c1ad9841debafec09a4657fcf25feeec06ca7806ada4eae05",
+    "research/20261114/loki/h3ag/validate_query.py": "ea2b4f3ab8c7ae22f9c353ada041e87d42dd64ad871926f3671f9eb216b2237a",
+    "research/20261114/loki/h3ag/prepare.py": "29c74e07f86f6acdeb0c4b90af06684a9e95679c4a7ddcd8b4539c4aa314094f",
+    "research/20261114/loki/h3ag/driver.py": "977b4104f4aba8871d9efdeb952b6b1ceace6fca0deb7fe20bd55796c183400e",
+    "research/20261114/loki/h3ag/campaign.py": "6dfa70c0f905e9a4fa97003b43b1fe9e1e6e8a1a8b573bc5f5982c99e63232d7",
+    "research/20261114/loki/h3ag/freeze.py": "e8ba3eada72cdd1899ff9c71658f2291800030469fc494da40126aa077ac65db",
+    "research/20261114/loki/h3ag/reverse_literal.cpp": "efacb8de87c2a1dce7540e4f42b036a2f1f9a07601f70ee20dc8b09bfcb3d719",
+    "research/20261114/loki/h3aa/initialization.py": "3f128033466fc61d75cbd6ab417041df83c0107c1bc5b678898a3b9a85efc20c",
+    "research/20261114/loki/h3aa/arbitrary_backend.py": "5fd01d224a47152f9e27db749814aa29aa3518fea046a494ab02521540c137c0",
+    "research/20261114/loki/h3aa/permutation_backend.py": "2d4504f0f3f19bf5d58e9dd23ed32478e18fc4a8912e75a5d8b5cd50b6c31292",
+    "research/20261114/loki/h3af/protocol.json": "b350428624ab205c4219860526564d185efd4d2d6fae24199b80848456e99b67",
+    "research/20261114/loki/h3af/compiler.py": "091af7c20c5b3e737155b93fe41648ae37aa96e20f106db3c4f409d94f7af2c7",
+    "research/20261114/loki/h3ae/protocol.json": "01f5ff130149a6fa8ad49663fbf699d64b0b61963c7aa31e02c3c9b636716bcb",
+    "research/20261114/loki/h3ae/compiler.py": "446aac206c18e903057355d373a01c84a66a68d8402a85104064c38f5cabcc15",
+    "research/20261114/loki/h3ad/protocol.json": "a43ca74e4b0580bdeff343407afa990da562f3979f4c26cf0aa1e27bae63ac02"
+  },
+  "source_data_sha256": {
+    "artifacts/research/20261114/loki/h3ad/b0/parameters.npz": "fb394b709b7372d6842ee043517131964a61dda25c2d3665663f9a21b03df8d2",
+    "artifacts/research/20261114/loki/h3ad/b0/source-design.npz": "bb8e20e6557ea28a29d4c49749c883ad1d9cef4fd20a1dd0072aedb635e0e25f",
+    "artifacts/research/20261114/loki/h3ad/b0/model.npz": "f6502b6c8fe579af254366ca06a19925dd8147251c815a8bed6e6fdf00412be0",
+    "artifacts/research/20261114/loki/h3ad/b0/calibration-selection.json": "8e72867593f915b4ac4d048fb8bef3669f6290b22a6ce576a74ab33f2d64cd23",
+    "artifacts/research/20261114/loki/h3ad/b1/parameters.npz": "77345f44bd32767782beb8dbe30ade2c58149db25002e373bcc430357fb3df6d",
+    "artifacts/research/20261114/loki/h3ad/b1/source-design.npz": "a3f4c9e40ecc77b3cda58eed23b0160a9c875aa5202db8b58a683f0af9c75cc0",
+    "artifacts/research/20261114/loki/h3ad/b1/model.npz": "4abcf50106bfd876128fab9ad404aada5cd1b45e7f571b9073b89a5e049ac80b",
+    "artifacts/research/20261114/loki/h3ad/b1/calibration-selection.json": "57c1d41a7cf94402ee1c9c93e5fc07eeb3b37c0e0dc1cc2bbf6102b69d8b56b0",
+    "artifacts/research/20261114/loki/h3ae/b0/cache.npz": "c047b30189ab1f28546410ef2235084a20226dabe2ca006a556a663771b72ad6",
+    "artifacts/research/20261114/loki/h3ae/b1/cache.npz": "e0c04ef9cc895b2cdd59fed09db988a7aad908ab9c591a99f38e4bf25ab7766d"
+  },
+  "target_data_sha256": {
+    "artifacts/research/20261114/loki/h3ae/campaign.json": "f4f6c9d349947563b3f7786cabdde625f032cac853f8c6352108ec07e9760e98"
+  },
+  "transfer": "Read frozenH3ad N12parameters and source-design only. Recompute originalzero-count/exposuremask unioninferredlines; retainpositivecoefficients; zeroh/offF; extrapolateeachline toN15,finiteoffsetsunchanged,new off-lineoffsets0. SourceFP32meanunitunchanged. Independently require reconstruction atN13 to equal inheritedH3ad J/F/h/unit bytewisebeforeusingN15transfer. Nofit.",
+  "external_graph_gate": {
+    "stage": "Only AFTERbothcomplete model-onlycaches aresealed; neveraninputtocompilation.",
+    "predicate": "Independently build suppliedordinaryqueen+leaper attackgraph atN15 forzebra(2,3)and(2,5),andrequire exact equalityto transferredF. Ifanyfalse/missededge,stopcohort/GPUstudy: complete true targetuniverse notestablished. No target-graph repair.",
+    "consequence": "Completezero-Fenumeration plus exactexternalgraph equality provescacheequalscomplete trueN15targetsolutionuniverse. Buildcompleteclueuniversefromcacheonlyafterthisproof.",
+    "cost": "Chargeall externalgraph-gate CPUwalltime to eachfamilyCPUdenominator,includingfailedchecks whenreportingpartialcost."
+  },
+  "compiled_verifier": {
+    "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "flags": [
+      "-O3",
+      "-std=c++17",
+      "-DNDEBUG",
+      "-Wall",
+      "-Wextra",
+      "-Werror"
+    ],
+    "threads": 1,
+    "input": "q plus dense uint8 F; no forward masks or geometry",
+    "output": "all sorted uint8 columns",
+    "validation": {
+      "seed": 2026113101,
+      "q": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "densities": [
+        0,
+        0.1,
+        0.5,
+        0.9,
+        1
+      ],
+      "edge_cases": "Add one off-clique edge to row/column cliques, remove one off-clique edge from full graph. Preserve row/column cliques in every fixture.",
+      "small_reference": "Require full array equality among original Python reverse, compiled reverse, original forward and exhaustive itertools.permutations with literal pair tests.",
+      "prior_N13": "Recompute both complete H3ad N13 model-only solution arrays with all three enumerators and compare to prior sealed H3ae arrays. Prior caches used only as validation references, never N15 compiler inputs.",
+      "synthetic_query": "Rerun clue-only query gate inside shared prerequisite timer."
+    },
+    "cost": "Build and all prerequisite verification, monitor/import overhead charged once to aggregate CPU gate and full shared wall cost charged to EACH family CPU speed denominator. Preserve binary SHA and compiler version. Dense certificate time separately recorded without changing its formula."
+  }
+}

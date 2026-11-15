@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-15T04:51:22.010421+00:00",
+  "updated_utc": "2026-11-15T05:13:13.590502+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
-  "status": "Twenty-six planned inference/training studies, selected-case diagnostics, objective/norm certificates and source-only feasibility screens complete; ongoing research continues separately",
+  "status": "Ongoing research; H2aj prospective factorial complete with independent state and trace audits",
   "host": "work",
-  "jobs": 1552,
-  "run_arm_rows": 4143,
-  "model_maze_evaluations": 868226,
+  "jobs": 1600,
+  "run_arm_rows": 4383,
+  "model_maze_evaluations": 929666,
   "hypotheses": [
     {
       "campaign": "discovery",
@@ -754,6 +754,47 @@
         "decision": "descriptive_target_met",
         "fresh_test_inputs": 0
       }
+    },
+    {
+      "campaign": "factorial_transfer",
+      "hypothesis": "H2aj independent source-fit by block-search factorial",
+      "outcome": {
+        "blocks_on_old": {
+          "gains": 63,
+          "losses": 40,
+          "observed_net_gain_pp": 0.5615234375,
+          "separately_one_sided95_net_lower_pp": -0.14357147579148882,
+          "separately_one_sided95_net_upper_pp": 1.2650801813834767,
+          "candidate": "old_blocks",
+          "control": "old_binary",
+          "target_gain_pp": 1.0,
+          "decision": "inconclusive"
+        },
+        "training_without_blocks": {
+          "gains": 0,
+          "losses": 0,
+          "observed_net_gain_pp": 0.0,
+          "separately_one_sided95_net_lower_pp": -0.09001999122098098,
+          "separately_one_sided95_net_upper_pp": 0.09001999122098098,
+          "candidate": "new_binary",
+          "control": "old_binary",
+          "target_gain_pp": 1.0,
+          "decision": "falsified"
+        },
+        "combined_vs_bp": {
+          "gains": 2,
+          "losses": 62,
+          "observed_net_gain_pp": -1.46484375,
+          "separately_one_sided95_net_lower_pp": -1.9303950953929259,
+          "separately_one_sided95_net_upper_pp": -0.9861691667027841,
+          "candidate": "new_blocks",
+          "control": "pl",
+          "noninferiority_loss_margin_pp": 0.1,
+          "loss_one_sided95_lower_pp": 1.2136348610681136,
+          "loss_one_sided95_upper_pp": 1.8667507552375193,
+          "decision": "falsified"
+        }
+      }
     }
   ],
   "run_tables": [
@@ -779,7 +820,8 @@
     "lp-relaxation-runs.csv",
     "binary-coordinate-runs.csv",
     "hard-negative-transfer-runs.csv",
-    "second-negative-transfer-runs.csv"
+    "second-negative-transfer-runs.csv",
+    "factorial-transfer-runs.csv"
   ],
   "protocols": {
     "protocol": {
@@ -931,6 +973,10 @@
     "graph-block-source-protocol": {
       "sha256": "c8ae03ebdf0b74b0cb507615b4a14d84f4449082bd17c9c02e24e353f654e22a",
       "frozen_utc": "2026-11-15T04:39:34.865566+00:00"
+    },
+    "factorial-transfer-protocol": {
+      "sha256": "f121d13e662a420ee96ddde36e426521a9dc1d2adcf69c4d385c03467fef6ec7",
+      "frozen_utc": "2026-11-15T05:03:45.280250+00:00"
     }
   },
   "audit_sha256": {
@@ -961,7 +1007,8 @@
     "artifacts/research/20261114/work/lp_relaxation/audit.json": "2e8c2484f306960224a781532afa88f19496d8eb6f84516fbd16c8e801030c19",
     "artifacts/research/20261114/work/binary_coordinate/audit.json": "56af375421748d23272e68dde4ffee3d1a6021b8a62886a2ba56f8fcdbfd35da",
     "artifacts/research/20261114/work/hard_negative_transfer/audit.json": "19f69bcc79d075554f809f244f4c8446231809aa3d8269a98c2b5244eaaa2e94",
-    "artifacts/research/20261114/work/second_negative_transfer/audit.json": "6309e6e6091b24002513e4b36467bbdcdabea12d8b4fed36e910551be5c1d1ca"
+    "artifacts/research/20261114/work/second_negative_transfer/audit.json": "6309e6e6091b24002513e4b36467bbdcdabea12d8b4fed36e910551be5c1d1ca",
+    "artifacts/research/20261114/work/factorial_transfer/audit.json": "414d0ca69ad6440f7fc39542eb18597143a759daf00fe2b17153708e40521876"
   },
   "model_sha256": {
     "0": {
@@ -994,8 +1041,8 @@
     "case": "cyclic-failure-classification.json",
     "scope": "The same cyclic maze fails for model seeds1and2; these are true invalid fixed points or a period-two timeout, not hidden/nonfinite failures."
   },
-  "primary_jobs": 1546,
-  "primary_model_maze_evaluations": 868094,
+  "primary_jobs": 1594,
+  "primary_model_maze_evaluations": 929534,
   "descriptive_jobs": 6,
   "descriptive_model_maze_evaluations": 132,
   "selected_case_interventions": {
@@ -1237,5 +1284,23 @@
     "paired_gains": 574,
     "paired_losses": 0,
     "scope": "Original H2ae coefficients unchanged. Label-free selected-chain/cycle block deletion followed by unchanged one-bit descent; every source case retained. Descriptive source gate only."
+  },
+  "factorial_transfer": {
+    "fresh_inputs": 4096,
+    "new_model_maze_arm_evaluations": 61440,
+    "reused_binary_prefixes": 24576,
+    "new_optimizer_updates": 0,
+    "joint_success": {
+      "pl": 4081,
+      "old_binary": 3998,
+      "new_binary": 3998,
+      "old_blocks": 4021,
+      "new_blocks": 4021
+    },
+    "interaction_pp_descriptive": 0.0,
+    "source_fit": "Fixed H2ag witnesses via H2ah cast; older H2ae coefficients as control.",
+    "full_independent_final_state_checks": 61440,
+    "full_independent_literal_candidate_checks": 13768,
+    "scope": "Five arms; shared hidden and exact binary prefixes. Three separateendpoint decisions, no opaqueconjunction or simultaneous95claim."
   }
 }

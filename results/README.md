@@ -2,6 +2,11 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Destructive shared label noise: true constraints lost in all 32 banks](../research/20261114/ripper/REPORT-collapsed-noise.md)
+- [N15 compiler integration: exact certificates and measured total cost](../research/20261114/loki/h3ai/REPORT.md)
+- [Occupied-pair certificates: exact-count microbenchmark](../research/20261114/loki/h3ah/REPORT.md)
+- [N15 compiled verifier: completed comparison and failed 10× target](../research/20261114/loki/h3ag/REPORT.md)
+- [Maze training and block-move factorial: fresh transfer and connectivity failures](../research/20261114/work/REPORT.md)
 - [Shared label permutations: calibration failure with preserved constraints](../research/20261114/ripper/REPORT-correlated-noise.md)
 - [Fresh-bank confirmation of coefficient-magnitude weighting](../research/20261114/foureyes/REPORT-canonical-confirm.md)
 - [N15 exact compilation: retained CPU-budget gate failure](../research/20261114/loki/h3af/REPORT.md)

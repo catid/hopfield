@@ -1,0 +1,118 @@
+{
+  "id": "H3ai-paired-full-compiler-occupied-certificate",
+  "frozen_utc": "2026-11-15T05:05:50.480772+00:00",
+  "hypothesis": "For EACH fixed N15 model, replacing only the dense certificate operation with exact occupied-pair counting provides at least1.25 times lower complete compilation wall cost, including the full shared C++ build/parity cost charged to both arms, with byte-identical complete model/cache outputs.",
+  "models": [
+    {
+      "bank": 0,
+      "family": "queen-plus-zebra",
+      "parameters_path": "artifacts/research/20261114/loki/h3ad/b0/parameters.npz",
+      "source_design_path": "artifacts/research/20261114/loki/h3ad/b0/source-design.npz",
+      "inherited_n13_model_path": "artifacts/research/20261114/loki/h3ad/b0/model.npz",
+      "calibration_selection_path": "artifacts/research/20261114/loki/h3ad/b0/calibration-selection.json",
+      "calibration_selection_sha256": "8e72867593f915b4ac4d048fb8bef3669f6290b22a6ce576a74ab33f2d64cd23",
+      "permutation_cap": 11264
+    },
+    {
+      "bank": 1,
+      "family": "queen-plus-2-5-leaper",
+      "parameters_path": "artifacts/research/20261114/loki/h3ad/b1/parameters.npz",
+      "source_design_path": "artifacts/research/20261114/loki/h3ad/b1/source-design.npz",
+      "inherited_n13_model_path": "artifacts/research/20261114/loki/h3ad/b1/model.npz",
+      "calibration_selection_path": "artifacts/research/20261114/loki/h3ad/b1/calibration-selection.json",
+      "calibration_selection_sha256": "57c1d41a7cf94402ee1c9c93e5fc07eeb3b37c0e0dc1cc2bbf6102b69d8b56b0",
+      "permutation_cap": 12000
+    }
+  ],
+  "compiled_verifier": {
+    "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "flags": [
+      "-O3",
+      "-std=c++17",
+      "-DNDEBUG",
+      "-Wall",
+      "-Wextra",
+      "-Werror"
+    ],
+    "threads": 1,
+    "input": "q plus dense uint8 F; no forward masks or geometry",
+    "output": "all sorted uint8 columns",
+    "validation": {
+      "seed": 2026113101,
+      "q": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "densities": [
+        0,
+        0.1,
+        0.5,
+        0.9,
+        1
+      ],
+      "edge_cases": "Add one off-clique edge to row/column cliques, remove one off-clique edge from full graph. Preserve row/column cliques in every fixture.",
+      "small_reference": "Require full array equality among original Python reverse, compiled reverse, original forward and exhaustive itertools.permutations with literal pair tests.",
+      "prior_N13": "Recompute both complete H3ad N13 model-only solution arrays with all three enumerators and compare to prior sealed H3ae arrays. Prior caches used only as validation references, never N15 compiler inputs.",
+      "synthetic_query": "Rerun clue-only query gate inside shared prerequisite timer."
+    },
+    "cost": "Build and all prerequisite verification, monitor/import overhead charged once to aggregate CPU gate and full shared wall cost charged to EACH family CPU speed denominator. Preserve binary SHA and compiler version. Dense certificate time separately recorded without changing its formula."
+  },
+  "arms": [
+    "BP AdamW dense certificate",
+    "BP AdamW occupied-pair certificate"
+  ],
+  "order": {
+    "0": [
+      "dense",
+      "occupied"
+    ],
+    "1": [
+      "occupied",
+      "dense"
+    ]
+  },
+  "trials": "One complete paired compilation per family, crossed method order. Point timing test, no timing confidence interval or independent learning replicas.",
+  "unchanged": "Same original Python forward future-row masks, same independently compiled literal reverse recursion, same model-only transfer/eligibility, uniqueness checks, boards/index construction and cache serialization. Both arms recompile from frozen source models. No H3ag/H3ah N15 cache used as compiler input.",
+  "certificate_change": "Only the sum differs: all225choose2 cells times co-occupancy versus15choose2 occupied cells. Occupied-cell indices already constructed identically in both arms to create cached boards; that construction is charged. Both return exact integer counts; assert every state zero.",
+  "validation": "Fresh C++ build and same44-case equivalence suite and synthetic query gate as H3ag, charged to shared overhead. H3ah establishes exact count equality including invalid states and representation costs; its historical82CPU-second development microbenchmark is not rerun inside this integration test. Frozen H3ah protocol/code linked as evidence.",
+  "cost": "Gate includes all input reads, fresh build/parity, four independent source transfers/complete compilations, byte-identity checks and output serialization. Full measured gate wall time minus the four per-arm compile wall times is shared prerequisite/monitor/identity overhead; conservatively add that full shared cost to EACH of four arm denominators. Actual experiment cost reported once.",
+  "decision": "Both complete cache/model identities and both per-family dense_cost/occupied_cost>=1.25 support conjunction. Any complete ratio<1.25 falsifies threshold; timeout/incomplete gate is inconclusive. No extensions, adaptive reruns or removed family.",
+  "budget": {
+    "aggregate_cpu_seconds": 120,
+    "wall_seconds": 180,
+    "GPUs": 0,
+    "enforcement": "Subprocess-inclusive /proc monitoring and final self+children rusage, stop at119.8CPU or179.8wall with final<=120CPU/180wall required."
+  },
+  "scope": "CPU-only integrated compiler timing. No GPU calls, fresh puzzle cohorts or end-to-end CPU/GPU claim; H3ag10x failure and9/18batch amortization unchanged.",
+  "source_sha256": {
+    "research/20261114/loki/h3ai/common.py": "948998bb212771c672f2d4f171b2facc82a728b50af3d9eedb5ad53ca91ac0b9",
+    "research/20261114/loki/h3ai/transfer.py": "c8545b28f6eddbe6fd4a8e7f3c814a1a25bbc293615d11eb3174ae933bdd2daa",
+    "research/20261114/loki/h3ai/compiler.py": "e57564f358484fa90c812b52d4f7f476330a9d04f9c08db2fe6103227729b783",
+    "research/20261114/loki/h3ai/cpp_verifier.py": "eebc47fd380b6a21b521fed729e9f6ac58430c862544dabf25de2fb16b2b18a9",
+    "research/20261114/loki/h3ai/compile_gate.py": "3ae62825bbf9aa6261a43768ad6116b3a9274ee8e724b0f2ebc8f651d4c415c5",
+    "research/20261114/loki/h3ai/query.py": "b748d2d3658b9f3c1ad9841debafec09a4657fcf25feeec06ca7806ada4eae05",
+    "research/20261114/loki/h3ai/validate_query.py": "ea2b4f3ab8c7ae22f9c353ada041e87d42dd64ad871926f3671f9eb216b2237a",
+    "research/20261114/loki/h3ai/freeze.py": "c523f7ff3da4a7c2b333f06488397ce63c354ba3a63f7e832ff87aea13c8ce69",
+    "research/20261114/loki/h3ai/reverse_literal.cpp": "efacb8de87c2a1dce7540e4f42b036a2f1f9a07601f70ee20dc8b09bfcb3d719",
+    "research/20261114/loki/h3ae/compiler.py": "446aac206c18e903057355d373a01c84a66a68d8402a85104064c38f5cabcc15",
+    "research/20261114/loki/h3ag/protocol.json": "4d99d76af68d8f7134c4f2250d2a81d9996e1eaaf79546357ebc505781dedca2",
+    "research/20261114/loki/h3ah/protocol.json": "ee5fa015b7f0d14bd216b263ed0483a58b09f3ce21687287b7ec401d09636cd7",
+    "research/20261114/loki/h3ah/benchmark.py": "f34dd97c8ea1d30a1d16ccc3f9dab7d4e9ee8ae53d2515b901c734f1f1be2383"
+  },
+  "input_sha256": {
+    "artifacts/research/20261114/loki/h3ad/b0/parameters.npz": "fb394b709b7372d6842ee043517131964a61dda25c2d3665663f9a21b03df8d2",
+    "artifacts/research/20261114/loki/h3ad/b0/source-design.npz": "bb8e20e6557ea28a29d4c49749c883ad1d9cef4fd20a1dd0072aedb635e0e25f",
+    "artifacts/research/20261114/loki/h3ad/b0/model.npz": "f6502b6c8fe579af254366ca06a19925dd8147251c815a8bed6e6fdf00412be0",
+    "artifacts/research/20261114/loki/h3ad/b0/calibration-selection.json": "8e72867593f915b4ac4d048fb8bef3669f6290b22a6ce576a74ab33f2d64cd23",
+    "artifacts/research/20261114/loki/h3ad/b1/parameters.npz": "77345f44bd32767782beb8dbe30ade2c58149db25002e373bcc430357fb3df6d",
+    "artifacts/research/20261114/loki/h3ad/b1/source-design.npz": "a3f4c9e40ecc77b3cda58eed23b0160a9c875aa5202db8b58a683f0af9c75cc0",
+    "artifacts/research/20261114/loki/h3ad/b1/model.npz": "4abcf50106bfd876128fab9ad404aada5cd1b45e7f571b9073b89a5e049ac80b",
+    "artifacts/research/20261114/loki/h3ad/b1/calibration-selection.json": "57c1d41a7cf94402ee1c9c93e5fc07eeb3b37c0e0dc1cc2bbf6102b69d8b56b0",
+    "artifacts/research/20261114/loki/h3ae/b0/cache.npz": "c047b30189ab1f28546410ef2235084a20226dabe2ca006a556a663771b72ad6",
+    "artifacts/research/20261114/loki/h3ae/b1/cache.npz": "e0c04ef9cc895b2cdd59fed09db988a7aad908ab9c591a99f38e4bf25ab7766d"
+  }
+}

@@ -118,3 +118,13 @@ Removing negative interactions and using a strict zero-conflict stop eliminates 
 
 Fixed Sudoku restarts also failed their frozen +0.1-point improvement target: the gain was +0.012 points, with a paired 95% interval [−0.068, +0.093]. [Restart control and full curve →](../research/20261114/foureyes/REPORT-restart.md)
 
+At N15, compiling the reverse verifier completes the exact CPU comparison, but its **3.93× / 2.58×** speed ratios falsify the frozen 10× target. Replacing dense certificate sums with occupied-cell pair sums then improves full compilation by **1.32× / 1.41×**, with complete caches unchanged and shared build costs charged to every arm. The much larger certificate microbenchmark speedups do not describe whole-program speed. [Completed comparison](../research/20261114/loki/h3ag/REPORT.md) · [Microbenchmark](../research/20261114/loki/h3ah/REPORT.md) · [Compiler integration](../research/20261114/loki/h3ai/REPORT.md)
+
+![Complete compiler costs with exact cache parity](../results/research/loki/h3ai/full-compiler-integration.png)
+
+Noise correlation can destroy the constraint-retention premise even at the same nominal **5% fixed-cell error**. A specified board-shared collapse law removes true edges in **32/32 banks**, while repeated queries always agree and underestimate noise. This measures structural failure; no solver certificates were evaluated. [Law, matched controls and independent replay](../research/20261114/ripper/REPORT-collapsed-noise.md)
+
+![Shared collapse removes true constraints](../assets/figures/collapsed-noise.png)
+
+A fresh **4,096-maze** factorial separates training from inference. New hard-negative training leaves binary predictions unchanged; block moves add 63 joint solves but lose 40, for a net **+0.562 points**. All 40 losses disconnect endpoints on the first accepted energy-decreasing deletion. The combined method still fails the frozen noninferiority target against BP AdamW. [All states, candidate deltas and connectivity audit](../research/20261114/work/REPORT.md)
+

@@ -4,6 +4,10 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Destructive shared label noise | [Collapse exports](../results/research/ripper/collapsed_noise.json) | [plot_collapsed_noise.py](../scripts/plot_collapsed_noise.py) |
+| N15 compiled reverse verifier | [Compiled-verifier exports](../results/research/loki/h3ag/) | [plot_public.py](../research/20261114/loki/h3ag/plot_public.py) |
+| Exact occupied-pair certificates | [Certificate benchmark](../results/research/loki/h3ah/) | [plot_public.py](../research/20261114/loki/h3ah/plot_public.py) |
+| Complete compiler improvement | [Integration exports](../results/research/loki/h3ai/) | [plot_public.py](../research/20261114/loki/h3ai/plot_public.py) |
 | Shared-permutation label noise and constraint recovery | [Correlation exports](../results/research/ripper/correlated_noise.json) | [plot_correlated_noise.py](../scripts/plot_correlated_noise.py) |
 | Fresh confirmation of coefficient-magnitude weights | [Fresh exports](../results/research/foureyes/canonical_confirm/) | [plot_canonical_confirm.py](../scripts/plot_canonical_confirm.py) |
 | N15 compilation budget boundary | [Gate failure](../results/research/loki/h3af/) | [plot_public.py](../research/20261114/loki/h3af/plot_public.py) |
