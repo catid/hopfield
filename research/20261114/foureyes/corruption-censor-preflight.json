@@ -1,0 +1,98 @@
+{
+  "status": "passed",
+  "study_censored_scores_read": false,
+  "synthetic_parity_cases": 9,
+  "vertex_and_digit_permutation_parity": true,
+  "zero_exposure_pairs_retained": true,
+  "unchanged_observations_identity": true,
+  "full2400_stream_then600_prefix_verified": true,
+  "nonunique_zero_cost_fixture": {
+    "false_zero_edges": 2,
+    "distinct_optimal_degree1_graphs": 2
+  },
+  "synthetic_certificates": [
+    {
+      "certified": true,
+      "reason": "exact_scaled_integer_primal_dual",
+      "integral": true,
+      "primal_objective_twice": 0,
+      "dual_objective_twice": 0,
+      "maximum_dual_reconstruction_error": 0.0,
+      "primal_rounding_used": false,
+      "dual_scale": 2
+    },
+    {
+      "certified": true,
+      "reason": "exact_scaled_integer_primal_dual",
+      "integral": true,
+      "primal_objective_twice": 4,
+      "dual_objective_twice": 4,
+      "maximum_dual_reconstruction_error": 0.0,
+      "primal_rounding_used": false,
+      "dual_scale": 2
+    }
+  ],
+  "endpoint_gates": [
+    {
+      "recovery": {
+        "lower": 245,
+        "upper": 245,
+        "required": 245,
+        "decision": "supported"
+      },
+      "paired_loss": {
+        "lower": 8,
+        "upper": 8,
+        "maximum": 8,
+        "decision": "supported"
+      }
+    },
+    {
+      "recovery": {
+        "lower": 244,
+        "upper": 244,
+        "required": 245,
+        "decision": "falsified"
+      },
+      "paired_loss": {
+        "lower": 9,
+        "upper": 9,
+        "maximum": 8,
+        "decision": "falsified"
+      }
+    },
+    {
+      "recovery": {
+        "lower": 244,
+        "upper": 245,
+        "required": 245,
+        "decision": "inconclusive"
+      },
+      "paired_loss": {
+        "lower": 8,
+        "upper": 9,
+        "maximum": 8,
+        "decision": "inconclusive"
+      }
+    }
+  ],
+  "score_timings": {
+    "dense_score_median_seconds": 0.002448642044328153,
+    "blocked_score_median_seconds": 0.0033537409617565572,
+    "independent_score_median_seconds": 0.014842970005702227,
+    "literal_score_median_seconds": 0.3171623359667137
+  },
+  "implementation_choice": "Dense pair arrays; blocked implementation has no demonstrated worthwhile advantage on this bounded fixture. Independent audit uses direct pair row selection.",
+  "gate_wall_seconds": 2.1740187960094772,
+  "seed_audit_sha256": "9544421cd9fa7c5eae6233f82d4b8f979a0292bba69384453e4841573c69a862",
+  "source_sha256": {
+    "research/20261114/foureyes/preflight_corruption_censor.py": "2c6a76148c6e22cd9ffbd0efce8fc7b36aef3d9c86e22d1bac64b9e8044dffd2",
+    "research/20261114/foureyes/corruption_censor.py": "3a28d049d66f72f80e10c637caf490d3738368edda391c8b8f9fb36ebc2879eb",
+    "research/20261114/foureyes/corruption_censor_math.py": "7e8c654c9b8c069a5f6e388d377e708379d928128aab9a074ae97caebd0f6471",
+    "research/20261114/foureyes/audit_corruption_censor.py": "64ea03542f68fdbe6d44e51ddc5440aad92568b103e4fdd6740afd3027d55a4a",
+    "research/20261114/foureyes/audit_objective_gap.py": "f38bd2848130c30e02cfbb12fae41c8b4687c4634d2ff9947db9e109b102050a",
+    "research/20261114/ripper/degree_prior_solver.py": "2af92a5d4326e74813f514291a7a76e6ac92778335e1dd76ffbb01f83d474c43",
+    "research/20261114/ripper/degree_prior_math.py": "5a3ad2c21f59dfe0d2de40065385d484e171c0f854c49c649e868ce5a98a1f8e",
+    "research/20261114/ripper/audit_degree_prior.py": "179feb9815c787a5381d1924ccb0ac41af49e103222503f5ff988dc13559f55b"
+  }
+}

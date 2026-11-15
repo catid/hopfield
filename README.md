@@ -28,6 +28,10 @@ The same selector also recovers **64/64 graphs in each of four synthetic familie
 
 Three refinements fail on the examined 600-row banks: bootstrap voting reduces recovery from **129/256 to 108/256**, per-cell deficit normalization reaches **98/256**, and an attenuation correction given the **actual corruption locations** reaches **88/256**. All fail their separate recovery and loss targets. The last method uses privileged information; its failure does not rule out other uses of those masks. [Bootstrap and exact loss diagnosis](research/20261114/foureyes/REPORT-consensus-gap.md) · [Observable normalization](research/20261114/foureyes/REPORT-normalized-deficit.md) · [Privileged-mask correction](research/20261114/foureyes/REPORT-oracle-attenuation.md)
 
+**Known corruption locations recover all 256/256 graphs** when observations involving corrupted cells are discarded, versus 129/256 from the original counts. This uses privileged masks and row-aligned noisy observations on the same examined banks. Every resulting never-equal support already matches truth, so these supports need no LP. Both recovery and loss targets pass; learning such masks remains untested. [Complete observations, certificates and scope](research/20261114/foureyes/REPORT-corruption-censor.md)
+
+![Discarding known-corrupted observations recovers all 256 examined graphs](assets/figures/corruption-censor.png)
+
 **Spend the same label budget on more cells per board:** querying 72 cells on 200 boards recovers **32/32 noisy Sudoku graphs**, versus **6/32** from 32 cells on 450 boards. Both cost 14,400 labels per bank. This fresh paired experiment changes both pair coverage and the number of independent boards; it does not isolate either as the sole cause. [Frozen targets, query accounting and controls](research/20261114/ripper/REPORT-coverage-tradeoff.md)
 
 ![Same label budget: broader observation per board recovers more exact graphs](assets/figures/coverage_tradeoff.png)
@@ -43,6 +47,10 @@ The curvature signal survives a stricter control: **all 32 real banks beat shuff
 At **7.5% independent noise**, a fresh confirmation recovers **64/64 graphs from 270 rows**, versus **58/64 from their 180-row prefixes**. Every row queries 72 cells, for 19,440 noisy labels per bank. The ≥61 recovery target passes; the separate target of eight additional recoveries fails with six gains and no losses. [Fresh sources, fixed protocol and full costs](research/20261114/ripper/REPORT-fixed-270-confirm.md)
 
 ![Fresh noisy Sudoku confirmation: all 64 graphs recovered, paired gain below target](assets/figures/fixed_270_confirm.png)
+
+**More boards beat repeated labels at equal query cost:** 270 boards queried once recover **64/64 graphs**, versus **50/64** from 90 boards queried three times. Majority decoding reduces observed label error to 1.148%, but both graph-recovery targets fail. Each arm spends 19,440 queries per bank. An exact follow-up finds truth strictly excluded in nine of the 14 failures and co-optimal in five; its separate ten-exclusion target also fails. [Fresh paired acquisition test](research/20261114/ripper/REPORT-repeat-query-tradeoff.md) · [Exact objective diagnosis](research/20261114/ripper/REPORT-repeated-objective-gap.md)
+
+![Equal query budget: more independent boards outperform repeated labels](assets/figures/repeat_query_tradeoff.png)
 
 An earlier repeated-graph stopping rule recovers 32/32 but needs 281.25 rows on average, missing its separate ≤270-row target. Its stopping costs are evaluated on physically acquired 360-row prefixes. [Stopping experiment and budget limit](research/20261114/ripper/REPORT-stability-stopping.md)
 
@@ -97,6 +105,8 @@ Switching to a question tree as soon as one fits also fails: it preserves the sa
 Requiring the tree's exact expected cost to beat the remaining baseline lowers total calls to **10,291**, with the same 4,083 exact results. The **0.62%** saving misses the frozen 2% target: an expected-cost guarantee does not guarantee that finite-cohort reduction. [Guarded handoff, every paid query and proof](research/20261114/loki/h3bt/REPORT.md)
 
 ![Exact expected-cost guard saves 0.62% of calls, below its 2% target](results/research/loki/h3bt/guarded-handoff-total-cost.png)
+
+A deeper-tree follow-up reaches its frozen two-million-state cap after **1,779/4,096 cases**. The study remains incomplete, with no primary decision or partial-cohort saving claim. [Retained costs, audit and external proof-archive boundary](research/20261114/loki/h3bu/REPORT.md)
 
 ## Confidence weights recover answers under noisy labels
 

@@ -1,0 +1,75 @@
+{
+  "id": "H1bw-repeat-query-tradeoff",
+  "status": "prospective_design_no_new_source_draws_masks_noise_or_LP_outcomes",
+  "hypothesis": "With equal19440 queried labels per bank, triple-query90-row plurality decoding recovers at least61/64 exact graphs and loses to fresh single-query270-row inference in at most3/64 paired banks, assessed separately.",
+  "scope": "Fresh paired equal-query allocation test: repeat labels to reduce noise versus acquire more independent boards. All64 banks retained. Source freshness only relative to declared combined Ripper/H4ak ledger through H1bv; no population reliability or puzzle-solving claim.",
+  "banks": 64,
+  "rows": 270,
+  "queried_cells_per_row": 72,
+  "prior_combined_excluded_ids": 2397093,
+  "prior_ripper_ledger_ids": 2160668,
+  "pool_size": 3831994,
+  "eligible_rows": 1434901,
+  "source": "Each270-row bank sampled without replacement from the eligible official pool. Crossbank repeated IDs retained and reported. Seal all64 source-ID arrays, then all64 full270-row mask streams before selected CSV labels. No source selection, reseeding or rescue after outcomes; preserve reserved puzzle-solver work and unrelated workloads.",
+  "mask_law": "Exactly three90-row GF(9) affine-line-complement cycles with independent cell/line permutations. Single270 uses all270 rows; triple90 uses literal first90 masks for all3 label queries. Per-cell exposure240 single versus80 unique triple cells times3queries; pair coqueries213 single versus71 decoded triple. All masks sealed before selected labels.",
+  "noise": "Unchanged nominal7.5% IID cell noise, exact binary64 threshold0x1.3333333333333p-4. First query uses one270x81 uniform array followed by one offsets1..8 array. Extra queries each use an independent90x81 uniform/offset stream. Triple90 shares literal first-query90 prefix with single270. Independent bank/stream seeds are fixed, not statistical proof of PRNG independence. Actual53bituniform event probability is ceil(threshold*2^53)/2^53.",
+  "inference": "Unchanged round-half-even Laplace rates round(1e6*(equal+1)/(joint+2)); fresh degree1..40 LPs at each prefix; analytic degreezero witness; exact curvature1..39 with lower-degree ties. No degree20,810edge count, truth graph or Sudoku geometry supplied. Certified intermediate fractional LPs remain valid objective evidence. Selected fractional output is resolved graph failure; any uncertified required grid is unresolved.",
+  "primary": {
+    "triple_exact": {
+      "required": 61,
+      "total": 64,
+      "decision": "S_triple lower, S_triple+U_triple upper; support lower>=61, falsify upper<61, otherwise inconclusive."
+    },
+    "paired_loss": {
+      "maximum": 3,
+      "total": 64,
+      "definition": "Loss iff single270 exact and triple90 not exact. Resolved fractional is failure. Lower counts single exact/triple resolved failure. Upper counts all pairs possibly single exact/triple not exact, including unresolved uncertainty; support upper<=3, falsify lower>3, otherwise inconclusive."
+    },
+    "separate_targets": true
+  },
+  "controls": "Fresh same-bank single270 query allocation is paired control. Triple90 shares first-query90 prefix, remaining2 repeats independent. Fixed20/top810 are diagnostic only. Prior H1bv outcomes are not pooled into this cohort.",
+  "diagnostics": "All exact/nonexact/fractional/unresolved outcomes and paired gains/losses/shared failures; degree/curvature ties; fixed20/top810; raw queried error rates by pass, decoded errors, all-distinct ties and decoded wrong-digit counts. Retain every triple90 regression.",
+  "seeds": {
+    "source": 202613300000,
+    "balanced_mask": 202613310000,
+    "noise": 202613320000,
+    "repeat1": 202613330000,
+    "repeat2": 202613340000,
+    "solver_base": 2028331502
+  },
+  "seed_rule": "Stream seed=base+bank0..63. LPgridindex=2*bank+armindex (single270 then triple90); solverseed=solver_base+41*index+degree. Audit explicit historical seed fields; does not exhaust implied prior streams or prove independence.",
+  "budget": {
+    "new_LPs": 5120,
+    "analytic_zero_witnesses": 128,
+    "max_cpu_workers": 8,
+    "aggregate_cpu_seconds": 900,
+    "wall_seconds": 180,
+    "lp_wall_seconds": 1.0,
+    "gpu_seconds": 0,
+    "new_noisy_cell_queries": 2073600,
+    "clean_oracle_unique_cell_queries_cap": 1399680
+  },
+  "budget_scope": "SourceIDsealing, all64 masks, official CSV materialization/audit, all128 grids, independent noise/decoder/count/cost/proof/endpoint/full-label-substitution audits, physical query accounting, export. Registration/channel enumeration/synthetic gates outside charged run; packaging replay separate. Full-run runtime/provenance failure incomplete; no retry or reduced denominators.",
+  "execution_optimization": "Reuse H1bv checked batch mask predraw and eight persistent bank workers; no new speed claim. Benchmark vectorized fixed decoder against an independent scalar vote-counter on unrelated synthetic triples, assert identical results, retain timing. No study draws or LP pilot.",
+  "query_accounting": {
+    "full_physical_noisy_union": 2073600,
+    "full_physical_queries_per_bank": 32400,
+    "single270_deployment_all64": 1244160,
+    "triple90_deployment_all64": 1244160,
+    "shared_first_query90_all64": 414720,
+    "extra_repeat_queries_all64": 829440,
+    "interpretation": "Each deployment queries19440 labels/bank. Shared first90 first-pass query records count once in physical union; extra repeats are physically distinct labels even on same source/cell. Physical union=(270+2*90)*72*64. Triple90 uses90 distinct boards, single270270; both are acquired for the paired study.",
+    "source_instances": 17280,
+    "clean_materialized_cell_instances": 1399680,
+    "clean_unique_oracle_formula": "81*new unique source IDs, reused across passes and crossbank repeats; noisy records distinct.",
+    "official_noisy_label_sequence_before": 12613719,
+    "official_noisy_label_sequence_after_full_run": 14687319
+  },
+  "synthetic_gate": "Independent3cycle masks/exposure; scalar plurality versus vectorized decoder over all729 triples and all digit permutations generated by swaps; exact nine-class conditional-channel enumeration for every truth digit at nominal3/40 and actual53-bit RNG threshold; literal shared first-query90 values; missing-label/count handling, independent exact rational rates, complete source substitution, endpoint conservative bounds including unresolved and losses/gains, query-set union using(row,cell,pass), seed exclusions, partition coverage. No study IDs/noise/LP outcomes.",
+  "interpretation": "Tests whether lower decoded label noise offsets fewer independent source boards at equal query budget. Per-cell noise reduction does not imply graph recovery or a calibrated population error bound. BP AdamW outside this structural acquisition study.",
+  "arms": [
+    "single270",
+    "triple90"
+  ],
+  "decoder": "For each observed cell, if any label appears at least twice, return that majority; if all3 labels differ, return first query. Fixed no-feedback rule preserves every digit permutation, but gives first query temporal precedence on ties. Missing cells remain-1; clean labels/noise outcomes never select masks or arms."
+}

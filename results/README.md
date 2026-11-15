@@ -2,6 +2,10 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Discarding known-corrupted pair observations recovers 256/256 examined graphs; privileged masks required](../research/20261114/foureyes/REPORT-corruption-censor.md)
+- [Equal query cost: 270 boards once recover 64/64 graphs versus 50/64 from 90 boards three times](../research/20261114/ripper/REPORT-repeat-query-tradeoff.md)
+- [Exact diagnosis: nine strict exclusions among 14 repeated-query failures; ten-exclusion target fails](../research/20261114/ripper/REPORT-repeated-objective-gap.md)
+- [Deeper question-tree study reaches its state cap; whole-cohort hypothesis remains untested](../research/20261114/loki/h3bu/REPORT.md)
 - [Fresh 270-row confirmation recovers 64/64; paired gain of six misses its eight-gain target](../research/20261114/ripper/REPORT-fixed-270-confirm.md)
 - [All 510 archived BP errors violate simple-path geometry](../research/20261114/work/REPORT.md#h2bm-all-510-archived-bp-failures-violate-simple-path-geometry)
 - [Privileged corruption masks do not rescue the attenuation correction: 88/256 versus 129/256](../research/20261114/foureyes/REPORT-oracle-attenuation.md)

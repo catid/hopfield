@@ -1,0 +1,3 @@
+# H3bu: incomplete at the state cap
+
+[Full report](../../../../research/20261114/loki/h3bu/REPORT.md). The declared 2,000,000-state cap stopped the run after 1,779/4,096 completed cases and 4,402 paid queries. All 2,317 pending cases remain. There is no primary decision or partial-cohort saving claim. The complete external archive passed independent proof/route/counterfactual auditing; its receipt and all raw/compressed proof hashes are published. Full proof payloads are retained on Loki and locally outside Git. Portable checkout verification covers metadata and paid-query ledger consistency; full optimality replay additionally requires the external archive. No budget extension.

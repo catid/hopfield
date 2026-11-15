@@ -4,6 +4,10 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Known-mask censoring recovers every examined graph | [All noisy rows, masks, counts and certificates](../results/research/foureyes/corruption_censor/) | [plot_corruption_censor.py](../scripts/plot_corruption_censor.py) |
+| More boards versus repeated labels at equal query cost | [Fresh sources, decoded observations and proofs](../results/research/ripper/repeat_query_tradeoff/) | [plot_repeat_query_tradeoff.py](../scripts/plot_repeat_query_tradeoff.py) |
+| Strict exclusions versus cooptimal repeated-query failures | [All 128 exact objective gaps](../results/research/ripper/repeated_objective_gap/) | [plot_repeated_objective_gap.py](../scripts/plot_repeated_objective_gap.py) |
+| Deeper question-tree study reaches its declared cap | [Complete status ledger and compact audit evidence](../results/research/loki/h3bu/) | [plot_public.py](../research/20261114/loki/h3bu/plot_public.py) |
 | Fresh fixed 270-row graph-recovery confirmation | [All fresh sources, prefixes and certificates](../results/research/ripper/fixed_270_confirm/) | [plot_fixed_270_confirm.py](../scripts/plot_fixed_270_confirm.py) |
 | Geometry identifies all archived BP errors | [Complete source partition and fixture checks](../results/research/work/bp-geometry-decomposition/) | [plot_bp_geometry_decomposition.py](../research/20261114/work/plot_bp_geometry_decomposition.py) |
 | Privileged-mask attenuation loses graph recoveries | [Every mask, corrected score and certificate](../results/research/foureyes/oracle_attenuation/) | [plot_oracle_attenuation.py](../scripts/plot_oracle_attenuation.py) |

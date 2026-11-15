@@ -1,0 +1,391 @@
+{
+  "id": "H3bu-budget-matched-depth-conservative-handoff",
+  "frozen_utc": null,
+  "normalizers": {
+    "selection_path": "results/research/loki/h3at/source-selection.json",
+    "ordinary_path": "results/research/loki/h3at/source-ordinary-columns.npy",
+    "bits_path": "results/research/loki/h3at/candidate-validity-bits.npz"
+  },
+  "candidate_prior": {
+    "orbits": [
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        2,
+        11
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        3,
+        11
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        5,
+        11
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        6,
+        11
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        7,
+        9
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        7,
+        11
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        8,
+        11
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        9,
+        11
+      ],
+      [
+        10,
+        11
+      ]
+    ],
+    "models": 1541,
+    "definition": "Ordinary queens plus zero, one or two D4 leaper orbits1<=a<b<=11. Truth/source cohort unchanged from H3br; correct eight-positive reciprocal-score posterior weighting over all compatible models, with no true-orbit-count restriction."
+  },
+  "archive": {
+    "sources": "results/research/loki/h3br/source-banks.json",
+    "cases": "results/research/loki/h3br/case-results.json",
+    "checkpoints": "results/research/loki/h3br/checkpoints.json",
+    "ledger": "results/research/loki/h3br/query-ledger.jsonl.gz",
+    "raw_ledger_sha256": "d5bddc73e3b956a6b54c6bdb22ae7b45e6f5a92dd06c91bca5c46d09bb971e5a",
+    "cases_count": 4096,
+    "baseline_posterior_policy_calls": 10355,
+    "baseline_exact_cases": 4083,
+    "baseline_infeasible_cases": 13
+  },
+  "hypothesis": "A depth (8-used_MAP) posterior-optimal tree with all-baseline-branch admissibility reduces total actual membership calls by at least 2% versus the original H3br comparator of 10355 on all4096 unchanged archived cases. Sole scientific endpoint: 100*new_calls <= 98*10355, passing maximum10147. H3bt saving64calls remains below its2% target; comparisons with H3bt/H3bs are descriptive.",
+  "primary": {
+    "old_policy_calls": 10355,
+    "multiplier": 100,
+    "comparator_multiplier": 98,
+    "passing_maximum": 10147,
+    "scope": "EverynewMAP/tree membershipcall acrossall4096archivedcases; no exclusions or inheritedfreeMAPlabels."
+  },
+  "source_scope": "All4096examinedH3brtruth/sourcebanks unchanged, including7previousduplicatebankcases,13baselineinfeasiblecases andallprior successes. Zero newtruth/source drawsorpositiveexamples;32768historicalpositiveappearances reused. Notindependentconfirmation. No truth/source/success filtering ornewseedselection.",
+  "routing": "After0 through4 paid MAP queries, stop if singleton. Sets above16 candidates are ineligible for new compilation and continue unchanged MAP; this eligibility decision is not an infeasibility certificate. For eligible sets compile requested depth8-used_MAP. If feasible, evaluate EVERY original-baseline branch using remaining4-used_MAP MAP queries followed by its original requested depth4 tree. Reject handoff if ANY candidate baseline exact flag isfalse, retaining all such branches. Otherwise require exact integer tree_cost<=baseline_cost and handoff. Equality accepts. A feasible tree atMAP4 must tie. Actual total queries remain atmost8 percase. No threshold or case filtering is tuned from cohort outcomes.",
+  "weighting": "Unchanged eight-positive source score C(55,k)C(M,8), exact integer reciprocal-score posterior weights, all compatible models in the supplied1541 class, full73712-board N13 universe, lexicographically first optimal board ties. No true identity, true orbit count, future labels or archived checkpoints enter routing/compilation.",
+  "compilation": "The new compiler normalizes every state depth to min(depth,subset_models-1). Positive weights and nonconstant splits imply any separating path removes at least one model perquery, so this removes no candidate tree, changes no weighted optimum or lexicographic choice. The requested root depth remains in proof/input/cache identities. Forty fixed synthetic cases compare the complete chosen paths with the unchanged reference compiler, and an independent verifier reconstructs every normalized alternative. Both reference and normalized runtime gate work are charged. See DEPTH_LEMMA.md.",
+  "correctness": "Every actual exact flag must equal its original H3br flag:4083 exact and13 failures. Any accepted handoff is feasible and proves every original-baseline candidate branch exact; absent handoff the original MAP prefix and terminaldepth4 decision are retained. Sets above16 are ineligible; atMAP4 they cannot fit a depth4 binary tree. Restricted-tree checks use the recorded requested handoffdepth, without incorrectly asserting a deeper tree gives depth4 separability. See GUARD_LEMMA.md.",
+  "leakage_boundary": "Archivedsourcepositives/filtersets usedasdeclaredinputs. Onlyarchivedquerymetadata (case/board/sequence/hash/policy/phase) decodedbeforeexecution, solelytoannotatealreadyselectednewqueries. Archivedanswers neverdecodedforrouting andneverusedinselect/compile. Baselinecaseoutcomes/checkpoints opened onlyafterall4096newexecutionscomplete, forcorrectnessandrestricted-treeevaluation. FullimmutablecandidatepredictionsandtrueIDavailableonlytoseparateoracle/evaluator asinthepreviousfiniteclassstudies.",
+  "charging": "Every actual MAP/tree label reacquired and paid, including archived samecase queries. Query fsync precedes oracle read and immediate hashlinked answer. No free inherited MAP labels. Atmost4 MAP queries and8-used_MAP treequeries, total<=8 percase and<=32768 overall. Counterfactual computations are not actual labels but all states/splits/time are charged.",
+  "gates": "Weighted small exact costs and cap failures; all47 nonempty restriction subsets and92 candidate paths; depth-indexed online-cache identities and zero-work identical hits; n17 ineligibility without a false certificate;40 normalized/reference synthetic cases acrossdepths1..8 with exact costs/feasibility/all lexicographic candidate paths and independent certificates; variable-depth counterfactual candidate cost/exact parity at remainingMAP0,1,2,4; all six inadmissible candidate branches retained in fixed remainingMAP1,2,4 fixtures; weighted-six cost124 atdepth4 versus119 atdepth5+; durable-ledger and all4096 archive identity checks. No new cohort outcome before freeze.",
+  "ledger": "One append-only JSONL ledger with sequence, previous-record SHA256, UTC, monotonic time, kind and data; canonical sorted compact JSON hash. Every append flushes and fsyncs before return. Query record is committed before oracle is called; next answer references query hash. Source draws and final results also retained. Never regenerate records after answers. Publish exact raw bytes or deterministic gzip with decompressed hash.",
+  "ledger_gate": {
+    "archival_query_answer_paths": [
+      [
+        "results/research/loki/h3bd/cases/case0/q0-sealed.json",
+        "results/research/loki/h3bd/cases/case0/q0-answer.json"
+      ],
+      [
+        "results/research/loki/h3bd/cases/case0/q1-sealed.json",
+        "results/research/loki/h3bd/cases/case0/q1-answer.json"
+      ],
+      [
+        "results/research/loki/h3bd/cases/case0/q2-sealed.json",
+        "results/research/loki/h3bd/cases/case0/q2-answer.json"
+      ],
+      [
+        "results/research/loki/h3bd/cases/case1/q0-sealed.json",
+        "results/research/loki/h3bd/cases/case1/q0-answer.json"
+      ],
+      [
+        "results/research/loki/h3bd/cases/case1/q1-sealed.json",
+        "results/research/loki/h3bd/cases/case1/q1-answer.json"
+      ],
+      [
+        "results/research/loki/h3bd/cases/case1/q2-sealed.json",
+        "results/research/loki/h3bd/cases/case1/q2-answer.json"
+      ],
+      [
+        "results/research/loki/h3bd/cases/case2/q0-sealed.json",
+        "results/research/loki/h3bd/cases/case2/q0-answer.json"
+      ],
+      [
+        "results/research/loki/h3bd/cases/case2/q1-sealed.json",
+        "results/research/loki/h3bd/cases/case2/q1-answer.json"
+      ]
+    ],
+    "required": "Before new source draws, reproduce fixed8 archived query/answer logical fields in old separate-file and new ledger format. Oracle callbacks must read and verify committed query before returning label; enforce sequence/hash/time/reference replay. Reject altered answer, swapped order, broken chain, and rehashed wrong query-reference fixtures. Charge all serialization/gate costs."
+  },
+  "budget": {
+    "aggregate_CPU_seconds": 600,
+    "wall_seconds": 900,
+    "GPUs": 0,
+    "max_memo_states_total": 2000000,
+    "max_split_evaluations_total": 50000000,
+    "max_integer_bits": 100000,
+    "membership_calls": 32768,
+    "planned_cases": 4096,
+    "new_positive_appearances": 0,
+    "historical_positive_appearances": 32768,
+    "enforcement": "All compiler/counterfactual/reference-fixture states, splits, CPU/wall, preparation, serialization, gates, postexecution evaluation and monitoring charged. Same600CPU/900wall,2Mstate/50Msplit limits retained as H3bt. Combinatorial worstcase can exceed these bounds even for one set; no universal completion guarantee is claimed. Any cap/error/incorrect proof makes the WHOLE study incomplete with all cases/paid calls retained, no budget extension or reduced-scope endpoint."
+  },
+  "descriptive": "Report MAP/tree totals, requested-depth groups, eligibility exclusions at checkpoints without case exclusions, baseline inadmissible guards, accept/tie counts, all counters and CPU/wall totals. Original10355-call H3br remains the primary comparator. H3bs10937 and H3bt10291 are descriptive only.",
+  "source_sha256": {
+    "research/20261114/loki/h3bu/common.py": "5fbcd323cdd170316018c06f420a6eb1f54da918b831532cb25302e213e426ed",
+    "research/20261114/loki/h3bu/compiler.py": "8aeb7a76a83ab9bebd57c64d8d6c0365d2920e3238333ad56066879c1e078a96",
+    "research/20261114/loki/h3bu/reference_compiler.py": "de66c5905292b00e803d2bccd4a8986bd6b9e86fb371f301244eac25910b20ba",
+    "research/20261114/loki/h3bu/verify_tree.py": "9c556279b1bc020cb13ba6821cedda21acbf4cab0b26d59c56062c060b944c0e",
+    "research/20261114/loki/h3bu/weights.py": "ea77045aa170e7bdfb2026815fcc3a7e0a34ef1906c3e151ed5c0b1317d0f25a",
+    "research/20261114/loki/h3bu/selector.py": "48ff1dc43b1a945540ccf215ef114104683acbf48feea160f2a10a87a73d185f",
+    "research/20261114/loki/h3bu/ledger.py": "4ffe3b14d6701ef78ee910356248ae0e8e0fd38e689804d4200fca78943522be",
+    "research/20261114/loki/h3bu/ledger_gate.py": "989fd5cab820de1af89ba3b635d83ea3d3f8dc9b8b91be657507375074656ed9",
+    "research/20261114/loki/h3bu/synthetic_gate.py": "b4f7a54a9facab697b46672ab2b8738a8ce16752110a52a99b952682bef5fbbf",
+    "research/20261114/loki/h3bu/restriction.py": "96807a985e8b5d92c07868b426b1336a75c0f051b7daa3d6a6a378b9fe780eef",
+    "research/20261114/loki/h3bu/policy.py": "a74ec78511f09df66909c69e0f6264251a8134171a8a8cc3bdd993b552610b8b",
+    "research/20261114/loki/h3bu/counterfactual.py": "6604c0f463bb676539a59839967964de3590cb5606a46ee4aced9df550064e36",
+    "research/20261114/loki/h3bu/cost_gate.py": "a2780d74ef21d30e30398cf5bb86118af03d3a71fa3d494764fdd211b7638b35",
+    "research/20261114/loki/h3bu/depth_gate.py": "a5446f50436b16c1b7dafda32b9c6695ca905c7af2f6858385437d708046a950",
+    "research/20261114/loki/h3bu/prepare.py": "1f928d53c15c26571be48f27b2ade7e3ee68cb6da4473d1e66e091f883104638",
+    "research/20261114/loki/h3bu/preflight.py": "77beaf5883531fa431d6663fb409704c125b1cd924f17361da465eaaccef9fc6",
+    "research/20261114/loki/h3bu/study.py": "98f8afd18f530ec70b6870e23db8d8081e9a8e22faad142db04e11b8e47087ea",
+    "research/20261114/loki/h3bu/gate.py": "e825128e3040508f132ab35239560c1bc75edab29285ec6e94e8ed9579c15a89",
+    "research/20261114/loki/h3bu/freeze.py": "22a93ee8fb02cf5e42cf2c437bf419add13e8df179d358209005a71abf1403ac",
+    "research/20261114/loki/h3at/source.py": "b2c2073b70346855d6c5bfda3db6769a2969c031115bcf8271f911ae194ce1f9"
+  },
+  "source_data_sha256": {
+    "research/20261114/loki/h3bl/compiler.py": "de66c5905292b00e803d2bccd4a8986bd6b9e86fb371f301244eac25910b20ba",
+    "research/20261114/loki/h3bl/weights.py": "ea77045aa170e7bdfb2026815fcc3a7e0a34ef1906c3e151ed5c0b1317d0f25a",
+    "research/20261114/loki/h3bm/ledger.py": "4ffe3b14d6701ef78ee910356248ae0e8e0fd38e689804d4200fca78943522be",
+    "research/20261114/loki/h3bm/selector.py": "48ff1dc43b1a945540ccf215ef114104683acbf48feea160f2a10a87a73d185f",
+    "research/20261114/loki/h3br/protocol.json": "a2ecc723e83f52380be6c0f96ff0914578108c561bf155cfc2843bee2fc783ff",
+    "research/20261114/loki/h3bs/policy.py": "4082bfc4adc583a71e0b77f88584d47a0ae7dedccf97e0298438deee5c95473e",
+    "research/20261114/loki/h3bs/protocol.json": "40878624cf3f651290415c4f50d222752ecbf9ecd5dae6596fbe5504893924cd",
+    "research/20261114/loki/h3bt/compiler.py": "de66c5905292b00e803d2bccd4a8986bd6b9e86fb371f301244eac25910b20ba",
+    "research/20261114/loki/h3bt/protocol.json": "b4adce37c02d652e1cc8ef8d883826865e53bc0fa412be3f63368467905ae178",
+    "research/20261114/loki/h3bu/DEPTH_LEMMA.md": "b4a9b26430b218ff9b503846c4aaf49113950417ca863ddea63394745db689e1",
+    "research/20261114/loki/h3bu/DESIGN.md": "b9343972244d170d65eccce67d1338ae7991e4a8426c92234511295a4ebef5dd",
+    "research/20261114/loki/h3bu/GUARD_LEMMA.md": "2d1b3db79295f1457e442df678a95b63f01be7f0b0f7af9d7b90717ee9a3d3f8",
+    "research/20261114/loki/h3bu/LEMMA.md": "70642bac258e260519e783b6a0f4f7f12263f640e8ba4ee5548a2eb5edae91d0",
+    "research/20261114/loki/h3bu/preflight-cost-gate.json": "955318d378f76de14c31e4cf4033300dec4b282dad807a4a5d5bb311dc6945fb",
+    "research/20261114/loki/h3bu/preflight-depth-gate.json": "0565b3f02bc3432f2c25700224bc3f0fe5d01fc78267779df1b53b5123665c92",
+    "research/20261114/loki/h3bu/preflight-synthetic-gate.json": "e6f74b3d837914d95e934f4b7060c35aa7144de1743ed29e8c73f041a52304c0",
+    "research/20261114/loki/h3bu/preflight.json": "dfcf073f53392a37b47bf24f4b0b34720d00c2119bdc28fdab6f5b3d065f89a6",
+    "results/research/loki/h3at/candidate-validity-bits.npz": "45ea2b26333e480f9464564a3a9fe8489d14c1c5d7ca8ab107c487ac2c27b920",
+    "results/research/loki/h3at/source-ordinary-columns.npy": "d63a5e609d915846898d02d0d9f6e43760d2cfe82f5e609d42656ea0b72e28f4",
+    "results/research/loki/h3at/source-selection.json": "c3e1a5aff0fc737aa2921db159bb4311ee83402ad364037a4d993c73280c1976",
+    "results/research/loki/h3bc/ordinary13.npy": "fe81ed5d8b256e263ecd1fed3ea4698096040e416dc9faa4a85af2594058c225",
+    "results/research/loki/h3bc/predictions-bits.npy": "5c6de623de9d854a1fd17b3922bbd627ef5f4f2bce3654390319f41ec67052bd",
+    "results/research/loki/h3bc/preparation.json": "1a63dc1e2a1adc8841a5e69c24c6b46dc08008f337bca37cf556c7d1022a555f",
+    "results/research/loki/h3bc/summary.json": "5edc7f3d062605faecaddcbf8c18e63cf31557b18a385d38969f5fd3f45721d2",
+    "results/research/loki/h3bd/cases/case0/q0-answer.json": "eddcd504694b7600f9d4abf81e6c34cbcbbbc0f92017c74bf8b6c336fb06adc5",
+    "results/research/loki/h3bd/cases/case0/q0-sealed.json": "93ff37304559798810fb53cde53bdf31ef0e08e4a7065a2d75563a45642c054c",
+    "results/research/loki/h3bd/cases/case0/q1-answer.json": "d70aaa8ca6f6fe990257f84a59da113190207c88b33d3d2a0ee8202b0582fbc7",
+    "results/research/loki/h3bd/cases/case0/q1-sealed.json": "9e110bcf10c242838b48d2ca658cf780801c5a97f35618abf8121fd186d05021",
+    "results/research/loki/h3bd/cases/case0/q2-answer.json": "7764fa31c026a55d1ab3982e21fcb0ed0d11a91f2ed3872a1ac6762072392c1c",
+    "results/research/loki/h3bd/cases/case0/q2-sealed.json": "9c4a480543b8d934f61d0528396554a885d4a86a746f1d4d0fc6e85abc77ecaa",
+    "results/research/loki/h3bd/cases/case1/q0-answer.json": "51259d8715c7a6d3f32a7c2a162528b53f8a7283556986cbebb7bea642948adf",
+    "results/research/loki/h3bd/cases/case1/q0-sealed.json": "8d208c6fcf1afb66400891c439273dd4bc79089a40dde62a070c5f086b2ae254",
+    "results/research/loki/h3bd/cases/case1/q1-answer.json": "9635c5e149bc64d92e2977c3944e5e5c1fe9fded7b36294176f21d0714be6ec3",
+    "results/research/loki/h3bd/cases/case1/q1-sealed.json": "3ff5facbebbfb94ae881735e140906f0962f546adc289727455897dc31c18ade",
+    "results/research/loki/h3bd/cases/case1/q2-answer.json": "8e4fb423067e386e2b43f8220c03d7b41826ffde700ca709df30402123ea63f3",
+    "results/research/loki/h3bd/cases/case1/q2-sealed.json": "fb1cfdfe04b7b3fc0fb22bc2ba202451608f837269a80990688f62d383713900",
+    "results/research/loki/h3bd/cases/case2/q0-answer.json": "9a05497a8ea490138fa630f0a98c079c8d94037c7f5df914d7c1de16053ff620",
+    "results/research/loki/h3bd/cases/case2/q0-sealed.json": "8f0560b51c0e6b77ff600639b396edefaf8a306eba3b18f641a3608f264daa50",
+    "results/research/loki/h3bd/cases/case2/q1-answer.json": "e1c04283f0e672e02d69dfb3ac7c23eb12d909aa59f58f61b0ff824eeb845ea7",
+    "results/research/loki/h3bd/cases/case2/q1-sealed.json": "0f9b49d1de657fbb5f792bf298c59ca07e5019a8254623f7178a57c420580d19",
+    "results/research/loki/h3bj/score-values.json": "fcd40764e77756d48856d2ab8714166ad56e23ea8fc05fece771cac346127814",
+    "results/research/loki/h3bm/score-values8.json": "59fe30b54e6a7ca0ae98f52f5c4313fbe9626a697e86859137aaec37f8201c60",
+    "results/research/loki/h3br/case-results.json": "340fbec1a30891d886f02f298cf2900a5ed9d542ddeb9dd2c91cad3a443ae20c",
+    "results/research/loki/h3br/checkpoints.json": "edb15856d3171a0a8d2f96e39107ce5dcee520908eac8c6c518af000eb6eff0d",
+    "results/research/loki/h3br/query-ledger.jsonl.gz": "02e60b12993aa63b7c93e7a844bf77f69a7f9f296ca49318080757a4b7af0319",
+    "results/research/loki/h3br/source-banks.json": "0a78b37f90494c1db785ac1dbf0ef7b2a1e2cc2a4c120c1c16ed526c436996a7",
+    "results/research/loki/h3br/summary.json": "b7af5a8a4c7c3c0856b4cab52421fd4ded49e98ac8b0536fbeb97939b21e56f6",
+    "results/research/loki/h3bs/summary.json": "937404fe3a77cf693af6872e0b3012fe332e0875ea3410119b92e4067946dd22",
+    "results/research/loki/h3bt/summary.json": "85e496530eb3e559e8932b181ddd55cb44b250947ff90bd00a8540a9b2f8eff0"
+  },
+  "target_data_sha256": {},
+  "counterfactual": "Record all candidate remaining query counts AND exact flags. Singleton cost0 exactTrue. A terminal feasible original-depth4 tree contributes its leaf depths exactTrue. A terminal infeasible tree contributes0 additional actual membership calls exactFalse; this is expected inadmissibility, not an exception, excluded branch, or changed original baseline. Both predicted MAP-label branches remain in the full dependency graph. Root receipts are bound before actual routing. Counterfactual model computations make zero actual oracle invocations.",
+  "cost_guard": "Handoff requires all baseline candidate exact flags AND tree weighted cost<=baseline weighted cost. With requested depth remaining_MAP+4, an admissible complete baseline policy is itself an allowed tree. Consequently the optimized new tree must pass the exact cost comparison whenever admissible; pure cost rejection is a correctness error. Cache identities bind candidates, requested depth, sorted queries, remainingMAP, prediction/score/selector/compiler/wrapper hashes as applicable. Baseline terminal compilation always requests depth4.",
+  "expected_cost_property": "An admissible baseline continuation is in the new treeclass, ensuring nonincreasing exact prescribed-posterior expectation. On inadmissibility or ineligibility the same next MAP query and backward induction preserve this expectation property. Exact-flag preservation and expected nonincrease are correctness, not evidence for realized>=2% finite-cohort saving or independent population generalization."
+}
