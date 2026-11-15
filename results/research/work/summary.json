@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-15T00:28:35.716710+00:00",
+  "updated_utc": "2026-11-15T00:41:31.443764+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
-  "status": "seventeen planned studies, two selected-case interventions, and exhaustive shortest-answer energies complete; ongoing research continues separately",
+  "status": "eighteen planned studies, two selected-case interventions, and exhaustive shortest-answer energies complete; ongoing research continues separately",
   "host": "work",
-  "jobs": 624,
-  "run_arm_rows": 1743,
-  "model_maze_evaluations": 400836,
+  "jobs": 816,
+  "run_arm_rows": 2127,
+  "model_maze_evaluations": 499140,
   "hypotheses": [
     {
       "campaign": "discovery",
@@ -473,6 +473,21 @@
         "target_pp": 0.05,
         "decision": "supported"
       }
+    },
+    {
+      "campaign": "larger_relaxation",
+      "hypothesis": "H2s 120-grid native-u3 lambda+1 improves joint success >=0.05pp over native-u3 lambda0",
+      "outcome": {
+        "hypothesis": "H2s",
+        "n_unique": 16384,
+        "gains": 27,
+        "losses": 1,
+        "observed_gain_pp": 0.15869140625,
+        "one_sided95_net_gain_lower_pp": 0.07462623908872097,
+        "one_sided95_net_gain_upper_pp": 0.23952353850802202,
+        "target_pp": 0.05,
+        "decision": "supported"
+      }
     }
   ],
   "run_tables": [
@@ -489,7 +504,8 @@
     "sign-intervention-runs.csv",
     "margin-intervention-runs.csv",
     "binary-relaxation-runs.csv",
-    "native-relaxation-runs.csv"
+    "native-relaxation-runs.csv",
+    "larger-relaxation-runs.csv"
   ],
   "protocols": {
     "protocol": {
@@ -573,6 +589,10 @@
     "native_relaxation-protocol": {
       "sha256": "10d847d6c0f0b974126435709a5fb87be0e8ae219a82d32fba40fde3ad8cb702",
       "frozen_utc": "2026-11-15T00:19:18.922471+00:00"
+    },
+    "larger_relaxation-protocol": {
+      "sha256": "8a87726a8426dc6eee9742f2d629d3fe1c2f7616b20a4034ab3c5dea3f2496f6",
+      "frozen_utc": "2026-11-15T00:34:05.700666+00:00"
     }
   },
   "audit_sha256": {
@@ -594,7 +614,8 @@
     "artifacts/research/20261114/work/sign_intervention/audit.json": "6d6ebe138eb572d4ac3c7ee0f3d9419611ed2cc31ec0d86d9627ab45e47cb99b",
     "artifacts/research/20261114/work/margin_intervention/audit.json": "f344e6d9005399d46277ce55b259a70647f4b4fc578b00e74e6ebbb6d31a0af7",
     "artifacts/research/20261114/work/binary_relaxation/audit.json": "f39bdfbefc288c3804f7a2a0900a6329030de62fa6d35b39976ce23664aba04e",
-    "artifacts/research/20261114/work/native_relaxation/audit.json": "6f6ed1a99b621c1a027aeb107693fffb7b1cbe1e54e2695bc67f63c868089ea4"
+    "artifacts/research/20261114/work/native_relaxation/audit.json": "6f6ed1a99b621c1a027aeb107693fffb7b1cbe1e54e2695bc67f63c868089ea4",
+    "artifacts/research/20261114/work/larger_relaxation/audit.json": "bdfcfe2ef1b01c1b8f04fc4f913107b45f641a0f9bff6623c975e778499ae715"
   },
   "model_sha256": {
     "0": {
@@ -627,8 +648,8 @@
     "case": "cyclic-failure-classification.json",
     "scope": "The same cyclic maze fails for model seeds1and2; these are true invalid fixed points or a period-two timeout, not hidden/nonfinite failures."
   },
-  "primary_jobs": 618,
-  "primary_model_maze_evaluations": 400704,
+  "primary_jobs": 810,
+  "primary_model_maze_evaluations": 499008,
   "descriptive_jobs": 6,
   "descriptive_model_maze_evaluations": 132,
   "selected_case_interventions": {

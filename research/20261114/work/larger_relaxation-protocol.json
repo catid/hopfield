@@ -1,0 +1,1303 @@
+{
+  "id": "larger-size-native-binary-preserving-relaxation",
+  "frozen_utc": "2026-11-15T00:34:05.700666+00:00",
+  "status": "frozen_before_data_and_outcomes",
+  "execution_script_sha256": "6be58f66b7d354f7d47da697520bddb73dcadc6114cedcde0885ad5e61ea4cd1",
+  "core_script_sha256": "c912470b19d0d13b151a4cac9a276455a915adeecf15088d1c5d43db66dbf721",
+  "models": {
+    "0": {
+      "path": "artifacts/research/20261114/work/models/seed0.pt",
+      "sha256": "84d694828c90cbf55bcf2eb84136324e2a5d482e4847e50d7b9f67b39c8aa230"
+    },
+    "1": {
+      "path": "artifacts/research/20261114/work/models/seed1.pt",
+      "sha256": "21004b8bca2fde7ae23825e874a30e15d28174ae5da16382420a1743d8ad2881"
+    },
+    "2": {
+      "path": "artifacts/research/20261114/work/models/seed2.pt",
+      "sha256": "5f350d5de1f42ef627a2dd6052bcdcb722bd965d1ef940863ed4f6955e4a73e3"
+    }
+  },
+  "source_sha256": {
+    "upstream/cram/__init__.py": "ada20986bead2aa2d77dcc358af07dbc01b569b1765c83560e917d5cc2bd032f",
+    "upstream/cram/cram_graph_coloring.py": "ed6158d983be48082f851dcdb5175bad7aab6408ac73f14659825e90c67f5275",
+    "upstream/cram/cram_maze.py": "c9f9fa5718fdf7ce1f8ad33dc7dc9481e43c6084a31516ac1c88451dba03ead8",
+    "upstream/cram/cram_maze_hard_graph.py": "967c573a3b3dee6c015bf373b7858b856ae0e639bdfa1a8c302b65af87a19717",
+    "upstream/cram/cram_maze_hard_simple.py": "07e64a9383c4b2b1ea30021063d93e302a794023accbf6effbf188892220b2a8",
+    "upstream/cram/cram_nqueens.py": "94bc24710e3d47e9d690a611354b586ae99f120a14e17d9747ffb1a7eda88238",
+    "upstream/cram/cram_sudoku.py": "2c6b53d1b81d54e35c484a3565abd60e778716d6e6121e424aede826a5ab0ed2",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "upstream/cram/graph_coloring_data.py": "b04e61911aa55d437ab3c9d602832c3df09f285f2605aba2e9a3d78c18d9cb04",
+    "upstream/cram/latent_settle_triton.py": "7eca3fdf03ec6d5eb847e0dcbcdad61c74b56c084c363190d2c32a1737f19072",
+    "upstream/cram/maze_h3.py": "dd13a3038830bf1e2db83854704fcb39167a3f76ee9de01832de9b3187ee7acd",
+    "upstream/cram/maze_h3p.py": "dd26d260efea3a84f224743e14ae8383d967dfdafb0b4409bd05e864fe7ce92a",
+    "upstream/cram/maze_learned.py": "0cd4ad9f571fbd4c53e3b9fe3f4bdf7634c4fe3ecd96feaffe0d478d715fda24",
+    "upstream/cram/maze_unique.py": "3ceb56a61d92c3fa52a7d84876314abe31909780159fa53560692c19b306d213",
+    "upstream/cram/nqueens_data.py": "8ec9ea48f043198b34169a11c9dcdc10841100d7772033f2e71ec5e6588d3623",
+    "upstream/cram/opcount.py": "2ddf7373d227f50f43b06cf8e129cb727a85a3e2e86065e7081ba477997e924d",
+    "upstream/cram/paths.py": "d3af83d2c75e9165b88fbaf09d35ee352523fa79e5b3b02163d0dfbaae8602b8",
+    "upstream/cram/table.py": "bbf1fdce8a9e2fa836f5a3800746671b62f740e28c1986029bb53b608ebd0493",
+    "upstream/experiments/compute_curve_export.py": "951515d262bab6599bee08af08343d039ddc57a3da5b8f38841bccccdb1b47d2",
+    "upstream/experiments/data_efficiency.py": "5f16479ed5428a192ce431e1ebc8715a5ffabeae4aeaefc9448dd4d038495c22",
+    "upstream/experiments/data_efficiency_baselines.py": "08fb19aaf0eff7ddd02fffee3a6e552c7f14e3990384806f75ec3b515f76f383",
+    "upstream/experiments/data_efficiency_common.py": "fd9736215f5268f445f089eaedc84360edbe0aa00abc8af861bf03b98eb1ba01",
+    "upstream/experiments/difficulty_export.py": "946e006435e75bdf36793f0f6dd15a830b44fc076f1ef60f27e492809eb8f051",
+    "upstream/experiments/graph_coloring.py": "156b3c5c4dd377870c10ef6caca20e5ccbf0a6921e0bec997a52d6a03443a972",
+    "upstream/experiments/graph_coloring_export.py": "6823486a862b19e0109ae9df4fca983ba43688daeeef24686450cd1c36a4541d",
+    "upstream/experiments/graph_coloring_hand_set.py": "c0dbce040824dd42d9195305ec8bc5cce581c55143cdf330b7cac8fda3586cdf",
+    "upstream/experiments/hand_set.py": "8fc4f15271655ec5b1e17eec29a48d8f11f8489ca0d1df79f0a7df4f37bac136",
+    "upstream/experiments/maze_hard_figure_export.py": "02e17d0728a458d69428a6e215a33c9d3d5f1f68bb5d49a02a5fac59bb8b037e",
+    "upstream/experiments/maze_hard_latent.py": "fad4c9c05c41ab2e3dcd997c666a2bbf0fdcca5ae894e2e90f1540d6d2cb4d77",
+    "upstream/experiments/maze_hard_support.py": "936caed5f90ef275199c73e26a437b4b6e6dc814b11e6955bb741b33e30b5c49",
+    "upstream/experiments/maze_unique.py": "042e1b0d0c760bfb7b3c4c9a6cd30785e95255ab570a5810bd80cfbf1ac651eb",
+    "upstream/experiments/maze_unique_fit_time.py": "07f0d25ea1f9a244dfba9ce031523400ba6cafa3ecb339ab8a84ade2ac3b31d6",
+    "upstream/experiments/multi_solution_export.py": "7462da58650d6b3c416e7a58b8526899543ae18fe9c05ed0ebd671875cb3317c",
+    "upstream/experiments/nqueens_coverage.py": "2694c01cb6b37b714dcb70b040317aed2789b9ae3207eb2b2c6c54254d41910c",
+    "upstream/experiments/nqueens_emptied.py": "e5d01938ef08469198028547e27cc9789336d3bec7a41cdf88bb2fec37ebeb6e",
+    "upstream/experiments/nqueens_export.py": "79bf0074e470bc6a2bfe1f2dfe5c376b38e96ef98f527a733f01f0b44ce76c96",
+    "upstream/experiments/nqueens_free.py": "67b4f3fd4188714cf04c50f0ecd6b73754c8132e3ed10e7877e17a225e875f08",
+    "upstream/experiments/nqueens_free_export.py": "6bbf21ad9d9864a21dd9f4dda8417a832f4008e7940a5c1b2d8f61162c13156d",
+    "upstream/experiments/nqueens_offset.py": "f9f0641aa33f5a6f80161f20ef55c5bfd6cb28b439439e0162176428a30df0f3",
+    "upstream/experiments/nqueens_offset_export.py": "85a2b6f5bd0d3d56b6ec52b30d22e15d08d8c70f5dca3da9039b3b99f4641127",
+    "upstream/experiments/sudoku.py": "b73f72c8e874711d0d05fa75de0043442a20297618de62e5bb714b76aa09f20b",
+    "upstream/experiments/training_curves.py": "f9c577da0d83a13a53e33ad859d9abe37fbb1cef52c42efb54424f94b6cb2e07",
+    "upstream/experiments/training_methods.py": "13ee258293c6b0883d8dbf93b14533460d402e8bd9d61f306c7d6832f46919e9",
+    "upstream/experiments/training_methods_export.py": "d60a18693e9cc488c239955b952d4f2f34c76eb3f1ed195b793ec4af35341561",
+    "research/20261114/work/reference_src/hopfield_cram/__init__.py": "724aaf62e72b0a7f840f03dc771f28e768cfa657564480c6fe51d788e4983613",
+    "research/20261114/work/reference_src/hopfield_cram/energy.py": "7d26f03acd9769c03b119c4bf2b76a2102283bb401b553feffba26ef1159c578",
+    "research/20261114/work/reference_src/hopfield_cram/inference.py": "7cde7a9af92c833ebdf9a430dab275fc2928acfca3c53c25e98b1d656bf30ff3",
+    "research/20261114/work/reference_src/hopfield_cram/latent.py": "55cb88ab4f87e5193c68a71173041d06c7a7c60d3ac50f2af3fab269f9a0333b",
+    "research/20261114/work/reference_src/hopfield_cram/training.py": "271568e0f2d951a4b4dcb61207b95593dc163f4207ac11366dcb2c7a420fe1f8"
+  },
+  "cohort": {
+    "base_seed": 2026111505,
+    "n_unique": 16384,
+    "length": 120,
+    "loop_percent": 20,
+    "generator": "study.maze; SeedSequence([base,120,20,index]); index 0..16383",
+    "shards": 64,
+    "per_shard": 256
+  },
+  "initialization": {
+    "arms": [
+      "native_lambda0",
+      "native_lambda1"
+    ],
+    "source": "Every cell exactly float32(3), both arms, all inputs/models. Exact compressed constant initial arrays retained; no Gaussian arm.",
+    "numpy_version": "2.5.4",
+    "development_tuning": false
+  },
+  "inference": {
+    "eta": 0.5,
+    "answer_cap_each_arm": 8192,
+    "check_every": 16,
+    "margin_tolerance": -1e-06,
+    "hidden_tol": 1e-06,
+    "hidden_cap": 4000,
+    "hidden_check": 8,
+    "float": "float32",
+    "batch_size": 64,
+    "shared_hidden_readout": true,
+    "selector": "None; single output per arm"
+  },
+  "primary": {
+    "id": "H2s",
+    "hypothesis": "On fresh 120x120 loop20 inputs, native u3 with compensated lambda+1 improves joint-three-model valid-shortest success by at least0.05percentage point over native u3/lambda0.",
+    "target_pp": 0.05,
+    "unit": "independent input; fixed-model repeats are not independent trials",
+    "decision": "Paired gain/loss events, fixed N=16384. One-sided95% net-gain lower is CP gain-lower(alpha=.025) minus CP loss-upper(alpha=.025), upper analogously. Support if lower>=0.05pp; falsify if upper<0.05pp; otherwise inconclusive. Report exact losses and gains; no adjustment, stopping or cap extensions after outcomes."
+  },
+  "secondary": "Per-model success, native certificate margins, endpoint/branched/non-feasible outputs, step/runtime changes and original/modified continuous trajectories descriptive. No lambda sweep or Gaussian arm. No oracle selection or adaptive rescue.",
+  "budget": {
+    "total_gpu_minute_envelope": 20,
+    "per_worker_wall_seconds": 600,
+    "rationale": "Same-size 90x90 paired trial took4.96summedGPU-minutes.120x120 increases area1.78x; allow up to20summedGPU-minutes without changing sample or cap after outcomes.",
+    "watchdog": "Check every64-input batch and before eachjob; preserve partial output; no sample/cap changes."
+  },
+  "timing": "Both arms eta.5 cap8192; alternate arm order by job/batch, CUDA-synchronized answer timings. Shared native hidden readout. Final energy/margin/residual recording separately in diagnostic_seconds; firstbatch of shard0 includes prespecified trace diagnostics in answer timing.",
+  "preflight": "Native u3/lambda0 exact original-solver and full-logit parity; trace/nontrace parity at lambda0/+1; existing exhaustive binary-energy/flip/finite-difference invariance gate retained.",
+  "control": "BP AdamW: outside scope of frozen-model inference study; no new training baseline. Native single initialization is the inference control.",
+  "jobs": [
+    {
+      "id": "shard00-s0",
+      "shard": 0,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard00-s1",
+      "shard": 0,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard00-s2",
+      "shard": 0,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard01-s0",
+      "shard": 1,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard01-s1",
+      "shard": 1,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard01-s2",
+      "shard": 1,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard02-s0",
+      "shard": 2,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard02-s1",
+      "shard": 2,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard02-s2",
+      "shard": 2,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard03-s0",
+      "shard": 3,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard03-s1",
+      "shard": 3,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard03-s2",
+      "shard": 3,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard04-s0",
+      "shard": 4,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard04-s1",
+      "shard": 4,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard04-s2",
+      "shard": 4,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard05-s0",
+      "shard": 5,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard05-s1",
+      "shard": 5,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard05-s2",
+      "shard": 5,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard06-s0",
+      "shard": 6,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard06-s1",
+      "shard": 6,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard06-s2",
+      "shard": 6,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard07-s0",
+      "shard": 7,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard07-s1",
+      "shard": 7,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard07-s2",
+      "shard": 7,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard08-s0",
+      "shard": 8,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard08-s1",
+      "shard": 8,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard08-s2",
+      "shard": 8,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard09-s0",
+      "shard": 9,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard09-s1",
+      "shard": 9,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard09-s2",
+      "shard": 9,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard10-s0",
+      "shard": 10,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard10-s1",
+      "shard": 10,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard10-s2",
+      "shard": 10,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard11-s0",
+      "shard": 11,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard11-s1",
+      "shard": 11,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard11-s2",
+      "shard": 11,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard12-s0",
+      "shard": 12,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard12-s1",
+      "shard": 12,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard12-s2",
+      "shard": 12,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard13-s0",
+      "shard": 13,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard13-s1",
+      "shard": 13,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard13-s2",
+      "shard": 13,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard14-s0",
+      "shard": 14,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard14-s1",
+      "shard": 14,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard14-s2",
+      "shard": 14,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard15-s0",
+      "shard": 15,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard15-s1",
+      "shard": 15,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard15-s2",
+      "shard": 15,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard16-s0",
+      "shard": 16,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard16-s1",
+      "shard": 16,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard16-s2",
+      "shard": 16,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard17-s0",
+      "shard": 17,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard17-s1",
+      "shard": 17,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard17-s2",
+      "shard": 17,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard18-s0",
+      "shard": 18,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard18-s1",
+      "shard": 18,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard18-s2",
+      "shard": 18,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard19-s0",
+      "shard": 19,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard19-s1",
+      "shard": 19,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard19-s2",
+      "shard": 19,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard20-s0",
+      "shard": 20,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard20-s1",
+      "shard": 20,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard20-s2",
+      "shard": 20,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard21-s0",
+      "shard": 21,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard21-s1",
+      "shard": 21,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard21-s2",
+      "shard": 21,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard22-s0",
+      "shard": 22,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard22-s1",
+      "shard": 22,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard22-s2",
+      "shard": 22,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard23-s0",
+      "shard": 23,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard23-s1",
+      "shard": 23,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard23-s2",
+      "shard": 23,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard24-s0",
+      "shard": 24,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard24-s1",
+      "shard": 24,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard24-s2",
+      "shard": 24,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard25-s0",
+      "shard": 25,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard25-s1",
+      "shard": 25,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard25-s2",
+      "shard": 25,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard26-s0",
+      "shard": 26,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard26-s1",
+      "shard": 26,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard26-s2",
+      "shard": 26,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard27-s0",
+      "shard": 27,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard27-s1",
+      "shard": 27,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard27-s2",
+      "shard": 27,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard28-s0",
+      "shard": 28,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard28-s1",
+      "shard": 28,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard28-s2",
+      "shard": 28,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard29-s0",
+      "shard": 29,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard29-s1",
+      "shard": 29,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard29-s2",
+      "shard": 29,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard30-s0",
+      "shard": 30,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard30-s1",
+      "shard": 30,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard30-s2",
+      "shard": 30,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard31-s0",
+      "shard": 31,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard31-s1",
+      "shard": 31,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard31-s2",
+      "shard": 31,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard32-s0",
+      "shard": 32,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard32-s1",
+      "shard": 32,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard32-s2",
+      "shard": 32,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard33-s0",
+      "shard": 33,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard33-s1",
+      "shard": 33,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard33-s2",
+      "shard": 33,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard34-s0",
+      "shard": 34,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard34-s1",
+      "shard": 34,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard34-s2",
+      "shard": 34,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard35-s0",
+      "shard": 35,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard35-s1",
+      "shard": 35,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard35-s2",
+      "shard": 35,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard36-s0",
+      "shard": 36,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard36-s1",
+      "shard": 36,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard36-s2",
+      "shard": 36,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard37-s0",
+      "shard": 37,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard37-s1",
+      "shard": 37,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard37-s2",
+      "shard": 37,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard38-s0",
+      "shard": 38,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard38-s1",
+      "shard": 38,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard38-s2",
+      "shard": 38,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard39-s0",
+      "shard": 39,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard39-s1",
+      "shard": 39,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard39-s2",
+      "shard": 39,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard40-s0",
+      "shard": 40,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard40-s1",
+      "shard": 40,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard40-s2",
+      "shard": 40,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard41-s0",
+      "shard": 41,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard41-s1",
+      "shard": 41,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard41-s2",
+      "shard": 41,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard42-s0",
+      "shard": 42,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard42-s1",
+      "shard": 42,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard42-s2",
+      "shard": 42,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard43-s0",
+      "shard": 43,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard43-s1",
+      "shard": 43,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard43-s2",
+      "shard": 43,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard44-s0",
+      "shard": 44,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard44-s1",
+      "shard": 44,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard44-s2",
+      "shard": 44,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard45-s0",
+      "shard": 45,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard45-s1",
+      "shard": 45,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard45-s2",
+      "shard": 45,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard46-s0",
+      "shard": 46,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard46-s1",
+      "shard": 46,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard46-s2",
+      "shard": 46,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard47-s0",
+      "shard": 47,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard47-s1",
+      "shard": 47,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard47-s2",
+      "shard": 47,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard48-s0",
+      "shard": 48,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard48-s1",
+      "shard": 48,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard48-s2",
+      "shard": 48,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard49-s0",
+      "shard": 49,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard49-s1",
+      "shard": 49,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard49-s2",
+      "shard": 49,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard50-s0",
+      "shard": 50,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard50-s1",
+      "shard": 50,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard50-s2",
+      "shard": 50,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard51-s0",
+      "shard": 51,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard51-s1",
+      "shard": 51,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard51-s2",
+      "shard": 51,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard52-s0",
+      "shard": 52,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard52-s1",
+      "shard": 52,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard52-s2",
+      "shard": 52,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard53-s0",
+      "shard": 53,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard53-s1",
+      "shard": 53,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard53-s2",
+      "shard": 53,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard54-s0",
+      "shard": 54,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard54-s1",
+      "shard": 54,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard54-s2",
+      "shard": 54,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard55-s0",
+      "shard": 55,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard55-s1",
+      "shard": 55,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard55-s2",
+      "shard": 55,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard56-s0",
+      "shard": 56,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard56-s1",
+      "shard": 56,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard56-s2",
+      "shard": 56,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard57-s0",
+      "shard": 57,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard57-s1",
+      "shard": 57,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard57-s2",
+      "shard": 57,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard58-s0",
+      "shard": 58,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard58-s1",
+      "shard": 58,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard58-s2",
+      "shard": 58,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard59-s0",
+      "shard": 59,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard59-s1",
+      "shard": 59,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard59-s2",
+      "shard": 59,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard60-s0",
+      "shard": 60,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard60-s1",
+      "shard": 60,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard60-s2",
+      "shard": 60,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard61-s0",
+      "shard": 61,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard61-s1",
+      "shard": 61,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard61-s2",
+      "shard": 61,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard62-s0",
+      "shard": 62,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard62-s1",
+      "shard": 62,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard62-s2",
+      "shard": 62,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard63-s0",
+      "shard": 63,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard63-s1",
+      "shard": 63,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard63-s2",
+      "shard": 63,
+      "seed": 2,
+      "gpu": 1
+    }
+  ],
+  "batch_preflight": {
+    "path": "artifacts/research/20261114/work/sign_intervention/batch-preflight.json",
+    "sha256": "c64c6d086d8ea1112ca8b00ae43cee41378811d47761a0319d2262e8f6f37286",
+    "ratio_32_over_64": 1.9142329821561745,
+    "scope": "Historical 90x90 reserved-data benchmark; fixed batch64 retained. A fresh120x120 reserved64-input batch32/64 parity and timing check is recorded in preflight before outcome inference; it does not select the batch size."
+  },
+  "retained_evidence": "Exact constant initial arrays, all final logits/predictions/flags/steps, original binary energy/minimum free flip margins, original/modified continuous energy and residual. First8inputs of first64batch in shard0 for eachmodel/arm traced every16updates.",
+  "continuous_intervention": {
+    "strengths": [
+      0.0,
+      1.0
+    ],
+    "units": "native energy units",
+    "energy": "E_lambda(p)=E_native(p)+lambda*sum_free p_i*(1-p_i)",
+    "field": "field_lambda=field_native+lambda*(2p-1) on free cells, with clamped fields unchanged",
+    "certificate": "Original native flip_delta, unchanged; never derive the certificate from continuous field.",
+    "invariants": "Regularizer is exactly0 on every binary board, so all binary-state energies, their ordering and true bit-flip costs are unchanged. This changes only continuous relaxation and cannot repair binary energy ranking.",
+    "helper_sha256": "a97d86dd91d830c7982c14fcaf48c61cfd0bc0962f93f1459e30b201e49777b2",
+    "gate_path": "artifacts/research/20261114/work/binary_preserving/validation.json",
+    "gate_sha256": "3894f65dc66896a629a03360f72035fe48f71684c147a395ab69ee3f351af220",
+    "gate_source_sha256": "db4640de0b9e4dd85b1225e000f216b33101988241156b98ef7d6ff1ebd5621d"
+  },
+  "confirmation": {
+    "parent_protocol_sha256": "10d847d6c0f0b974126435709a5fb87be0e8ae219a82d32fba40fde3ad8cb702",
+    "parent_result_sha256": "6f6ed1a99b621c1a027aeb107693fffb7b1cbe1e54e2695bc67f63c868089ea4",
+    "change": "Grid size 90 to 120 only; fresh independent seed cohort. Lambda is fixed at +1, with no sweep, optional stopping, or pooling with the parent cohort for the primary decision."
+  }
+}

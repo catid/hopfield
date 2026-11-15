@@ -12,6 +12,7 @@ These compact exports contain the measurements and provenance used by the reposi
 - [Sudoku constraint recovery from clues alone](../research/20261114/ripper/REPORT-clues.md)
 - [Sudoku label noise and tolerant counting](../research/20261114/foureyes/REPORT-noise.md)
 - [Sudoku noise curve and a fixed adaptive count threshold](../research/20261114/foureyes/REPORT-noise-curve.md)
+- [Sudoku independent fresh-bank and corruption replication](../research/20261114/foureyes/REPORT-noise-source-replication.md)
 - [Sudoku independent corruption replication and conditional bounds](../research/20261114/foureyes/REPORT-noise-replication.md)
 - [Sudoku heavier cell corruption and sample-size boundary](../research/20261114/foureyes/REPORT-noise-boundary.md)
 - [Sudoku official versus uniform clue masks](../research/20261114/ripper/REPORT-masks.md)
@@ -19,6 +20,7 @@ These compact exports contain the measurements and provenance used by the reposi
 - [Sudoku online acquisition of training clues](../research/20261114/ripper/REPORT-online.md)
 - [Sudoku fresh-bank online acquisition confirmation](../research/20261114/ripper/REPORT-online-confirm.md)
 - [Sudoku spike-mixture acquisition policy](../research/20261114/ripper/REPORT-spike.md)
+- [Sudoku query-score denominator ablation](../research/20261114/ripper/REPORT-exponential.md)
 - [Sudoku stopping interventions](research/foureyes/README.md)
 - [Maze transfer and inference acceleration](../research/20261114/work/REPORT.md)
 - [N-Queens optimizer controls](research/loki/README.md)
@@ -30,6 +32,7 @@ These compact exports contain the measurements and provenance used by the reposi
 - [Superqueen rule-transfer boundary](../research/20261114/loki/h3l/REPORT.md)
 - [Superqueen smaller-source control](../research/20261114/loki/h3m/REPORT.md)
 - [Superqueen downward transfer from larger sources](../research/20261114/loki/h3n/REPORT.md)
+- [Superqueen upward-transfer boundary](../research/20261114/loki/h3o/REPORT.md)
 - [Original reproduction evidence](reproduction/README.md)
 
 Audits retain SHA-256 identities for the source files and raw results they checked. A hash is a provenance reference, not a substitute for the missing raw array. The full saved-board audits require the local artifact archive. The README figures can be regenerated from the public JSON/CSV files alone; see [the figure guide](../docs/FIGURES.md).

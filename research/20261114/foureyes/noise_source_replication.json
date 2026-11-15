@@ -1,0 +1,55 @@
+{
+  "id": "H4n-fresh-source-and-noise-replication",
+  "frozen_utc": "2026-11-15T00:43:57.647672+00:00",
+  "hypothesis": "The unchanged largest-count-gap estimator exactly recovers the Sudoku peer graph with probability at least99% under independent fresh3000-row training-bank sampling and nine-free-cell corruption per row.",
+  "banks": 512,
+  "rows_per_bank": 3000,
+  "sample_sizes": [
+    300,
+    600,
+    1000,
+    3000
+  ],
+  "shard_banks": 16,
+  "bank_rng_base": 202611150100,
+  "noise_rng_base": 2026111502000,
+  "primary_n": 3000,
+  "primary_target": 0.99,
+  "primary": "One-sided exact Clopper-Pearson lower>=.99 supports; upper<.99 falsifies; otherwise inconclusive. Single primary; smaller prefixes descriptive.",
+  "source": "upstream/data/sudoku-extreme/train.csv",
+  "source_sha256": "64b46674db0148e0d73a16346dadeb2b1c00824d3fca3f85b2ae7037f6b4b38e",
+  "pool_size": 3831994,
+  "exclusions": [
+    {
+      "path": "artifacts/research/20261114/ripper/clues/input_manifest.json",
+      "sha256": "838908435ae82b9f617eb92d821341ec8b6c1792329b7a05d192815aff859eae"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/online_confirm/input_manifest.json",
+      "sha256": "644bdcc07b65b3ecc116d24e592eb7f0a2eab81c984257ba216004093a18dcd1"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/spike/input_manifest.json",
+      "sha256": "f4cee3502bf6855ad0a065fad18d26b025e8340683db3b1477170bebf7ddcf34"
+    },
+    {
+      "path": "artifacts/research/20261114/ripper/exponential/input_manifest.json",
+      "sha256": "baa1d60ec20e26d975ab13a6fea412267d80d5c001b2631028f5b5e24c9fe1ff"
+    }
+  ],
+  "sampling": "Each bank independently samples3000 distinct rows uniformly without replacement from fixed eligible pool. Cross-bank overlap allowed and retained; no within-bank duplicates. Independent bank RNG streams and corruption streams. Earlier-used rows excluded through four frozen manifests.",
+  "noise": "Exactly9 distinct freecells per row, selected with float64 random priorities; tied top10 rejected; replacements uniform independently among other8digits. Original givens preserved. Each smaller n shares prefix of the same noisy bank.",
+  "estimator": "Distinct sorted counts; first largest adjacent gap; floored midpoint. Retain counts<=threshold. Zero threshold if one distinct count. No geometry in producer.",
+  "budget": {
+    "max_producer_job_seconds": 60,
+    "max_gpu_minutes": 10
+  },
+  "audit": "CPU direct equality rebuild of all2048 count arrays, sampling replay, input SHA/validity/clue checks, changed-cell identity, threshold reconstruction, independent exact-bound cross-check.",
+  "limits": [
+    "Joint draws vary source sampling and noise within a fixed official training corpus; no out-of-distribution claim.",
+    "Cross-bank overlap is allowed by independent sampling and must not be called globally disjoint.",
+    "Exactly9of81 cell labels per board changed; clues remain clean.",
+    "Estimator and noise law selected in earlier studies; prospective streams fixed here.",
+    "Construction-only study: exact energies do not need duplicate inference."
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "utc": "2026-11-15T00:40:01.717221+00:00",
+  "n_unique": 16384,
+  "gains": 27,
+  "losses": 1,
+  "scipy_version": "1.18.1",
+  "python": "3.13.13",
+  "one_sided95_prespecified": {
+    "gain_one_sided_lower_pp": 0.10862810751282813,
+    "gain_one_sided_upper_pp": 0.2396780660251828,
+    "loss_one_sided_lower_pp": 0.00015452751722897212,
+    "loss_one_sided_upper_pp": 0.03400186842393374,
+    "net_lower_pp": 0.0746262390888944,
+    "net_upper_pp": 0.2395235385079538,
+    "alpha_per_marginal_tail": 0.025
+  },
+  "two_sided95_descriptive": {
+    "gain_one_sided_lower_pp": 0.10203981659331463,
+    "gain_one_sided_upper_pp": 0.25120124304069136,
+    "loss_one_sided_lower_pp": 7.677476427120549e-05,
+    "loss_one_sided_upper_pp": 0.038939684874038635,
+    "net_lower_pp": 0.06310013171927599,
+    "net_upper_pp": 0.2511244682764201,
+    "alpha_per_marginal_tail": 0.0125
+  },
+  "reported_custom_cdf_absolute_error_pp": {
+    "lower_pp": 1.7343071423425727e-13,
+    "upper_pp": 6.822320486321587e-14
+  },
+  "tail_allocation": "The prespecified lower bound subtracts a 97.5% one-sided loss-probability upper bound from a 97.5% one-sided gain-probability lower bound. Union bound over these TWO marginal failures gives a 95% one-sided net-gain lower bound, without assuming gains/losses independent. The upper bound analogously uses two marginal tails.",
+  "joint_interval_caution": "The two individually one-sided95% endpoints are NOT a conventional jointly95% two-sided interval. With four marginal tails at alpha=.025, joint coverage is conservatively at least90%. A jointly95% two-sided conservative interval allocates alpha=.0125 to each of four tails; it is reported separately and was not the frozen primary decision rule.",
+  "decision": "supported",
+  "interpretation": "The frozen one-sided95% primary alone determines the decision; report the jointly95% conservative two-sided interval separately.",
+  "audit_sha256": "bdfcfe2ef1b01c1b8f04fc4f913107b45f641a0f9bff6623c975e778499ae715",
+  "script_sha256": "d875f24fddca3289f2ce4bc2b301fac22581f5cac19ca221f9e304aa1a8a4a43"
+}

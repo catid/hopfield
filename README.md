@@ -22,9 +22,9 @@ On a reserved **10,000-puzzle official test slice**, the count energy solves **5
 
 Hidden solution labels can also be removed: counts from **3,000 partially observed training puzzles** recover the same graph in all six samples. Masked digits never enter estimation or calibration. These are official clue masks, whose selection may carry useful information. [Clues-only experiment and leakage checks →](research/20261114/ripper/REPORT-clues.md)
 
-**More training data makes count recovery robust to label noise.** Change nine free digits in every training board, preserve its clues, and choose the threshold using the largest gap in equality counts. With 3,000 boards, this recovers the exact graph in **3,072/3,072 independent corruption draws** across six fixed source banks. Every bank clears the frozen 99% recovery target after correction for six comparisons. With 300 boards, recovery falls to **4.39%**. This measures graph recovery under a declared random corruption law; it does not vary the six source banks. [Noise replication, failure diagnosis and audit →](research/20261114/foureyes/REPORT-noise-replication.md)
+**More training data makes count recovery robust to label noise.** Change nine free digits in every training board, preserve its clues, and choose the threshold using the largest gap in equality counts. With 3,000 boards, this recovers the exact graph in **512/512 independent fresh-bank and corruption draws**, with a one-sided 95% lower recovery bound of **99.4166%**. At 600 boards it recovers 493/512 graphs; at 300, only 21/512. This measures graph recovery within the official training corpus under a declared random corruption law. [Fresh-bank replication and failure diagnosis →](research/20261114/foureyes/REPORT-noise-source-replication.md)
 
-![Count recovery under label noise, with sample-size and failure controls](assets/figures/noise-replication.png)
+![Graph recovery under label noise across independent fresh training banks](assets/figures/noise-source-replication.png)
 
 The earlier intervention result remains useful: digit symmetry and repulsion increased low-data accuracy by **47.83 points** on a separate reserved slice. Counting explains why the transformed models recover the same graph. [Earlier matched results →](research/20261114/ripper/REPORT-heldout.md)
 
@@ -33,6 +33,8 @@ The earlier intervention result remains useful: digit symmetry and repulsion inc
 ![Adaptive clue acquisition reduces false constraints and improves short-budget solves](assets/figures/spike-acquisition.png)
 
 With a fixed budget of **25 queried digits per training board**, a new query score reduces false extra constraints by **50.6%** versus our previous policy (95% paired-bank interval: 46.9–54.2%). On the same 10,000 held-out puzzles repeated across 32 source-bank/search-seed runs, short-budget accuracy rises from **3.30% to 14.46%**, with zero wrong stops. All policies receive 300 training boards and the same search budget. Full solution labels serve only as a simulated query oracle; the policy sees its queried digits. These low-label results use a different training regime from the 99.9567% headline. [Policy, controls and independent replay →](research/20261114/ripper/REPORT-spike.md)
+
+A fresh ablation shows that plain exponential discounting is noninferior to the mixture score under the frozen 10% extra-edge margin. Its observed advantage is uncertain, so we retain both results. [Denominator ablation and all controls →](research/20261114/ripper/REPORT-exponential.md)
 
 ## The same transformed model, faster inference
 
@@ -51,6 +53,8 @@ At a tighter 2,048-update cap, joint success rises from **351/384 to 384/384** a
 **Changing the continuous relaxation also reduces failures.** Add $\lambda\sum_{i\in\mathrm{free}} p_i(1-p_i)$ with $\lambda=1$. This term is zero on every binary board, so binary energy rankings and the original flip certificate stay unchanged. On **16,384 fresh 90×90 loopy mazes**, joint success across all three frozen models rises from **16,350 to 16,370**: **20 gains, zero losses**, and failures fall from 34 to 14. Answer time increases about **19%**. The frozen one-sided 95% lower bound is +0.0521 points, narrowly clearing the +0.05-point target. [Derivation, paired uncertainty and remaining failures →](research/20261114/work/REPORT.md)
 
 ![Continuous relaxation: 34 failed maze inputs reduced to 14](results/research/work/native-relaxation.png)
+
+A separate **120×120 confirmation** reduces failures from **60 to 34** on another 16,384 fresh mazes: **27 gains and one loss**, with about 18% more answer time. Its conservative two-sided 95% interval for the gain is **[+0.0631, +0.2511] points**. The saved regression is a branched answer that passes the original learned certificate. [Confirmation and regression case →](research/20261114/work/REPORT.md)
 
 ## N-Queens: unseen solutions from training counts
 
