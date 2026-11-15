@@ -30,6 +30,8 @@ A third fresh cohort draws endpoints from opposite corner regions. LP96 and the 
 
 On a fresh 50:50 mixture of uniform and far-region endpoints, a distance-based dispatcher also solves **4,096/4,096**, but costs **14.04% more than LP96** and **30.41% more than always using the cascade**. Both cost targets fail in every timing block. [Mixed-cohort test and complete costs](research/20261114/work/REPORT.md#h2br-endpoint-dispatch-preserves-accuracy-but-falsifies-both-cost-targets)
 
+Packing those same examined inputs into groups with the same route reduces the dispatcher's complete answer cost **31.34%**, with identical outputs and trajectories across all 147,456 timed copies. This improves the dispatcher; a new matched comparison against LP96 and always-cascade was prepared but **not run** before research stopped. [Measured packing result and unrun follow-up](research/20261114/work/REPORT.md)
+
 The decoder supplies an explicit graph prior. Geometry alone does not prove shortestness, and energy certificates do not prove graph validity. Every reported solve receives independent graph checks. These distinct endpoint distributions are reported separately; the comparison does not isolate a causal effect of path length. [Controls and earlier cohorts](docs/RESEARCH_DETAILS.md#cycle-cuts-solve-fresh-dense-mazes)
 
 ## Change the search, keep the learned energy
@@ -40,21 +42,17 @@ Keep one queen in each row and column while proposing moves. With identical fitt
 
 Each family uses a complete N12 training universe and 4,096 fresh N13 inputs, with 20 chains and three search seeds. These are two fixed families with a supplied permutation prior. [Matched-time replication and controls](research/20261114/loki/h3ad/REPORT.md) · [Question-selection experiments and retained failures](docs/RESEARCH_DETAILS.md#a-search-prior-makes-the-same-learned-energy-much-more-useful)
 
-## Keep uncertainty in repeated labels
+## Spend noisy queries on distinct boards
 
-![Fresh equal-budget comparison: posterior scores recover 61 graphs versus 51 with hard decoding](assets/figures/posterior_fresh_confirm.png)
+![Fresh source-diversity test: 72 exact graphs versus zero with correlated repeats](assets/figures/diversity_after_correlation.png)
 
-At 7.5% independent label noise, **posterior scoring recovers 61/64 fresh graphs**, versus **51/64** when repeated labels are reduced to a single hard decision. Both query 90 boards three times. Spending the same budget on **270 boards once recovers 64/64**. Each arm uses 19,440 noisy cell queries per bank; all degrees are inferred without supplying Sudoku geometry or degree twenty.
+At the same noisy-label budget, **270 distinct boards queried once recover the exact graph in all 72 fresh source banks**, versus **0/72** from 90 boards queried three times with correlated errors. Both frozen targets pass: at least 60 recoveries and at least 48 net gains. Both methods know their nominal noise channel and infer the graph degree without Sudoku geometry.
 
-Keeping all three labels closes much of the gap, but uses the **known noise channel and a uniform per-cell digit prior**. Both frozen targets pass exactly at their boundaries: at least 61 recoveries and at most three losses versus single-query sampling. [Fresh confirmation and every failure](research/20261114/ripper/REPORT-posterior-fresh-confirm.md)
+Each arm uses **19,440 noisy cell responses per bank**, but the successful policy uses **three times as many source boards**. This tests an acquisition remedy, not correlation alone. A monitoring thread failed near completion; all scientific commands and independent audits passed, and final counters after every child exited establish compliance with the runtime budget. [Fresh protocol, every outcome and disclosed monitoring fault](research/20261114/ripper/REPORT-diversity-after-correlation.md)
 
-A fresh follow-up varies the noise rate between banks: 3.75%, 7.5% and 15%, with 24 banks each. Estimating the rate from the repeated labels recovers **67/72** graphs, matching the supplied-rate control on every bank. Both recover 24, 23 and 20 graphs in the three strata; all three fixed targets pass. Noise remains uniform across cells within each bank. [Fresh rate-variation test and all five failures](research/20261114/ripper/REPORT-heterogeneous-channel.md) · [Earlier examined-data test](research/20261114/ripper/REPORT-estimated-channel.md)
+The preceding correlated-repeat study recovered **0/72 with both tested estimators**, including the control supplied with the correct joint channel. Those certified failures remain visible. [Correlation boundary](research/20261114/ripper/REPORT-correlated-repeat.md)
 
-When noise rates vary across cells within a bank, the same scalar estimator recovers **70/72** graphs, matching a control given the true per-cell rates on every bank. That control has an explicit information advantage; two graph failures remain. [Fresh within-bank mixture and exact checks](research/20261114/ripper/REPORT-cell-channel.md)
-
-**Correlated repeats break both methods in a new test:** when half the observed positions reuse the first corruption event across all three responses, both recover **0/72** graphs—even the control supplied with the correct nominal joint channel. All fits are certified; the true graph has a strictly worse objective in every supplied-channel case. This is a failure of the tested inference procedure, not proof that recovery is impossible. [Correlation boundary and all retained failures](research/20261114/ripper/REPORT-correlated-repeat.md)
-
-The original hard-decoder study recovered 50/64 versus 64/64 from more boards. Posterior scoring then reached 63/64 on those examined inputs before the fresh confirmation above. [Original negative result](research/20261114/ripper/REPORT-repeat-query-tradeoff.md) · [Examined-cohort intervention](research/20261114/ripper/REPORT-posterior-query-labels.md)
+**Independent repeats behave differently.** At 7.5% independent noise, retaining posterior uncertainty recovers **61/64 fresh graphs**, versus **51/64** after hard decoding and **64/64** from more distinct boards. Estimating the noise rate also matches supplied-rate controls at **67/72** with rates varying between banks and **70/72** with rates varying across cells. These are separate studies, not pooled evidence. [Posterior confirmation](research/20261114/ripper/REPORT-posterior-fresh-confirm.md) · [Between-bank rates](research/20261114/ripper/REPORT-heterogeneous-channel.md) · [Within-bank rates](research/20261114/ripper/REPORT-cell-channel.md) · [Earlier controls and failures](docs/RESEARCH_DETAILS.md)
 
 ## Use all the noisy observations
 
@@ -63,6 +61,10 @@ The original hard-decoder study recovered 50/64 versus 64/64 from more boards. P
 On **256 fresh synthetic graph banks**, pooling all **1,800 noisy observations** recovers **253/256** exact graphs, versus **239/256** for donor-plus-masking using the same observations. Pooling gains **15 graphs and loses one**; both fixed targets pass. Every graph degree is inferred correctly from the first 600 noisy rows.
 
 This is graph recovery, not puzzle-solving accuracy. A separately reviewed audit corrects one software-version assertion; the original incomplete run and unchanged fits remain public. Three pooled graphs remain wrong, and the donor alone recovers the same 239 banks. [Fresh result, correction and all failures](research/20261114/foureyes/REPORT-fresh-pooled-donor.md) · [Earlier examined-data comparison: 254 versus 229](research/20261114/foureyes/REPORT-pooled-donor.md)
+
+**Repeated measurements recover 256/256 on these examined graphs.** Keeping the first 600 colorings and acquiring three independent noisy responses per coloring recovers all 256, versus the prior 253/256 from 1,800 colorings observed once. Both arms use the same label budget and inferred degrees; there are three gains and no losses. These are new noise responses on an examined source cohort, so fresh-graph confirmation remains unrun. [Protocol, proof replay and scope](research/20261114/foureyes/REPORT-repeat-diversity.md)
+
+![Repeated noisy measurements: 256 exact graphs versus 253 at the same label budget](assets/figures/repeat-diversity.png)
 
 Earlier detector controls remain informative: removing every false positive leaves recovery at **130/256**, while randomly selecting the same number of actual corruptions per row reaches **237/256**. Both masks use privileged corruption locations, and both prespecified detector targets fail. [Mask-selection mechanism and retained failures](research/20261114/foureyes/REPORT-purified-detector.md)
 
@@ -106,6 +108,6 @@ The [public API](src/hopfield_cram/counting.py) receives no cell geometry; insuf
 
 [Setup and rerun guide](docs/RERUN_GUIDE.md) · [Implementation](docs/IMPLEMENTATION.md) · [Figure data and renderers](docs/FIGURES.md) · [Detailed comparisons](docs/RESEARCH_DETAILS.md) · [Original development record](results/reproduction/README.md)
 
-Public JSON/CSV measurements, protocols and audit hashes are included. Large datasets and raw board archives stay outside Git. Research is ongoing; highlights above are audited.
+Public JSON/CSV measurements, protocols and audit hashes are included. Large datasets and raw board archives stay outside Git. Research is paused at the user's request; [final results and prepared but unrun studies](docs/RESEARCH_STATUS.md) are recorded separately. Highlights above are audited.
 
 Code: [Apache 2.0](LICENSE). Paper and converted assets: CC BY 4.0. [Attribution](NOTICE.md).

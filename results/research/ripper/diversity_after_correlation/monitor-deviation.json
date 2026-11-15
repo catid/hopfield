@@ -1,0 +1,50 @@
+{
+  "status": "completed_science_with_monitoring_deviation",
+  "frozen_sources_and_raw_results_unchanged": true,
+  "no_rerun": true,
+  "protocol_sha256": "8c4152073a6eda1b832a60be8ffb5a46593f4fe9e3e5f27b26680f0562657e50",
+  "runner_sha256": "4bb89a71c224ffad3fa850971aa7e0fd84c791fcb60ee3d4fcd74da1330e0c22",
+  "runtime_sha256": "1762977267202a58483ff46279de706e165138c3200c85f139904be06db0e123",
+  "summary_sha256": "43b1d126d2c7e6d9176ad4a690951870f6cfc8da8e3c0a6a48fee8603720d7f5",
+  "runner_log_sha256": "79159f9b7445abda09e275833287abe91f914dd52aac8f832f3be53d7e80c7c0",
+  "samples_sha256": "0ae1a3ddcde93deaabc89ac1ac424d25ea43478e8370cb45b366b21eb82ea1b3",
+  "exception": "ProcessLookupError: [Errno 3] No such process",
+  "failure": "The monitor read /proc/<pid>/stat while a worker exited; the frozen code caught FileNotFoundError but not ProcessLookupError. The thread ended without propagating the exception to the runner.",
+  "successful_monitor_samples": 385,
+  "last_successful_sample": {
+    "wall_s": 38.93101437197765,
+    "cpu_s": 236.851652,
+    "active_pids": [
+      3809951,
+      3809954,
+      3809956,
+      3809960,
+      3809961,
+      3809962,
+      3809963,
+      3809964
+    ],
+    "per_pid_cpu_s": {
+      "3809951": 28.21,
+      "3809954": 28.21,
+      "3809956": 28.2,
+      "3809960": 28.22,
+      "3809961": 28.21,
+      "3809962": 28.22,
+      "3809963": 28.21,
+      "3809964": 28.22
+    },
+    "completed_commands": 5,
+    "completed_LPs": 5760,
+    "audited_banks": 64
+  },
+  "terminal_wall_s": 39.27887354395352,
+  "terminal_aggregate_cpu_s": 237.98500399999998,
+  "last_sample_to_terminal_wall_s": 0.3478591719758697,
+  "observed_terminal_wall_within_frozen_budget": true,
+  "observed_terminal_cpu_within_frozen_budget": true,
+  "final_child_wait_evidence": "Every run() calls proc.wait() before recording completion and removing its active PID. The ThreadPoolExecutor map fully completes before summary; summary also waits. The direct wall/cpu check follows all14 completed child waits; active is empty and getrusage(RUSAGE_CHILDREN) contains the reaped children.",
+  "all14_children_reaped_before_terminal_measurement": true,
+  "continuous_monitoring_completed": false,
+  "scope": "The completed source/certificate outcomes and final resource totals remain usable, with this explicit supervision fault. The original runtime status is retained verbatim and is not evidence of uninterrupted monitoring. This postrun receipt does not claim the frozen supervisor would enforce the ceilings after its thread failed."
+}

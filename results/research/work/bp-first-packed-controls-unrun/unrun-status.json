@@ -1,0 +1,75 @@
+{
+  "hypothesis": "H2bt",
+  "status": "frozen_but_timing_unrun_at_user_stop",
+  "observed_utc": "2026-11-15 17:11:48 UTC",
+  "instruction": "User requested stop after current work; parent explicitly directed do not launch H2bt timing. No further GPU/CPU experiment jobs launched.",
+  "protocol_sha256": "312135a1cd52fd63fa605b89b2f72f7c3d422a072d971018cdfa440cf55b968a",
+  "candidate_protocol_sha256": "04759abff43aaba7f245d68e7b7a3ed64bb461a98318b7dacdca2fc5a9610abf",
+  "source_packet_sha256": "98c736436dcdc91e00b0cf102c3e5c6fa204b105b494e4f01bdf94446d86751e",
+  "source_bindings": 169,
+  "evidence_bindings": 144,
+  "completed_source_gates": {
+    "status": "passed",
+    "source_model_inputs_per_actual_arm_per_gpu": 384,
+    "actual_arms": [
+      "LP96",
+      "BP_geometry_LP96",
+      "packed_dispatch"
+    ],
+    "gpu_receipts_sha256": {
+      "0": "21a1b4adb314bbaf263fa4511e33ca6d2a9c172cfdfc4218caf49e88c8ac98ab",
+      "1": "9fafd1480d15c3a6b8972788185b12c3921642a6962c14dab60a164360386a42"
+    },
+    "worker_wall_seconds": [
+      24.673268048965838,
+      24.6729124779813
+    ],
+    "worker_wall_limit_seconds": 240,
+    "exit_codes": [
+      0,
+      0
+    ],
+    "live_samples": 25,
+    "forced_owned_signals": [],
+    "independent_CPU_audit_overlapped": false
+  },
+  "unrun_stages": [
+    "timing warmup",
+    "all6balanced3arm timing blocks",
+    "47receipt final seal",
+    "full final source preservation audit",
+    "both5percent complete cost endpoint joins"
+  ],
+  "timing_artifacts_present": {
+    "timing-gpu0.log": false,
+    "timing-gpu1.log": false,
+    "timing-worker0.json": false,
+    "timing-worker1.json": false,
+    "live-timing.json": false,
+    "launcher-timing.json": false,
+    "runs": false,
+    "warmup": false,
+    "sealed-replays.json": false,
+    "audit.json": false
+  },
+  "live_work_state": {
+    "gpus": [
+      "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, 0 %, 2 MiB",
+      "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, 0 %, 2 MiB"
+    ],
+    "compute_processes": []
+  },
+  "actual_timed_model_pipeline_copies": 0,
+  "fresh_scientific_inputs": 0,
+  "new_scientific_jobs": 0,
+  "new_scientific_evaluations": 0,
+  "scientific_conclusion": "None. Passing source gates establishes fixture preservation only. H2bt has no measured complete-cohort cost endpoint and no advantage claim versus LP96 or always-cascade. H2bs remains the final measured Work experiment.",
+  "H2bu": {
+    "status": "design_only_unrun",
+    "proposal": "research/20261114/work/bp-first-packed-confirmation-proposal.json",
+    "proposal_sha256": "25507cd8b093f8b2247c0be8f6f4af2c431d267214df511fb1d3bdadc612745f",
+    "seed_reserved": false,
+    "fresh_inputs_drawn": 0,
+    "changed_implementation": false
+  }
+}

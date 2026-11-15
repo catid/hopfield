@@ -1,0 +1,54 @@
+{
+  "id": "H4be-repeat-versus-diversity",
+  "status": "design_only_before_new_noise_or_fits",
+  "created_utc": "2026-11-15T16:42:16.217602+00:00",
+  "hypothesis": "At the same1800 noisy board-response budget, using600 underlying proper colorings three times recovers at least245/256 graphs and loses at most4 cases recovered by1800 underlying colorings once. Evaluate these two targets separately. This tests whether repeated noisy measurements substitute for source diversity under spatially heterogeneous exactly-nine-cell corruption.",
+  "motivation": "H4bc/H4bd fresh pooled counts recover253/256 versus239/256 donor masking. Ripper previously found more distinct official boards advantageous under IID cell noise; here we test transfer to four synthetic graph families and the unchanged weighted fixed-cardinality row-corruption law. The protocol is chosen before any new repeat-noise draws, without rate/strength pilots.",
+  "scope": "Examined H4bc source cohort with new independently seeded noise responses, not a fresh graph or source confirmation. All256 banks/four64-bank families retained. No puzzle-solving, population, PRNG-independence or equal-compute claim.",
+  "parent_sha256": {
+    "research/20261114/foureyes/fresh-pooled-donor.json": "806adc2bede792b521807d61065b406b154dbd5b928b019178286a8de2c0511f",
+    "research/20261114/foureyes/fresh-pooled-donor-corrected.json": "7071ce20790dd2b5233dfbb273c290a92edebcbf51f434c36be1dc5664664c4a",
+    "results/research/foureyes/fresh_pooled_donor_corrected/summary.json": "f1f24e258f505fef5e888527342b5eb04153289633c30152957cac95fa8453d1",
+    "results/research/foureyes/fresh_pooled_donor_corrected/final-seal.json": "4ef3683b4d84df3e80098dc307a789ce971d695f09d4bbbe198ad4afe2b4537e",
+    "results/research/foureyes/fresh_pooled_donor_corrected/orders-seal.json": "53c2b3d3531a491b4eadd63a1d32136cf5e06df8f2139d2dde79ef553fe278e5"
+  },
+  "data": "For each bank use exactly the first600 underlying clean colorings already generated in H4bc. Reuse their original first noisy response unchanged. Generate exactly two further independent600x81 responses to those same clean rows using the original18hot cells, weight32 exponential race,9changed cells per row and offsets1..8. Within each repeat draw uniforms=1-rng.random((600,81)) then int64 offsets rng.integers(1,9,(600,81)), as in original source. Assemble rows original0..599,repeat1,repeat2. Do not draw1800 and take a prefix or reuse unused noise from original rows600..1799. Retain all duplicate underlying colorings and coincident response values.",
+  "information_boundary": "Production fit receives only the assembled1800 noisy rows and the already inferred H4bc600-prefix degree. Clean values, original graph order, hotmap and actual corruption locations are generation/audit inputs only. No majority decoding, estimated latent labels, posterior scoring, normalization, count threshold tuning or new degree rule. The baseline and candidate use the exact same inherited degree selected from the identical first600 acquired responses.",
+  "inference": "One raw-equality-count LP per bank at the inherited degree, unchanged HiGHS settings and exact literal half-integral certificate. No rounding of fractional solutions. Uncertified solver result is unresolved; selected fractional is a resolved failure. Global seal of all new observed responses and all fits before any new outcome joins. Reconstruct original raw source provenance and exact repeated-noise streams independently. No new source/LP/BP baselines are refitted.",
+  "primary": {
+    "exact": "At least245/256: lower=known exact,upper adds unresolved; support lower>=245,falsify upper<245,otherwise inconclusive.",
+    "paired_regressions": "At most4/256 against H4bd pooled. Count lower=known old exact with new resolved failure; upper=old possibly exact with new possibly nonexact, including either-arm uncertainty. Support upper<=4,falsify lower>4,otherwise inconclusive."
+  },
+  "diagnostics": "All per-family exact/nonexact/fractional/unresolved counts; paired gains/losses; literal graph differences, exact truth-objective gaps only when truth degree feasible; all observed duplicate and source multiplicity counts; counts of equal repeated responses and actual corruption overlap as postfit diagnostics. LP optimality is not uniqueness. No unregistered subgroup endpoint.",
+  "controls": "BP AdamW first in tables: the previously measured H4bc1800-distinct-row32-update control is source context only; BP on repeated rows is unmeasured. Newly fit repeated-response LP is compared to immutable, fully audited H4bd pooled graph for every bank. Do not use prior data as new accuracy observations or imply fresh baseline execution.",
+  "accounting": {
+    "new_clean_rows": 0,
+    "new_noisy_board_responses": 307200,
+    "new_noisy_cell_responses": 24883200,
+    "reused_noisy_board_responses": 153600,
+    "candidate_standalone_board_responses": 460800,
+    "candidate_standalone_noisy_cell_responses": 37324800,
+    "baseline_standalone_noisy_cell_responses": 37324800,
+    "union_including_prior_baseline_and_new_responses": 62208000,
+    "new_LPs": 256,
+    "new_BP_fits": 0
+  },
+  "seeds": {
+    "repeat1": 202613900000,
+    "repeat2": 202613910000,
+    "solver_base": 2112631502
+  },
+  "seed_rule": "Eachbase+bank0..255. Verify numerical namespaces against current frozen explicit and expanded acquisition/solver registries before freeze; newseednumbers do not establish independence.",
+  "budget": {
+    "complete_wall_seconds": 120,
+    "aggregate_CPU_seconds": 600,
+    "CPU_workers": 8,
+    "new_LPs": 256,
+    "GPUs": 0,
+    "no_retries_or_extensions": true
+  },
+  "budget_scope": "All original source/noise provenance replay, two new responses and independent reconstruction, all fits, exact proof/mutation audits, inherited selected-proof comparison, full denominator outcome reconstruction, monitoring and export. Public replays and gates separately charged. Preserve every failure; caps or orchestration errors yield whole study incomplete and no primary summary, including late export failures.",
+  "gates": "Before any scientific noise, independently reconstruct synthetic600-row repeat streams, corruptions and exact1800-row assembly; verify first response unchanged, all queries charged even when equal, stage order/source separation and no actual-mask interface, exact count matrix and selected certificate mutations, fractional/uncertified handling, all paired uncertainty combinations, source hash bindings and no-overwrite/early/late failure cleanup. Reuse numerical solver as frozen; no performance or method change without parity.",
+  "optimization": "Eight independent CPU workers, batch counts and cached data-independent graph indices; no eligible GPU computation in this exact count/LP extension. Measure synthetic source/replay/LP bottlenecks and avoid rereading full archives more than necessary without weakening hashes or independent checks.",
+  "review": "Design only. No new implementation, scientific repeat noise, scoring, LPs or outcome joins before independent design approval and then final source/gate review."
+}

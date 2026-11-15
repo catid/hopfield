@@ -1,0 +1,143 @@
+{
+  "hypothesis_id": "H2bu",
+  "status": "design_only_before_H2bt_outcome_join_no_seed_reservation_draws_or_changed_execution",
+  "motivation": "Test whether the unchanged stable offline Manhattan182 packing policy generalizes to a fresh IID cohort with near-perfect joint accuracy and at least5% complete-cost saving separately versus newly executed standalone LP96 and always-BP geometry cascade. H2bs and H2bt concern examined H2br inputs only.",
+  "information_available_when_designed": {
+    "H2br": "All outcomes and timings known: BP4048/4096 joint; LP96/cascade/dispatcher4096/4096. Original-order dispatcher costs14.040812% more than LP96 and30.414958% more than cascade at separate six-block medians.",
+    "H2bs": "Source-preservation audit passed,147456 timing copies, median packing saving31.33640238748654% versus newly executed original-order dispatcher. This does not establish either fresh generalization or superiority to LP96/cascade.",
+    "H2bt": "Both actual source gates passed on reviewed source packet. Final candidate is under parent review; timing not frozen or launched, no H2bt complete-cohort timing or cost endpoint read.",
+    "fixed_design_origin": "Retain H2br mixture, Manhattan182 threshold,3immutable models, LP96 numerical protocol, H2bs stable high-first packing and H2bt complete-cost boundaries. No threshold, cap, eligibility or budget selected from future H2bt/H2bu outcomes. H2bt cost decision is not an eligibility filter."
+  },
+  "cohort": {
+    "n": 4096,
+    "base_seed": 2026111533,
+    "wall_generator": "Unchanged study.maze(180,0.8,SeedSequence([base,180,80,index])), index0..4095. Fresh walls for every input.",
+    "mixture_draw": "Independent default_rng(SeedSequence([base,180,80,index,2])).integers(2):0 uniform-all-open,1 opposite-region. Probability1/2 each independently per maze; realized counts retained without quota enforcement or replacement.",
+    "endpoint_rng": "default_rng(SeedSequence([base,180,80,index,1])), independent from the mixture stream and original wall generator.",
+    "uniform_component": "Restore original2/3 to ordinary1; sample an ordered distinct pair uniformly without replacement from all open cells, exactly H2bp's law.",
+    "far_component": "Restore old endpoints; choose uniformly among four oriented pairs NW->SE,SE->NW,NE->SW,SW->NE. Each endpoint independently uniform over open cells in its chosen45x45 corner region. Regions are NW[0,45)x[0,45),NE[0,45)x[135,180),SW[135,180)x[0,45),SE[135,180)x[135,180). Probability1/(4*Na*Nb) per eligible ordered pair, exactly H2bq's law.",
+    "eligibility": "All original open cells remain traversable. Outside selected far regions are ineligible endpoints only. Empty region, invalid old endpoints or disconnected source is an integrity failure; no redraw or replacement.",
+    "rejections": "None by shortest distance, Manhattan distance, difficulty, model output, mixture count or performance.",
+    "independence": "Before inference, independently verify every deterministic wall/mixture/endpoint draw and shortest label, token+wall uniqueness and zero overlap with all prior frozen Work manifests including H2br. H2bs/H2bt repeat H2br and add no fresh cohort. No fitting, replacement or rejection by outcomes.",
+    "seed_status": "Proposed only, not reserved or used. A complete Work protocol/manifest registry must confirm this unused seed before final freeze; any collision requires parent review and a newly recorded design before draws."
+  },
+  "controls_in_table_order": [
+    "BP AdamW actually executed prefix from block0 always-cascade, all4096inputs/all3models; no standalone BP service time inferred",
+    "LP96 standalone, newly executed original-order control",
+    "Always BP geometry cascade, newly executed original-order control",
+    "Stable high-first packed Manhattan182 dispatcher, newly executed candidate"
+  ],
+  "policy": {
+    "rule": "Extract the unique start2 and target3 from actual input tokens inside the charged answer interval. Compute integer L1 coordinate separation D. If D<182 choose directLP96; if D>=182 execute BP then retain geometry-valid BP or route its invalid output to LP96. Boundary182 is included in BP-first.",
+    "excluded_information": "No mixture-component flag, generator orientation, source index, shortest distance, labels, prior failures, model votes or numerical outcome enters the dispatch rule. Original numerical acceptance remains separate.",
+    "batching": "Controls retain consecutive original32-input batches. Candidate classifies actual tokens inside charged per-model preparation, keeps ascending global identities within D>=182 and D<182, executes all high batches then low batches, and scatters actual answers to original identities. True final cardinalities, no padding, duplication, omission or rescue regrouping. Each high batch uses unchanged endpoint_dispatch_batch.run(endpoint_dispatch), executing BP and its required LP96 rescue; each low batch uses the same unchanged function with an empty BP subset. Both groups use the actual original tokens; no model output or shortest label affects packing.",
+    "models": "The same three immutable shared hidden models and original BP/LP parameter pairs as H2bo/H2bp/H2bq. LP96 core and native BP dynamics/caps/certificates unchanged. All model hashes bound before implementation gate.",
+    "readiness": "LP96 constructs only its required LP model and float64 copy. Both cascade policies construct BP and LP models and both float64 copies. All3immutable models in seed order0,1,2 and fresh complete readiness for every actual cohort arm; no timed output/model sharing or cached answers across arms.",
+    "output_equivalence_gate": "Compare every low-D packed answer against independently executed block0 LP96 and every high-D packed answer against block0 always-cascade at its original identity. Check all final states, source choices, hidden steps/couplings, counters, stopping/cap/numerical flags and original-factor margins; normalize and compare complete LP internal trajectories to full LP96 controls. All six repeats of all arms must preserve their predetermined block0 outputs; BP prefix is checked separately. Numerical or batch-dependent disagreement is integrity failure, never silently repaired or dropped."
+  },
+  "separate_primary_endpoints": {
+    "absolute_packed_joint_success_999": "Predetermined block0 packed dispatcher joint success across3fixed models, N4096. One-sided95% exact CP: support lower>=99.9%; falsify upper<99.9%; otherwise inconclusive.",
+    "packed_LP96_noninferiority": "Same4096maze paired events; margin-0.1percentage point. CP gain and loss marginal alpha.025 give separate one-sided95% conservative net bounds. Support lower>=-0.1pp; falsify upper<-0.1pp; otherwise inconclusive.",
+    "packed_complete_cost_vs_LP96_saving5": "For each of six fixed complete three-arm blocks, saving=1-packed_complete_seconds/LP96_complete_seconds. Exact rational median of ordered positions3and4; support median>=5%, else falsified. All six copies included, no timing CI.",
+    "packed_complete_cost_vs_always_cascade_saving5": "Same six blocks, saving=1-packed_complete_seconds/always_cascade_complete_seconds. Exact rational median positions3and4; support median>=5%, else falsified. All six copies included, no timing CI."
+  },
+  "multiplicity": "Four separate prespecified endpoints. No simultaneous95% claim; no pooled cohorts or multiplication of earlier speedups. The policy's cost advantage over both controls is claimed only if both separate fixed5% cost targets pass.",
+  "scientific_unit": "4096 independent fresh mixture draws, each jointly tested on3fixed models. Block0 onGPU0 is the fixed accuracy source for each arm, including BP prefix. Other blocks are timing/integrity copies only; fixed model repeats and gate/warmup/timing copies add no independent observations.",
+  "paired_schedule": [
+    {
+      "block": 0,
+      "gpu": 0,
+      "order": [
+        "LP96",
+        "BP_geometry_LP96",
+        "packed_dispatch"
+      ]
+    },
+    {
+      "block": 1,
+      "gpu": 0,
+      "order": [
+        "BP_geometry_LP96",
+        "packed_dispatch",
+        "LP96"
+      ]
+    },
+    {
+      "block": 2,
+      "gpu": 0,
+      "order": [
+        "packed_dispatch",
+        "LP96",
+        "BP_geometry_LP96"
+      ]
+    },
+    {
+      "block": 3,
+      "gpu": 1,
+      "order": [
+        "packed_dispatch",
+        "BP_geometry_LP96",
+        "LP96"
+      ]
+    },
+    {
+      "block": 4,
+      "gpu": 1,
+      "order": [
+        "LP96",
+        "packed_dispatch",
+        "BP_geometry_LP96"
+      ]
+    },
+    {
+      "block": 5,
+      "gpu": 1,
+      "order": [
+        "BP_geometry_LP96",
+        "LP96",
+        "packed_dispatch"
+      ]
+    }
+  ],
+  "complete_answer_cost": {
+    "actual_charges": "Charge each required checkpoint/model/float64 readiness action; per-model queue/index construction; candidate actual endpoint extraction/classification; host materialization; transfer; hidden/readout; every BP/LP dependency, geometry check and original-model certificate; returns/subset mapping; output allocation/scatter/final identity validation. Controls pay their actual original-order preparation/materialization/scatter without unnecessary endpoint classification or BP readiness.",
+    "representation": "All modes preload identical original shard-token representation outside cost. No packed token copy or selected answer is precomputed in excluded preload.",
+    "host_slots": "Exactly129predetermined slots per model,387per complete cohort in all3arms. Each control executes128real32-input batches and one trailing zero-work slot per model. For fresh group cardinality H, packed executes ceil(H/32)+ceil((4096-H)/32) real batches, using zero for an empty group: always128or129real batches. Any remaining slot is trailing zero-work. Zero slots perform no GPU call/input evaluation and charge no invented answer time. Preserve all actual partial-batch identities and sizes.",
+    "barriers": "Use unchanged H2bt readiness/preparation/materialization/answer/scatter/finalization host boundaries. Both workers drain archives before charged stages and finish the stage before either begins excluded diagnostics/archive. Same warmed runtime/filesystem-cache regime.",
+    "exclusions": "Imports, CUDA initialization, fixed source warmups, original raw-file preload, audit, diagnostics, archives and synchronization waits separately recorded outside answer cost and inside worker wall caps. No independent Work CPU audit/extraction during GPU source gates or timing.",
+    "scope": "Complete offline cohort answer-production cost. No arrival/online latency, cold start or hardware-general claim; no historical timing substitution or multiplication of earlier speedups."
+  },
+  "source_gates": {
+    "fixtures": "Before fresh draws, first64inputs from H2br shards0and15, all3models:384source model-inputs per actual arm per GPU. Fixed positional selection, unchanged H2bt gate fixture set. No failure-directed source selection.",
+    "checks": "Preserve H2bt actual LP-only and dual-model readiness, all3actual modes, source selection, full BP/LP source trajectories/counters/flags, original-model margins, exact hidden/coupling identity, final states, actual host charges, barriers and archive lifecycle. Any new fresh-cohort controller/identity branch must pass independently reviewed source and synthetic gates before fresh generation.",
+    "synthetic": "Bind unchanged mixture/generator and D181/182/183 tests. Test variable group cardinalities0,1,31,32,33,2048,4063,4064,4065,4095,4096, stable ordering, exhaustive unique global coverage, true partial cardinalities and exact129-slot zero-work ledgers. Test all6balanced three-arm permutations, fixed block0 accuracy, both independent exact-median5% boundaries, CP/paired NI boundaries, missing block/failure/timeout/overwrite refusal, and no scientific-count inflation.",
+    "warmup": "Fixed first32inputs of H2br shard0, all3models and each actual mode on each GPU. Outside measured cost, inside timing worker wall. Fresh complete readiness again for all timed arm/cohorts.",
+    "review": "Design only. Parent design review first; then immutable complete source/gate packet review before GPU gates; then final protocol/seed registry review and freeze before any fresh draw. Fresh label/identity audit must pass before inference. Full seal and independent state/trajectory/cost audit before endpoint joins."
+  },
+  "diagnostics": "Predeclared descriptive breakdown by realized mixture, D<182/D>=182 and shortest bins1..64,65..128,129..256,>=257. Retain every denominator including empty groups, actual BP/direct-LP/rescue counts, geometry-valid-longer BP, numerical/cap failures, and complete charged components/queue/partial/zero-slot ledgers. No inferential subgroup claim or posthoc threshold tuning.",
+  "proposed_budgets": {
+    "source_gate_wall_seconds_per_gpu": 240,
+    "fresh_generation_wall_seconds": 300,
+    "fresh_generation_processes": 8,
+    "independent_input_audit_wall_seconds": 120,
+    "independent_input_audit_processes": 8,
+    "timing_wall_seconds_per_gpu_including_warmups": 3000,
+    "timed_gpu_workers": 2,
+    "host_barrier_timeout_seconds": 60,
+    "worker_cpu_rss_limit_gib": 8,
+    "independent_final_audit_wall_seconds": 1200,
+    "independent_final_audit_processes": 16,
+    "budget_rationale": "Same4096inputs,3models,18complete timed arms and221184timing copies as H2br/H2bt, with H2bt charged host stages and grouped source audit. One bounded attempt; no outcome-dependent retry, extension, replacement or dropped block. Full generation/input/final audit caps are prospective and do not authorize overlap with GPU timing."
+  },
+  "proposed_accounting": {
+    "fresh_inputs": 4096,
+    "planned_jobs": 48,
+    "logical_arms": 4,
+    "primary_model_maze_arm_evaluations": 49152,
+    "run_arm_rows": 192,
+    "measured_model_pipeline_copies": 221184,
+    "source_gates_warmups_repeated_timing_prefixes_add_scientific_counts": false
+  },
+  "provenance_and_publication": "Freeze exact source/model/generator/auditor hashes, source gate receipts, seed registry/all prior manifests before draws. Keep every attempt/partial/failure, live GPU/process counters, all four logical-arm scalar rows and all actual final boards/LP trajectories. Seal all6blocks before accuracy/cost joins. Portable supplement includes every rescue in either cascade, every arm failure, every valid-longer case, first input per shard/model/nonempty dispatch group, and every true partial-batch model-input; original factors/inputs/all repeated final states retained for selected cases. Complete public final-board/scalar evidence retained for all221184actual timing copies, plus fresh BP prefix records. Do not add gate/warmup/timing copies to science counts. Publish all4separate decisions even if failed or inconclusive.",
+  "support_boundary": "Specified50:50IID endpoint mixture,4096new180x180loop80mazes,3fixed models, unchanged Manhattan182/LP96 policy, Work hardware and declared warmed offline complete-answer boundary. No learned-dispatch, shortestness certificate, model-population, causal distance, arbitrary-distribution or online-latency claim."
+}

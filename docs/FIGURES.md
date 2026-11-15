@@ -313,3 +313,21 @@ Both 0/72 outcomes and the misleading apparent IID rate are visible; the linked 
 ![Tree weighting saves queries while preserving exactness](../results/research/loki/h3ca/tree-weight-cost.png)
 
 The chart retains all per-case differences, including 43 longer paths and 16 shared failures. [Report](../research/20261114/loki/h3ca/REPORT.md) · [Renderer](../research/20261114/loki/h3ca/plot_public.py).
+
+### Repeated noisy measurements on examined graphs (H4be)
+
+![Repeated responses recover every graph in the examined cohort](../assets/figures/repeat-diversity.png)
+
+The equal-label-budget comparison retains all 256 banks and four graph families. BP is explicitly prior distinct-row context; the new result is not fresh-graph confirmation. [Report](../research/20261114/foureyes/REPORT-repeat-diversity.md) · [Renderer](../scripts/plot_repeat_diversity.py) · [Provenance](../assets/figures/repeat-diversity-provenance.json).
+
+### Fresh source diversity after correlated-repeat failure (H1ci)
+
+![Distinct boards restore recovery under the fixed noisy-response budget](../assets/figures/diversity_after_correlation.png)
+
+All 72 paired banks and the larger source requirement are explicit. The report retains the monitoring-thread failure and final budget evidence. [Report](../research/20261114/ripper/REPORT-diversity-after-correlation.md) · [Renderer](../scripts/plot_diversity_after_correlation.py).
+
+### Packing preserves outputs and reduces dispatch cost (H2bs)
+
+![Every paired original-order and packed-dispatch measurement](../results/research/work/bp-first-packed-dispatch/bp-first-packed-dispatch.png)
+
+Six paired complete-cost timings retain all 147,456 source-equivalent outputs. This compares the two dispatcher implementations on examined inputs, not superiority over LP96 or the always-cascade policy. [Report](../research/20261114/work/REPORT.md#h2bs-stable-offline-packing-supports-the-10-complete-cost-saving-target) · [Renderer](../research/20261114/work/plot_packed_dispatch.py).

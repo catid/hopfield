@@ -1589,3 +1589,64 @@ The [portable independent checker](../../../results/research/work/bp-first-endpo
 This experiment adds **48 planned jobs, 192 run-arm rows and 49,152 primary logical arm evaluations**. Work totals are **2,314 planned jobs / 1,765,118 primary evaluations**, or **2,320 included jobs / 1,765,250 evaluations**, with **7,647 run-arm rows**. BP-prefix reuse, internal states, source gates, warmups and repeated timings add no scientific counts.
 
 ![H2br supports its separate accuracy endpoints while falsifying both complete-cost saving targets in every block.](../../../results/research/work/bp-first-endpoint-dispatch/bp-first-endpoint-dispatch.png)
+
+
+### H2bs: stable offline packing supports the 10% complete-cost saving target
+
+The unchanged Manhattan182 dispatcher with stable offline batch packing has **31.336402% median complete-cost saving** against a **newly executed original-order dispatcher**, so the fixed **at least 10% saving** target is **supported**. Every actual final output and its source selection is preserved across **147,456 timed model-pipeline copies**. This is a performance-only test on the **examined H2br cohort**, with **zero new accuracy or population observations**. It does not establish superiority to LP96 or the always-BP cascade; their historical H2br costs are not controls for this endpoint.
+
+| Arm, in declared comparison order | H2br source joint solved / 4,096 | Role in H2bs |
+|---|---:|---|
+| BP AdamW executed prefix | 4,048 | Source context only; standalone service cost unmeasured |
+| LP96 standalone | 4,096 | Source context only; no historical timing substitution |
+| Always BP geometry cascade | 4,096 | Source context only |
+| Original-order dispatcher | 4,096 | Newly executed complete-cost control, exact source preserved |
+| Stable packed dispatcher | 4,096 | Newly executed candidate, exact same source preserved |
+
+The [prospective proposal](bp-first-packed-dispatch-proposal.json) was recorded before the H2br outcome join, and the [frozen protocol](bp-first-packed-dispatch-protocol.json) retains its original ≥10% target. It uses all **4,096 H2br mazes**, seed **2026111532**, and all three immutable models. H2br itself found the original dispatcher **14.040812% slower than LP96** and **30.414958% slower than always-cascade**. Those two falsifications remain separate and visible.
+
+For every model, the packed arm reads actual endpoint tokens inside a charged host preparation interval. It partitions stably into **2,370 D ≥ 182 inputs**, then **1,726 D < 182 inputs**, preserving ascending original identity within each group. The high group uses **75 batches**, the low group **54 batches**; the final partial batches contain **2 and 30 actual inputs**. The unchanged dispatcher batch routine classifies tokens again, executes BP or direct LP96 and performs actual geometry-routed LP rescue. Rescues remain within their high batch. There is no padding, duplicate evaluation, replacement, dropped input, new model, changed solver or label-informed policy.
+
+The new common harness charges each arm’s fresh BP/LP model readiness and double copies, per-model identity/queue construction, actual host batch selection/materialization, all transfer/hidden/solver/certificate work, and global output allocation/scatter/final identity checks. The original-order control is re-executed with these same host boundaries; no prior timing replaces it. Raw source preload, imports, fixed warmups, diagnostics, archives and synchronization waits are recorded separately outside answer cost and inside the wall budget. Both workers drain archives before charged stages and finish each stage before excluded diagnostics or archiving.
+
+Each model has **129 fixed host slots**, **387 per cohort**. Original order uses **128 real batches plus one trailing zero-work host slot**; packing uses all 129 real slots. A zero slot performs no GPU solver call and adds no fictitious input or answer time. The entire cohort is available offline; this test measures neither arrival waiting nor online response latency.
+
+| Pair | GPU | Execution order | Original-order seconds | Packed seconds | Complete-cost saving |
+|---|---:|---|---:|---:|---:|
+| 0 | 0 | original_order, packed | 118.931671 | 81.786110 | 31.232691% |
+| 1 | 0 | packed, original_order | 119.000910 | 81.812844 | 31.250237% |
+| 2 | 0 | original_order, packed | 119.167722 | 81.929745 | 31.248375% |
+| 3 | 1 | packed, original_order | 122.134768 | 83.664322 | 31.498357% |
+| 4 | 1 | original_order, packed | 122.291890 | 83.723544 | 31.537943% |
+| 5 | 1 | packed, original_order | 122.296449 | 83.867764 | 31.422568% |
+
+All six pairs are retained: three per GPU, with each arm first in three pairs overall and opposing per-GPU odd imbalances. The exact-rational median is **538409803837726442962947/1718160869841037819661380**, averaging sorted positions 3 and 4. There are no optional repetitions, replacements, timing confidence intervals or hardware-general claims.
+
+Actual pair-0 receipts show **384 → 225 BP batches** and **384 → 241 LP batches**, while preserving **7,110 BP** and **5,287 LP model-input executions** in each arm. Original order has **384 real model batches**, packing **387**. These counts describe this fixed offline packing intervention and do not imply a fresh distributional result.
+
+The fixed source gates check **384 model-inputs per arm per GPU**, including all changed partial-state and host-cost paths, and finish in **18.992 seconds per GPU**; an independent replay also passes. The timed workers finish in **1183.872 and 1183.882 seconds**, within 2,400 seconds, with **1,124 live device/process samples** and no forced signals or independent CPU audit overlap. All **35 receipts** are [sealed before endpoint aggregation](../../../results/research/work/bp-first-packed-dispatch/sealed-replays.json).
+
+The [full independent audit](../../../results/research/work/bp-first-packed-dispatch/audit.json) passes in **376.910 seconds** with 16 CPU processes, within 900 seconds. It validates every actual timed final state, hidden step/coupling, BP final logit, solver counter/flag, original-model margin, source mapping and normalized LP trajectory, plus **1,920 source/warmup copies**, **426,684 candidate comparisons** and **103,584 active transcript states**. Integrity gates preserve all failure denominators; no case is dropped or repaired.
+
+The public package retains **all 147,456 timed final boards and scalar outputs**, all per-model source-derived global outputs, all 4,096 original input/label records, complete cost/host/queue receipts and **23,940 original barrier markers**. Its factor supplement has **324 cases**: all H2br rescue/error/fixed-dispatch controls plus every source model-input occurring in a true partial timed batch. Full original source and internal trajectories remain hash-bound on Work.
+
+The [portable checker](../../../results/research/work/bp-first-packed-dispatch/public-verification.json) passes in **91.437 seconds**, independently checking every final board/scalar against source-derived outputs, all **12,288 source model-input graphs**, all **4,096 labels**, every charged cost and **23,400 timing barrier events**. It directly reconstructs original-factor margins for **324 cases**; maximum discrepancy is **6.04e-15**. Production solver/audit modules are import-blocked. Run `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 upstream/.venv/bin/python research/20261114/work/run_packed_dispatch_public_check.py results/research/work/bp-first-packed-dispatch`. The [figure](../../../results/research/work/bp-first-packed-dispatch/figure-determinism.json) is visually inspected and byte-identical across two renders.
+
+H2bs adds **zero scientific jobs, zero run-arm observation rows and zero primary evaluations**. Work totals remain **2,314 planned jobs / 1,765,118 primary evaluations**, or **2,320 included jobs / 1,765,250 evaluations**, with **7,647 run-arm rows**. Its twelve actual timed arm executions and 147,456 model-pipeline copies are explicitly performance evidence, not independent scientific observations.
+
+![H2bs compares newly executed original-order and packed dispatcher complete costs with exact source preservation.](../../../results/research/work/bp-first-packed-dispatch/bp-first-packed-dispatch.png)
+
+
+### H2bt: source gates passed; frozen timing experiment never launched
+
+H2bt has **no complete-cohort timing or cost result**. Its [proposal](bp-first-packed-controls-proposal.json) would test separate ≥5% savings against newly executed LP96 and always-BP geometry cascade controls on the examined H2br cohort. The [protocol](bp-first-packed-controls-protocol.json) froze at **2026-11-15 17:10:40 UTC**, after the source gates passed. The user then stopped this research round before any timing warmup or timing worker launched. Neither cost target is supported or falsified.
+
+The [unchanged gate receipts and stop evidence](../../../results/research/work/bp-first-packed-controls-unrun/unrun-status.json) preserve **384 model-inputs per actual arm per GPU**, three arms and two GPUs: **2,304 source-gate copies**, **zero timed copies**, and **zero new scientific observations**. The two source-gate workers finished in **24.673268 and 24.672912 seconds** within their 240-second caps, with **25 live process/device samples**, both exit codes zero, no forced signals and no independent CPU-audit overlap. Their local diagnostic clocks are not complete-cohort endpoint measurements. At the stop check, both Work GPUs were idle and no compute process remained.
+
+The [concise public evidence package](../../../results/research/work/bp-first-packed-controls-unrun/README.md) includes the frozen packet, synthetic gates, all six actual cohort receipts, worker/live evidence and all 540 gate barrier markers. Its [retained-archive manifest](../../../results/research/work/bp-first-packed-controls-unrun/retained-archive-manifest.json) records the complete raw gate states/trajectories preserved locally and on Work. Those raw arrays are not included in this concise package; it does not claim a portable numerical replay. The six timing blocks, final seal, full final audit and both cost joins remain unrun. **H2bs is the last measured Work experiment**, and its 31.336402% gain remains limited to the original-order dispatcher control.
+
+### H2bu: proposed fresh confirmation, design only
+
+The [H2bu proposal](bp-first-packed-confirmation-proposal.json) was recorded before any H2bt timing result. It proposes a fresh 4,096-maze IID endpoint mixture with BP AdamW first, LP96 and always-cascade controls, fixed absolute 99.9% joint-success and −0.1 percentage-point noninferiority targets, and separate ≥5% cost targets. This is an **unreviewed, unrun design**, not a result: [no seed was reserved, no fresh input was drawn, and no changed implementation or inference was started](../../../results/research/work/bp-first-packed-confirmation-unrun/status.json).
+
+Research is stopped at the user's request. H2bt gates and the H2bu design add **zero scientific jobs, zero run-arm observation rows and zero primary evaluations**. Final Work totals remain **2,314 planned jobs / 1,765,118 primary evaluations**, or **2,320 included jobs / 1,765,250 evaluations**, with **7,647 run-arm rows**.

@@ -1,0 +1,82 @@
+{
+  "status": "passed_real_prefix_and_paid_recovery_namespace_gate",
+  "checks": 1093,
+  "cases": 9,
+  "outcome": {
+    "decision": "inconclusive_fewer_than_eight_comparator_failures",
+    "primary": {
+      "baseline_failure_minimum": 8,
+      "baseline_failures": 6,
+      "rescued": 2,
+      "recovery_left": 8,
+      "recovery_right": 18,
+      "recovery_passes": null,
+      "overhead_left": 3500,
+      "overhead_right": 2266,
+      "overhead_passes": null,
+      "joint_passes": null
+    },
+    "B_calls": 22,
+    "E_calls": 35,
+    "actual_membership_calls": 57,
+    "B_exact": 3,
+    "E_exact": 5,
+    "exact_transitions": {
+      "both_exact": 3,
+      "B_only_exact": 0,
+      "E_only_exact": 2,
+      "neither_exact": 4
+    }
+  },
+  "full_arm_audits": {
+    "B": {
+      "arm": "B",
+      "tree_memo_states": 6,
+      "compiler_work_steps": 7,
+      "counterfactual_memo_states": 5,
+      "counterfactual_MAP_partitions": 2,
+      "distinct_compiled_inputs": 2,
+      "huffman_merge_operations": 3,
+      "canonical_computation_reuse_hits": 0,
+      "deeper_tree_candidate_paths": 3,
+      "counterfactual_candidate_entries": 8
+    },
+    "E": {
+      "arm": "E",
+      "tree_memo_states": 6,
+      "compiler_work_steps": 7,
+      "counterfactual_memo_states": 5,
+      "counterfactual_MAP_partitions": 2,
+      "distinct_compiled_inputs": 2,
+      "huffman_merge_operations": 3,
+      "canonical_computation_reuse_hits": 0,
+      "deeper_tree_candidate_paths": 3,
+      "counterfactual_candidate_entries": 8
+    }
+  },
+  "storage": {
+    "status": "passed_raw_scientific_artifact_audit",
+    "proof_files": 4,
+    "counterfactual_logical_files": 20,
+    "all_proofs_and_cost_documents_replayed": true
+  },
+  "synthetic_memo_states": 22,
+  "synthetic_work_steps": 18,
+  "charged_candidate_board_cells": 4562,
+  "charged_selection_requests": 14,
+  "actual_oracle_calls": 0,
+  "fresh_truth_draws": 0,
+  "fresh_source_draws": 0,
+  "synthetic_paid_queries": 57,
+  "source_sha256": {
+    "arm.py": "8656af369af986d1179fbaa47ac47141c50486a27cd6901f04555ccc122fb12f",
+    "audit_arm.py": "5e0d73648aa93eb66adc10eeedabd88ae600c8d5620f3a14585f22130c5f27a6",
+    "oracle.py": "3c8ccc2bb29ecdc0d705ef793caf46bdad7509e7ef8926f3f6ec5e79119a9adb",
+    "fallback.py": "76b51cf64a82dff8117c391835510843d37752b05c46b3004f7db1da0c4d0c7a",
+    "audit_fallback.py": "9f3f9f112ddfc62dd2e1ca4cd6bacdf3c423b769883a4d4880cfa271a2973d41",
+    "recovery_pairing.py": "8e2af506854763d11255f606c8d5dfaa6c9dc7341170c4a2cf553d8a80920287",
+    "recovery_endpoint.py": "11b67e194bbc71e7b8e16241bc0b50209b37215948b653e30dba3f3905b4239b",
+    "audit_recovery.py": "c71945e460b7f37af949f0ffb4489a391c980c29060d3c0b7ae9525a56ffaeb7",
+    "recovery_namespace_gate.py": "1515601c2063f5102dcc308a8bd9c4d0bf345712560ad167149da76fc300f5e3"
+  }
+}

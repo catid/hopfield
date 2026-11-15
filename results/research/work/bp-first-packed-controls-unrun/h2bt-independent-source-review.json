@@ -1,0 +1,43 @@
+{
+  "status": "passed_independent_source_review_before_changed_GPU_gate",
+  "study": "H2bt",
+  "packet_sha256": "98c736436dcdc91e00b0cf102c3e5c6fa204b105b494e4f01bdf94446d86751e",
+  "source_bindings_verified": 169,
+  "evidence_bindings_verified": 131,
+  "synthetic_replays": {
+    "artifacts/research/20261114/loki/h2bt-independent-review-v1/bp_first_packed_controls/study-synthetic-gate.json": "738d335470217b1436f21fa7eab6a6f7f0961e5237da1a7127892d11a5573f94",
+    "artifacts/research/20261114/loki/h2bt-independent-review-v1/bp_first_packed_controls/mapping-synthetic-gate.json": "95933787fe9d25d85c001e31910a7f29c9c27d3a6ae0c1c177ad6414245b0b75",
+    "artifacts/research/20261114/loki/h2bt-independent-review-v1/bp_first_packed_controls/global-audit-synthetic-gate.json": "dbf0e9025bec03437940684a7b4dd6991705820ec8b08600ca8316250a1c9877",
+    "artifacts/research/20261114/loki/h2bt-independent-review-v1/bp_first_packed_controls/readiness-synthetic-gate.json": "ba2f8ad0c5cdf5005610a072f5670bf0f1df19e386155a29c355e99b2b87f9ca",
+    "artifacts/research/20261114/loki/h2bt-independent-review-v1/bp_first_packed_controls/cost-synthetic-gate.json": "65950e6f219fca3cc72d9fade91931396f304d60a5488dda3c76648b299d9194"
+  },
+  "reviewed": [
+    "packed_controls_pipeline.py",
+    "packed_controls_source_parity.py",
+    "packed_controls_study.py",
+    "audit_packed_controls_cohort.py",
+    "audit_packed_controls.py",
+    "packed_dispatch_queue.py",
+    "packed_dispatch_accounting.py",
+    "endpoint_dispatch_batch.py",
+    "endpoint_dispatch_pipeline.py",
+    "packed_dispatch_source_parity.py",
+    "freeze_packed_controls.py",
+    "seal_packed_controls.py"
+  ],
+  "findings": [
+    "All three newly executed modes use the same charged readiness/queue/materialization/answer/scatter/finalization host harness.",
+    "LP96 readiness loads only LP checkpoint and float64 copy; both mixed policies load BP and LP.",
+    "Unchanged batch code includes all solver dependencies, numerical acceptance and return costs before answer barrier.",
+    "Predetermined extra slot performs no fake inputs or GPU batch; independent cohort audit reconstructs all source identities and actual cardinalities.",
+    "LP-only source parity checks complete LP trajectories by overriding zero subset_indices with all local LP identities for transcript replay.",
+    "Every final field, required BP logits/energy/margin, all LP trajectory fields and per-input trace mapping retain the declared source contracts.",
+    "The two 5 percent six-block median endpoints remain separate and use exact fractions from stored timings.",
+    "Final freeze/seal require complete workers inside wall/RSS caps, not just passed intermediate gate receipts."
+  ],
+  "gpu_executions": 0,
+  "fresh_scientific_draws": 0,
+  "scientific_files_modified": false,
+  "blockers": [],
+  "limitation": "This review and synthetic replay authorize no accuracy or timing claim; actual changed GPU source gates and final protocol review remain required."
+}

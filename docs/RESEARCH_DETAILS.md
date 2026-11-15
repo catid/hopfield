@@ -261,3 +261,25 @@ On 72 fresh banks, a fixed shared-corruption process gives both the supplied joi
 Keeping hierarchical MAP selection in both arms while matching only tree weights to the uniform truth source cuts calls from **3,163 to 2,953**, a **6.64%** saving across 1,024 fresh pairs. The fixed 2% target passes. Both arms identify the same **1,008** truths and leave the same **16** unresolved. Common MAP routing and exactness are independently checked correctness invariants under complete certified calculations. Realized costs improve in 216 cases, worsen in 43 and tie in 765; expected-cost improvement does not imply shorter paths in every case. [Proof scope, all shared failures and archive boundary](../research/20261114/loki/h3ca/REPORT.md).
 
 ![Query costs and retained shared failures](../results/research/loki/h3ca/tree-weight-cost.png)
+
+## Repeated measurements can replace source diversity in one synthetic setting
+
+On the examined H4bc graph cohort, 600 colorings queried three times recover **256/256** exact graphs, versus **253/256** from 1,800 colorings queried once. The first noisy response and inferred degree are shared, and both arms spend the same noisy-label budget. All three earlier failures become exact, with no losses. The two fixed targets pass; fresh-graph confirmation remains unrun. Conditional-independent repeat noise here differs from the correlated-repeat official-source study. [Full source, channel, accounting and proof replay](../research/20261114/foureyes/REPORT-repeat-diversity.md).
+
+![Repeated measurement comparison](../assets/figures/repeat-diversity.png)
+
+## Final stop state
+
+Research stopped after the current round at the user's request. [The final status](RESEARCH_STATUS.md) separates measured outcomes from prepared but unrun experiments and records the final monitoring deviation.
+
+## More distinct sources rescue the correlated-repeat pipeline
+
+On 72 fresh paired official-source banks, 270 boards queried once recover **72/72** graphs, versus **0/72** for 90 boards queried three times under the fixed correlated-repeat law. Both prespecified targets pass. Both methods know their nominal channels; the intervention triples the source requirement while keeping the noisy-response budget equal. Its final synchronous counters prove runtime-budget compliance despite a process-exit race that terminated the monitoring thread near completion. [Complete outcome, query accounting and fault evidence](../research/20261114/ripper/REPORT-diversity-after-correlation.md).
+
+![All fresh source-diversity pairs](../assets/figures/diversity_after_correlation.png)
+
+## Pack the same maze routes into fewer solver batches
+
+Stable offline packing reduces complete answer cost **31.336402%** versus a newly executed original-order dispatcher on the examined 4,096-maze mixture. All **147,456** timed outputs and trajectories preserve the source results; every one of the six pairs improves. Host preparation, packing, real partial batches, scatter and model readiness are charged. The later matched comparison with LP96 and always-cascade was prepared but its timing never launched. [Measured result and unrun follow-ups](../research/20261114/work/REPORT.md#h2bs-stable-offline-packing-supports-the-10-complete-cost-saving-target).
+
+![All packed-dispatch timing pairs](../results/research/work/bp-first-packed-dispatch/bp-first-packed-dispatch.png)

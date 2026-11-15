@@ -1,7 +1,9 @@
 # Public results
 
 
-Latest: [Correlated repeats falsify both recovery targets at 0/72](../research/20261114/ripper/REPORT-correlated-repeat.md). [Changing tree weights while retaining MAP routing saves 6.64% of paid queries](../research/20261114/loki/h3ca/REPORT.md), with the same 1,008/1,024 exact identifications and 16 retained failures.
+Final round: [Source diversity recovers the graph in 72/72 fresh source banks versus 0/72 with correlated repeats](../research/20261114/ripper/REPORT-diversity-after-correlation.md), with equal noisy-label budgets, three times as many sources and a disclosed monitoring fault. [Repeated independent measurements recover 256/256 examined synthetic graphs versus 253/256](../research/20261114/foureyes/REPORT-repeat-diversity.md). [Packed maze dispatch saves 31.34% versus the original dispatcher](../research/20261114/work/REPORT.md#h2bs-stable-offline-packing-supports-the-10-complete-cost-saving-target). Research is stopped; [prepared but unrun studies](../docs/RESEARCH_STATUS.md) have no experimental conclusions.
+
+Previous: [Correlated repeats falsify both recovery targets at 0/72](../research/20261114/ripper/REPORT-correlated-repeat.md). [Changing tree weights while retaining MAP routing saves 6.64% of paid queries](../research/20261114/loki/h3ca/REPORT.md), with the same 1,008/1,024 exact identifications and 16 retained failures.
 
 Recent: [Fresh pooling with a retained audit correction](../research/20261114/foureyes/REPORT-fresh-pooled-donor.md) recovers 253/256 versus 239/256. [Mixed-maze dispatch](../research/20261114/work/REPORT.md#h2br-endpoint-dispatch-preserves-accuracy-but-falsifies-both-cost-targets) preserves 4,096/4,096 accuracy but fails both cost targets.
 

@@ -1,0 +1,71 @@
+{
+  "status": "passed_fixed_balanced_fallback_and_independent_semantic_audit",
+  "checks": 1051,
+  "fixed_truth_paths": 20,
+  "rescued": 12,
+  "unresolved": 8,
+  "synthetic_paid_queries": 80,
+  "paid_queries_are_synthetic": true,
+  "actual_oracle_calls": 0,
+  "fresh_truth_draws": 0,
+  "fresh_source_draws": 0,
+  "exhaustive_selector_comparisons": 44,
+  "tied_comparisons": 44,
+  "explicit_unique_optimum": true,
+  "scan_budget": {
+    "candidate_board_cells": 5460,
+    "selection_requests": 80,
+    "maximum_candidate_board_cells": 500000000,
+    "rejected_request": null
+  },
+  "scan_cap": {
+    "candidate_board_cells": 0,
+    "selection_requests": 0,
+    "maximum_candidate_board_cells": 159,
+    "rejected_request": {
+      "requested_candidate_board_cells": 160,
+      "completed_candidate_board_cells": 0,
+      "maximum_candidate_board_cells": 159
+    }
+  },
+  "semantic_mutations_rejected": {
+    "truth_directed_nonoptimal_board": "full_boardwise_fallback_argmin_and_first_tie",
+    "later_equal_optimum_tie": "full_boardwise_fallback_argmin_and_first_tie",
+    "previously_queried_board": "full_boardwise_fallback_argmin_and_first_tie",
+    "incorrect_candidate_count": "full_boardwise_fallback_argmin_and_first_tie",
+    "undercharged_full_board_scan": "full_boardwise_fallback_argmin_and_first_tie",
+    "wrong_oracle_label": "immediate_answer_truth_and_filter_binding",
+    "premature_true_singleton": "fallback_final_receipt_and_nonnegative_timing",
+    "unpaid_label_reuse": "exact_event_order_query"
+  },
+  "benchmark": {
+    "shape": [
+      64,
+      8192
+    ],
+    "repetitions": 3,
+    "vector_seconds": [
+      0.001439188956283033,
+      0.0011934100184589624,
+      0.0011840059887617826
+    ],
+    "scalar_seconds": [
+      0.020172749005723745,
+      0.0200444069923833,
+      0.020045579003635794
+    ],
+    "vector_median": 0.0011934100184589624,
+    "scalar_median": 0.020045579003635794,
+    "median_ratio": 16.796891842353087,
+    "candidate_board_cells_per_repeat": 524096,
+    "scope": "Synthetic selector-only timing; not scientific end-to-end speedup or a fresh-source pilot"
+  },
+  "source_sha256": {
+    "fallback.py": "76b51cf64a82dff8117c391835510843d37752b05c46b3004f7db1da0c4d0c7a",
+    "audit_fallback.py": "9f3f9f112ddfc62dd2e1ca4cd6bacdf3c423b769883a4d4880cfa271a2973d41",
+    "fallback_gate.py": "c768a19c78557ccb68869bebac7df1e835a7da23384b9b25cc4c89265b8242d2",
+    "oracle.py": "d0d50e18d98478b1e9ae1866ca706ba5fce1df35e81924187d555784f3f31502",
+    "audit_queries.py": "8410ad483d378ec920474b53f4440579c471b2fa7121d03370693912e0c34fc8",
+    "ledger.py": "4ffe3b14d6701ef78ee910356248ae0e8e0fd38e689804d4200fca78943522be"
+  }
+}

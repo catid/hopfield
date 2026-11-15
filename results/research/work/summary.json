@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-11-15T16:26:10.149501+00:00",
+  "updated_utc": "2026-11-15T17:11:48+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
-  "status": "Ongoing research; H2br endpoint dispatcher independently audited",
+  "status": "Stopped at user request; H2bs last measured result; H2bt timing unrun; H2bu design only",
   "host": "work",
   "jobs": 2320,
   "run_arm_rows": 7647,
@@ -1832,6 +1832,54 @@
         "minimum_saving": 0.05,
         "decision": "falsified"
       }
+    },
+    {
+      "campaign": "bp_first_packed_dispatch",
+      "hypothesis": "H2bs_complete_cost_saving10",
+      "outcome": {
+        "pairs": [
+          {
+            "pair": 0,
+            "original_order_seconds": 118.93167108198395,
+            "packed_seconds": 81.78610965615371,
+            "saving": 0.3123269108043092
+          },
+          {
+            "pair": 1,
+            "original_order_seconds": 119.00090965529671,
+            "packed_seconds": 81.81284350604983,
+            "saving": 0.3125023687379153
+          },
+          {
+            "pair": 2,
+            "original_order_seconds": 119.16772211127682,
+            "packed_seconds": 81.92974520806456,
+            "saving": 0.31248375183709615
+          },
+          {
+            "pair": 3,
+            "original_order_seconds": 122.13476822030498,
+            "packed_seconds": 83.66432248463389,
+            "saving": 0.31498357344305633
+          },
+          {
+            "pair": 4,
+            "original_order_seconds": 122.29189019091427,
+            "packed_seconds": 83.72354379511671,
+            "saving": 0.31537942815003617
+          },
+          {
+            "pair": 5,
+            "original_order_seconds": 122.29644879640546,
+            "packed_seconds": 83.86776413262123,
+            "saving": 0.3142256790118155
+          }
+        ],
+        "median_saving": 0.3133640238748654,
+        "exact_median_fraction": "538409803837726442962947/1718160869841037819661380",
+        "minimum_saving": 0.1,
+        "decision": "supported"
+      }
     }
   ],
   "run_tables": [
@@ -2208,6 +2256,18 @@
       "frozen_utc": "2026-11-15T15:52:11.958680+00:00",
       "hypothesis": "H2br",
       "status": "completed"
+    },
+    "bp-first-packed-dispatch-protocol": {
+      "sha256": "9f4c7300dda5ccb4bbee7c42ea8f2fe45adc4d1240f780fba52b16cac8f38743",
+      "frozen_utc": "2026-11-15T16:31:15.692810+00:00",
+      "hypothesis": "H2bs",
+      "status": "completed"
+    },
+    "bp-first-packed-controls-protocol": {
+      "sha256": "312135a1cd52fd63fa605b89b2f72f7c3d422a072d971018cdfa440cf55b968a",
+      "frozen_utc": "2026-11-15T17:10:40.622454+00:00",
+      "hypothesis": "H2bt",
+      "status": "frozen_but_timing_unrun_at_user_stop"
     }
   },
   "audit_sha256": {
@@ -2268,7 +2328,8 @@
     "artifacts/research/20261114/work/bp_first_fresh_confirmation/audit.json": "442f67137a2699a78cb4eb64162a3e08e183618f661c4566baf04ff477c2c50f",
     "artifacts/research/20261114/work/bp_first_endpoint_shift/audit.json": "da7e8f91fb69cd995936ab6e80776b88a861d763ac352833becd024c5fad9a6b",
     "artifacts/research/20261114/work/bp_first_far_placement/audit.json": "c0ad132fece750713d32b19918ab3aa1bfbe6ba1d7c525ea45fa069ff54d6635",
-    "artifacts/research/20261114/work/bp_first_endpoint_dispatch/audit.json": "669a530d5e9f5fcc82d9734c337b43e818626a73a5af61e50bd36e159cb4d6e2"
+    "artifacts/research/20261114/work/bp_first_endpoint_dispatch/audit.json": "669a530d5e9f5fcc82d9734c337b43e818626a73a5af61e50bd36e159cb4d6e2",
+    "artifacts/research/20261114/work/bp_first_packed_dispatch/audit.json": "775728badd560804cafae11d7aae2d6e7cd1d44da73e73143cb5d0915bcb6660"
   },
   "model_sha256": {
     "0": {
@@ -4823,5 +4884,85 @@
       ]
     },
     "scope": "Independent4096-maze IID50:50 uniform/opposite-region endpoint mixture with frozen Manhattan182 dispatcher; four logical arms, three fixed models. Block0 is the predetermined accuracy copy. Source gates,warmups,LP internal prefixes and repeated timing blocks add no scientific counts."
+  },
+  "bp_first_packed_dispatch": {
+    "hypothesis": "H2bs",
+    "source_cohort": "H2br",
+    "fresh_inputs": 0,
+    "new_scientific_jobs": 0,
+    "new_scientific_evaluations": 0,
+    "timed_model_pipeline_copies": 147456,
+    "source_preservation": "All per-input final outputs, source model selections, original margins, hidden steps/couplings and normalized internal LP transcripts preserved across all actual copies.",
+    "cost_endpoint": {
+      "pairs": [
+        {
+          "pair": 0,
+          "original_order_seconds": 118.93167108198395,
+          "packed_seconds": 81.78610965615371,
+          "saving": 0.3123269108043092
+        },
+        {
+          "pair": 1,
+          "original_order_seconds": 119.00090965529671,
+          "packed_seconds": 81.81284350604983,
+          "saving": 0.3125023687379153
+        },
+        {
+          "pair": 2,
+          "original_order_seconds": 119.16772211127682,
+          "packed_seconds": 81.92974520806456,
+          "saving": 0.31248375183709615
+        },
+        {
+          "pair": 3,
+          "original_order_seconds": 122.13476822030498,
+          "packed_seconds": 83.66432248463389,
+          "saving": 0.31498357344305633
+        },
+        {
+          "pair": 4,
+          "original_order_seconds": 122.29189019091427,
+          "packed_seconds": 83.72354379511671,
+          "saving": 0.31537942815003617
+        },
+        {
+          "pair": 5,
+          "original_order_seconds": 122.29644879640546,
+          "packed_seconds": 83.86776413262123,
+          "saving": 0.3142256790118155
+        }
+      ],
+      "median_saving": 0.3133640238748654,
+      "exact_median_fraction": "538409803837726442962947/1718160869841037819661380",
+      "minimum_saving": 0.1,
+      "decision": "supported"
+    },
+    "scope": "Performance-only examined-source packing comparison with newly executed original-order control. All host queue/packing/scatter charged; no new accuracy or population claim and no historical timing substitution."
+  },
+  "bp_first_packed_controls": {
+    "hypothesis": "H2bt",
+    "status": "frozen_but_timing_unrun_at_user_stop",
+    "source_gate_copies": 2304,
+    "actual_timed_model_pipeline_copies": 0,
+    "fresh_inputs": 0,
+    "new_scientific_jobs": 0,
+    "new_scientific_evaluations": 0,
+    "cost_endpoint_status": "not_run",
+    "cost_decisions": null,
+    "status_evidence": "bp-first-packed-controls-unrun/unrun-status.json",
+    "scope": "Frozen protocol and passed source gates only; no complete-cohort cost result."
+  },
+  "bp_first_packed_confirmation": {
+    "hypothesis": "H2bu",
+    "status": "design_only_unrun_at_user_stop",
+    "proposal": "research/20261114/work/bp-first-packed-confirmation-proposal.json",
+    "proposal_sha256": "25507cd8b093f8b2247c0be8f6f4af2c431d267214df511fb1d3bdadc612745f",
+    "initial_design_sha256": "8383b5a2f5dce6cc8dc756dad683e37037ee16af84f7ecc12a9e4d7f56fd63e7",
+    "seed_reserved": false,
+    "fresh_inputs_drawn": 0,
+    "changed_implementation": false,
+    "new_scientific_jobs": 0,
+    "new_scientific_evaluations": 0,
+    "scope": "Unreviewed proposed fresh confirmation only; no protocol freeze, seed reservation, dataset draw, fit, inference or endpoint result."
   }
 }

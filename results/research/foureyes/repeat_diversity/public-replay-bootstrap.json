@@ -1,0 +1,82 @@
+{
+  "status": "passed",
+  "banks": 256,
+  "regenerated_original_raw_archives": 256,
+  "regenerated_repeat_noise_archives": 256,
+  "new_scientific_draws": 0,
+  "primary": {
+    "exact_recovery": {
+      "lower": 256,
+      "upper": 256,
+      "required": 245,
+      "decision": "supported"
+    },
+    "regressions": {
+      "lower": 0,
+      "upper": 0,
+      "maximum": 4,
+      "decision": "supported"
+    }
+  },
+  "all256_banks_retained": true,
+  "grouped": [
+    {
+      "arm": "baseline",
+      "success": 253,
+      "resolved_failure_nonexact": 3,
+      "resolved_failure_fractional": 0,
+      "unresolved": 0,
+      "families": [
+        {
+          "family": "cycle81",
+          "exact": 63
+        },
+        {
+          "family": "power2",
+          "exact": 62
+        },
+        {
+          "family": "power3",
+          "exact": 64
+        },
+        {
+          "family": "cliques9",
+          "exact": 64
+        }
+      ]
+    },
+    {
+      "arm": "repeat",
+      "success": 256,
+      "resolved_failure_nonexact": 0,
+      "resolved_failure_fractional": 0,
+      "unresolved": 0,
+      "families": [
+        {
+          "family": "cycle81",
+          "exact": 64
+        },
+        {
+          "family": "power2",
+          "exact": 64
+        },
+        {
+          "family": "power3",
+          "exact": 64
+        },
+        {
+          "family": "cliques9",
+          "exact": 64
+        }
+      ]
+    }
+  ],
+  "paired_gains": 3,
+  "paired_losses": 0,
+  "new_certificates_checked": 256,
+  "inherited_selected_certificates_checked": 256,
+  "mutations_rejected": 1536,
+  "replay_wall_seconds": 7.3216698479955085,
+  "unavailable_training_only_source": [],
+  "scope": "Byte-identical source/noise regeneration, independent provenance and count replay, both selected LP certificates and mutations, paired outcomes and timing receipts. No LP solving or BP retraining; BP is prior distinct-source context only."
+}

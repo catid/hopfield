@@ -1,0 +1,67 @@
+{
+  "hypothesis_id": "H2bs",
+  "status": "design_only_before_H2br_outcomes_no_changed_execution",
+  "question": "Does stable offline batch packing reduce complete answer-production cost of the unchanged Manhattan182 dispatcher by at least10%, while exactly preserving its per-input outputs on the complete examined H2br cohort?",
+  "scope": "Performance-only execution experiment on all4096 already generated H2br inputs, all3fixed models. No fresh accuracy, population, online request-latency or causal distance claim; no new fits or generator draws.",
+  "source": {
+    "protocol_sha256": "d295f1838655be8f03555ee0c09df8335186a46852e42f1c243ea6b4625df23d",
+    "base_seed": 2026111532,
+    "inputs": 4096,
+    "fixed_models": [0,1,2],
+    "prerequisite": "H2br full independent audit must pass before implementation may consume source results. Bind its final seal, audit, all data and actual block0 LP96/BP/dispatcher archives, original parameters and source files. Do not change this design based on H2br endpoints.",
+    "information_used_for_design": "H2br source gates and input audit passed; fresh timing is running. No H2br graph/outcome or aggregate cost join has been read. H2bo/H2bp/H2bq results are known."
+  },
+  "table_controls": [
+    "BP AdamW original H2br executed-prefix control, explicitly source context only; standalone BP service time not measured",
+    "LP96 original H2br control, explicitly source context only; its prior timings are not substituted into the new paired endpoint",
+    "Original-order Manhattan182 dispatcher, newly executed complete cost control",
+    "Stable packed Manhattan182 dispatcher, newly executed candidate"
+  ],
+  "unchanged_policy": "Every actual input still uses D<182 directLP96 and D>=182 BP then simple-path geometry then actual LP96 rescue. Same models, initialization, hidden dynamics, solver caps, certificates, numerical acceptance and source-preserving final selection. Use the unchanged H2br endpoint_dispatch_batch.run for every nonempty actual batch. No learned predictor, outcome-informed selection, label, shortest distance, mixture flag or source-error flag enters routing or packing.",
+  "offline_availability": "The entire4096-input cohort is available before processing begins. This is offline batching of an available cohort. No arrival process or request waiting time is modeled; queue latency before cohort availability and online response latency are outside scope. Report only the declared complete cohort answer-production cost under the warmed runtime/filesystem-cache regime.",
+  "fixed_ordering": {
+    "model_order": "Seeds0,1,2, in ascending order, with fresh complete readiness per arm/cohort.",
+    "source_order": "Global input indices0..4095, corresponding to original shard order and within-shard order; indices serve only identity and stable ordering.",
+    "control": "Retain original consecutive32-input batches and unchanged H2br dispatcher execution. No outcome or queued-answer reuse.",
+    "candidate_queue_construction": "For each model, inside a charged host preparation interval, extract endpoints from all actual tokens and partition by D>=182 versus D<182. Both groups preserve ascending global input index. Process the high group first, then the low group. Construct actual host batch arrays from original shard storage inside charged intervals. Classification is repeated per model, not amortized across models; the unchanged batch routine also charges its own token classification.",
+    "batches": "Within each group take consecutive chunks of at most32. Execute each last partial chunk at its true cardinality1..31; no padding, duplicate evaluation, drop, replacement or cross-group batch. Empty groups create no solver call. Keep any LP rescues inside their own high-group batch; do not collect rescues across batches.",
+    "scatter": "Restore every actual final result and model provenance to original global input order in charged host mapping/scatter intervals. Validate every model-input identity appears exactly once per arm; output equality and all failure denominators use that complete order."
+  },
+  "synchronization_and_cost": {
+    "complete_cost": "Fresh readiness for both BP and LP models/double copies for all3fixed models, all queue endpoint extraction/validation/classification, index allocation/sorting or stable partition, host batch packing/materialization, actual token transfer, hidden/readout, all executed solver dependencies, geometry, certificates, subset gathers/scatter, final global identity mapping and output materialization are charged. Include host orchestration inside those answer-production intervals. No queue construction or global scatter may be moved to excluded preload/diagnostics.",
+    "control_boundary": "The new common harness charges any required control host batch selection/materialization and final mapping as performed. The new paired cost is a complete measurement of both arms under this harness; do not replace it with historical H2br times or imply an exactly identical historical timing boundary.",
+    "exclusions": "Imports/CUDA initialization, fixed source warmups, raw source file preload, scientific diagnostics, archives, independent audits and host synchronization waits remain separately recorded outside answer cost and inside worker wall budgets. Raw preloading retains the same shard-token representation for both arms; candidate index-based packing is subsequently charged.",
+    "host_barriers": "No independent CPU audit/extraction overlaps timing. Both workers drain archives before either charged preparation/readiness/answer/scatter stage; both finish their charged work before either diagnostic/archive stage. Use129 predetermined host scheduling slots per model (387total), because ceil(Nhigh/32)+ceil(Nlow/32)<=129 for N4096. Original order has128actual batches/model; packed has128or129. A worker without an actual batch in a trailing slot performs no GPU work and records an explicit zero-work slot; its host wait is excluded and no fake row/evaluation is added. All real input preparation and solver work remain charged. This synchronization padding adds no padded input or filler GPU job."
+  },
+  "timing_schedule": [
+    {"pair":0,"gpu":0,"order":["original_order","packed"]},
+    {"pair":1,"gpu":0,"order":["packed","original_order"]},
+    {"pair":2,"gpu":0,"order":["original_order","packed"]},
+    {"pair":3,"gpu":1,"order":["packed","original_order"]},
+    {"pair":4,"gpu":1,"order":["original_order","packed"]},
+    {"pair":5,"gpu":1,"order":["packed","original_order"]}
+  ],
+  "balance": "Six complete pairs, three/GPU; each arm appears first in three pairs overall. GPU0 has original-first twice and GPU1 packed-first twice, balancing the unavoidable odd per-GPU count. Every pair includes every source input/model; no timing replacement or optional repeat.",
+  "fixed_endpoint": {
+    "minimum_median_saving": 0.10,
+    "arithmetic": "Per pair saving=1-packed_complete_seconds/original_order_complete_seconds. Exact rational arithmetic on stored measured floats; median is mean of ordered positions3and4. Support if median>=10%, otherwise falsify. No timing confidence interval or hardware-general conclusion.",
+    "integrity_prerequisite": "All source and repeated per-input outputs, solver counters/flags, numerical decisions, native final logits where executed, hidden steps and observed couplings must match the audited H2br source after mapping; original float64 margins and energies use the inherited1e-9/1e-6 numerical tolerances with matching nonfinite masks. Full normalized LP subset trajectories and candidate comparisons must agree with the source full LP control. Any parity failure makes the performance conclusion incomplete; never repair, drop or replace that case.",
+    "accuracy": "Exact complete-source preservation is an integrity condition, not a new accuracy or population endpoint. Geometry remains insufficient to certify shortestness generally."
+  },
+  "before_changed_timing_gates": {
+    "source_selection": "First64inputs in each of H2br shards0and15, all3models:128source mazes,384model-inputs per actual arm per GPU. Fixed by position before source outcomes are read; no failure-selected gate. Compare original and packed execution to immutable H2br source outputs, all internal LP states, full BP logits where executed, couplings, flags/counters and original-model certificates.",
+    "synthetic": "Exhaustive small stable partitions and identity/scatter cases; token-distance181/182/183 boundaries; empty high/low groups; group counts around31/32/33 and63/64/65; true partial batches; no padding/duplicate/drop;129-slot and387-slot ledgers including zero-work slots; required host charges; failed worker/budget/partial archive retention and overwrite refusal. Verify source-index or outcome metadata cannot enter partition decisions.",
+    "warmup": "Fixed first32source inputs in shard0, all3models and both actual arms, outside complete cost and inside worker budgets. Every measured arm constructs its models afresh afterward."
+  },
+  "proposed_budgets": {
+    "source_gate_wall_seconds_per_gpu":240,
+    "timing_wall_seconds_per_gpu_including_warmups":2400,
+    "host_barrier_timeout_seconds":60,
+    "worker_rss_limit_gib":8,
+    "independent_final_audit_wall_seconds":900,
+    "independent_final_audit_processes":16,
+    "rationale": "Twelve timed full-cohort arm executions total versus18in H2br, with explicit host packing/scatter and partial-batch auditing. All limits are prospective; no extension or replacement after outcomes."
+  },
+  "accounting": {"fresh_inputs":0,"new_scientific_jobs":0,"new_scientific_evaluations":0,"timing_pairs":6,"actual_timed_arms":2,"measured_model_pipeline_copies":147456},
+  "evidence": "Seal all actual answer and host-stage receipts before inspecting cost endpoint aggregates. Retain every source model-input identity, group/chunk/global mapping, true batch cardinality, zero-work host slot, all six paired costs, readiness/packing/scatter and per-operation components, GPU/process/live counters, underlying states/trajectories, all failures and source hashes. Portable public evidence must distinguish complete scalar/source preservation checks from selected direct-factor fixtures and separately retained full internal audits."
+}

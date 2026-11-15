@@ -1,0 +1,53 @@
+"""Truth-blind exact weighted-depth optimization with all-alternative proofs."""
+class ResourceCap(RuntimeError):pass
+
+
+class Budget:
+    def __init__(self,max_states=2000000,max_splits=50000000):self.max_states=max_states;self.max_splits=max_splits;self.states=0;self.splits=0
+    def state(self):
+        if self.states>=self.max_states:raise ResourceCap('Global state cap; whole-study incomplete')
+        self.states+=1
+    def split(self):
+        if self.splits>=self.max_splits:raise ResourceCap('Global split-attempt cap; whole-study incomplete')
+        self.splits+=1
+
+
+def compile_tree(candidates,weights,catalog,depth,budget):
+    assert candidates==sorted(set(candidates)) and 1<=len(candidates)<=16 and len(weights)==len(candidates) and all(isinstance(w,int) and w>0 for w in weights)
+    full=(1<<len(candidates))-1;states={};mass_cache={}
+    def mass(mask):
+        if mask not in mass_cache:mass_cache[mask]=sum(w for i,w in enumerate(weights) if mask&(1<<i))
+        return mass_cache[mask]
+    def solve(mask,left):
+        key=f'{mask}:{left}'
+        if key in states:return int(states[key]['optimal_cost']) if states[key]['feasible'] else None
+        budget.state();record=dict(mask=mask,depth_remaining=left,models=mask.bit_count(),weight_sum=str(mass(mask)),feasible=False,optimal_cost=None,reason=None,attempts=[]);states[key]=record
+        if mask.bit_count()==1:record.update(feasible=True,optimal_cost='0',reason='singleton_leaf');return 0
+        if mask.bit_count()>2**left:record['reason']='binary_information_bound';return None
+        partitions={}
+        for entry in catalog:
+            positive=mask&entry['signature'];negative=mask^positive
+            if not positive or not negative:continue
+            canonical=min(positive,negative);proposal=dict(canonical_side=canonical,positive_mask=positive,negative_mask=negative,board_index=entry['lexfirst_board_index'])
+            if canonical not in partitions or proposal['board_index']<partitions[canonical]['board_index']:partitions[canonical]=proposal
+        options=sorted(partitions.values(),key=lambda row:row['board_index']);record['canonical_partition_count']=len(options);best=None;chosen=None
+        for option in options:
+            budget.split();attempt=dict(option);a=option['negative_mask'];b=option['positive_mask']
+            if max(a.bit_count(),b.bit_count())>2**(left-1):attempt['result']='child_binary_information_bound';record['attempts'].append(attempt);continue
+            negative_key=f'{a}:{left-1}';attempt['negative_state']=negative_key;negative=solve(a,left-1)
+            if negative is None:attempt['result']='negative_child_infeasible';record['attempts'].append(attempt);continue
+            positive_key=f'{b}:{left-1}';attempt['positive_state']=positive_key;positive=solve(b,left-1)
+            if positive is None:attempt['result']='positive_child_infeasible';record['attempts'].append(attempt);continue
+            cost=mass(mask)+negative+positive;attempt.update(result='both_children_feasible',candidate_cost=str(cost));record['attempts'].append(attempt)
+            if best is None or cost<best:best=cost;chosen=dict(option);record.update(chosen_split=chosen,negative_state=negative_key,positive_state=positive_key)
+        if best is None:record['reason']='all_nontrivial_partitions_exhausted';return None
+        record.update(feasible=True,optimal_cost=str(best),reason='all_alternatives_optimized');return best
+    root=f'{full}:{depth}';cost=solve(full,depth);leaf_depths={}
+    if cost is not None:
+        for local,cid in enumerate(candidates):
+            key=root;used=[]
+            while states[key]['reason']!='singleton_leaf':
+                node=states[key];split=node['chosen_split'];assert split['board_index'] not in used;used.append(split['board_index']);key=node['positive_state'] if split['positive_mask']&(1<<local) else node['negative_state']
+            assert states[key]['mask']==1<<local and len(used)<=depth;leaf_depths[str(cid)]=len(used)
+        assert cost==sum(w*leaf_depths[str(cid)] for cid,w in zip(candidates,weights))
+    return dict(candidates=candidates,weights=[str(w) for w in weights],depth_limit=depth,root_state=root,feasible=cost is not None,optimal_cost=str(cost) if cost is not None else None,weight_sum=str(sum(weights)),states=states,leaf_depths=leaf_depths,worst_leaf_depth=max(leaf_depths.values()) if leaf_depths else None)
