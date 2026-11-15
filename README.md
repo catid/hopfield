@@ -40,6 +40,8 @@ Balancing every pair’s exposure gives **32/32**, tying uniform masks at 5% noi
 
 The curvature signal survives a stricter control: **all 32 real banks beat shuffled controls in both mask arms**, even when every cell’s observed digit histogram is preserved exactly. All 13 nonexact real graphs also pass this contrast, so detecting structure does not certify graph recovery. [Histogram-preserving control](research/20261114/ripper/REPORT-marginal-shuffle.md) · [Independent-label null](research/20261114/ripper/REPORT-null-signal.md) A subsequent fixed permutation test signals on **32/32 examined real banks and 0/32 fresh IID null banks**, while accepting all 13 nonexact real graphs. Its null calibration concerns structure detection; the real sensitivity is retrospective. [Signal test and its limits](research/20261114/ripper/REPORT-signal-detection.md)
 
+A prospective stopping rule—stop at the first two consecutive identical integral graphs—recovers **32/32 fresh graphs** at 7.5% independent noise. It needs **281.25 rows on average**, missing the separate ≤270-row target. All 360 rows were physically acquired; this evaluates stopping on their literal prefixes. [Accuracy, full acquisition costs and failed budget target](research/20261114/ripper/REPORT-stability-stopping.md)
+
 ## Cycle cuts solve fresh dense mazes
 
 ![Fresh dense-maze confirmation: all inputs solved, with zero fallback calls](results/research/work/fallback-confirmation/fallback-confirmation.png)
@@ -49,6 +51,8 @@ At **180×180 and 80% loop density**, LP96 solves **4,096/4,096 new mazes jointl
 Keeping the fallback ready adds **0.153%** measured answer cost, including BP model loading. This cohort tests accepted LP96 outputs and unused fallback readiness; it supplies no fresh conditional rescue evidence. An earlier cohort retained one LP96 failure that BP solved, and actual numerical-only fallback was verified there. That earlier 99.9% endpoint remains **inconclusive**. [Retained failure](research/20261114/work/REPORT.md#h2bh-fresh96-reaches-40954096-the-absolute-999-target-remains-inconclusive) · [Source fallback verification](research/20261114/work/REPORT.md#h2bj-the-known-bp-rescue-executes-correctly-and-also-passes-the-original-lp-certificate)
 
 The decoder supplies an explicit graph prior and permits moves that increase the learned energy. Choosing cycle cuts by learned energy did not improve the earlier matched comparison over lexicographic ordering. Local energy certificates alone do not establish graph validity, shortestness or global optimality; all reported solves receive independent graph checks.
+
+Testing that limitation directly, an additional LP energy certificate rejects only **1 of 510 archived wrong BP answers**, while retaining all 11,778 correct answers. Its ≥90% error-rejection target fails. [Complete failure cases and independent verification](research/20261114/work/REPORT.md#h2bl-an-additional-lp-certificate-rejects-only-1-of-510-bp-graph-errors)
 
 The earlier fresh confirmations also solve **8,192/8,192 at 120×120**, **4,096/4,096 at 180×180 with a larger move limit**, and **4,096/4,096 at 50% loop density** across all three fixed models. These are separate finite cohorts and policies; their prespecified minimum-gain endpoints have different outcomes. [120×120 transfer](research/20261114/work/REPORT.md#h2au-fixed-cycle-cut-policies-solve-the-fresh-8192-input-cohort) · [Larger-move confirmation](research/20261114/work/REPORT.md#h2ax-fresh-180180-cap-confirmation-supports-safety-and-bp-noninferiority-the-minimum-gain-target-remains-inconclusive) · [50% density confirmation](research/20261114/work/REPORT.md#h2bc-fresh-bounded-decoder-confirmation-supports-the-budget-mechanism-while-the-one-point-gain-target-remains-inconclusive)
 
@@ -83,6 +87,10 @@ When 4,096 fresh rule-and-example cases are instead sampled from the declared pr
 Earlier failures remain explicit: posterior weighting increased actual cost on selected checkpoints, and uniform weighting's initial 2.83% saving missed its frozen 5% target. [Expected-versus-actual discrepancy](research/20261114/loki/h3bn/REPORT.md) · [Selected posterior diagnostic](research/20261114/loki/h3bo/REPORT.md) · [Retained uniform-target failure](research/20261114/loki/h3bp/REPORT.md)
 
 Switching to a question tree as soon as one fits also fails: it preserves the same 4,083 exact results but raises total paid calls from **10,355 to 10,937 (+5.62%)** on the archived cohort. Fewer preliminary questions do not necessarily mean fewer total labels. [Early-handoff test and cost decomposition](research/20261114/loki/h3bs/REPORT.md)
+
+Requiring the tree's exact expected cost to beat the remaining baseline lowers total calls to **10,291**, with the same 4,083 exact results. The **0.62%** saving misses the frozen 2% target: an expected-cost guarantee does not guarantee that finite-cohort reduction. [Guarded handoff, every paid query and proof](research/20261114/loki/h3bt/REPORT.md)
+
+![Exact expected-cost guard saves 0.62% of calls, below its 2% target](results/research/loki/h3bt/guarded-handoff-total-cost.png)
 
 ## Confidence weights recover answers under noisy labels
 

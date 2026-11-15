@@ -4,6 +4,9 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Repeated-graph stopping accuracy and acquisition budget | [All prefixes, stops and certificates](../results/research/ripper/stability_stopping/) | [plot_stability_stopping.py](../scripts/plot_stability_stopping.py) |
+| Additional maze certificate rarely rejects wrong answers | [Every failure and all scalar decisions](../results/research/work/cross-certificate-screen/) | [plot_cross_certificate_screen.py](../research/20261114/work/plot_cross_certificate_screen.py) |
+| Exact expected-cost guard misses the realized saving target | [All routes, counterfactuals and charged calls](../results/research/loki/h3bt/) | [plot_public.py](../research/20261114/loki/h3bt/plot_public.py) |
 | Fresh dense-maze confirmation with zero fallback calls | [All outcomes, costs and complete failure supplement](../results/research/work/fallback-confirmation/) | [plot_fallback_confirmation.py](../research/20261114/work/plot_fallback_confirmation.py) |
 | Conditional-randomization signal detection | [All 4,096 objective grids and exact tests](../results/research/ripper/signal_detection/) | [plot_signal_detection.py](../scripts/plot_signal_detection.py) |
 | Per-cell deficit normalization loses graph recoveries | [All normalized costs, scales and proofs](../results/research/foureyes/normalized_deficit/) | [plot_normalized_deficit.py](../scripts/plot_normalized_deficit.py) |

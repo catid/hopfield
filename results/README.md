@@ -2,6 +2,9 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Stopping on repeated graphs recovers 32/32; its separate label-budget target fails](../research/20261114/ripper/REPORT-stability-stopping.md)
+- [Additional LP certificate rejects only 1 of 510 BP graph errors](../research/20261114/work/REPORT.md#h2bl-an-additional-lp-certificate-rejects-only-1-of-510-bp-graph-errors)
+- [Exact expected-cost guard saves 0.62% of total queries, missing its 2% target](../research/20261114/loki/h3bt/REPORT.md)
 - [Fresh dense-maze confirmation solves 4,096/4,096; no fallback is triggered](../research/20261114/work/REPORT.md#h2bk-fresh-lp96-solves-40964096-the-fallback-branch-is-never-used)
 - [Conditional signal test: 32/32 examined real detections, 0/32 fresh null detections; no graph-confidence claim](../research/20261114/ripper/REPORT-signal-detection.md)
 - [Per-cell deficit normalization reduces exact graph recovery from 129/256 to 98/256](../research/20261114/foureyes/REPORT-normalized-deficit.md)

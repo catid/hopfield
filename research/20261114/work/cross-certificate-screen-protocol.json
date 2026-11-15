@@ -1,0 +1,717 @@
+{
+  "hypothesis_id": "H2bl",
+  "status": "frozen_before_source_gates_and_all_case_margins",
+  "scope": "Every archived H2bh BP control board: 4096 fixed source mazes and three immutable model seeds, 12288 model-inputs. No new decoder trajectories, hidden/readout computation, optimizer updates or independent accuracy samples. H2bk outcomes are not pooled.",
+  "motivation": "The three H2bj BP rescue boards also pass the original LP local certificate, while the H2bk fresh cohort never routes. Test whether the LP certificate can distinguish BP graph errors before considering a fresh BP-first cascade.",
+  "source_accounting": "Preserve all 12288 BP outputs, including any numerical or hidden failures. The previously audited H2bh graph outcomes have 11778 valid-shortest BP boards and510 graph failures. Reconstruct both classes independently after sealing margins; an empty or changed denominator is a provenance/cohort failure, not grounds to drop cases.",
+  "controls_in_table_order": [
+    "BP AdamW own numerical acceptance",
+    "Original LP local certificate alone on the unchanged BP board",
+    "BP own acceptance AND original LP certificate, primary screening policy"
+  ],
+  "acceptance": {
+    "BP_own": "Original hidden_good AND finite AND stopped AND finite original BP float64 minimum flip margin>=-1e-6, with correct fixed clamps. Report all source flags and own margins.",
+    "LP_cross": "Original hidden_good AND correct fixed clamps AND finite original LP float64 minimum flip margin>=-1e-6 on the unchanged BP board and cached original shared float32 couplings. BP stopping is not silently substituted for this independent model certificate.",
+    "primary_dual": "Conjunction of BP_own and LP_cross. Threshold-1e-6 is fixed. No graph feasibility, labels, distances, source success flags or identifiers enter any acceptance rule.",
+    "meaning": "A local flip certificate does not prove graph validity, shortestness or global optimality. Cross-only and dual acceptance remain separate, including any BP numerical failures."
+  },
+  "hypotheses": [
+    {
+      "id": "error_rejection",
+      "claim": "The primary dual screen rejects at least90% of all BP graph-shortest failures in this finite source cohort.",
+      "decision": "Support iff100*rejected_graph_failures>=90*all_graph_failures; otherwise falsify. Fixed finite denominator, no confidence or population claim."
+    },
+    {
+      "id": "valid_retention",
+      "claim": "The primary dual screen retains at least99% of all BP graph-shortest successes in this finite source cohort.",
+      "decision": "Support iff100*accepted_graph_successes>=99*all_graph_successes; otherwise falsify. Report every lost valid board; no tolerance or target adjustment."
+    }
+  ],
+  "staging": {
+    "before_freeze": "Review source and synthetic boundary tests. Bind every original dataset, checkpoint, parameter extract, source output and source audit hash; preserve all48jobs.",
+    "stage_A": "Two GPU workers calculate original LP float64 minimum flip margins and attaining-cell witnesses on every unchanged BP board, without loading labels, distances or graph outcomes. Preserve original BP numerical acceptance, raw cross acceptance and dual acceptance. Seal all48 output archives and receipts in a complete hash manifest before any new graph-outcome join.",
+    "stage_B": "Independent CPU implementation recomputes all BP and LP original minimum margins and witness values with direct extended-precision factors. Check float64/extended decision agreement at the fixed tolerance. Only after the complete seal is verified, independently validate every shortest label and classify all BP boards. Compute both primary targets plus separate control confusion matrices, per-seed results and numerical-failure accounting."
+  },
+  "gates": "Use existing H2bj three-case independently verified cross-model margins as an exact implementation gate after freeze. Preserve all expected hashes and do not use the gate outcomes to tune the threshold. Synthetic tests cover NaN/infinity and adjacent-ULP boundary behavior. Gate and all-case measurement share the original objective implementation; the final CPU checker imports neither Torch nor production policy code.",
+  "schedule": {
+    "gpu0": "Even-numbered source shards, all three seeds.",
+    "gpu1": "Odd-numbered source shards, all three seeds.",
+    "cpu_audit": "16 workers, one per source shard, sharing each input's shortest-distance work across its three fixed models."
+  },
+  "budgets": {
+    "gpu_worker_seconds_including_gate": 120,
+    "total_gpu_minutes": 4,
+    "independent_cpu_audit_seconds": 300,
+    "cpu_workers": 16,
+    "peak_cpu_rss_gib_per_gpu_worker": 8,
+    "no_extension": true
+  },
+  "performance": "Read only the required source NPZ arrays, batch the GPU margin calculation at32 inputs, and reuse frozen couplings. Record source I/O, transfers, margin calculation, sealing and worker wall times separately. No speed hypothesis or claimed model-inference improvement. No GPU filler or repeated trajectories.",
+  "reporting": "All12288 scalar margin/acceptance/outcome rows, both finite targets, three control confusion matrices, every numerical failure and per-model counts. Publish fixed index-based state fixtures and explicit classifier-error supplements; retain complete underlying source and measured artifacts on Work with bound hashes. Zero increment to fresh scientific totals. No cascade is executed or endorsed without a later separately reviewed fresh protocol.",
+  "frozen_utc": "2026-11-15T12:02:24.348055+00:00",
+  "jobs": [
+    {
+      "id": "shard00-s0",
+      "shard": 0,
+      "seed": 0,
+      "gpu": 0,
+      "outputs_sha256": "aa952c806bac7356899e1e2dff56a09518ac3149b89d2105751ee04c64a940c1",
+      "receipt_sha256": "5f49d192501499eb9eca24c3a60363494e933ea74e78f56168bba16f3c1cd6e8"
+    },
+    {
+      "id": "shard00-s1",
+      "shard": 0,
+      "seed": 1,
+      "gpu": 0,
+      "outputs_sha256": "4ed2600303d4455e525c60ef737e548293b404596f7ed7135653343f74de6c78",
+      "receipt_sha256": "d2830df7e8ab83d37d1005d8b9090426727cd0ed596a15fc99719da4dcd2b50c"
+    },
+    {
+      "id": "shard00-s2",
+      "shard": 0,
+      "seed": 2,
+      "gpu": 0,
+      "outputs_sha256": "ccf9d9323884a574f78f4e0233ed5f23035c27718bdb797beed7f152f9d8ea5a",
+      "receipt_sha256": "76cabe51001cb151f889f9e8649c7c1fb773c3389cfadfad16f0e97f69a796ab"
+    },
+    {
+      "id": "shard01-s0",
+      "shard": 1,
+      "seed": 0,
+      "gpu": 1,
+      "outputs_sha256": "917f9ebe21fd623dcd8c3afc442033b0e292e1eabbfc5cc8cc41a7d6e3f39c1c",
+      "receipt_sha256": "d7d3bde79dc7c8f6055b4ed08bcc21fc831c73e1147e3c26081a96e087bfa1b7"
+    },
+    {
+      "id": "shard01-s1",
+      "shard": 1,
+      "seed": 1,
+      "gpu": 1,
+      "outputs_sha256": "d83d4d82fb2bcf5d5ed88c4d20e698a7dd6c657e03448f9bc95ee3cb3d523930",
+      "receipt_sha256": "1075cecd3e7f607a2799a2c9c4105248ba6c5671aa77942343c25ca82af2dab2"
+    },
+    {
+      "id": "shard01-s2",
+      "shard": 1,
+      "seed": 2,
+      "gpu": 1,
+      "outputs_sha256": "a6a46ab3469fc0d8ec4a8dcdc6adef555f88e42ccf7b69b3028e848ed6b9581d",
+      "receipt_sha256": "5229323d48a40d1efb27caabce429e9f084be6f517493abc9779d255f22b249e"
+    },
+    {
+      "id": "shard02-s0",
+      "shard": 2,
+      "seed": 0,
+      "gpu": 0,
+      "outputs_sha256": "c6bb6bad0b739d021f1c1b84955e553c014423d13770dc2e0b1937be34703890",
+      "receipt_sha256": "edde3aeff219d72a2e1a3a713496ab24f4179b1dec0df45d19ddd66dc7ef70e0"
+    },
+    {
+      "id": "shard02-s1",
+      "shard": 2,
+      "seed": 1,
+      "gpu": 0,
+      "outputs_sha256": "cec87511d8799b5df18c2a3e1925b08d55f8145a82f8ca6aaf841a06434f59c0",
+      "receipt_sha256": "46d868e0087f7e9850335de72bf8903c6c3ed119e23b4d294222f843a7bb70d5"
+    },
+    {
+      "id": "shard02-s2",
+      "shard": 2,
+      "seed": 2,
+      "gpu": 0,
+      "outputs_sha256": "60c978b5f5a4930c910d92ec9504c0fc65f17a167b381e5c2b5e935eff7918db",
+      "receipt_sha256": "efe6e3865e6cefbed91c3325cba0ab1878014d269021533e36debde12a160e01"
+    },
+    {
+      "id": "shard03-s0",
+      "shard": 3,
+      "seed": 0,
+      "gpu": 1,
+      "outputs_sha256": "5c34f7446145fb7bc6356925cb8920d2d69996df9775b06aa02a94ef8f547b56",
+      "receipt_sha256": "0d860bdba3f23a7f2b296704fbdb69674a8a826c20f06d614bc6dcbca1497798"
+    },
+    {
+      "id": "shard03-s1",
+      "shard": 3,
+      "seed": 1,
+      "gpu": 1,
+      "outputs_sha256": "6d3ab36e3a6756d44a4b865c794cdfcfeebc58d6c049cd0e7fad21b906e9068d",
+      "receipt_sha256": "91b949a1e935895947179bc92e8e98bbb7efe3644c9651958c09991c2391152e"
+    },
+    {
+      "id": "shard03-s2",
+      "shard": 3,
+      "seed": 2,
+      "gpu": 1,
+      "outputs_sha256": "aa0aec561b4a8286770c0e9c9388ede91ffa052d3c2f580eaaf3fae3771ef0e6",
+      "receipt_sha256": "08d28f3c03a7254447ca2d12d81958867488ae4a5828857408200b3e026eb6be"
+    },
+    {
+      "id": "shard04-s0",
+      "shard": 4,
+      "seed": 0,
+      "gpu": 0,
+      "outputs_sha256": "34ab6b35d0fa9c72eeb25429b8c31058466651d965e0ccce7cc527ddce31b825",
+      "receipt_sha256": "4ed59e97d51ae2d7a2f47c692f7fd453e17197723a110c130d6b9a8420e1dd43"
+    },
+    {
+      "id": "shard04-s1",
+      "shard": 4,
+      "seed": 1,
+      "gpu": 0,
+      "outputs_sha256": "fee550fb7422ce330354771ead6dd5aed74d0d89e0dee4fbec3a1df3e277ae7e",
+      "receipt_sha256": "762b94d649bf5f2e35e296e9b1d851cc90c9e8a5f76a42b15e2cdfefb9a548f5"
+    },
+    {
+      "id": "shard04-s2",
+      "shard": 4,
+      "seed": 2,
+      "gpu": 0,
+      "outputs_sha256": "c87818c03ec4525a6ad31923cc828717729d84d77d634c136b9afc5cc176aa6d",
+      "receipt_sha256": "05b592507bd69fc436392c22d3f4501367845d88add8c911d884fa26260829e1"
+    },
+    {
+      "id": "shard05-s0",
+      "shard": 5,
+      "seed": 0,
+      "gpu": 1,
+      "outputs_sha256": "c35d9a7d594dc94c3d87af4a8b9d750911998a2a0b6df78ac3b86a940c41a2e6",
+      "receipt_sha256": "3186dd4e7d7ecb7add767a86b8c47d25193242374681c00ed7e85c4255f3656a"
+    },
+    {
+      "id": "shard05-s1",
+      "shard": 5,
+      "seed": 1,
+      "gpu": 1,
+      "outputs_sha256": "bcee4d62da61e29bb69372e344655408850f86ae61d80b3a7903acb7950f0008",
+      "receipt_sha256": "31c05e7fe6fb83384f42e7dd8281ef37bfc986123e7dc1d5d89ceb63071a76eb"
+    },
+    {
+      "id": "shard05-s2",
+      "shard": 5,
+      "seed": 2,
+      "gpu": 1,
+      "outputs_sha256": "faad852b52546880ab8642b33dca2024d6fac1ce6acafd89b558d8414586395f",
+      "receipt_sha256": "76eaf82e3ffa0978184c53112efb5981a48b48eb987a0bf64761f71ee47e87f4"
+    },
+    {
+      "id": "shard06-s0",
+      "shard": 6,
+      "seed": 0,
+      "gpu": 0,
+      "outputs_sha256": "522a978cf725ab6b09904db487f338aff8c53704054bc631e0a54890e1745d55",
+      "receipt_sha256": "58ca7672f64ceeed26fc20dd700e941f9e979cc346472bc7a8ad113da65112d9"
+    },
+    {
+      "id": "shard06-s1",
+      "shard": 6,
+      "seed": 1,
+      "gpu": 0,
+      "outputs_sha256": "bf4e7249bbb1212cd07cad5ae949576a6375b7915f9b2e1af74083fdf9a0b028",
+      "receipt_sha256": "e383194dc171b8f21264cfe2dddaed9be4561301154401b598aacec76bc7e26b"
+    },
+    {
+      "id": "shard06-s2",
+      "shard": 6,
+      "seed": 2,
+      "gpu": 0,
+      "outputs_sha256": "ac93a70a248897d2163a482e5685113fd4f54dff6d93699e12d1715014ce7ac4",
+      "receipt_sha256": "33b40837c8023e78fe11453c612f040964c66517055d5f51a5719ecaf32783cd"
+    },
+    {
+      "id": "shard07-s0",
+      "shard": 7,
+      "seed": 0,
+      "gpu": 1,
+      "outputs_sha256": "c9a1cc68a674826640b57b4c3b65e92313edea07509f49bed7e07b518310ee98",
+      "receipt_sha256": "42287341e2d067b525ba6711c1a15f1a2d86a76efd2fe28f777d102fa8fb32e2"
+    },
+    {
+      "id": "shard07-s1",
+      "shard": 7,
+      "seed": 1,
+      "gpu": 1,
+      "outputs_sha256": "a6faf47ead46d149798d7b9fc9fa20a8bc4409a4870855dce09397d5643a227d",
+      "receipt_sha256": "da9ac6b2e71cbb5efcf6afd8775ed8884efddf4c1f0673e5577c7b403e0b3215"
+    },
+    {
+      "id": "shard07-s2",
+      "shard": 7,
+      "seed": 2,
+      "gpu": 1,
+      "outputs_sha256": "e7ef0cb7821e07ec339ef36c460992961701be5806f3d2dc9ffd4d00842ecda6",
+      "receipt_sha256": "4e52a19eb89360fcb06b461141b5afe2f7a5411e0d27f5414b4283c5cc9cbde4"
+    },
+    {
+      "id": "shard08-s0",
+      "shard": 8,
+      "seed": 0,
+      "gpu": 0,
+      "outputs_sha256": "95b453b1947e11e1aef3f15dad95bdec43ff25f387078bf61dd8252c35c656b8",
+      "receipt_sha256": "1902af62d864b1f5a7c9333402004111bacddbd18002a287a5055ae6aff4cf38"
+    },
+    {
+      "id": "shard08-s1",
+      "shard": 8,
+      "seed": 1,
+      "gpu": 0,
+      "outputs_sha256": "14394950d6e9cab3b52ab4ac5b6f43056c8c75356ec890c8afabf8d1bf337a65",
+      "receipt_sha256": "552bab00454b9863ab3db4d99dddb53c64244a443a84a6d9067884b1ee25aa3d"
+    },
+    {
+      "id": "shard08-s2",
+      "shard": 8,
+      "seed": 2,
+      "gpu": 0,
+      "outputs_sha256": "62d8d4773248623ca9b907b4653a8e328dc07c6a5fb056b81cddbdc1f1b20bd0",
+      "receipt_sha256": "d4067ec1949a1bcc6c3667a35585b5f3c31ba5fcee45004b322d5aaf4d804bf5"
+    },
+    {
+      "id": "shard09-s0",
+      "shard": 9,
+      "seed": 0,
+      "gpu": 1,
+      "outputs_sha256": "2e9e03b953d98881c4076bbdccda3292eeaf8b966a81e67e1e5f7fa0588f70af",
+      "receipt_sha256": "956cf2576d98beb358477f195d8783f96ccae13ede42afdd418ed1520d91a0cf"
+    },
+    {
+      "id": "shard09-s1",
+      "shard": 9,
+      "seed": 1,
+      "gpu": 1,
+      "outputs_sha256": "818442b2d2a7572a2b33c219a5027d3084e7c1b1ff65f328040592b31f610fe6",
+      "receipt_sha256": "679976fd958a24ca7630d16dd1b9bbc13cb9763d3ed3f3f066e65410e9328af6"
+    },
+    {
+      "id": "shard09-s2",
+      "shard": 9,
+      "seed": 2,
+      "gpu": 1,
+      "outputs_sha256": "a83f7e314a93aaf66a431a5efc793fd6e89071c3c170982c9fa8ab2b6b676639",
+      "receipt_sha256": "af5414cf8ca87ab9872d43f82e3b6235754fef5c876d9b8d12a4c172f37f8997"
+    },
+    {
+      "id": "shard10-s0",
+      "shard": 10,
+      "seed": 0,
+      "gpu": 0,
+      "outputs_sha256": "0b5875bb852b84d136840d0565f0d0e2357fa31066eda4cd2fc1d370e365ed1e",
+      "receipt_sha256": "238ff43ccb0a9be6b9af5bd7076887f50677324ab57f1c4654a16e9f49e79d67"
+    },
+    {
+      "id": "shard10-s1",
+      "shard": 10,
+      "seed": 1,
+      "gpu": 0,
+      "outputs_sha256": "d34920d6430689631d866cd77ad839db1a3557dc3ee0182e5bff0594d24c1834",
+      "receipt_sha256": "227c23abb69d9ec2f069ec0b55a81c5b504fdfaf72e9a1626aff74fc402de6ec"
+    },
+    {
+      "id": "shard10-s2",
+      "shard": 10,
+      "seed": 2,
+      "gpu": 0,
+      "outputs_sha256": "5f475d9ea6548ab7db1809fbe5fb516b9eed74ab47bdae86f8812556908a136e",
+      "receipt_sha256": "daca605b36c1c65595188b5e23c242ad7e85b277edb7c7f982fd9da37dde7e50"
+    },
+    {
+      "id": "shard11-s0",
+      "shard": 11,
+      "seed": 0,
+      "gpu": 1,
+      "outputs_sha256": "dd4c45c47bd2d7d8a76d3ea42a157b0487d5ea6a1e2d247e237af74edcce2e02",
+      "receipt_sha256": "b4f4875debf18ba406c9fbb5e2ff681930cdf662ec6d5678c9591fd634fb7816"
+    },
+    {
+      "id": "shard11-s1",
+      "shard": 11,
+      "seed": 1,
+      "gpu": 1,
+      "outputs_sha256": "9d80cde26fe86bd596cc648b99d02c8ff864ff7e84ef4b291933b0c75497c9fe",
+      "receipt_sha256": "bd8c26eb4d23adcd23c1c0c130f1050e2deee05531c48cf3ac645a0ee412d374"
+    },
+    {
+      "id": "shard11-s2",
+      "shard": 11,
+      "seed": 2,
+      "gpu": 1,
+      "outputs_sha256": "867a4fc819c630f41cd79ec7cd32491cf2158118d63dfd3edd2cb81930704992",
+      "receipt_sha256": "a92916a75f3b7a5b6296e4aa8f2b1b68cd92a795ec2005c4b736e1b8ae766f93"
+    },
+    {
+      "id": "shard12-s0",
+      "shard": 12,
+      "seed": 0,
+      "gpu": 0,
+      "outputs_sha256": "614fe0c3217425c53251bc4d40ce9e6660ca745c387a21c143fe15bf017eadbe",
+      "receipt_sha256": "71eb645f9c1c78f995cbe789eed53680a5fdcc1d2f25bafbf503f2e0086f99f3"
+    },
+    {
+      "id": "shard12-s1",
+      "shard": 12,
+      "seed": 1,
+      "gpu": 0,
+      "outputs_sha256": "e8ed449881823a6dd02b3ad10a0c185459d945f26c25aba9175f66a1bc45b13f",
+      "receipt_sha256": "e851c4715f29b5b5dd664e7c3c2311ec899f324263155dcef65d9dcc5f214357"
+    },
+    {
+      "id": "shard12-s2",
+      "shard": 12,
+      "seed": 2,
+      "gpu": 0,
+      "outputs_sha256": "5898890851e434879226416c33b9a3e7e3e7f459aacc563087e8dfe69b082231",
+      "receipt_sha256": "c22718671f13f811ff63b2764629c88669c4bf2dff803525e4d0e1720278e567"
+    },
+    {
+      "id": "shard13-s0",
+      "shard": 13,
+      "seed": 0,
+      "gpu": 1,
+      "outputs_sha256": "f374b8e030c80bc961502727ad3f1ae9b7d9abd5d598602314162d472c51e871",
+      "receipt_sha256": "2acd99e6f294e0438e8c74a8f22f3a435331a37d5bb6a4ae8a1dd89c1a2de424"
+    },
+    {
+      "id": "shard13-s1",
+      "shard": 13,
+      "seed": 1,
+      "gpu": 1,
+      "outputs_sha256": "394a84e7e960bea61c58589a8d3fea316ecfa4e2c9f0fc76ca5af66e8f84f514",
+      "receipt_sha256": "c165e36230585a2071752b8d4bfd25647ac5c06aafdff300d939b97da6e78554"
+    },
+    {
+      "id": "shard13-s2",
+      "shard": 13,
+      "seed": 2,
+      "gpu": 1,
+      "outputs_sha256": "d1e304fc1628e2f9ffaae8a063ef707ba6977a08b80119a5902b5dd984c2843d",
+      "receipt_sha256": "d96264f7f94a7d07edbe112c42d05f2f328c5c462b464a4efac16eab3eb8b649"
+    },
+    {
+      "id": "shard14-s0",
+      "shard": 14,
+      "seed": 0,
+      "gpu": 0,
+      "outputs_sha256": "11f433b7022c5401f9f8b857bb7e8dcfd575b417cb8c81b38bc8f5848e38fe1e",
+      "receipt_sha256": "3b76fb466aec6878376396a8ead2b1ccbf7012ca8f649167f20ad13de3bdc641"
+    },
+    {
+      "id": "shard14-s1",
+      "shard": 14,
+      "seed": 1,
+      "gpu": 0,
+      "outputs_sha256": "0fcc108c2be797859821763cdf04ca99e3f6d191121162f7534925e9ab43f834",
+      "receipt_sha256": "dd83bb4ba5d1a558127e34ae58fc1eef25f43015b25773ea5449f1eb563891b9"
+    },
+    {
+      "id": "shard14-s2",
+      "shard": 14,
+      "seed": 2,
+      "gpu": 0,
+      "outputs_sha256": "3bd2f240297d1aa33054cb8b447fa765222364936378eb8afed80552d4268af3",
+      "receipt_sha256": "b322ed50e8926f2387e7c41a599643011acb7a82ed42aad368887b0d3bfbc68f"
+    },
+    {
+      "id": "shard15-s0",
+      "shard": 15,
+      "seed": 0,
+      "gpu": 1,
+      "outputs_sha256": "94340094c9f4a5fda591137e6e923bc0f3e0bcdbc6af813d69769c30e1c096c6",
+      "receipt_sha256": "a7c2944485fa8e5e665bc6e4d698f45dd80cf968982be3fc2bd6a82410235121"
+    },
+    {
+      "id": "shard15-s1",
+      "shard": 15,
+      "seed": 1,
+      "gpu": 1,
+      "outputs_sha256": "527af621e977cc161486f3282050481507c6b4880d6fa8e74e63b15714a9e62a",
+      "receipt_sha256": "01fe40aa2f9436960bb8e1d55a5df022ef437cffb3607dd9fefce26400d3180b"
+    },
+    {
+      "id": "shard15-s2",
+      "shard": 15,
+      "seed": 2,
+      "gpu": 1,
+      "outputs_sha256": "7d6bc1102cb25752c5a1410d423326c4ff9fd3eb54d5cc721a0ffece15c7e830",
+      "receipt_sha256": "f0d6edf44587af4be1eaaf46bd412e3ffb8c11ff3f1cab5f5c2b1c1da106541b"
+    }
+  ],
+  "models": {
+    "0": {
+      "pl": {
+        "path": "artifacts/research/20261114/work/contrastive_training/fits/s0-pl/checkpoint.pt",
+        "sha256": "0218e6d814f2ee5b6028877056fc9c705daf53e20233c2ebb083b46f5732752c"
+      },
+      "old_binary": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "connectivity_veto": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "original_lexical16": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "unified16": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "unified48": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "unified64": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "unified96": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      }
+    },
+    "1": {
+      "pl": {
+        "path": "artifacts/research/20261114/work/contrastive_training/fits/s1-pl/checkpoint.pt",
+        "sha256": "3799b046bdfd3425b9603338f90bd60ccd6637707f20eac0d59139ce5d21445c"
+      },
+      "old_binary": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "connectivity_veto": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "original_lexical16": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "unified16": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "unified48": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "unified64": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "unified96": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      }
+    },
+    "2": {
+      "pl": {
+        "path": "artifacts/research/20261114/work/contrastive_training/fits/s2-pl/checkpoint.pt",
+        "sha256": "76b8d4e38979cc5282d15b30f4b27c2468dbe5fe43426cfa6e085bb62b333672"
+      },
+      "old_binary": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "connectivity_veto": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "original_lexical16": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "unified16": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "unified48": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "unified64": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "unified96": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      }
+    }
+  },
+  "datasets": [
+    {
+      "shard": 0,
+      "path": "artifacts/research/20261114/work/loop80_confirmation/shard00.npz",
+      "sha256": "fa210481a4712bb2563d0ba3bdb5a69b3486ba42f345394ea0330b86ecd1517f",
+      "n": 256
+    },
+    {
+      "shard": 1,
+      "path": "artifacts/research/20261114/work/loop80_confirmation/shard01.npz",
+      "sha256": "f19e3062f5043b5e1027b60c6d2d10559cce2b55329639a15267465a23bb0032",
+      "n": 256
+    },
+    {
+      "shard": 2,
+      "path": "artifacts/research/20261114/work/loop80_confirmation/shard02.npz",
+      "sha256": "061ed25f0c1f963d9a3d8cbfb5505dbddb307a6642a223e439ed6bda3df5651f",
+      "n": 256
+    },
+    {
+      "shard": 3,
+      "path": "artifacts/research/20261114/work/loop80_confirmation/shard03.npz",
+      "sha256": "49d38d42b51dedeb9c05e3e4b8e206cd2f1ddf261d3674b0ff930da995637837",
+      "n": 256
+    },
+    {
+      "shard": 4,
+      "path": "artifacts/research/20261114/work/loop80_confirmation/shard04.npz",
+      "sha256": "7416cbe67434e672b3e04d7c5a274dd565cb894903c522baf8c8ca48726040f0",
+      "n": 256
+    },
+    {
+      "shard": 5,
+      "path": "artifacts/research/20261114/work/loop80_confirmation/shard05.npz",
+      "sha256": "b9a5fb3272a8a8d18b1e2f3488c7f6af107be4ac4c4ccbf9f81c34b926000dd1",
+      "n": 256
+    },
+    {
+      "shard": 6,
+      "path": "artifacts/research/20261114/work/loop80_confirmation/shard06.npz",
+      "sha256": "af1da394b62abee2ef033397aed2b3d882cc18733b654a4beaacdc208fb5717d",
+      "n": 256
+    },
+    {
+      "shard": 7,
+      "path": "artifacts/research/20261114/work/loop80_confirmation/shard07.npz",
+      "sha256": "1fe0acb72f79dd64e9a05bbca13eab655196e0c7c4d2585c2646a2dd6c5bbed2",
+      "n": 256
+    },
+    {
+      "shard": 8,
+      "path": "artifacts/research/20261114/work/loop80_confirmation/shard08.npz",
+      "sha256": "5ed2f350e146572a1dc3adf654d26673e802f63686fd1f346a24e29c1766b063",
+      "n": 256
+    },
+    {
+      "shard": 9,
+      "path": "artifacts/research/20261114/work/loop80_confirmation/shard09.npz",
+      "sha256": "deb1850eab71e1d55a8f1c984a83c8762fd47e974ce15a99c7c63c6c526789b6",
+      "n": 256
+    },
+    {
+      "shard": 10,
+      "path": "artifacts/research/20261114/work/loop80_confirmation/shard10.npz",
+      "sha256": "9e9194de8d08da0c9a07c222df06485b8aec93ed2e9673332cb02d9416c1c844",
+      "n": 256
+    },
+    {
+      "shard": 11,
+      "path": "artifacts/research/20261114/work/loop80_confirmation/shard11.npz",
+      "sha256": "dffd1236a9e58a4a28933b28b7c08149f38a16c61a3ec2ac35effdd0b3b45786",
+      "n": 256
+    },
+    {
+      "shard": 12,
+      "path": "artifacts/research/20261114/work/loop80_confirmation/shard12.npz",
+      "sha256": "5b5ba6a7e64230cf6c432827ce2a775ce72b08ce4066beff1d15c86a62d5ca3d",
+      "n": 256
+    },
+    {
+      "shard": 13,
+      "path": "artifacts/research/20261114/work/loop80_confirmation/shard13.npz",
+      "sha256": "6d6e1d852e106426810f473f783cc6a170a9c3c2e0e756b3cf36cd2f882cd9c3",
+      "n": 256
+    },
+    {
+      "shard": 14,
+      "path": "artifacts/research/20261114/work/loop80_confirmation/shard14.npz",
+      "sha256": "2972ae7f7a6f8c86aefcb584bfa45aae77701d62e5ce20260ee86ff6ee340337",
+      "n": 256
+    },
+    {
+      "shard": 15,
+      "path": "artifacts/research/20261114/work/loop80_confirmation/shard15.npz",
+      "sha256": "68c8fcd31bd7c9f058ad7acdaf225249553d49bb9a83a61e8d2cbbeaed6e1409",
+      "n": 256
+    }
+  ],
+  "source_sha256": {
+    "research/20261114/work/unified_cycle.py": "dce68fc34ab00008f441e52382dfdd0b3d6b95da7fdd7ed3a80bfb64cb683c8e",
+    "research/20261114/work/freeze_unified_cycle.py": "86a7d60259b6b60440fa2c7d151c36bfca8519e12152d314ec79ca2e2308aa5a",
+    "research/20261114/work/unified_cycle_batch.py": "9a3b8ea3736a4d084c0c6be1cadebc1aab215c220274ff025d9a15f636ae31ba",
+    "research/20261114/work/bounded_lexical_cycle_moves.py": "9cfbe975b27be2130e7fd601566507b4c76bf77cd03c4d19ece04af74c96a0bd",
+    "research/20261114/work/preflight_unified_cycle.py": "e4285ff19d0ccc958b57a84953bd583b58728940f0b5b20301d7e59ec58cc44d",
+    "research/20261114/work/audit_unified_cycle.py": "2898bc17b39bb95cd93a1d8124266ec9e4a5275797296127a7292249b1dc00d3",
+    "research/20261114/work/audit_unified_seed_registry.py": "366e38a649f2be51ee12fca328f6dc0854102ac5b6c364561f1b2f23cb94c410",
+    "research/20261114/work/audit_unified_cycle_inputs.py": "afe854a9a39c9bfc9f921b22c348df7bd3d946948465f347ce138607f5df5658",
+    "research/20261114/work/terminal_cycle_moves.py": "646cc3a76a9b2878e2c923d38a5f69472606a003bdce7692e32f87e2ef340850",
+    "research/20261114/work/lexical_cycle_cut_moves.py": "e1765ba133a37358f3c92bded10f95e69fc545e6187c4039580d3f45671ddc42",
+    "research/20261114/work/connected_block_moves.py": "e1f959f4d8d134fc47b3bd131b9585073b69df5f06939b918c4e73e3caedc14d",
+    "research/20261114/work/graph_block_moves.py": "fa0a68c016da1494d5db42777194ccc125e06508fa0476a7e99a7e2f94589568",
+    "research/20261114/work/binary_coordinate.py": "657c33162a667f0304313612d51387b1d9638ca9290a4002411d7e9b78b5d21d",
+    "research/20261114/work/larger_relaxation.py": "6be58f66b7d354f7d47da697520bddb73dcadc6114cedcde0885ad5e61ea4cd1",
+    "research/20261114/work/factorial_transfer.py": "9381151f81aeda3f45320437a1985a4d6bc0e0ebb3a90fed9dd2cb21ea995f84",
+    "research/20261114/work/fast_npz.py": "2c3f6e8868a22aed0dbb5a389629accc6472a0a877208e01193a97e2a3c039ec",
+    "research/20261114/work/study.py": "c912470b19d0d13b151a4cac9a276455a915adeecf15088d1c5d43db66dbf721",
+    "research/20261114/work/audit.py": "d27d3397a620fa4998428baffeea704cff06c29111160246d17e684278522ec3",
+    "research/20261114/work/local_factor_delta.py": "178b4f2465959fd4acdaf3a5857e9e9a0228e508cbf30a0584f1c931b5ecbcd6",
+    "research/20261114/work/verify_training_feasibility.py": "3364c8127bea8589100fd6e405d3e6630457408742dc4b7cf48103adf41ed195",
+    "research/20261114/work/verify_large_cycle_geometry.py": "4bec48f982f1b535c5520caf2cc0d639033f2f8f67ab1f6804029f7b05cc09a1",
+    "research/20261114/work/verify_graph_block_source.py": "4bea8e314cd10caf78e705dac0f54711f54c36198d9d1bcad68df0ada5966745",
+    "research/20261114/work/audit_connectivity_screen.py": "04931d25d3a467cb2e972ca8f946c107c0fb4370c7e820570416644962f8c5c9",
+    "research/20261114/work/audit_larger_relaxation.py": "198fe957a9e800e9a8776b03a5eec069484966193d5a94728c82a09a54571209",
+    "research/20261114/work/audit_contrastive_inputs.py": "6fd50bf60c7229b264fe6202c41e2227b628cec803dd2c3f28fc488eabc777cb",
+    "research/20261114/work/verify_cycle_cut_geometry_checked.py": "5e60359e2e9ad2db4f581a7533e70174bd79c34221b1465a795536fada29a496",
+    "research/20261114/work/extract_unified_cycle_models.py": "71a6f49e33f4acba5423827b3a6de9eda205976c5e6b920dbe038f0888634946",
+    "research/20261114/work/loop80_transfer.py": "9216136a943bd79314b12317a37a92059916251aff4c44d1f331e73a62d7edf9",
+    "research/20261114/work/freeze_loop80_transfer.py": "f5d394bd8278cf7fb05111625fb65683c76fd26a5a5bd1f38615069db690b4f4",
+    "research/20261114/work/fast_unified_cycle_batch.py": "66fe0f069f3217e3720a1f1506d53f5310109672f1ce60cd1f08f207d54e6014",
+    "research/20261114/work/preflight_loop80_transfer.py": "e85e978e06322c6b149abb4ec983fd3c7731a2fc664ab47a57f5c3d3803d7525",
+    "research/20261114/work/audit_loop80_seed_registry.py": "cd937d70b3c825aa3ea3a9b86259220dc87c26bea0c8e8ab6dce4633ffa4a21d",
+    "research/20261114/work/audit_loop80_inputs.py": "d3db7b64d4cb5bb6474264ac478d7f8936f26e00d3934b7a57c425571bb70be6",
+    "research/20261114/work/audit_loop80_transfer.py": "adab1c02004a17f0f5c6baa9cb00c4c054cbf6c87124912e5a04cb05dbc0afae",
+    "research/20261114/work/extract_loop80_models.py": "1013071917f3d70b84667fb0930bf9bbeb1fe180c00b697bb7baeaeec0d2d443",
+    "research/20261114/work/bridge_cycle_geometry.py": "47358b52d015f94cc989ea1aa023c68310b13fc7e2c90ea550da81aaa51958b6",
+    "research/20261114/work/bridge_lexical_moves.py": "4e23a5ae1f6d261bf0840cae5929998cb6a5805c69f3bfef44c99ae654ac1c31",
+    "research/20261114/work/bridge_terminal_moves.py": "845d50017ceac468e8099cec54c306d5921ed583eeaf7fe2aff544c82043d3fc",
+    "research/20261114/work/confirmation96_study.py": "860d36e373e7b69a32d8c80224e34f7c43680172e95c4d98c62b239a68f6bf46",
+    "research/20261114/work/confirmation96_batch.py": "fcddad9dbeb7a1873990fa2ecd75b54810760b6c1d57acc62ce465eb206c30a3",
+    "research/20261114/work/freeze_confirmation96.py": "cfe17c75b432851d2d912db8366fc78dca352cb86c16f50f3317b67d3c14b0b4",
+    "research/20261114/work/preflight_confirmation96.py": "6e2a7d4a06adcb5049dc5ac0911c2a29021efc23d32f84574fabf701d943a60b",
+    "research/20261114/work/preflight_confirmation96_statistics.py": "ec3e0e3ddbe87b7d0674a42ac10d13b48f3e727239058ad9849c899385673277",
+    "research/20261114/work/audit_confirmation_seed_registry.py": "99fea3bb8ef6eaa31f8376f4a22573ad90a53c7ad65f5564e0b306bf278b8edc",
+    "research/20261114/work/audit_confirmation96_inputs.py": "b034d448fe549bcf1fefa6cf52b27594d356d5cecf8e37b5aaf0b9082818ff69",
+    "research/20261114/work/audit_confirmation96.py": "b162a382cc383e5ba9860618c2e5f9b42fa2091ebcf0a19acce465807544a13a",
+    "research/20261114/work/extract_confirmation96_models.py": "dcd90e04c5fcd093f6f81e3c79a665a8bf101bea6db04b11abc856d5c243a33c",
+    "research/20261114/work/bridge_veto_geometry.py": "85c80f622921576008762f3ec5432f3d94f314baea48f094d20d314d2c2b01f9",
+    "research/20261114/work/bridge_veto_moves.py": "43ae39cf9203cc7c2a337ad3b97c4ce114449a25ef9e7ce62a71fc1ecc918feb",
+    "research/20261114/work/cross_certificate_screen_policy.py": "b43f3c138175852130ddfb7e523743d34666fb2b50c3c1aff6629c55565e9c27",
+    "research/20261114/work/preflight_cross_certificate_screen.py": "6e633716b02f3fcb7a20708f4553ecc0754b2bbb8a7a4491448cb4685214f9bc",
+    "research/20261114/work/cross_certificate_screen_study.py": "dd5c3c9e9fd3423b63c9171c50f1e360dbc2e5fb44a6c35b1ffe421290f28e76",
+    "research/20261114/work/audit_cross_certificate_screen.py": "78f7e3eb42f6b1a3a6d48277067693e39c87c20378c4fc73f52367cfbc726260"
+  },
+  "source_evidence_sha256": {
+    "research/20261114/work/cross-certificate-screen-proposal.json": "7f2d82b2909f0921bb24df6f20bff6833d0a6030f04cba5d5b5ffc4b113575bb",
+    "artifacts/research/20261114/work/cross_certificate_screen/synthetic-gate.json": "7c7d88d0d568af847f56e73a42fa2b2ed93f802ddcf487c80b83d4ebdcdd1705",
+    "artifacts/research/20261114/work/loop80_confirmation/protocol.json": "09616973cf71dc5717dfbb4e5f491b534ba2a122d9bf649f7f04c83b3b840058",
+    "artifacts/research/20261114/work/loop80_confirmation/audit.json": "bcf56c42c1696bd29f94dddec675e81820ea29a845ae976eb2c7d0febe23eb1c",
+    "artifacts/research/20261114/work/loop80_confirmation/datasets.json": "f1dcbd0338cdeef8d214b94ea1803cf6b9cbc45bffc1dd02b8fc61c5f678bc8d",
+    "artifacts/research/20261114/work/loop80_confirmation/model-extraction.json": "343867afb85a2ec3e7a703571bf98e57286f7938494d202f80fffd6dc0720354",
+    "artifacts/research/20261114/work/certificate_fallback/protocol.json": "7af6b601ab0fea5d81206eb88ff0a132c7b1576300084edab01aa94658170e82",
+    "artifacts/research/20261114/work/certificate_fallback/audit.json": "477f73438466cffda3ffbecf7d3d8316d7bdbec2155c8be6c8f7556801565602",
+    "artifacts/research/20261114/work/loop80_confirmation/model-seed0-pl.npz": "b57f86b580b01b2fae5b07d11a14f932bd15991e79627d88fc351a1a2328d82f",
+    "artifacts/research/20261114/work/loop80_confirmation/model-seed0-old_binary.npz": "4e3b9ba1ea24a0978a239ec62830cd0f0bcd6793ea217b88fe7d5141311e5eb2",
+    "artifacts/research/20261114/work/loop80_confirmation/model-seed1-pl.npz": "0978a4b3afb9d7f1bd108e2e830536af51540e73524a502c2ef06414c9d5d1fb",
+    "artifacts/research/20261114/work/loop80_confirmation/model-seed1-old_binary.npz": "0f0bc3f6a1c3be8c3dcc9f5d43ed2336b61126a6ae21bb191d06a1222615a02e",
+    "artifacts/research/20261114/work/loop80_confirmation/model-seed2-pl.npz": "a2fe624187ff7c267e799781cf0049496ae7e334d5f8100c960dbd0a4a39faf1",
+    "artifacts/research/20261114/work/loop80_confirmation/model-seed2-old_binary.npz": "87b9ad4fa90d05f4b6d3675140130515df26284f58caf1be201a8fe59f316ec1",
+    "artifacts/research/20261114/work/certificate_fallback/fallback/i4078-s0.npz": "9481de95cd6f658c071b98fe8a82eba8665f9b3f0aed9ccc913bf98f6c53a751",
+    "artifacts/research/20261114/work/certificate_fallback/diagnostics/i4078-s0.npz": "b2dc9583df66725ce90db6e8a40cabb86a02831e2c4f7350b51b095b37eab80a",
+    "artifacts/research/20261114/work/certificate_fallback/fallback/i4078-s1.npz": "86b3e26f7c84fcde96265f57330d1a9193050f9ee592bb2905ff86c16718b479",
+    "artifacts/research/20261114/work/certificate_fallback/diagnostics/i4078-s1.npz": "23b913726159c8d4b256488bf95df3c7241d27800a60b6c218fabdf1e4882d13",
+    "artifacts/research/20261114/work/certificate_fallback/fallback/i4078-s2.npz": "50af73cc59c5df4abc8cdcce67f2c2653047562d3f17093f7e443645366daf96",
+    "artifacts/research/20261114/work/certificate_fallback/diagnostics/i4078-s2.npz": "444d5324723a135764bc97bd62768ac5379e3e5ee16671eb26ebfb0083b7c684"
+  }
+}

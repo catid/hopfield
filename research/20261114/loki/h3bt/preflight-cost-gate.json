@@ -1,0 +1,355 @@
+{
+  "utc": "2026-11-15T11:52:53.708349+00:00",
+  "fixtures": [
+    {
+      "name": "tie_two",
+      "signatures": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "scores": [
+        "1",
+        "1"
+      ],
+      "one_MAP_expected_tree_cost": 2,
+      "one_MAP_expected_baseline_cost": 2,
+      "runs": [
+        {
+          "remaining_MAP": 0,
+          "baseline_group": 0,
+          "root_result_sha256": "ca6f8f3e920a2dbd6341ee381b704c130e06031dbb84996cf46aa70ecfd111e3",
+          "calls_by_candidate": {
+            "0": 1,
+            "1": 1
+          },
+          "guard": {
+            "tree_weighted_cost": "2",
+            "baseline_weighted_cost": "2",
+            "weight_sum": "2",
+            "handoff": true,
+            "tie": true,
+            "comparison": "exact integer tree_cost <= baseline_cost",
+            "expected_nonincrease_if_handoff": true
+          },
+          "repeat_cache_zero_work": true
+        },
+        {
+          "remaining_MAP": 1,
+          "baseline_group": 1,
+          "root_result_sha256": "d7c855316cece74b51899d94a4985b3bd9b585a5379191b884f92ce28562ea75",
+          "calls_by_candidate": {
+            "0": 1,
+            "1": 1
+          },
+          "guard": {
+            "tree_weighted_cost": "2",
+            "baseline_weighted_cost": "2",
+            "weight_sum": "2",
+            "handoff": true,
+            "tie": true,
+            "comparison": "exact integer tree_cost <= baseline_cost",
+            "expected_nonincrease_if_handoff": true
+          },
+          "repeat_cache_zero_work": true
+        },
+        {
+          "remaining_MAP": 2,
+          "baseline_group": 4,
+          "root_result_sha256": "d5dbbd940c47aef526414b11dadb63c540f77584052eab4f49a69d9a44424a99",
+          "calls_by_candidate": {
+            "0": 1,
+            "1": 1
+          },
+          "guard": {
+            "tree_weighted_cost": "2",
+            "baseline_weighted_cost": "2",
+            "weight_sum": "2",
+            "handoff": true,
+            "tie": true,
+            "comparison": "exact integer tree_cost <= baseline_cost",
+            "expected_nonincrease_if_handoff": true
+          },
+          "repeat_cache_zero_work": true
+        },
+        {
+          "remaining_MAP": 4,
+          "baseline_group": 7,
+          "root_result_sha256": "82a075856c175379f4ccd6bc68e88861cf49eb96d6cdce5cd61950438376914f",
+          "calls_by_candidate": {
+            "0": 1,
+            "1": 1
+          },
+          "guard": {
+            "tree_weighted_cost": "2",
+            "baseline_weighted_cost": "2",
+            "weight_sum": "2",
+            "handoff": true,
+            "tie": true,
+            "comparison": "exact integer tree_cost <= baseline_cost",
+            "expected_nonincrease_if_handoff": true
+          },
+          "repeat_cache_zero_work": true
+        }
+      ],
+      "tree_groups": 1,
+      "baseline_groups": 10,
+      "recursive_selector_calls": 3,
+      "naive_selector_calls": 6,
+      "all_branches_identical": true
+    },
+    {
+      "name": "accept_four",
+      "signatures": [
+        0,
+        1,
+        2,
+        4,
+        8,
+        3,
+        12,
+        15
+      ],
+      "scores": [
+        "9",
+        "10",
+        "10",
+        "10"
+      ],
+      "one_MAP_expected_tree_cost": 74,
+      "one_MAP_expected_baseline_cost": 82,
+      "runs": [
+        {
+          "remaining_MAP": 0,
+          "baseline_group": 0,
+          "root_result_sha256": "c531ae9d09310605c02af3c04eeac93a9d3ce0fc7010e77fc4332104dcd0cda1",
+          "calls_by_candidate": {
+            "0": 2,
+            "1": 2,
+            "2": 2,
+            "3": 2
+          },
+          "guard": {
+            "tree_weighted_cost": "74",
+            "baseline_weighted_cost": "74",
+            "weight_sum": "37",
+            "handoff": true,
+            "tie": true,
+            "comparison": "exact integer tree_cost <= baseline_cost",
+            "expected_nonincrease_if_handoff": true
+          },
+          "repeat_cache_zero_work": true
+        },
+        {
+          "remaining_MAP": 1,
+          "baseline_group": 1,
+          "root_result_sha256": "9aed871774d0148b537f39d49544bd9fc4973b867688f4cd5a91a2300906ec79",
+          "calls_by_candidate": {
+            "0": 1,
+            "1": 2,
+            "2": 3,
+            "3": 3
+          },
+          "guard": {
+            "tree_weighted_cost": "74",
+            "baseline_weighted_cost": "82",
+            "weight_sum": "37",
+            "handoff": true,
+            "tie": false,
+            "comparison": "exact integer tree_cost <= baseline_cost",
+            "expected_nonincrease_if_handoff": true
+          },
+          "repeat_cache_zero_work": true
+        },
+        {
+          "remaining_MAP": 2,
+          "baseline_group": 4,
+          "root_result_sha256": "85d420dbce6f6838cd278f8039ad6d9f6426153a4842b8cbd5b09585f77ce2da",
+          "calls_by_candidate": {
+            "0": 1,
+            "1": 2,
+            "2": 3,
+            "3": 3
+          },
+          "guard": {
+            "tree_weighted_cost": "74",
+            "baseline_weighted_cost": "82",
+            "weight_sum": "37",
+            "handoff": true,
+            "tie": false,
+            "comparison": "exact integer tree_cost <= baseline_cost",
+            "expected_nonincrease_if_handoff": true
+          },
+          "repeat_cache_zero_work": true
+        },
+        {
+          "remaining_MAP": 4,
+          "baseline_group": 9,
+          "root_result_sha256": "183ff8afcc32a0e13fd3c54d0d23e9dba87319a913963240579034f4413628f6",
+          "calls_by_candidate": {
+            "0": 1,
+            "1": 2,
+            "2": 3,
+            "3": 3
+          },
+          "guard": {
+            "tree_weighted_cost": "74",
+            "baseline_weighted_cost": "82",
+            "weight_sum": "37",
+            "handoff": true,
+            "tie": false,
+            "comparison": "exact integer tree_cost <= baseline_cost",
+            "expected_nonincrease_if_handoff": true
+          },
+          "repeat_cache_zero_work": true
+        }
+      ],
+      "tree_groups": 3,
+      "baseline_groups": 16,
+      "recursive_selector_calls": 6,
+      "naive_selector_calls": 20,
+      "all_branches_identical": true
+    },
+    {
+      "name": "reject_six",
+      "signatures": [
+        0,
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        3,
+        63
+      ],
+      "scores": [
+        "1",
+        "100",
+        "100",
+        "100",
+        "100",
+        "100"
+      ],
+      "one_MAP_expected_tree_cost": 215,
+      "one_MAP_expected_baseline_cost": 119,
+      "runs": [
+        {
+          "remaining_MAP": 0,
+          "baseline_group": 0,
+          "root_result_sha256": "d0582e06ea6fd80b49e384ae6da6f34e916bc3fef4fa5f93a06cc1fdca1e61e3",
+          "calls_by_candidate": {
+            "0": 2,
+            "1": 2,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 4
+          },
+          "guard": {
+            "tree_weighted_cost": "215",
+            "baseline_weighted_cost": "215",
+            "weight_sum": "105",
+            "handoff": true,
+            "tie": true,
+            "comparison": "exact integer tree_cost <= baseline_cost",
+            "expected_nonincrease_if_handoff": true
+          },
+          "repeat_cache_zero_work": true
+        },
+        {
+          "remaining_MAP": 1,
+          "baseline_group": 1,
+          "root_result_sha256": "28aa81f531a4b18a4e754eb05479982d40dd0603c7c32202d8565060608d4e19",
+          "calls_by_candidate": {
+            "0": 1,
+            "1": 2,
+            "2": 3,
+            "3": 4,
+            "4": 5,
+            "5": 5
+          },
+          "guard": {
+            "tree_weighted_cost": "215",
+            "baseline_weighted_cost": "119",
+            "weight_sum": "105",
+            "handoff": false,
+            "tie": false,
+            "comparison": "exact integer tree_cost <= baseline_cost",
+            "expected_nonincrease_if_handoff": false
+          },
+          "repeat_cache_zero_work": true
+        },
+        {
+          "remaining_MAP": 2,
+          "baseline_group": 4,
+          "root_result_sha256": "120e4e188f66b485d48f710bf45c8a8c0398b3037ee84dc9d2d0a5c792e4f020",
+          "calls_by_candidate": {
+            "0": 1,
+            "1": 2,
+            "2": 3,
+            "3": 4,
+            "4": 5,
+            "5": 5
+          },
+          "guard": {
+            "tree_weighted_cost": "215",
+            "baseline_weighted_cost": "119",
+            "weight_sum": "105",
+            "handoff": false,
+            "tie": false,
+            "comparison": "exact integer tree_cost <= baseline_cost",
+            "expected_nonincrease_if_handoff": false
+          },
+          "repeat_cache_zero_work": true
+        },
+        {
+          "remaining_MAP": 4,
+          "baseline_group": 9,
+          "root_result_sha256": "2ca0af031b37d083d4061f70f231cb5f796f22daf70cc6ad7ab31e0e49b7b3ea",
+          "calls_by_candidate": {
+            "0": 1,
+            "1": 2,
+            "2": 3,
+            "3": 4,
+            "4": 5,
+            "5": 5
+          },
+          "guard": {
+            "tree_weighted_cost": "215",
+            "baseline_weighted_cost": "119",
+            "weight_sum": "105",
+            "handoff": false,
+            "tie": false,
+            "comparison": "exact integer tree_cost <= baseline_cost",
+            "expected_nonincrease_if_handoff": false
+          },
+          "repeat_cache_zero_work": true
+        }
+      ],
+      "tree_groups": 4,
+      "baseline_groups": 18,
+      "recursive_selector_calls": 7,
+      "naive_selector_calls": 35,
+      "all_branches_identical": true
+    }
+  ],
+  "all_candidate_rollouts_match": true,
+  "accept_reject_and_tie_cases_verified": true,
+  "remaining_MAP_values": [
+    0,
+    1,
+    2,
+    4
+  ],
+  "recursive_selector_calls": 16,
+  "naive_selector_calls": 61,
+  "compiler_and_baseline_memo_states": 215,
+  "compiler_and_baseline_split_evaluations": 269,
+  "global_states_after_gate": 284,
+  "global_split_evaluations_after_gate": 320,
+  "actual_oracle_calls": 0,
+  "artifact_sha256": null,
+  "elapsed_seconds": 0.00832360703498125
+}

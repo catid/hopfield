@@ -1,0 +1,68 @@
+{
+  "status": "passed",
+  "model_input_scalar_rows": 12288,
+  "control_confusion_matrices": {
+    "bp_own_accept": {
+      "graph_successes": 11778,
+      "accepted_graph_successes": 11778,
+      "rejected_graph_successes": 0,
+      "graph_failures": 510,
+      "accepted_graph_failures": 510,
+      "rejected_graph_failures": 0
+    },
+    "lp_cross_accept": {
+      "graph_successes": 11778,
+      "accepted_graph_successes": 11778,
+      "rejected_graph_successes": 0,
+      "graph_failures": 510,
+      "accepted_graph_failures": 509,
+      "rejected_graph_failures": 1
+    },
+    "dual_accept": {
+      "graph_successes": 11778,
+      "accepted_graph_successes": 11778,
+      "rejected_graph_successes": 0,
+      "graph_failures": 510,
+      "accepted_graph_failures": 509,
+      "rejected_graph_failures": 1
+    }
+  },
+  "primary_endpoints": {
+    "error_rejection": {
+      "rejected": 1,
+      "denominator": 510,
+      "observed_percent": 0.19607843137254902,
+      "minimum_percent": 90.0,
+      "decision": "falsified"
+    },
+    "valid_retention": {
+      "retained": 11778,
+      "denominator": 11778,
+      "observed_percent": 100.0,
+      "minimum_percent": 99.0,
+      "decision": "supported"
+    }
+  },
+  "fixed_state_fixtures": 48,
+  "complete_negative_or_retention_loss_fixtures": 510,
+  "source_boards_checked_in_fixtures": 558,
+  "original_objective_margin_checks": 1116,
+  "maximum_bp_margin_error": 6.217248937900877e-15,
+  "maximum_lp_margin_error": 1.2212453270876722e-15,
+  "maximum_witness_error": 2.7755575615628914e-17,
+  "manifest_sha256": "0585cd3d9f8c5d978df0bdbc6959e67f21834ac7490d4f5d0163943288545313",
+  "source_sha256": "3bf4ac93820a29ffcff3985506c76aafb4c664130eb14ee0457f1a5c1eb92bb8",
+  "seconds": 15.409634501032997,
+  "scope": "All sealed scalar decisions and finite targets; direct BP/LP factors and independent graphs on fixed controls and every negative/retention-loss case. Remaining accepted-positive source states were checked in the full independent Work audit and bound to the original H2bh audit. No fresh samples or global/shortestness proof from local certificates.",
+  "blocked_imports": [
+    "torch",
+    "scipy",
+    "study",
+    "cross_certificate_screen_study",
+    "cross_certificate_screen_policy",
+    "audit_cross_certificate_screen",
+    "confirmation96_study",
+    "binary_coordinate",
+    "cram"
+  ]
+}

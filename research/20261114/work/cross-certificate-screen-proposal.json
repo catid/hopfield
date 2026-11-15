@@ -1,0 +1,32 @@
+{
+  "hypothesis_id": "H2bl",
+  "status": "design_for_review_before_source_results",
+  "scope": "Every archived H2bh BP control board: 4096 fixed source mazes and three immutable model seeds, 12288 model-inputs. No new decoder trajectories, hidden/readout computation, optimizer updates or independent accuracy samples. H2bk outcomes are not pooled.",
+  "motivation": "The three H2bj BP rescue boards also pass the original LP local certificate, while the H2bk fresh cohort never routes. Test whether the LP certificate can distinguish BP graph errors before considering a fresh BP-first cascade.",
+  "source_accounting": "Preserve all 12288 BP outputs, including any numerical or hidden failures. The previously audited H2bh graph outcomes have 11778 valid-shortest BP boards and510 graph failures. Reconstruct both classes independently after sealing margins; an empty or changed denominator is a provenance/cohort failure, not grounds to drop cases.",
+  "controls_in_table_order": [
+    "BP AdamW own numerical acceptance",
+    "Original LP local certificate alone on the unchanged BP board",
+    "BP own acceptance AND original LP certificate, primary screening policy"
+  ],
+  "acceptance": {
+    "BP_own": "Original hidden_good AND finite AND stopped AND finite original BP float64 minimum flip margin>=-1e-6, with correct fixed clamps. Report all source flags and own margins.",
+    "LP_cross": "Original hidden_good AND correct fixed clamps AND finite original LP float64 minimum flip margin>=-1e-6 on the unchanged BP board and cached original shared float32 couplings. BP stopping is not silently substituted for this independent model certificate.",
+    "primary_dual": "Conjunction of BP_own and LP_cross. Threshold-1e-6 is fixed. No graph feasibility, labels, distances, source success flags or identifiers enter any acceptance rule.",
+    "meaning": "A local flip certificate does not prove graph validity, shortestness or global optimality. Cross-only and dual acceptance remain separate, including any BP numerical failures."
+  },
+  "hypotheses": [
+    {"id":"error_rejection","claim":"The primary dual screen rejects at least90% of all BP graph-shortest failures in this finite source cohort.","decision":"Support iff100*rejected_graph_failures>=90*all_graph_failures; otherwise falsify. Fixed finite denominator, no confidence or population claim."},
+    {"id":"valid_retention","claim":"The primary dual screen retains at least99% of all BP graph-shortest successes in this finite source cohort.","decision":"Support iff100*accepted_graph_successes>=99*all_graph_successes; otherwise falsify. Report every lost valid board; no tolerance or target adjustment."}
+  ],
+  "staging": {
+    "before_freeze": "Review source and synthetic boundary tests. Bind every original dataset, checkpoint, parameter extract, source output and source audit hash; preserve all48jobs.",
+    "stage_A": "Two GPU workers calculate original LP float64 minimum flip margins and attaining-cell witnesses on every unchanged BP board, without loading labels, distances or graph outcomes. Preserve original BP numerical acceptance, raw cross acceptance and dual acceptance. Seal all48 output archives and receipts in a complete hash manifest before any new graph-outcome join.",
+    "stage_B": "Independent CPU implementation recomputes all BP and LP original minimum margins and witness values with direct extended-precision factors. Check float64/extended decision agreement at the fixed tolerance. Only after the complete seal is verified, independently validate every shortest label and classify all BP boards. Compute both primary targets plus separate control confusion matrices, per-seed results and numerical-failure accounting."
+  },
+  "gates": "Use existing H2bj three-case independently verified cross-model margins as an exact implementation gate after freeze. Preserve all expected hashes and do not use the gate outcomes to tune the threshold. Synthetic tests cover NaN/infinity and adjacent-ULP boundary behavior. Gate and all-case measurement share the original objective implementation; the final CPU checker imports neither Torch nor production policy code.",
+  "schedule": {"gpu0":"Even-numbered source shards, all three seeds.","gpu1":"Odd-numbered source shards, all three seeds.","cpu_audit":"16 workers, one per source shard, sharing each input's shortest-distance work across its three fixed models."},
+  "budgets": {"gpu_worker_seconds_including_gate":120,"total_gpu_minutes":4,"independent_cpu_audit_seconds":300,"cpu_workers":16,"peak_cpu_rss_gib_per_gpu_worker":8,"no_extension":true},
+  "performance": "Read only the required source NPZ arrays, batch the GPU margin calculation at32 inputs, and reuse frozen couplings. Record source I/O, transfers, margin calculation, sealing and worker wall times separately. No speed hypothesis or claimed model-inference improvement. No GPU filler or repeated trajectories.",
+  "reporting": "All12288 scalar margin/acceptance/outcome rows, both finite targets, three control confusion matrices, every numerical failure and per-model counts. Publish fixed index-based state fixtures and explicit classifier-error supplements; retain complete underlying source and measured artifacts on Work with bound hashes. Zero increment to fresh scientific totals. No cascade is executed or endorsed without a later separately reviewed fresh protocol."
+}

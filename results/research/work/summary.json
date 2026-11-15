@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-15T11:49:27.324283+00:00",
+  "updated_utc": "2026-11-15T12:16:26.520948+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
   "status": "Ongoing research; H2aj prospective factorial complete with independent state and trace audits",
   "host": "work",
@@ -1384,6 +1384,28 @@
           "decision": "supported"
         }
       }
+    },
+    {
+      "campaign": "cross_certificate_screen",
+      "hypothesis": "H2bl_error_rejection",
+      "outcome": {
+        "rejected": 1,
+        "denominator": 510,
+        "observed_percent": 0.19607843137254902,
+        "minimum_percent": 90.0,
+        "decision": "falsified"
+      }
+    },
+    {
+      "campaign": "cross_certificate_screen",
+      "hypothesis": "H2bl_valid_retention",
+      "outcome": {
+        "retained": 11778,
+        "denominator": 11778,
+        "observed_percent": 100.0,
+        "minimum_percent": 99.0,
+        "decision": "supported"
+      }
     }
   ],
   "run_tables": [
@@ -1718,6 +1740,12 @@
       "frozen_utc": "2026-11-15T11:33:10.285270+00:00",
       "hypothesis": "H2bk",
       "status": "completed"
+    },
+    "cross-certificate-screen-protocol": {
+      "sha256": "ddb55eb1b0bec33db6c830f4200c82f3b60d52ac5b2c76d79deade02f9a737e9",
+      "frozen_utc": "2026-11-15T12:02:24.348055+00:00",
+      "hypothesis": "H2bl",
+      "status": "completed"
     }
   },
   "audit_sha256": {
@@ -1771,7 +1799,8 @@
     "artifacts/research/20261114/work/loop80_confirmation/audit.json": "bcf56c42c1696bd29f94dddec675e81820ea29a845ae976eb2c7d0febe23eb1c",
     "artifacts/research/20261114/work/artifact_overlap/audit.json": "47cc37b529f2031adf7dca3c6e64793309d33c3532dd4ef09568a1279d529d54",
     "artifacts/research/20261114/work/certificate_fallback/audit.json": "477f73438466cffda3ffbecf7d3d8316d7bdbec2155c8be6c8f7556801565602",
-    "artifacts/research/20261114/work/fallback_confirmation/audit.json": "ab5fe39fac71429098782c5a4ac753c053b10d6ad40b71a9295910d9eb4a589c"
+    "artifacts/research/20261114/work/fallback_confirmation/audit.json": "ab5fe39fac71429098782c5a4ac753c053b10d6ad40b71a9295910d9eb4a589c",
+    "artifacts/research/20261114/work/cross_certificate_screen/audit.json": "ffde9bfd18a5ceaef5a9747d95c03eba6b2a61f9eb7998f4fc9a8250f47359b9"
   },
   "model_sha256": {
     "0": {
@@ -2931,5 +2960,54 @@
     "accepted_lp_model_inputs_reused": 12288,
     "full_internal_and_reported_state_checks": 122880,
     "scope": "Fresh cohort only, three fixed models joined per maze. Main and dual certificates separately reported; actual BP subset execution, full wrong-certified/failed output inclusion and independently audited original prefixes. No source pooling or retrospective upgrade to H2bh."
+  },
+  "cross_certificate_screen": {
+    "hypothesis": "H2bl",
+    "fresh_inputs": 0,
+    "new_scientific_evaluations": 0,
+    "source_model_inputs": 12288,
+    "primary_endpoints": {
+      "error_rejection": {
+        "rejected": 1,
+        "denominator": 510,
+        "observed_percent": 0.19607843137254902,
+        "minimum_percent": 90.0,
+        "decision": "falsified"
+      },
+      "valid_retention": {
+        "retained": 11778,
+        "denominator": 11778,
+        "observed_percent": 100.0,
+        "minimum_percent": 99.0,
+        "decision": "supported"
+      }
+    },
+    "control_confusion_matrices": {
+      "bp_own_accept": {
+        "graph_successes": 11778,
+        "accepted_graph_successes": 11778,
+        "rejected_graph_successes": 0,
+        "graph_failures": 510,
+        "accepted_graph_failures": 510,
+        "rejected_graph_failures": 0
+      },
+      "lp_cross_accept": {
+        "graph_successes": 11778,
+        "accepted_graph_successes": 11778,
+        "rejected_graph_successes": 0,
+        "graph_failures": 510,
+        "accepted_graph_failures": 509,
+        "rejected_graph_failures": 1
+      },
+      "dual_accept": {
+        "graph_successes": 11778,
+        "accepted_graph_successes": 11778,
+        "rejected_graph_successes": 0,
+        "graph_failures": 510,
+        "accepted_graph_failures": 509,
+        "rejected_graph_failures": 1
+      }
+    },
+    "scope": "All H2bh BP source boards, margins sealed before labels. The dual screen retains all11778 shortest boards but rejects only1/510 graph failures, falsifying90% rejection. No fresh accuracy or certificate-only cascade claim."
   }
 }

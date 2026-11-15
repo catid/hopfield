@@ -1,0 +1,3 @@
+# H3bt: 0.62% saving misses the 2% target
+
+[Full report](../../../../research/20261114/loki/h3bt/REPORT.md). The exact posterior cost guard uses 10,291 newly paid calls versus the original 10,355-call H3br comparator: 64 fewer / 0.618059%, falsifying the frozen ≥2% target (≤10,147). All 4,096 cases remain, with unchanged 4,083 exact outcomes and thirteen failures. All actual labels are independently reacquired; 9,450 repeat archived same-case queries. All counterfactual branches and exact guards are independently audited. Conditional expected nonincrease is a correctness property, not the realized scientific endpoint. Complete proof artifacts are stored losslessly with raw and compressed hashes. No new source draws or independent confirmation.

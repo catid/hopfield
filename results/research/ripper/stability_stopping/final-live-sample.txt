@@ -1,0 +1,13 @@
+{
+  "wall_s": 14.052611897001043,
+  "cpu_s": 57.806726,
+  "active_pids": [],
+  "completed_commands": 68,
+  "status": "complete"
+}
+3514345  0.0       0 bash -c cd /home/catid/hopfield && cat artifacts/research/20261114/ripper/stability_stopping_execution/progress.json && ps -eo pid,pcpu,etimes,args | rg "stability_stopping_study.py|run_stability_stopping.py" && nvidia-smi --query-gpu=index,utilization.gpu,memory.used --format=csv,noheader
+3514348  0.0       0 rg stability_stopping_study.py|run_stability_stopping.py
+0, 0 %, 2 MiB
+1, 0 %, 2 MiB
+2, 0 %, 2 MiB
+3, 0 %, 2 MiB
