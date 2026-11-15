@@ -1,0 +1,184 @@
+{
+  "queries": 25,
+  "q1": "1/9",
+  "crossing_boundary": 648000,
+  "policy_sha256": "6e4ed78975536488077c7abd4cc05bd224491bc25a69ff14f2545bf616f0874e",
+  "proof_sha256": "12f6f30bfba2b579e2b1d38c027b78bc62c264abcd057edd0b30a435f13b7c79",
+  "gate": "Independent exposuremasks/ties, readonlyhistory,currentlabelbarrier,calibrationendpoints,exactmixturethreshold/predecessor,alllogEpaths,firstcrossingsandsupports before inference.",
+  "id": "H1ag-mixture-evidence-law-fixedcost",
+  "frozen_utc": "2026-11-15T03:18:35.812215+00:00",
+  "primary_hypothesis": "At eta=.05 and M1000/N2220, mixture/learned minus fixed/learned accuracy>=10pp, mixture/learned accuracy>=70percent, and zero wrong certified stops in both learned arms.",
+  "primary_effect": "Paired mixture/learned minus fixed/learned accuracy(pp), absolute mixture/learned accuracy(percent), zero learned-arm wrong stops; separate endpoints and conjunction.",
+  "primary_interval": "5000two-way bootstrap draws over32banks and10000 shared puzzleindices,RNG20381000. Gain endpoint supports if lower95%>=10pp, falsifies if upper95%<10pp. mixture/learned usefulness supports if lower95%>=70%, falsifies if upper95%<70%. Wrong-stop gate passes iff both learned arms have zero wrong stops. Conjunction supported iff both interval endpoints and stopgate pass; falsified if either interval endpoint falsified orstopgate fails; otherwise inconclusive. Intervals have marginal95% nominal coverage; no simultaneous-coverage claim.",
+  "uncertainty_limit": "32independent source-bank draws,one independent noise and tie stream perbank,and32paired search seeds. The same10000testinputs repeat acrossbanks. Bootstrap uncertainty is approximate,not a population-universal acquisition guarantee.",
+  "inputs": "artifacts/research/20261114/ripper/mixture_law/input_manifest.json",
+  "input_manifest_sha256": null,
+  "input_registration": "artifacts/research/20261114/ripper/mixture_law/input_registration.json",
+  "registration_rule": "Full study and sampling protocols freeze before input generation. After preparation, an immutable registration records the input manifest SHA256 and unchanged study protocol SHA256 before acquisition. Runners resolve the manifest hash from that registration; no outcomes are available during registration.",
+  "input_protocol_sha256": "67283732b8822e512c5edd1da1eab56e7ce089cd07060778b85e37e65edd6185",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "sizes": [
+    2220
+  ],
+  "rows": 2220,
+  "n_per_bank": 2220,
+  "arms": [
+    "fixed_exact",
+    "mixture_exact",
+    "fixed_learned",
+    "mixture_learned"
+  ],
+  "noise": "Independent eta=.05 replacement. Calibration draws uniform(1000,2),then int8 offsets1..8. One M1000 calibration result is reused by both learned selectors. Training draws81 uniforms then81 offsets per row, after every current mask finalizes.",
+  "ties": "RNG20377000+s produces shared81permutation perrow; max-score ties choose earliest permutation cell.",
+  "acquisition_interface": "Maskpolicy receives pastjointcounts,exclusions,k25,tiepermutation only. Equalcounts enter evidence updates; no currentlabels,geometry,sourceidentity ororaclehandle. Historyhashedreadonly; allmasks before currentnoise.",
+  "gates": "Independent masks from past noisyqueriedarchives; allcurrentmasks before reveals; noisedraws,logEpaths,exactrationalcrossings,prefixsupports replayed. Predictable inclusion and independent replacementnoise required.",
+  "secondary": "Exact-bound factorialcontrols andother accuracycontrasts descriptive. Learned57500queries/exact55500; grapherrors,coverage/fallback,wrongstopsandinvalidcappedreturns reported.",
+  "rows_half_open": [
+    330000,
+    340000
+  ],
+  "split": "full-all",
+  "search_sizes": [
+    2220
+  ],
+  "budget": "At most30GPU-minutes including trajectory preflight. Exact support/settings/search-seed/input deduplication. No duplicate/filler jobs.",
+  "backend_sha256": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+  "capture_sha256": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+  "original_policy_sha256": "7be1d4c3f54ab61fa93c42ad478558163d3e080b4ad5ca877642f971fdf27bbe",
+  "original_exponential_sha256": "fc0921314bf17a64e8cd6c9e07fc77f22ce559a4b7108d1415c9b39266bb1192",
+  "policy_preflight_path": "artifacts/research/20261114/ripper/mixture_law_preflight.json",
+  "policy_preflight_sha256": "35d734e1b7439700f77a6d5b4c6ac0f2ccffcd085ace199445b5cb9f8c48f68d",
+  "pilot_path": "research/20261114/ripper/protocol-mixture-law-pilot.json",
+  "pilot_sha256": "7448648da5d975a57f5f720eab9c12c1f2d1397ef4c71c52f453a06fea0e1646",
+  "relation_to_prior": "H1ae/H1af failed selector gain/usefulness targets. This study changes only the evidence law, retaining exposure allocation. All prior studiesunchanged andnotpooled. Fresh sources excludeall1528129priorRipperboards.",
+  "stopping_rule": "Exactly32freshbanks andfourarms,128requestedcells except exactsupport/settings/seed/inputdedup. No outcomechanges settings,weights,counts,gain,floor orbudget.",
+  "limitations": [
+    "Independent fixed eta=.05 replacementnoise only; samefamily/rate in calibration/training.",
+    "Learned57500queries vs exact55500; evidence-law comparison withincalibrationtype equalcost.",
+    "Fixed equal mixture of componentproducts is a supermartingale; alternativevalues need not be true nonedgeprobabilities.",
+    "Perlearnedmodel .005calibration+.005edge risk; no joint1percentacrossarms/banks.",
+    "Gain/usefulness intervals marginal95%; no simultaneouscoverage.",
+    "Edgeprotection does notguaranteegain,usefulness,recovery orvalidcappedreturns.",
+    "Source-rolepools disjoint withinstudy;crossbankoverlapreported.",
+    "Same10000testinputs repeat over32bank/searchseeds.",
+    "BP AdamW outside acquisition/evidence-lawstudy andnotrun."
+  ],
+  "original_noisy_policy_sha256": "31f4b5dbc64690db94fd3d8959c16dd85d9c8b2f891f893e7e9b77413df16c19",
+  "calibration_pairs": 1000,
+  "calibration_alpha": "1/200",
+  "edge_alpha": "1/200",
+  "eta_grid": 1000000,
+  "streams": {
+    "pool_split": 20374000,
+    "calibration_source": 20375000,
+    "training_source": 20376000,
+    "ties": 20377000,
+    "calibration_noise": 20378000,
+    "training_noise": 20379000,
+    "calibration_cell": 20380000,
+    "bootstrap": 20381000
+  },
+  "calibration": "SeparatefixedM1000indicator-onlyestimatesperrate: one-sided99.5percentCPdisagreementupper,monotoneinverse,outward1e-6grid,exactintegerendpoint/predecessorchecks,independent80digitverification.Alloutcomesretained.",
+  "fallback": "If the inverted or outward-rounded upper reaches eta=8/9, retain every pair and use the no-pruning fallback. No clipping to a falsely smaller bound.",
+  "estimator_sha256": "ee8d23b74b87937a179fe7249fc3d64a427947e6cfda3424add88b33b27f6012",
+  "label_costs": {
+    "fixed_exact": {
+      "calibration": 0,
+      "training": 55500,
+      "total": 55500
+    },
+    "mixture_exact": {
+      "calibration": 0,
+      "training": 55500,
+      "total": 55500
+    },
+    "fixed_learned": {
+      "calibration": 2000,
+      "training": 55500,
+      "total": 57500
+    },
+    "mixture_learned": {
+      "calibration": 2000,
+      "training": 55500,
+      "total": 57500
+    }
+  },
+  "arm_rows": {
+    "fixed_exact": 2220,
+    "mixture_exact": 2220,
+    "fixed_learned": 2220,
+    "mixture_learned": 2220
+  },
+  "arm_calibration_pairs": {
+    "fixed_exact": 0,
+    "mixture_exact": 0,
+    "fixed_learned": 1000,
+    "mixture_learned": 1000
+  },
+  "edge_crossing_boundary": 648000,
+  "base_policy_sha256": "0c07514e139bb82e4199485876ef36f9859583b18c6e9c44246bc31e3c0daf7a",
+  "base_estimator_sha256": "7e1c8433219297d2309d585db4d0b0517435fae035ac36d8a43f193d8d188311",
+  "nesting": "Sourceboards,ties,calibration,potentialtrainingnoise paired across evidence laws andknown/learnedbounds. Exclusions and masks can differ; no nestingclaim.",
+  "estimator_interface": "One fixed1000 disagreement-indicator vector per bank; no clean labels,source orcell identity.",
+  "arm_actual_eta": {
+    "fixed_exact": "1/20",
+    "mixture_exact": "1/20",
+    "fixed_learned": "1/20",
+    "mixture_learned": "1/20"
+  },
+  "usefulness_floor_pct": 70,
+  "primary_arms": [
+    "fixed_learned",
+    "mixture_learned"
+  ],
+  "actual_eta": "1/20",
+  "crossing_preflight_path": "artifacts/research/20261114/ripper/mixture_law_preflight.json",
+  "crossing_preflight_sha256": "35d734e1b7439700f77a6d5b4c6ac0f2ccffcd085ace199445b5cb9f8c48f68d",
+  "replay_optimization_validation_path": "artifacts/research/20261114/ripper/replay_optimization_validation.json",
+  "replay_optimization_validation_sha256": "852a77ec71dd1f99443690d883e93d68654665e44304fd059632e787a96f6b4a",
+  "fast_reference_mask_sha256": "c2c38e9eb65483d8503cb35d32a0d6688e083baff08fab646bd904ca6a38bf0e",
+  "selector": "Every arm uses unchanged exposure weights(8/9)^m on unexcludedpairs, zero diagonal/exclusions, samegreedy25andtietorder. Interface:pastjointcounts,exclusions,k,tieorder only. All masks finalize before current noise generation/reveal.",
+  "minimum_gain_pp": 10,
+  "evidence_law": "Fixed controlqA=1/9; candidate E=(LqA+LqB)/2 withqB=1/6 and fixed equalweights. q0<bothalternatives asserted outsidefallback. Exact integers certify(nA*dB+nB*dA)>=2*648000*dA*dB and reject predecessor. Floating logaddexp paths are diagnostic only. Ateta=8/9, Eidentically1/no pruning.",
+  "mixture_alternatives": [
+    "1/9",
+    "1/6"
+  ],
+  "mixture_weights": [
+    "1/2",
+    "1/2"
+  ]
+}

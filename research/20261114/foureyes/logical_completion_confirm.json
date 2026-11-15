@@ -1,0 +1,203 @@
+{
+  "id": "H4u-logical-completion-confirmation",
+  "frozen_utc": "2026-11-15T03:24:01.999301+00:00",
+  "hypothesis": "Fresh40k-input confirmation of unchanged >=1pp gain from logically implied edges in the same13fixedAdamW graphs.",
+  "selection": [
+    {
+      "bank": 13,
+      "source_arm": "adamw",
+      "source_job": "m020",
+      "support_sha256": "0c981341b623d305d52579c1e776e4b8789f6984bda203e6bd52dae14916378c"
+    },
+    {
+      "bank": 16,
+      "source_arm": "adamw",
+      "source_job": "m026",
+      "support_sha256": "5cdc3d5488b2d43f069af05d1bad8f7e4d1e348889fe25dea921df6a1fea00aa"
+    },
+    {
+      "bank": 17,
+      "source_arm": "adamw",
+      "source_job": "m028",
+      "support_sha256": "88013a837993cee5071422c7f845fc5d2b45b6ba2f497bb2b430cb8e03c5950c"
+    },
+    {
+      "bank": 18,
+      "source_arm": "adamw",
+      "source_job": "m031",
+      "support_sha256": "83130da302493e573a09ac2d0fc8bbe51123fe10cb7ecc71590f38f94fcb4ddc"
+    },
+    {
+      "bank": 26,
+      "source_arm": "adamw",
+      "source_job": "m050",
+      "support_sha256": "95af45a0d9e77faf2f6815e46e0af3b06ff094b6607f918d548a441ac05093c4"
+    },
+    {
+      "bank": 32,
+      "source_arm": "adamw",
+      "source_job": "m059",
+      "support_sha256": "ee32ebc0ccbcef7bdc184b502a68046526bdd199e65d8bb7d54da6197b111dae"
+    },
+    {
+      "bank": 34,
+      "source_arm": "adamw",
+      "source_job": "m062",
+      "support_sha256": "6cdb8073c11c2aa00ba2220efa18a4005bea0552229ea5cac230f65935bc2138"
+    },
+    {
+      "bank": 44,
+      "source_arm": "adamw",
+      "source_job": "m079",
+      "support_sha256": "8a480a63b2a7ec5f2a54438c960bbc6e1f7dcf57749b8ca8de87fa76f43bc6ef"
+    },
+    {
+      "bank": 52,
+      "source_arm": "adamw",
+      "source_job": "m092",
+      "support_sha256": "9ed127da356a1e1bc47f623171891a92cea9dd3229e1e26b9d604767f4df655d"
+    },
+    {
+      "bank": 53,
+      "source_arm": "adamw",
+      "source_job": "m096",
+      "support_sha256": "e0d62241bb220e8f053899e9d2bcd0302c06456f85d916e674adc07543eb16b5"
+    },
+    {
+      "bank": 55,
+      "source_arm": "adamw",
+      "source_job": "m099",
+      "support_sha256": "5dc8ea2b02db2a5a3bd3e129dea940bd84f2870f2e421da960b6d9d764eb02a8"
+    },
+    {
+      "bank": 59,
+      "source_arm": "adamw",
+      "source_job": "m108",
+      "support_sha256": "7cc95acbb2c30d28f49fc263b5520d58ddb147007521116aab2afca4d410a2d7"
+    },
+    {
+      "bank": 61,
+      "source_arm": "adamw",
+      "source_job": "m114",
+      "support_sha256": "90924655f7c21d5a065b4fd0217035f468e9b26c22b0f99db8dcc1baa6f21ea7"
+    }
+  ],
+  "selection_scope": "Adaptive follow-up after H4s and its exact soundness diagnostic. Fixed historical models selected by soundness and missing edges; no fresh outcomes used.",
+  "primary": {
+    "source_arm": "adamw",
+    "target_gain_pp": 1.0,
+    "interval": "two-sided95percent paired input-cluster bootstrap; average13fixedmodels inside each of40000inputs;5000draws;seed20261115666",
+    "stop_gate": "zero wrong certified stops in both primary arms"
+  },
+  "secondary": "No additional source-model arms. H4t remains inconclusive; no pooling or retrospective replacement.",
+  "scientific_change": "Original unit graph versus original union810officialpeeredges. Geometry explicitly supplied. Proof shows identical zero sets, not identical nonzero energies or trajectories.",
+  "source_sha256": {
+    "research/20261114/ripper/run.py": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+    "research/20261114/ripper/sparse_backend.py": "e5eb5c3cfe8cbd00d5fe0204df7ee57547c42c71f21f86972622d4e463a2ef96",
+    "research/20261114/foureyes/restart_backend.py": "fd02c4f71574a6e0545c4f7aae54f3ddfeb9321f4c4f840c02ee5a213d814c0e",
+    "research/20261114/foureyes/restart_capture.py": "801f17ab24fe6d8d7f7fe381f7829ab65bed56625413bd7d1b1461b95ef7c7a4",
+    "upstream/cram/cram_sudoku_general.py": "2e0c8f16b195757eab835351e36fe11395b3112abda68d200c25da9d60ae8085",
+    "upstream/cram/cram_sudoku_search.py": "e5a30f284cab2b065a9e3b744e1ad8cb6a697c6d0035e59c7bf32d25abe0e29c",
+    "upstream/cram/cram_sudoku_sparse.py": "b559cbfec3472dfc790999970c7147e2a976f4a03548e0d32a4f0f7985c36871",
+    "research/20261114/ripper/bootstrap_two_way.py": "b4ae5dbccbc7f893f509eaf7b35ae239055f6f7633ac00921b45008761949e43",
+    "research/20261114/foureyes/noise_chernoff.py": "183fb90b6af04a464bc1da3d20834bc103a007f9fc608b8977df5e7f10a66d1a",
+    "upstream/experiments/sudoku.py": "b73f72c8e874711d0d05fa75de0043442a20297618de62e5bb714b76aa09f20b",
+    "research/20261114/foureyes/noisy_pl_long.py": "1176a20102d3561f09b9fc6184a5028bac31256b45e4d54b96d918f71f8a771c",
+    "research/20261114/foureyes/noisy_pl_long_search.py": "96e5882abd4b4fa67a61d5516878232ef4e963b5ef9839f454762a8404f8e87a",
+    "research/20261114/foureyes/map_noisy_pl_long.py": "f9a63c8e02f3a6a9ae57b515da5636520a4e0d625eeeddd84ab5aa4bf0076231",
+    "research/20261114/foureyes/gate_noisy_pl_long.py": "42a4a4842e6405b16c4d14c41af5e6eefc94c9b5cff5c588f02af671776adc09",
+    "research/20261114/foureyes/gate_long_matched.py": "5c81be45ee03b7529d43d9c5dd3ff15afbbeddd486dc4955cca88ce31e8443b0",
+    "research/20261114/foureyes/prepare_logical_completion.py": "2b409586dae688b25bfe9d855e342760cf9912a601ee9ead57ccab6ad6118377",
+    "research/20261114/foureyes/logical_completion_search.py": "2d1ac8b722013e8fb03c777641c9e5e595c014dc475165035250cedeb5b1d57a",
+    "research/20261114/foureyes/audit_logical_completion.py": "50b52703de40bd2e2507a688ff2c7894dabbe8f7a37d209752e88f1a11e9ea46",
+    "research/20261114/foureyes/verify_sudoku_soundness.py": "47e7f62604fd832f88aa24621ce219c9574f0698632044f368dbe71c80b72a94",
+    "research/20261114/foureyes/audit_noisy_pl_long.py": "1afefa805fb5904d40c7b99de831028489c4916afd6b3a2627c66c81e2dfebbc",
+    "research/20261114/foureyes/logical_completion_confirm.py": "4c4af26d7c4161f649828865893424a4a3968f07add69c62d4e96806a920817d"
+  },
+  "frozen_inputs": {
+    "results/research/foureyes/logical_soundness/certificates.json": "1d285205cfa01f463a4a4258d388b2ee87cd53fe57c236a5a2f09ea880e4a126",
+    "results/research/foureyes/logical_soundness/supports.npz": "cd151acee5eb9f4b983d8e658d36f9e8ceb181807422feefcf21d055410ce20d",
+    "artifacts/research/20261114/foureyes/logical_completion/prepared.json": "9fa904e443a0218a769b632cd5bafde9eeb1e475c6c183af53ea15462b820b8a",
+    "results/research/foureyes/logical_completion/summary.json": "64aa1348a24fa470be308a5aed442c6961dd882bf0f5aff7da5ce9c6c70f2b3e"
+  },
+  "split": "full-all",
+  "rows_half_open": [
+    340000,
+    380000
+  ],
+  "search_seed": 0,
+  "chains_by_arm": {
+    "original": 4,
+    "completed": 4
+  },
+  "checkpoints": [
+    0,
+    1048576
+  ],
+  "settings": {
+    "unit": 1,
+    "bias": 0,
+    "tau": 0,
+    "ebar": 0,
+    "temperature": [
+      0.4,
+      0.31
+    ],
+    "annealing_moves": 524288,
+    "focus_threshold": 0.45,
+    "check": 4096
+  },
+  "budget": {
+    "max_queue_wall_seconds": 300,
+    "max_gpu_minutes": 20,
+    "gpus": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "input_scope": "New40k contiguous slice of reused officialcorpus;13fixedhistoricalmodels andsearchseed0. Not a newtraining-bank replication.",
+  "numerical_gate": "Inherited native/capture/sparse parity on first16inputs,8checks peruniquegraph; exact integer fields/energies atcap, independent savedboard audit.",
+  "verifier_receipt": {
+    "status": "passed",
+    "logical_models": 320,
+    "unique_models": 121,
+    "count_identity_steps": 48,
+    "rejected_bad_proofs": 32,
+    "grouped": [
+      {
+        "arm": "adamw",
+        "sound": 63,
+        "unsound_witness": 1,
+        "unresolved": 0
+      },
+      {
+        "arm": "paper_pl",
+        "sound": 22,
+        "unsound_witness": 42,
+        "unresolved": 0
+      },
+      {
+        "arm": "long_pl",
+        "sound": 15,
+        "unsound_witness": 49,
+        "unresolved": 0
+      },
+      {
+        "arm": "restricted",
+        "sound": 64,
+        "unsound_witness": 0,
+        "unresolved": 0
+      },
+      {
+        "arm": "chernoff9",
+        "sound": 64,
+        "unsound_witness": 0,
+        "unresolved": 0
+      }
+    ],
+    "verifier_sha256": "47e7f62604fd832f88aa24621ce219c9574f0698632044f368dbe71c80b72a94"
+  },
+  "adaptive_reason": "H4t gain0.721538pp with95CI[0.209981,1.230019] was inconclusive for unchanged1pp target. One larger independentcohort fixed before outcomes."
+}

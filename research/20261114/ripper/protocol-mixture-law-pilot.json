@@ -1,0 +1,104 @@
+{
+  "id": "H1ag-mixture-evidence-law-implementation-pilot",
+  "frozen_utc": "2026-11-15T03:18:35.812215+00:00",
+  "scope": "Six old-board implementation banks. No solver inference or pooling; every weight, endpoint, stream and count freezes before pilot.",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "rows": 2220,
+  "calibration_pairs": 1000,
+  "queries": 25,
+  "arms": [
+    "fixed_exact",
+    "mixture_exact",
+    "fixed_learned",
+    "mixture_learned"
+  ],
+  "q1": "1/9",
+  "calibration_alpha": "1/200",
+  "edge_alpha": "1/200",
+  "edge_crossing_boundary": 648000,
+  "eta_grid": 1000000,
+  "streams": {
+    "calibration_cell": 20384000,
+    "calibration_noise": 20385000,
+    "training_noise": 20386000,
+    "ties": 20387000
+  },
+  "noise_draw_rule": "Independent eta=.05 replacement. Calibration draws uniform(1000,2),then int8 offsets1..8. One M1000 calibration result is reused by both learned selectors. Training draws81 uniforms then81 offsets per row, after every current mask finalizes.",
+  "policy_sha256": "6e4ed78975536488077c7abd4cc05bd224491bc25a69ff14f2545bf616f0874e",
+  "estimator_sha256": "ee8d23b74b87937a179fe7249fc3d64a427947e6cfda3424add88b33b27f6012",
+  "proof_sha256": "12f6f30bfba2b579e2b1d38c027b78bc62c264abcd057edd0b30a435f13b7c79",
+  "label_costs": {
+    "fixed_exact": {
+      "calibration": 0,
+      "training": 55500,
+      "total": 55500
+    },
+    "mixture_exact": {
+      "calibration": 0,
+      "training": 55500,
+      "total": 55500
+    },
+    "fixed_learned": {
+      "calibration": 2000,
+      "training": 55500,
+      "total": 57500
+    },
+    "mixture_learned": {
+      "calibration": 2000,
+      "training": 55500,
+      "total": 57500
+    }
+  },
+  "budget": "Six old training banks and six independent calibration draws only; no solver inference and no extension.",
+  "arm_rows": {
+    "fixed_exact": 2220,
+    "mixture_exact": 2220,
+    "fixed_learned": 2220,
+    "mixture_learned": 2220
+  },
+  "arm_calibration_pairs": {
+    "fixed_exact": 0,
+    "mixture_exact": 0,
+    "fixed_learned": 1000,
+    "mixture_learned": 1000
+  },
+  "base_policy_sha256": "0c07514e139bb82e4199485876ef36f9859583b18c6e9c44246bc31e3c0daf7a",
+  "base_estimator_sha256": "7e1c8433219297d2309d585db4d0b0517435fae035ac36d8a43f193d8d188311",
+  "nesting": "Sourceboards,ties,calibration,potentialtrainingnoise paired across evidence laws andknown/learnedbounds. Exclusions and masks can differ; no nestingclaim.",
+  "noise": "Independent eta=.05 replacement. Calibration draws uniform(1000,2),then int8 offsets1..8. One M1000 calibration result is reused by both learned selectors. Training draws81 uniforms then81 offsets per row, after every current mask finalizes.",
+  "estimator_interface": "One fixed1000 disagreement-indicator vector per bank; no clean labels,source orcell identity.",
+  "policy_preflight_path": "artifacts/research/20261114/ripper/mixture_law_preflight.json",
+  "policy_preflight_sha256": "35d734e1b7439700f77a6d5b4c6ac0f2ccffcd085ace199445b5cb9f8c48f68d",
+  "arm_actual_eta": {
+    "fixed_exact": "1/20",
+    "mixture_exact": "1/20",
+    "fixed_learned": "1/20",
+    "mixture_learned": "1/20"
+  },
+  "actual_eta": "1/20",
+  "source_rule": "For each seed0..5 take first2220 old H1adpilot training boards and its1000 calibration boards. No new boards; existing role disjointness preserved.",
+  "crossing_preflight_path": "artifacts/research/20261114/ripper/mixture_law_preflight.json",
+  "crossing_preflight_sha256": "35d734e1b7439700f77a6d5b4c6ac0f2ccffcd085ace199445b5cb9f8c48f68d",
+  "replay_optimization_validation_path": "artifacts/research/20261114/ripper/replay_optimization_validation.json",
+  "replay_optimization_validation_sha256": "852a77ec71dd1f99443690d883e93d68654665e44304fd059632e787a96f6b4a",
+  "fast_reference_mask_sha256": "c2c38e9eb65483d8503cb35d32a0d6688e083baff08fab646bd904ca6a38bf0e",
+  "selector": "Every arm uses unchanged exposure weights(8/9)^m on unexcludedpairs, zero diagonal/exclusions, samegreedy25andtietorder. Interface:pastjointcounts,exclusions,k,tieorder only. All masks finalize before current noise generation/reveal.",
+  "prior_input_manifest": "artifacts/research/20261114/ripper/scaled_noise_pilot/input_manifest.json",
+  "prior_input_manifest_sha256": "a57bc6e0c7d27d8fb4247ca97344366637d169afce2d0f99eefb9eb8cc2600f7",
+  "evidence_law": "Fixed controlqA=1/9; candidate E=(LqA+LqB)/2 withqB=1/6 and fixed equalweights. q0<bothalternatives asserted outsidefallback. Exact integers certify(nA*dB+nB*dA)>=2*648000*dA*dB and reject predecessor. Floating logaddexp paths are diagnostic only. Ateta=8/9, Eidentically1/no pruning.",
+  "mixture_alternatives": [
+    "1/9",
+    "1/6"
+  ],
+  "mixture_weights": [
+    "1/2",
+    "1/2"
+  ]
+}
