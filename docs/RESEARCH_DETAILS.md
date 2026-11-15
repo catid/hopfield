@@ -189,3 +189,33 @@ The earlier corner-endpoint cohort saves 35.40%; both cohorts use 4,096 fresh ma
 Assuming half or double the actual 7.5% label-noise rate yields **62/64** exact graphs in both arms, with **zero regressions** versus the nominal likelihood control. All four separate targets pass. Every selected primal is unchanged despite different integer costs. This tests two fixed assumptions on examined repeated-query records; it does not establish a continuous robustness interval or fresh generalization. [Protocol, arithmetic certificates and residual failures](../research/20261114/ripper/REPORT-channel-misspecification.md).
 
 ![Two prespecified channel assumptions retain the same graph recoveries](../assets/figures/channel_misspecification.png)
+
+## Estimate the noise channel from repeated observations
+
+The fixed disagreement-moment estimator retains **62/64** exact graphs and every nominal-channel success on the examined repeated-query cohort. It selects 7% noise in 38 banks and 8% in 26; both the at-least-60 recovery target and at-most-two-regression target pass. Every selected primal is unchanged from the known-rate likelihood control. The estimator and objective use the same observations, and this is not a fresh heterogeneous-noise test. [Full numerical and source checks](../research/20261114/ripper/REPORT-estimated-channel.md).
+
+![Observation-only noise estimation retains the nominal graph recoveries](../assets/figures/estimated_channel.png)
+
+## A larger disjoint sample does not rescue the detector at 600 rows
+
+A disjoint 600-row donor yields **122/256** exact final graphs, with **41 gains and 49 losses** versus the original 130/256 detector. Both frozen targets fail. The original run completed and sealed all 512 fits, then failed an incorrect integer-dtype assertion. A separately frozen audit repair checks those unchanged outputs with **zero new fits**. The failed run and repair have separate accounting; the result is a repaired post-run evaluation on examined data. [Original failure, repaired proofs and comparison limits](../research/20261114/foureyes/REPORT-disjoint-donor.md).
+
+![Disjoint donor recovery and paired changes](../assets/figures/disjoint-donor.png)
+
+## Question planning under a shifted truth prior
+
+With truths sampled uniformly while both policies retain their fixed hierarchical inference weights, the deeper policy uses **12,583 calls versus 12,958**, saving **375 calls (2.89%)**. The fixed 2% target passes on 4,096 fresh paired cases; both arms retain 4,064 exact identifications and 32 failures. All repeated queries are reacquired and paid. This finite-cohort finding does not establish an expected-cost guarantee under the shifted truth law. [Full independent audit, seed-scope disclosure and public proof boundary](../research/20261114/loki/h3by/REPORT.md).
+
+![Fresh prior-shift total-call comparison](../results/research/loki/h3by/fresh-paired-total-cost.png)
+
+## More donor data helps; masking adds no exact recoveries
+
+Increasing the disjoint donor to 1,200 rows raises final recovery to **229/256**, with **107 gains and eight losses** versus the original 600-row detector. Both fixed targets pass, with regressions exactly at the allowed limit. **The donor graph alone recovers the same 229 banks**, so the masking/refitting stage adds no exact recoveries in this cohort. The full method uses 1,800 stored observations; this examined-data result has a larger observation budget than the original detector. [Complete comparison and proofs](../research/20261114/foureyes/REPORT-larger-donor.md).
+
+![Larger donor and donor-only control](../assets/figures/larger-donor.png)
+
+## Opposite-region maze endpoints preserve a cost advantage
+
+With endpoints uniformly sampled within opposite 45×45 corner regions, both LP96 and the cascade solve **4,096/4,096** fresh mazes across all three fixed models; BP AdamW solves **4,003**. The cascade saves **18.43%** median complete answer cost. All three prespecified accuracy and cost targets pass; all four paired timings remain visible. The earlier corner, uniform-open-cell and opposite-region distributions remain separate, with no causal distance claim. [Protocol, all inputs and audit](../research/20261114/work/REPORT.md#h2bq-opposite-region-endpoints-preserve-joint-success-and-save-1843-complete-answer-cost).
+
+![All twelve paired measurements across three endpoint distributions](../results/research/work/endpoint-cost-three-cohorts/endpoint-cost-three-cohorts.png)

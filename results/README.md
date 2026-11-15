@@ -2,6 +2,11 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Fresh opposite-region maze endpoints: all 4,096 cases solved and 18.43% complete answer-cost saving](../research/20261114/work/REPORT.md#h2bq-opposite-region-endpoints-preserve-joint-success-and-save-1843-complete-answer-cost)
+- [A 1,200-row donor reaches 229/256 graphs; masking preserves exactly the same successes](../research/20261114/foureyes/REPORT-larger-donor.md)
+- [A disjoint 600-row donor recovers 122/256, losing 49 detector successes; separate audit repair preserves the original failed run](../research/20261114/foureyes/REPORT-disjoint-donor.md)
+- [Estimating the noise channel from repeated observations retains 62/64 graphs and all nominal-control successes](../research/20261114/ripper/REPORT-estimated-channel.md)
+- [Uniform-truth prior shift: fixed deeper questions save 2.89% of paid calls across 4,096 fresh paired cases](../research/20261114/loki/h3by/REPORT.md)
 - [Uniform open-cell endpoints: all 4,096 maze cases solved, but the cascade costs 15.54% more than LP96](../research/20261114/work/REPORT.md#h2bp-uniform-endpoints-preserve-joint-success-but-falsify-the-cost-saving-target)
 - [Half and double assumed noise rates each retain 62/64 graphs with zero nominal-control regressions](../research/20261114/ripper/REPORT-channel-misspecification.md)
 - [Opposite-half conflict masks recover only 38/256 graphs, losing 95 detector successes; both targets fail](../research/20261114/foureyes/REPORT-crossfit-conflicts.md)

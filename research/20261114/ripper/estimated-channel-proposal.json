@@ -1,0 +1,39 @@
+{
+  "id": "H1ce-estimated-channel",
+  "status": "prospective_design_before_disagreement_counts_estimates_or_scores",
+  "hypothesis": "On all64 examined H1ca triple90 banks, estimating the channel exclusively from repeated observed-label disagreements and then applying fixed quantized pair likelihood recovers at least60/64 exact graphs and introduces at most2 regressions among62 H1cc nominal-channel successes. Assess two endpoints separately.",
+  "motivation": "H1cd showed identical selected graphs at assumed rates3/80 and3/20, but both assumptions were externally supplied. Remove supplied channel knowledge with a prespecified observation-only moment estimate. This is an algorithm and numerical-validation prerequisite for a later fresh heterogeneous-channel comparison; support here will not establish transfer to unknown heterogeneous channels.",
+  "scope": "All64 examined H1ca triple90 bundles; no fresh sources, IDs, labels, masks, noisy queries or noise realizations. The acquisition rate3/40 is withheld from production estimator and used only for labeled post-fit diagnostics. Estimate and objective use the same observations, so no sample-independence or held-out calibration claim. No tuned best estimate or method selection.",
+  "estimator": {
+    "disagreement": "For each of6480given cell-board positions in90rows, count the three unordered disagreements among its three query labels. D is total observed disagreements and T=19440 is total comparisons. Independent symmetric incorrect-digit noise implies E[D/T]=f(p)=2p-9p^2/8. The three pair indicators per cell are dependent; do not use an independent-binomial confidence claim or claim inverse-moment unbiasedness. The frozen balanced-mask algebra gives81cells*80observed rows percell=90rows*72observed cells perrow=6480positions. T is computed from observed-mask cardinality and independently checked against19440; no fixed7200position assumption.",
+    "branch": "Restrict the supplied model class to0<=p<=8/9, where f is increasing and channel accuracy is at least random guessing. If exact empirical D/T>8/9, retain the bank as estimator-unresolved, skip all costs/fits, and include it in both endpoint bounds. No empirical clamping to an admissible disagreement and no retry.",
+    "quantization": "Choose nearest assumed rate k/100 with k in1..88 to the lower-branch inverse f^(-1)(D/T), with half-even integer-k ties and endpoint clipping to the positive grid. Implement without numerical square roots: compare D/T exactly to f((2k+1)/200) for each adjacent-rate midpoint, using Python integer cross-products. At an exact boundary choose the even k. Values below first midpoint map to1/100; above last midpoint map to88/100. Record explicit lower/upper clipping indicators by comparisons against f(1/100),f(88/100). This fixed positive floor regularizes zero disagreement and avoids infinite likelihoods; it is part of the estimator. These are midpoints in p-space mapped through monotone f, not midpoints in disagreement space. The p>8/9 quadratic branch is excluded by the model class; empirical D/T>8/9 has no real admissible inverse and is handled separately as unresolved.",
+    "why_grid": "A fixed1percentage-point grid supports exact rational channel likelihoods and bounded native integer arithmetic at every allowed rate, avoiding needless arbitrary-precision array costs. The grid spans positive informative channels without using nominal3/40 to select a local search window. No tuning grid resolution after cohort estimates."
+  },
+  "objective": "For chosen k/100 use exact likelihood weights8*(100-k) and k, multiplied over three queries under unchanged independent uniform latent-digit prior. Fixed half-even1e6*sum[-ln(1-e)] pair composite likelihood,71coqueries per pair, no smoothing or exposure normalization. Do not interpret this as full-graph likelihood.",
+  "controls": "Recheck64 archived H1cc nominal3/40 selected certificates and independently reproduce their costs;62exact is the paired control. H1cd half/double supplied-rate rows are separately labeled prior-audited references. BP AdamW first in method tables, outside structural-inference scope. No new nominal fits or new Q1 cohort fits.",
+  "inference": "64 degree1..40 grids, analytic degreezero, exact curvature1..39 lower-degree ties; no true degree or edge count. Literal half-integral outputs and independent exact integer certificates, unchanged solver settings. Selected fractional is a resolved failure. Uncertified estimate/cost/required grid is unresolved. No retries or favorable tie selection.",
+  "primary": {
+    "exact": "At least60/64: lower=known exact,upper=exact+unresolved; support lower>=60,falsify upper<60,else inconclusive.",
+    "regressions": "At most2 among62 nominal successes: lower=known resolved failures on62,upper adds unresolved on62; support upper<=2,falsify lower>2,else inconclusive."
+  },
+  "diagnostics": "Post-fit estimate bin distribution and exact D/T; clipping and invalid-moment counts; absolute deviation from known3/40 acquisition rate clearly labeled diagnostic; all selected degrees/ties; paired gains/losses; selected-primal and cost differences from nominal; residual failure truth gaps; fixed20/top810. No diagnostic selection or optimization.",
+  "numerics": "Immutable H1cc80/160-digit directed producer log intervals and independent exact rational-product200-digit/240-term log bounds. New fixed positive k/100 channel table supports arbitrary allowedk but verifies bounds before integer operations. Every fitted cost must independently certify rounding; numerical failure skips the full bank. Frozen absent-estimate receipts prevent a placeholder channel or zero cost reaching inference.",
+  "gates": "Derive exact disagreement moment by enumerating9x9query outcome probabilities under a fixed latent label, at every88allowedrates; compare vector and literal D/T counts; all87exact midpoint ties and neighboring rational values; clipping endpoints and invalid D/T cases; channel binding/no nominal-rate input; all allowed-rate finite Q1/Q3 pair types and exact log intervals; full81-cell producer/reference parity at representative grid rates1,7,8,20,88; generic nominal3/40 parity inherited; digit/query permutations; missing-estimate/numeric whole-grid skip; separate endpoint boundaries; runner binding, toy certificate mutations. Synthetic only before freeze.",
+  "candidate_solver_seed_base": 2042331502,
+  "seed_rule": "Actual=base+41*bank+degree; expand H1bv/bw/by/bz/ca/cc/cd grids and scan explicit frozen seed fields. No acquisition RNG.",
+  "budget": {
+    "new_LPs": 2560,
+    "new_analytic_zero_witnesses": 64,
+    "archived_selected_controls": 64,
+    "workers": 8,
+    "aggregate_cpu_seconds": 450,
+    "wall_seconds": 120,
+    "gpu_seconds": 0,
+    "new_noisy_queries": 0
+  },
+  "optimization": "Reuse finite-type interval tables per estimated bin and eight persistent workers; benchmark literal count/score paths on unrelated fixtures. Preserve exact bounds/parity and record live CPU and completedLP/audit counters. GPUs have no eligible implementation in this pipeline.",
+  "query_accounting": "No increment: parent physical noisy union2073600, cumulative official noisy labels16760919, combinedledger2431463, Ripperledger2195038.",
+  "future_test": "If this observation-only estimator and gates validate, propose a separate fresh cohort with fixed heterogeneous acquisition rates and paired known-channel control. Set new acquisition budget and endpoints prospectively; do not treat present examined-cohort support as that experiment.",
+  "review": "Design only; no cohort D/T, estimate, chosen channel, new objective or fit computed. Source/numerical gate review required before freeze; no extensions after outcomes."
+}

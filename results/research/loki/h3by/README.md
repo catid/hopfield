@@ -1,0 +1,3 @@
+# H3by: fresh 2% target supported
+
+[Full report](../../../../research/20261114/loki/h3by/REPORT.md). All 4,096 fresh pairs complete: 12,583 deeper-policy calls versus 12,958 separately paid original-baseline calls, saving 375 / 2.893965%. All 4,064 exact cases, 32 failures and every duplicate remain. The full independent audit verifies fresh RNG source choices, both paid arms, every original/deeper proof and counterfactual branch. Lossless export identities are independently checked; full proof payloads stay outside Git. Portable checkout verification explicitly omits full optimality-proof replay. The report states the frozen finite-cohort decision under the actual uniform truth law and unchanged fitted hierarchy; it makes no actual-law expected-cost theorem claim.

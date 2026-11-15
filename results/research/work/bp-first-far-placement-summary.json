@@ -1,0 +1,127 @@
+{
+  "status": "passed",
+  "hypothesis": "H2bq",
+  "protocol_sha256": "45c298424988de14185731277812554979085760b3505948cb629f0ba9a7223e",
+  "sealed_replays_sha256": "e66c839b3976bcf9a0587f3151546748f2bed49eb30939720213f6d7f792a747",
+  "primary_endpoints": {
+    "absolute_joint_success_999": {
+      "successes": 4096,
+      "n": 4096,
+      "observed_success_pp": 100.0,
+      "one_sided95_success_lower_pp": 99.92688874435301,
+      "one_sided95_success_upper_pp": 100.0,
+      "minimum_success_pp": 99.9,
+      "decision": "supported"
+    },
+    "paired_LP96_noninferiority": {
+      "gains": 0,
+      "losses": 0,
+      "n": 4096,
+      "observed_net_gain_pp": 0.0,
+      "separately_one_sided95_net_lower_pp": -0.09001999122098098,
+      "separately_one_sided95_net_upper_pp": 0.09001999122098098,
+      "minimum_net_gain_pp": -0.1,
+      "decision": "supported"
+    }
+  },
+  "cost_endpoint": {
+    "pairs": [
+      {
+        "pair": 0,
+        "LP96_seconds": 117.84399964107433,
+        "candidate_seconds": 96.08163557131775,
+        "saving": 0.18467095597603383
+      },
+      {
+        "pair": 1,
+        "LP96_seconds": 118.44293678860413,
+        "candidate_seconds": 96.22960130253341,
+        "saving": 0.1875446192770184
+      },
+      {
+        "pair": 2,
+        "LP96_seconds": 119.16070935345488,
+        "candidate_seconds": 97.48541030078195,
+        "saving": 0.18189971484962872
+      },
+      {
+        "pair": 3,
+        "LP96_seconds": 119.68349614774343,
+        "candidate_seconds": 97.67104923014995,
+        "saving": 0.1839221582432735
+      }
+    ],
+    "median_saving": 0.18429655710965367,
+    "exact_median_fraction": "767182466133132305443399/4162760705706891424452806",
+    "minimum_saving": 0.1,
+    "decision": "supported"
+  },
+  "joint_success": {
+    "BP_AdamW": 4003,
+    "LP96": 4096,
+    "cascade": 4096
+  },
+  "model_success": {
+    "BP_AdamW": 12026,
+    "LP96": 12288,
+    "cascade": 12288
+  },
+  "failure_accounting": {
+    "BP_AdamW": {
+      "model_inputs": 12288,
+      "successes": 12026,
+      "hidden_failures": 0,
+      "nonfinite_outputs": 0,
+      "not_stopped": 0,
+      "native_caps": 0,
+      "block_caps": 0,
+      "numerical_rejections": 0,
+      "wrong_numerically_accepted": 262
+    },
+    "LP96": {
+      "model_inputs": 12288,
+      "successes": 12288,
+      "hidden_failures": 0,
+      "nonfinite_outputs": 0,
+      "not_stopped": 0,
+      "native_caps": 0,
+      "block_caps": 0,
+      "numerical_rejections": 0,
+      "wrong_numerically_accepted": 0
+    },
+    "cascade": {
+      "model_inputs": 12288,
+      "successes": 12288,
+      "hidden_failures": 0,
+      "nonfinite_outputs": 0,
+      "not_stopped": 0,
+      "native_caps": 0,
+      "block_caps": 0,
+      "numerical_rejections": 0,
+      "wrong_numerically_accepted": 0
+    }
+  },
+  "actual_routed_model_inputs_per_replay": 262,
+  "geometry_valid_longer_BP_outputs_retained": 0,
+  "source_gate_and_warmup_model_copies_checked": 3840,
+  "fresh_final_internal_states_directly_checked": 98304,
+  "direct_candidate_original_factor_checks": 601046,
+  "direct_accepted_moves": 35494,
+  "fresh_measured_replay_model_pipeline_copies": 98304,
+  "replay_candidate_score_comparisons": 2701192,
+  "replay_active_trace_states": 217232,
+  "maximum_direct_margin_error": 8.857498068337577e-15,
+  "maximum_direct_energy_error": 5.034053174313158e-10,
+  "maximum_direct_candidate_error": 3.1963320878958257e-13,
+  "maximum_replay_candidate_error": 1.1368683772161603e-13,
+  "per_model_rows_sha256": "89d80bc64cd856f95074d4c984e9a1b4d21fc5f2d5b16d4add6b4095ee7c6973",
+  "per_input_rows_sha256": "090d7ed9c8d3ee2c9c3b7156d0601509609a0d44fd178a9da503bb671c11dd44",
+  "fresh_independent_inputs": 4096,
+  "planned_jobs": 48,
+  "primary_model_maze_arm_evaluations": 36864,
+  "accuracy_pair": 0,
+  "workers": 16,
+  "seconds": 326.3885690580355,
+  "source_sha256": "16e033ff73e5e02f47fb338778e90360113deaf6521fabe3a5ff3114017f6e65",
+  "scope": "Complete fresh cohort, three fixed models, predetermined pair0 accuracy and exact repeated-source integrity. Separate absolute, paired noninferiority and measured complete-cost endpoints; no simultaneous95% claim or dropped numerical/valid-longer failure."
+}

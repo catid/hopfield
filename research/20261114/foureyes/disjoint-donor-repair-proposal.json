@@ -1,0 +1,19 @@
+{
+  "id": "H4az-disjoint-donor-audit-repair",
+  "status": "prospective_verification_only_before_any_repaired_graph_classifications",
+  "purpose": "Evaluate the already-sealed H4ay donor and final outputs after correcting an auditor-only integer storage assumption. H4ay remains technically incomplete; this separately budgeted post-run evaluation is not a successful original run or fresh confirmation.",
+  "original_failure": "All512 fits and both global phase seals completed. All8 audit workers failed at donor.dtype==np.int64 because donors and original clean/noisy labels use uint8. No bank audit, source-provenance receipt or outcome summary was produced. Only NPY headers were inspected to diagnose storage; the original protocol, sources and artifacts are immutable.",
+  "narrow_repair": "Accept signed or unsigned integer labels of the required shapes only when all values lie0..8. Preserve the original clean dtype through noise reconstruction and require exact dtype and value equality against raw noisy labels. Keep Boolean free-mask, float64 uniforms and int64 offsets/cells checks unchanged. Do not change costs, masks, proofs, solver settings, seeds, budgets or endpoint functions from H4ay.",
+  "scope": "All256 examined banks, all256 donor outputs and256 final outputs; no omissions or retries. Verify both original phase seals before repaired outcome diagnostics. Copy sealed outputs byte-for-byte to a new directory; never write to the original directory. Replay all2400 original noise rows after global final seal; recheck1024 inherited certificates plus up to512 sealed fit certificates and their mutations. Portable source-noise provenance remains inherited if raw source archives are unavailable, explicitly reported by verifier.",
+  "endpoints": {
+    "exact_recovery": "At least162/256: support if known exact>=162; falsify if exact+unresolved<162; otherwise inconclusive.",
+    "detector_regressions": "At most8 among130 original detector successes: support if known losses+unresolved baseline successes<=8; falsify if known losses>8; otherwise inconclusive. Both endpoints assessed separately using original H4ay denominator and rules."
+  },
+  "budget": {"workers":8,"aggregate_cpu_seconds":600,"wall_seconds":120,"gpu_seconds":0},
+  "new_LPs": 0,
+  "new_data": 0,
+  "seed_policy": "No new inference RNG or solver seeds. Replay frozen original noise streams only; synthetic gate seeds are unrelated fixtures.",
+  "gates": "All8 standard signed/unsigned integer widths, exact noise replay with dtype preservation, donor validation and count parity. Reject Boolean/floating/object labels, negative/out-of-range values, wrong shapes, mixed raw label dtypes, modified labels and wrong stream dtypes. Verify frozen originals byte-for-byte and retained failure/seal provenance before audit. Independently review source diff and gates before freezing repair.",
+  "accounting": "Report original incomplete2.394636555wall/11.854262CPU separately from all repair hashing, copying, audit, export and monitoring. No original time reset or presentation as a clean run. Public summary reports new_LPs=0 and inherited_sealed_LPs=512.",
+  "optimization": "Retain8 independent audit workers and single-threaded numeric libraries. No algorithmic or performance changes beyond compact integer compatibility; live audited-bank and CPU counters establish forward progress."
+}

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/catid/hopfield/research/20261114/foureyes/disjoint_donor.py", line 225, in <module>
+    globals()[args.action](args.worker) if args.action.endswith('_worker') else globals()[args.action]()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/catid/hopfield/research/20261114/foureyes/disjoint_donor.py", line 158, in audit_worker
+    audit=audit_bank(index,p)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/catid/hopfield/research/20261114/foureyes/audit_disjoint_donor.py", line 117, in audit_bank
+    donor=arrays[0]['noisy'];assert donor.dtype==np.int64 and donor.shape==(600,81)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

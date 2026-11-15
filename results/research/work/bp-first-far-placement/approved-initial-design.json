@@ -1,0 +1,74 @@
+{
+  "hypothesis_id": "H2bq",
+  "status": "design_approved_implementation_seed_and_gates_authorized_no_draws",
+  "motivation": "Stress the unchanged cascade on far non-corner endpoint placements. Opposite outer-quarter regions guarantee large Manhattan separation without distance/difficulty rejection. This changes endpoint support, location and induced path statistics; it does not identify an isolated causal effect of distance.",
+  "cohort": {
+    "n": 4096,
+    "size": 180,
+    "loop_probability": 0.8,
+    "base_seed": null,
+    "seed_rule": "Reserve one exact unused base only after independent design review and a complete prior-seed registry audit. Never search seeds by outcomes.",
+    "maze_rng": "Generate the original connected maze using S.maze(180,0.8,SeedSequence([BASE,180,80,input_index])). Preserve its randomized DFS, exact80percent opening of closed connectors, rotation and reflection. Discard only its original-corner shortest label; retain original generator counts and endpoint coordinates as provenance.",
+    "restore_original_endpoints": "Copy the tokens and restore both original token2/3cells to ordinary open token1 before sampling. Every wall and ordinary open cell stays unchanged. Conditional on orientation, a restored original endpoint has the same probability as any other open cell in its selected eligible region. All cells outside the four45x45regions are ineligible as endpoints, while remaining ordinary open cells for graph traversal.",
+    "endpoint_rng": "Use default_rng(SeedSequence([BASE,180,80,input_index,1])). First choose orientation uniformly with rng.integers(4), then choose one open flat index uniformly in its start region and one independently in its goal region with rng.choice. Restore original endpoints to ordinary open cells before constructing any eligible set.",
+    "uniform_pair_law": "Exactly four equiprobable oriented pairs: NW->SE,SE->NW,NE->SW,SW->NE. Conditional on orientation(a,b), each ordered open-cell pair has probability1/(Na*Nb); unconditional probability1/(4*Na*Nb). Region populations may differ, so the complete set of far pairs is not uniformly weighted across orientations. Regions are disjoint, so equality/zero distance is impossible without rejection.",
+    "labels": "After assigning the endpoints, recompute the full shortest-path label and edge distance with the production generator BFS. Independently validate all4096 labels/distances with the separate graph auditor before model inference. Every original maze is connected and the endpoint rewrite preserves the open-cell graph; any unreachable or malformed case is an integrity failure, not a replacement draw.",
+    "identity": "Hash indices,tokens,labels,distances,ordered original/new endpoints,orientation and generator counts. Require4096unique tokens andwall masks with zero token/wall overlap across every prior Work dataset manifest, including H2bp inputs. All provenance/overlap/empty-region failures remain incomplete; no replacements.",
+    "no_selection": "Generate every index0..4095 once. No pilot, shortest-path-length/degree/difficulty rejection, outcome-driven extension, selected orientation or replacement. No pooling with H2bp/H2bo or any prior cohort.",
+    "seeded_identity_replay": "Within the unchanged120wall-second/8process input audit, replay every original S.maze seed, compare original walls,endpoints,opened/eligible counts, reconstruct the four-region orientation and both uniform draws, and compare every rewritten token. These identity replays add no scientific observations.",
+    "regions": {
+      "NW": "rows[0,45),cols[0,45)",
+      "NE": "rows[0,45),cols[135,180)",
+      "SW": "rows[135,180),cols[0,45)",
+      "SE": "rows[135,180),cols[135,180)",
+      "shape": [
+        45,
+        45
+      ],
+      "minimum_Manhattan_separation": 182
+    },
+    "empty_region_policy": "Check allfour eligible open-cell sets before selecting orientation. Any empty region makes that generated input an integrity failure and the study incomplete; never redraw a maze, choose another orientation or replace an endpoint. The declared connected lattice-maze generator should populate each region, but this invariant is checked explicitly."
+  },
+  "controls_in_table_order": [
+    "BP AdamW native, actually executed candidate prefix on every maze/model; standalone service cost is not claimed",
+    "Standalone unchanged LP96 on every maze/model",
+    "Unchanged BP-first geometry-only router with actual LP96 subset execution within original32-input batches"
+  ],
+  "policy": "Exactly the independently audited H2bn/H2bo solver, native initializationu=3,eta0.5,cap8192/check16, original LP96 chain and caps. No retraining, tuning, new route feature, distance/label access or numerical-flag routing. Accept a BP board by simple-path geometry; otherwise execute the actual LP96 subset. Final own-model numerical/hidden/clamp/cap acceptance remains separate. Retained geometry-valid-but-longer BP boards count as failures.",
+  "separate_primary_endpoints": {
+    "absolute_joint_success_999": "Exactly unchanged H2bo claim and decision: joint success across allthree fixed models>=99.9percent; n4096 maze units; one-sided95percent Clopper-Pearson lower/upper. Supported iff lower>=0.999, falsified iff upper<0.999, otherwise inconclusive. No threshold adaptation to H2bo outcomes.",
+    "paired_LP96_noninferiority": "Exactly unchanged H2bo claim and decision: cascade joint accuracy no worse than LP96 by0.1percentage point. Paired gains/losses on4096; separate95percent net bounds from marginal CP tailsalpha0.025. Supported iff net lower>=-0.001, falsified iff net upper<-0.001, otherwise inconclusive.",
+    "complete_answer_cost_saving10": "Exactly unchanged H2bo endpoint: ordinary median of four exact-rational paired complete answer-cost savings>=10percent. Balanced GPU0pair0LP/cascade,pair1cascade/LP; GPU1pair2cascade/LP,pair3LP/cascade. All4096mazes and allthree models in every arm/pair. Supported iff median>=0.10, otherwise falsified. No timing confidence interval or selected/discarded/replacement pair."
+  },
+  "scientific_unit": "One independent maze plus an orientation and endpoint pair from the exact opposite-quarter sampling law. Joint success requires allthree fixed models; models and repeated timing copies are not extra statistical observations.",
+  "multiplicity": "Separate prespecified claims; no simultaneous95percent claim. All incomplete/numerical/valid-longer failures remain visible. Timing success cannot resolve an inconclusive accuracy endpoint.",
+  "diagnostic_strata": {
+    "status": "Descriptive only; no extra inferential endpoints or threshold tuning.",
+    "shortest_edge_bins": [
+      "1..64",
+      "65..128",
+      "129..256",
+      ">=257"
+    ],
+    "reason": "Fixed powers-of-two distance bins separate short local endpoint tasks from longer ones without filtering the cohort. Report exact maze and model-input denominators, allthree-arm success/failure counts, BP geometry-valid-longer counts and route fractions. Empty bins remain explicit. Do not treat models or repeated pairs as extra observations."
+  },
+  "execution_and_audit": "Pair0 is the predetermined primary accuracy copy. All subsequent same-arm states/counters/flags/routes must exactly replay pair0 or the study is incomplete. Fresh labels/outcomes are joined only after all complete replay receipts seal. Retain actual pair0 coupling arrays and every LP subset trajectory. Source gates/warmups use only fixed prior H2bh inputs. Use the same owned-PID watchdogs, exclusive attempts, max2archive tasks, host-wide readiness/answer/diagnostic barriers and complete-cost boundary. No independent CPU audit overlaps timed work. Publish all4096joint and36864primary model-maze-arm rows; all routes/errors/valid-longer cases plus48fixed controls receive public actual-state fixtures.",
+  "new_generator_synthetic_gates": "Exhaustively enumerate orientation and open-cell pair support on tiny four-region grids, including uneven region counts, original endpoint reuse, reversed original token order, every orientation and boundary cells. Verify1/4orientation weighting and1/(Na*Nb)conditional support, exact45x45region boundaries at180,Manhattan separation>=182 without rejection, old endpoint restoration, disjointness, full-token and independent BFS labels. Explicitly reject empty-region,old-endpoint,wall,count,orientation,pair and rewrite corruptions, even if the final labels remain valid. No model outcomes or fresh cohorts are read.",
+  "proposed_budgets": {
+    "source_gate_wall_seconds_per_GPU": 180,
+    "fresh_generation_wall_seconds": 300,
+    "fresh_generation_processes": 8,
+    "independent_input_audit_wall_seconds": 120,
+    "independent_input_audit_processes": 8,
+    "timed_worker_wall_seconds_including_warmup": 1500,
+    "host_barrier_maximum_wait_seconds": 60,
+    "independent_final_audit_wall_seconds": 600,
+    "independent_audit_processes": 16,
+    "peak_worker_CPU_RSS_GiB_including_archive_threads": 8,
+    "units": "Elapsed monotonic wall seconds per phase, with separate process/RSS caps. Not cumulative CPU seconds.",
+    "no_extensions": true
+  },
+  "proposed_accounting": "48fresh shard-model jobs and36864primary logical arm evaluations. Source diagnostics, source gates, warmups, internal LP prefixes, BP prefix reuse and repeated timing copies add no scientific counts.",
+  "support_boundary": "Only the declared far-placement mixture,180x180loop80 wall generator,three fixed models and Work timing regime. It is a distribution stress test, not a theorem that geometry proves shortestness, arbitrary-endpoint robustness or an isolated causal distance intervention.",
+  "prospective_timing": "The four oriented45x45opposite-region law,4096cohort and unchanged targets were proposed and approved in coordinator messages before H2bp sealing/outcome joins. This expanded machine-readable record is written while H2bp independent audit runs, before inspecting any H2bp accuracy outcomes. No H2bq seed or inputs have been selected."
+}

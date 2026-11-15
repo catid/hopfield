@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-15T15:07:03.504503+00:00",
+  "updated_utc": "2026-11-15T15:27:48.920260+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
-  "status": "Ongoing research; H2bp uniform-endpoint shift independently audited",
+  "status": "Ongoing research; H2bq opposite-region endpoint stress independently audited",
   "host": "work",
-  "jobs": 2224,
-  "run_arm_rows": 7311,
-  "model_maze_evaluations": 1679234,
+  "jobs": 2272,
+  "run_arm_rows": 7455,
+  "model_maze_evaluations": 1716098,
   "hypotheses": [
     {
       "campaign": "discovery",
@@ -1644,6 +1644,69 @@
         "minimum_saving": 0.1,
         "decision": "falsified"
       }
+    },
+    {
+      "campaign": "bp_first_far_placement",
+      "hypothesis": "H2bq_absolute_joint_success_999",
+      "outcome": {
+        "successes": 4096,
+        "n": 4096,
+        "observed_success_pp": 100.0,
+        "one_sided95_success_lower_pp": 99.92688874435301,
+        "one_sided95_success_upper_pp": 100.0,
+        "minimum_success_pp": 99.9,
+        "decision": "supported"
+      }
+    },
+    {
+      "campaign": "bp_first_far_placement",
+      "hypothesis": "H2bq_paired_LP96_noninferiority",
+      "outcome": {
+        "gains": 0,
+        "losses": 0,
+        "n": 4096,
+        "observed_net_gain_pp": 0.0,
+        "separately_one_sided95_net_lower_pp": -0.09001999122098098,
+        "separately_one_sided95_net_upper_pp": 0.09001999122098098,
+        "minimum_net_gain_pp": -0.1,
+        "decision": "supported"
+      }
+    },
+    {
+      "campaign": "bp_first_far_placement",
+      "hypothesis": "H2bq_complete_answer_cost_saving10",
+      "outcome": {
+        "pairs": [
+          {
+            "pair": 0,
+            "LP96_seconds": 117.84399964107433,
+            "candidate_seconds": 96.08163557131775,
+            "saving": 0.18467095597603383
+          },
+          {
+            "pair": 1,
+            "LP96_seconds": 118.44293678860413,
+            "candidate_seconds": 96.22960130253341,
+            "saving": 0.1875446192770184
+          },
+          {
+            "pair": 2,
+            "LP96_seconds": 119.16070935345488,
+            "candidate_seconds": 97.48541030078195,
+            "saving": 0.18189971484962872
+          },
+          {
+            "pair": 3,
+            "LP96_seconds": 119.68349614774343,
+            "candidate_seconds": 97.67104923014995,
+            "saving": 0.1839221582432735
+          }
+        ],
+        "median_saving": 0.18429655710965367,
+        "exact_median_fraction": "767182466133132305443399/4162760705706891424452806",
+        "minimum_saving": 0.1,
+        "decision": "supported"
+      }
     }
   ],
   "run_tables": [
@@ -2008,6 +2071,12 @@
       "frozen_utc": "2026-11-15T14:37:38.961249+00:00",
       "hypothesis": "H2bp",
       "status": "completed"
+    },
+    "bp-first-far-placement-protocol": {
+      "sha256": "45c298424988de14185731277812554979085760b3505948cb629f0ba9a7223e",
+      "frozen_utc": "2026-11-15T15:01:35.849262+00:00",
+      "hypothesis": "H2bq",
+      "status": "completed"
     }
   },
   "audit_sha256": {
@@ -2066,7 +2135,8 @@
     "artifacts/research/20261114/work/bp_geometry_decomposition/analysis/analysis.json": "3b1c8e0dd814c87a913f255a046b2f43085922d6b1c452cf2cb9347bf4f087f3",
     "artifacts/research/20261114/work/bp_first_geometry_cascade/audit.json": "b9f880273ad5febba14cc3dee585fb97d2b8a94844b47a8f95dc9f672dd7cbde",
     "artifacts/research/20261114/work/bp_first_fresh_confirmation/audit.json": "442f67137a2699a78cb4eb64162a3e08e183618f661c4566baf04ff477c2c50f",
-    "artifacts/research/20261114/work/bp_first_endpoint_shift/audit.json": "da7e8f91fb69cd995936ab6e80776b88a861d763ac352833becd024c5fad9a6b"
+    "artifacts/research/20261114/work/bp_first_endpoint_shift/audit.json": "da7e8f91fb69cd995936ab6e80776b88a861d763ac352833becd024c5fad9a6b",
+    "artifacts/research/20261114/work/bp_first_far_placement/audit.json": "c0ad132fece750713d32b19918ab3aa1bfbe6ba1d7c525ea45fa069ff54d6635"
   },
   "model_sha256": {
     "0": {
@@ -2099,8 +2169,8 @@
     "case": "cyclic-failure-classification.json",
     "scope": "The same cyclic maze fails for model seeds1and2; these are true invalid fixed points or a period-two timeout, not hidden/nonfinite failures."
   },
-  "primary_jobs": 2218,
-  "primary_model_maze_evaluations": 1679102,
+  "primary_jobs": 2266,
+  "primary_model_maze_evaluations": 1715966,
   "descriptive_jobs": 6,
   "descriptive_model_maze_evaluations": 132,
   "selected_case_interventions": {
@@ -3752,5 +3822,250 @@
       }
     ],
     "scope": "Independent4096-maze uniform-endpoint shift with unchanged BP-first geometry policy; three logical arms, fixed models. Pair0 is the predetermined accuracy copy. Source gates,warmups,LP internal prefixes and repeated timing pairs add no scientific counts."
+  },
+  "bp_first_far_placement": {
+    "hypothesis": "H2bq",
+    "fresh_inputs": 4096,
+    "new_scientific_jobs": 48,
+    "new_scientific_evaluations": 36864,
+    "primary_accuracy_pair": 0,
+    "fixed_model_seeds": [
+      0,
+      1,
+      2
+    ],
+    "joint_success": {
+      "BP_AdamW": 4003,
+      "LP96": 4096,
+      "cascade": 4096
+    },
+    "model_success": {
+      "BP_AdamW": 12026,
+      "LP96": 12288,
+      "cascade": 12288
+    },
+    "primary_endpoints": {
+      "absolute_joint_success_999": {
+        "successes": 4096,
+        "n": 4096,
+        "observed_success_pp": 100.0,
+        "one_sided95_success_lower_pp": 99.92688874435301,
+        "one_sided95_success_upper_pp": 100.0,
+        "minimum_success_pp": 99.9,
+        "decision": "supported"
+      },
+      "paired_LP96_noninferiority": {
+        "gains": 0,
+        "losses": 0,
+        "n": 4096,
+        "observed_net_gain_pp": 0.0,
+        "separately_one_sided95_net_lower_pp": -0.09001999122098098,
+        "separately_one_sided95_net_upper_pp": 0.09001999122098098,
+        "minimum_net_gain_pp": -0.1,
+        "decision": "supported"
+      }
+    },
+    "cost_endpoint": {
+      "pairs": [
+        {
+          "pair": 0,
+          "LP96_seconds": 117.84399964107433,
+          "candidate_seconds": 96.08163557131775,
+          "saving": 0.18467095597603383
+        },
+        {
+          "pair": 1,
+          "LP96_seconds": 118.44293678860413,
+          "candidate_seconds": 96.22960130253341,
+          "saving": 0.1875446192770184
+        },
+        {
+          "pair": 2,
+          "LP96_seconds": 119.16070935345488,
+          "candidate_seconds": 97.48541030078195,
+          "saving": 0.18189971484962872
+        },
+        {
+          "pair": 3,
+          "LP96_seconds": 119.68349614774343,
+          "candidate_seconds": 97.67104923014995,
+          "saving": 0.1839221582432735
+        }
+      ],
+      "median_saving": 0.18429655710965367,
+      "exact_median_fraction": "767182466133132305443399/4162760705706891424452806",
+      "minimum_saving": 0.1,
+      "decision": "supported"
+    },
+    "failure_accounting": {
+      "BP_AdamW": {
+        "model_inputs": 12288,
+        "successes": 12026,
+        "hidden_failures": 0,
+        "nonfinite_outputs": 0,
+        "not_stopped": 0,
+        "native_caps": 0,
+        "block_caps": 0,
+        "numerical_rejections": 0,
+        "wrong_numerically_accepted": 262
+      },
+      "LP96": {
+        "model_inputs": 12288,
+        "successes": 12288,
+        "hidden_failures": 0,
+        "nonfinite_outputs": 0,
+        "not_stopped": 0,
+        "native_caps": 0,
+        "block_caps": 0,
+        "numerical_rejections": 0,
+        "wrong_numerically_accepted": 0
+      },
+      "cascade": {
+        "model_inputs": 12288,
+        "successes": 12288,
+        "hidden_failures": 0,
+        "nonfinite_outputs": 0,
+        "not_stopped": 0,
+        "native_caps": 0,
+        "block_caps": 0,
+        "numerical_rejections": 0,
+        "wrong_numerically_accepted": 0
+      }
+    },
+    "distance_strata": [
+      {
+        "shortest_edge_bin": "1..64",
+        "empty": true,
+        "arms": {
+          "BP_AdamW": {
+            "maze_denominator": 0,
+            "joint_successes": 0,
+            "model_input_denominator": 0,
+            "model_input_successes": 0,
+            "numerical_rejections": 0,
+            "routed": 0,
+            "BP_geometry_valid_longer": 0
+          },
+          "LP96": {
+            "maze_denominator": 0,
+            "joint_successes": 0,
+            "model_input_denominator": 0,
+            "model_input_successes": 0,
+            "numerical_rejections": 0,
+            "routed": 0,
+            "BP_geometry_valid_longer": 0
+          },
+          "cascade": {
+            "maze_denominator": 0,
+            "joint_successes": 0,
+            "model_input_denominator": 0,
+            "model_input_successes": 0,
+            "numerical_rejections": 0,
+            "routed": 0,
+            "BP_geometry_valid_longer": 0
+          }
+        }
+      },
+      {
+        "shortest_edge_bin": "65..128",
+        "empty": true,
+        "arms": {
+          "BP_AdamW": {
+            "maze_denominator": 0,
+            "joint_successes": 0,
+            "model_input_denominator": 0,
+            "model_input_successes": 0,
+            "numerical_rejections": 0,
+            "routed": 0,
+            "BP_geometry_valid_longer": 0
+          },
+          "LP96": {
+            "maze_denominator": 0,
+            "joint_successes": 0,
+            "model_input_denominator": 0,
+            "model_input_successes": 0,
+            "numerical_rejections": 0,
+            "routed": 0,
+            "BP_geometry_valid_longer": 0
+          },
+          "cascade": {
+            "maze_denominator": 0,
+            "joint_successes": 0,
+            "model_input_denominator": 0,
+            "model_input_successes": 0,
+            "numerical_rejections": 0,
+            "routed": 0,
+            "BP_geometry_valid_longer": 0
+          }
+        }
+      },
+      {
+        "shortest_edge_bin": "129..256",
+        "empty": false,
+        "arms": {
+          "BP_AdamW": {
+            "maze_denominator": 1270,
+            "joint_successes": 1244,
+            "model_input_denominator": 3810,
+            "model_input_successes": 3740,
+            "numerical_rejections": 0,
+            "routed": 0,
+            "BP_geometry_valid_longer": 0
+          },
+          "LP96": {
+            "maze_denominator": 1270,
+            "joint_successes": 1270,
+            "model_input_denominator": 3810,
+            "model_input_successes": 3810,
+            "numerical_rejections": 0,
+            "routed": 0,
+            "BP_geometry_valid_longer": 0
+          },
+          "cascade": {
+            "maze_denominator": 1270,
+            "joint_successes": 1270,
+            "model_input_denominator": 3810,
+            "model_input_successes": 3810,
+            "numerical_rejections": 0,
+            "routed": 70,
+            "BP_geometry_valid_longer": 0
+          }
+        }
+      },
+      {
+        "shortest_edge_bin": ">=257",
+        "empty": false,
+        "arms": {
+          "BP_AdamW": {
+            "maze_denominator": 2826,
+            "joint_successes": 2759,
+            "model_input_denominator": 8478,
+            "model_input_successes": 8286,
+            "numerical_rejections": 0,
+            "routed": 0,
+            "BP_geometry_valid_longer": 0
+          },
+          "LP96": {
+            "maze_denominator": 2826,
+            "joint_successes": 2826,
+            "model_input_denominator": 8478,
+            "model_input_successes": 8478,
+            "numerical_rejections": 0,
+            "routed": 0,
+            "BP_geometry_valid_longer": 0
+          },
+          "cascade": {
+            "maze_denominator": 2826,
+            "joint_successes": 2826,
+            "model_input_denominator": 8478,
+            "model_input_successes": 8478,
+            "numerical_rejections": 0,
+            "routed": 192,
+            "BP_geometry_valid_longer": 0
+          }
+        }
+      }
+    ],
+    "scope": "Independent4096-maze opposite-region endpoint stress with unchanged BP-first geometry policy; three logical arms, fixed models. Pair0 is the predetermined accuracy copy. Source gates,warmups,LP internal prefixes and repeated timing pairs add no scientific counts."
   }
 }

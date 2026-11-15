@@ -4,7 +4,7 @@
 
 Independent implementation, reproduction and research extensions of [*Classical Energies Learn to Reason 1,000× Faster than Looped Models*](https://arxiv.org/abs/2611.17309v1), by Benjamin Hoover, Hugh Blayney and James C. R. Whittington. CRAM learns an energy function, then searches for low-energy answers. We test what learning, data and search each contribute.
 
-**Fresh dense mazes:** **4,096/4,096** solved across three fixed models. A BP-first cascade cuts complete answer cost **35.40%** with corner endpoints, but costs **15.54% more** with uniformly sampled open-cell endpoints. Both cohorts retain every LP96 success. [Speedup](research/20261114/work/REPORT.md#h2bo-fresh-confirmation-supports-999-joint-success-and-saves-3540-complete-answer-cost) · [Endpoint-shift slowdown](research/20261114/work/REPORT.md#h2bp-uniform-endpoints-preserve-joint-success-but-falsify-the-cost-saving-target)
+**Fresh dense mazes:** **4,096/4,096** solved across three fixed models. A BP-first cascade cuts complete answer cost **35.40%** with corner endpoints and **18.43%** across opposite corner regions, but costs **15.54% more** with uniformly sampled open-cell endpoints. Each cohort retains every LP96 success. [Speedup](research/20261114/work/REPORT.md#h2bo-fresh-confirmation-supports-999-joint-success-and-saves-3540-complete-answer-cost) · [Endpoint-shift slowdown](research/20261114/work/REPORT.md#h2bp-uniform-endpoints-preserve-joint-success-but-falsify-the-cost-saving-target)
 
 [Reviewed paper](references/2611.17309v1.md) · [All results](results/README.md) · [Reproduction](REPRODUCTION.md) · [Run the code](docs/RERUN_GUIDE.md)
 
@@ -18,13 +18,15 @@ This headline uses ten base solutions with 99 stored Sudoku-symmetry variants ea
 
 ## Maze speed depends on endpoint placement
 
-![All four timing pairs: 35.40% saving with corner endpoints and 15.54% higher cost with uniform open-cell endpoints](results/research/work/endpoint-cost-comparison/endpoint-cost-comparison.png)
+![All timing pairs across three endpoint distributions: 35.40% and 18.43% savings, versus 15.54% added cost](results/research/work/endpoint-cost-three-cohorts/endpoint-cost-three-cohorts.png)
 
 At **180×180 and 80% loop density**, the fixed BP-first cascade solves **4,096/4,096 fresh mazes jointly across all three models**, versus **3,921** for BP AdamW. LP96 alone also solves all 4,096. The cascade accepts BP paths that pass a geometry check and runs LP96 on the remaining inputs.
 
 Across four balanced paired replays, median complete answer cost falls **35.40%**. Model readiness, screening and actual routed computation are charged. All three prespecified targets pass separately: at least 99.9% joint success, accuracy no more than 0.1 percentage point below LP96, and at least 10% cost savings. The one-sided 95% success lower bound is **99.9269%**; the models are fixed conditions, not extra independent trials. [Protocol, every input and measured costs](research/20261114/work/REPORT.md#h2bo-fresh-confirmation-supports-999-joint-success-and-saves-3540-complete-answer-cost)
 
 **Changing endpoint placement reverses the cost result.** On a separate fresh cohort with endpoints sampled uniformly from open cells, BP AdamW solves **4,079/4,096**; LP96 and the cascade each solve **4,096/4,096**. The accuracy targets pass, but the cascade costs **15.54% more**, falsifying the 10% saving target. All four timing pairs show a slowdown. [Endpoint-shift protocol and full audit](research/20261114/work/REPORT.md#h2bp-uniform-endpoints-preserve-joint-success-but-falsify-the-cost-saving-target)
+
+A third fresh cohort draws endpoints from opposite corner regions. LP96 and the cascade again solve **4,096/4,096**; BP AdamW solves **4,003**. Median complete cost falls **18.43%**, passing all three targets. [Far-region confirmation](research/20261114/work/REPORT.md#h2bq-opposite-region-endpoints-preserve-joint-success-and-save-1843-complete-answer-cost)
 
 The decoder supplies an explicit graph prior. Geometry alone does not prove shortestness, and energy certificates do not prove graph validity. Every reported solve receives independent graph checks. These distinct endpoint distributions are reported separately; the comparison does not isolate a causal effect of path length. [Controls and earlier cohorts](docs/RESEARCH_DETAILS.md#cycle-cuts-solve-fresh-dense-mazes)
 
@@ -43,6 +45,8 @@ Each family uses a complete N12 training universe and 4,096 fresh N13 inputs, wi
 At 7.5% independent label noise, **posterior scoring recovers 61/64 fresh graphs**, versus **51/64** when repeated labels are reduced to a single hard decision. Both query 90 boards three times. Spending the same budget on **270 boards once recovers 64/64**. Each arm uses 19,440 noisy cell queries per bank; all degrees are inferred without supplying Sudoku geometry or degree twenty.
 
 Keeping all three labels closes much of the gap, but uses the **known noise channel and a uniform per-cell digit prior**. Both frozen targets pass exactly at their boundaries: at least 61 recoveries and at most three losses versus single-query sampling. [Fresh confirmation and every failure](research/20261114/ripper/REPORT-posterior-fresh-confirm.md)
+
+A follow-up estimates the noise rate from the repeated labels themselves and retains **62/64** graphs, matching the known-rate likelihood control on these now-examined inputs. [Estimated-noise test and limits](research/20261114/ripper/REPORT-estimated-channel.md)
 
 The original hard-decoder study recovered 50/64 versus 64/64 from more boards. Posterior scoring then reached 63/64 on those examined inputs before the fresh confirmation above. [Original negative result](research/20261114/ripper/REPORT-repeat-query-tradeoff.md) · [Examined-cohort intervention](research/20261114/ripper/REPORT-posterior-query-labels.md)
 

@@ -235,3 +235,33 @@ Every balanced timing pair appears for each distinct fresh cohort. Positive valu
 ![Half and double assumed noise rates preserve 62/64 graphs](../assets/figures/channel_misspecification.png)
 
 Both examined-cohort arms and all four prespecified decisions are retained. [Report](../research/20261114/ripper/REPORT-channel-misspecification.md) · [Renderer](../scripts/plot_channel_misspecification.py) · [Provenance](../assets/figures/channel_misspecification-provenance.json).
+
+### Estimated noise channel (H1ce)
+
+![Estimated-channel graph recovery](../assets/figures/estimated_channel.png)
+
+All 64 examined banks remain in the comparison; the supplied and estimated channel methods both recover 62. [Report](../research/20261114/ripper/REPORT-estimated-channel.md) · [Renderer](../scripts/plot_estimated_channel.py) · [Provenance](../assets/figures/estimated_channel-provenance.json).
+
+### Disjoint donor and separately repaired audit (H4ay/H4az)
+
+![Recovery and regression targets both fail](../assets/figures/disjoint-donor.png)
+
+The original failed audit and unchanged sealed fits remain explicit. The 300-row opposite-half result is prior-audited context only. [Report](../research/20261114/foureyes/REPORT-disjoint-donor.md) · [Renderer](../scripts/plot_disjoint_donor.py) · [Provenance](../assets/figures/disjoint-donor-provenance.json).
+
+### Uniform-truth prior shift (H3by)
+
+![Prior-shift paid-query comparison](../results/research/loki/h3by/fresh-paired-total-cost.png)
+
+All 4,096 paired cases, the fixed 2% threshold and both separately executed arms are retained. [Report](../research/20261114/loki/h3by/REPORT.md) · [Renderer](../research/20261114/loki/h3by/plot_public.py).
+
+### Larger donor with donor-only control (H4ba)
+
+![Donor-only and masked-target exact recovery agree](../assets/figures/larger-donor.png)
+
+All 256 donor/final exact flags agree; the larger observation budgets are shown explicitly. [Report](../research/20261114/foureyes/REPORT-larger-donor.md) · [Renderer](../scripts/plot_larger_donor.py) · [Provenance](../assets/figures/larger-donor-provenance.json).
+
+### Three maze endpoint distributions (H2bo/H2bp/H2bq)
+
+![Three-cohort complete-cost comparison](../results/research/work/endpoint-cost-three-cohorts/endpoint-cost-three-cohorts.png)
+
+Each cohort contributes all four fixed paired timings and its own exact median. The prior two-cohort asset remains unchanged. [Renderer](../research/20261114/work/plot_endpoint_cost_three_cohorts.py) · [Provenance](../results/research/work/endpoint-cost-three-cohorts/provenance.json) · [Far-region study](../research/20261114/work/REPORT.md#h2bq-opposite-region-endpoints-preserve-joint-success-and-save-1843-complete-answer-cost).
