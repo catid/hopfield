@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-15T08:16:24.467784+00:00",
+  "updated_utc": "2026-11-15T08:26:35.931250+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
   "status": "Ongoing research; H2aj prospective factorial complete with independent state and trace audits",
   "host": "work",
@@ -1085,6 +1085,33 @@
         "at_least31_additional_rescues": "met",
         "zero_regressions": "met"
       }
+    },
+    {
+      "campaign": "residual_factorial",
+      "hypothesis": "H2bb >=3rescues per5input family and>=6combined, eachzero regressions",
+      "outcome": {
+        "lexical_family": {
+          "joint_rescues": 5,
+          "joint_regressions": 0,
+          "minimum_target": 3,
+          "rescue_target": "met",
+          "zero_regressions": "met"
+        },
+        "veto_family": {
+          "joint_rescues": 5,
+          "joint_regressions": 0,
+          "minimum_target": 3,
+          "rescue_target": "met",
+          "zero_regressions": "met"
+        },
+        "both_families_composed": {
+          "joint_rescues": 10,
+          "joint_regressions": 0,
+          "minimum_target": 6,
+          "rescue_target": "met",
+          "zero_regressions": "met"
+        }
+      }
     }
   ],
   "run_tables": [
@@ -1355,6 +1382,12 @@
       "frozen_utc": "2026-11-15T08:11:07.403497+00:00",
       "hypothesis": "H2ba",
       "status": "completed"
+    },
+    "residual-factorial-protocol": {
+      "sha256": "65f473bfbafeffb160ded2de400d4b4d5e235443238ca8e7310d041a8a10d46f",
+      "frozen_utc": "2026-11-15T08:20:34.117426+00:00",
+      "hypothesis": "H2bb",
+      "status": "completed"
     }
   },
   "audit_sha256": {
@@ -1398,7 +1431,8 @@
     "artifacts/research/20261114/work/large_cycle_cut/audit.json": "a8c3db51c92833291fb38c3631e967cf05c7b741b33cf54b2e259bbbcd456bab",
     "artifacts/research/20261114/work/cap_transfer/audit.json": "1a5f37678ab4dc7673b2ddd5e643cacf2d5bf5fb0fff83dd68b42f76be1d054c",
     "artifacts/research/20261114/work/local_factor_audit/audit.json": "3d3aa4719f775d1a47dfee6f02db2fdb5615a8b247d6d205739faf7d27007a63",
-    "artifacts/research/20261114/work/terminal_cycle/audit.json": "43ff5af08f9426230ca1a197c651d11759d1cdcceec397fc3e8e0158db30403b"
+    "artifacts/research/20261114/work/terminal_cycle/audit.json": "43ff5af08f9426230ca1a197c651d11759d1cdcceec397fc3e8e0158db30403b",
+    "artifacts/research/20261114/work/residual_factorial/audit.json": "97930a164be1492c3be66fa857c88b2b1841f74ccbcb79ed95d7c584f67ed0eb"
   },
   "model_sha256": {
     "0": {
@@ -2148,5 +2182,49 @@
       "terminal_then_extra16": 12263
     },
     "scope": "Archived source intervention. Certificate-only10joint rescues known from prior diagnosis; new16rounds52additional joint rescues/zero regressions. All25remainingmodel caps retained. No fresh generalization/confidence claim or evaluation totals."
+  },
+  "residual_factorial": {
+    "hypothesis": "H2bb",
+    "fresh_inputs": 0,
+    "source_model_inputs": 12288,
+    "new_search_inputs": 24,
+    "known_terminal_veto_bookkeeping": 1,
+    "composed_arm_new_trajectories": 0,
+    "primary": {
+      "lexical_family": {
+        "joint_rescues": 5,
+        "joint_regressions": 0,
+        "minimum_target": 3,
+        "rescue_target": "met",
+        "zero_regressions": "met"
+      },
+      "veto_family": {
+        "joint_rescues": 5,
+        "joint_regressions": 0,
+        "minimum_target": 3,
+        "rescue_target": "met",
+        "zero_regressions": "met"
+      },
+      "both_families_composed": {
+        "joint_rescues": 10,
+        "joint_regressions": 0,
+        "minimum_target": 6,
+        "rescue_target": "met",
+        "zero_regressions": "met"
+      }
+    },
+    "joint_success": {
+      "inherited_H2ba": 4086,
+      "lexical_family_only": 4091,
+      "veto_family_only": 4091,
+      "both_families_composed": 4096
+    },
+    "model_success": {
+      "inherited_H2ba": 12263,
+      "lexical_family_only": 12278,
+      "veto_family_only": 12273,
+      "both_families_composed": 12288
+    },
+    "scope": "Disjoint five-input cap families; branches evaluated once, joint exact composition/no interaction or extra independent evidence. All4096previouslyseeninputs retained. Zero freshgeneralization claim or evaluationtotals."
   }
 }

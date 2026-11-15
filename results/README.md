@@ -2,6 +2,13 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Supplied degree20 repairs all64 strong-noise Sudoku graphs; top810 recovers four](../research/20261114/foureyes/REPORT-intensity-degree.md)
+- [Freezing acquisition feedback after300 rows retains29/32 aggregate recoveries but changes failed banks](../research/20261114/ripper/REPORT-frozen-feedback.md)
+- [Removing complete-source queen classes defeats the four-query target:27/108 identified](../research/20261114/loki/h3bc/REPORT.md)
+- [Stronger concentrated corruption defeats equal-degree thresholds: paired 4/64 versus 64/64](../research/20261114/foureyes/REPORT-regularity-intensity.md)
+- [Fresh noisy acquisition confirms aligned feedback: 29/32 versus 20/32 permuted](../research/20261114/ripper/REPORT-fresh-soft-feedback.md)
+- [Separate maze residual interventions repair all ten examined failures](../research/20261114/work/REPORT.md#h2bb-disjoint-cap-family-interventions-recover-the-ten-remaining-source-failures)
+- [Active binary queries identify all seventeen supplied queen aliases within three labels](../research/20261114/loki/h3bb/REPORT.md)
 - [Dense-maze repair: ten terminal-check rescues plus 52 extra-search rescues, without regressions](../research/20261114/work/REPORT.md#h2ba-ten-known-bookkeeping-rescues-and-52-additional-search-rescues)
 - [Aligned soft feedback recovers 31/32 noisy graphs versus 26/32 for permuted feedback](../research/20261114/ripper/REPORT-soft-feedback.md)
 - [Complete N12/N13 populations identify all 1,511 eligible queen models; zero N14 populations measured](../research/20261114/loki/h3ba/REPORT.md)

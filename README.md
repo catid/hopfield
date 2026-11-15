@@ -14,7 +14,11 @@ Connect cells that **never share a digit in training solutions**, assign weight 
 
 This headline uses ten base solutions with 99 stored Sudoku-symmetry variants each. **Augmentation supplies task knowledge.** A separate control recovers the same constraint graph from 100 distinct unaugmented solutions in all six samples. The estimator receives no cell geometry. [Budget, uncertainty and stopping proof](research/20261114/foureyes/REPORT-budget.md) · [Raw-data control](research/20261114/ripper/REPORT-raw-count.md)
 
-With concentrated label corruption, adding an **equal-degree prior** recovers **64/64 exact graphs** on new 2,400-board training banks, versus 26/64 for the earlier count-gap heuristic. The selector receives neither degree twenty nor edge count 810. This measures graph recovery under a fixed noise law; no new puzzle-solving accuracy is claimed. [Fresh-source controls and every candidate threshold](research/20261114/foureyes/REPORT-regularity-fresh.md)
+With concentrated label corruption, adding an **equal-degree prior** recovers **64/64 exact graphs** on new 2,400-board training banks, versus 26/64 for the earlier count-gap heuristic. The selector receives neither degree twenty nor edge count 810. This measures graph recovery under a fixed noise law; no new puzzle-solving accuracy is claimed. Increasing the hot-cell corruption weight from eight to thirty-two breaks this result: **4/64 exact graphs**, while the paired weight-eight control still gets 64/64. In sixty banks, true-edge and nonedge counts overlap, preventing any exact count threshold. [Fresh-source confirmation](research/20261114/foureyes/REPORT-regularity-fresh.md) · [Paired intensity limit](research/20261114/foureyes/REPORT-regularity-intensity.md)
+
+Supplying **degree exactly twenty at every cell** repairs all 64 strong-noise graphs, with exact optimality certificates. Keeping the 810 lowest-count pairs still recovers only four: per-cell constraints add useful information beyond edge count alone. This is a stronger supplied prior, tested on the same examined banks. [Proofs, controls and costs](research/20261114/foureyes/REPORT-intensity-degree.md)
+
+![Per-cell degree constraints repair the strongly corrupted graphs](assets/figures/intensity-degree.png)
 
 ## Cycle cuts solve fresh mazes at two sizes
 
@@ -30,9 +34,9 @@ At **180×180**, raising the move limit from 256 to 512 cells repairs all 28 fai
 
 The denser **50%-loop** test exposes another limit: the same policy solves **4,024/4,096**, and larger cuts add no solves because the preceding search reaches its round cap. The minimum-gain target fails; net BP noninferiority still passes despite 63 paired losses against BP. [Density boundary and preserved audit timeout](research/20261114/work/REPORT.md#h2ay-the-larger-cap-gain-fails-at-higher-density-the-remaining-barrier-is-the-block-round-limit)
 
-A follow-up on those same dense mazes reaches **4,086/4,096**: a terminal-state check certifies ten already-solved inputs, and sixteen extra search rounds rescue another **52**, with zero regressions against the inherited decoder. This separates a stopping-flag issue from insufficient search; it is a source-cohort repair, with fresh confirmation still needed. [Separate controls, full costs and remaining failures](research/20261114/work/REPORT.md#h2ba-ten-known-bookkeeping-rescues-and-52-additional-search-rescues)
+Follow-ups repair **4,096/4,096 of those same dense mazes across all three models**. Terminal-state checks and more cycle-search rounds first reach 4,086; separately extending the remaining lexical searches and reopening capped veto outputs then rescues five inputs each, with zero regressions. These are repairs on the examined cohort, with fresh confirmation still needed. [Separate stopping controls and full costs](research/20261114/work/REPORT.md#h2ba-ten-known-bookkeeping-rescues-and-52-additional-search-rescues) · [Disjoint residual interventions](research/20261114/work/REPORT.md#h2bb-disjoint-cap-family-interventions-recover-the-ten-remaining-source-failures)
 
-![Dense-maze repair: terminal checks and extra search have separate effects](results/research/work/terminal-cycle/terminal-cycle.png)
+![Dense-maze repair: separate residual interventions each rescue five inputs](results/research/work/residual-factorial/residual-factorial.png)
 
 ## A search prior makes the same learned energy much more useful
 

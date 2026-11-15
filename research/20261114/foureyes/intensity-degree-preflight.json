@@ -1,0 +1,95 @@
+{
+  "status": "passed",
+  "cases": [
+    {
+      "n": 4,
+      "degree": 2,
+      "solver": {
+        "highs_version": "1.12.0",
+        "numpy": "2.3.4",
+        "solver_options": {
+          "threads": 1,
+          "parallel": "off",
+          "solver": "simplex",
+          "simplex_strategy": 1,
+          "presolve": "off",
+          "time_limit": 1.0,
+          "random_seed": 2026121502,
+          "primal_feasibility_tolerance": 1e-09,
+          "dual_feasibility_tolerance": 1e-09,
+          "log_to_console": false,
+          "log_file": "/home/catid/hopfield/artifacts/research/20261114/foureyes/intensity_degree_preflight/0.log"
+        },
+        "solver_status": "Optimal",
+        "solver_call_status": "HighsStatus.kOk",
+        "solver_optimal": true,
+        "value_valid": true,
+        "dual_valid": true,
+        "solver_objective": 15.0,
+        "simplex_iterations": 3,
+        "solver_wall_s": 0.00019818003056570888,
+        "solver_cpu_s": 0.00019701600000000125
+      },
+      "certificate": {
+        "certified": true,
+        "reason": "exact_scaled_integer_primal_dual",
+        "integral": true,
+        "primal_objective_twice": 30,
+        "dual_objective_twice": 30,
+        "maximum_dual_reconstruction_error": 0.0,
+        "primal_rounding_used": false,
+        "dual_scale": 2
+      },
+      "mutations": 3
+    },
+    {
+      "n": 6,
+      "degree": 1,
+      "solver": {
+        "highs_version": "1.12.0",
+        "numpy": "2.3.4",
+        "solver_options": {
+          "threads": 1,
+          "parallel": "off",
+          "solver": "simplex",
+          "simplex_strategy": 1,
+          "presolve": "off",
+          "time_limit": 1.0,
+          "random_seed": 2026121503,
+          "primal_feasibility_tolerance": 1e-09,
+          "dual_feasibility_tolerance": 1e-09,
+          "log_to_console": false,
+          "log_file": "/home/catid/hopfield/artifacts/research/20261114/foureyes/intensity_degree_preflight/1.log"
+        },
+        "solver_status": "Optimal",
+        "solver_call_status": "HighsStatus.kOk",
+        "solver_optimal": true,
+        "value_valid": true,
+        "dual_valid": true,
+        "solver_objective": 0.0,
+        "simplex_iterations": 6,
+        "solver_wall_s": 0.00011207902571186423,
+        "solver_cpu_s": 0.00011184699999999825
+      },
+      "certificate": {
+        "certified": true,
+        "reason": "exact_scaled_integer_primal_dual",
+        "integral": false,
+        "primal_objective_twice": 0,
+        "dual_objective_twice": 0,
+        "maximum_dual_reconstruction_error": 0.0,
+        "primal_rounding_used": false,
+        "dual_scale": 2
+      },
+      "mutations": 3
+    }
+  ],
+  "wall_seconds": 0.0014882689574733377,
+  "source_sha256": {
+    "research/20261114/foureyes/intensity_degree_study.py": "2bb2f3b6d289233098f6fc1c0083699d7d5b1b0d1644886a7a40e98e634db218",
+    "research/20261114/foureyes/audit_intensity_degree.py": "d899e1041f52e5668367e7403e06154d8c9aac32b69848d9a30f1ff4dd78b186",
+    "research/20261114/ripper/degree_prior_solver.py": "2af92a5d4326e74813f514291a7a76e6ac92778335e1dd76ffbb01f83d474c43",
+    "research/20261114/ripper/degree_prior_math.py": "5a3ad2c21f59dfe0d2de40065385d484e171c0f854c49c649e868ce5a98a1f8e",
+    "research/20261114/ripper/audit_degree_prior.py": "179feb9815c787a5381d1924ccb0ac41af49e103222503f5ff988dc13559f55b"
+  }
+}

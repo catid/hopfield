@@ -4,6 +4,13 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Per-cell degree constraints repair strong-noise graphs | [All128 exact proofs and cardinality controls](../results/research/foureyes/intensity_degree/) | [plot_intensity_degree.py](../scripts/plot_intensity_degree.py) |
+| Fixed early acquisition feedback | [All proof results and physical query accounting](../results/research/ripper/frozen_feedback.json) | [plot_frozen_feedback.py](../scripts/plot_frozen_feedback.py) |
+| Four binary queries after only sixteen positive queen examples | [All108 cases and422 query outcomes](../results/research/loki/h3bc/) | [plot_public.py](../research/20261114/loki/h3bc/plot_public.py) |
+| Paired concentrated-corruption intensity boundary | [All count thresholds and paired fits](../results/research/foureyes/regularity_intensity/) | [plot_regularity_intensity.py](../scripts/plot_regularity_intensity.py) |
+| Fresh aligned versus permuted acquisition feedback | [Exact proofs and sealed source identities](../results/research/ripper/fresh_soft_feedback.json) | [plot_fresh_soft_feedback.py](../scripts/plot_fresh_soft_feedback.py) |
+| Disjoint maze residual interventions | [Paired source outcomes and audits](../results/research/work/residual-factorial-summary.json) | [plot_residual_factorial.py](../research/20261114/work/plot_residual_factorial.py) |
+| Binary membership queries on supplied queen classes | [Every candidate, query and answer](../results/research/loki/h3bb/) | [plot_public.py](../research/20261114/loki/h3bb/plot_public.py) |
 | Dense-maze terminal checks versus extra search | [Paired outcomes and full audit](../results/research/work/terminal-cycle-summary.json) | [plot_terminal_cycle.py](../research/20261114/work/plot_terminal_cycle.py) |
 | Aligned versus permuted acquisition feedback | [Exact certificates and query accounting](../results/research/ripper/soft_feedback.json) | [plot_soft_feedback.py](../scripts/plot_soft_feedback.py) |
 | Resolving all eligible N12 queen aliases at N13 | [Complete populations and witnesses](../results/research/loki/h3ba/) | [plot_public.py](../research/20261114/loki/h3ba/plot_public.py) |

@@ -1,0 +1,53 @@
+{
+  "id": "H4ah-fixed-degree-intensity-repair",
+  "frozen_utc": "2026-11-15T08:33:23.009303+00:00",
+  "groups": 64,
+  "conditions": [
+    "hot18_weight8",
+    "hot18_weight32"
+  ],
+  "scope": "Adaptive follow-up on all128 already examined H4ag count matrices; no new sources, noise, labels, optimizer fits or solver inputs.",
+  "hypothesis": "Per-cell degree constraints can recover strong-noise graphs despite scalar count overlap.",
+  "primary": "Weight32: at least61/64 certified integral exact graphs. Fractional or integral nonexact outputs are resolved failures; uncertified/time/status failure unresolved.",
+  "decision": "Support if exact_lower>=61; falsify if exact_lower+unresolved<61; otherwise inconclusive. Whole-study runtime failure incomplete. No replacement or filtered banks.",
+  "diagnostics": "Weight8 same finite rule as descriptive paired control. Top810 exact same rawcountcost with pairindex ties. Archived BP32 first, canonical256, restrictedgap and equaldegree threshold clearly reused. Missing/extra totals apply only to integral outputs; never label fractional edges absent or present.",
+  "prior": "Supply degree exactly20 at each of81cells, implying810edges. All3240pairs eligible. No row/column/box geometry in optimizer/costs.",
+  "objective": "Minimize sum raw equality_count[e]*x[e],0<=x<=1,each node degree20. Raw integercounts0..2400, no quantization/no noise parameters/no learned weights.",
+  "ties": "Top810 by(rawcount,pairindex). LP frozen deterministic dualsimplex seed2026121502+inputindex; no objectiveperturbation or optimumuniqueness claim.",
+  "certificate": "Inherited strict scale-two primal/dual proof; no primal rounding. Certified fractional result counts procedurefailure and does not exclude an integral co-optimum.",
+  "solver": {
+    "highspy": "1.12.0",
+    "numpy": "2.3.4",
+    "threads": 1,
+    "parallel": "off",
+    "solver": "simplex",
+    "simplex_strategy": 1,
+    "presolve": "off",
+    "time_limit": 1.0,
+    "random_seed_base": 2026121502,
+    "primal_feasibility_tolerance": 1e-09,
+    "dual_feasibility_tolerance": 1e-09
+  },
+  "budget": {
+    "workers": 8,
+    "aggregate_cpu_seconds": 240,
+    "wall_seconds": 120,
+    "lp_wall_seconds": 1.0,
+    "gpu_seconds": 0
+  },
+  "budget_scope": "All128LPs,workerproofs,publicaggregation andindependentproof replay monitored together;syntheticpreflight andpublicationfigure preparation separate.",
+  "source_sha256": {
+    "research/20261114/foureyes/intensity_degree_study.py": "2bb2f3b6d289233098f6fc1c0083699d7d5b1b0d1644886a7a40e98e634db218",
+    "research/20261114/foureyes/audit_intensity_degree.py": "d899e1041f52e5668367e7403e06154d8c9aac32b69848d9a30f1ff4dd78b186",
+    "research/20261114/foureyes/weak_weight_study.py": "6c1134c255d704a052c530d2d237f65002fa0bdc608dde43590e58eed937f0f3",
+    "research/20261114/ripper/degree_prior_solver.py": "2af92a5d4326e74813f514291a7a76e6ac92778335e1dd76ffbb01f83d474c43",
+    "research/20261114/ripper/degree_prior_math.py": "5a3ad2c21f59dfe0d2de40065385d484e171c0f854c49c649e868ce5a98a1f8e",
+    "research/20261114/ripper/audit_degree_prior.py": "179feb9815c787a5381d1924ccb0ac41af49e103222503f5ff988dc13559f55b"
+  },
+  "input_sha256": {
+    "research/20261114/foureyes/intensity-degree-preflight.json": "6040a3d869696959e68315125fb9786eac0d5406e4e86660d076c312b286d65e",
+    "research/20261114/foureyes/regularity_intensity.json": "7dbc2fe0768f19ae9757fa9f0d8721fd89ce44b68ff9f497fb1fdf7d6b4d60d3",
+    "results/research/foureyes/regularity_intensity/models.npz": "b9055111de4241ee004dbc7bcfab3c2909977094202aa482b75f7e938b3c52c5",
+    "results/research/foureyes/regularity_intensity/summary.json": "9512fffe0ba9bbfba27234f301c59a248e5e5a7c9b6dc504b5bdf7cdad98a4f6"
+  }
+}
