@@ -1,0 +1,50 @@
+{
+  "status": "implemented_synthetic_validation_before_final_source_review",
+  "study": "H3ca",
+  "cases": 1024,
+  "actual_truth_prior": "Uniform among 1522 eligible models",
+  "arms": {
+    "H": {
+      "selector_score": "C(55,k)*C(M,8)",
+      "tree_score": "C(55,k)*C(M,8)"
+    },
+    "T": {
+      "selector_score": "C(55,k)*C(M,8)",
+      "tree_score": "C(M,8)"
+    }
+  },
+  "tree_weights": "Exact positive reciprocal tree scores",
+  "execution_order": [
+    "H",
+    "T"
+  ],
+  "primary": "H>0 and 100*T<=98*H across all 1024 pairs",
+  "correctness_invariants": [
+    "Identical actual MAP prefix queries and labels",
+    "Identical handoff checkpoint, candidate set, history and requested depth or identical no-handoff outcome",
+    "Identical paired exact-identification flags",
+    "Matched-posterior expected tree cost T<=H at every common handoff"
+  ],
+  "cap_semantics": "Different tree weights can change work and cap exposure. Any cap, missing certificate or invariant violation leaves the whole study incomplete without a primary decision; retain all evidence, no retry or cap extension.",
+  "budget": {
+    "aggregate_CPU_seconds": 600,
+    "wall_seconds": 900,
+    "max_memo_states": 2000000,
+    "max_work_steps": 50000000,
+    "max_integer_bits": 100000,
+    "max_actual_calls": 16384,
+    "max_actual_calls_per_arm": 8192,
+    "GPUs": 0
+  },
+  "seed_bases": {
+    "truth": 2027500000,
+    "source": 2027600000
+  },
+  "seed_status": "Reserved and audited against current explicit protocol integers, all named Loki ranges and three nearby Ripper solver ranges; no PRNG independence claim",
+  "new_positive_appearances": 8192,
+  "positive_arm_appearances": 16384,
+  "fresh_truth_draws": 0,
+  "fresh_source_draws": 0,
+  "actual_oracle_calls": 0,
+  "next_gate": "Parent full source/gate review before freeze or any fresh draws"
+}

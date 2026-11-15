@@ -52,6 +52,8 @@ A fresh follow-up varies the noise rate between banks: 3.75%, 7.5% and 15%, with
 
 When noise rates vary across cells within a bank, the same scalar estimator recovers **70/72** graphs, matching a control given the true per-cell rates on every bank. That control has an explicit information advantage; two graph failures remain. [Fresh within-bank mixture and exact checks](research/20261114/ripper/REPORT-cell-channel.md)
 
+**Correlated repeats break both methods in a new test:** when half the observed positions reuse the first corruption event across all three responses, both recover **0/72** graphs—even the control supplied with the correct nominal joint channel. All fits are certified; the true graph has a strictly worse objective in every supplied-channel case. This is a failure of the tested inference procedure, not proof that recovery is impossible. [Correlation boundary and all retained failures](research/20261114/ripper/REPORT-correlated-repeat.md)
+
 The original hard-decoder study recovered 50/64 versus 64/64 from more boards. Posterior scoring then reached 63/64 on those examined inputs before the fresh confirmation above. [Original negative result](research/20261114/ripper/REPORT-repeat-query-tradeoff.md) · [Examined-cohort intervention](research/20261114/ripper/REPORT-posterior-query-labels.md)
 
 ## Use all the noisy observations

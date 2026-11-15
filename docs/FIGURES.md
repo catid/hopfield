@@ -301,3 +301,15 @@ The figure shows BP AdamW first, all four families, the one paired regression an
 ![Mixed endpoints preserve accuracy but increase complete cost](../results/research/work/bp-first-endpoint-dispatch/bp-first-endpoint-dispatch.png)
 
 All six three-arm timing blocks and both failures remain visible. [Report](../research/20261114/work/REPORT.md#h2br-endpoint-dispatch-preserves-accuracy-but-falsifies-both-cost-targets) · [Renderer](../research/20261114/work/plot_endpoint_dispatch.py).
+
+### Correlated repeats expose a recovery failure (H1ch)
+
+![Both methods fail exact recovery under correlated repeats](../assets/figures/correlated_repeat.png)
+
+Both 0/72 outcomes and the misleading apparent IID rate are visible; the linked report retains every integral and fractional failure. [Report](../research/20261114/ripper/REPORT-correlated-repeat.md) · [Renderer](../scripts/plot_correlated_repeat.py).
+
+### Matched tree weights with unchanged MAP routing (H3ca)
+
+![Tree weighting saves queries while preserving exactness](../results/research/loki/h3ca/tree-weight-cost.png)
+
+The chart retains all per-case differences, including 43 longer paths and 16 shared failures. [Report](../research/20261114/loki/h3ca/REPORT.md) · [Renderer](../research/20261114/loki/h3ca/plot_public.py).

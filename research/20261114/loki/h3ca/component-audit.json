@@ -1,0 +1,240 @@
+{
+  "status": "passed_independent_complete_verifier_components",
+  "checks": 7398,
+  "runtime_gate_audit": {
+    "memo_states": 409517,
+    "work_steps": 856035,
+    "inline_artifact_checks": 1241564,
+    "baseline_artifact_checks": 666061,
+    "wrapper_states": 186,
+    "wrapper_work": 601
+  },
+  "namespace_gate_audit": {
+    "common_routing_fixture": {
+      "decision": "falsified",
+      "primary": {
+        "left": 1300,
+        "right": 1274,
+        "threshold_percent": 2,
+        "passing_maximum": 12,
+        "cost_passes": false
+      },
+      "H_calls": 13,
+      "T_calls": 13,
+      "actual_membership_calls": 26,
+      "exact_transitions": {
+        "both_exact": 6,
+        "H_only_exact": 0,
+        "T_only_exact": 0,
+        "neither_exact": 2
+      },
+      "H_exact": 6,
+      "T_exact": 6
+    },
+    "full_independent_arm_audits": {
+      "H": {
+        "arm": "H",
+        "tree_memo_states": 19,
+        "compiler_work_steps": 86,
+        "counterfactual_memo_states": 11,
+        "counterfactual_MAP_partitions": 5,
+        "distinct_compiled_inputs": 5,
+        "huffman_merge_operations": 50,
+        "canonical_computation_reuse_hits": 0,
+        "deeper_tree_candidate_paths": 10,
+        "counterfactual_candidate_entries": 27
+      },
+      "T": {
+        "arm": "T",
+        "tree_memo_states": 19,
+        "compiler_work_steps": 86,
+        "counterfactual_memo_states": 11,
+        "counterfactual_MAP_partitions": 5,
+        "distinct_compiled_inputs": 5,
+        "huffman_merge_operations": 50,
+        "canonical_computation_reuse_hits": 0,
+        "deeper_tree_candidate_paths": 10,
+        "counterfactual_candidate_entries": 27
+      }
+    },
+    "synthetic_paid_calls": 26,
+    "all_pair_common_prefix_handoff_and_exact_verified": true,
+    "matched_expected_costs": [
+      null,
+      null,
+      {
+        "candidates": [
+          0,
+          19
+        ],
+        "H_expected": "1",
+        "T_expected": "1",
+        "matched_weight_sum": "524289",
+        "H_weighted_cost": "524289",
+        "T_weighted_cost": "524289",
+        "nonincrease": true
+      },
+      {
+        "candidates": [
+          0,
+          19
+        ],
+        "H_expected": "1",
+        "T_expected": "1",
+        "matched_weight_sum": "524289",
+        "H_weighted_cost": "524289",
+        "T_weighted_cost": "524289",
+        "nonincrease": true
+      },
+      null,
+      null,
+      {
+        "candidates": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "H_expected": "289/63",
+        "T_expected": "17/9",
+        "matched_weight_sum": "63",
+        "H_weighted_cost": "289",
+        "T_weighted_cost": "119",
+        "nonincrease": true
+      },
+      {
+        "candidates": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "H_expected": "289/63",
+        "T_expected": "17/9",
+        "matched_weight_sum": "63",
+        "H_weighted_cost": "289",
+        "T_weighted_cost": "119",
+        "nonincrease": true
+      }
+    ]
+  },
+  "cap_gate_audit": {
+    "status": "passed_independent_weight_sensitive_cap_artifact_audit",
+    "synthetic_memo_states": 41,
+    "synthetic_work_steps": 140
+  },
+  "score_role_gate": {
+    "status": "passed_independent_score_role_and_cache_identity_mutations",
+    "mutations": {
+      "actual_MAP_uses_tree_score_file": {
+        "rejected_at": "complete_query_record_binding",
+        "checks_before_rejection": 500
+      },
+      "counterfactual_MAP_uses_tree_score_file": {
+        "rejected_at": "cost_MAP_selection",
+        "checks_before_rejection": 617
+      },
+      "T_selector_file_contains_tree_scores": {
+        "rejected_at": "fixed_fixture_source_score_identity",
+        "checks_before_rejection": 1
+      },
+      "T_tree_file_contains_selector_scores": {
+        "rejected_at": "fixed_fixture_source_score_identity",
+        "checks_before_rejection": 1
+      },
+      "tree_input_selector_identity_swapped": {
+        "rejected_at": "tree_full_input_identity",
+        "checks_before_rejection": 587
+      },
+      "tree_input_tree_identity_swapped": {
+        "rejected_at": "tree_full_input_identity",
+        "checks_before_rejection": 587
+      },
+      "counterfactual_selector_identity_swapped": {
+        "rejected_at": "cost_full_input_identity",
+        "checks_before_rejection": 615
+      },
+      "counterfactual_tree_identity_swapped": {
+        "rejected_at": "cost_full_input_identity",
+        "checks_before_rejection": 615
+      },
+      "tree_cache_key_from_other_role": {
+        "rejected_at": "tree_full_input_identity",
+        "checks_before_rejection": 587
+      },
+      "namespace_selector_identity_swapped": {
+        "rejected_at": "arm_namespace_identity",
+        "checks_before_rejection": 488
+      }
+    },
+    "no_artifact_edits": true,
+    "fresh_truth_draws": 0,
+    "fresh_source_draws": 0,
+    "actual_oracle_calls": 0,
+    "source_sha256": {
+      "role_gate.py": "6efa0763b215f9f5942836b0dd26da9fb1b3bfa021c2fa4711c2035f949c7b7c",
+      "audit_namespace_gate.py": "d5b73267e6911ccff60e0a00cd7e0d96604385c791bddb3636ff4358a316e9b9",
+      "audit_arm.py": "5a1633f9bc333b27b81dc6c447cc9d53675f0dbea0a7580f968def8a1005d642",
+      "audit_trees.py": "9b110575d1a5a58c714987051e060ed1127548e7fa06596deaa804604b4856b1",
+      "audit_costs.py": "944103974f5767ad8ee9a8d32ff27dc1e9362c6ccfefbe64238b2b1af5863d2a"
+    }
+  },
+  "all_fixed_proof_artifacts_reachable": {
+    "status": "passed_raw_scientific_artifact_audit",
+    "proof_files": 63,
+    "counterfactual_logical_files": 202,
+    "all_proofs_and_cost_documents_replayed": true
+  },
+  "paid_query_binding_gate": {
+    "status": "passed_paid_query_binding_and_semantic_tamper_gate",
+    "checks": 14,
+    "independently_replayed_synthetic_queries": 2,
+    "cross_arm_reacquisitions_paid": 1,
+    "all10_rehashed_semantic_mutations_rejected": {
+      "wrong_case": true,
+      "wrong_arm": true,
+      "wrong_phase": true,
+      "inherited_query": true,
+      "candidate_dropped_from_request": true,
+      "forged_candidate_prediction": true,
+      "different_board_columns": true,
+      "wrong_oracle_label": true,
+      "wrong_candidate_filter": true,
+      "unpaid_cross_arm_reuse_annotation": true
+    },
+    "source_sha256": {
+      "audit_queries.py": "8410ad483d378ec920474b53f4440579c471b2fa7121d03370693912e0c34fc8",
+      "query_audit_gate.py": "f9a662902093c8e6b4082d56bb16e19b68e40cb335661dd0269008e999da8001",
+      "audit_costs.py": "944103974f5767ad8ee9a8d32ff27dc1e9362c6ccfefbe64238b2b1af5863d2a",
+      "ledger.py": "4ffe3b14d6701ef78ee910356248ae0e8e0fd38e689804d4200fca78943522be"
+    },
+    "fresh_truth_draws": 0,
+    "fresh_source_draws": 0,
+    "actual_oracle_calls": 0
+  },
+  "fresh_truth_draws": 0,
+  "fresh_source_draws": 0,
+  "actual_oracle_calls": 0,
+  "source_sha256": {
+    "audit_arm.py": "5a1633f9bc333b27b81dc6c447cc9d53675f0dbea0a7580f968def8a1005d642",
+    "audit_baseline_gate.py": "a56f3abfa7be975004b7ae37f09510d984ec5e08ead810659e78f73d1b43ef50",
+    "audit_cap_gate.py": "025c367b35c627a6cb78de93fa6ced579a1ec34250925f7a7e0f4ef211f5347f",
+    "audit_costs.py": "944103974f5767ad8ee9a8d32ff27dc1e9362c6ccfefbe64238b2b1af5863d2a",
+    "audit_export.py": "3880839685a8cf1f643fa674c93376be207f4a354ead03e7abed8394534fa630",
+    "audit_gate.py": "e4d35192c3c09a777d3f0838437f99d0c31dcdb11a930037b2c14f72ac3b283e",
+    "audit_io.py": "5114cf314411f2bcf0476aeaac507fe3b1874c2f1788fc32eec13704aad08d07",
+    "audit_namespace_gate.py": "d5b73267e6911ccff60e0a00cd7e0d96604385c791bddb3636ff4358a316e9b9",
+    "audit_original.py": "ed45338b77c8bca2be1bb65b3f0d96f81e6375da63df8b3844cf00de7d671640",
+    "audit_pairing.py": "1ac0089e6c3edaa80cdbe53f61606a1ddaa1b0e87e116e75842c7b64584c158f",
+    "audit_preflight.py": "3c6af9036cf82ddcceebf9ccc370dd01e82a2384637cf4d90a7f2a8a5a5f2297",
+    "audit_queries.py": "8410ad483d378ec920474b53f4440579c471b2fa7121d03370693912e0c34fc8",
+    "audit_runtime.py": "3b1bad8d0679bae7b44e98ed21c265aa888131fe6b68fc5a64dfbe5361c6572f",
+    "audit_source_gate.py": "0d57357d7640843604b89162ca61f20e8c64cf0d0e9405e2f43036a5aa5612d7",
+    "audit_sources.py": "869af1108020d7cabd7631e6b10d9d222e5e3acb6a33640d43434238b6e2cbb7",
+    "audit_trees.py": "9b110575d1a5a58c714987051e060ed1127548e7fa06596deaa804604b4856b1"
+  }
+}

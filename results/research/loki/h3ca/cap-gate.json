@@ -1,0 +1,62 @@
+{
+  "status": "passed_weight_sensitive_cap_and_no_fallback_gate",
+  "checks": 93,
+  "fixed_full_runs": [
+    {
+      "weights": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "states": 7,
+      "work": 23,
+      "optimal_cost": "8"
+    },
+    {
+      "weights": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "states": 7,
+      "work": 28,
+      "optimal_cost": "25"
+    }
+  ],
+  "fixed_cap_failures": [
+    {
+      "mode": "work",
+      "error": "Synthetic local work cap",
+      "states": 7,
+      "work": 23,
+      "feasible_incumbent_existed": true,
+      "complete_proof_returned": false
+    },
+    {
+      "mode": "state",
+      "error": "Synthetic local state cap",
+      "states": 6,
+      "work": 20,
+      "feasible_incumbent_existed": false,
+      "complete_proof_returned": false
+    }
+  ],
+  "integer_cap_rejected": true,
+  "arm_cap_error": "Synthetic local work cap",
+  "whole_study_required_status": "failed_or_incomplete",
+  "partial_primary_permitted": false,
+  "no_incumbent_route_no_MAP_fallback_no_actual_query": true,
+  "synthetic_memo_states": 41,
+  "synthetic_work_steps": 140,
+  "actual_oracle_calls": 0,
+  "fresh_truth_draws": 0,
+  "fresh_source_draws": 0,
+  "source_sha256": {
+    "compiler.py": "fca9b83279b47bc95daaa015461e9362c5cd52b0aa8c693666fd9343664932e4",
+    "weights.py": "ea77045aa170e7bdfb2026815fcc3a7e0a34ef1906c3e151ed5c0b1317d0f25a",
+    "arm.py": "4f5be9dfe150bad84892c8cf6d92a4652f8d741b3ffe2f9ba6faaff07ab430d4",
+    "cap_gate.py": "aa417b715a2ce2134027caffcd2954e1ef0b27704b457d6c2718fcf3de55fb61"
+  }
+}

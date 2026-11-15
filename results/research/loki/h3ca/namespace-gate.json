@@ -1,0 +1,200 @@
+{
+  "status": "passed_common_selector_tree_weight_namespace_and_payment_gate",
+  "checks": 1027,
+  "actual_oracle_calls": 0,
+  "fresh_truth_draws": 0,
+  "fresh_source_draws": 0,
+  "synthetic_memo_states": 60,
+  "synthetic_work_steps": 182,
+  "common_routing_fixture": {
+    "decision": "falsified",
+    "primary": {
+      "left": 1300,
+      "right": 1274,
+      "threshold_percent": 2,
+      "passing_maximum": 12,
+      "cost_passes": false
+    },
+    "H_calls": 13,
+    "T_calls": 13,
+    "actual_membership_calls": 26,
+    "exact_transitions": {
+      "both_exact": 6,
+      "H_only_exact": 0,
+      "T_only_exact": 0,
+      "neither_exact": 2
+    },
+    "H_exact": 6,
+    "T_exact": 6
+  },
+  "full_independent_arm_audits": {
+    "H": {
+      "arm": "H",
+      "tree_memo_states": 19,
+      "compiler_work_steps": 86,
+      "counterfactual_memo_states": 11,
+      "counterfactual_MAP_partitions": 5,
+      "distinct_compiled_inputs": 5,
+      "huffman_merge_operations": 50,
+      "canonical_computation_reuse_hits": 0,
+      "deeper_tree_candidate_paths": 10,
+      "counterfactual_candidate_entries": 27
+    },
+    "T": {
+      "arm": "T",
+      "tree_memo_states": 19,
+      "compiler_work_steps": 86,
+      "counterfactual_memo_states": 11,
+      "counterfactual_MAP_partitions": 5,
+      "distinct_compiled_inputs": 5,
+      "huffman_merge_operations": 50,
+      "canonical_computation_reuse_hits": 0,
+      "deeper_tree_candidate_paths": 10,
+      "counterfactual_candidate_entries": 27
+    }
+  },
+  "synthetic_paid_calls": 26,
+  "all_pair_common_prefix_handoff_and_exact_verified": true,
+  "matched_expected_costs": [
+    null,
+    null,
+    {
+      "candidates": [
+        0,
+        19
+      ],
+      "H_expected": "1",
+      "T_expected": "1",
+      "matched_weight_sum": "524289",
+      "H_weighted_cost": "524289",
+      "T_weighted_cost": "524289",
+      "nonincrease": true
+    },
+    {
+      "candidates": [
+        0,
+        19
+      ],
+      "H_expected": "1",
+      "T_expected": "1",
+      "matched_weight_sum": "524289",
+      "H_weighted_cost": "524289",
+      "T_weighted_cost": "524289",
+      "nonincrease": true
+    },
+    null,
+    null,
+    {
+      "candidates": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "H_expected": "289/63",
+      "T_expected": "17/9",
+      "matched_weight_sum": "63",
+      "H_weighted_cost": "289",
+      "T_weighted_cost": "119",
+      "nonincrease": true
+    },
+    {
+      "candidates": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "H_expected": "289/63",
+      "T_expected": "17/9",
+      "matched_weight_sum": "63",
+      "H_weighted_cost": "289",
+      "T_weighted_cost": "119",
+      "nonincrease": true
+    }
+  ],
+  "storage": {
+    "status": "passed_raw_scientific_artifact_audit",
+    "proof_files": 10,
+    "counterfactual_logical_files": 44,
+    "all_proofs_and_cost_documents_replayed": true
+  },
+  "score_role_mutations": {
+    "status": "passed_independent_score_role_and_cache_identity_mutations",
+    "mutations": {
+      "actual_MAP_uses_tree_score_file": {
+        "rejected_at": "complete_query_record_binding",
+        "checks_before_rejection": 500
+      },
+      "counterfactual_MAP_uses_tree_score_file": {
+        "rejected_at": "cost_MAP_selection",
+        "checks_before_rejection": 617
+      },
+      "T_selector_file_contains_tree_scores": {
+        "rejected_at": "fixed_fixture_source_score_identity",
+        "checks_before_rejection": 1
+      },
+      "T_tree_file_contains_selector_scores": {
+        "rejected_at": "fixed_fixture_source_score_identity",
+        "checks_before_rejection": 1
+      },
+      "tree_input_selector_identity_swapped": {
+        "rejected_at": "tree_full_input_identity",
+        "checks_before_rejection": 587
+      },
+      "tree_input_tree_identity_swapped": {
+        "rejected_at": "tree_full_input_identity",
+        "checks_before_rejection": 587
+      },
+      "counterfactual_selector_identity_swapped": {
+        "rejected_at": "cost_full_input_identity",
+        "checks_before_rejection": 615
+      },
+      "counterfactual_tree_identity_swapped": {
+        "rejected_at": "cost_full_input_identity",
+        "checks_before_rejection": 615
+      },
+      "tree_cache_key_from_other_role": {
+        "rejected_at": "tree_full_input_identity",
+        "checks_before_rejection": 587
+      },
+      "namespace_selector_identity_swapped": {
+        "rejected_at": "arm_namespace_identity",
+        "checks_before_rejection": 488
+      }
+    },
+    "no_artifact_edits": true,
+    "fresh_truth_draws": 0,
+    "fresh_source_draws": 0,
+    "actual_oracle_calls": 0,
+    "source_sha256": {
+      "role_gate.py": "6efa0763b215f9f5942836b0dd26da9fb1b3bfa021c2fa4711c2035f949c7b7c",
+      "audit_namespace_gate.py": "d5b73267e6911ccff60e0a00cd7e0d96604385c791bddb3636ff4358a316e9b9",
+      "audit_arm.py": "5a1633f9bc333b27b81dc6c447cc9d53675f0dbea0a7580f968def8a1005d642",
+      "audit_trees.py": "9b110575d1a5a58c714987051e060ed1127548e7fa06596deaa804604b4856b1",
+      "audit_costs.py": "944103974f5767ad8ee9a8d32ff27dc1e9362c6ccfefbe64238b2b1af5863d2a"
+    }
+  },
+  "separate_caches_and_selectors_verified": true,
+  "all_synthetic_queries_and_proofs_replayed": true,
+  "source_sha256": {
+    "arm.py": "4f5be9dfe150bad84892c8cf6d92a4652f8d741b3ffe2f9ba6faaff07ab430d4",
+    "oracle.py": "83b3d8a2508d20ed3e9e03ef07f11387fa8980cdc8f9b8eec9fc450b0b01d230",
+    "endpoint.py": "07fe8d7bcb2ef3a0fe4ebbba3c5bdb72afa648c7c57f55b83744d7ae19a12576",
+    "audit_arm.py": "5a1633f9bc333b27b81dc6c447cc9d53675f0dbea0a7580f968def8a1005d642",
+    "audit_queries.py": "8410ad483d378ec920474b53f4440579c471b2fa7121d03370693912e0c34fc8",
+    "namespace_gate.py": "14045304d1bca1f6abfbc719b3cce728528c0a19a21693b3ee6663441d13fa87",
+    "audit_namespace_gate.py": "d5b73267e6911ccff60e0a00cd7e0d96604385c791bddb3636ff4358a316e9b9",
+    "pairing.py": "62983d4de466941ab765aa06a6826193e6eb02f7ae59c1a4e36c06ec58563e30",
+    "audit_pairing.py": "1ac0089e6c3edaa80cdbe53f61606a1ddaa1b0e87e116e75842c7b64584c158f",
+    "policy.py": "baad868690e289abe3e56deaa8d5d51e5c7635fb6668dd42c05baff8008f3705",
+    "counterfactual.py": "a67907da29ab137148c4cafc3487ac3ff67189d44431482a91b49cb622582819",
+    "audit_trees.py": "9b110575d1a5a58c714987051e060ed1127548e7fa06596deaa804604b4856b1",
+    "audit_costs.py": "944103974f5767ad8ee9a8d32ff27dc1e9362c6ccfefbe64238b2b1af5863d2a",
+    "role_gate.py": "6efa0763b215f9f5942836b0dd26da9fb1b3bfa021c2fa4711c2035f949c7b7c"
+  }
+}

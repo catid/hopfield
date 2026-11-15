@@ -249,3 +249,15 @@ Pooling recovers **253/256** fresh synthetic graphs versus **239/256** with dono
 ## Endpoint dispatch preserves maze accuracy but costs more
 
 On a fresh 4,096-maze 50:50 endpoint mixture, BP AdamW solves 4,048 jointly; LP96, always-cascade and distance dispatch each solve 4,096. The dispatcher costs **14.04% more than LP96** and **30.41% more than always-cascade**, failing both separate cost targets in every block. It invokes BP and an LP subset in every batch; that operation accounting motivates a prospective packing test without proving a cause. [Full source cohort and all timings](../research/20261114/work/REPORT.md#h2br-endpoint-dispatch-preserves-accuracy-but-falsifies-both-cost-targets).
+
+## Correlated query errors defeat both tested posterior methods
+
+On 72 fresh banks, a fixed shared-corruption process gives both the supplied joint-channel and estimated-IID methods **0/72** exact graphs. Each has 54 integral wrong and 18 fractional selected outputs; no arm is unresolved. The supplied model selects the correct degree everywhere, and truth is strictly suboptimal in all 72 certified objectives. The zero-regression endpoint is formally supported but uninformative because the control solves no case. This rejects the two recovery targets without proving an information-theoretic impossibility. [Full law, information boundary, gaps and audits](../research/20261114/ripper/REPORT-correlated-repeat.md).
+
+![Correlated-repeat negative result](../assets/figures/correlated_repeat.png)
+
+## Change only exact-tree weights to preserve query routing
+
+Keeping hierarchical MAP selection in both arms while matching only tree weights to the uniform truth source cuts calls from **3,163 to 2,953**, a **6.64%** saving across 1,024 fresh pairs. The fixed 2% target passes. Both arms identify the same **1,008** truths and leave the same **16** unresolved. Common MAP routing and exactness are independently checked correctness invariants under complete certified calculations. Realized costs improve in 216 cases, worsen in 43 and tie in 765; expected-cost improvement does not imply shorter paths in every case. [Proof scope, all shared failures and archive boundary](../research/20261114/loki/h3ca/REPORT.md).
+
+![Query costs and retained shared failures](../results/research/loki/h3ca/tree-weight-cost.png)

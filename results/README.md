@@ -1,7 +1,9 @@
 # Public results
 
 
-Latest: [Fresh pooling confirmation and retained audit correction](../research/20261114/foureyes/REPORT-fresh-pooled-donor.md) — 253/256 versus 239/256, 15 gains and one loss. [Mixed-maze dispatch](../research/20261114/work/REPORT.md#h2br-endpoint-dispatch-preserves-accuracy-but-falsifies-both-cost-targets) preserves 4,096/4,096 accuracy but fails both cost targets.
+Latest: [Correlated repeats falsify both recovery targets at 0/72](../research/20261114/ripper/REPORT-correlated-repeat.md). [Changing tree weights while retaining MAP routing saves 6.64% of paid queries](../research/20261114/loki/h3ca/REPORT.md), with the same 1,008/1,024 exact identifications and 16 retained failures.
+
+Recent: [Fresh pooling with a retained audit correction](../research/20261114/foureyes/REPORT-fresh-pooled-donor.md) recovers 253/256 versus 239/256. [Mixed-maze dispatch](../research/20261114/work/REPORT.md#h2br-endpoint-dispatch-preserves-accuracy-but-falsifies-both-cost-targets) preserves 4,096/4,096 accuracy but fails both cost targets.
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
