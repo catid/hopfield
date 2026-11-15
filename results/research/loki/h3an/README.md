@@ -1,0 +1,3 @@
+# H3an: new-family baseline ceiling
+
+[Full report](../../../../research/20261114/loki/h3an/REPORT.md). The prospective D4≥10pp benefit is falsified: all8new128-positive BP AdamW fits already recover exact N13graphs and100%capacity. Raw/D4 acquisition reliability is100%/100%, gain0pp; safety and≥90%reliability pass. Four independent fits each for zebra/(2,5),32additional N12complement positives, explicitD4prior and256attempted correlatedviews. Both complete supports and full keycensuses verified.21.652793CPU s/18.647927GPU-worker s/13.114260wall s. No newsearch or broadfamily-generalization claim.

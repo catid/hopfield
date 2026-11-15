@@ -1,0 +1,22 @@
+"""Deterministic plot separating primary fitted recovery from unsafe capacity."""
+import hashlib,json
+from pathlib import Path
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+ROOT=Path(__file__).resolve().parents[4];PUBLIC=ROOT/'results/research/loki/h3ao'
+def main():
+    path=PUBLIC/'summary.json';s=json.loads(path.read_text());assert s['status']=='validated';plt.rcParams.update({'font.size':10.5,'axes.spines.top':False,'axes.spines.right':False,'svg.fonttype':'none','svg.hashsalt':'cram-h3ao-public'});fig,axes=plt.subplots(1,2,figsize=(14,7.5));fig.subplots_adjust(left=.075,right=.97,bottom=.35,top=.75,wspace=.32);fig.suptitle('32 source positives recover exact graphs in all eight primary fits',x=.065,y=.95,ha='left',fontsize=16.7,fontweight='bold');fig.text(.065,.879,'SUPPORTED: 4 / 4 eligible BP AdamW fits per family at 32 labels · frozen requirement ≥3 / 4',fontsize=11.8,fontweight='bold');fig.text(.065,.819,'Matched count supports are identical; 16 / 64-label BP eligibility is unmeasured, with no descriptive optimizer fits',fontsize=10.7)
+    for family,shift,color,label in[(0,-.18,'#287f77','Zebra'),(1,.18,'#497ba9','(2,5) leaper')]:
+        for j,dose in enumerate((16,32,64)):
+            rows=[r for r in s['rows']if r['family']==family and r['dose']==dose and r['method'].startswith('optimizer')];exact=sum(r['exact_graph']for r in rows);axes[0].bar(j+shift,exact,width=.33,color=color,label=label if j==0 else None);axes[0].annotate(f'{exact}/4',(j+shift,exact),xytext=(0,5),textcoords='offset points',ha='center',fontsize=10)
+    axes[0].axhline(3,color='#ae3f3a',ls='--',lw=1.3);axes[0].axvspan(.6,1.4,color='#d7e6dc',alpha=.35,zorder=0);axes[0].set_xticks([0,1,2],['16\nDescriptive','32\nPRIMARY + count','64\nDescriptive']);axes[0].set_ylim(0,4.65);axes[0].set_yticks(range(5));axes[0].set_ylabel('Exact count graphs across four source streams');axes[0].set_title('A   Fixed nested grid; eight BP fits only at 32',loc='left',fontweight='bold',pad=14);axes[0].legend(frameon=False,loc='center left',fontsize=9)
+    groups=[(0,0,'Zebra\nbank 0'),(0,1,'Zebra\nbanks 1–3'),(1,0,'Leaper\nbanks 0–3')]
+    for j,(family,bank,label)in enumerate(groups):
+        r=next(r for r in s['rows']if r['family']==family and r['bank']==bank and r['dose']==16);value=100*r['invalid_zero_F_states']/r['complete_zero_F_states'];axes[1].bar(j,value,width=.6,color='#bd7144');axes[1].annotate(f'{value:.2f}%',(j,value),xytext=(0,5),textcoords='offset points',ha='center',fontsize=10)
+    axes[1].set_xticks(range(3),[label for _,_,label in groups]);axes[1].set_ylim(0,110);axes[1].set_ylabel('Invalid fraction of complete zero-F set (%)');axes[1].set_title('B   16-label capacity is 100%, but safety fails',loc='left',fontweight='bold',pad=14)
+    for ax in axes:ax.grid(axis='y',alpha=.17);ax.set_axisbelow(True)
+    fig.text(.065,.255,'Every 16-label control retains all valid completions, yet admits 30,514–71,016 invalid zero-conflict boards.',fontsize=11,fontweight='bold');fig.text(.065,.19,'Source counts/exposure/line prior determine F. Native BP eligibility depends on learned allowed weights and unary; all 8 gates pass.\nNo graph or capacity advantage over the matched count control is inferred from their exact support identity.',fontsize=10.6,linespacing=1.5);fig.text(.065,.12,'Four new streams per fixed family; nested budgets are correlated. Entire seen N13 universe; no new search cohort.\nAll 5 complete zero-F sets independently verified, including invalid states. Invalid-set fractions are not search error probabilities.',fontsize=10.6,linespacing=1.5);fig.text(.065,.05,f"Whole stage: {s['aggregate_CPU_seconds']:.3f} CPU s / {s['aggregate_GPU_worker_seconds']:.3f} GPU-worker s / {s['wall_seconds']:.3f} wall s. No BP fits at 16 or 64 labels.",fontsize=10.3,color='#444')
+    for ext in('png','svg'):fig.savefig(PUBLIC/f'nested-source-efficiency.{ext}',dpi=180,facecolor='white',metadata={'Date':None}if ext=='svg'else None)
+    receipt=dict(input_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in(path,Path(__file__))},output_sha256={f'nested-source-efficiency.{ext}':hashlib.sha256((PUBLIC/f'nested-source-efficiency.{ext}').read_bytes()).hexdigest()for ext in('png','svg')});(PUBLIC/'plot-provenance.json').write_text(json.dumps(receipt,indent=2)+'\n');print(receipt['output_sha256'])
+if __name__=='__main__':main()

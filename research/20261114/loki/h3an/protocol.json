@@ -1,0 +1,153 @@
+{
+  "id": "H3an-new-family-incomplete-bank-D4-repair",
+  "frozen_utc": "2026-11-15T06:13:47.073924+00:00",
+  "hypothesis": "For EACH of8new fixed fits (4perfamily), D4 repair from32uniform distinct complement N12positives achieves P(N13exactcapacity>=95%)>=90% AND improves that probability by>=10pp versus unaugmented repair on SAMEdraws. Any positive-probability invalid zero-state outcome in either arm falsifies safety. Baseline-ceiling failure retained.",
+  "families": [
+    {
+      "name": "queen-plus-zebra",
+      "leaper": [
+        2,
+        3
+      ],
+      "source_population": 472,
+      "source_path": "results/research/loki/h3ad/b0/source-columns.npy",
+      "target_path": "results/research/loki/h3ad/b0/target-columns.npy"
+    },
+    {
+      "name": "queen-plus-2-5-leaper",
+      "leaper": [
+        2,
+        5
+      ],
+      "source_population": 1304,
+      "source_path": "results/research/loki/h3ad/b1/source-columns.npy",
+      "target_path": "results/research/loki/h3ad/b1/target-columns.npy"
+    }
+  ],
+  "training": {
+    "banks_per_family": 4,
+    "raw_labels": 128,
+    "bank_seeds": [
+      2026113200,
+      2026113201,
+      2026113202,
+      2026113203,
+      2026113204,
+      2026113205,
+      2026113206,
+      2026113207
+    ],
+    "sampling": "Independent uniform128subsets per family; sorted indices; overlap allowed and reported. No replacements or bank selection.",
+    "optimizer": "BP AdamW",
+    "updates": 4000,
+    "initialization": "allzero couplings and shared unary",
+    "lr": 0.3,
+    "cosine_denominator": 4000,
+    "weight_decay": 0.01,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "foreach": false,
+    "dtype": "float32",
+    "TF32": false,
+    "seed": 0,
+    "preconditioner": false,
+    "architecture_and_loss": "Exact H3ad source.design/independent_design/validate_loss/construct and H3u source_loss; all298clue subsets aggregated with occupied231/empty298 multiplicities. Same inferred lines, offset grouping, exposure threshold and positive-F transfer.",
+    "eligibility": "Finite parameters and positive native source minimum margin/unit/retainedweights. Failed eligibility retained as falsified fit without repair; no refit."
+  },
+  "acquisition": {
+    "raw_labels": 32,
+    "populations": "Per-fit N12source complement, excluding its128training rawboards:344zebra/1176leaper. No target-size positive acquisition.",
+    "draw": "Exact distribution over uniform32subsets without replacement, independent of training after conditional fixedbank selection. Raw and D4 arms share each draw.",
+    "D4": "Explicit supplied D4-invariance prior; all8deterministic rotations/reflections; wholeboard dedup;256attempted correlatedviews, not independent labels. Each realized fit+repair uses160raw labels.",
+    "learner": "Pure selected-positive/model/finiteclass function; no fileI/O/fullpool/targetargument. Evaluator holds complement only after definition sealed. No process-isolation claim.",
+    "soundness": "Valid positive labels plus actual D4 invariance and size-invariant translation-shared pair prohibitions."
+  },
+  "primary": {
+    "capacity_threshold": [
+      19,
+      20
+    ],
+    "reliability_threshold": [
+      9,
+      10
+    ],
+    "paired_gain_threshold": [
+      1,
+      10
+    ],
+    "safe_all_positive_mass_outcomes": true,
+    "conjunction": "All8fits; sourcefitfailure or safety/thresholdfailure falsifies. Globalbudget/complexity/verification failure incomplete, no pruning or replacement."
+  },
+  "complexity": {
+    "observable_classes_per_fit_max": 16,
+    "reachable_paired_unions_per_dose_fit_max": 512,
+    "distinct_full_supports_per_family_max": 256,
+    "enforcement": "Bound every dose0..32 at every exactDPstage. Stop entirestudy on anycap; no raisedcap, outcome pruning or replacement. Retain every positive-mass paired outcome and baseline0mask."
+  },
+  "combinatorics": "Grouped exact integer without-replacement DP over joint raw/D4 boardmask types, all k0..32. Choosing j fromtypefrequency n contributes choose(n,j), unionmask only forj>0. Every finalk mass sums choose(complement,k). No independence approximation/MonteCarlo. Decimalstring integer storage.",
+  "validation": {
+    "basis_coordinate_cells": 144,
+    "learner_call_seeds": [
+      2026113300,
+      2026113301,
+      2026113302,
+      2026113303,
+      2026113304,
+      2026113305,
+      2026113306,
+      2026113307
+    ],
+    "learner_calls": "Onefixed32complementdraw perfit and botharms; validate direct purelearner equals exactunioncomposition; preserveindices anddedupcounts.",
+    "distribution": "4tiny8boardfixtures x9drawsizes compared with exhaustive subsets.",
+    "numeric": "Original expanded-clue float64loss/gradient check and actualbank CPU/GPUloss/gradient check before each fit."
+  },
+  "evaluation": {
+    "target": "Fixed completeN13truecensus per family; entire1/2/3clue keyuniverse, zeroexclusions. Seen finitecapacity; no freshcohort or testgeneralization.",
+    "order": "All8fitrecords and all source-only repair outcomes sealed before targettruthdata are evaluated.",
+    "complete_reference": "Independently ordinaryqueen enumeration + literal leaperfilter and compiledliteralF enumeration match inherited fulltarget.",
+    "proof": "Check Ftrue subset F for eachsupport. Iftrue, filteringcomplete truecensus is exhaustive. Iffalse, independently enumerate completezeroF with forwardPython and compiledreverse and retaininvalidstates; never substitute truthfilter.",
+    "keys": "All377cluesubsets pervalidzeroFstate, exactintegerhistograms. Positivelearnedweights/correctcardinality/rowcolumncliques checked. Fullsupportdedup withinfamily only.",
+    "search": "No GPUsearch cohort. Capacityreview required before anyfuturesearch."
+  },
+  "budget": {
+    "aggregate_CPU_seconds": 600,
+    "aggregate_GPU_worker_seconds": 120,
+    "per_fit_seconds": 30,
+    "wall_seconds": 900,
+    "allocated_GPUs": [
+      0,
+      1
+    ],
+    "enforcement": "CPU includes allworkers/monitor/preparation/builds/distributions/completecapacities. GPU-worker sum includes imports/lossgates/fits/construction/serialization. Whole900wall. Postrun publicationaudit separately charged/reported."
+  },
+  "scope": "Two fixed previouslystudied D4families, newindependentincomplete sourcebanks, sameN12complement acquisition and fixedN13capacity. Changes acquisition size versus H3am intermediateN13positives/N15target; no broadfamily generalization.",
+  "source_sha256": {
+    "research/20261114/loki/h3an/common.py": "bb56c75adad34524c741c016c07969364db52d90a55974627016e5aaeeebabdc",
+    "research/20261114/loki/h3an/learner.py": "7519f80da4fad1e3f681a024486ae634fce64c9d7e90dd59399e8bac720d275a",
+    "research/20261114/loki/h3an/distribution.py": "e347ab6e125e87ff0859f10911dcc1c75d71438a87abca07c78cf5901daf9928",
+    "research/20261114/loki/h3an/source.py": "a122b8c911484d5926c0528b564470d696efcc7d2b3497a17cd533f5cb149e7a",
+    "research/20261114/loki/h3an/source_outcomes.py": "9b5096c6f17ccba208ab72cda70277d3f99751aa9c24091abb4c232db32653c5",
+    "research/20261114/loki/h3an/evaluate.py": "9fda787ce91c5ae2476fadd303691cd029ee84490b17a280f3e42bc9c1ad07ed",
+    "research/20261114/loki/h3an/study.py": "639bf90c46845c3ed2a8d863e1a515f45954cdc3bf3cf0aba3379c0b255c271f",
+    "research/20261114/loki/h3an/gate.py": "102cd62d05fd3ba884860f5e40979b3d608d5081ebb120c92970be638f5d07bd",
+    "research/20261114/loki/h3an/freeze.py": "2c6741ba6703088194577396c9e713426a16d777e1f8c3aaa52b55f9f816f849",
+    "research/20261114/loki/h3an/reverse_literal.cpp": "efacb8de87c2a1dce7540e4f42b036a2f1f9a07601f70ee20dc8b09bfcb3d719",
+    "research/20261114/loki/h3ad/source.py": "6827a4b72ddf05b606f188e0081e663c84feb7d652abaa286bdf05c38d23de7e",
+    "research/20261114/loki/h3ad/generate.py": "c72c05fbd39ea297daa3356f0ddd3fa914e567f7ac6554d11a968ad1d58a9b6d",
+    "research/20261114/loki/h3u/driver.py": "ceb8eae804643b6fd08eaa442475c494ec614653b348bd0403238c4c9f565b38",
+    "research/20261114/loki/study.py": "7c48de391879dc2f4b4f14459698afbc84c82cb3e89030e0ba4814d4fd74b552",
+    "research/20261114/loki/h3ad/protocol.json": "a43ca74e4b0580bdeff343407afa990da562f3979f4c26cf0aa1e27bae63ac02",
+    "research/20261114/loki/h3am/protocol.json": "873da8247123724ee105c31b29d4f2b4d608436dcb1c23712f41e74e09fa3068"
+  },
+  "source_data_sha256": {
+    "results/research/loki/h3ad/b0/source-columns.npy": "53b1209b1ff5af4dbb9c652e574761cd710dbdebb260e8d2ad71d2d88c3465a4",
+    "results/research/loki/h3ad/b1/source-columns.npy": "d8ee10c015a7aa1131a9c573d8f8cbfd1f349f3587785dd30fa0cc9a5cb8862d"
+  },
+  "target_data_sha256": {
+    "results/research/loki/h3ad/b0/target-columns.npy": "81e5e6f877586ed8a5d5bd2c4eebec6ef1b93f3dbe98ff471b899d60cb0479da",
+    "results/research/loki/h3ad/b1/target-columns.npy": "9d4efdb32cc17beaa9bae12850bf83bebe1b8e8e8f5e4b4d881185d42f175269"
+  }
+}

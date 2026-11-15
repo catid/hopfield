@@ -2,6 +2,11 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [32-example queen fits recover exact graphs; 16-example count controls admit invalid states](../research/20261114/loki/h3ao/REPORT.md)
+- [Maze cycle cuts rescue 21/22 archived failures; learned cut ordering adds no rescue](../research/20261114/work/REPORT.md#h2aqh2as-allowing-a-positive-cost-cycle-cut-rescues-21-source-failures)
+- [Likelihood mixture preserves true constraints but increases false exclusions](../research/20261114/ripper/REPORT-mixture-replay.md)
+- [Same noisy Sudoku observations: majority fails its no-missing-edge target; pooling recovers all 16 graphs](../research/20261114/foureyes/REPORT-pooled-source.md)
+- [New queen families: eight baseline fits already exact, falsifying additional symmetry benefit](../research/20261114/loki/h3an/REPORT.md)
 - [Adaptive known-law queries reduce false constraints on fixed source banks](../research/20261114/ripper/REPORT-adaptive-null.md)
 - [Symmetry views improve exact positive-acquisition reliability](../research/20261114/loki/h3am/REPORT.md)
 - [Maze pendant moves: retained fixture failure and zero-rescue result](../research/20261114/work/REPORT.md)

@@ -1,0 +1,3 @@
+# H3ao: nested source sample efficiency
+
+[Full report](../../../../research/20261114/loki/h3ao/REPORT.md). Primary supported: all4/4new32-label BP AdamW fits per family pass native eligibility and recover exact N13graphs (required≥3/4). Matched countF is identical; no optimizer advantage in graph/capacity claimed. Nested16/64controls are source-only; BP at16/64unmeasured. Every16-label control has100%valid-inputcapacity but30,514–71,016invalidzero states, demonstrating capacity is insufficient for safety. All64-label controls exact. Eight newfits,24countcontrols,5complete supports.21.841399CPU s/17.460723GPU-worker s/13.127650wall s; no newsearch.

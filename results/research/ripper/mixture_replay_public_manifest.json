@@ -1,0 +1,25 @@
+{
+  "status": "validated_public_export",
+  "raw_audit_sha256": "fc019d6e10851e641330ab0487c369f42d7931a6cff5e00060200aa31730a096",
+  "sha256": {
+    "research/20261114/ripper/mixture_replay_policy.py": "c07d6a793a55bfae5c3d10cd2329b87f43f354c29430346f4eba5da9c215cee0",
+    "research/20261114/ripper/mixture_replay_study.py": "e60a0b0bbad3cf097345630e151a7d20d899ab90cd181a254ad136bf6674b87c",
+    "research/20261114/ripper/audit_mixture_replay.py": "6ba0c36c7098d08818d94fff77c4874c6dd0cc3c601cc5395adf9b47a39bf7d9",
+    "research/20261114/ripper/run_mixture_replay.py": "9c9af5a87c16645ff55c57c622bb0d7d3411a0db2aaea8f8f446eb4fd94acc08",
+    "research/20261114/ripper/preflight_mixture_replay.py": "e69694f1d563e15f7ad78587bfc023cfa1c9976ff9fcfc9f7eeb4ebe2228e961",
+    "research/20261114/ripper/mixture-replay-preflight.json": "2c8f9ffc4f66a3cc2757fa918296b7021396001aac3511c462ca78b2b4994acd",
+    "research/20261114/ripper/protocol-mixture-replay.json": "df7805114d86116afe25693989c022faac02b39b7149dadd294097bbfac7aed1",
+    "research/20261114/ripper/verify_mixture_replay_public.py": "32c9a971d4a354b8b9d2fa8e2f3d81151317c4ba920b83b255ccdc5972d29732",
+    "research/20261114/ripper/REPORT-mixture-replay.md": "c47885329617ea5f47f86b5b98e5fda005aaa17ddfb6044e9edf413deeaeb679",
+    "results/research/ripper/mixture_replay.json": "fc019d6e10851e641330ab0487c369f42d7931a6cff5e00060200aa31730a096",
+    "results/research/ripper/mixture_replay_runtime.json": "b8666923824d76b1cd600a48df254938889df6148012a4bfdab6897344b051f4",
+    "results/research/ripper/mixture_replay_per_bank.csv": "6a7f0a967055d5f6ea89470b81610fd247fe15ae8bcaffad8aefa00e432af03e",
+    "results/research/ripper/mixture_replay_supports.npz": "074e2ca0e5553f1b2b97d7f5920f8448ff2116638894acc8fe337d0ed00e2b4e",
+    "scripts/plot_mixture_replay.py": "11a52e865f4023e1a2a709d71129b44aeb46317bc8defb67817657c8fc705ec9",
+    "assets/figures/mixture-replay.png": "e21160c0cbef8e16988f7f89d07f70325fcff7cc3a46701826f1114e53421f2f",
+    "assets/figures/mixture-replay.svg": "191ab12d4773019523926cd51f36d88adf9d034651858bdcc37f7c19c00f25df",
+    "assets/figures/mixture-replay-provenance.json": "67294796ed73e49d6cdf3f57d872867bbeae0fa76cb9515ad66f82dbbf105176"
+  },
+  "full_raw_replay_command": "artifacts/research/20261114/ripper/coverage-venv/bin/python -c \"import sys; sys.path.insert(0,'research/20261114/ripper'); from audit_mixture_replay import audit_thresholds,audit_bank; audit_thresholds(); [audit_bank(seed) for seed in range(32)]\"",
+  "scope": "Portable verifier checks support outcomes and accounting. Full raw likelihood replay is separate and requires preserved raw observations; rerunning it is a new validation cost."
+}

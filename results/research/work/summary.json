@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-15T06:15:26.149494+00:00",
+  "updated_utc": "2026-11-15T06:31:50.141207+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
   "status": "Ongoing research; H2aj prospective factorial complete with independent state and trace audits",
   "host": "work",
@@ -892,6 +892,27 @@
         "joint_regressions": 0,
         "zero_regressions": "met"
       }
+    },
+    {
+      "campaign": "cycle_cut_rescue",
+      "hypothesis": "H2as",
+      "outcome": {
+        "joint_rescues": 21,
+        "initial_joint_failures": 22,
+        "minimum11rescues": "met",
+        "joint_regressions": 0,
+        "zero_regressions": "met"
+      }
+    },
+    {
+      "campaign": "lexical_cycle_cut",
+      "hypothesis": "H2at",
+      "outcome": {
+        "energy_ranked_only_joint_gains": 0,
+        "lexical_only_joint_gains": 0,
+        "energy_gains_at_least_one": "not_met",
+        "energy_loses_zero": "met"
+      }
     }
   ],
   "run_tables": [
@@ -1100,6 +1121,30 @@
     "pendant-rescue-v2-protocol": {
       "sha256": "df46b12a3d1c0f5fd1a216af21cbce6921c193055e4e45a9104ce167af043ad7",
       "frozen_utc": "2026-11-15T06:09:51.324453+00:00"
+    },
+    "cycle-cut-rescue-protocol": {
+      "sha256": "835c98615032b971be3fa116a743beee77f349b4ec0493d04540630d7123bbd0",
+      "frozen_utc": "2026-11-15T06:18:34.626188+00:00",
+      "hypothesis": "H2aq",
+      "status": "failed_verifier_metadata_gate_before_interventions"
+    },
+    "cycle-cut-rescue-v2-protocol": {
+      "sha256": "a002dc9d00ec69c12b85831b307743c56f86472254cd3d3cf76366177c33344a",
+      "frozen_utc": "2026-11-15T06:19:53.000508+00:00",
+      "hypothesis": "H2ar",
+      "status": "superseded_unexecuted"
+    },
+    "cycle-cut-rescue-checked-protocol": {
+      "sha256": "1431ed4e2491b27c05b6aa884f605c6ba53228d1039ad27b0a4e2f164fb20b63",
+      "frozen_utc": "2026-11-15T06:21:22.252647+00:00",
+      "hypothesis": "H2as",
+      "status": "completed"
+    },
+    "lexical-cycle-cut-protocol": {
+      "sha256": "6e1cca3dfeb7cb04be99fcb27f8fa7216e1d75e710bb1bfce9fb4a20a8123545",
+      "frozen_utc": "2026-11-15T06:25:35.523811+00:00",
+      "hypothesis": "H2at",
+      "status": "completed"
     }
   },
   "audit_sha256": {
@@ -1135,7 +1180,9 @@
     "artifacts/research/20261114/work/connectivity_screen/audit.json": "cf2f149522301d5683730623c40a4019661df4f26021295c7b7ad1de82545427",
     "artifacts/research/20261114/work/connectivity_transfer_180/audit.json": "df24db9314a0bae7369897d500bb4d104169950eb5de036a6d78282dcf717b4a",
     "artifacts/research/20261114/work/safe_block_transfer/audit.json": "42ede9a85e1bafaf66c8900cb1e4fdccddae7594345362c4b1d5b993ef3c54b0",
-    "artifacts/research/20261114/work/pendant_rescue_v2/audit.json": "0e0f53cd5c00e71a55406d0a47d35edbe9e0d417371e0da90bada6d466a46270"
+    "artifacts/research/20261114/work/pendant_rescue_v2/audit.json": "0e0f53cd5c00e71a55406d0a47d35edbe9e0d417371e0da90bada6d466a46270",
+    "artifacts/research/20261114/work/cycle_cut_rescue_checked/audit.json": "47fc63379860209169c25ca58cb977947e4c04a05601be20d5b5b3616838ab0f",
+    "artifacts/research/20261114/work/lexical_cycle_cut/audit.json": "99bcfc41516fe9a98aeda05822847a084b24877ca191e24eb4a741d0a73f6288"
   },
   "model_sha256": {
     "0": {
@@ -1544,5 +1591,55 @@
     "fresh_inputs": 0,
     "new_searches": 0,
     "cause": "Thefirst32exhaustive3x3fixturestatesusedforliteralcostgatehavezeroraw/admittedcandidates;preservedfailedcoverageassertion."
+  },
+  "cycle_cut_rescue": {
+    "hypothesis": "H2as",
+    "fresh_inputs": 0,
+    "included_model_inputs": 12288,
+    "new_search_inputs": 63,
+    "reused_veto_prefixes": 12288,
+    "targets": {
+      "joint_rescues": 21,
+      "initial_joint_failures": 22,
+      "minimum11rescues": "met",
+      "joint_regressions": 0,
+      "zero_regressions": "met"
+    },
+    "joint_success": {
+      "pl": 4090,
+      "old_binary": 4005,
+      "old_blocks": 4031,
+      "connectivity_veto": 4074,
+      "cycle_cut_rescue": 4095
+    },
+    "accepted_moves": 67,
+    "positive_cost_moves": 60,
+    "new_optimizer_updates": 0,
+    "scope": "Finiteposthocsourcecontrol. Explicitenergy-increasingcyclegraphprior; nofreshgeneralizationclaim. LearnedrankingadvantagefalsifiedbyH2at. Allprefixes/controlsreused, fullcostcharged."
+  },
+  "lexical_cycle_cut": {
+    "hypothesis": "H2at",
+    "fresh_inputs": 0,
+    "included_model_inputs": 12288,
+    "new_search_inputs": 63,
+    "reused_veto_prefixes": 12288,
+    "targets": {
+      "energy_ranked_only_joint_gains": 0,
+      "lexical_only_joint_gains": 0,
+      "energy_gains_at_least_one": "not_met",
+      "energy_loses_zero": "met"
+    },
+    "joint_success": {
+      "pl": 4090,
+      "old_binary": 4005,
+      "old_blocks": 4031,
+      "connectivity_veto": 4074,
+      "lexical_cycle_cut": 4095,
+      "energy_ranked_cycle_cut": 4095
+    },
+    "accepted_moves": 70,
+    "positive_cost_moves": 67,
+    "new_optimizer_updates": 0,
+    "scope": "Finiteposthocsourcecontrol. Explicitenergy-increasingcyclegraphprior; nofreshgeneralizationclaim. LearnedrankingadvantagefalsifiedbyH2at. Allprefixes/controlsreused, fullcostcharged."
   }
 }

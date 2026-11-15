@@ -4,6 +4,11 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Nested queen source budgets and invalid-state boundary | [Eight primary fits and 24 count controls](../results/research/loki/h3ao/) | [plot_public.py](../research/20261114/loki/h3ao/plot_public.py) |
+| Maze cycle cuts and learned-versus-lexical ordering | [Paired source controls](../results/research/work/lexical-cycle-cut-summary.json) | [plot_cycle_cut_controls.py](../scripts/plot_cycle_cut_controls.py) |
+| Fixed likelihood mixture on acquired Sudoku labels | [Mixture replay exports](../results/research/ripper/mixture_replay.json) | [plot_mixture_replay.py](../scripts/plot_mixture_replay.py) |
+| Pooled Sudoku observations versus separate-support voting | [Pooled source exports](../results/research/foureyes/pooled_source_study/) | [plot_pooled_source.py](../scripts/plot_pooled_source.py) |
+| New queen-family symmetry-repair ceiling | [Eight new fits](../results/research/loki/h3an/) | [plot_public.py](../research/20261114/loki/h3an/plot_public.py) |
 | Adaptive queries under a supplied exact noise law | [Adaptive-null exports](../results/research/ripper/adaptive_null.json) | [plot_adaptive_null.py](../scripts/plot_adaptive_null.py) |
 | Same-draw D4 repair reliability | [Paired exact distribution](../results/research/loki/h3am/) | [plot_public.py](../research/20261114/loki/h3am/plot_public.py) |
 | Global soundness of all 64 reduced Sudoku graphs | [Exact proofs](../results/research/foureyes/strong_support_soundness/) | [plot_strong_support_soundness.py](../scripts/plot_strong_support_soundness.py) |

@@ -168,3 +168,19 @@ Giving the camel repair procedure an explicit square-symmetry prior raises its e
 
 Adding articulation-pendant deletions to the maze decoder rescues **0/22** remaining joint failures and fails its target. None of the 63 nonsimple model outputs has an eligible pendant component. The remaining selected graphs contain cycles; the stored shortest label has lower energy in only nine cases. This points to move acceptance and objective ordering, while proving nothing about the energy of every possible shortest path. [Preserved fixture failure, fixed-point control and complete residual audit](../research/20261114/work/REPORT.md)
 
+Pooling the same noisy Sudoku observations recovers **16/16 exact graphs** with either canonical PL or restricted counts. Canonical three-of-four voting reaches 15/16 but drops one true edge, falsifying its conjunctive target. BP AdamW voting also reaches 16/16. All source banks are retained; this is a finite comparison on archived observations with different training work. [Protocol, controls and public replay](../research/20261114/foureyes/REPORT-pooled-source.md)
+
+![Pooling versus voting on fixed observations](../assets/figures/pooled-source.png)
+
+Symmetry repair gives **zero additional benefit on eight new 128-example queen fits** across zebra and (2,5)-leaper families: every baseline graph is already exact and has 100% complete N13 capacity. The frozen improvement target fails for all eight fits. This ceiling limits portability of the earlier camel result; it does not invalidate that paired result. [All new fits and complete-capacity audit](../research/20261114/loki/h3an/REPORT.md)
+
+A fixed likelihood mixture also fails to improve the acquired noisy Sudoku observations: false exclusions increase from **2,588 to 4,064**, although every true edge is retained in all 32 banks. The original query masks and labels stay fixed, isolating evidence design from acquisition. Exact integer threshold checks and independent likelihood replay validate the negative result. [Frozen mixture, statistical assumptions and cost](../research/20261114/ripper/REPORT-mixture-replay.md)
+
+![A fixed likelihood mixture increases false exclusions](../assets/figures/mixture-replay.png)
+
+Allowing maze cycle cuts to increase energy rescues **21 of 22 archived joint failures**, with zero regressions. A frozen ordering control ties at 4,095/4,096 solves whether it ranks cuts by learned energy or chooses lexicographically, falsifying the claimed benefit of energy ranking on this cohort. The intervention adds a graph prior and permission to cross energy barriers. Fresh transfer remains a separate experiment. [Failed gates, causal controls and all-case audits](../research/20261114/work/REPORT.md#h2aqh2as-allowing-a-positive-cost-cycle-cut-rescues-21-source-failures)
+
+![Maze cycle cuts and ordering control](../assets/figures/cycle-cut-controls.png)
+
+Reducing the queen training budget to **32 positives still recovers exact graphs in all eight new BP AdamW fits**, with identical optimizer-free count supports. The 16-positive count controls retain 100% capacity for valid inputs but admit **30,514–71,016 invalid zero-energy states**. Capacity alone therefore misses a sharp safety failure. BP eligibility at 16 and 64 positives was not measured. [Nested draws, independent enumeration and fixed targets](../research/20261114/loki/h3ao/REPORT.md)
+
