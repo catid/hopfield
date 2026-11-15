@@ -1,0 +1,3 @@
+# H3br: matched-prior continuation cost
+
+[Full report](../../../../research/20261114/loki/h3br/REPORT.md). On 4,096 fixed IID cases from the exact declared prior conditioned on M≥8, posterior-optimal trees use 422 continuation calls versus uniform’s 488, saving 13.52% and supporting the frozen ≥2% finite-cohort target. Including 9,933 shared MAP calls, total-policy saving is only 0.63%. First-lex continuation is 501, descriptive. All policies identify the same 4,083 cases; 13 infeasible and 3,855 prior-success cases retained, as are seven duplicate source-bank cases. All 11,344 calls newly charged. Expected nonincrease is a correctness property; realized 2% saving is empirical. No population or arbitrary-rule guarantee.

@@ -1,0 +1,161 @@
+{
+  "status": "passed",
+  "host": "ripper",
+  "scope": "Synthetic180rows, finite-field incidence and toyIDpool only; no H1bq official draws.",
+  "incidence": {
+    "field_elements": 9,
+    "field_associativity_distributivity_triples": 729,
+    "lines": 90,
+    "points": 81,
+    "omitted_cells_per_line": 9,
+    "lines_per_point": 10,
+    "lines_per_distinct_pair": 1,
+    "one_cycle_pair_coqueries": 71,
+    "two_cycle_pair_coqueries": 142,
+    "two_cycle_queries_per_cell": 160,
+    "independent_replay_seeds": 3
+  },
+  "ideal_noise_probability": "3/40",
+  "implemented_noise_hex": "0x1.3333333333333p-4",
+  "ideal_true_edge_equality": "1839/102400",
+  "ideal_affine_signal_scale": "85849/102400",
+  "independent_mask_streams": true,
+  "all_counts_match_independent_reference": true,
+  "shared_latent_values_identical": true,
+  "realized_noise_counts_match_thresholds": true,
+  "complete_label_gates": [
+    {
+      "arm": "uniform",
+      "status": "passed",
+      "source_rows": 180,
+      "all_source_and_queried_values_changed": true,
+      "every_mask_and_joint_count_unchanged": true,
+      "equality_counts_changed": true,
+      "original_source_sha256": "62802f3feb8be163e3b65feb1b8754283112ce0e6a8de448e49b7abf7d0026e3",
+      "changed_source_sha256": "fb8abca6168a44b01f20acc5a33af748024671db949d8c65d09b82fe6d9a49b2"
+    },
+    {
+      "arm": "balanced",
+      "status": "passed",
+      "source_rows": 180,
+      "all_source_and_queried_values_changed": true,
+      "every_mask_and_joint_count_unchanged": true,
+      "equality_counts_changed": true,
+      "original_source_sha256": "62802f3feb8be163e3b65feb1b8754283112ce0e6a8de448e49b7abf7d0026e3",
+      "changed_source_sha256": "fb8abca6168a44b01f20acc5a33af748024671db949d8c65d09b82fe6d9a49b2"
+    }
+  ],
+  "query_accounting": {
+    "uniform_queries": 12960,
+    "balanced_queries": 12960,
+    "shared_queries": 11508,
+    "new_union_queries": 14412
+  },
+  "endpoint_bound_cases": [
+    {
+      "balanced_recovery": {
+        "decision": "supported",
+        "lower": 24,
+        "upper": 24,
+        "required": 24
+      },
+      "balanced_advantage": {
+        "decision": "supported",
+        "lower": 4,
+        "upper": 4,
+        "required": 4
+      }
+    },
+    {
+      "balanced_recovery": {
+        "decision": "supported",
+        "lower": 24,
+        "upper": 24,
+        "required": 24
+      },
+      "balanced_advantage": {
+        "decision": "falsified",
+        "lower": 3,
+        "upper": 3,
+        "required": 4
+      }
+    },
+    {
+      "balanced_recovery": {
+        "decision": "inconclusive",
+        "lower": 23,
+        "upper": 24,
+        "required": 24
+      },
+      "balanced_advantage": {
+        "decision": "inconclusive",
+        "lower": 2,
+        "upper": 4,
+        "required": 4
+      }
+    },
+    {
+      "balanced_recovery": {
+        "decision": "falsified",
+        "lower": 23,
+        "upper": 23,
+        "required": 24
+      },
+      "balanced_advantage": {
+        "decision": "falsified",
+        "lower": -1,
+        "upper": -1,
+        "required": 4
+      }
+    },
+    {
+      "balanced_recovery": {
+        "decision": "falsified",
+        "lower": 0,
+        "upper": 4,
+        "required": 24
+      },
+      "balanced_advantage": {
+        "decision": "inconclusive",
+        "lower": -4,
+        "upper": 4,
+        "required": 4
+      }
+    },
+    {
+      "balanced_recovery": {
+        "decision": "supported",
+        "lower": 32,
+        "upper": 32,
+        "required": 24
+      },
+      "balanced_advantage": {
+        "decision": "supported",
+        "lower": 32,
+        "upper": 32,
+        "required": 4
+      }
+    }
+  ],
+  "uniform_pair_expected_exposure": "142",
+  "uniform_pair_marginal_variance": "1349/45",
+  "toy_source_draws_disjoint": true,
+  "source_sha256": {
+    "research/20261114/ripper/higher_noise_study.py": "d3554a32c3c84a7517c2a34acac02a6c06700fbb2dbe3731b4ef26f6178a19c5",
+    "research/20261114/ripper/audit_higher_noise.py": "db69b14a93b91e86104c54d21e57d7533662cd5e17654d6ef2e0889185de65e5",
+    "research/20261114/ripper/preflight_higher_noise.py": "6f61f91edf74519cb21c5e239d4da20ed85c96e6752461a4d600cefd32d959ac",
+    "research/20261114/ripper/run_higher_noise.py": "11074b0d083d5d306095e4dbb4a9baf5ecb4ae33e6a2c6e3dce2f3d469d6d0de",
+    "research/20261114/ripper/balanced_mask_math.py": "1e2934cd17ac2ad18e911361338e8814e9f7f0cee61e18e2910ce62329d2e7e8",
+    "research/20261114/ripper/audit_balanced_mask_math.py": "72fb176a1f8e72ed263c2a27aa0b80ab009be58a6cb1573e1218651022ca5a33",
+    "research/20261114/ripper/partial_degree_study.py": "054cb8d1c4eebda07816735d23d57213052b563cc0a924ec006e6ac965fc8013",
+    "research/20261114/ripper/audit_partial_degree.py": "f867b787e7253ea835be574ed6ffcb82ec8d1a53438aaf75895ffaf5267ddde4",
+    "research/20261114/ripper/extra_coverage_study.py": "ecad651aa4baa117e50acf3afab9b66e323834719ae959aaf7db580af3780e8a",
+    "research/20261114/ripper/audit_extra_coverage.py": "58d0d10e1974506cbca83c37fabd403de17bae46e5683eb89413fdac95982a63",
+    "research/20261114/ripper/run.py": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+    "research/20261114/ripper/degree_prior_solver.py": "2af92a5d4326e74813f514291a7a76e6ac92778335e1dd76ffbb01f83d474c43",
+    "research/20261114/ripper/degree_prior_math.py": "5a3ad2c21f59dfe0d2de40065385d484e171c0f854c49c649e868ce5a98a1f8e",
+    "research/20261114/ripper/audit_degree_prior.py": "179feb9815c787a5381d1924ccb0ac41af49e103222503f5ff988dc13559f55b",
+    "research/20261114/ripper/audit_laplace_rate.py": "378e36af14e26bfb53d7f876d123cc24b3151273d6bb2a015a3f2b5e0dfeddcd",
+    "research/20261114/ripper/laplace_rate_math.py": "439d2edecdf2e518f243b27cc20676a24e561e4260217876230edf6023939093"
+  }
+}

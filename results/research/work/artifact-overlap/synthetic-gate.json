@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "byte_identical_files": 24,
+  "varied_layout_payloads": 4,
+  "ownership_copy_verified": true,
+  "max_pending": 2,
+  "metrics": {
+    "serialized": {
+      "ownership_copy_seconds": 0.0,
+      "backpressure_seconds": 0.0,
+      "final_join_seconds": 5.100155249238014e-07,
+      "writer_service_seconds": 0.003060452174395323,
+      "maximum_pending": 0,
+      "tasks": 24,
+      "files": 24,
+      "bytes": 40332,
+      "maximum_rss_kib": 3146008
+    },
+    "async": {
+      "ownership_copy_seconds": 9.089603554457426e-05,
+      "backpressure_seconds": 0.005990526988171041,
+      "final_join_seconds": 0.00024252699222415686,
+      "writer_service_seconds": 0.01171514397719875,
+      "maximum_pending": 2,
+      "tasks": 24,
+      "files": 24,
+      "bytes": 40332,
+      "maximum_rss_kib": 3146008
+    }
+  },
+  "error_cases": [
+    {
+      "mode": "serialized",
+      "injected_error_propagated": true,
+      "writer_joined": true
+    },
+    {
+      "mode": "async",
+      "injected_error_propagated": true,
+      "writer_joined": true
+    }
+  ],
+  "seconds": 0.020263939979486167,
+  "source_sha256": {
+    "research/20261114/work/bounded_archive_writer.py": "f38270bdcba687f631060ef52ebb63207eb757a1549ad5ca9081340bd0771b67",
+    "research/20261114/work/preflight_archive_writer.py": "95b277f16bd63a7940c1b42b2bbc2e989a7407cc9d5c5aa353e89cc9d184bc3e",
+    "research/20261114/work/fast_npz.py": "2c3f6e8868a22aed0dbb5a389629accc6472a0a877208e01193a97e2a3c039ec"
+  },
+  "scope": "Deterministic lossless byte/array parity, bounded producer queue, owned buffers and synchronous/asynchronous failure propagation. Gate runtime only, not speed endpoint."
+}

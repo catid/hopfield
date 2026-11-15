@@ -1,0 +1,12 @@
+"""Public H2bi paired complete-pipeline timings, no accuracy re-estimation."""
+import json
+from pathlib import Path
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+matplotlib.rcParams['svg.hashsalt']='h2bi-bounded-artifact-overlap'
+D=Path(__file__).resolve().parents[3]/'results/research/work/artifact-overlap';a=json.loads((D/'audit.json').read_text());fig,axes=plt.subplots(1,2,figsize=(11.5,5.5));x=list(range(1,5));old=[r['seconds']['serialized'] for r in a['rows']];new=[r['seconds']['async'] for r in a['rows']];ratios=[r['paired_pipeline_speedup'] for r in a['rows']]
+axes[0].plot(x,old,'o-',color='#777777',label='Serialized writes');axes[0].plot(x,new,'o-',color='#137c8b',label='2 archive threads; <=2 pending tasks');axes[0].set_ylim(0,max(old)*1.2);axes[0].set_ylabel('Complete pipeline wall seconds');axes[0].set_title('All compute, diagnostics, archives, hashes and joins',loc='left',fontsize=10);axes[0].legend(frameon=False,fontsize=9)
+axes[1].scatter(x,ratios,color='#137c8b',s=70,zorder=3);axes[1].axhline(a['median_paired_complete_pipeline_speedup'],color='#137c8b',label=f"Median {a['median_paired_complete_pipeline_speedup']:.3f}x");axes[1].axhline(1.15,color='#b26e38',linestyle='--',label='Prespecified target 1.15x');axes[1].set_ylim(0,1.5);axes[1].set_ylabel('Serialized time / async time');axes[1].set_title('Four matched pairs; target '+a['decision'],loc='left',fontsize=10);axes[1].legend(frameon=False,loc='lower right',fontsize=9)
+for ax in axes:ax.set_xticks(x,['serial / async','async / serial','async / serial','serial / async'],rotation=12);ax.set_xlabel('Order within pair (two pairs per GPU)');ax.spines[['top','right']].set_visible(False)
+fig.suptitle('Bounded artifact writing improves complete research-job throughput',x=.02,ha='left',fontsize=13);fig.text(.02,.075,'Each replay: 256 archived loop80 inputs x 3 models, all 8 retained prefix states. All 1,368 scientific NPZ files are byte-identical.',fontsize=9);fig.text(.02,.04,'Peak CPU RSS <2.56 GiB (8 GiB cap). Model/data preload and warmup are reported outside endpoint, inside worker budget.',fontsize=9);fig.text(.02,.01,'Zero fresh accuracy samples. This is complete research-pipeline throughput, not model-inference latency or fsync durability.',fontsize=9);fig.tight_layout(rect=[0,.14,1,.94]);fig.savefig(D/'artifact-overlap.png',dpi=160,metadata={'Software':'Matplotlib'});fig.savefig(D/'artifact-overlap.svg',metadata={'Date':None});plt.close(fig)

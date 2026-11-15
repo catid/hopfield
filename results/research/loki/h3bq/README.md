@@ -1,0 +1,3 @@
+# H3bq: fresh three-policy cost replication
+
+[Full report](../../../../research/20261114/loki/h3bq/REPORT.md). On 1,408 fresh eight-positive banks for the same 22 selected truths, uniform trees use 2,651 continuation calls versus 2,761 first-lex and 2,882 posterior. Separately declared ≥2% vs first-lex and ≥5% vs posterior targets are supported (3.98% and 8.02% savings). The old ≥5% vs first-lex claim remains unsupported. All policies identify the same 1,368 cases; 40 infeasible and 297 prior-success cases retained. All 13,871 membership calls newly charged, including 4,408 cross-policy reacquisitions. Selected-truth source-bank replication only; no population or new-rule guarantee.

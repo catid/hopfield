@@ -1211,3 +1211,39 @@ The fixed [public subset](../../../results/research/work/confirmation96/state-fi
 The four reported policies add48 jobs and49,152 primary evaluations; internal binary/veto/16 states remain audit evidence, not extra counted experiments. Totals become **2,074 planned jobs / 1,556,222 primary evaluations**, or **2,080 included jobs / 1,556,354 evaluations**. H2bg remains a source intervention, and the fresh absolute99.9% claim remains inconclusive.
 
 ![H2bh retains the one fresh failure and separates four accuracy decisions from its measured added-cost decision.](../../../results/research/work/confirmation96/confirmation96.png)
+
+### H2bi: bounded asynchronous archives improve complete research-pipeline throughput by 1.279×
+
+The [frozen protocol](artifact-overlap-protocol.json) tests a concrete implementation hypothesis: two background archive threads, with at most two outstanding batch tasks, improve median complete research-pipeline throughput by at least 1.15× while preserving every scientific archive. On four balanced pairs the observed ratios are **1.274731×, 1.291857×, 1.282677× and 1.267310×**, giving a median **1.278704×**. The target is **supported** on the stated cohort and Work hardware. This measures complete research-pipeline throughput; it does not measure model-inference latency or durable-storage `fsync` performance.
+
+Every replay uses all **256 H2bh shard00 inputs and all three fixed model seeds**, retaining BP and all eight BP/LP internal or final states. The cohort is fixed by shard identity, without outcome filtering. The sole global H2bh failure, input 4078, lies outside shard00 and remains in the original confirmation denominator. The following numbers are archived accuracy context, not new accuracy evidence:
+
+| Archived source arm | Joint solved / 256 |
+|---|---:|
+| BP AdamW continued PL, native | 244 |
+| LP binary | 135 |
+| Connectivity veto | 157 |
+| Original lexical16 | 224 |
+| Unified16 | 224 |
+| Unified48 | 254 |
+| Unified64 | 255 |
+| Unified96 | 256 |
+
+The implementation preserves lossless NumPy serialization, including C/Fortran layout, while taking owning CPU copies before enqueueing work. It charges all token transfer, hidden/readout and BP/LP inference, diagnostics, copies, queue backpressure, writer setup, hashes, receipts, file close/flush, error propagation and final executor join to the endpoint. Model/data preload and identical first-32-input/all-three-model warmups are excluded from that endpoint and included in each worker's wall budget. Reading reference archives and independent reverification are also outside the endpoint but inside the worker budget. Neither mode claims physical disk durability beyond the same closed-file/page-cache semantics.
+
+| Pair | GPU | Execution order | Serialized seconds | Async seconds | Ratio |
+|---|---:|---|---:|---:|---:|
+| 0 | 0 | Serialized, async | 25.468209 | 19.979282 | 1.274731× |
+| 1 | 0 | Async, serialized | 25.638875 | 19.846531 | 1.291857× |
+| 2 | 1 | Async, serialized | 25.830710 | 20.138119 | 1.282677× |
+| 3 | 1 | Serialized, async | 25.694898 | 20.275151 | 1.267310× |
+
+The [synthetic gate](../../../results/research/work/artifact-overlap/synthetic-gate.json) verifies 24 byte-identical files across varied array layouts and payloads, mutation-safe ownership, actual queue backpressure, and injected errors propagated after both writers join. Mandatory protocol-bound GPU gates reproduce every one of the 171 scientific source NPZ files in both modes; GPU0 checks seeds 0 and 2 in 32.363 seconds and GPU1 checks seed 1 in 17.786 seconds. These gates precede all timed replays.
+
+The [independent full audit on Work](../../../results/research/work/artifact-overlap/audit.json) compares **1,368 scientific NPZ files totaling 3,269,226,272 bytes** directly against the frozen source, and verifies every receipt, file hash, order, ratio, queue bound and resource bound in 1.688 seconds. The eight timed replays comprise 6,144 complete model-input pipelines, 24,576 reported-arm copies and 49,152 internal/final state copies. Maximum queue occupancy is two; maximum timed CPU RSS is **2.5515 GiB**, below the 8 GiB per-worker cap. Async final joins take 1.096–1.100 seconds and are fully charged. Both workers finish in **98.793 and 99.890 seconds**, within their fixed 240-second budgets. [Live process and device counters](../../../results/research/work/artifact-overlap/live-progress.json) show advancing replay/watchdog counters on both GPU UUIDs. After all work and audit finish, both GPUs are idle pending the next frozen scientific design; no duplicate timing jobs are added.
+
+The [portable independent verification](../../../results/research/work/artifact-overlap/public-verification.json) checks all 256 shortest labels, graph classification of all 6,144 source states, all 49,152 published replay board/counter/flag/margin copies, all 1,368 recorded full-file hashes, gate bindings and the timing decision. It passes with Torch, SciPy, study and production decoder imports blocked. Full raw archive byte comparison ran on Work; the public checker verifies complete published state snapshots and recorded hashes, and does not reconstruct unpublished coupling/trace archives. Run `upstream/.venv/bin/python research/20261114/work/verify_artifact_overlap_public.py results/research/work/artifact-overlap`. The figure is visually inspected and [two renders are byte-identical](../../../results/research/work/artifact-overlap/figure-determinism.json).
+
+This implementation experiment adds **zero fresh jobs or scientific evaluations**. Totals remain **2,074 planned jobs / 1,556,222 primary evaluations**, or **2,080 included jobs / 1,556,354 evaluations**. H2bh's absolute 99.9% accuracy endpoint remains **inconclusive**. The 1.279× ratio is not multiplied by earlier geometry speedups, which used different cohorts and timed scopes. Four paired timings support the prespecified measured endpoint, with no timing confidence interval or hardware-general claim.
+
+![H2bi improves complete research-pipeline throughput with exact archived evidence and bounded memory.](../../../results/research/work/artifact-overlap/artifact-overlap.png)

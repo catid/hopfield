@@ -2,6 +2,12 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Matched-prior question policy: posterior saves 13.52% continuation calls, 0.63% total calls](../research/20261114/loki/h3br/REPORT.md)
+- [Bounded asynchronous archives: 1.28× complete research-pipeline speed with identical artifacts](../research/20261114/work/REPORT.md#h2bi-bounded-asynchronous-archives-improve-complete-research-pipeline-throughput-by-1279)
+- [Exact objective diagnosis: truth is strictly suboptimal in 385/394 selected graph failures](../research/20261114/foureyes/REPORT-objective-gap.md)
+- [Balanced observation masks tie uniform masks at 32/32; the advantage target fails](../research/20261114/ripper/REPORT-balanced-masks.md)
+- [Harder independent noise: balanced 26/32 versus uniform 25/32; the four-recovery advantage fails](../research/20261114/ripper/REPORT-higher-noise.md)
+- [Fresh selected-truth query confirmation: uniform trees save 3.98% versus first-lex and 8.02% versus posterior](../research/20261114/loki/h3bq/REPORT.md)
 - [Fresh dense mazes: 4,095/4,096 at 96 rounds; the 99.9% reliability target remains inconclusive](../research/20261114/work/REPORT.md#h2bh-fresh96-reaches-40954096-the-absolute-999-target-remains-inconclusive)
 - [Smaller synthetic samples: all degrees correct, all four 600-row exact-graph targets fail](../research/20261114/foureyes/REPORT-prefix-budget.md)
 - [Independent 5% noise: doubling fresh data recovers 32/32 graphs versus 12/32 prefix graphs](../research/20261114/ripper/REPORT-iid-row-budget.md)

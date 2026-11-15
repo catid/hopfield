@@ -1,0 +1,46 @@
+{
+  "hypothesis_id": "H2bi",
+  "status": "prospective_draft_no_timed_replays",
+  "hypothesis": "Two bounded background archive threads per GPU worker improve complete research-pipeline throughput by at least1.15x versus serialized lossless writes, with exact evidence parity.",
+  "scope": "Implementation-only archived H2bh cohort. No new independent inputs, optimizer updates or scientific evaluation totals. Throughput includes inference, diagnostics and writing preserved evidence; not a model-inference latency claim.",
+  "motivation": {
+    "source": "artifacts/research/20261114/work/loop80_confirmation/timing-profile.json",
+    "selection": "First16frozenjobids, timing fields only",
+    "aggregate_job_seconds": 136.653974544839,
+    "archive_seconds": 37.708938039431814,
+    "archive_fraction_percent": 27.5944685582919
+  },
+  "cohort": "All256H2bhshard00inputs/all3fixedBPandLPmodelseeds;768model-input complete BP+LP96research pipelines per replay, every8internal/finalprefix state and candidate/native/terminal trace retained. No selected subset or failures dropped. FullH2bh independent audit must pass before freeze.",
+  "intervention": "Same lossless level1NumPy ZIP serialization and unchanged immutable scientific computation. Serialized control calls identical writer synchronously. Candidate uses ThreadPoolExecutor(max_workers=2), at most2outstanding batcharchive tasks, owning CPUarrays/payloads detached from mutable producerstate. Include all copying, queuefullwaiting, exceptionchecks, threadpool setup, fileclose/flush, every future.result, final aggregatearchive, hashes/receipts and shutdown/join before timed completion. Only execution overlap changes; no discarded evidence, compression change, reduced diagnostics or partial completion marker.",
+  "correctness_gates": {
+    "synthetic": "Deterministic variedshape/dtype/noncontiguous arrays and multiarray/binarytrace payloads; synchronous/asynchronous serialized filebytes and all loadedarrays exact; queuecapacity/backpressure and injectedwriterfailure propagation tested before freeze.",
+    "source": "After freeze and beforetiming, source cohort split bymodelseed over bothGPUs. Synchronous andasync completepipeline outputarrays, allprefixstatehistories, originalenergy/margin diagnostics, costs/choices/native/terminal traces and flags must match archivedH2bhsource. All tasks complete and errors propagate; sourcefilehashes bound. Mandatory protocol-bound gates for bothworkers.",
+    "source_gate_worker_seconds": 120,
+    "source_gate_total_gpu_minutes": 4
+  },
+  "timing": {
+    "repetitions": 4,
+    "paired_order": [
+      "serialized-async",
+      "async-serialized",
+      "async-serialized",
+      "serialized-async"
+    ],
+    "gpu_schedule": "GPU0pairs0,1;GPU1pairs2,3. Each pairincludesall256inputs/all3models inbotharms. CompareonlywithinGPU; reportallfourratios.",
+    "timed_scope": "PreloadedCPUtokens through GPUtransfer, frozenhidden/readout, BPandfullsharedLPprefixes to96, originalcomplete diagnostics, CPUarray/payloadownership, losslessbatch/trace archives and aggregateoutputs, hashesandreceipts, writerflush/close/errorresolution/join. Outputfiles fullyclosed and hashed beforeclockstops. Same existing closed-file/page-cache semantics inbotharms; no durable-storage/fsync speed claim.",
+    "excluded_reported_separately": "One-time model/checkpoint/data preload, fixedwarmup, readingreferencearchives and independentreverification aftereachreplay. Excluded work still insideworkerwallbudget.",
+    "warmup": "Identicalfirst32cohortinputs/all3models perimplementation once perworker outsideendpointtiming, in separate outputfolders; bothpaths fullyflushed/joined.",
+    "decision": "Median of4paired serialized_wall/async_wall ratios>=1.15 supports;otherwise falsifies. Exactdata/trace/flagparity mandatory. No timingconfidenceinterval or universalhardwareclaim.",
+    "no_extension": true
+  },
+  "limits": {
+    "worker_wall_seconds": 240,
+    "timing_total_gpu_minutes": 8,
+    "max_archive_threads_perworker": 2,
+    "max_outstanding_batch_archive_tasks": 2,
+    "maximum_cpu_peak_rss_gib_perworker": 8,
+    "gpu_memory": "Record peak allocated/reserved separately; preserve unrelated workloads.",
+    "worker_failure": "Any memory/budget/queue/error condition aborts and preserves completed and partial evidence; no largerlimits/fewerrepetitions/posthocsubsampling."
+  },
+  "reporting": "BPAdamW first inaccuracycontexttable, sourcecohortaccuracy expresslyarchived. Report all4pairedratios, completejobandcomponenttimes, synchronization/queue/joinwaits, maximumqueueoccupancy, peakRSS/GPUmemory, files/bytes, everyerror/partialfailure and liveGPU/CPUprogress. No multiplication of earlier speedups and no change to H2bh scientific result."
+}

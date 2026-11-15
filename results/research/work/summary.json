@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-15T10:33:24.380532+00:00",
+  "updated_utc": "2026-11-15T11:06:58.134363+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
   "status": "Ongoing research; H2aj prospective factorial complete with independent state and trace audits",
   "host": "work",
@@ -1325,6 +1325,11 @@
           "scope": "One fixed-cohort aggregate charged decoder cost, prefixes fully shared/accounted; no timing confidence interval or hardware-general speed claim."
         }
       }
+    },
+    {
+      "campaign": "artifact_overlap",
+      "hypothesis": "H2bi >=1.15 median paired complete research-pipeline speedup with exact scientific-archive parity and bounded memory",
+      "outcome": "supported"
     }
   ],
   "run_tables": [
@@ -1640,6 +1645,12 @@
       "frozen_utc": "2026-11-15T10:17:08.465127+00:00",
       "hypothesis": "H2bh",
       "status": "completed"
+    },
+    "artifact-overlap-protocol": {
+      "sha256": "03092b01396b0b2a1a878ff93a632cc2733567114638c41c50c77a7c578e59db",
+      "frozen_utc": "2026-11-15T10:52:24.412840+00:00",
+      "hypothesis": "H2bi",
+      "status": "completed"
     }
   },
   "audit_sha256": {
@@ -1690,7 +1701,8 @@
     "artifacts/research/20261114/work/loop80_transfer/audit.json": "8cc32f2c449065b547a94deb63e011aeb42d76c0d601ba774e43fecf2bdb38fb",
     "artifacts/research/20261114/work/veto_speed/audit.json": "3358adf486fd4226934be09874d7fe6dbb1cd886c93244b15781a61b21954170",
     "artifacts/research/20261114/work/loop80_continuation/audit.json": "9a95fa1b6cdfc1c4b8e9b05a23b10326a142f90434d9c08b364f79451fdfe83a",
-    "artifacts/research/20261114/work/loop80_confirmation/audit.json": "bcf56c42c1696bd29f94dddec675e81820ea29a845ae976eb2c7d0febe23eb1c"
+    "artifacts/research/20261114/work/loop80_confirmation/audit.json": "bcf56c42c1696bd29f94dddec675e81820ea29a845ae976eb2c7d0febe23eb1c",
+    "artifacts/research/20261114/work/artifact_overlap/audit.json": "47cc37b529f2031adf7dca3c6e64793309d33c3532dd4ef09568a1279d529d54"
   },
   "model_sha256": {
     "0": {
@@ -2750,5 +2762,17 @@
     },
     "full_independent_internal_and_final_state_checks": 98304,
     "scope": "Fresh4096loop80,3fixedmodels,fourreportedBP/48/64/96policies. Internal binary/veto/16prefixstates retained and independentlyaudited; not additional counted experiments. Four accuracy decisions and costdecision separately labeled;64descriptive. No pooling/sourcegeneralization/familywiseconfidenceclaim."
+  },
+  "artifact_overlap": {
+    "hypothesis": "H2bi",
+    "fresh_inputs": 0,
+    "new_scientific_evaluations": 0,
+    "median_complete_research_pipeline_speedup": 1.278704153160493,
+    "target": 1.15,
+    "decision": "supported",
+    "byte_identical_scientific_npz_files": 1368,
+    "source_cohort_inputs": 256,
+    "source_models": 3,
+    "scope": "Bounded asynchronous lossless artifact writing on frozen H2bh shard00. Four paired timings; full per-replay compute, diagnostics, copy, hash, flush and join charged; 2 threads, 2 pending tasks and 8 GiB peak RSS limit. Model/data preload and warmup are excluded from the timing endpoint but included in worker budgets. No model-inference latency, fsync durability or new accuracy claim. The original H2bh absolute 99.9% endpoint remains inconclusive."
   }
 }

@@ -4,6 +4,12 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Matched-prior question policy | [All prior draws, proofs and paid calls](../results/research/loki/h3br/) | [plot_public.py](../research/20261114/loki/h3br/plot_public.py) |
+| Complete research-pipeline archive overlap | [Timings and complete public state snapshots](../results/research/work/artifact-overlap/) | [plot_artifact_overlap.py](../research/20261114/work/plot_artifact_overlap.py) |
+| Exact empirical objective gaps | [All 768 exact gaps](../results/research/foureyes/objective_gap/) | [plot_objective_gap.py](../scripts/plot_objective_gap.py) |
+| Balanced versus uniform masks | [Masks and certified graph results](../results/research/ripper/balanced_masks/) | [plot_balanced_masks.py](../scripts/plot_balanced_masks.py) |
+| Balanced masks under harder noise | [All observations and certificates](../results/research/ripper/higher_noise/) | [plot_higher_noise.py](../scripts/plot_higher_noise.py) |
+| Fresh selected-truth question policies | [All banks, proofs and paid calls](../results/research/loki/h3bq/) | [plot_public.py](../research/20261114/loki/h3bq/plot_public.py) |
 | Synthetic sample-budget limits | [All prefix counts and proofs](../results/research/foureyes/prefix_budget/) | [plot_prefix_budget.py](../scripts/plot_prefix_budget.py) |
 | Fresh 96-round dense-maze confirmation | [All paired outcomes and costs](../results/research/work/confirmation96/) | [plot_confirmation96.py](../research/20261114/work/plot_confirmation96.py) |
 | Corruption-law control | [All three laws and exact proofs](../results/research/ripper/corruption_law/) | [plot_corruption_law.py](../scripts/plot_corruption_law.py) |

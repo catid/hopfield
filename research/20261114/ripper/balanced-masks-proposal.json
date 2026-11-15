@@ -1,0 +1,38 @@
+{
+  "id": "H1bp-balanced-masks",
+  "status": "prospective_design_no_new_draws",
+  "banks": 32,
+  "rows": 180,
+  "queried_cells": 72,
+  "arms": ["uniform", "balanced"],
+  "prior_combined_excluded_ids": 2356930,
+  "prior_ripper_ledger_ids": 2120505,
+  "eligible_rows": 1475064,
+  "source": "Fresh official rows outside declared combined Ripper/H4ak ledger through H1bo; each 180-row bank without replacement, crossbank repeats retained.",
+  "acquisition": "One uniform72-cell subset per row in control. Balanced arm queries complements of the 90 affine lines in GF(9)^2 twice. Each cycle independently randomizes all81 cell identities and all90 line positions; permutations independent of source IDs, labels and noise. Common 180 clean source rows and one iid5 latent noise stream per bank. Seal all IDs then both full mask streams for all32 banks before selected CSV labels. No label feedback, donors, row selection or rescue.",
+  "balanced_construction": "GF(9)=GF(3)[t]/(t^2+1), encoded a+3b for a+b*t. Points (x,y) encode 9*x+y. Lines y=m*x+b for all9 slopes and9 intercepts, then9 vertical lines x=b. Each omitted line has9points; each point belongs to10lines; each distinct pair shares1line. One90-row queried-complement cycle gives71 coqueries/pair and80queries/cell; two cycles give142 and160 exactly, even with independent cell permutations.",
+  "noise": "One fresh mask-independent iid cell-error realization per full180-row bank: uniforms then offsets1..8; add offset mod9 iffU<0.05. Both masks view the same latent noisy board. Noise parameter not supplied to estimator.",
+  "primary": {
+    "balanced_recovery": {"required_exact": 31, "total": 32},
+    "balanced_advantage": {"required_exact_difference": 2, "difference": "balanced successes minus uniform successes"}
+  },
+  "decision": "Each endpoint assessed separately. Recovery lower=S_b, upper=S_b+U_b. Contrast lower=S_b-(S_u+U_u), upper=(S_b+U_b)-S_u. Supported iff lower>=target; falsified iff upper<target; otherwise inconclusive. Any uncertified griddegree makesbank unresolved; selectedfractional/nonexact isfailure. Runtime failure incomplete.",
+  "diagnostics": "Uniform exact recovery,pairedwins/losses including regressions,degree20,fixed20/top810,realizednoise counts,exact coquery variance descriptive. H1bo124/248 results are unpairedcontext. Joint intervention changes mask exposure variance and dependencies; no single-cause or universal robustness claim.",
+  "inference": "Unchanged exact half-even Laplace rates, fresh degree1..40LPs, zero witness, exact curvature1..39 lowerdegree ties. Common-degree prior/grid retained; no20/810/geometry/noiseparameters.",
+  "seeds": {"source":202612400000,"uniform_mask":202612410000,"noise":202612420000,"balanced_mask":202612430000,"solver_base":2026241502},
+  "seed_rule": "Drawstreams add bank; solverindex=2*bank+arm_index; sharedsolver offset130000+index*41+d.",
+  "budget": {"new_LPs":2560,"analytic_zero_witnesses":64,"max_cpu_workers":8,"aggregate_cpu_seconds":900,"wall_seconds":180,"lp_wall_seconds":1.0,"gpu_seconds":0,"new_noisy_cell_queries_cap":466560,"clean_oracle_unique_cell_queries_cap":466560},
+  "query_accounting": {
+    "each_standalone_deployment":414720,
+    "per_bank_deployment":12960,
+    "new_noisy_research_union_rule":"Sum over literal (bank,row,cell) unions of both masks on the common latent noisy board. Shared observations counted once; distinct noisy instances across repeated sourceIDs remain separate.",
+    "new_noisy_research_union_cap":466560,
+    "shared_query_rule":"829440 minus measured new noisy union; computed from literal intersections independently.",
+    "clean_materialized_source_instances":5760,
+    "clean_materialized_cell_instances":466560,
+    "clean_unique_oracle_rule":"81*new_unique_sourceIDs; clean repeat IDs reused.",
+    "noisy_label_sequence_through_H1bo":9618489,
+    "noisy_label_sequence_through_H1bp_rule":"9618489 plus measured new noisy research union"
+  },
+  "interpretation":"Prospective fixed-label and fixed-row acquisition-design comparison. Balanced142pair exposure is exact; uniform expected142 has marginal variance1349/45. Random coordinate relabeling removes supplied Sudoku geometry but does not isolate exposure variance from higher-order mask dependencies. No noise-correction or training arm."
+}

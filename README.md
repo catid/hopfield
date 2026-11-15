@@ -22,6 +22,8 @@ The same selector also recovers **64/64 graphs in each of four synthetic familie
 
 ![Correct degree persists while exact graph recovery falls at smaller sample sizes](assets/figures/prefix-budget.png)
 
+**Most of these failures are not ties:** the true graph has strictly higher empirical LP cost in **385/394** failed cases. For 331, a wrong integral graph is cheaper; another 54 have a cheaper fractional optimum. Only nine failures leave truth co-optimal. [Exact gap diagnosis and implications](research/20261114/foureyes/REPORT-objective-gap.md)
+
 **Spend the same label budget on more cells per board:** querying 72 cells on 200 boards recovers **32/32 noisy Sudoku graphs**, versus **6/32** from 32 cells on 450 boards. Both cost 14,400 labels per bank. This fresh paired experiment changes both pair coverage and the number of independent boards; it does not isolate either as the sole cause. [Frozen targets, query accounting and controls](research/20261114/ripper/REPORT-coverage-tradeoff.md)
 
 ![Same label budget: broader observation per board recovers more exact graphs](assets/figures/coverage_tradeoff.png)
@@ -29,6 +31,8 @@ The same selector also recovers **64/64 graphs in each of four synthetic familie
 When total pair coqueries are matched instead, dense acquisition recovers **31/32**, versus **30/32** for sparse acquisition, using 8,928 versus 20,448 labels per bank. The separate target of two additional recoveries is **falsified**. This fresh follow-up limits the advantage claim; equal pair totals still leave different exposure variance and dependencies. [Matched-pair-budget control](research/20261114/ripper/REPORT-matched-coquery.md)
 
 **Noise structure matters as well as its marginal rate.** On fresh 124-row banks, independent 5% digit corruption recovers **15/32 graphs**, versus **30/32** for bursty corruption at the same marginal rate. Matching true-edge collision probability instead restores 30/32. A separate fresh test recovers **32/32** under independent 5% noise with 248 rows, versus **12/32** on their literal 124-row prefixes. [Corruption-law control](research/20261114/ripper/REPORT-corruption-law.md) · [Doubled-data confirmation](research/20261114/ripper/REPORT-iid-row-budget.md)
+
+Balancing every pair’s exposure gives **32/32**, tying uniform masks at 5% noise. At 7.5% noise, it reaches **26/32 versus 25/32**; the prespecified four-recovery advantage fails. Equal exposure alone does not guarantee better recovery. [Balanced-mask control](research/20261114/ripper/REPORT-balanced-masks.md) · [Harder-noise test](research/20261114/ripper/REPORT-higher-noise.md)
 
 ## Cycle cuts solve fresh mazes at two sizes
 
@@ -54,6 +58,8 @@ An exact geometry optimization makes this complete inference policy **1.33× fas
 
 A further exact optimization makes the complete decoder **1.46× faster** on a separate 768-model-input cohort at 80% loop density, retaining identical outputs and traces, including its failures. This improvement is measured over the already optimized decoder; the two speed ratios use different cohorts and should not be multiplied. [Veto geometry, paired timings and parity checks](research/20261114/work/REPORT.md#h2bf-exact-veto-geometry-meets-its-own-local-and-complete-policy-speed-targets)
 
+Overlapping bounded artifact writes makes the **complete research replay pipeline 1.28× faster**, including inference, diagnostics, copies, hashing and final writer joins. Every scientific archive is byte-identical across four paired repetitions. This measures research throughput; model loading and warmup are outside the timed endpoint. [All timings, memory limits and parity evidence](research/20261114/work/REPORT.md#h2bi-bounded-asynchronous-archives-improve-complete-research-pipeline-throughput-by-1279)
+
 ## A search prior makes the same learned energy much more useful
 
 ![Same learned energies, different proposals: replicated across two new queen variants at matched measured GPU time](results/research/loki/h3ad/new-family-replication.png)
@@ -74,11 +80,13 @@ With a supplied class of **1,541 queen rules**, 16 valid N12 examples and at mos
 
 The source-example budget matters: on a new paired cohort, **eight positives identify 1,354/1,408 rules, versus 1,408/1,408 with sixteen** under the same query policy. All 54 failures reach candidate sets too large to identify within the remaining four binary questions. The frozen per-rule reliability target fails for five of the 22 selected rules. [Paired evidence-budget test and information bounds](research/20261114/loki/h3bm/REPORT.md)
 
-**Lower expected query cost did not translate to fewer actual queries.** Exact posterior-weighted trees reduce expected continuation cost by 13.99% on an earlier checkpoint study. In the subsequent eight-positive study, weighting improves the posterior objective by **17.16%**, yet actual continuation calls rise from **2,725 to 2,913 (+6.90%)**, falsifying the frozen savings target. All 1,354 previously recovered cases remain exact. [Original expected-cost result](research/20261114/loki/h3bl/REPORT.md) · [Retained actual-cost failure and complete query ledger](research/20261114/loki/h3bn/REPORT.md)
+**Which question weights help depends on how the rules are sampled.** On fresh banks from the same 22 selected hard rules, uniform trees use **2,651 continuation calls**, versus 2,761 for first-lex trees and 2,882 for posterior-weighted trees. The separate 2% and 5% reduction targets pass; all three policies identify the same 1,368/1,408 cases. [Fresh selected-rule confirmation](research/20261114/loki/h3bq/REPORT.md)
 
-![Weighted trees lower expected cost but increase actual paid questions](results/research/loki/h3bn/expected-versus-actual-cost.png)
+![Fresh selected-rule banks: uniform trees meet both declared cost targets](results/research/loki/h3bq/fresh-three-policy-cost.png)
 
-Uniform candidate weights reduce actual continuation calls to **2,648**, a **2.83%** saving over the original 2,725 calls, while preserving all 1,354 recovered cases. The frozen **5% savings target still fails**. A diagnostic finds the source posterior has 0.811 bits worse true-model logloss than uniform on these selected checkpoints; this is not population calibration evidence. [Uniform-tree intervention](research/20261114/loki/h3bp/REPORT.md) · [Posterior diagnostic](research/20261114/loki/h3bo/REPORT.md)
+When 4,096 fresh rule-and-example cases are instead sampled from the declared prior, posterior weighting uses **422 continuation calls versus 488 for uniform (13.52% fewer)**, supporting its separate 2% target. Including the shared MAP questions, total policy cost falls only **0.63%: 10,421 → 10,355**. All policies identify 4,083/4,096 cases. These are finite cohorts within the supplied rule class. [Matched-prior test, full costs and sampling audit](research/20261114/loki/h3br/REPORT.md)
+
+Earlier failures remain explicit: posterior weighting increased actual cost on selected checkpoints, and uniform weighting's initial 2.83% saving missed its frozen 5% target. [Expected-versus-actual discrepancy](research/20261114/loki/h3bn/REPORT.md) · [Selected posterior diagnostic](research/20261114/loki/h3bo/REPORT.md) · [Retained uniform-target failure](research/20261114/loki/h3bp/REPORT.md)
 
 ## Confidence weights recover answers under noisy labels
 

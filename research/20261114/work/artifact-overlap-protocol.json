@@ -1,0 +1,479 @@
+{
+  "hypothesis_id": "H2bi",
+  "status": "frozen_before_mandatory_source_gates_and_timing",
+  "hypothesis": "Two bounded background archive threads per GPU worker improve complete research-pipeline throughput by at least1.15x versus serialized lossless writes, with exact evidence parity.",
+  "scope": "Implementation-only archived H2bh cohort. No new independent inputs, optimizer updates or scientific evaluation totals. Throughput includes inference, diagnostics and writing preserved evidence; not a model-inference latency claim.",
+  "motivation": {
+    "source": "artifacts/research/20261114/work/loop80_confirmation/timing-profile.json",
+    "selection": "First16frozenjobids, timing fields only",
+    "aggregate_job_seconds": 136.653974544839,
+    "archive_seconds": 37.708938039431814,
+    "archive_fraction_percent": 27.5944685582919
+  },
+  "cohort": "All256H2bhshard00inputs/all3fixedBPandLPmodelseeds;768model-input complete BP+LP96research pipelines per replay, every8internal/finalprefix state and candidate/native/terminal trace retained. No selected subset or failures dropped. FullH2bh independent audit must pass before freeze.",
+  "intervention": "Same lossless level1NumPy ZIP serialization and unchanged immutable scientific computation. Serialized control calls identical writer synchronously. Candidate uses ThreadPoolExecutor(max_workers=2), at most2outstanding batcharchive tasks, owning CPUarrays/payloads detached from mutable producerstate. Include all copying, queuefullwaiting, exceptionchecks, threadpool setup, fileclose/flush, every future.result, final aggregatearchive, hashes/receipts and shutdown/join before timed completion. Only execution overlap changes; no discarded evidence, compression change, reduced diagnostics or partial completion marker.",
+  "correctness_gates": {
+    "synthetic": "Deterministic variedshape/dtype/noncontiguous arrays and multiarray/binarytrace payloads; synchronous/asynchronous serialized filebytes and all loadedarrays exact; queuecapacity/backpressure and injectedwriterfailure propagation tested before freeze.",
+    "source": "After freeze and beforetiming, source cohort split bymodelseed over bothGPUs. Synchronous andasync completepipeline outputarrays, allprefixstatehistories, originalenergy/margin diagnostics, costs/choices/native/terminal traces and flags must match archivedH2bhsource. All tasks complete and errors propagate; sourcefilehashes bound. Mandatory protocol-bound gates for bothworkers.",
+    "source_gate_worker_seconds": 120,
+    "source_gate_total_gpu_minutes": 4
+  },
+  "timing": {
+    "repetitions": 4,
+    "paired_order": [
+      "serialized-async",
+      "async-serialized",
+      "async-serialized",
+      "serialized-async"
+    ],
+    "gpu_schedule": "GPU0pairs0,1;GPU1pairs2,3. Each pairincludesall256inputs/all3models inbotharms. CompareonlywithinGPU; reportallfourratios.",
+    "timed_scope": "PreloadedCPUtokens through GPUtransfer, frozenhidden/readout, BPandfullsharedLPprefixes to96, originalcomplete diagnostics, CPUarray/payloadownership, losslessbatch/trace archives and aggregateoutputs, hashesandreceipts, writerflush/close/errorresolution/join. Outputfiles fullyclosed and hashed beforeclockstops. Same existing closed-file/page-cache semantics inbotharms; no durable-storage/fsync speed claim.",
+    "excluded_reported_separately": "One-time model/checkpoint/data preload, fixedwarmup, readingreferencearchives and independentreverification aftereachreplay. Excluded work still insideworkerwallbudget.",
+    "warmup": "Identicalfirst32cohortinputs/all3models perimplementation once perworker outsideendpointtiming, in separate outputfolders; bothpaths fullyflushed/joined.",
+    "decision": "Median of4paired serialized_wall/async_wall ratios>=1.15 supports;otherwise falsifies. Exactdata/trace/flagparity mandatory. No timingconfidenceinterval or universalhardwareclaim.",
+    "no_extension": true
+  },
+  "limits": {
+    "worker_wall_seconds": 240,
+    "timing_total_gpu_minutes": 8,
+    "max_archive_threads_perworker": 2,
+    "max_outstanding_batch_archive_tasks": 2,
+    "maximum_cpu_peak_rss_gib_perworker": 8,
+    "gpu_memory": "Record peak allocated/reserved separately; preserve unrelated workloads.",
+    "worker_failure": "Any memory/budget/queue/error condition aborts and preserves completed and partial evidence; no largerlimits/fewerrepetitions/posthocsubsampling.",
+    "independent_cpu_audit_wall_seconds": 120
+  },
+  "reporting": "BPAdamW first inaccuracycontexttable, sourcecohortaccuracy expresslyarchived. Report all4pairedratios, completejobandcomponenttimes, synchronization/queue/joinwaits, maximumqueueoccupancy, peakRSS/GPUmemory, files/bytes, everyerror/partialfailure and liveGPU/CPUprogress. No multiplication of earlier speedups and no change to H2bh scientific result.",
+  "frozen_utc": "2026-11-15T10:52:24.412840+00:00",
+  "source_cohort": {
+    "source_protocol_sha256": "09616973cf71dc5717dfbb4e5f491b534ba2a122d9bf649f7f04c83b3b840058",
+    "source_audit_sha256": "bcf56c42c1696bd29f94dddec675e81820ea29a845ae976eb2c7d0febe23eb1c",
+    "dataset": {
+      "shard": 0,
+      "path": "artifacts/research/20261114/work/loop80_confirmation/shard00.npz",
+      "sha256": "fa210481a4712bb2563d0ba3bdb5a69b3486ba42f345394ea0330b86ecd1517f",
+      "n": 256
+    },
+    "jobs": [
+      {
+        "id": "shard00-s0",
+        "source_job": {
+          "id": "shard00-s0",
+          "shard": 0,
+          "seed": 0,
+          "gpu": 0
+        },
+        "source_receipt_sha256": "5f49d192501499eb9eca24c3a60363494e933ea74e78f56168bba16f3c1cd6e8",
+        "files_sha256": {
+          "batch00-connectivity_veto-trace.npz": "6515d65b54d252e8eb628d1abf3a95b03c068dda5cadf7852da9a19ffdec491e",
+          "batch00-original_lexical16-trace.npz": "4ca260c7b1576b75b48ace6a24bc76acd88836b3ca3200c72c1684f4dabefa3f",
+          "batch00-unified16-trace.npz": "d95ada93e275c53bbb2c794213b6925932435c32f06e6a79f100a051a93d323f",
+          "batch00-unified48-trace.npz": "99d785772c8231547222dff7b45dbd555f2c92b8b25faa7194549dc4338ceeed",
+          "batch00-unified64-trace.npz": "3f2b60c173625d9554d5adbe5b736de66b475bdf65ac0f458e5bde4e1e33fc22",
+          "batch00-unified96-trace.npz": "a185e92905b68b50562714c9102e23a0d3cb0c05f660d23fae335fae038b35e1",
+          "batch00.npz": "0f622c1eaeb78c985c27f53fc48c4ada3ee30d2b049f24ac3a0b2d8a235b1690",
+          "batch01-connectivity_veto-trace.npz": "1f14ee97ff61ba1f2a1f639da1cedcbc6a7b2dfdf7e57514282e28bda5ef8d7a",
+          "batch01-original_lexical16-trace.npz": "823e896d61ae6ea3bcaa6c02a7d4b9b4246f7cad20f989e78faf238300e4714f",
+          "batch01-unified16-trace.npz": "0169a7399d6a3b613a2318371769f44f6b99073cf6fc4416bf7989c9b5cb674d",
+          "batch01-unified48-trace.npz": "a5c3ccd7428894e7627e91e6860a56e1e5ea5cdf073ef2cc30d0942f8077c7d5",
+          "batch01-unified64-trace.npz": "40e21a7df9f41b9a86f8824c80d943e8f5d3766932e4d2cba76e6a6f27fe612f",
+          "batch01-unified96-trace.npz": "80c2d712fca0c58220d1d97ffe99e14ea47624ce9ce8d3b14d9185f22051825d",
+          "batch01.npz": "2b1f3f610074df6a8c77ab41cbc790afa259ee30a1096ef3e666be016467d85a",
+          "batch02-connectivity_veto-trace.npz": "1d85c3374ab50f8deaeaef2fbe54a1ab8331deda5203e48b6de6994e87c4cdb8",
+          "batch02-original_lexical16-trace.npz": "90e993b6f109ccaf5d31a2a9fb21650fe56181a81780564157679a7f4f642e87",
+          "batch02-unified16-trace.npz": "4abed7c53a433272ae09c24331585021ed9c7022b862efe35ed1f1fdb31a8678",
+          "batch02-unified48-trace.npz": "b258d442f339a1d938447cab8501d109641cd6644f4001805c5fa9a7eac960b4",
+          "batch02-unified64-trace.npz": "85ba5fdca225f3aa19e9a616060daff473f130bbad03e698eec917df6ae2e93c",
+          "batch02-unified96-trace.npz": "b17af7fa854b1ba455c4925698df479b2d3882b25abbb2836eafef46b74df18c",
+          "batch02.npz": "9d8c347e3ad11787f81b5f92d2d9e31a2c5102c15f1ac99d0b7d4f4a9eabb2fd",
+          "batch03-connectivity_veto-trace.npz": "7466e95e555da981646254dbc4f05d90b7c5abdcdc647b506b037b38e30e51f6",
+          "batch03-original_lexical16-trace.npz": "dd6945a2de10f9b171bcf17028c3c968944867db928ce34cec9953dc040f4865",
+          "batch03-unified16-trace.npz": "c112db10a2a62f85e6bc8ff91da80efe01004b59f6f6bd7a20c457d770d64f7c",
+          "batch03-unified48-trace.npz": "925fd4e50bc801bf0acb676b692ce74ba45f88b08268f0be66be534f4449c229",
+          "batch03-unified64-trace.npz": "03eb9118d51bfe96a36e362dfcd8d88cf2e9dd935a2abd4a5eb067107ee676a9",
+          "batch03-unified96-trace.npz": "22d66b3af2a53f36de16ddb7aee6605f552d57ab37cb0a898a7dfcfb0445f6ba",
+          "batch03.npz": "55aa12eae0c8a3ca7f3e1cc9bd7707dac32ec43003cc2226849e6886bb427e8a",
+          "batch04-connectivity_veto-trace.npz": "f520d77b255689fc413abe98eb0e7d7e7093bdddbd2ff917975111c9d2e02e5c",
+          "batch04-original_lexical16-trace.npz": "34dd31fcb39a6ab6976d01320b05b597521d82ce5d499b8db2b16535919f27fa",
+          "batch04-unified16-trace.npz": "2c781b3cd335ec23e32fbf637815bf50229b3b3571cfad44162af85cd9fc9d52",
+          "batch04-unified48-trace.npz": "2d031df9c85dca54c77ee3763a78ac50f5f5756d048502118565e14f75527795",
+          "batch04-unified64-trace.npz": "e75656931681984dc1098f61fa1bb93484bd17c1e53626a4d41ac6e9684b8ea6",
+          "batch04-unified96-trace.npz": "c29c2a43ec8fbd101909f30638749dee7212a09aa1b850eeac4d13790b624f4d",
+          "batch04.npz": "a4ccd0b00c28c308e83481619391a0b5fc1aa151dded1f2608d9d507ef7161ab",
+          "batch05-connectivity_veto-trace.npz": "87f8ba7509316d49712df365c4ef917f70737b0ffb2053a3f4c34b57f9d7271e",
+          "batch05-original_lexical16-trace.npz": "78429c9852c43338f8a65bfa63507d3c4ffb6416d5973ba08594c1c58b338655",
+          "batch05-unified16-trace.npz": "69afe791f64e8be8adc6724fa96a3e014e79aa0c76c467235fd4b5ab76208574",
+          "batch05-unified48-trace.npz": "21a4bef4403cbd06e43283f307f315bbe47bff3b7c4d5bc0bf143bb5fb273681",
+          "batch05-unified64-trace.npz": "0a1298978fbd8ebea08e98c6c2b1a4fe3f30f24ddf351ee8cff11096cdaa2f72",
+          "batch05-unified96-trace.npz": "64ddab31ec8c2a5d1e4b4841add7719af94b666c3b0bb43891e7b4de7eeb523c",
+          "batch05.npz": "7299091e8af3c32572084df63b1010090474869dfede61674457e2fbf8c63eb8",
+          "batch06-connectivity_veto-trace.npz": "2e65a6f9fb3c92f65ba61329dd51b059aa1e8a8903a2b6f9904259828ac95e33",
+          "batch06-original_lexical16-trace.npz": "d42105efdb2002950a608c949090864e6ed51ae3a388da2a97c80cf3e9f7bc4c",
+          "batch06-unified16-trace.npz": "4b62f3ee619e6cdcc9e5f23d7c1ce323a02e310897e26786ba294f130c1e51ef",
+          "batch06-unified48-trace.npz": "f34bf2c63b286694756056f985c8c421c7df1ff19461741f2f65b654cd797ba0",
+          "batch06-unified64-trace.npz": "cb88adefdf61675f89bf07ea90b93ef434ecb9f1282a3f9383fc2d9ddaa46931",
+          "batch06-unified96-trace.npz": "ac1d2afcfbd4b468f779f12efd25cc3870e03ba565fd28cd68c3c67ca43b613c",
+          "batch06.npz": "4bed34d4c20644ebe3382210636435fa03fc702bdce8acd7a4f65c60d405e124",
+          "batch07-connectivity_veto-trace.npz": "da581a7f35bff8f451b7712c875ddbe6476536f0b7296c640a2b65523d685b44",
+          "batch07-original_lexical16-trace.npz": "116008135d5967f11e3d4ad6082853821c4fa9fda929dda7b7319b6440f4781c",
+          "batch07-unified16-trace.npz": "3b9200aa19930427ec34659c5a8d8512d3aaca16b1a7e7d6f3a3791600fc5144",
+          "batch07-unified48-trace.npz": "a3dfc25f9b308edae3db8643ee48f291eb2c2f72f948c2378bfc052a4d2c0575",
+          "batch07-unified64-trace.npz": "c96c499deebe16859e4331bdae9daa3c885584437ecfa4ff5c0cf00b65e39764",
+          "batch07-unified96-trace.npz": "a53d6358eb7602ef7fbbe0eb8a48afc330b156e522642eceac80981eb7688b3a",
+          "batch07.npz": "2daec435b96806d3067c4754ab917a6fb116f7c18995f47bce8dc64b620e7aad",
+          "outputs.npz": "aa952c806bac7356899e1e2dff56a09518ac3149b89d2105751ee04c64a940c1"
+        }
+      },
+      {
+        "id": "shard00-s1",
+        "source_job": {
+          "id": "shard00-s1",
+          "shard": 0,
+          "seed": 1,
+          "gpu": 1
+        },
+        "source_receipt_sha256": "d2830df7e8ab83d37d1005d8b9090426727cd0ed596a15fc99719da4dcd2b50c",
+        "files_sha256": {
+          "batch00-connectivity_veto-trace.npz": "7191a8194ecd6b9bc28e9786388348172a3fa713eb3eea8fbe26e76264c2b131",
+          "batch00-original_lexical16-trace.npz": "0ce1795ed4d0012c239827b5e6dac62cf41177c6d5f2537211c41d5b52b222ed",
+          "batch00-unified16-trace.npz": "d95ada93e275c53bbb2c794213b6925932435c32f06e6a79f100a051a93d323f",
+          "batch00-unified48-trace.npz": "7f579abd63f239b22fc92b7e43fe2457129a5ac8a6bbcffa4d1ad031af4f0a59",
+          "batch00-unified64-trace.npz": "3f2b60c173625d9554d5adbe5b736de66b475bdf65ac0f458e5bde4e1e33fc22",
+          "batch00-unified96-trace.npz": "a185e92905b68b50562714c9102e23a0d3cb0c05f660d23fae335fae038b35e1",
+          "batch00.npz": "4ff44f6e402e6d4fb9be8c393d8a325ec8634339f7042d53fcc45f4c97659725",
+          "batch01-connectivity_veto-trace.npz": "f9391974d04140837c4238d5b8aed88c3f7c727e7623b602adbf554e48217bf2",
+          "batch01-original_lexical16-trace.npz": "30ea7c3d1eab79410147fcdd7a233a642032cf822c70d57372ffa2610428bd68",
+          "batch01-unified16-trace.npz": "0169a7399d6a3b613a2318371769f44f6b99073cf6fc4416bf7989c9b5cb674d",
+          "batch01-unified48-trace.npz": "9a68a38c035be6cf576a20d86f5397e934e90cc69db175c87fd64cbebd7e2fad",
+          "batch01-unified64-trace.npz": "40e21a7df9f41b9a86f8824c80d943e8f5d3766932e4d2cba76e6a6f27fe612f",
+          "batch01-unified96-trace.npz": "80c2d712fca0c58220d1d97ffe99e14ea47624ce9ce8d3b14d9185f22051825d",
+          "batch01.npz": "9e60aed4121021d75a588589e0a4459a4bb725db040bb45fc5c1ab33d23db5f1",
+          "batch02-connectivity_veto-trace.npz": "b2fab55f59a9cede968b564afcd27adea3d19e205f7b47685277254623052a74",
+          "batch02-original_lexical16-trace.npz": "d7f4ee2546ba119e54d32f4156e38e05ed87f8cb0631613248b2e0a7f3ff8809",
+          "batch02-unified16-trace.npz": "4abed7c53a433272ae09c24331585021ed9c7022b862efe35ed1f1fdb31a8678",
+          "batch02-unified48-trace.npz": "4f1eac95af177bab1bde7b6f3b492425810ea2d422dc048a3b52ee44ae319608",
+          "batch02-unified64-trace.npz": "828a49599a725bf066a0ab4cb337dea37b3e2af5f8c8089205cf0a831732f9fa",
+          "batch02-unified96-trace.npz": "e6e6a8f4b4964722fb2375e8bd25182ec45c258166091d496438f11c754f6006",
+          "batch02.npz": "e7f09e50da125e521095c0262891f52accf7d151fcb3fa26805d1ecce4b637fc",
+          "batch03-connectivity_veto-trace.npz": "d8143e89b0ca5b0846b03f7c94afe9c52c4440d6c7ca07cefea1204a17aa83d8",
+          "batch03-original_lexical16-trace.npz": "1613d24d373593eedbae7e5aeb7b023efc11b0470916c23f7b697023c10ae14d",
+          "batch03-unified16-trace.npz": "c112db10a2a62f85e6bc8ff91da80efe01004b59f6f6bd7a20c457d770d64f7c",
+          "batch03-unified48-trace.npz": "afccf0bb9e8b451feae058a5433114025920a3db9bc42628bff4a0d8e137face",
+          "batch03-unified64-trace.npz": "03eb9118d51bfe96a36e362dfcd8d88cf2e9dd935a2abd4a5eb067107ee676a9",
+          "batch03-unified96-trace.npz": "22d66b3af2a53f36de16ddb7aee6605f552d57ab37cb0a898a7dfcfb0445f6ba",
+          "batch03.npz": "6e0b981fbdab5dbc92a3c35a8b5fecb2d6a633bc8e7f8c9a8d55b1976cb4502f",
+          "batch04-connectivity_veto-trace.npz": "65ed640eecf876d1c8647a9e00a53e5d21e9e98f0a056de294b0d8c55dab5965",
+          "batch04-original_lexical16-trace.npz": "1a80cca40e179f8d98edf151966711656e7ab617c341a33db7f5a1f5961ffeac",
+          "batch04-unified16-trace.npz": "2c781b3cd335ec23e32fbf637815bf50229b3b3571cfad44162af85cd9fc9d52",
+          "batch04-unified48-trace.npz": "255ff8a57d9528c8d02e852335cd0ea20c1c32ad3709c6031e1d2efefe6be578",
+          "batch04-unified64-trace.npz": "e75656931681984dc1098f61fa1bb93484bd17c1e53626a4d41ac6e9684b8ea6",
+          "batch04-unified96-trace.npz": "c29c2a43ec8fbd101909f30638749dee7212a09aa1b850eeac4d13790b624f4d",
+          "batch04.npz": "199a7c34ce9fd0c3c4c7d24bc9bf355410f141d8b59b725401fc62a45a1a264d",
+          "batch05-connectivity_veto-trace.npz": "019e8cf804fa50afb8dc64d40394aff73f46ebacec90fc50583c6b637fa811e4",
+          "batch05-original_lexical16-trace.npz": "1ed1856d9786a703fedca780b2574b19c834037b979ea6dabb49f611001f82b7",
+          "batch05-unified16-trace.npz": "69afe791f64e8be8adc6724fa96a3e014e79aa0c76c467235fd4b5ab76208574",
+          "batch05-unified48-trace.npz": "45eae7ab92617fa58b10d4aed080b7d40a1d61d11d23ab545c6a118e714ed92f",
+          "batch05-unified64-trace.npz": "0a1298978fbd8ebea08e98c6c2b1a4fe3f30f24ddf351ee8cff11096cdaa2f72",
+          "batch05-unified96-trace.npz": "64ddab31ec8c2a5d1e4b4841add7719af94b666c3b0bb43891e7b4de7eeb523c",
+          "batch05.npz": "9d1ae6bd1139226c1dde365ebfe9bf3fa7fa468c30ab8eddf68954394d29af1b",
+          "batch06-connectivity_veto-trace.npz": "49d79820c1f59b5f379f67904b120812212792333d902ca2577b0b1f4a6901e1",
+          "batch06-original_lexical16-trace.npz": "33c69662a3eb6117f08c0afa8bd32635a467a6f5e1a2e63b8ffdbaac2ae467f0",
+          "batch06-unified16-trace.npz": "4b62f3ee619e6cdcc9e5f23d7c1ce323a02e310897e26786ba294f130c1e51ef",
+          "batch06-unified48-trace.npz": "9f23a19dfd87841bbeb481ac270fa4c799c96bde5416ad5cfa4ae11b4b8cc3fc",
+          "batch06-unified64-trace.npz": "cb88adefdf61675f89bf07ea90b93ef434ecb9f1282a3f9383fc2d9ddaa46931",
+          "batch06-unified96-trace.npz": "ac1d2afcfbd4b468f779f12efd25cc3870e03ba565fd28cd68c3c67ca43b613c",
+          "batch06.npz": "65d3533baef067430d2330870913fe52af8ae753eb237884acd94f07d1505080",
+          "batch07-connectivity_veto-trace.npz": "1edeb5b7bc00a83caf019e4f7e9154a755c9c555d4bab531d69aebe524424130",
+          "batch07-original_lexical16-trace.npz": "bb7f84d533a28e9a234564ba3d749d683293f4ea1d508d7309bab8708188da15",
+          "batch07-unified16-trace.npz": "3b9200aa19930427ec34659c5a8d8512d3aaca16b1a7e7d6f3a3791600fc5144",
+          "batch07-unified48-trace.npz": "c755396cbc6c83108bb2b770ac772cb7bfcc409737e358aeeb5289537b7fa0ae",
+          "batch07-unified64-trace.npz": "ef9583a46bac0314d66e8e9ca225cc8d9c0f1502df7a4ba8a411556e287164cd",
+          "batch07-unified96-trace.npz": "a53d6358eb7602ef7fbbe0eb8a48afc330b156e522642eceac80981eb7688b3a",
+          "batch07.npz": "0238d359f5a2fbea81c6ee8250271ac5ebb8bb1a68f62e648594fe688551f1df",
+          "outputs.npz": "4ed2600303d4455e525c60ef737e548293b404596f7ed7135653343f74de6c78"
+        }
+      },
+      {
+        "id": "shard00-s2",
+        "source_job": {
+          "id": "shard00-s2",
+          "shard": 0,
+          "seed": 2,
+          "gpu": 0
+        },
+        "source_receipt_sha256": "76cabe51001cb151f889f9e8649c7c1fb773c3389cfadfad16f0e97f69a796ab",
+        "files_sha256": {
+          "batch00-connectivity_veto-trace.npz": "51f301ff120206fca41293c205baf9b2636d10d982502164fe6075623b16eae9",
+          "batch00-original_lexical16-trace.npz": "d863ca0a0933153084c1112b6065bc02eff27f8363bd26bede6b49f5b8bd8c24",
+          "batch00-unified16-trace.npz": "0c4356894e0ef0521be7ce39e1646abf0c1e1b4000e31f2820081d15efc435bf",
+          "batch00-unified48-trace.npz": "d3f1f19b6ec4985a3679bb66dd543a228df3f3e17f4817343cd9c7ec6b5ed9ee",
+          "batch00-unified64-trace.npz": "3f2b60c173625d9554d5adbe5b736de66b475bdf65ac0f458e5bde4e1e33fc22",
+          "batch00-unified96-trace.npz": "a185e92905b68b50562714c9102e23a0d3cb0c05f660d23fae335fae038b35e1",
+          "batch00.npz": "3bb4af561b89349d2bacf9686827031b6c6904f2026739d4c126e2857a1da54d",
+          "batch01-connectivity_veto-trace.npz": "e2b234c43b8ef7e02316c0fbc93c5f12dbe42b75ce936d180820707cc3782391",
+          "batch01-original_lexical16-trace.npz": "49e2424f71083bb646d1fe4fd99081b97298de65f01ad2faac32a7d0fa2c42d1",
+          "batch01-unified16-trace.npz": "d1f17cbe855f835f02604c6f52f03ffe865ba739469e7d9574601b503b88ddbb",
+          "batch01-unified48-trace.npz": "988e6c9ce446b11b81969883fd137a42e076b85195eeff157821713b8da8a65c",
+          "batch01-unified64-trace.npz": "40e21a7df9f41b9a86f8824c80d943e8f5d3766932e4d2cba76e6a6f27fe612f",
+          "batch01-unified96-trace.npz": "80c2d712fca0c58220d1d97ffe99e14ea47624ce9ce8d3b14d9185f22051825d",
+          "batch01.npz": "2594ce831d674774a8a5ca37a5a1ddfdde7b4bfee8dd1679563917b2054fe634",
+          "batch02-connectivity_veto-trace.npz": "e3628c009e61e733b35125dc47dfe1ffc7b8bfcf3249ef88e2087679995bb8e2",
+          "batch02-original_lexical16-trace.npz": "b32dd456aede5f081e8313aac698007f2473c71b6803d2af49fa6c9099c1fe0f",
+          "batch02-unified16-trace.npz": "0a9a27e5fe21f6cf7104f2be390563624ab924a71b59cdb37a9eb479c46007ef",
+          "batch02-unified48-trace.npz": "d3b172f8c4b4f2dbcec99eb6ec095d4e1ed8b747d02343d6a729dbf03e092124",
+          "batch02-unified64-trace.npz": "d3603166acca9e98c6cb1da0cf707b461f861c2c45f16800fda6c60d5b79d37d",
+          "batch02-unified96-trace.npz": "53fbbba71bf7e5633c56de977acccb5de326a9bb51d9505e653add661f936984",
+          "batch02.npz": "2a2e46d13ecfcc3ca142741df7ca7274803dab0e1c7a44a83786bbeac7371028",
+          "batch03-connectivity_veto-trace.npz": "4fcee31ead52233fdd65364eaa3359da7cfab37d831d274ca56a8e2ceedd924e",
+          "batch03-original_lexical16-trace.npz": "aa0741dd77faf754b6457f8c16957e9af95cbee6d8104effec04a421c0224cc4",
+          "batch03-unified16-trace.npz": "c112db10a2a62f85e6bc8ff91da80efe01004b59f6f6bd7a20c457d770d64f7c",
+          "batch03-unified48-trace.npz": "3f091522c2d081b6a765ff214261a1f18c405a2b2c048483474df6294967b470",
+          "batch03-unified64-trace.npz": "03eb9118d51bfe96a36e362dfcd8d88cf2e9dd935a2abd4a5eb067107ee676a9",
+          "batch03-unified96-trace.npz": "22d66b3af2a53f36de16ddb7aee6605f552d57ab37cb0a898a7dfcfb0445f6ba",
+          "batch03.npz": "0057aa61681f92b2f9e91dbe8354aa1613ea80fb6238092f560fda4e4c16f9a6",
+          "batch04-connectivity_veto-trace.npz": "ce2fa04dfdac2a7091d5cc49bc9e9b726d8e8daf849b24af9fdcacaab0f8a843",
+          "batch04-original_lexical16-trace.npz": "620233d63713172383457ec5e62a6f278e9d1179737f246beb9def33eaf34b1f",
+          "batch04-unified16-trace.npz": "2c781b3cd335ec23e32fbf637815bf50229b3b3571cfad44162af85cd9fc9d52",
+          "batch04-unified48-trace.npz": "9a4d190ce7475fe9dcc76dfa0d2dd9097b04d31b91882f2418f7bf741a903861",
+          "batch04-unified64-trace.npz": "e75656931681984dc1098f61fa1bb93484bd17c1e53626a4d41ac6e9684b8ea6",
+          "batch04-unified96-trace.npz": "c29c2a43ec8fbd101909f30638749dee7212a09aa1b850eeac4d13790b624f4d",
+          "batch04.npz": "a0ba7c478c786050a75da7295083c5048a1e39b1deff4a5fe8857ddbe0132249",
+          "batch05-connectivity_veto-trace.npz": "4a99eebc53dcd7693b43bea71ec2eb2e4c0acf2ee54fae5f84b5b578ceba7de8",
+          "batch05-original_lexical16-trace.npz": "e41691ad7b7c6f255b2a823ed05477e04810b17a85f266a7da961972f987e3a5",
+          "batch05-unified16-trace.npz": "331b3c5ef0e4991560d21cd176f4b803fe8c2845b9179677bdb87ec913efc895",
+          "batch05-unified48-trace.npz": "cf01c3bd1f11e080a6790316c5fa3f44351252092efe81a0dee71a771f3e4a8a",
+          "batch05-unified64-trace.npz": "0a1298978fbd8ebea08e98c6c2b1a4fe3f30f24ddf351ee8cff11096cdaa2f72",
+          "batch05-unified96-trace.npz": "64ddab31ec8c2a5d1e4b4841add7719af94b666c3b0bb43891e7b4de7eeb523c",
+          "batch05.npz": "b2a36e2f4895c968002993a13edcb1f98e52ee8ecadaf4d1a2586e5b6fbe3bee",
+          "batch06-connectivity_veto-trace.npz": "eb9fcb62715720ac7cc050ab7aedec7567752ee94507ed16e38cb7032349c4af",
+          "batch06-original_lexical16-trace.npz": "a8f5a67778dda69f512b051923de9480684342a3d2903ce376e2231bdb592ec9",
+          "batch06-unified16-trace.npz": "4b62f3ee619e6cdcc9e5f23d7c1ce323a02e310897e26786ba294f130c1e51ef",
+          "batch06-unified48-trace.npz": "13ebb4f0797a5efc79e08148bd146b3f75436dfc04fd3e820a9a359b47f4f92a",
+          "batch06-unified64-trace.npz": "cb88adefdf61675f89bf07ea90b93ef434ecb9f1282a3f9383fc2d9ddaa46931",
+          "batch06-unified96-trace.npz": "ac1d2afcfbd4b468f779f12efd25cc3870e03ba565fd28cd68c3c67ca43b613c",
+          "batch06.npz": "635877c67cc86eb6c12e7354e078e5564268f0f99961bf275cf0a9edb2c7d376",
+          "batch07-connectivity_veto-trace.npz": "db4b7244b624e7d97491cfe4bf243a851d9135f7d5e08fd528a4b65401561e90",
+          "batch07-original_lexical16-trace.npz": "41ea928451141473d1bea52f56c2b70bd009ea79a3c4e1f6c1a4e45478deab28",
+          "batch07-unified16-trace.npz": "3b9200aa19930427ec34659c5a8d8512d3aaca16b1a7e7d6f3a3791600fc5144",
+          "batch07-unified48-trace.npz": "be736b2cf4dfe3054cb4af0e1a7bb65c6c766139591551f879628bdd0d3ecc5b",
+          "batch07-unified64-trace.npz": "413c231a6769c0a2572249e7c84104576770fcf9495efdb7aec875386a410e9c",
+          "batch07-unified96-trace.npz": "a53d6358eb7602ef7fbbe0eb8a48afc330b156e522642eceac80981eb7688b3a",
+          "batch07.npz": "24ff9958d50879e144f057bf01ba932c80c04cdef7362b1c15f3e2c71e74230a",
+          "outputs.npz": "ccf9d9323884a574f78f4e0233ed5f23035c27718bdb797beed7f152f9d8ea5a"
+        }
+      }
+    ],
+    "independent_source_inputs": 256,
+    "model_inputs": 768,
+    "source_joint_success_by_internal_arm": {
+      "pl": 244,
+      "old_binary": 135,
+      "connectivity_veto": 157,
+      "original_lexical16": 224,
+      "unified16": 224,
+      "unified48": 254,
+      "unified64": 255,
+      "unified96": 256
+    },
+    "source_full_study_joint96": 4095,
+    "source_full_study_failures_retained_in_original_study": "Input4078/all3caps remains in H2bh; deterministic shard00 speed cohort does not include it. No sourceoutcome-based cohort filtering."
+  },
+  "paired_order": [
+    [
+      "serialized",
+      "async"
+    ],
+    [
+      "async",
+      "serialized"
+    ],
+    [
+      "async",
+      "serialized"
+    ],
+    [
+      "serialized",
+      "async"
+    ]
+  ],
+  "source_sha256": {
+    "research/20261114/work/unified_cycle.py": "dce68fc34ab00008f441e52382dfdd0b3d6b95da7fdd7ed3a80bfb64cb683c8e",
+    "research/20261114/work/freeze_unified_cycle.py": "86a7d60259b6b60440fa2c7d151c36bfca8519e12152d314ec79ca2e2308aa5a",
+    "research/20261114/work/unified_cycle_batch.py": "9a3b8ea3736a4d084c0c6be1cadebc1aab215c220274ff025d9a15f636ae31ba",
+    "research/20261114/work/bounded_lexical_cycle_moves.py": "9cfbe975b27be2130e7fd601566507b4c76bf77cd03c4d19ece04af74c96a0bd",
+    "research/20261114/work/preflight_unified_cycle.py": "e4285ff19d0ccc958b57a84953bd583b58728940f0b5b20301d7e59ec58cc44d",
+    "research/20261114/work/audit_unified_cycle.py": "2898bc17b39bb95cd93a1d8124266ec9e4a5275797296127a7292249b1dc00d3",
+    "research/20261114/work/audit_unified_seed_registry.py": "366e38a649f2be51ee12fca328f6dc0854102ac5b6c364561f1b2f23cb94c410",
+    "research/20261114/work/audit_unified_cycle_inputs.py": "afe854a9a39c9bfc9f921b22c348df7bd3d946948465f347ce138607f5df5658",
+    "research/20261114/work/terminal_cycle_moves.py": "646cc3a76a9b2878e2c923d38a5f69472606a003bdce7692e32f87e2ef340850",
+    "research/20261114/work/lexical_cycle_cut_moves.py": "e1765ba133a37358f3c92bded10f95e69fc545e6187c4039580d3f45671ddc42",
+    "research/20261114/work/connected_block_moves.py": "e1f959f4d8d134fc47b3bd131b9585073b69df5f06939b918c4e73e3caedc14d",
+    "research/20261114/work/graph_block_moves.py": "fa0a68c016da1494d5db42777194ccc125e06508fa0476a7e99a7e2f94589568",
+    "research/20261114/work/binary_coordinate.py": "657c33162a667f0304313612d51387b1d9638ca9290a4002411d7e9b78b5d21d",
+    "research/20261114/work/larger_relaxation.py": "6be58f66b7d354f7d47da697520bddb73dcadc6114cedcde0885ad5e61ea4cd1",
+    "research/20261114/work/factorial_transfer.py": "9381151f81aeda3f45320437a1985a4d6bc0e0ebb3a90fed9dd2cb21ea995f84",
+    "research/20261114/work/fast_npz.py": "2c3f6e8868a22aed0dbb5a389629accc6472a0a877208e01193a97e2a3c039ec",
+    "research/20261114/work/study.py": "c912470b19d0d13b151a4cac9a276455a915adeecf15088d1c5d43db66dbf721",
+    "research/20261114/work/audit.py": "d27d3397a620fa4998428baffeea704cff06c29111160246d17e684278522ec3",
+    "research/20261114/work/local_factor_delta.py": "178b4f2465959fd4acdaf3a5857e9e9a0228e508cbf30a0584f1c931b5ecbcd6",
+    "research/20261114/work/verify_training_feasibility.py": "3364c8127bea8589100fd6e405d3e6630457408742dc4b7cf48103adf41ed195",
+    "research/20261114/work/verify_large_cycle_geometry.py": "4bec48f982f1b535c5520caf2cc0d639033f2f8f67ab1f6804029f7b05cc09a1",
+    "research/20261114/work/verify_graph_block_source.py": "4bea8e314cd10caf78e705dac0f54711f54c36198d9d1bcad68df0ada5966745",
+    "research/20261114/work/audit_connectivity_screen.py": "04931d25d3a467cb2e972ca8f946c107c0fb4370c7e820570416644962f8c5c9",
+    "research/20261114/work/audit_larger_relaxation.py": "198fe957a9e800e9a8776b03a5eec069484966193d5a94728c82a09a54571209",
+    "research/20261114/work/audit_contrastive_inputs.py": "6fd50bf60c7229b264fe6202c41e2227b628cec803dd2c3f28fc488eabc777cb",
+    "research/20261114/work/verify_cycle_cut_geometry_checked.py": "5e60359e2e9ad2db4f581a7533e70174bd79c34221b1465a795536fada29a496",
+    "research/20261114/work/extract_unified_cycle_models.py": "71a6f49e33f4acba5423827b3a6de9eda205976c5e6b920dbe038f0888634946",
+    "research/20261114/work/loop80_transfer.py": "9216136a943bd79314b12317a37a92059916251aff4c44d1f331e73a62d7edf9",
+    "research/20261114/work/freeze_loop80_transfer.py": "f5d394bd8278cf7fb05111625fb65683c76fd26a5a5bd1f38615069db690b4f4",
+    "research/20261114/work/fast_unified_cycle_batch.py": "66fe0f069f3217e3720a1f1506d53f5310109672f1ce60cd1f08f207d54e6014",
+    "research/20261114/work/preflight_loop80_transfer.py": "e85e978e06322c6b149abb4ec983fd3c7731a2fc664ab47a57f5c3d3803d7525",
+    "research/20261114/work/audit_loop80_seed_registry.py": "cd937d70b3c825aa3ea3a9b86259220dc87c26bea0c8e8ab6dce4633ffa4a21d",
+    "research/20261114/work/audit_loop80_inputs.py": "d3db7b64d4cb5bb6474264ac478d7f8936f26e00d3934b7a57c425571bb70be6",
+    "research/20261114/work/audit_loop80_transfer.py": "adab1c02004a17f0f5c6baa9cb00c4c054cbf6c87124912e5a04cb05dbc0afae",
+    "research/20261114/work/extract_loop80_models.py": "1013071917f3d70b84667fb0930bf9bbeb1fe180c00b697bb7baeaeec0d2d443",
+    "research/20261114/work/bridge_cycle_geometry.py": "47358b52d015f94cc989ea1aa023c68310b13fc7e2c90ea550da81aaa51958b6",
+    "research/20261114/work/bridge_lexical_moves.py": "4e23a5ae1f6d261bf0840cae5929998cb6a5805c69f3bfef44c99ae654ac1c31",
+    "research/20261114/work/bridge_terminal_moves.py": "845d50017ceac468e8099cec54c306d5921ed583eeaf7fe2aff544c82043d3fc",
+    "research/20261114/work/confirmation96_study.py": "860d36e373e7b69a32d8c80224e34f7c43680172e95c4d98c62b239a68f6bf46",
+    "research/20261114/work/confirmation96_batch.py": "fcddad9dbeb7a1873990fa2ecd75b54810760b6c1d57acc62ce465eb206c30a3",
+    "research/20261114/work/freeze_confirmation96.py": "cfe17c75b432851d2d912db8366fc78dca352cb86c16f50f3317b67d3c14b0b4",
+    "research/20261114/work/preflight_confirmation96.py": "6e2a7d4a06adcb5049dc5ac0911c2a29021efc23d32f84574fabf701d943a60b",
+    "research/20261114/work/preflight_confirmation96_statistics.py": "ec3e0e3ddbe87b7d0674a42ac10d13b48f3e727239058ad9849c899385673277",
+    "research/20261114/work/audit_confirmation_seed_registry.py": "99fea3bb8ef6eaa31f8376f4a22573ad90a53c7ad65f5564e0b306bf278b8edc",
+    "research/20261114/work/audit_confirmation96_inputs.py": "b034d448fe549bcf1fefa6cf52b27594d356d5cecf8e37b5aaf0b9082818ff69",
+    "research/20261114/work/audit_confirmation96.py": "b162a382cc383e5ba9860618c2e5f9b42fa2091ebcf0a19acce465807544a13a",
+    "research/20261114/work/extract_confirmation96_models.py": "dcd90e04c5fcd093f6f81e3c79a665a8bf101bea6db04b11abc856d5c243a33c",
+    "research/20261114/work/bridge_veto_geometry.py": "85c80f622921576008762f3ec5432f3d94f314baea48f094d20d314d2c2b01f9",
+    "research/20261114/work/bridge_veto_moves.py": "43ae39cf9203cc7c2a337ad3b97c4ce114449a25ef9e7ce62a71fc1ecc918feb",
+    "research/20261114/work/bounded_archive_writer.py": "f38270bdcba687f631060ef52ebb63207eb757a1549ad5ca9081340bd0771b67",
+    "research/20261114/work/preflight_archive_writer.py": "95b277f16bd63a7940c1b42b2bbc2e989a7407cc9d5c5aa353e89cc9d184bc3e",
+    "research/20261114/work/artifact_overlap_pipeline.py": "6720452e821d49a5fcf9756a84dc7049388d27a40bbcb782626e2822e0cadf8a",
+    "research/20261114/work/artifact_overlap_study.py": "ce3151cad32ae0e88ce9bc7a181ac22e25c79f0c02056b42288bea70b1f35881",
+    "research/20261114/work/freeze_artifact_overlap.py": "58d66f31fca63e104c43044c80ca1f4bc597c8a9a4a75b0ccbfaf2793e7cb541",
+    "research/20261114/work/audit_artifact_overlap.py": "ff32edb19e623899ceca1ee2f9256669481ad40cf79dc1843494573ae1420883"
+  },
+  "source_evidence_sha256": {
+    "research/20261114/work/artifact-overlap-proposal.json": "83b47e6860452fed0c77a4361b5e6669c319673f42de062bcc0171fd87ebd59b",
+    "artifacts/research/20261114/work/artifact_overlap_preflight/synthetic-gate.json": "c7f0fd135241e8a4f528a140f4fa7218098076499ae000ff83434c2c0a9982de",
+    "artifacts/research/20261114/work/loop80_confirmation/protocol.json": "09616973cf71dc5717dfbb4e5f491b534ba2a122d9bf649f7f04c83b3b840058",
+    "artifacts/research/20261114/work/loop80_confirmation/audit.json": "bcf56c42c1696bd29f94dddec675e81820ea29a845ae976eb2c7d0febe23eb1c",
+    "artifacts/research/20261114/work/loop80_confirmation/datasets.json": "f1dcbd0338cdeef8d214b94ea1803cf6b9cbc45bffc1dd02b8fc61c5f678bc8d",
+    "artifacts/research/20261114/work/loop80_confirmation/model-extraction.json": "343867afb85a2ec3e7a703571bf98e57286f7938494d202f80fffd6dc0720354",
+    "artifacts/research/20261114/work/loop80_confirmation/timing-profile.json": "7fa8791908de7d442bf5ffbb1073616d7c01cec5f1b57fad8f7cbbdf419ed347"
+  },
+  "models": {
+    "0": {
+      "pl": {
+        "path": "artifacts/research/20261114/work/contrastive_training/fits/s0-pl/checkpoint.pt",
+        "sha256": "0218e6d814f2ee5b6028877056fc9c705daf53e20233c2ebb083b46f5732752c"
+      },
+      "old_binary": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "connectivity_veto": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "original_lexical16": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "unified16": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "unified48": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "unified64": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "unified96": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      }
+    },
+    "1": {
+      "pl": {
+        "path": "artifacts/research/20261114/work/contrastive_training/fits/s1-pl/checkpoint.pt",
+        "sha256": "3799b046bdfd3425b9603338f90bd60ccd6637707f20eac0d59139ce5d21445c"
+      },
+      "old_binary": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "connectivity_veto": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "original_lexical16": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "unified16": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "unified48": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "unified64": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "unified96": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      }
+    },
+    "2": {
+      "pl": {
+        "path": "artifacts/research/20261114/work/contrastive_training/fits/s2-pl/checkpoint.pt",
+        "sha256": "76b8d4e38979cc5282d15b30f4b27c2468dbe5fe43426cfa6e085bb62b333672"
+      },
+      "old_binary": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "connectivity_veto": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "original_lexical16": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "unified16": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "unified48": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "unified64": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "unified96": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      }
+    }
+  },
+  "source_internal_arms": [
+    "pl",
+    "old_binary",
+    "connectivity_veto",
+    "original_lexical16",
+    "unified16",
+    "unified48",
+    "unified64",
+    "unified96"
+  ]
+}
