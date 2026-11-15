@@ -1,0 +1,3 @@
+# H3al: exact positive-acquisition reliability
+
+[Full report](../../../../research/20261114/loki/h3al/REPORT.md). All four fixed BP AdamW fits support the prospective per-fit ≥90% probability of ≥95% exact N15 capacity after 64 uniform distinct N13 positives: 97.232629% for banks 0/1/3 and 95.667695% for bank 2. The descriptive independent-stream joint probability is 87.943023%, a different endpoint. All 80 masks, 32 full supports and exact masses are retained. Independent grouped-union DP, true-population re-enumeration and all integer capacity censuses agree. Same seen finite target universe; full source population evaluates the distribution rather than being supplied to each 64-positive learner. 7.743600 CPU s /7.717084 wall s, zero GPU work.

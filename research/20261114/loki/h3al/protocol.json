@@ -1,0 +1,97 @@
+{
+  "id": "H3al-exact-positive-acquisition-reliability",
+  "frozen_utc": "2026-11-15T05:45:20.295565+00:00",
+  "hypothesis": "For EACH of the four fixed fits, a uniform sample of64 distinct N13 positives from the fixed1932-board population makes the unchanged witness-deletion algorithm achieve>=95% exact N15 capacity with probability>=90%.",
+  "models": [
+    {
+      "bank": 0,
+      "model_path": "artifacts/research/20261114/loki/h3aj/b0/model.npz",
+      "source_design_path": "artifacts/research/20261114/loki/h3ac/b0/source-design.npz"
+    },
+    {
+      "bank": 1,
+      "model_path": "artifacts/research/20261114/loki/h3aj/b1/model.npz",
+      "source_design_path": "artifacts/research/20261114/loki/h3ac/b1/source-design.npz"
+    },
+    {
+      "bank": 2,
+      "model_path": "artifacts/research/20261114/loki/h3aj/b2/model.npz",
+      "source_design_path": "artifacts/research/20261114/loki/h3ac/b2/source-design.npz"
+    },
+    {
+      "bank": 3,
+      "model_path": "artifacts/research/20261114/loki/h3aj/b3/model.npz",
+      "source_design_path": "artifacts/research/20261114/loki/h3ac/b3/source-design.npz"
+    }
+  ],
+  "source_population": {
+    "path": "artifacts/research/20261114/loki/h3t/solutions-n13.npy",
+    "states": 1932,
+    "sha256": "c6d9786fbeb885aed2e69ec37ebcfa0904caab7d5a2e90064b3e8c650aba56cf"
+  },
+  "repair": "Exactly H3ak: only delete inherited finite displacement classes witnessed in acquired positive boards. No target-adaptive selection or model changes. Evaluate every union outcome including unchanged support and zero-mass masks.",
+  "doses": [
+    0,
+    1,
+    8,
+    32,
+    64
+  ],
+  "primary": {
+    "dose": 64,
+    "capacity_threshold_numerator": 19,
+    "capacity_threshold_denominator": 20,
+    "probability_threshold_numerator": 9,
+    "probability_threshold_denominator": 10
+  },
+  "complexity": {
+    "classes_per_bank_max": 8,
+    "sum_bank_masks_max": 512,
+    "unique_full_supports_max": 128,
+    "enforcement": "All bounds fixed before computing source coverage frequencies or probabilities. Exceeding any bound stops whole study as inconclusive, with no pruning, replacement or raised cap."
+  },
+  "combinatorics": "Source board masks retain full joint class co-occurrence. For S, n(S)=number of population boards whose mask is a subset ofS. choose(n(S),k) counts all draws with union contained inS. Exact integer subset Mobius inversion yields draws with union exactlyS. Keep every mask and require nonnegative mass, exact zeta reconstruction and total choose(1932,k). No Monte Carlo or marginal independence assumption.",
+  "integer_storage": "Combinatorial counts and probability numerator/denominator stored as decimal strings to avoid JSON floating-point loss. Thresholds compared using integer cross multiplication.",
+  "validation": "25 tiny8-board fixtures including zero classes, all-zero, full correlation, anti-correlation and seeded random masks1..5classes; all k0..8 compared against exhaustive subsets. Seed2026113110. Every union count must agree.",
+  "evaluation": {
+    "reference_root": "results/research/loki/h3aj",
+    "scope": "Same seen831605-key H3aj universe, target truth used only to score already sealed fixed repair outcomes.",
+    "proof_gate": "Before filtering ANY outcome, verify F_true subset F_repaired for EVERY distinct support. Then every repaired zero-F state lies in the already proved complete true universe; exact occupied-pair filtering is therefore complete. If subset gate fails, stop: no partial filtering substitute.",
+    "capacity": "For each complete filtered set, enumerate all575 one/two/three-clue subsets and construct the exact Boolean key union. Existence of at least one completion is the capacity endpoint; multiplicities are not needed. Sum integer covered eligible keys; use19/20 cross multiplication.",
+    "outputs": "All4 fits, all source joint frequencies, all masks/masses, all full supports and packed complete-state/key-capacity flags. Lower doses, expected capacity and exact-graph probability descriptive. Independent acquisition-stream joint success is an exact descriptive product conditional on fixed models/population."
+  },
+  "budget": {
+    "aggregate_cpu_seconds": 120,
+    "wall_seconds": 180,
+    "GPUs": 0,
+    "enforcement": "Whole stage includes tiny validation, full source label checks/pattern statistics, exact masses, all support construction, completeness gate, all outcome capacity calculations and serialization. No extension or outcome pruning."
+  },
+  "scope": "Exact finite-population reliability of a fixed source-only information intervention on a seen finite target universe. Full source population is used to evaluate the sampling distribution, not given to any individual64-positive repair. No new fit, GPU search, learning-population generalization or independent rule-family claim.",
+  "source_sha256": {
+    "research/20261114/loki/h3al/common.py": "8b85b0bed4bf769d525578159ec5e4e7dc79f8e96422ba110b554722e89db9f9",
+    "research/20261114/loki/h3al/distribution.py": "aa65e53be9b2e6d05caaeb2e260663f801d45f09520830a54b56bd701ed8f55b",
+    "research/20261114/loki/h3al/source_outcomes.py": "aeda323e78dff36d1dcf64b5ccb52a3dfa726f5c3dd8cae98d3864158d79cfcf",
+    "research/20261114/loki/h3al/study.py": "b4bbd324e21afb236e3140749500c30904d51dc3550a76164badd79a2d1ea944",
+    "research/20261114/loki/h3al/gate.py": "0bd24c3c476105ef1804263177b7fe63769d3bb41a143cba38420c9aa7df954f",
+    "research/20261114/loki/h3al/freeze.py": "7388915c8bd9edb0dfd97cdf5a177bf2359dcd34a72a4734012f34c6083914f5",
+    "research/20261114/loki/h3ak/protocol.json": "0ca3ffbfd5871201044668febc91a98707b24fb7a0b8a3ad04e7902bead70da7",
+    "research/20261114/loki/h3ak/repair.py": "55ee03e3e06f714b8e28df7900747bee52b242604fd3add4a857a26e8142597a",
+    "research/20261114/loki/h3aj/protocol.json": "401edffa63788a17dc418ffdc79e94bef51d181265a6834ba67962c83d4e9cb8"
+  },
+  "source_data_sha256": {
+    "artifacts/research/20261114/loki/h3t/solutions-n13.npy": "c6d9786fbeb885aed2e69ec37ebcfa0904caab7d5a2e90064b3e8c650aba56cf",
+    "artifacts/research/20261114/loki/h3aj/b0/model.npz": "06d44929b3c6837696a39a5cb790915f9358f24be31286e6260c8a57c7db47fe",
+    "artifacts/research/20261114/loki/h3ac/b0/source-design.npz": "ceaa9d6f5655e80333d609602a0568c544280feb11fe4dd22582307a8ec33cd5",
+    "artifacts/research/20261114/loki/h3aj/b1/model.npz": "0fa571d2aa76b54de95bf5eb360e74f2559874969f5f163bdb40358df5cc909d",
+    "artifacts/research/20261114/loki/h3ac/b1/source-design.npz": "766e21969d7355abd803e0c918787b3e7836ba2afc1fa748e8a4556f62a3d7d9",
+    "artifacts/research/20261114/loki/h3aj/b2/model.npz": "59659d0ec45c634082b953d4bcf4849530cc879b9616040cf4c1939680f0e7c6",
+    "artifacts/research/20261114/loki/h3ac/b2/source-design.npz": "e3f2c97b1ca61526833c84c463ff1e900d49de76ab4c10b860e6aec7f21cdbd6",
+    "artifacts/research/20261114/loki/h3aj/b3/model.npz": "00295d7d676b624806f54c3e7255a77025585ed08b5700fa190063d89eecb2d9",
+    "artifacts/research/20261114/loki/h3ac/b3/source-design.npz": "6d46f440b997569c3ba3859fb3c7c4fce732bcffb90b85ca917b231a05333371"
+  },
+  "target_data_sha256": {
+    "results/research/loki/h3aj/truth/F.npy": "5f934249262c50254cee426d9b383d67a1633ad1f9642270b6f5092061788d6c",
+    "results/research/loki/h3aj/truth/cache.npz": "3f96dcd578a9663e01a4695674e3a0cb4a48759d0234ce5e093d5924d08f3ab3",
+    "results/research/loki/h3aj/input-universe.npz": "563b5168caf18f05858f79ade8afdf848dcef121482e50142dba18b485b868e3"
+  }
+}

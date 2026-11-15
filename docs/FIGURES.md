@@ -4,6 +4,9 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Global soundness of all 64 reduced Sudoku graphs | [Exact proofs](../results/research/foureyes/strong_support_soundness/) | [plot_strong_support_soundness.py](../scripts/plot_strong_support_soundness.py) |
+| Exact reliability of acquired positive witnesses | [Finite-population distribution](../results/research/loki/h3al/) | [plot_public.py](../research/20261114/loki/h3al/plot_public.py) |
+| Known-law sequential noise thresholds | [Fixed-stream replay](../results/research/ripper/null_replay.json) | [plot_null_replay.py](../scripts/plot_null_replay.py) |
 | Missing edges versus global Sudoku soundness | [Proofs and counterexamples](../results/research/ripper/permuted_soundness.json) | [plot_permuted_soundness.py](../scripts/plot_permuted_soundness.py) |
 | Positive-witness repair of N15 camel capacity | [Repair exports](../results/research/loki/h3ak/) | [plot_public.py](../research/20261114/loki/h3ak/plot_public.py) |
 | Removing weak Sudoku constraints | [Deletion exports](../results/research/foureyes/strong_support_study/) | [plot_strong_support_study.py](../scripts/plot_strong_support_study.py) |

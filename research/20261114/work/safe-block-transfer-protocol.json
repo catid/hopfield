@@ -1,0 +1,448 @@
+{
+  "id": "fresh120-originalblocks-vs-connectivity-veto",
+  "hypothesis_id": "H2an",
+  "status": "frozen_before_gate_and_freshgeneration",
+  "frozen_utc": "2026-11-15T05:43:21.399208+00:00",
+  "arms": [
+    "pl",
+    "old_binary",
+    "old_blocks",
+    "connectivity_veto"
+  ],
+  "models": {
+    "0": {
+      "pl": {
+        "path": "artifacts/research/20261114/work/contrastive_training/fits/s0-pl/checkpoint.pt",
+        "sha256": "0218e6d814f2ee5b6028877056fc9c705daf53e20233c2ebb083b46f5732752c"
+      },
+      "old_binary": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "old_blocks": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "connectivity_veto": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      }
+    },
+    "1": {
+      "pl": {
+        "path": "artifacts/research/20261114/work/contrastive_training/fits/s1-pl/checkpoint.pt",
+        "sha256": "3799b046bdfd3425b9603338f90bd60ccd6637707f20eac0d59139ce5d21445c"
+      },
+      "old_binary": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "old_blocks": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "connectivity_veto": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      }
+    },
+    "2": {
+      "pl": {
+        "path": "artifacts/research/20261114/work/contrastive_training/fits/s2-pl/checkpoint.pt",
+        "sha256": "76b8d4e38979cc5282d15b30f4b27c2468dbe5fe43426cfa6e085bb62b333672"
+      },
+      "old_binary": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "old_blocks": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "connectivity_veto": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      }
+    }
+  },
+  "jobs": [
+    {
+      "id": "shard00-s0",
+      "shard": 0,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard00-s1",
+      "shard": 0,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard00-s2",
+      "shard": 0,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard01-s0",
+      "shard": 1,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard01-s1",
+      "shard": 1,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard01-s2",
+      "shard": 1,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard02-s0",
+      "shard": 2,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard02-s1",
+      "shard": 2,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard02-s2",
+      "shard": 2,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard03-s0",
+      "shard": 3,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard03-s1",
+      "shard": 3,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard03-s2",
+      "shard": 3,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard04-s0",
+      "shard": 4,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard04-s1",
+      "shard": 4,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard04-s2",
+      "shard": 4,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard05-s0",
+      "shard": 5,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard05-s1",
+      "shard": 5,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard05-s2",
+      "shard": 5,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard06-s0",
+      "shard": 6,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard06-s1",
+      "shard": 6,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard06-s2",
+      "shard": 6,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard07-s0",
+      "shard": 7,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard07-s1",
+      "shard": 7,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard07-s2",
+      "shard": 7,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard08-s0",
+      "shard": 8,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard08-s1",
+      "shard": 8,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard08-s2",
+      "shard": 8,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard09-s0",
+      "shard": 9,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard09-s1",
+      "shard": 9,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard09-s2",
+      "shard": 9,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard10-s0",
+      "shard": 10,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard10-s1",
+      "shard": 10,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard10-s2",
+      "shard": 10,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard11-s0",
+      "shard": 11,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard11-s1",
+      "shard": 11,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard11-s2",
+      "shard": 11,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard12-s0",
+      "shard": 12,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard12-s1",
+      "shard": 12,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard12-s2",
+      "shard": 12,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard13-s0",
+      "shard": 13,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard13-s1",
+      "shard": 13,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard13-s2",
+      "shard": 13,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard14-s0",
+      "shard": 14,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard14-s1",
+      "shard": 14,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard14-s2",
+      "shard": 14,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard15-s0",
+      "shard": 15,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard15-s1",
+      "shard": 15,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard15-s2",
+      "shard": 15,
+      "seed": 2,
+      "gpu": 1
+    }
+  ],
+  "source_sha256": {
+    "research/20261114/work/safe_block_transfer.py": "fd449b36978b12e94713ef221de913fc455668853813c7417adad032489ae5f3",
+    "research/20261114/work/safe_block_batch.py": "276d5fdd2e7c83ee3a17bf923381f22521353cccc111defed257a2ee073b2a7f",
+    "research/20261114/work/gate_safe_block_transfer.py": "225a2752a9a1b1f672ae4d4d71558af633892724f861c5d6f81773fc4a65f785",
+    "research/20261114/work/connected_block_moves.py": "e1f959f4d8d134fc47b3bd131b9585073b69df5f06939b918c4e73e3caedc14d",
+    "research/20261114/work/graph_block_moves.py": "fa0a68c016da1494d5db42777194ccc125e06508fa0476a7e99a7e2f94589568",
+    "research/20261114/work/binary_coordinate.py": "657c33162a667f0304313612d51387b1d9638ca9290a4002411d7e9b78b5d21d",
+    "research/20261114/work/larger_relaxation.py": "6be58f66b7d354f7d47da697520bddb73dcadc6114cedcde0885ad5e61ea4cd1",
+    "research/20261114/work/factorial_transfer.py": "9381151f81aeda3f45320437a1985a4d6bc0e0ebb3a90fed9dd2cb21ea995f84",
+    "research/20261114/work/fast_npz.py": "2c3f6e8868a22aed0dbb5a389629accc6472a0a877208e01193a97e2a3c039ec",
+    "research/20261114/work/study.py": "c912470b19d0d13b151a4cac9a276455a915adeecf15088d1c5d43db66dbf721",
+    "research/20261114/work/audit.py": "d27d3397a620fa4998428baffeea704cff06c29111160246d17e684278522ec3"
+  },
+  "parent_protocol_sha256": {
+    "research/20261114/work/factorial-transfer-protocol.json": "f121d13e662a420ee96ddde36e426521a9dc1d2adcf69c4d385c03467fef6ec7",
+    "research/20261114/work/connectivity-screen-protocol.json": "8f262beb3e350b9eb37ae4a1a13c5652341ab5fe839fef19e09b351b22f2cc89",
+    "research/20261114/work/connectivity-transfer-180-protocol.json": "ed8d31276733ebba490b99f2ac7d4b01a21e687aa3ed1500419dec65200cf250"
+  },
+  "source_gate_files": {
+    "artifacts/research/20261114/work/factorial_transfer/shard00.npz": "38e3dbd22475e98f604644f31d980baf834cdb27ba383a17b1753bde2144f9d5",
+    "artifacts/research/20261114/work/factorial_transfer/runs/shard00-s0/outputs.npz": "7bdf66be6ccc425a35ff73e623d016260eb8e16ba822acbdc24435b6780dbc4e",
+    "artifacts/research/20261114/work/factorial_transfer/runs/shard00-s1/outputs.npz": "c7d264beae54bb429a0c4bccf79fa53f03e71bdd979965c20c5257b942503af4",
+    "artifacts/research/20261114/work/factorial_transfer/runs/shard00-s2/outputs.npz": "30d31f5ff951aa1ab862680feea2119fd0e008a1d361f13ed406bd422a09be72",
+    "artifacts/research/20261114/work/connectivity_screen/veto/shard00-s0/outputs.npz": "cb207cd06329a274d1c0eae4d693c680ac82f43662b16216abebfeff5bced858",
+    "artifacts/research/20261114/work/connectivity_screen/veto/shard00-s1/outputs.npz": "e6bccc2e24b13f7ebd59e76f395556a32ecc7110a31ff9bcbd893efbe8b977ac",
+    "artifacts/research/20261114/work/connectivity_screen/veto/shard00-s2/outputs.npz": "cbfca9b9c77b15657bbecf7a5579d09604021ea7961f73a3f8cce314710c9ace"
+  },
+  "cohort": {
+    "n_unique": 4096,
+    "length": 120,
+    "loop_rate": 0.2,
+    "base_seed": 2026111518,
+    "generator": "study.maze SeedSequence([2026111518,120,20,index]), index0..4095",
+    "shards": 16,
+    "shard_size": 256,
+    "prior_exclusions": [
+      "native_relaxation",
+      "larger_relaxation",
+      "selective_fallback",
+      "window_fallback",
+      "contrastive_training",
+      "lp_transfer",
+      "lp_relaxation",
+      "binary_coordinate",
+      "hard_negative_transfer",
+      "second_negative_transfer",
+      "factorial_transfer",
+      "connectivity_transfer_180"
+    ],
+    "rationale": "Prospective original120distribution where correctpaths canfit theunchanged256cell candidate limit; retain original-unfiltered-block control to isolate connectivityprotection. Noadaptive sizetuning."
+  },
+  "primary_endpoints": {
+    "veto_regression_probability": {
+      "candidate": "connectivity_veto",
+      "control": "old_binary",
+      "maximum_probability": 0.001,
+      "definition": "Joint3model oldbinarysuccess andvetofailure amongall4096independentinputs.",
+      "decision": "ExactCP separatelyone-sided95alpha.05. Supportupper<=.001,falsifylower>.001,otherwiseinconclusive."
+    },
+    "retain_original_gains": {
+      "minimum_conditional_probability": 0.9,
+      "opportunity": "Jointoriginalblocksuccess andoldbinaryfailure.",
+      "retained": "Veto jointsuccess amongthose opportunities.",
+      "decision": "Exactconditionalbinomial CP separatelyone-sided95alpha.05; supportlower>=.9,falsifyupper<.9,otherwiseinconclusive. Zeroopportunities alwaysinconclusive."
+    }
+  },
+  "secondary": "Reportoriginalblockregressionsavoided, pairedgains/losses, BPcomparison, allcaps/failures. Descriptive skip-initial-simple-path maps exactbinary/blockoutcomes with no newsearch; identityproof ofzero-loss separated from measuredretention. No simultaneous95claim orconjunction.",
+  "inference": "Unchangedfrozen oldLP fits, BPnativefloat32u3eta.5cap8192check16. LPfloat64fourcolor threshold-1e-8cap512. Originalblocks andvetoblocks shareexactbinaryprefix; degree1/2components2..256cells,max16rounds, minimumfullenergydelta/lexicographic ties,unchanged nativedescent. Veto explicitlyusesselectedgraphreachability beforedeletion, no labels/shortestdistance.",
+  "hidden": "One immutablefloat32readout/modelinput,tol1e-6cap4000check8. Assert allnonanswer parametersidentical. Failedprefixesretained, norescue.",
+  "gate": "First64alreadyseenH2ajinputs/model, native/binary/originalblocks exactarchivedparity andveto exactH2akparity; clamp/readout/cost checks. Same120objective; no shapepadding. Gate before freshgeneration.",
+  "budget": {
+    "inference_total_gpu_minutes": 10,
+    "per_worker_wall_seconds": 300,
+    "source_gate_wall_seconds": 120,
+    "input_cpu_audit_wall_seconds": 120,
+    "input_cpu_audit_max_processes": 8,
+    "full_cpu_audit_wall_seconds": 300,
+    "full_cpu_audit_max_processes": 16,
+    "full_cpu_audit_aggregate_process_wall_minutes": 80,
+    "statistics_wall_seconds": 120,
+    "enforcement": "Perbatch/blockround watchdog; externalCPU walltimeouts;retain partialarchives, noextensions."
+  },
+  "archive": "Uniformexclusive NumPydeflate1; fullstates/traces/counters. Policycosts includecompleteprefix+increment; uniqueexecutedworkseparate.",
+  "accounting": {
+    "fresh_inputs": 4096,
+    "primary_model_input_arm_evaluations": 49152,
+    "reused_binary_prefixes": 24576,
+    "descriptive_skip_mappings": 12288,
+    "new_optimizer_updates": 0
+  }
+}

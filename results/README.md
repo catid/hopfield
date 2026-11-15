@@ -2,6 +2,10 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Exact proofs: all 64 reduced Sudoku graphs are globally sound](../research/20261114/foureyes/REPORT-strong-support-soundness.md)
+- [Fresh maze confirmation: regressions removed and original gains retained](../research/20261114/work/REPORT.md)
+- [Exact reliability of positive-witness repair across all random draws](../research/20261114/loki/h3al/REPORT.md)
+- [Known-law noise calibration restores true constraints at a recovery cost](../research/20261114/ripper/REPORT-null-replay.md)
 - [Missing Sudoku edges versus global soundness: proofs, counterexamples and unresolved cases](../research/20261114/ripper/REPORT-permuted-soundness.md)
 - [Positive-witness acquisition repairs N15 camel capacity](../research/20261114/loki/h3ak/REPORT.md)
 - [Deleting weak Sudoku constraints: certificates return, gain target fails](../research/20261114/foureyes/REPORT-strong-support-study.md)

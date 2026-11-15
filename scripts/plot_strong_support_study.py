@@ -29,7 +29,7 @@ axes[1].set(xlim=(-.3,6),ylim=(-.5,.65),yticks=[],xlabel='Delete weak minus weak
 for ax in axes:ax.grid(axis='y'if ax is axes[0]else'x',alpha=.15);ax.set_axisbelow(True)
 fig.suptitle('Removing weak constraints helps, but misses the target',x=.065,ha='left',fontsize=18,weight='bold')
 fig.text(.065,.065,'Same 64 fits and 5,000 seen inputs; strong weights stay 1. Four chains, 262,144 moves per chain.\n'
-         'Canonical targets compatible with zero energy: 0% → 84.75%. No wrong certificates observed; universal soundness is unproved.\n'
+         'Canonical targets compatible with zero energy: 0% → 84.75%. No wrong certificates observed; this search alone does not prove soundness.\n'
          '5,000 paired bank/input bootstrap draws. 59 new searches, 41.306 seconds; 64 archived baselines.\n'
          'BP AdamW/counts are separately fitted controls. Original audit failure and stop-index correction retained; no inference rerun.',fontsize=10,color='#4d5967',linespacing=1.5)
 fig.subplots_adjust(left=.065,right=.98,bottom=.32,top=.84,wspace=.28)

@@ -1,0 +1,74 @@
+--- null_replay_study.py
++++ null_replay_study_corrected.py
+@@ -6,7 +6,7 @@
+ import argparse,csv,hashlib,json,os,resource,subprocess,sys,threading,time
+ ROOT=Path(__file__).resolve().parents[3];HERE=Path(__file__).resolve().parent
+ PARENT=ROOT/'artifacts/research/20261114/ripper/permuted_noise';OUT=ROOT/'artifacts/research/20261114/ripper/null_replay'
+-PUBLIC=ROOT/'results/research/ripper';PROTOCOL=HERE/'protocol-null-replay.json'
++PUBLIC=ROOT/'results/research/ripper';PROTOCOL=HERE/'protocol-null-replay-corrected.json'
+ def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+ def save(path,obj):
+     path.parent.mkdir(parents=True,exist_ok=True);temp=path.with_suffix(path.suffix+'.tmp');temp.write_text(json.dumps(obj,indent=2,allow_nan=False)+'\n');temp.replace(path)
+@@ -17,8 +17,8 @@
+ 
+ def freeze():
+     assert not PROTOCOL.exists()and not OUT.exists()
+-    code=[HERE/n for n in ['null_replay_study.py','null_replay_policy.py','audit_null_replay.py']]
+-    inputs=[PARENT/'audit.json',HERE/'protocol-permuted-noise.json']
++    code=[HERE/n for n in ['null_replay_study_corrected.py','null_replay_policy.py','audit_null_replay_corrected.py']]
++    inputs=[PARENT/'audit.json',HERE/'protocol-permuted-noise.json',HERE/'protocol-null-replay.json',HERE/'null-replay-pre-run-correction.json',HERE/'null_replay_study.py',HERE/'audit_null_replay.py',HERE/'verify_null_replay_correction.py']
+     for b in range(32):inputs += [PARENT/f's{b}'/n for n in ['observations.npz','fit.npz','receipt.json','calibration.json']]
+     p=dict(id='H1ar-fixed-evidence-equality-null-comparison',frozen_utc=datetime.now(timezone.utc).isoformat(),banks=32,rows=1110,
+         scope='Post-hoc mechanism replay on all32 unchanged H1ap observed masks/labels; no new acquisition, calibration, source rows, puzzle inputs or GPU work.',
+@@ -36,7 +36,7 @@
+     from null_replay_policy import thresholds
+     p=verify();assert not OUT.exists();OUT.mkdir(parents=True)
+     np.savez_compressed(OUT/'thresholds.npz',**{a:thresholds(Fraction(q))for a,q in p['nulls'].items()})
+-    from audit_null_replay import thresholds_audit
++    from audit_null_replay_corrected import thresholds_audit
+     thresholds_audit()
+ 
+ def bank(seed):
+@@ -45,18 +45,18 @@
+     masks,values=obs['given'],obs['values'];threshold=np.stack([np.load(OUT/'thresholds.npz')[a]for a in p['nulls']]);i,j=np.triu_indices(81,1)
+     joint=np.zeros((81,81),np.int32);equal=np.zeros_like(joint);first=np.full((3,3240),-1,np.int32);digests=[]
+     for row in range(1110):
+-        cells=np.flatnonzero(masks[row]);view=np.ix_(cells,cells);joint[view]+=1;equal[view]+=(values[row,cells,None]==values[row,None,cells])
++        cells=np.flatnonzero(masks[row]);view=np.ix_(cells,cells);joint[view]+=1;labels=values[row,cells];equal[view]+=(labels[:,None]==labels[None,:])
+         m,c=joint[i,j],equal[i,j];digests.append(hashlib.sha256(m.tobytes()+c.tobytes()).hexdigest())
+         for index in range(3):first[index,(first[index]<0)&(c>=threshold[index,m])]=row+1
+     np.savez_compressed(OUT/f's{seed}.npz',joint_count=m,equal_count=c,first_crossing=first,support=first<0,final_only_support=c[None,:]<threshold[:,m],count_sha256=np.array(digests))
+-    from audit_null_replay import audit_bank
++    from audit_null_replay_corrected import audit_bank
+     a=audit_bank(seed);print(json.dumps(dict(seed=seed,status=a['status'])),flush=True)
+ 
+ def summary():
+     import numpy as np
+     p=verify();rows=[];hashes={};models=[]
+     for seed in range(32):
+-        path=OUT/f's{seed}-audit.json';a=json.loads(path.read_text());assert a['status']=='validated'and a['protocol_sha256']==sha(PROTOCOL)and a['auditor_sha256']==sha(HERE/'audit_null_replay.py')
++        path=OUT/f's{seed}-audit.json';a=json.loads(path.read_text());assert a['status']=='validated'and a['protocol_sha256']==sha(PROTOCOL)and a['auditor_sha256']==sha(HERE/'audit_null_replay_corrected.py')
+         assert a['model_sha256']==sha(OUT/f's{seed}.npz');rows+=a['rows'];hashes[str(path.relative_to(ROOT))]=sha(path)
+         with np.load(OUT/f's{seed}.npz',allow_pickle=False)as z:models.append(z['support'])
+     groups=[]
+@@ -79,7 +79,7 @@
+         'For this supplied corruption law, the current mask is fixed before the independent board permutation. Conditional on history and the current clean source board, a queried true pair is equal with probability p = 9/1600. Its LR multiplier has expectation p(q1/q0) + (1-p)(1-q1)/(1-q0). This is exactly one at q0 = p and below one at nominal iid q0 > p; an unqueried pair has multiplier one. This is a conditional martingale/supermartingale statement for this law and predictable masks, not a universal correlated-noise guarantee.','',
+         f'Thresholds use exact rational powers, independently checked by 3,333 Decimal80 endpoint/predecessor tests. Independent reconstruction checked all 115,084,800 cumulative pair states and matched all 103,680 archived calibrated first-crossing paths. Every bank and outcome is retained.','',
+         'This post-hoc mechanism comparison uses no new observations, calibration fits, source boards, puzzle inputs or GPU work. Exact graph recovery and extra-edge costs are descriptive; the primary concerns true-edge retention only.','',
+-        '[Protocol](protocol-null-replay.json) · [Independent replay](audit_null_replay.py) · [Results](../../../results/research/ripper/null_replay.json)','']
++        '[Protocol](protocol-null-replay-corrected.json) · [Independent replay](audit_null_replay_corrected.py) · [Results](../../../results/research/ripper/null_replay.json)','']
+     (HERE/'REPORT-null-replay.md').write_text('\n'.join(lines));print(json.dumps(dict(primary=primary,grouped=groups)),flush=True)
+ 
+ def launch():
+
+--- audit_null_replay.py
++++ audit_null_replay_corrected.py
+@@ -3,7 +3,7 @@
+ from fractions import Fraction
+ import hashlib,json
+ import numpy as np
+-from null_replay_study import ROOT,HERE,PARENT,OUT,PROTOCOL,sha,save,verify
++from null_replay_study_corrected import ROOT,HERE,PARENT,OUT,PROTOCOL,sha,save,verify
+ 
+ def thresholds_audit():
+     p=verify();z=np.load(OUT/'thresholds.npz',allow_pickle=False);rows=[];actual=Fraction(9,1600)

@@ -1,5 +1,7 @@
 # H4aa: deleting weak constraints restores certificates, below the gain target
 
+Follow-up: [H4ab proves all 64 reduced graphs globally sound](REPORT-strong-support-soundness.md). The inference study below originally established zero observed invalid certificates; its accuracy target and failure remain unchanged.
+
 **The frozen ≥5-point gain target is falsified.** Removing weak edges raises exact-match accuracy from 68.1663% to **72.3781%**, a **4.2119-point** gain with paired 95% interval **[3.8266, 4.6035]**. Unlike positive reweighting, deletion changes the zero set and restores many valid certificates. This uses all 64 H4y fits and the same already-seen 5,000 puzzles; it is a post-hoc mechanism study.
 
 ![Deleting weak constraints changes certificate feasibility](../../../assets/figures/strong-support-study.png)

@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-15T05:34:42.867735+00:00",
+  "updated_utc": "2026-11-15T05:50:21.069309+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
   "status": "Ongoing research; H2aj prospective factorial complete with independent state and trace audits",
   "host": "work",
-  "jobs": 1600,
-  "run_arm_rows": 4383,
-  "model_maze_evaluations": 929666,
+  "jobs": 1696,
+  "run_arm_rows": 4767,
+  "model_maze_evaluations": 1027970,
   "hypotheses": [
     {
       "campaign": "discovery",
@@ -824,6 +824,58 @@
       "campaign": "connectivity_size_gate",
       "hypothesis": "H2al padding size-invariance gate",
       "outcome": "failed; boundaryobjectivechange independentlydiagnosed; nofreshcohort"
+    },
+    {
+      "campaign": "connectivity_transfer_180",
+      "hypothesis": "H2am fresh180veto gain>=1pp overbinary and separate NI<=.1ppvsBP",
+      "outcome": {
+        "veto_gain": {
+          "gains": 113,
+          "losses": 0,
+          "observed_net_gain_pp": 2.7587890625,
+          "separately_one_sided95_net_lower_pp": 2.1888962131721748,
+          "separately_one_sided95_net_upper_pp": 3.307525363664027,
+          "candidate": "connectivity_veto",
+          "control": "old_binary",
+          "target_gain_pp": 1.0,
+          "decision": "supported"
+        },
+        "veto_vs_bp": {
+          "gains": 4,
+          "losses": 33,
+          "observed_net_gain_pp": -0.7080078125,
+          "separately_one_sided95_net_lower_pp": -1.1029930384537665,
+          "separately_one_sided95_net_upper_pp": -0.30536406412658346,
+          "candidate": "connectivity_veto",
+          "control": "pl",
+          "noninferiority_loss_margin_pp": 0.1,
+          "loss_one_sided95_lower_pp": 0.5902316764752941,
+          "loss_one_sided95_upper_pp": 1.0758080804998016,
+          "decision": "falsified"
+        }
+      }
+    },
+    {
+      "campaign": "safe_block_transfer",
+      "hypothesis": "H2an veto regression<=.1percent and conditionaloriginalgain retention>=90percent",
+      "outcome": {
+        "veto_regression_probability": {
+          "regressions": 0,
+          "n": 4096,
+          "one_sided95_lower": 0.0,
+          "one_sided95_upper": 0.0007311125564754344,
+          "maximum_probability": 0.001,
+          "decision": "supported"
+        },
+        "retain_original_gains": {
+          "opportunities": 55,
+          "retained": 55,
+          "one_sided95_lower": 0.9469889450487496,
+          "one_sided95_upper": 1.0,
+          "minimum_conditional_probability": 0.9,
+          "decision": "supported"
+        }
+      }
     }
   ],
   "run_tables": [
@@ -850,7 +902,9 @@
     "binary-coordinate-runs.csv",
     "hard-negative-transfer-runs.csv",
     "second-negative-transfer-runs.csv",
-    "factorial-transfer-runs.csv"
+    "factorial-transfer-runs.csv",
+    "connectivity-transfer-180-runs.csv",
+    "safe-block-transfer-runs.csv"
   ],
   "protocols": {
     "protocol": {
@@ -1014,6 +1068,14 @@
     "connectivity-transfer-protocol": {
       "sha256": "ff8d54d2655623124acb4e87a306bede748dddf076bf774bfc4a94cceeb9e01a",
       "frozen_utc": "2026-11-15T05:24:03.983034+00:00"
+    },
+    "connectivity-transfer-180-protocol": {
+      "sha256": "ed8d31276733ebba490b99f2ac7d4b01a21e687aa3ed1500419dec65200cf250",
+      "frozen_utc": "2026-11-15T05:31:18.619952+00:00"
+    },
+    "safe-block-transfer-protocol": {
+      "sha256": "c016fa240f3025d4e51a4574541bc0d91d4c53133f69e764062c0ee2a0a0e576",
+      "frozen_utc": "2026-11-15T05:43:21.399208+00:00"
     }
   },
   "audit_sha256": {
@@ -1046,7 +1108,9 @@
     "artifacts/research/20261114/work/hard_negative_transfer/audit.json": "19f69bcc79d075554f809f244f4c8446231809aa3d8269a98c2b5244eaaa2e94",
     "artifacts/research/20261114/work/second_negative_transfer/audit.json": "6309e6e6091b24002513e4b36467bbdcdabea12d8b4fed36e910551be5c1d1ca",
     "artifacts/research/20261114/work/factorial_transfer/audit.json": "414d0ca69ad6440f7fc39542eb18597143a759daf00fe2b17153708e40521876",
-    "artifacts/research/20261114/work/connectivity_screen/audit.json": "cf2f149522301d5683730623c40a4019661df4f26021295c7b7ad1de82545427"
+    "artifacts/research/20261114/work/connectivity_screen/audit.json": "cf2f149522301d5683730623c40a4019661df4f26021295c7b7ad1de82545427",
+    "artifacts/research/20261114/work/connectivity_transfer_180/audit.json": "df24db9314a0bae7369897d500bb4d104169950eb5de036a6d78282dcf717b4a",
+    "artifacts/research/20261114/work/safe_block_transfer/audit.json": "42ede9a85e1bafaf66c8900cb1e4fdccddae7594345362c4b1d5b993ef3c54b0"
   },
   "model_sha256": {
     "0": {
@@ -1079,8 +1143,8 @@
     "case": "cyclic-failure-classification.json",
     "scope": "The same cyclic maze fails for model seeds1and2; these are true invalid fixed points or a period-two timeout, not hidden/nonfinite failures."
   },
-  "primary_jobs": 1594,
-  "primary_model_maze_evaluations": 929534,
+  "primary_jobs": 1690,
+  "primary_model_maze_evaluations": 1027838,
   "descriptive_jobs": 6,
   "descriptive_model_maze_evaluations": 132,
   "selected_case_interventions": {
@@ -1384,5 +1448,45 @@
     "fresh_inputs": 0,
     "diagnostic_model_inputs": 192,
     "cause": "Actualaddedwalls introduce pairtable unaryterms at oldgridboundary; no paddingobjectiveinvariance."
+  },
+  "connectivity_transfer_180": {
+    "fresh_inputs": 4096,
+    "new_model_maze_arm_evaluations": 49152,
+    "reused_binary_prefixes": 24576,
+    "new_optimizer_updates": 0,
+    "joint_success": {
+      "pl": 4077,
+      "old_binary": 3935,
+      "skip_simple_path": 4048,
+      "connectivity_veto": 4048
+    },
+    "skip_descriptive": {
+      "gains": 113,
+      "losses": 0,
+      "scope": "Descriptive; zero-loss conditionalidentityproof separate from fresh gain measurement."
+    },
+    "scope": "Explicit symbolicgraphpolicies, fixedoldLPweights, fresh180loop20. Gainoverbinarysupported; BPnoninferiorityfalsified. No isolatedveto benefit:355minimumfreepathlength exceeds256blocksize.",
+    "full_independent_final_state_checks": 49152
+  },
+  "safe_block_transfer": {
+    "fresh_inputs": 4096,
+    "new_model_maze_arm_evaluations": 49152,
+    "reused_binary_prefixes": 24576,
+    "new_optimizer_updates": 0,
+    "joint_success": {
+      "pl": 4090,
+      "old_binary": 4005,
+      "old_blocks": 4031,
+      "connectivity_veto": 4074
+    },
+    "skip_descriptive": {
+      "joint_success": 4060,
+      "gains": 55,
+      "losses": 0,
+      "new_searches": 0,
+      "scope": "Descriptive exactmapping: initialsimplepath\u2192binary, otherwiseoriginalblocks; zero-lossconditionalidentityproof separate."
+    },
+    "scope": "Fresh120loop20 with originalunfilteredblocks ascontrol. Bothprespecifiedprobability/conditionalretentionendpoints supported. Explicit graphreachability prior, originalenergy andfixedfits. DescriptiveBPcomparisonseparate.",
+    "full_independent_final_state_checks": 49152
   }
 }

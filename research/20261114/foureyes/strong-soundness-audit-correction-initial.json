@@ -1,0 +1,17 @@
+{
+  "status": "metadata_only_correction_before_summary",
+  "original_verifier_sha256": "201612d8e78860be1d8e044a6b402a845e432b591914e510b8805379984785d1",
+  "corrected_verifier_sha256": "aa257a48c26d06a29fbc9d59c4eb74723cbf0a2e17a37a2f7400fa22615c08ab",
+  "protocol_sha256": "d1916e6b65cd58cb5e08a363f1d7a42929084fa029b7a2a0fc1b622f7d92a00d",
+  "failure": "AttributeError at final result construction: sha(__file__) passed str to helper requiring Path. All proof/witness/classification checks had completed, but no summary was written.",
+  "correction": "Normalize sha argument with Path(p). No source reconstruction, proof, search, witness, classification or decision changes.",
+  "producer_artifacts_sha256": {
+    "results/research/foureyes/strong_support_soundness/supports.npz": "61dc5bb8a7dc20134a9ded101fc2e564bb3120d438593fe8826d755fbc9048c0",
+    "results/research/foureyes/strong_support_soundness/certificates.json": "a4575c99e8bc2efabddedc7be0dc35fad1a435d64c356cd49e73af33cec6328e"
+  },
+  "original_command_wall_seconds": 0.076662672,
+  "original_command_time_source": "exec_command result for original launch; internal runtime receipt was not emitted after exception.",
+  "original_cpu_conservative_upper_seconds": 0.153325344,
+  "cpu_bound_justification": "Original launch has one single-thread parent plus one single-thread child, with OMP/MKL/OpenBLAS=1 and no further descendants. At most two CPU-seconds per elapsed wall second. No speed endpoint is claimed.",
+  "producer_rerun": false
+}
