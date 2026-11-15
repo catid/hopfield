@@ -2,6 +2,17 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [LP curvature selects the degree and exactly recovers all64 examined strong-noise graphs](../research/20261114/foureyes/REPORT-degree-curvature.md)
+- [Fresh dense-maze decoder solves4096/4096; one-point gain inconclusive, three other targets supported](../research/20261114/work/REPORT.md#h2bc-fresh-bounded-decoder-confirmation-supports-the-budget-mechanism-while-the-one-point-gain-target-remains-inconclusive)
+- [Exact bridge geometry:4.98× candidate generation and1.33× complete inference](../research/20261114/work/REPORT.md#h2bd-exact-bridge-geometry-meets-separate-geometry-and-complete-policy-speed-targets)
+- [Fresh static-feedback transfer fails both targets:28/32 aligned and25/32 permuted](../research/20261114/ripper/REPORT-fresh-transfer.md)
+- [Source-MAP-guided questions identify106/108 examined models, with two retained failures](../research/20261114/loki/h3bd/REPORT.md)
+- [Full supplied truth-class study identifies1489/1511 models within four binary queries](../research/20261114/loki/h3be/REPORT.md)
+- [Selected hard-tail replication fails: only6/22 truths meet75% recovery](../research/20261114/loki/h3bf/REPORT.md)
+- [Exact ceiling: all704 hard-tail query failures remain identifiable in principle at N13](../research/20261114/loki/h3bg/REPORT.md)
+- [Centering cell counts improves recovery to33/64 but fails its frozen target](../research/20261114/foureyes/REPORT-centered-regularity.md)
+- [Fixed feedback transfers between source-disjoint banks, with full donor costs](../research/20261114/ripper/REPORT-transfer-feedback.md)
+- [Permuting static transferred feedback loses four exact recoveries on the examined sources](../research/20261114/ripper/REPORT-permuted-transfer.md)
 - [Supplied degree20 repairs all64 strong-noise Sudoku graphs; top810 recovers four](../research/20261114/foureyes/REPORT-intensity-degree.md)
 - [Freezing acquisition feedback after300 rows retains29/32 aggregate recoveries but changes failed banks](../research/20261114/ripper/REPORT-frozen-feedback.md)
 - [Removing complete-source queen classes defeats the four-query target:27/108 identified](../research/20261114/loki/h3bc/REPORT.md)

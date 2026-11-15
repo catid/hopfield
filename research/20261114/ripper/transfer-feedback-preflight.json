@@ -1,0 +1,158 @@
+{
+  "status": "validated_synthetic_only",
+  "rational_rounding_states_checked": 44912,
+  "rate_cost_states_checked": 1114,
+  "unexposed_and_both_tie_parities_checked": true,
+  "independent_synthetic_predictable_masks": 95,
+  "source_disjoint_derangement_checked": true,
+  "invalid_assignment_rejected": true,
+  "complete_label_substitution_gates": [
+    {
+      "status": "validated",
+      "all_recipient_source_labels_replaced": true,
+      "all_queried_values_changed": true,
+      "every_mask_unchanged": true,
+      "joint_counts_unchanged": true,
+      "actual_equality_counts_changed": true,
+      "original_source_sha256": "8c7b96c54edf9a4a131f7bfd8c4e6b2365087154d0173e4b5a0cb47b6a501856",
+      "changed_source_sha256": "31c885b93aafa404885f47b3221927666c23c4f0f99d59252f568c34f6eb0bbe"
+    }
+  ],
+  "deployment_union_checked": true,
+  "rejected_mutated_certificates_or_primals": 12,
+  "cases": [
+    {
+      "name": "triangle_fractional",
+      "certificate": {
+        "certified": true,
+        "reason": "exact_scaled_integer_primal_dual",
+        "integral": false,
+        "primal_objective_twice": 3,
+        "dual_objective_twice": 3,
+        "maximum_dual_reconstruction_error": 0.0,
+        "primal_rounding_used": false,
+        "dual_scale": 2
+      },
+      "solver": {
+        "highs_version": "1.12.0",
+        "numpy": "2.3.4",
+        "solver_options": {
+          "threads": 1,
+          "parallel": "off",
+          "solver": "simplex",
+          "simplex_strategy": 1,
+          "presolve": "off",
+          "time_limit": 1.0,
+          "random_seed": 2026111502,
+          "primal_feasibility_tolerance": 1e-09,
+          "dual_feasibility_tolerance": 1e-09,
+          "log_to_console": false,
+          "log_file": "/tmp/laplace-rate-synthetic-l76v9bnk/triangle_fractional.log"
+        },
+        "solver_status": "Optimal",
+        "solver_call_status": "HighsStatus.kOk",
+        "solver_optimal": true,
+        "value_valid": true,
+        "dual_valid": true,
+        "solver_objective": 1.5,
+        "simplex_iterations": 3,
+        "solver_wall_s": 0.0002086629974655807,
+        "solver_cpu_s": 0.00020723100000000216
+      }
+    },
+    {
+      "name": "square_integral",
+      "certificate": {
+        "certified": true,
+        "reason": "exact_scaled_integer_primal_dual",
+        "integral": true,
+        "primal_objective_twice": 6,
+        "dual_objective_twice": 6,
+        "maximum_dual_reconstruction_error": 0.0,
+        "primal_rounding_used": false,
+        "dual_scale": 2
+      },
+      "solver": {
+        "highs_version": "1.12.0",
+        "numpy": "2.3.4",
+        "solver_options": {
+          "threads": 1,
+          "parallel": "off",
+          "solver": "simplex",
+          "simplex_strategy": 1,
+          "presolve": "off",
+          "time_limit": 1.0,
+          "random_seed": 2026111503,
+          "primal_feasibility_tolerance": 1e-09,
+          "dual_feasibility_tolerance": 1e-09,
+          "log_to_console": false,
+          "log_file": "/tmp/laplace-rate-synthetic-l76v9bnk/square_integral.log"
+        },
+        "solver_status": "Optimal",
+        "solver_call_status": "HighsStatus.kOk",
+        "solver_optimal": true,
+        "value_valid": true,
+        "dual_valid": true,
+        "solver_objective": 3.0,
+        "simplex_iterations": 2,
+        "solver_wall_s": 7.537298370152712e-05,
+        "solver_cpu_s": 7.50929999999983e-05
+      }
+    },
+    {
+      "name": "square_tied",
+      "certificate": {
+        "certified": true,
+        "reason": "exact_scaled_integer_primal_dual",
+        "integral": true,
+        "primal_objective_twice": 0,
+        "dual_objective_twice": 0,
+        "maximum_dual_reconstruction_error": 0.0,
+        "primal_rounding_used": false,
+        "dual_scale": 2
+      },
+      "solver": {
+        "highs_version": "1.12.0",
+        "numpy": "2.3.4",
+        "solver_options": {
+          "threads": 1,
+          "parallel": "off",
+          "solver": "simplex",
+          "simplex_strategy": 1,
+          "presolve": "off",
+          "time_limit": 1.0,
+          "random_seed": 2026111504,
+          "primal_feasibility_tolerance": 1e-09,
+          "dual_feasibility_tolerance": 1e-09,
+          "log_to_console": false,
+          "log_file": "/tmp/laplace-rate-synthetic-l76v9bnk/square_tied.log"
+        },
+        "solver_status": "Optimal",
+        "solver_call_status": "HighsStatus.kOk",
+        "solver_optimal": true,
+        "value_valid": true,
+        "dual_valid": true,
+        "solver_objective": 0.0,
+        "simplex_iterations": 3,
+        "solver_wall_s": 7.046596147119999e-05,
+        "solver_cpu_s": 7.024599999999603e-05
+      }
+    }
+  ],
+  "wall_s": 0.07034146698424593,
+  "code_sha256": {
+    "transfer_feedback_policy.py": "98fd78e588cb7dcfcfbfaa3c695d4791c07fc5df3d629e806c3f6faeceff2fc6",
+    "soft_feedback_policy.py": "68f0cf2da45faa5c4a1768f4bc28fd1a49ca4d0f9f649b4818a3a9977cc7a77d",
+    "audit_soft_feedback.py": "35214d9d17b9ccc462c4bf96bf6dbcdb51ccfa23d27513d73706f8b5a4b72bcc",
+    "prefix_rate_features.py": "1f529cfcdc07cacc7eacfe1232b3a94a78a4949b387da14953efb4574731d45a",
+    "transfer_feedback_study.py": "718ed8298960980bde890d5c07daac18a8b8a6fa8e67a293c2efaa7e0d5e6b6e",
+    "audit_transfer_feedback.py": "0d031780568efd687f7aba968215c559e075c060147e930c3ca846bea1dcd87e",
+    "preflight_transfer_feedback.py": "f9548d4617811a8cbaf50ebbc37367d436d14a7667dc20d988a49fa10196de73",
+    "run_transfer_feedback.py": "6f6ffdb0c96d4699b055009add9a5b1eda24653aaf54308b0f755342603a499c",
+    "laplace_rate_math.py": "439d2edecdf2e518f243b27cc20676a24e561e4260217876230edf6023939093",
+    "audit_laplace_rate.py": "378e36af14e26bfb53d7f876d123cc24b3151273d6bb2a015a3f2b5e0dfeddcd",
+    "degree_prior_math.py": "5a3ad2c21f59dfe0d2de40065385d484e171c0f854c49c649e868ce5a98a1f8e",
+    "degree_prior_solver.py": "2af92a5d4326e74813f514291a7a76e6ac92778335e1dd76ffbb01f83d474c43",
+    "audit_degree_prior.py": "179feb9815c787a5381d1924ccb0ac41af49e103222503f5ff988dc13559f55b"
+  }
+}

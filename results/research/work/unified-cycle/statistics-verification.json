@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "protocol_sha256": "3a979896a1247f4ce1ecdb4284567a6f968662acaecb71a002f6b64d197f43e6",
+  "paired_rows_sha256": "a8218f157cb5650685b22ef93051652d4048e38c0169b25ded129278d549841a",
+  "audit_sha256": "2c7433c666aa7f32100941790f4db7efd58a62784c81e80b5919b3b26da8e023",
+  "source_sha256": "421f3152814bb4bedcfcbcc6a88ddfb1b79097634bd5586d917194522850e983",
+  "n_independent_inputs": 4096,
+  "endpoints": [
+    {
+      "name": "unified48_gain_vs_original16",
+      "gains": 57,
+      "losses": 0,
+      "net_lower_pp": 0.9656237075121807,
+      "net_upper_pp": 1.7992653213989993,
+      "decision": "inconclusive",
+      "maximum_error_pp": 3.9037661991869754e-12
+    },
+    {
+      "name": "unified48_regression_probability",
+      "gains": 57,
+      "losses": 0,
+      "net_lower_pp": 0.9656237075121807,
+      "net_upper_pp": 1.7992653213989993,
+      "regression_lower_pp": 0.0,
+      "regression_upper_pp": 0.07311125564754341,
+      "decision": "supported",
+      "maximum_error_pp": 3.9037661991869754e-12
+    },
+    {
+      "name": "unified48_noninferiority_vs_bp",
+      "gains": 158,
+      "losses": 0,
+      "net_lower_pp": 3.198560996473888,
+      "net_upper_pp": 4.493218895797982,
+      "decision": "supported",
+      "maximum_error_pp": 4.6984638402136625e-12
+    },
+    {
+      "name": "unified48_gain_vs_unified16",
+      "gains": 43,
+      "losses": 0,
+      "net_lower_pp": 0.6707416302878284,
+      "net_upper_pp": 1.4115011005025622,
+      "decision": "supported",
+      "maximum_error_pp": 3.8798964041575346e-12
+    }
+  ],
+  "scope": "SciPy beta quantiles independently reconstruct separately one-sided95 pairednetbounds usingCPmarginalalpha.025. Four endpoints decided separately: paired-net gain/BP NI use CP marginal alpha.025; standalone regression uses alpha.05. No simultaneous claim."
+}

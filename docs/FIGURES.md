@@ -4,6 +4,17 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Exact LP curvature selects a bounded common degree | [All degree values and5120proofs](../results/research/foureyes/degree_curvature/) | [plot_degree_curvature.py](../scripts/plot_degree_curvature.py) |
+| Additive cell-count correction and remaining overlap | [Every adjusted score and candidate](../results/research/foureyes/centered_regularity/) | [plot_centered_regularity.py](../scripts/plot_centered_regularity.py) |
+| Fresh dense-maze decoder confirmation | [Paired outcomes and endpoint statistics](../results/research/work/unified-cycle/) | [plot_unified_cycle.py](../research/20261114/work/plot_unified_cycle.py) |
+| Exact bridge-geometry speed | [All timing pairs and parity evidence](../results/research/work/geometry-speed/) | [plot_geometry_speed.py](../research/20261114/work/plot_geometry_speed.py) |
+| Transferred static feedback | [Recovery proofs and donor costs](../results/research/ripper/transfer_feedback.json) | [plot_transfer_feedback.py](../scripts/plot_transfer_feedback.py) |
+| Permuted transferred feedback control | [Recovery proofs and permutation evidence](../results/research/ripper/permuted_transfer.json) | [plot_permuted_transfer.py](../scripts/plot_permuted_transfer.py) |
+| Fresh static-feedback transfer failure | [Fresh IDs and exact proofs](../results/research/ripper/fresh_transfer.json) | [plot_fresh_transfer.py](../scripts/plot_fresh_transfer.py) |
+| MAP-guided binary questions | [Every paired query outcome](../results/research/loki/h3bd/) | [plot_public.py](../research/20261114/loki/h3bd/plot_public.py) |
+| Full supplied truth-class query study | [All1511 eligible cases and30 ineligible truths](../results/research/loki/h3be/) | [plot_public.py](../research/20261114/loki/h3be/plot_public.py) |
+| Hard-tail query replication | [All22 truths and1408 fresh draws](../results/research/loki/h3bf/) | [plot_public.py](../research/20261114/loki/h3bf/plot_public.py) |
+| Exact hard-tail identifiability ceiling | [Complete equivalence classes and witnesses](../results/research/loki/h3bg/) | [plot_public.py](../research/20261114/loki/h3bg/plot_public.py) |
 | Per-cell degree constraints repair strong-noise graphs | [All128 exact proofs and cardinality controls](../results/research/foureyes/intensity_degree/) | [plot_intensity_degree.py](../scripts/plot_intensity_degree.py) |
 | Fixed early acquisition feedback | [All proof results and physical query accounting](../results/research/ripper/frozen_feedback.json) | [plot_frozen_feedback.py](../scripts/plot_frozen_feedback.py) |
 | Four binary queries after only sixteen positive queen examples | [All108 cases and422 query outcomes](../results/research/loki/h3bc/) | [plot_public.py](../research/20261114/loki/h3bc/plot_public.py) |

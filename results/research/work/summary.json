@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-15T08:26:35.931250+00:00",
+  "updated_utc": "2026-11-15T09:10:14.206260+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
   "status": "Ongoing research; H2aj prospective factorial complete with independent state and trace audits",
   "host": "work",
-  "jobs": 1936,
-  "run_arm_rows": 6063,
-  "model_maze_evaluations": 1359746,
+  "jobs": 1984,
+  "run_arm_rows": 6351,
+  "model_maze_evaluations": 1433474,
   "hypotheses": [
     {
       "campaign": "discovery",
@@ -1112,6 +1112,71 @@
           "zero_regressions": "met"
         }
       }
+    },
+    {
+      "campaign": "unified_cycle",
+      "hypothesis": "H2bc: unified48 gain >=1 pp versus original16, regression probability <=0.1%, net BP NI >=-0.1 pp, extra-budget gain >=0.5 pp versus unified16; separate decisions.",
+      "outcome": {
+        "unified48_gain_vs_original16": {
+          "gains": 57,
+          "losses": 0,
+          "observed_net_gain_pp": 1.3916015625,
+          "separately_one_sided95_net_lower_pp": 0.965623707508277,
+          "separately_one_sided95_net_upper_pp": 1.799265321398915,
+          "kind": "paired_net",
+          "candidate": "unified48",
+          "control": "original_lexical16",
+          "minimum_net_gain_pp": 1.0,
+          "decision": "inconclusive"
+        },
+        "unified48_regression_probability": {
+          "gains": 57,
+          "losses": 0,
+          "observed_net_gain_pp": 1.3916015625,
+          "separately_one_sided95_net_lower_pp": 0.965623707508277,
+          "separately_one_sided95_net_upper_pp": 1.799265321398915,
+          "kind": "paired_loss_probability",
+          "candidate": "unified48",
+          "control": "original_lexical16",
+          "maximum_regression_probability_pp": 0.1,
+          "one_sided95_regression_lower_pp": 0.0,
+          "one_sided95_regression_upper_pp": 0.07311125564754345,
+          "decision": "supported",
+          "observed_zero_regressions": true
+        },
+        "unified48_noninferiority_vs_bp": {
+          "gains": 158,
+          "losses": 0,
+          "observed_net_gain_pp": 3.857421875,
+          "separately_one_sided95_net_lower_pp": 3.1985609964691895,
+          "separately_one_sided95_net_upper_pp": 4.493218895797746,
+          "kind": "paired_net",
+          "candidate": "unified48",
+          "control": "pl",
+          "minimum_net_gain_pp": -0.1,
+          "decision": "supported"
+        },
+        "unified48_gain_vs_unified16": {
+          "gains": 43,
+          "losses": 0,
+          "observed_net_gain_pp": 1.0498046875,
+          "separately_one_sided95_net_lower_pp": 0.6707416302839485,
+          "separately_one_sided95_net_upper_pp": 1.4115011005024904,
+          "kind": "paired_net",
+          "candidate": "unified48",
+          "control": "unified16",
+          "minimum_net_gain_pp": 0.5,
+          "decision": "supported"
+        }
+      }
+    },
+    {
+      "campaign": "geometry_speed",
+      "hypothesis": "H2bd separate >=2x geometry process and >=1.1x complete-policy wall targets with exact parity",
+      "outcome": {
+        "geometry": "supported",
+        "full_policy": "supported"
+      }
     }
   ],
   "run_tables": [
@@ -1144,7 +1209,8 @@
     "cycle-transfer-runs.csv",
     "cycle-transfer-180-runs.csv",
     "cap-transfer-runs.csv",
-    "density-transfer-runs.csv"
+    "density-transfer-runs.csv",
+    "unified-cycle/runs.csv"
   ],
   "protocols": {
     "protocol": {
@@ -1388,6 +1454,18 @@
       "frozen_utc": "2026-11-15T08:20:34.117426+00:00",
       "hypothesis": "H2bb",
       "status": "completed"
+    },
+    "unified-cycle-protocol": {
+      "sha256": "3a979896a1247f4ce1ecdb4284567a6f968662acaecb71a002f6b64d197f43e6",
+      "frozen_utc": "2026-11-15T08:37:40.932411+00:00",
+      "hypothesis": "H2bc",
+      "status": "completed"
+    },
+    "geometry-speed-protocol": {
+      "sha256": "5272f486ab0b4a051335a8232237899a8b1f1e6ec3844377cbeaea33d16367c3",
+      "frozen_utc": "2026-11-15T08:58:49.251989+00:00",
+      "hypothesis": "H2bd",
+      "status": "completed"
     }
   },
   "audit_sha256": {
@@ -1432,7 +1510,9 @@
     "artifacts/research/20261114/work/cap_transfer/audit.json": "1a5f37678ab4dc7673b2ddd5e643cacf2d5bf5fb0fff83dd68b42f76be1d054c",
     "artifacts/research/20261114/work/local_factor_audit/audit.json": "3d3aa4719f775d1a47dfee6f02db2fdb5615a8b247d6d205739faf7d27007a63",
     "artifacts/research/20261114/work/terminal_cycle/audit.json": "43ff5af08f9426230ca1a197c651d11759d1cdcceec397fc3e8e0158db30403b",
-    "artifacts/research/20261114/work/residual_factorial/audit.json": "97930a164be1492c3be66fa857c88b2b1841f74ccbcb79ed95d7c584f67ed0eb"
+    "artifacts/research/20261114/work/residual_factorial/audit.json": "97930a164be1492c3be66fa857c88b2b1841f74ccbcb79ed95d7c584f67ed0eb",
+    "artifacts/research/20261114/work/unified_cycle/audit.json": "2c7433c666aa7f32100941790f4db7efd58a62784c81e80b5919b3b26da8e023",
+    "artifacts/research/20261114/work/geometry_speed/audit.json": "a6d4d545bd36a98bd1fe8fe484b5c3d8f42680b69bef562472b335263e926298"
   },
   "model_sha256": {
     "0": {
@@ -1465,8 +1545,8 @@
     "case": "cyclic-failure-classification.json",
     "scope": "The same cyclic maze fails for model seeds1and2; these are true invalid fixed points or a period-two timeout, not hidden/nonfinite failures."
   },
-  "primary_jobs": 1930,
-  "primary_model_maze_evaluations": 1359614,
+  "primary_jobs": 1978,
+  "primary_model_maze_evaluations": 1433342,
   "descriptive_jobs": 6,
   "descriptive_model_maze_evaluations": 132,
   "selected_case_interventions": {
@@ -2226,5 +2306,83 @@
       "both_families_composed": 12288
     },
     "scope": "Disjoint five-input cap families; branches evaluated once, joint exact composition/no interaction or extra independent evidence. All4096previouslyseeninputs retained. Zero freshgeneralization claim or evaluationtotals."
+  },
+  "unified_cycle": {
+    "fresh_inputs": 4096,
+    "new_model_maze_arm_evaluations": 73728,
+    "new_optimizer_updates": 0,
+    "joint_success": {
+      "pl": 3938,
+      "old_binary": 2610,
+      "connectivity_veto": 3145,
+      "original_lexical16": 4039,
+      "unified16": 4053,
+      "unified48": 4096
+    },
+    "primary_endpoints": {
+      "unified48_gain_vs_original16": {
+        "gains": 57,
+        "losses": 0,
+        "observed_net_gain_pp": 1.3916015625,
+        "separately_one_sided95_net_lower_pp": 0.965623707508277,
+        "separately_one_sided95_net_upper_pp": 1.799265321398915,
+        "kind": "paired_net",
+        "candidate": "unified48",
+        "control": "original_lexical16",
+        "minimum_net_gain_pp": 1.0,
+        "decision": "inconclusive"
+      },
+      "unified48_regression_probability": {
+        "gains": 57,
+        "losses": 0,
+        "observed_net_gain_pp": 1.3916015625,
+        "separately_one_sided95_net_lower_pp": 0.965623707508277,
+        "separately_one_sided95_net_upper_pp": 1.799265321398915,
+        "kind": "paired_loss_probability",
+        "candidate": "unified48",
+        "control": "original_lexical16",
+        "maximum_regression_probability_pp": 0.1,
+        "one_sided95_regression_lower_pp": 0.0,
+        "one_sided95_regression_upper_pp": 0.07311125564754345,
+        "decision": "supported",
+        "observed_zero_regressions": true
+      },
+      "unified48_noninferiority_vs_bp": {
+        "gains": 158,
+        "losses": 0,
+        "observed_net_gain_pp": 3.857421875,
+        "separately_one_sided95_net_lower_pp": 3.1985609964691895,
+        "separately_one_sided95_net_upper_pp": 4.493218895797746,
+        "kind": "paired_net",
+        "candidate": "unified48",
+        "control": "pl",
+        "minimum_net_gain_pp": -0.1,
+        "decision": "supported"
+      },
+      "unified48_gain_vs_unified16": {
+        "gains": 43,
+        "losses": 0,
+        "observed_net_gain_pp": 1.0498046875,
+        "separately_one_sided95_net_lower_pp": 0.6707416302839485,
+        "separately_one_sided95_net_upper_pp": 1.4115011005024904,
+        "kind": "paired_net",
+        "candidate": "unified48",
+        "control": "unified16",
+        "minimum_net_gain_pp": 0.5,
+        "decision": "supported"
+      }
+    },
+    "full_independent_final_state_checks": 73728,
+    "scope": "Fresh 180x180 loop50 mazes, three fixed models and six fixed policies. Native-stable veto cap eligibility and terminal certification separated from total16 versus48 cycle rounds. Four endpoint decisions are separate; no pooling with source repairs or simultaneous95 claim."
+  },
+  "geometry_speed": {
+    "hypothesis": "H2bd",
+    "fresh_inputs": 0,
+    "new_scientific_evaluations": 0,
+    "geometry_median_speedup": 4.98408073813766,
+    "geometry_decision": "supported",
+    "full_policy_median_speedup": 1.3322388895922903,
+    "full_policy_decision": "supported",
+    "scope": "Exact selected-graph bridge geometry. Four balanced timing pairs each;1024 frozen geometry states and768 source model-input complete-policy cases. All source/pair choices/traces/boards/flags preserved; no new accuracy evidence."
   }
 }

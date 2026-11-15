@@ -1,0 +1,48 @@
+{
+  "id": "H4ai-additive-cell-centering",
+  "frozen_utc": "2026-11-15T08:50:37.866039+00:00",
+  "groups": 64,
+  "conditions": [
+    "hot18_weight8",
+    "hot18_weight32"
+  ],
+  "n": 81,
+  "source_scope": "Same128 already examined H4ag count matrices. H4ah results motivated this adaptive follow-up; no new source, corruption, label, fit or puzzle input.",
+  "score": "si=sum of80 offdiagonal counts incident on cell i; rij=79*cij-si-sj; score=rij-min(r). Exact int64. No fitted coefficient, degree value, geometry or edge count enters scores.",
+  "algebra": "Additive changes bi+bj in pair counts alter rij only by a common constant. This identity is exact; additive effects as the actual corruption model remain a hypothesis.",
+  "selector": "Unchanged H4ae equal-degree threshold selector: every distinct score<=median, minimize81*sum(degree^2)-sum(degree)^2; tie fewer edges then lower cut. No density guard.",
+  "primary": "Weight32 centered regularity at least61/64 exact graphs AND zero missing true edges across all64. Both required.",
+  "decision": "Supported if both requirements pass; falsified after all128 complete if either fails; runtime/numerical failure incomplete. Retain every bank and sparse output.",
+  "controls": "Archived BP32 first, canonical256, raw restricted gap, raw regularity, raw top810 and degree20LP. New centered top810 uses supplied cardinality810 and index tie breaks; descriptive. Weight8 same criterion descriptive.",
+  "diagnostics": "Raw and adjusted separating margins, every candidate and degree dispersion, ties, sparse outcomes, missing/extra counts. Geometry only in independent postselection audit.",
+  "candidate_columns": [
+    "cut",
+    "retained",
+    "degree_min",
+    "degree_max",
+    "degree_sum",
+    "degree_square_sum",
+    "dispersion"
+  ],
+  "budget": {
+    "selection_wall_seconds": 30,
+    "audit_wall_seconds": 120,
+    "aggregate_cpu_seconds": 240,
+    "gpu_seconds": 0
+  },
+  "runtime_scope": "Selection plus public independent replay monitored together; synthetic preflight and publication separate.",
+  "source_sha256": {
+    "research/20261114/foureyes/centered_regularity_study.py": "3933cad4ad1d5d3239af5115b3a8e6d9315ffbb05face7c43c3420c145c5025e",
+    "research/20261114/foureyes/audit_centered_regularity.py": "24c679b4f3aaeb4dd29e4d52f23fe9d61f54e853ea6cd0c16e42e957653285ef",
+    "research/20261114/foureyes/regularity_gap.py": "384a696fffebbcd9820190f7545bc98e780ace51e70a5f2762c666004a104a0d",
+    "research/20261114/foureyes/weak_weight_study.py": "6c1134c255d704a052c530d2d237f65002fa0bdc608dde43590e58eed937f0f3"
+  },
+  "input_sha256": {
+    "research/20261114/foureyes/centered-regularity-preflight.json": "be60cf3916356ef03e84dd3c246c77b7b37ba9c6a8e25123581696155d981c95",
+    "research/20261114/foureyes/regularity_intensity.json": "7dbc2fe0768f19ae9757fa9f0d8721fd89ce44b68ff9f497fb1fdf7d6b4d60d3",
+    "results/research/foureyes/regularity_intensity/summary.json": "9512fffe0ba9bbfba27234f301c59a248e5e5a7c9b6dc504b5bdf7cdad98a4f6",
+    "results/research/foureyes/regularity_intensity/models.npz": "b9055111de4241ee004dbc7bcfab3c2909977094202aa482b75f7e938b3c52c5",
+    "research/20261114/foureyes/intensity_degree.json": "633ea7a6e618d77fbc9e4858745efc55dbde525116f39c771f136e5c864e7daf",
+    "results/research/foureyes/intensity_degree/summary.json": "1de3314bf0c995d4159a2b0704b8ff61e46754eefb04e79ff9feea8a444a2c71"
+  }
+}

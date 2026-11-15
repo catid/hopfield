@@ -14,11 +14,9 @@ Connect cells that **never share a digit in training solutions**, assign weight 
 
 This headline uses ten base solutions with 99 stored Sudoku-symmetry variants each. **Augmentation supplies task knowledge.** A separate control recovers the same constraint graph from 100 distinct unaugmented solutions in all six samples. The estimator receives no cell geometry. [Budget, uncertainty and stopping proof](research/20261114/foureyes/REPORT-budget.md) · [Raw-data control](research/20261114/ripper/REPORT-raw-count.md)
 
-With concentrated label corruption, adding an **equal-degree prior** recovers **64/64 exact graphs** on new 2,400-board training banks, versus 26/64 for the earlier count-gap heuristic. The selector receives neither degree twenty nor edge count 810. This measures graph recovery under a fixed noise law; no new puzzle-solving accuracy is claimed. Increasing the hot-cell corruption weight from eight to thirty-two breaks this result: **4/64 exact graphs**, while the paired weight-eight control still gets 64/64. In sixty banks, true-edge and nonedge counts overlap, preventing any exact count threshold. [Fresh-source confirmation](research/20261114/foureyes/REPORT-regularity-fresh.md) · [Paired intensity limit](research/20261114/foureyes/REPORT-regularity-intensity.md)
+Under strong, concentrated label corruption, **LP cost curvature recovers all 64 examined Sudoku graphs without being given degree twenty**. It solves a frozen grid of common-degree problems and selects the largest change in optimal-cost slope; every bank selects twenty. All 5,120 optimizations have exact proof certificates. Equal degree and the bounded 0–40 grid remain supplied priors, and fresh-source confirmation is still needed. Raw thresholding recovers 4/64 and centered thresholding 33/64 on the same data. [Procedure, controls, costs and scope](research/20261114/foureyes/REPORT-degree-curvature.md) · [Earlier fresh-source threshold confirmation](research/20261114/foureyes/REPORT-regularity-fresh.md)
 
-Supplying **degree exactly twenty at every cell** repairs all 64 strong-noise graphs, with exact optimality certificates. Keeping the 810 lowest-count pairs still recovers only four: per-cell constraints add useful information beyond edge count alone. This is a stronger supplied prior, tested on the same examined banks. [Proofs, controls and costs](research/20261114/foureyes/REPORT-intensity-degree.md)
-
-![Per-cell degree constraints repair the strongly corrupted graphs](assets/figures/intensity-degree.png)
+![LP cost curvature selects the common degree and recovers the strongly corrupted graphs](assets/figures/degree-curvature.png)
 
 ## Cycle cuts solve fresh mazes at two sizes
 
@@ -32,11 +30,11 @@ At **180×180**, raising the move limit from 256 to 512 cells repairs all 28 fai
 
 ![Fresh 180×180 maze confirmation and separate frozen endpoints](results/research/work/cap-transfer/fresh-cap-transfer.png)
 
-The denser **50%-loop** test exposes another limit: the same policy solves **4,024/4,096**, and larger cuts add no solves because the preceding search reaches its round cap. The minimum-gain target fails; net BP noninferiority still passes despite 63 paired losses against BP. [Density boundary and preserved audit timeout](research/20261114/work/REPORT.md#h2ay-the-larger-cap-gain-fails-at-higher-density-the-remaining-barrier-is-the-block-round-limit)
+The revised decoder also solves **4,096/4,096 fresh 180×180 mazes at 50% loop density across all three models**, versus 4,039 for the original 16-round decoder and 3,938 for BP AdamW. The 57-input gain is +1.392 percentage points, but the prespecified ≥1-point gain target remains **inconclusive**: its lower bound is 0.966. Regression probability, BP noninferiority and the extra-round benefit all pass their separate targets. The method retains the same graph prior and 256-cell move limit; it fixes capped-prefix eligibility and uses a bounded 48-round search with terminal checks. [Fresh cohort, paired uncertainty and full costs](research/20261114/work/REPORT.md#h2bc-fresh-bounded-decoder-confirmation-supports-the-budget-mechanism-while-the-one-point-gain-target-remains-inconclusive)
 
-Follow-ups repair **4,096/4,096 of those same dense mazes across all three models**. Terminal-state checks and more cycle-search rounds first reach 4,086; separately extending the remaining lexical searches and reopening capped veto outputs then rescues five inputs each, with zero regressions. These are repairs on the examined cohort, with fresh confirmation still needed. [Separate stopping controls and full costs](research/20261114/work/REPORT.md#h2ba-ten-known-bookkeeping-rescues-and-52-additional-search-rescues) · [Disjoint residual interventions](research/20261114/work/REPORT.md#h2bb-disjoint-cap-family-interventions-recover-the-ten-remaining-source-failures)
+![Fresh dense-maze confirmation: perfect finite-cohort success with separate endpoint decisions](results/research/work/unified-cycle/unified-cycle.png)
 
-![Dense-maze repair: separate residual interventions each rescue five inputs](results/research/work/residual-factorial/residual-factorial.png)
+An exact geometry optimization makes this complete inference policy **1.33× faster** on a fixed 768-model-input replay cohort, with identical boards, counters, flags and search traces. Candidate generation alone is 4.98× faster. Both frozen speed targets pass across four balanced paired repetitions; this is a measured source-cohort speed result, with no new accuracy samples. [Correctness gates, timing scope and all pairs](research/20261114/work/REPORT.md#h2bd-exact-bridge-geometry-meets-separate-geometry-and-complete-policy-speed-targets)
 
 ## A search prior makes the same learned energy much more useful
 
