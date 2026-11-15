@@ -1,0 +1,58 @@
+{
+  "id": "H1bz-posterior-query-labels",
+  "status": "prospective_before_posterior_cohort_scores_or_new_LPs",
+  "hypothesis": "Using posterior expected pair equalities from acquired noisy queries recovers at least58/64 triple90graphs with at most1 regression among the50 originalharddecoder successes, assessed separately.",
+  "scope": "All64triple90 and64single270 H1bw banks/fulldegreegrids retained. Same acquiredlabels; no newsource/noise/labeldraw. Archived-cohort scoring intervention with a specified knownnoise model,not freshreliability.",
+  "arms": [
+    "single270",
+    "triple90"
+  ],
+  "banks": 64,
+  "grids": 128,
+  "model": "Known nominal symmetric9class channelp=3/40:q(correct)=37/40,r(eachincorrect)=3/320; uniformindependent percell digitprior. Per-cell posterior independence is a scoring assumption and can be misspecified for structuredSudoku boards. No corruptionflags or cleanvalues supplied to scoring.",
+  "posterior": "ForQ acquiredquerylabels percell (Q1single270,Q3triple90), count occurrence n_d and assign integerlikelihoodw_d=296^n_d * 3^(Q-n_d). Normalizeby sum_d w_d. Pair equality score is dot(w_i,w_j)/(sumw_i sumw_j), using productof independentcellposteriors. Allquery disagreements retained; no harddecode or tiechoice in the score.",
+  "cost": "For each observedpair sum exact rationalposterior equality probabilities across its original coqueriedboards, then cost=round_half_even(1000000*(sum+1)/(joint_count+2)). Same Laplace addone/addtwo andintegerrounding convention asH1bw; scaling1e6 fixed. No intermediatefloatingpoint posterior orrounding. Single270joint213,triple90joint71 enforced.",
+  "preparation": "A trustedsealed preparationstage reconstructs already-acquired maskednoisyqueryrecords from H1bw savedcleancompletion+latentarrays, validates against stored firstpass/decodedobservations and original masks, and publishes only masked noisyqueryrecords. Extra rawpasses were stored implicitly in H1bw latentarrays,not as separate rawlabelrecords. Scoringworkers receive only these acquiredrecords andmask,nevercleanlabels/noiseoutcomes/offsets. Independentrawaudit uses distinctrationalthreshold corruptionandscalar decoder. No newdataororacleaccess beyondalreadycharged sources.",
+  "inference": "Fresh degree1..40 LPs for all128arms,analyticdegree0,exactcurvature1..39lowerdegree ties. No true degree,810edgecount or geometry in fitting. Literal fractionalprimal selected isresolvedfailure; uncertifiedrequiredgrid unresolved; allcasesretained.",
+  "primary": {
+    "triple_exact": {
+      "required": 58,
+      "total": 64,
+      "decision": "SupportS>=58,falsifyS+U<58,otherwiseinconclusive."
+    },
+    "triple_regression": {
+      "maximum": 1,
+      "total": 50,
+      "decision": "Lowerresolvednewfailuresamong50oldtriple90successes;upperaddsnewunresolvedamongthem. Supportupper<=1,falsifylower>1,otherwiseinconclusive."
+    },
+    "separate_targets": true
+  },
+  "controls": "All64single270querylength1posteriors scoredandfullgridsrerun; archivedhardquery results64/64single,50/64triple arepairedcomparators. Selectedarchived128proofsrechecked; fulloldgrid/sourcecorrespondence inheritedfrom H1bw. H1byrawcounts64/49areexamineddiagnostics,notfreshcontrols.",
+  "diagnostics": "Allgraphoutcomes,degree/ties,pairedgains/losses,fixed20/top810 andposteriorcertainty patterns. Truth onlyafterfitting. Publicqueryrecordsretain queryidentity andsharedfirst90prefix; parentphysicalunionchargedunchanged.",
+  "solver_seed_base": 2040131502,
+  "seed_rule": "solverbase+41*index+degree;index2*bank+armindex. Auditexplicitpriorseedvalues plusknownactualH1by5120seeds;disclosecoverage limits.",
+  "budget": {
+    "max_cpu_workers": 8,
+    "aggregate_cpu_seconds": 900,
+    "wall_seconds": 180,
+    "new_LPs": 5120,
+    "new_analytic_zero_witnesses": 128,
+    "lp_wall_seconds": 1.0,
+    "gpu_seconds": 0
+  },
+  "budget_scope": "Hashchecks, trustednoisyrecordreconstructionandindependentaudit,sealingall64records,all128rationalcostconstructions/LPgrids/newproofs+128oldselectedproofs,pairedendpointsandexport. Toygatesoutsidechargedrun;publicreplaysseparate. No retry/extension/reducedcohort.",
+  "query_accounting": {
+    "new_source_draws": 0,
+    "new_noisy_queries": 0,
+    "new_clean_oracle_queries": 0,
+    "parent_physical_noisy_union": 2073600,
+    "parent_each_deployment_queries": 1244160,
+    "parent_shared_first_query90": 414720,
+    "official_noisy_label_sequence": 14687319,
+    "declared_combined_source_ledger": 2414270
+  },
+  "performance": "Only3possibletriplelabel multiplicitynormalizers, giving6unordered denominatorpairclasses; accumulateexactint64numerators in bins then combinewith Fractions. Independentauditor usesperpairrowdictionaryaccumulation orliteralrational loops,benchmarkparity onunrelatedtoysbeforefreeze. Eightpersistentworkers; no fullstudyspeedclaimfromtoy.",
+  "gates": "ExactBayesposterior versusenumeratedchannel for all729triples/alltruthdigits;querypermutation/digitpermutation;onehot/noiselesslimit paircounts;missingmaskhandling;singlequeryaffinepairscoreidentity;densebin/dictionary/literalFraction equivalence;overflowbounds;exactroundhalfevenboundary;trustedpreparationcorrespondence onsyntheticlabels;allprimaryunresolved/regression boundaries;proofmutationgates. No cohortposteriorcosts beforefreeze.",
+  "interpretation": "Scoring, knownnoise-model assumptions andoptimal-solution tieeffects change together; no causal-isolation claim. Uniformindependentdigitposterior assumptions can be wrong for structuredboards. Suppliedknownchannel is privilegedmodelknowledge,not estimateddetectoraccuracy. BPAdamWoutside scope,notrerun andfirstintables.",
+  "review": "Rootproposalandsource reviewbeforefreezeandcohortposteriorcalculations."
+}

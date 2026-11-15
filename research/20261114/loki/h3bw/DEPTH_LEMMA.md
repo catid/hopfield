@@ -1,0 +1,9 @@
+# Redundant depth normalization
+
+A separating tree for a nonempty candidate set S may contain a query for which only one label is possible. Delete that query and keep its reachable child; this cannot increase any path length or weighted cost. In a tree without such queries, each edge on a candidate's path removes at least one other candidate. The path therefore has at most |S|-1 edges. Every feasible tree has an equivalent or cheaper separating tree with depth at most |S|-1.
+
+The compiler enumerates only nonconstant binary partitions and uses strictly positive weights. Any expected-cost optimum in its allowed tree class already has this property. Thus replacing a state's remaining depth d by min(d, |S|-1) removes no allowed nonconstant tree, changes neither feasibility nor weighted optimum, and leaves the lexicographically first optimal query and all chosen child policies unchanged. Apply this at every recursive state, not just at the root. Child proof keys bind the normalized child depth; the requested root budget remains recorded separately as depth_limit.
+
+This normalization is a representation and compute optimization. It does not increase the actual scientific query allowance. At used_MAP=m, the proposed handoff depth remains 8-m, with at most eight total actual calls. Baseline terminal trees retain requested depth four. Cache identities retain the requested depth even when two requested depths normalize to the same effective state.
+
+The gate compares normalized and unchanged reference enumeration on fixed synthetic catalogs at every requested depth 1 through 8, checking feasibility, exact weighted costs, root lexicographic choices and every candidate's full chosen query path. Independent certificate auditing reconstructs all alternatives and normalized child keys. Caps remain technical incompleteness, not infeasibility.

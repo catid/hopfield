@@ -2,6 +2,10 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Observable conflict masks recover 130/256 versus 71/256 random; the absolute recovery target fails](../research/20261114/foureyes/REPORT-conflict-mask.md)
+- [Fresh posterior-label confirmation recovers 61/64 graphs versus 51/64 with hard decoding and 64/64 with more boards](../research/20261114/ripper/REPORT-posterior-fresh-confirm.md)
+- [Posterior scoring recovers 63/64 on the examined repeated-query cohort](../research/20261114/ripper/REPORT-posterior-query-labels.md)
+- [Exact deeper question trees finish all 4,096 cases and save 2.14% of total paid queries](../research/20261114/loki/h3bw/REPORT.md)
 - [Actual BP-first maze cascade preserves source success and saves 37.03% complete answer cost](../research/20261114/work/REPORT.md#h2bn-the-actual-bp-first-geometry-cascade-preserves-source-success-and-saves-3703-complete-answer-cost)
 - [Partial masks: 256/256 graphs at 90% corruption-location recall, with supplied perfect precision](../research/20261114/foureyes/REPORT-partial-mask-recall.md)
 - [Raw-count quantization control recovers 49/64 versus 50/64, failing both improvement targets](../research/20261114/ripper/REPORT-raw-count-quantization.md)

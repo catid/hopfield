@@ -1,0 +1,150 @@
+{
+  "status": "passed",
+  "study_masks_scores_or_LPs_read": false,
+  "math_cases": 18,
+  "integral_fractional_scalar_dense_sparse_parity": true,
+  "digit_and_vertex_score_permutation": true,
+  "stable_index_ties": true,
+  "random_mask_replay": true,
+  "zero_exposure_cost_identity": true,
+  "invalid_inputs_rejected": 9,
+  "positive_objective_certificate": {
+    "certified": true,
+    "reason": "exact_scaled_integer_primal_dual",
+    "integral": true,
+    "primal_objective_twice": 4,
+    "dual_objective_twice": 4,
+    "maximum_dual_reconstruction_error": 0.0,
+    "primal_rounding_used": false,
+    "dual_scale": 2
+  },
+  "fractional_triangle_certificate": true,
+  "certificate_mutations_rejected": 3,
+  "primary_boundaries": [
+    {
+      "detector_exact": {
+        "lower": 200,
+        "upper": 200,
+        "required": 200,
+        "total": 256,
+        "decision": "supported"
+      },
+      "advantage_over_random": {
+        "lower": 32,
+        "upper": 32,
+        "required": 32,
+        "total": 256,
+        "decision": "supported"
+      }
+    },
+    {
+      "detector_exact": {
+        "lower": 199,
+        "upper": 199,
+        "required": 200,
+        "total": 256,
+        "decision": "falsified"
+      },
+      "advantage_over_random": {
+        "lower": 31,
+        "upper": 31,
+        "required": 32,
+        "total": 256,
+        "decision": "falsified"
+      }
+    },
+    {
+      "detector_exact": {
+        "lower": 199,
+        "upper": 200,
+        "required": 200,
+        "total": 256,
+        "decision": "inconclusive"
+      },
+      "advantage_over_random": {
+        "lower": 31,
+        "upper": 32,
+        "required": 32,
+        "total": 256,
+        "decision": "inconclusive"
+      }
+    },
+    {
+      "detector_exact": {
+        "lower": 200,
+        "upper": 200,
+        "required": 200,
+        "total": 256,
+        "decision": "supported"
+      },
+      "advantage_over_random": {
+        "lower": 31,
+        "upper": 32,
+        "required": 32,
+        "total": 256,
+        "decision": "inconclusive"
+      }
+    },
+    {
+      "detector_exact": {
+        "lower": 0,
+        "upper": 256,
+        "required": 200,
+        "total": 256,
+        "decision": "inconclusive"
+      },
+      "advantage_over_random": {
+        "lower": -256,
+        "upper": 256,
+        "required": 32,
+        "total": 256,
+        "decision": "inconclusive"
+      }
+    },
+    {
+      "detector_exact": {
+        "lower": 256,
+        "upper": 256,
+        "required": 200,
+        "total": 256,
+        "decision": "supported"
+      },
+      "advantage_over_random": {
+        "lower": 0,
+        "upper": 0,
+        "required": 32,
+        "total": 256,
+        "decision": "falsified"
+      }
+    }
+  ],
+  "lifecycle": {
+    "missing_fits_rejected": true,
+    "early_audit_rejected": true,
+    "all512_sealed": true,
+    "overwrite_rejected": true,
+    "post_seal_mutation_rejected": true
+  },
+  "score_timings_seconds": {
+    "sparse_scores": 0.0009164250222966075,
+    "dense_scores": 0.0030014380463398993
+  },
+  "selected_implementation": "sparse_scores",
+  "performance_scope": "Unrelated600x81 degree8 fixture only; complete experiment not timed.",
+  "source_sha256": {
+    "research/20261114/foureyes/preflight_corruption_censor.py": "2c6a76148c6e22cd9ffbd0efce8fc7b36aef3d9c86e22d1bac64b9e8044dffd2",
+    "research/20261114/foureyes/corruption_censor.py": "3a28d049d66f72f80e10c637caf490d3738368edda391c8b8f9fb36ebc2879eb",
+    "research/20261114/foureyes/corruption_censor_math.py": "7e8c654c9b8c069a5f6e388d377e708379d928128aab9a074ae97caebd0f6471",
+    "research/20261114/foureyes/audit_corruption_censor.py": "64ea03542f68fdbe6d44e51ddc5440aad92568b103e4fdd6740afd3027d55a4a",
+    "research/20261114/foureyes/audit_objective_gap.py": "f38bd2848130c30e02cfbb12fae41c8b4687c4634d2ff9947db9e109b102050a",
+    "research/20261114/ripper/degree_prior_solver.py": "2af92a5d4326e74813f514291a7a76e6ac92778335e1dd76ffbb01f83d474c43",
+    "research/20261114/ripper/degree_prior_math.py": "5a3ad2c21f59dfe0d2de40065385d484e171c0f854c49c649e868ce5a98a1f8e",
+    "research/20261114/ripper/audit_degree_prior.py": "179feb9815c787a5381d1924ccb0ac41af49e103222503f5ff988dc13559f55b",
+    "research/20261114/foureyes/conflict_mask_math.py": "428fde145a7b57aff8418b919828d826041b12f83cfcbfcfd79858bc99844b4f",
+    "research/20261114/foureyes/conflict_mask.py": "e8e8f71a76a45d6498cb4aebe31b899b77047672243a38807b658feb7424db86",
+    "research/20261114/foureyes/audit_conflict_mask.py": "abc0042ce3055e32044d386e8720d3ec1ec855247c3cb7b2f109178355daa744",
+    "research/20261114/foureyes/preflight_conflict_mask.py": "02462fa6f5c3717754e23e8c7eeefeae79b8ceca0fdf57d4b1eaa91c98742c4b"
+  },
+  "seed_audit_sha256": "1b090c6a89f75bf5cfe2ec1050ad952478a30041ff2b8809874a094bd8ec6012",
+  "gate_wall_seconds": 0.23593284201342613
+}

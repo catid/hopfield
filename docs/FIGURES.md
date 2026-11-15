@@ -4,6 +4,10 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Observable conflict masks and location precision | [All512 fits, seals and exact certificates](../results/research/foureyes/conflict_mask/) | [plot_conflict_mask.py](../scripts/plot_conflict_mask.py) |
+| Fresh posterior-label confirmation at equal query cost | [All three fresh arms and exact certificates](../results/research/ripper/posterior_fresh_confirm/) | [plot_posterior_fresh_confirm.py](../scripts/plot_posterior_fresh_confirm.py) |
+| Posterior scoring on examined repeated-query banks | [All posterior scores, refits and proofs](../results/research/ripper/posterior_query_labels/) | [plot_posterior_query_labels.py](../scripts/plot_posterior_query_labels.py) |
+| Deeper exact question trees complete within budget | [Full query ledger and compact proof evidence](../results/research/loki/h3bw/) | [plot_public.py](../research/20261114/loki/h3bw/plot_public.py) |
 | Actual maze routing and complete answer costs | [All outcomes, paired costs and routed states](../results/research/work/bp-first-geometry-cascade/) | [plot_bp_first_geometry.py](../research/20261114/work/plot_bp_first_geometry.py) |
 | Partial corruption masks with supplied perfect precision | [All thinning draws, masks and certificates](../results/research/foureyes/partial_mask_recall/) | [plot_partial_mask_recall.py](../scripts/plot_partial_mask_recall.py) |
 | Raw counts versus rounded rates on repeated labels | [Complete refits and paired outcomes](../results/research/ripper/raw_count_quantization/) | [plot_raw_count_quantization.py](../scripts/plot_raw_count_quantization.py) |

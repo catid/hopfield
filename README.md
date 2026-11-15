@@ -36,13 +36,15 @@ Keep one queen in each row and column while proposing moves. With identical fitt
 
 Each family uses a complete N12 training universe and 4,096 fresh N13 inputs, with 20 chains and three search seeds. These are two fixed families with a supplied permutation prior. [Matched-time replication and controls](research/20261114/loki/h3ad/REPORT.md) · [Question-selection experiments and retained failures](docs/RESEARCH_DETAILS.md#a-search-prior-makes-the-same-learned-energy-much-more-useful)
 
-## More boards can beat cleaner labels
+## Keep uncertainty in repeated labels
 
-![Equal query budget: more independent boards outperform repeated labels](assets/figures/repeat_query_tradeoff.png)
+![Fresh equal-budget comparison: posterior scores recover 61 graphs versus 51 with hard decoding](assets/figures/posterior_fresh_confirm.png)
 
-At 7.5% independent label noise, **270 boards queried once recover 64/64 graphs**, versus **50/64** from 90 boards queried three times. Both arms spend 19,440 noisy cell queries per bank. Majority decoding lowers observed label error to **1.148%**, but both graph-recovery targets fail. The degree selector receives no Sudoku geometry or supplied degree twenty. [Fresh paired study and complete query accounting](research/20261114/ripper/REPORT-repeat-query-tradeoff.md)
+At 7.5% independent label noise, **posterior scoring recovers 61/64 fresh graphs**, versus **51/64** when repeated labels are reduced to a single hard decision. Both query 90 boards three times. Spending the same budget on **270 boards once recovers 64/64**. Each arm uses 19,440 noisy cell queries per bank; all degrees are inferred without supplying Sudoku geometry or degree twenty.
 
-A separate fresh confirmation also recovers **64/64 from 270 rows**, versus 58/64 from their 180-row prefixes. Counting and exact LP certificates expose the difference between detecting structure and recovering the right graph. [Confirmation](research/20261114/ripper/REPORT-fixed-270-confirm.md) · [Objective, rounding and acquisition controls](docs/RESEARCH_DETAILS.md#sudoku-from-simple-counts)
+Keeping all three labels closes much of the gap, but uses the **known noise channel and a uniform per-cell digit prior**. Both frozen targets pass exactly at their boundaries: at least 61 recoveries and at most three losses versus single-query sampling. [Fresh confirmation and every failure](research/20261114/ripper/REPORT-posterior-fresh-confirm.md)
+
+The original hard-decoder study recovered 50/64 versus 64/64 from more boards. Posterior scoring then reached 63/64 on those examined inputs before the fresh confirmation above. [Original negative result](research/20261114/ripper/REPORT-repeat-query-tradeoff.md) · [Examined-cohort intervention](research/20261114/ripper/REPORT-posterior-query-labels.md)
 
 ## What known corruption locations buy
 
@@ -51,6 +53,8 @@ A separate fresh confirmation also recovers **64/64 from 270 rows**, versus 58/6
 Discard observations involving known-corrupted cells, then fit the original inferred degree. Revealing **90% of the actual corruption locations recovers 256/256 graphs**, versus **129/256** from the original noisy counts. The sole prospective target of at least 245 recoveries passes. At 50% recall, the diagnostic arm recovers 251/256.
 
 These are the same examined 600-row synthetic-family banks. **Mask precision is supplied and perfect; no detector is trained.** At 90% recall, none of the raw never-equal supports is exact, but every degree-constrained LP recovers truth. This establishes a specific use of privileged supervision, with no new puzzle-solving claim. [Partial-mask experiment and full evidence](research/20261114/foureyes/REPORT-partial-mask-recall.md) · [Complete-mask control](research/20261114/foureyes/REPORT-corruption-censor.md)
+
+A follow-up observable conflict detector recovers **130/256**, versus **71/256** for random masks. It beats the random control but fails its absolute 200/256 target, leaving a substantial gap to supplied locations. [Detector test and limitations](research/20261114/foureyes/REPORT-conflict-mask.md)
 
 ## Faster inference
 

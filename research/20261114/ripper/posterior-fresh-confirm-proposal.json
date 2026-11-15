@@ -1,0 +1,77 @@
+{
+  "id": "H1ca-posterior-fresh-confirm",
+  "status": "prospective_design_before_fresh_source_mask_noise_or_LP_draws",
+  "hypothesis": "On64freshpaired banks, fixed triple90 posterior scoring recovers at least61/64 exact graphs and loses to original single270 inference on at most3/64 banks, assessed separately.",
+  "scope": "Fresh64-bank confirmation after examined H1bz63/64posterior result. All3arms retained: originalsingle270,harddecodedtriple90,fixedposteriortriple90. Freshness relative to declared combinedRipper/H4ak ledger throughH1bw; later H1bx/by/bz reuseddata and added noIDs. No universalreliability or puzzle-solvingclaim.",
+  "banks": 64,
+  "rows": 270,
+  "queried_cells_per_row": 72,
+  "prior_combined_excluded_ids": 2414270,
+  "prior_ripper_ledger_ids": 2177845,
+  "pool_size": 3831994,
+  "eligible_rows": 1417724,
+  "source": "Each270-row bank sampled withoutreplacement fromeligibleofficial pool; acrossbankrepeats retained. Sealall64sourceIDarrays thenall64full270masks beforeselectedCSVlabels. Parentledger is unionofH1bwexcluded IDs and its17,177selectednewIDs;no outcome-based selection/reseed/retry. Preserveunrelated/reservedpuzzlework.",
+  "mask_law": "Exactly three90-row GF(9) affine-line-complement cycles with independent cell/line permutations. Single270 uses all270 rows; triple90 uses literal first90 masks for all3 label queries. Per-cell exposure240 single versus80 unique triple cells times3queries; pair coqueries213 single versus71 decoded triple. All masks sealed before selected labels.",
+  "noise": "Unchanged nominal7.5% IID cell noise, exact binary64 threshold0x1.3333333333333p-4. First query uses one270x81 uniform array followed by one offsets1..8 array. Extra queries each use an independent90x81 uniform/offset stream. Triple90 shares literal first-query90 prefix with single270. Independent bank/stream seeds are fixed, not statistical proof of PRNG independence. Actual53bituniform event probability is ceil(threshold*2^53)/2^53.",
+  "inference": "Originalsingle270 andhardtriple90 useunchangedroundhalf-even Laplacerates ofobservedequalities; posteriortriple90 usesfrozenH1bz expected-ratecost. Eacharmfullfreshdegree1..40LPs,analyticzero,exactcurvature1..39lowerdegreeties;no true20degree/810edgecount/geometrygiven. Literal fractional selectedfailure;anyuncertifiedrequiredgrid unresolved;all192outputsretained.",
+  "primary": {
+    "posterior_exact": {
+      "required": 61,
+      "total": 64,
+      "decision": "LowerSposterior,upperSposterior+Uposterior;supportlower>=61,falsifyupper<61,otherwiseinconclusive."
+    },
+    "loss_vs_single": {
+      "maximum": 3,
+      "total": 64,
+      "definition": "Loss iforiginalsingle270exact andposteriortriple90notexact. Lowerknownsingleexact/knownposteriorfailure;upperallpairspossiblysingleexact/posteriornonexactincludingunresolved. Supportupper<=3,falsifylower>3,otherwiseinconclusive."
+    },
+    "separate_targets": true
+  },
+  "controls": "All3arms executedfresh. Originalsingle270 isprimarypairedcontrol; hardtriple90 providesprespecifiedpairedgains/losses diagnostic,notanadditionalprimarytest. Do notpoolpriorH1bzcohort into freshdenominators. Bothtriplemethodsreceivethesame3noisyqueryrecords andsamefirst90boards.",
+  "diagnostics": "All3armexact/nonexact/fractional/unresolved outcomes,degrees/ties,fixed20/top810;posteriorvsingle andposteriorvshardpairedgains/losses;realizedraw/decodednoise,posteriorcertainty patterns,fullsharedqueryaccounting. Allregressionsretained. Truthusedonlyafterfitting. No endpointchosenafterseeingharddecoderimprovement.",
+  "seeds": {
+    "source": 202613400000,
+    "balanced_mask": 202613410000,
+    "noise": 202613420000,
+    "repeat1": 202613430000,
+    "repeat2": 202613440000,
+    "solver_base": 2041131502
+  },
+  "seed_rule": "Stream seed=base+bank0..63. Grid index=3*bank+arm index0 single270,1 hard_triple90,2 posterior_triple90. Solver seed=base+41*index+degree. Audit all historical explicit seed-valued fields plus expanded64-bank H1bv/H1bw streams and actual H1bv/H1bw/H1by/H1bz solver seeds. Other formula coverage limited; distinct seeds do not prove PRNG independence.",
+  "budget": {
+    "new_LPs": 7680,
+    "analytic_zero_witnesses": 192,
+    "max_cpu_workers": 8,
+    "aggregate_cpu_seconds": 900,
+    "wall_seconds": 180,
+    "lp_wall_seconds": 1.0,
+    "gpu_seconds": 0,
+    "new_noisy_cell_queries": 2073600,
+    "clean_oracle_unique_cell_queries_cap": 1399680
+  },
+  "budget_scope": "FreshID/masksealing,selectedCSVmaterialization/sourceaudit,rawquerygeneration,sealedrecords,all192newgrids,independentrationalcost/proof/decoder/source/noise/endpoints/accountingaudits,export. Registration/toygatesoutsidechargedrun;publicationreplayseparate.900CPU/180wallcaps,noextensions/retries/filtereddenominators.",
+  "execution_optimization": "Reuse batchedmasks,eightpersistentbankworkers,andfrozenexactposteriorbinning. Generate noisyqueryrecords once perbank for all3arms. Synthetic3armparity and accounting beforefreeze;no newperformanceclaimunlessmeasured.",
+  "query_accounting": {
+    "full_physical_noisy_union": 2073600,
+    "physical_queries_per_bank": 32400,
+    "each_arm_deployment_all64": 1244160,
+    "single_triple_shared_first_query90_all64": 414720,
+    "shared_between_two_triple_methods": 1244160,
+    "extra_repeat_queries_all64": 829440,
+    "interpretation": "Single270uses270*72 queries; eachtriplemethoduses90*72*3. Bothtriplemethods reuse exactlythesamequeryrecords; theirunionisone19440-querydeploymentperbank. Physical3armunion=(270+2*90)*72*64=2073600,not3standalonecosts.",
+    "source_instances": 17280,
+    "clean_materialized_cell_instances": 1399680,
+    "clean_unique_oracle_formula": "81*newuniqueofficialIDs,withcrossbankcleanrepeatsandallpassesreused.",
+    "official_noisy_label_sequence_before": 14687319,
+    "official_noisy_label_sequence_after_full_run": 16760919
+  },
+  "synthetic_gate": "Independentmask/exposure/first90nesting;exactfreshnoiseandqueryrecordreconstruction;sameharddecode;frozenposteriormathhashparityandexact independentrates;all3armindex/solverpartition;conservativerecoveryandpairedlossboundariesincludingunresolved;fullquerysetunionwith(querypass,row,cell) identity;completequeriedlabelsubstitution;sourceledgerseedbindings. No cohortdraws or LPpilot.",
+  "interpretation": "Prospectivefreshcohort testoffixedposterior operatingpoint followingexamined-data success. Knownnoise-modelprior explicitlysupplied;notlearnednoiseestimation orcausalisolation. BPAdamWoutside structuralinference scope,notrerun andfirstintables.",
+  "arms": [
+    "single270",
+    "hard_triple90",
+    "posterior_triple90"
+  ],
+  "posterior": "Exactly frozenH1bz score atknownnominalp3/40 and uniformindependent percellprior. For3querylabels, w_d=296^n_d*3^(3-n_d); pairdotnormalizedmarginals,exact rational sum;costround_half_even(1e6*(sum+1)/(joint+2)). Reuse unchangedposterior_query_math.py. Explicitpriorcanbemisspecifiedforstructuredboards;originalnoise remainsbinary64threshold. No posteriorparametersorroundingscale tuned.",
+  "hard_decoder": "For each observed cell, if any label appears at least twice, return that majority; if all3 labels differ, return first query. Fixed no-feedback rule preserves every digit permutation, but gives first query temporal precedence on ties. Missing cells remain-1; clean labels/noise outcomes never select masks or arms."
+}

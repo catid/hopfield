@@ -1,0 +1,63 @@
+{
+  "status": "passed",
+  "host": "ripper",
+  "scope": "Only unrelated synthetic labels; no cohort scores or observations read.",
+  "exact_posterior_truth_label_cases": 6561,
+  "query_permutation": true,
+  "adjacent_digit_swaps": 8,
+  "single_query_pair_cases": 81,
+  "onehot_limit": true,
+  "half_even_boundaries": true,
+  "aggregation_fixtures": [
+    {
+      "queries": 1,
+      "rows": 17,
+      "cells": 9,
+      "exact_parity": true
+    },
+    {
+      "queries": 3,
+      "rows": 17,
+      "cells": 9,
+      "exact_parity": true
+    },
+    {
+      "queries": 3,
+      "rows": 90,
+      "cells": 81,
+      "exact_parity": true
+    }
+  ],
+  "full_90x81_toy_timings": {
+    "binned": {
+      "samples_wall_seconds": [
+        0.026532623975072056,
+        0.02677346603013575,
+        0.026403831026982516
+      ],
+      "median_wall_seconds": 0.026532623975072056
+    },
+    "dictionary": {
+      "samples_wall_seconds": [
+        0.19265762198483571,
+        0.1838944850023836,
+        0.18434053601231426
+      ],
+      "median_wall_seconds": 0.18434053601231426
+    },
+    "literal_fraction": {
+      "samples_wall_seconds": [
+        0.35978439496830106,
+        0.3585568809648976,
+        0.3605863979901187
+      ],
+      "median_wall_seconds": 0.35978439496830106
+    }
+  },
+  "int64_bound": 181602266608990080,
+  "maximum_int64": 9223372036854775807,
+  "source_sha256": {
+    "check_posterior_query_math.py": "8065d0fe2f2c2586d3ab4b180584b8d90f2408ec71d695e226b8ea118591bdaf",
+    "posterior_query_math.py": "e9dc113e5403b07884dd7c35dceb9d1efacd4f3d0a5781db65ea975e8da1f059"
+  }
+}

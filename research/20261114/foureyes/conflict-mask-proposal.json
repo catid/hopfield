@@ -1,0 +1,33 @@
+{
+  "hypothesis_id": "H4av",
+  "status": "prospective_design_only_before_detector_masks_scores_or_new_LPs",
+  "motivation": "H4at/H4au recover all examined graphs from complete or partial known corruption locations, but those masks have privileged perfect precision. Test a concrete observable detector using the original fitted graph and observed digit conflicts, with a matched random-mask control.",
+  "scope": "All256 examined H4an600-row banks and their original selected-degree LP outputs, paired with all original noisy observations. No source/label/noise draws or puzzle solving. This design is adaptive to prior published findings but produces no new cohort scores before freeze.",
+  "supplied_prior": "The known per-row corruption count9 is supplied to both detector and random control. Neither receives the actual locations, hot-cell set, clean digits, offsets or true graph. The fitted original graph and inferred degree are inherited inputs, not an independent training split.",
+  "detector": "For each observed row and cell i, compute s_ri=sum_{j!=i} primal_twice_ij * I(noisy_ri=noisy_rj), from the original H4an selected LP primal. Preserve literal half-integral weights. Flag exactly9 cells with largest integer score; use increasing cell index for exact ties. No iterative refit, threshold adaptation, truth-based ranking, or selection by previous recovery outcome.",
+  "random_control": "Independently select9 cells uniformly without replacement per row using one prospectively reserved PCG64 stream per bank. Keep the same noisy observations, fixed degree, number of censored locations per row and downstream estimator. This controls a fixed mask size, not per-cell marginal frequency or pair exposure; those differences remain possible mechanisms.",
+  "scoring": "In each arm retain a pair observation only if neither cell is flagged; use its raw retained equality count and the same exact common-degree LP at the original inferred degree. No exposure normalization, smoothing or imputation. Zero-exposure pairs remain at cost0. Fitted graph may be fractional; preserve exact certificates and classify selected fractional outputs as resolved failures.",
+  "primary": {
+    "detector_exact": "Detector recovers at least200/256 graphs. Lower=exact, upper=exact+unresolved; support lower>=200, falsify upper<200, otherwise inconclusive.",
+    "advantage_over_random": "At least32 additional exact graphs versus the matched random mask. Exact-count difference bounds are detector_exact-(random_exact+random_unresolved) and detector_exact+detector_unresolved-random_exact. Support lower>=32, falsify upper<32, otherwise inconclusive. All256 pairs retained; separate from the absolute recovery endpoint."
+  },
+  "controls": "Recheck all256 original selected-degree certificates and their129/256 recovery. H4at complete known masks256/256 and H4au partial perfectly precise masks remain inherited privileged references, not newly fitted controls. BP AdamW explicitly outside this source intervention, not rerun and first in tables.",
+  "diagnostics": "After all512 fits are sealed, join actual corruption locations only to report detector/random true positives, false positives, per-bank precision/recall, per-cell exposure and zero-count-support errors. Evaluate true graphs and paired gains/losses only after fitting. These labels never enter masks or score construction. Report all wrong, fractional, uncertified or unresolved cases; no filtering by starting-graph quality.",
+  "interpretation": "An observable one-pass scoring heuristic with supplied corruption count, examined inputs and same-data fitted graph. It does not establish fresh generalization, independence between mask and source noise, detector calibration, oracle-optimality, or usefulness for arbitrary noise laws. The random control does not isolate every exposure/dependence mechanism.",
+  "seed_assignment": "The exact768 scalar random-control and solver seeds are fixed here before any cohort masks/scores. Preflight checks known explicit frozen seed fields and expands actual H4at/H4au solver ranges; disjoint namespace does not prove independent pseudorandom streams.",
+  "budget": {
+    "new_LPs": 512,
+    "workers": 8,
+    "aggregate_cpu_seconds": 600,
+    "wall_seconds": 120,
+    "gpu_seconds": 0,
+    "no_extensions": true
+  },
+  "gates": "Independent scalar/vector conflict scores, integral/fractional inputs, exact ties,9distinct flagged indices, random-mask replay, masking boundaries, certificate mutations, all resolved/unresolved primary boundaries. Benchmark unrelated fixtures before freezing the chosen implementation.",
+  "review": "Design and full source review required before freeze and any cohort mask/score inspection. This proposal authorizes no experiment execution yet.",
+  "random_seed_base": 2120200000,
+  "random_seed_rule": "PCG64(random_seed_base + bank_index), bank0..255; sequential choice(81,9,replace=False) per row0..599.",
+  "solver_seed_base": 2120231702,
+  "solver_seed_rule": "solver_seed_base + 2*bank_index + arm_index; bank0..255, detector0/random1.",
+  "budget_scope": "Hash checks, all detector/control masks and scores,512 LPs, complete-fit sealing, inherited and new audits, and public export. Preflight and later publication replay separate. Whole-run budget or provenance failure remains incomplete."
+}

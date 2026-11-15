@@ -30,6 +30,10 @@ Revealing only **90%** of actual corruption locations still recovers **256/256**
 
 ![Recovery with incomplete, perfectly precise masks](../assets/figures/partial-mask-recall.png)
 
+An observable conflict heuristic then recovers **130/256**, compared with **129/256** from the original counts and **71/256** under random nine-cell masks. Its absolute 200/256 target fails; the separate 32-graph advantage over random passes with a net gain of 59. Detector precision and recall are 42.32%, versus 11.12% random. All 512 fits are sealed before actual-mask diagnostics. [Full detector test, fractional outputs and exact certificates](../research/20261114/foureyes/REPORT-conflict-mask.md)
+
+![Observable conflict masks versus random and privileged controls](../assets/figures/conflict-mask.png)
+
 **Spend the same label budget on more cells per board:** querying 72 cells on 200 boards recovers **32/32 noisy Sudoku graphs**, versus **6/32** from 32 cells on 450 boards. Both cost 14,400 labels per bank. This fresh paired experiment changes both pair coverage and the number of independent boards; it does not isolate either as the sole cause. [Frozen targets, query accounting and controls](../research/20261114/ripper/REPORT-coverage-tradeoff.md)
 
 ![Same label budget: broader observation per board recovers more exact graphs](../assets/figures/coverage_tradeoff.png)
@@ -53,6 +57,12 @@ At **7.5% independent noise**, a fresh confirmation recovers **64/64 graphs from
 Removing cost quantization subsequently gives **49/64**, versus 50/64 for rounded costs, with five gains and six losses. Both improvement and regression targets fail; changes among tied optima prevent attributing individual outcomes solely to rounding. [Raw-count control and all proofs](../research/20261114/ripper/REPORT-raw-count-quantization.md)
 
 An earlier repeated-graph stopping rule recovers 32/32 but needs 281.25 rows on average, missing its separate ≤270-row target. Its stopping costs are evaluated on physically acquired 360-row prefixes. [Stopping experiment and budget limit](../research/20261114/ripper/REPORT-stability-stopping.md)
+
+**Retaining uncertainty improves repeated-label recovery.** Given the known 7.5% corruption channel and a uniform per-cell digit prior, posterior expected-equality scores recover **63/64** on the examined repeated-query banks, versus 50/64 for the hard decoder: fourteen gains and one loss. This changes the estimator without acquiring more observations. [Examined-cohort intervention and exact arithmetic](../research/20261114/ripper/REPORT-posterior-query-labels.md)
+
+On a new 64-bank cohort, the fixed posterior method recovers **61/64**, hard decoding **51/64**, and single-query sampling of more boards **64/64**, all at equal label cost. Both preregistered posterior targets pass exactly at their boundaries; banks 6, 7 and 57 remain failures. The three arms retain all 7,680 LP certificates. This is graph recovery with supplied noise-law knowledge, not a new puzzle-solving result. [Fresh confirmation, exclusions and complete ledger](../research/20261114/ripper/REPORT-posterior-fresh-confirm.md)
+
+![Fresh posterior-label confirmation](../assets/figures/posterior_fresh_confirm.png)
 
 ## Cycle cuts solve fresh dense mazes
 
@@ -131,3 +141,11 @@ The original campaign measured **99.996689% Sudoku accuracy** across three full 
 Baselines are explicitly **published results**. The paper's H200 **“1,000×” speed claim is not independently established** by our Blackwell experiments. [Reproduction evidence and limits](../REPRODUCTION.md) · [Paper coverage](../docs/PAPER_COVERAGE.md)
 
 Negative results remain public: learned certificates can accept invalid boards, better energy rankings can worsen solving, and more training can damage a fixed transformation pipeline. [All hypotheses and outcomes](../results/README.md) · [Expanded research history](../docs/RESEARCH_TOUR.md)
+
+## Deeper exact question trees finish within budget
+
+On the same examined 4,096 matched-prior cases, recomputing admissible Huffman bounds inline lets the deeper policy finish within its frozen caps. It uses **10,133 paid queries versus 10,355**, saving **2.1439%** and passing the sole 2% target by fourteen calls. All **4,083 exact identifications and thirteen failures** are preserved. The result is about paid query count, not elapsed-time speed or fresh generalization.
+
+![Total paid-query saving with all failures retained](../results/research/loki/h3bw/inline-bound-total-cost.png)
+
+Every repeated bound merge is charged; the run takes 299.93 seconds wall and 262.09 seconds aggregate CPU. A separate full archive audit checks every tree, bound, pruning decision, canonical reuse and counterfactual exact flag. Git contains portable ledgers, compact evidence and proof hashes; full optimality replay requires the separately retained archive. Earlier state-capped attempts remain incomplete. [Complete result and audit boundary](../research/20261114/loki/h3bw/REPORT.md) · [Earlier capped attempt](../research/20261114/loki/h3bv/REPORT.md)

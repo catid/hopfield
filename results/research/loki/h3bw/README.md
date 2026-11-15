@@ -1,0 +1,3 @@
+# H3bw: the full 2% total-call target is supported
+
+[Full report](../../../../research/20261114/loki/h3bw/REPORT.md). All 4,096 examined archived cases complete: 10,133 new paid calls versus 10,355, saving 222 / 2.143892%. The frozen target is at most 10,147. All 4,083 exact outcomes and 13 failures remain. Every actual label is reacquired; no prefix continuation or free archived answers. H3bu/H3bv stay incomplete. Full external-archive auditing verifies every tree/bound/reuse/counterfactual decision and paid query; proof payloads remain outside Git with exact identities and audit receipt public. Portable checkout verification has explicit proof-replay limits. This is the same examined cohort, not independent confirmation.
