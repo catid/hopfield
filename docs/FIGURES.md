@@ -4,6 +4,11 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Fresh 180×180 confirmation of the compositional maze policy | [All paired outcomes and endpoint decisions](../results/research/work/cap-transfer-summary.json) | [plot_cap_transfer.py](../research/20261114/work/plot_cap_transfer.py) |
+| Equal-degree thresholds under concentrated Sudoku corruption | [All thresholds and graph outcomes](../results/research/foureyes/regularity_gap/) | [plot_regularity_gap.py](../scripts/plot_regularity_gap.py) |
+| Short-prefix noisy Sudoku recovery failure | [Exact proofs and query accounting](../results/research/ripper/prefix_rate.json) | [plot_prefix_rate.py](../scripts/plot_prefix_rate.py) |
+| Intermediate observation-budget recovery | [Nested-prefix outcomes](../results/research/ripper/intermediate_rate.json) | [plot_intermediate_rate.py](../scripts/plot_intermediate_rate.py) |
+| Fixed queen-rule complexity prior | [Posterior weights and target capacities](../results/research/loki/h3au/) | [plot_public.py](../research/20261114/loki/h3au/plot_public.py) |
 | Larger maze move limit repairs source failures | [Full source intervention](../results/research/work/large-cycle-cut-summary.json) | [plot_large_cycle_cut.py](../research/20261114/work/plot_large_cycle_cut.py) |
 | Smoothed-rate recovery with supplied degree | [Certified recovery exports](../results/research/ripper/laplace_rate.json) | [plot_laplace_rate.py](../scripts/plot_laplace_rate.py) |
 | Exact finite-population rule-recovery reliability | [Exact fractions and distributions](../results/research/loki/h3as/) | [plot_public.py](../research/20261114/loki/h3as/plot_public.py) |

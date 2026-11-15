@@ -2,6 +2,10 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Fresh larger maze confirmation: 4,096/4,096 solves; two targets pass and minimum-gain target remains inconclusive](../research/20261114/work/REPORT.md#h2ax-fresh-180180-cap-confirmation-supports-safety-and-bp-noninferiority-the-minimum-gain-target-remains-inconclusive)
+- [Equal-degree count thresholds repair all sixteen new concentrated-noise graphs](../research/20261114/foureyes/REPORT-regularity-gap.md)
+- [Noisy Sudoku recovery fails at 600 observations, then succeeds at 900 on fixed streams](../research/20261114/ripper/REPORT-prefix-rate.md) · [Intermediate-prefix follow-up](../research/20261114/ripper/REPORT-intermediate-rate.md)
+- [A fixed complexity prior repairs seven queen banks but preserves a failed eighth](../research/20261114/loki/h3au/REPORT.md)
 - [Larger maze moves rescue all 28 source failures with zero regressions](../research/20261114/work/REPORT.md#h2aw-raising-the-chain-limit-rescues-all-remaining-180180-source-failures)
 - [Smoothed equality rates plus degree 20 recover all 32 fixed noisy Sudoku graphs without supplied noise probabilities](../research/20261114/ripper/REPORT-laplace-rate.md)
 - [Exact sixteen-label recovery probabilities under the narrow queen-rule vocabulary](../research/20261114/loki/h3as/REPORT.md)
@@ -61,6 +65,18 @@ Replacing supplied noise probabilities with a fixed **Laplace-smoothed equality 
 Under the supplied 56-model queen vocabulary, exact finite-population analysis gives sixteen-label unique-recovery failure probabilities of **6.94×10⁻¹³ and 8.91×10⁻¹⁰** for the two fixed families. The consistency control has the same recovery event. Expanding that vocabulary to 1,541 models causes every one of the eight fixed-bank likelihood selections to add a spurious orbit; only **2/8** retain at least 95% valid-input capacity. All remain safe. These paired studies expose how strongly recovery depends on the supplied model class. [Exact acquisition reliability](../research/20261114/loki/h3as/REPORT.md) · [Vocabulary sensitivity](../research/20261114/loki/h3at/REPORT.md)
 
 ![A broader vocabulary produces spurious exclusions](research/loki/h3at/expanded-vocabulary.png)
+
+An **equal-degree prior** repairs count-threshold selection under sixteen new concentrated-noise profiles: **16/16 exact Sudoku graphs**, versus 6/16 for the original gap heuristic on identical observations. The selector receives neither degree twenty nor edge count 810; it minimizes degree dispersion across all nonempty count cuts at or below the median. Every group's unique regular candidate is the true graph. This is new randomization on reused clean sources, with no solver-accuracy claim. [All 2,408 candidate thresholds, controls and raw audit](../research/20261114/foureyes/REPORT-regularity-gap.md)
+
+![Equal-degree thresholds repair concentrated-noise graph recovery](../assets/figures/regularity-gap.png)
+
+The smoothed-rate degree-20 LP has a sharp observed data boundary: **7/32 exact graphs at 600 rows**, **25/32 at 750**, and **32/32 at 900, 1,000 and 1,110**. The frozen 600-row target fails; the subsequently frozen 900-row target passes. These are adaptively chosen nested prefixes of the same streams, with exact optimality certificates and future-data exclusion checks. They do not establish a population sample-complexity threshold. [Retained short-prefix failure](../research/20261114/ripper/REPORT-prefix-rate.md) · [Intermediate recovery study and full query costs](../research/20261114/ripper/REPORT-intermediate-rate.md)
+
+![Noisy recovery across nested observation budgets](../assets/figures/intermediate-rate.png)
+
+A declared **uniform-over-rule-count prior** repairs seven of eight expanded-vocabulary queen fits. The eighth still adds a false rule and has 89.66% capacity, falsifying the all-bank 95% target. The exact posterior odds explain why the fixed prior is insufficient there; no prior coefficient is retuned. [Full posterior scores, imported control and complete target census](../research/20261114/loki/h3au/REPORT.md)
+
+The fixed compositional maze policy then solves **4,096/4,096 new 180×180 inputs**, requiring success from all three models. BP AdamW solves 4,072; the 256-cell policy solves 4,077. Both new ordering variants give the same joint successes. Zero regressions support the ≤0.1% regression endpoint, and BP noninferiority passes. The prespecified ≥0.2-point gain remains **inconclusive**: 19 paired gains and zero losses yield bounds [0.189482, 0.723442] points. All 73,728 states are independently audited. [Fresh protocol, controls and full cost accounting](../research/20261114/work/REPORT.md#h2ax-fresh-180180-cap-confirmation-supports-safety-and-bp-noninferiority-the-minimum-gain-target-remains-inconclusive)
 
 - [Coefficient-magnitude weights on fixed likelihood supports](../research/20261114/foureyes/REPORT-canonical-weights.md)
 - [Convex digit-invariant PL: accuracy, incorrect stops and exact soundness proofs](../research/20261114/foureyes/REPORT-canonical-study.md)

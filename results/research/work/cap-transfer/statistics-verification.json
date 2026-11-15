@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "protocol_sha256": "05a2dcef3a56a24c3521797b45b0ed2ee6fa73d549363fa9efc6003a3d0226f7",
+  "paired_rows_sha256": "e7721e0ce76b6ffadcea258eed9ed27b65dcf98693fefcd30e3f303138bc674b",
+  "audit_sha256": "1a5f37678ab4dc7673b2ddd5e643cacf2d5bf5fb0fff83dd68b42f76be1d054c",
+  "source_sha256": "9a5878d098762289682da9ee495407301d6eea8547e93bdde33368fab283cde5",
+  "n_independent_inputs": 4096,
+  "endpoints": [
+    {
+      "name": "lexical512_gain_vs_lexical256",
+      "gains": 19,
+      "losses": 0,
+      "net_lower_pp": 0.18948241531755713,
+      "net_upper_pp": 0.7234422845910838,
+      "decision": "inconclusive",
+      "maximum_error_pp": 2.477601457329115e-12
+    },
+    {
+      "name": "lexical512_regression_probability",
+      "gains": 19,
+      "losses": 0,
+      "net_lower_pp": 0.18948241531755713,
+      "net_upper_pp": 0.7234422845910838,
+      "regression_lower_pp": 0.0,
+      "regression_upper_pp": 0.07311125564754341,
+      "decision": "supported",
+      "maximum_error_pp": 2.477601457329115e-12
+    },
+    {
+      "name": "lexical512_noninferiority_vs_bp",
+      "gains": 24,
+      "losses": 0,
+      "net_lower_pp": 0.28575130695368545,
+      "net_upper_pp": 0.8705817779033058,
+      "decision": "supported",
+      "maximum_error_pp": 2.6393331964413846e-12
+    }
+  ],
+  "scope": "SciPy beta quantiles independently reconstruct separately one-sided95 pairednetbounds usingCPmarginalalpha.025. Three endpoints decided separately: paired-net gain/BP NI use CP marginal alpha.025; standalone regression uses alpha.05. No simultaneous claim."
+}

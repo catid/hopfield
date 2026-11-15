@@ -14,7 +14,7 @@ Connect cells that **never share a digit in training solutions**, assign weight 
 
 This headline uses ten base solutions with 99 stored Sudoku-symmetry variants each. **Augmentation supplies task knowledge.** A separate control recovers the same constraint graph from 100 distinct unaugmented solutions in all six samples. The estimator receives no cell geometry. [Budget, uncertainty and stopping proof](research/20261114/foureyes/REPORT-budget.md) · [Raw-data control](research/20261114/ripper/REPORT-raw-count.md)
 
-## Cycle cuts solve all 8,192 fresh mazes
+## Cycle cuts solve fresh mazes at two sizes
 
 ![Fresh maze transfer: paired failures and full prefix costs](results/research/work/cycle-transfer/fresh-cycle-transfer.png)
 
@@ -22,7 +22,9 @@ On **8,192 new 120×120 loopy mazes**, adding cycle cuts solves every input acro
 
 The intervention supplies an explicit graph prior and permits moves that increase the learned energy. Ranking cuts by learned energy ties with choosing them lexicographically, so these results show **no benefit from learned cut ordering**. All 122,880 final states across five arms were independently audited. This is complete success on one fresh finite cohort, not a universal guarantee. [Frozen comparison, uncertainty and full costs](research/20261114/work/REPORT.md#h2au-fixed-cycle-cut-policies-solve-the-fresh-8192-input-cohort)
 
-The larger **180×180** test initially reaches **4,068/4,096** joint solves; its noninferiority comparison with BP AdamW is inconclusive. Raising the move limit from 256 to 512 cells then rescues **all 28 remaining failures**, with zero regressions, on that same cohort. This identifies a search restriction; the repair still needs fresh confirmation. [Larger-maze boundary](research/20261114/work/REPORT.md#h2av-the-cycle-cut-gain-transfers-to-180180-but-bp-noninferiority-is-inconclusive) · [Controlled size-cap repair](research/20261114/work/REPORT.md#h2aw-raising-the-chain-limit-rescues-all-remaining-180180-source-failures)
+At **180×180**, raising the move limit from 256 to 512 cells repairs all 28 failures on an earlier cohort, then solves **4,096/4,096 fresh mazes across all three models**. On the fresh cohort, BP AdamW solves 4,072 and the 256-cell policy solves 4,077. The regression and BP noninferiority targets pass; the prespecified ≥0.2-point gain remains **inconclusive**, with a lower bound of 0.189 points. Choosing cuts by energy again gives the same final success count. [Fresh confirmation, separate endpoint decisions and costs](research/20261114/work/REPORT.md#h2ax-fresh-180180-cap-confirmation-supports-safety-and-bp-noninferiority-the-minimum-gain-target-remains-inconclusive)
+
+![Fresh 180×180 maze confirmation and separate frozen endpoints](results/research/work/cap-transfer/fresh-cap-transfer.png)
 
 ## A search prior makes the same learned energy much more useful
 

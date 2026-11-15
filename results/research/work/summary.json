@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-15T07:19:40.770858+00:00",
+  "updated_utc": "2026-11-15T07:30:10.916246+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
   "status": "Ongoing research; H2aj prospective factorial complete with independent state and trace audits",
   "host": "work",
-  "jobs": 1840,
-  "run_arm_rows": 5487,
-  "model_maze_evaluations": 1212290,
+  "jobs": 1888,
+  "run_arm_rows": 5775,
+  "model_maze_evaluations": 1286018,
   "hypotheses": [
     {
       "campaign": "discovery",
@@ -980,6 +980,51 @@
         "at_least_14_rescues": "met",
         "zero_regressions": "met"
       }
+    },
+    {
+      "campaign": "cap_transfer",
+      "hypothesis": "H2ax lexical512 netgain>=.2pp vs lexical256, lossprobability<=.1pp, netNI>=-.1pp vs BP; separately",
+      "outcome": {
+        "lexical512_gain_vs_lexical256": {
+          "gains": 19,
+          "losses": 0,
+          "observed_net_gain_pp": 0.4638671875,
+          "separately_one_sided95_net_lower_pp": 0.18948241531507953,
+          "separately_one_sided95_net_upper_pp": 0.7234422845909987,
+          "kind": "paired_net",
+          "candidate": "lexical512_from_lexical256",
+          "control": "lexical256",
+          "minimum_net_gain_pp": 0.2,
+          "decision": "inconclusive"
+        },
+        "lexical512_regression_probability": {
+          "gains": 19,
+          "losses": 0,
+          "observed_net_gain_pp": 0.4638671875,
+          "separately_one_sided95_net_lower_pp": 0.18948241531507953,
+          "separately_one_sided95_net_upper_pp": 0.7234422845909987,
+          "kind": "paired_loss_probability",
+          "candidate": "lexical512_from_lexical256",
+          "control": "lexical256",
+          "maximum_regression_probability_pp": 0.1,
+          "one_sided95_regression_lower_pp": 0.0,
+          "one_sided95_regression_upper_pp": 0.07311125564754345,
+          "decision": "supported",
+          "observed_zero_regressions": true
+        },
+        "lexical512_noninferiority_vs_bp": {
+          "gains": 24,
+          "losses": 0,
+          "observed_net_gain_pp": 0.5859375,
+          "separately_one_sided95_net_lower_pp": 0.2857513069510461,
+          "separately_one_sided95_net_upper_pp": 0.8705817779030782,
+          "kind": "paired_net",
+          "candidate": "lexical512_from_lexical256",
+          "control": "pl",
+          "minimum_net_gain_pp": -0.1,
+          "decision": "supported"
+        }
+      }
     }
   ],
   "run_tables": [
@@ -1010,7 +1055,8 @@
     "connectivity-transfer-180-runs.csv",
     "safe-block-transfer-runs.csv",
     "cycle-transfer-runs.csv",
-    "cycle-transfer-180-runs.csv"
+    "cycle-transfer-180-runs.csv",
+    "cap-transfer-runs.csv"
   ],
   "protocols": {
     "protocol": {
@@ -1228,6 +1274,10 @@
       "frozen_utc": "2026-11-15T07:11:52.895066+00:00",
       "hypothesis": "H2aw",
       "status": "completed"
+    },
+    "cap-transfer-protocol": {
+      "sha256": "05a2dcef3a56a24c3521797b45b0ed2ee6fa73d549363fa9efc6003a3d0226f7",
+      "frozen_utc": "2026-11-15T07:23:28.098542+00:00"
     }
   },
   "audit_sha256": {
@@ -1268,7 +1318,8 @@
     "artifacts/research/20261114/work/lexical_cycle_cut/audit.json": "99bcfc41516fe9a98aeda05822847a084b24877ca191e24eb4a741d0a73f6288",
     "artifacts/research/20261114/work/cycle_transfer/audit.json": "c21cf08f08b42e48e15b728d1633d3f02b34c01232d5de08a829c28be3978f5e",
     "artifacts/research/20261114/work/cycle_transfer_180/audit.json": "8f8cf670140afcbc2ad3878cee6d4f6e642e6b56034ad9ffbc9de9372487e663",
-    "artifacts/research/20261114/work/large_cycle_cut/audit.json": "a8c3db51c92833291fb38c3631e967cf05c7b741b33cf54b2e259bbbcd456bab"
+    "artifacts/research/20261114/work/large_cycle_cut/audit.json": "a8c3db51c92833291fb38c3631e967cf05c7b741b33cf54b2e259bbbcd456bab",
+    "artifacts/research/20261114/work/cap_transfer/audit.json": "1a5f37678ab4dc7673b2ddd5e643cacf2d5bf5fb0fff83dd68b42f76be1d054c"
   },
   "model_sha256": {
     "0": {
@@ -1301,8 +1352,8 @@
     "case": "cyclic-failure-classification.json",
     "scope": "The same cyclic maze fails for model seeds1and2; these are true invalid fixed points or a period-two timeout, not hidden/nonfinite failures."
   },
-  "primary_jobs": 1834,
-  "primary_model_maze_evaluations": 1212158,
+  "primary_jobs": 1882,
+  "primary_model_maze_evaluations": 1285886,
   "descriptive_jobs": 6,
   "descriptive_model_maze_evaluations": 132,
   "selected_case_interventions": {
@@ -1851,5 +1902,68 @@
     },
     "new_optimizer_updates": 0,
     "scope": "Source intervention from identical archived H2av lexical256 outputs for both policies. Chain cap256 to512; no other candidate geometry or native rule change. All28 joint/84 model failures rescued by each policy, zero regressions; all84 new moves lower original energy. Earlier positive cuts remain in the reused prefix. Zero fresh generalization evidence."
+  },
+  "cap_transfer": {
+    "fresh_inputs": 4096,
+    "new_model_maze_arm_evaluations": 73728,
+    "new_optimizer_updates": 0,
+    "joint_success": {
+      "pl": 4072,
+      "old_binary": 3928,
+      "connectivity_veto": 4026,
+      "lexical256": 4077,
+      "lexical512_from_lexical256": 4096,
+      "energy512_from_lexical256": 4096
+    },
+    "primary_endpoints": {
+      "lexical512_gain_vs_lexical256": {
+        "gains": 19,
+        "losses": 0,
+        "observed_net_gain_pp": 0.4638671875,
+        "separately_one_sided95_net_lower_pp": 0.18948241531507953,
+        "separately_one_sided95_net_upper_pp": 0.7234422845909987,
+        "kind": "paired_net",
+        "candidate": "lexical512_from_lexical256",
+        "control": "lexical256",
+        "minimum_net_gain_pp": 0.2,
+        "decision": "inconclusive"
+      },
+      "lexical512_regression_probability": {
+        "gains": 19,
+        "losses": 0,
+        "observed_net_gain_pp": 0.4638671875,
+        "separately_one_sided95_net_lower_pp": 0.18948241531507953,
+        "separately_one_sided95_net_upper_pp": 0.7234422845909987,
+        "kind": "paired_loss_probability",
+        "candidate": "lexical512_from_lexical256",
+        "control": "lexical256",
+        "maximum_regression_probability_pp": 0.1,
+        "one_sided95_regression_lower_pp": 0.0,
+        "one_sided95_regression_upper_pp": 0.07311125564754345,
+        "decision": "supported",
+        "observed_zero_regressions": true
+      },
+      "lexical512_noninferiority_vs_bp": {
+        "gains": 24,
+        "losses": 0,
+        "observed_net_gain_pp": 0.5859375,
+        "separately_one_sided95_net_lower_pp": 0.2857513069510461,
+        "separately_one_sided95_net_upper_pp": 0.8705817779030782,
+        "kind": "paired_net",
+        "candidate": "lexical512_from_lexical256",
+        "control": "pl",
+        "minimum_net_gain_pp": -0.1,
+        "decision": "supported"
+      }
+    },
+    "energy_vs_lexical_descriptive": {
+      "gains": 0,
+      "losses": 0,
+      "observed_net_gain_pp": 0.0,
+      "separately_one_sided95_net_lower_pp": -0.09001999122098098,
+      "separately_one_sided95_net_upper_pp": 0.09001999122098098
+    },
+    "full_independent_final_state_checks": 73728,
+    "scope": "Fresh180loop20, threefixedmodels,sixfixedpolicies. Explicitenergy-increasingcyclegraphprior. Three primary decisions reported separately. Both512 continuations start from lexical256; energy-ranking comparison descriptive. Finitecohortresult,notuniversalguarantee."
   }
 }

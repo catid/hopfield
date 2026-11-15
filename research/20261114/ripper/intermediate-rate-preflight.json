@@ -1,0 +1,169 @@
+{
+  "status": "validated_synthetic_only",
+  "literal_pair_updates": 300000,
+  "prefix_rows": [
+    750,
+    900,
+    1000
+  ],
+  "snapshot_nonaliasing": true,
+  "suffix_substitution_gates": [
+    {
+      "rows": 750,
+      "status": "validated",
+      "changed_suffix_rows": 360,
+      "original_suffix_sha256": "b000ec281c33c09d230830aba91c033c3a10a57df304401349a8e8374852aa63",
+      "substituted_suffix_sha256": "e9e224ccd7becce2bada73ff99eebb295ae4e733ec82ef3913555d7a574aa9b4"
+    },
+    {
+      "rows": 900,
+      "status": "validated",
+      "changed_suffix_rows": 210,
+      "original_suffix_sha256": "81f34b1d16acbf4a9ba8c7e62e2d05b65a76c30662bb99c54d59525520d16cd6",
+      "substituted_suffix_sha256": "495b4c348484cfdfbf4597ca7c2690522392d324455f502322856db22cb0b7fe"
+    },
+    {
+      "rows": 1000,
+      "status": "validated",
+      "changed_suffix_rows": 110,
+      "original_suffix_sha256": "ad8b579be4186360e35df88a91e211fb43096ee527a3781769355fb652007bc2",
+      "substituted_suffix_sha256": "2a54a6f7b4bc3e3b010f43745a36fa157a3f761794af11ac681fd171c7298f42"
+    }
+  ],
+  "rational_rounding_states_checked": 44912,
+  "rate_cost_states_checked": 1114,
+  "unexposed_and_both_tie_parities_checked": true,
+  "rejected_mutated_certificates_or_primals": 12,
+  "cases": [
+    {
+      "name": "triangle_fractional",
+      "certificate": {
+        "certified": true,
+        "reason": "exact_scaled_integer_primal_dual",
+        "integral": false,
+        "primal_objective_twice": 3,
+        "dual_objective_twice": 3,
+        "maximum_dual_reconstruction_error": 0.0,
+        "primal_rounding_used": false,
+        "dual_scale": 2
+      },
+      "solver": {
+        "highs_version": "1.12.0",
+        "numpy": "2.3.4",
+        "solver_options": {
+          "threads": 1,
+          "parallel": "off",
+          "solver": "simplex",
+          "simplex_strategy": 1,
+          "presolve": "off",
+          "time_limit": 1.0,
+          "random_seed": 2026111502,
+          "primal_feasibility_tolerance": 1e-09,
+          "dual_feasibility_tolerance": 1e-09,
+          "log_to_console": false,
+          "log_file": "/tmp/intermediate-rate-synthetic-f06jxll9/triangle_fractional.log"
+        },
+        "solver_status": "Optimal",
+        "solver_call_status": "HighsStatus.kOk",
+        "solver_optimal": true,
+        "value_valid": true,
+        "dual_valid": true,
+        "solver_objective": 1.5,
+        "simplex_iterations": 3,
+        "solver_wall_s": 0.00017013499746099114,
+        "solver_cpu_s": 0.00016867300000000807
+      }
+    },
+    {
+      "name": "square_integral",
+      "certificate": {
+        "certified": true,
+        "reason": "exact_scaled_integer_primal_dual",
+        "integral": true,
+        "primal_objective_twice": 6,
+        "dual_objective_twice": 6,
+        "maximum_dual_reconstruction_error": 0.0,
+        "primal_rounding_used": false,
+        "dual_scale": 2
+      },
+      "solver": {
+        "highs_version": "1.12.0",
+        "numpy": "2.3.4",
+        "solver_options": {
+          "threads": 1,
+          "parallel": "off",
+          "solver": "simplex",
+          "simplex_strategy": 1,
+          "presolve": "off",
+          "time_limit": 1.0,
+          "random_seed": 2026111503,
+          "primal_feasibility_tolerance": 1e-09,
+          "dual_feasibility_tolerance": 1e-09,
+          "log_to_console": false,
+          "log_file": "/tmp/intermediate-rate-synthetic-f06jxll9/square_integral.log"
+        },
+        "solver_status": "Optimal",
+        "solver_call_status": "HighsStatus.kOk",
+        "solver_optimal": true,
+        "value_valid": true,
+        "dual_valid": true,
+        "solver_objective": 3.0,
+        "simplex_iterations": 2,
+        "solver_wall_s": 7.64149590395391e-05,
+        "solver_cpu_s": 7.609400000002653e-05
+      }
+    },
+    {
+      "name": "square_tied",
+      "certificate": {
+        "certified": true,
+        "reason": "exact_scaled_integer_primal_dual",
+        "integral": true,
+        "primal_objective_twice": 0,
+        "dual_objective_twice": 0,
+        "maximum_dual_reconstruction_error": 0.0,
+        "primal_rounding_used": false,
+        "dual_scale": 2
+      },
+      "solver": {
+        "highs_version": "1.12.0",
+        "numpy": "2.3.4",
+        "solver_options": {
+          "threads": 1,
+          "parallel": "off",
+          "solver": "simplex",
+          "simplex_strategy": 1,
+          "presolve": "off",
+          "time_limit": 1.0,
+          "random_seed": 2026111504,
+          "primal_feasibility_tolerance": 1e-09,
+          "dual_feasibility_tolerance": 1e-09,
+          "log_to_console": false,
+          "log_file": "/tmp/intermediate-rate-synthetic-f06jxll9/square_tied.log"
+        },
+        "solver_status": "Optimal",
+        "solver_call_status": "HighsStatus.kOk",
+        "solver_optimal": true,
+        "value_valid": true,
+        "dual_valid": true,
+        "solver_objective": 0.0,
+        "simplex_iterations": 3,
+        "solver_wall_s": 7.321900920942426e-05,
+        "solver_cpu_s": 7.313999999997156e-05
+      }
+    }
+  ],
+  "wall_s": 0.22942352801328525,
+  "code_sha256": {
+    "prefix_rate_features.py": "1f529cfcdc07cacc7eacfe1232b3a94a78a4949b387da14953efb4574731d45a",
+    "intermediate_rate_study.py": "307734e8fa7aa5ab145df3367fc805f1c3efc38a32f46f2fc8a37a0e0ad7dc8a",
+    "audit_intermediate_rate.py": "09143b7ef6cfe5668401d0c9e74a4bb0bc0923c51f757072f3889535068ababe",
+    "preflight_intermediate_rate.py": "5ebb076663ae889eeddd9fe9039d79e3c28e39f619c67357d6ed16d6eaceb22c",
+    "run_intermediate_rate.py": "9cb887f449440b6c94c7f3221bd64674fee714be28ad519ffa568654d615b02b",
+    "laplace_rate_math.py": "439d2edecdf2e518f243b27cc20676a24e561e4260217876230edf6023939093",
+    "audit_laplace_rate.py": "378e36af14e26bfb53d7f876d123cc24b3151273d6bb2a015a3f2b5e0dfeddcd",
+    "degree_prior_math.py": "5a3ad2c21f59dfe0d2de40065385d484e171c0f854c49c649e868ce5a98a1f8e",
+    "degree_prior_solver.py": "2af92a5d4326e74813f514291a7a76e6ac92778335e1dd76ffbb01f83d474c43",
+    "audit_degree_prior.py": "179feb9815c787a5381d1924ccb0ac41af49e103222503f5ff988dc13559f55b"
+  }
+}
