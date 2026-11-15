@@ -1,0 +1,59 @@
+{
+  "status": "passed",
+  "model_input_routes": 12288,
+  "accepted_source_lp_states": 12285,
+  "actual_subset_replays": 3,
+  "source_full_batch_parity_states": 96,
+  "all_routed_case_margins": [
+    {
+      "model_seed": 0,
+      "bp_margin": 4.699142590979534,
+      "lp_margin": 0.04311792386828282,
+      "dual_certificate": true
+    },
+    {
+      "model_seed": 1,
+      "bp_margin": 4.7848970059485945,
+      "lp_margin": 0.0429310782686746,
+      "dual_certificate": true
+    },
+    {
+      "model_seed": 2,
+      "bp_margin": 4.8703501873337744,
+      "lp_margin": 0.04225261625835709,
+      "dual_certificate": true
+    }
+  ],
+  "joint_success": {
+    "bp_adamw_native": 3917,
+    "lp96": 4095,
+    "lp96_bp_fallback": 4096,
+    "lp96_bp_dual_certificate": 4096
+  },
+  "model_success": {
+    "bp_adamw_native": 11778,
+    "lp96": 12285,
+    "lp96_bp_fallback": 12288,
+    "lp96_bp_dual_certificate": 12288
+  },
+  "execution_decision": "supported",
+  "cross_certificate_decision": "supported",
+  "maximum_margin_error": 2.6645352591003757e-15,
+  "maximum_energy_error": 2.3283064365386963e-10,
+  "source_sha256": "003735b42fc55e54b903eed26abc45079729d15d657ceafaf38a9123bb2deee4",
+  "manifest_sha256": "48b9b00233391993863fe1fc49e17ed60997e2340774edd8cf3e82ddc92c7fcb",
+  "seconds": 0.35494138504145667,
+  "scope": "All published routing fields,96 full-batch parity states,3 actual subset replays, all direct BP/LP certificates and source outcome mapping. Accepted-state correctness inherits the complete hash-bound H2bh audit. No new accuracy evidence or global/shortestness claim from local certificates.",
+  "blocked_imports": [
+    "torch",
+    "scipy",
+    "study",
+    "certificate_fallback_study",
+    "certificate_fallback_policy",
+    "audit_certificate_fallback",
+    "larger_relaxation",
+    "confirmation96_study",
+    "binary_coordinate",
+    "cram"
+  ]
+}

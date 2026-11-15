@@ -1,0 +1,151 @@
+{
+  "status": "passed",
+  "host": "ripper",
+  "scope": "Synthetic labels/masks/histograms/objectivevectors only; no real H1bs histograms or shuffle outcomes read.",
+  "incidence": {
+    "field_elements": 9,
+    "field_associativity_distributivity_triples": 729,
+    "lines": 90,
+    "points": 81,
+    "omitted_cells_per_line": 9,
+    "lines_per_point": 10,
+    "lines_per_distinct_pair": 1,
+    "one_cycle_pair_coqueries": 71,
+    "two_cycle_pair_coqueries": 142,
+    "two_cycle_queries_per_cell": 160,
+    "independent_replay_seeds": 3
+  },
+  "independent_histogram_and_shuffle_replay": true,
+  "canonical_input_order_invariance": true,
+  "exact_multiset_permutation_law_cases": [
+    {
+      "multiset": [
+        0,
+        0,
+        1
+      ],
+      "distinct_arrangements": 3,
+      "multiplicity_per_arrangement": 2
+    },
+    {
+      "multiset": [
+        0,
+        1,
+        2,
+        2
+      ],
+      "distinct_arrangements": 12,
+      "multiplicity_per_arrangement": 2
+    }
+  ],
+  "all_counts_match_independent_reference": true,
+  "independent_arm_shuffles_not_deduplicated": true,
+  "complete_label_gates": [
+    {
+      "arm": "uniform",
+      "status": "passed",
+      "all_queried_labels_changed": true,
+      "missing_sentinels_unchanged": true,
+      "masks_and_joint_counts_unchanged": true,
+      "equality_counts_changed": true,
+      "original_sha256": "e03827163cbb1fe4d70ac147b562facdaea8b3717756003a09d859b268cb68a8",
+      "changed_sha256": "0cbfb7d2c884b5144d272354e78e2feeff1ea7807b83b82d6d139bd01f2972c3"
+    },
+    {
+      "arm": "balanced",
+      "status": "passed",
+      "all_queried_labels_changed": true,
+      "missing_sentinels_unchanged": true,
+      "masks_and_joint_counts_unchanged": true,
+      "equality_counts_changed": true,
+      "original_sha256": "792d44d97c6c384ef323c650d07c2c018909607271c9c43ba6aff10b7b0d4087",
+      "changed_sha256": "cf9d45fb7279b8ae64dc4c82297396c55d71b0f306859ef8fbf2048cb6dc9dbe"
+    }
+  ],
+  "query_accounting": {
+    "uniform_queries": 12960,
+    "balanced_queries": 12960,
+    "shared_synthetic_queries": 0,
+    "total_shuffled_assignments": 25920,
+    "reused_real_shared_queries": 11522,
+    "reused_real_union_queries": 14398
+  },
+  "ratio_cases": [
+    {
+      "numerator": 0,
+      "denominator": 1,
+      "all_zero_curvature": true
+    },
+    {
+      "numerator": 1,
+      "denominator": 39,
+      "all_zero_curvature": false
+    },
+    {
+      "numerator": 40,
+      "denominator": 78,
+      "all_zero_curvature": false
+    }
+  ],
+  "all_nine_ratio_comparisons_match": [
+    false,
+    false,
+    false,
+    true,
+    false,
+    false,
+    true,
+    true,
+    false
+  ],
+  "integer_beyond_binary64_compare": true,
+  "zero_denominator_and_unresolved_rules": true,
+  "endpoint_bound_cases": [
+    {
+      "lower": 29,
+      "upper": 29,
+      "required": 29,
+      "total": 32,
+      "decision": "supported"
+    },
+    {
+      "lower": 28,
+      "upper": 29,
+      "required": 29,
+      "total": 32,
+      "decision": "inconclusive"
+    },
+    {
+      "lower": 28,
+      "upper": 28,
+      "required": 29,
+      "total": 32,
+      "decision": "falsified"
+    },
+    {
+      "lower": 0,
+      "upper": 2,
+      "required": 29,
+      "total": 32,
+      "decision": "falsified"
+    }
+  ],
+  "source_sha256": {
+    "research/20261114/ripper/marginal_shuffle_study.py": "da3a0c4ecbd38ece7c5cfc126c5d9d1a698a46c5138eb7623b379845e1132562",
+    "research/20261114/ripper/audit_marginal_shuffle.py": "d3021a921a6e6dadea678f16b47d3b44b6fd103eb5a479dfa6c99d468538a224",
+    "research/20261114/ripper/preflight_marginal_shuffle.py": "3eef77f65fd1f65361a541e66b4757900b7b5b491cd397b257cb22909ad93c26",
+    "research/20261114/ripper/run_marginal_shuffle.py": "29581df4a979d7ed14f1c5c6175d950acda158340519c4418adf4138ae4d2b48",
+    "research/20261114/ripper/balanced_mask_math.py": "1e2934cd17ac2ad18e911361338e8814e9f7f0cee61e18e2910ce62329d2e7e8",
+    "research/20261114/ripper/audit_balanced_mask_math.py": "72fb176a1f8e72ed263c2a27aa0b80ab009be58a6cb1573e1218651022ca5a33",
+    "research/20261114/ripper/partial_degree_study.py": "054cb8d1c4eebda07816735d23d57213052b563cc0a924ec006e6ac965fc8013",
+    "research/20261114/ripper/audit_partial_degree.py": "f867b787e7253ea835be574ed6ffcb82ec8d1a53438aaf75895ffaf5267ddde4",
+    "research/20261114/ripper/extra_coverage_study.py": "ecad651aa4baa117e50acf3afab9b66e323834719ae959aaf7db580af3780e8a",
+    "research/20261114/ripper/audit_extra_coverage.py": "58d0d10e1974506cbca83c37fabd403de17bae46e5683eb89413fdac95982a63",
+    "research/20261114/ripper/run.py": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+    "research/20261114/ripper/degree_prior_solver.py": "2af92a5d4326e74813f514291a7a76e6ac92778335e1dd76ffbb01f83d474c43",
+    "research/20261114/ripper/degree_prior_math.py": "5a3ad2c21f59dfe0d2de40065385d484e171c0f854c49c649e868ce5a98a1f8e",
+    "research/20261114/ripper/audit_degree_prior.py": "179feb9815c787a5381d1924ccb0ac41af49e103222503f5ff988dc13559f55b",
+    "research/20261114/ripper/audit_laplace_rate.py": "378e36af14e26bfb53d7f876d123cc24b3151273d6bb2a015a3f2b5e0dfeddcd",
+    "research/20261114/ripper/laplace_rate_math.py": "439d2edecdf2e518f243b27cc20676a24e561e4260217876230edf6023939093"
+  }
+}

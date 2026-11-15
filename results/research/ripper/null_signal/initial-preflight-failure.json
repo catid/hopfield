@@ -1,0 +1,8 @@
+{
+  "stage": "synthetic_preflight_before_freeze",
+  "status": "failed_then_fixed",
+  "error": "Independent equality-count assertion failed.",
+  "cause": "Mixed advanced indexing labels[row,None,cells] produced shape(72,1), causing elementwise self-equality instead of all cell pairs.",
+  "fix": "Extract one-dimensional board first, then compare board[cells,None] against board[None,cells].",
+  "official_draws_or_outcomes_read": false
+}

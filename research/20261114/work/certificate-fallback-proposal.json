@@ -1,0 +1,56 @@
+{
+  "hypothesis_id": "H2bj",
+  "status": "design_approved_for_implementation_and_gates_then_source_review",
+  "scope": "Source diagnostic on the complete frozen H2bh cohort of 4096 inputs and three fixed models. No fresh accuracy evidence, added independent trials, model fitting or continuation past 96 rounds.",
+  "known_before_design": "H2bh has one joint LP96 failure, input4078, with three finite native-stable block-capped states. Archived BP/native solves all three. Therefore availability of a BP rescue is already known and must not be presented as a new generalization discovery.",
+  "hypotheses": [
+    {
+      "id": "H2bj_execution",
+      "claim": "An executable numerical-certificate-only LP96-to-BP fallback reproduces every required archived BP rescue while leaving accepted LP96 outputs unchanged, producing 4096/4096 source joint successes.",
+      "decision": "Support only if all full-batch source gates and all actual subset fallback boards, iterations, finite/stopped flags and logits reproduce source BP, all routed BP outputs pass their own numerical certificate, and full-cohort mapping yields4096 successes with zero losses. Any mismatch or failure falsifies the implementation claim. No accuracy confidence claim.",
+      "interpretation": "Source execution and routing verification of a known archived rescue, not new evidence of population accuracy."
+    },
+    {
+      "id": "H2bj_cross_certificate",
+      "claim": "Every actually routed BP output also satisfies the original LP single-flip certificate at tolerance-1e-6 with the same frozen shared couplings.",
+      "decision": "Support iff all routed outputs have independently reconstructed finite original LP margins>=-1e-6, correct clamps and converged shared hidden state; otherwise falsify. Report every margin and its most negative flip location. No dropping cases or retuning tolerance.",
+      "interpretation": "Tests whether the source rescue can retain LP local energy certification despite using the BP relaxation to find it. A local certificate does not certify graph validity, shortestness or global energy optimality."
+    }
+  ],
+  "routing": {
+    "unit": "Per model-input, no cross-model voting.",
+    "primary_accept": "LP96 hidden_good AND finite AND stopped AND NOT native_cap AND NOT block_cap AND finite minimum_original_LP_flip_margin>=-1e-6. Use numerical fields only. No reference labels, shortest distances, graph-feasibility check, outcome flags or input indices enter routing.",
+    "fallback": "For rejected LP96 cases only, run that seed's immutable BP native float32 u3/eta0.5/cap8192/check16 using the cached shared float32 couplings already produced by the LP pipeline. Return BP board with explicit BP model provenance, finite/stopped flags, own float64 original margin and original hidden certificate.",
+    "strict_secondary": "Report a separate dual-certificate acceptance flag requiring the BP board also pass the original LP margin. Do not silently claim BP output is an LP-certified answer without this check.",
+    "failure": "Retain unresolved BP numerical failures and all original source failures in the denominator. No second fallback, graph repair, extra cycle rounds, oracle routing or model refit."
+  },
+  "controls_in_table_order": [
+    "BP AdamW native, archived",
+    "LP96, archived",
+    "LP96 numerical-only routing to actual BP subset replay",
+    "Same routed output with additional original-LP certificate requirement"
+  ],
+  "mandatory_gate": "Recompute BP on the original32-input source batch containing each routed model case, using source shared couplings, then compare all boards, iterations, flags and logits to the complete original batch. Run the actual selected subset separately and retain any batching difference. Require checkpoint/dataset/output hashes and hidden-parameter identity. Both GPUs must pass their assigned source gate before aggregate decisions.",
+  "schedule": {
+    "gpu0_model_seeds": [
+      0,
+      2
+    ],
+    "gpu1_model_seeds": [
+      1
+    ],
+    "eligible_gpu_work": "Only mandatory full-batch gates and one actual fallback execution per routed model case. No throughput repetition or filler jobs."
+  },
+  "budgets": {
+    "routing_cpu_wall_seconds": 120,
+    "gpu_gate_and_fallback_worker_wall_seconds": 120,
+    "total_gpu_minutes": 4,
+    "independent_cpu_audit_wall_seconds": 120,
+    "no_extension": true
+  },
+  "performance": "Bounded diagnostic; report routing, source-gate, actual fallback and CPU return/certificate costs separately. No speed endpoint. Full LP prefix cost remains archived and cannot be subtracted from fallback accounting; these few cases do not establish service latency.",
+  "verification": "Independently reconstruct full-cohort numerical routing and final success mapping; independently recompute BP and LP original energies/margins for all routed boards using direct NumPy extended-precision factors; verify complete copied state and model provenance. Reference shortest labels are used only after outputs are sealed for evaluation. Publish all routed inputs/couplings/parameters, both source and replay boards/logits/flags and full-case audit, plus all4096 per-input and12288 per-model route rows.",
+  "publication": "All evidence stays in new certificate_fallback artifacts and certificate-fallback public directory. Zero increment to scientific totals. Preserve H2bh absolute99.9% endpoint as inconclusive. A repaired source cohort cannot upgrade that endpoint; any subsequent generalization claim needs a separately frozen fresh experiment.",
+  "implementation_failure": "If full-batch or subset parity fails, preserve all evidence and stop new execution. Mark cross-certificate study incomplete; do not interpret implementation mismatch as an algorithmic certificate failure.",
+  "cohort_guards": "Require exactly12288 model-input routing rows,4096 inputs for each seed, and the known three routed model-inputs. Empty or unexpected route cohort stops execution and is retained as a cohort mismatch; no denominator reduction."
+}

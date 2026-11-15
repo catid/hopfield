@@ -1,0 +1,47 @@
+{
+  "id": "H1bs-marginal-shuffle",
+  "status": "prospective_design_no_real_histograms_or_new_ratios_computed",
+  "scope": "All32 examined H1bq real banks and both archived mask arms, paired with independent within-cell permutations of each arm observed-label multiset. Conditional archived-real/marginal-shuffle study, not fresh real-source confirmation.",
+  "banks": 32,
+  "rows": 180,
+  "arms": [
+    "uniform",
+    "balanced"
+  ],
+  "null_law": "For each bank and arm, sort the observed labels within each cell into its canonical multiset. A separate NumPy2.3.4 default_rng(shuffle_seed+2*bank+arm_index) permutes the multiset independently for cells0..80 and assigns it to ascending observed row positions. Exact masks and empirical per-cell digit histograms are preserved; permutations across arms are independent. Within-column finite-population dependence remains; cross-cell row associations are randomized. No shared latent shuffled board across arms.",
+  "solver_seed_base": 2026271502,
+  "solver_seed_rule": "Index=2*bank+arm_index; sharedsolver offset160000+index*41+d.",
+  "statistic": "From all40 certified positive-degree LPs plus degreezero witness, kappa_d=F(d+1)+F(d-1)-2F(d) for d1..39, using exact doubled objectives. R=max(kappa)/sum(kappa). If allkappa=0 defineR=0/1. Compare realR>nullR by exact integer crossproducts; strict ties fail. No arbitrary peak threshold or graphtruth used in statistic.",
+  "primary": {
+    "required_joint_real_greater": 29,
+    "total_banks": 32,
+    "joint_rule": "Both uniform and balanced arms have realR>nullR in the same bank."
+  },
+  "decision": "Arm comparison unresolved if any required griddegree is uncertified. Jointbank succeeds iff both comparisons true; resolvedfailure iff either comparison false; otherwise unresolved. Lower=jointsuccess; upper=jointsuccess+unresolved. Supported iff lower>=29, falsified iff upper<29, else inconclusive. Runtime failure incomplete. No droppedbanks or denominator reduction.",
+  "diagnostics": "Perarm real>null counts, all ratios, shuffleselecteddegree distribution and degree20 frequency, shufflereferenceSudokugraph exactness, fixed20/top810 controls, parentreal successes/failures descriptive. Curvature sharpness is not calibrated confidence in exactgraph recovery.",
+  "inference": "Unchanged Laplace rates, fresh degree1..40 LPs fornull only, zero witness, exactcurvature1..39 lowerdegree ties. Commondegree prior/grid retained; no degree20,edge810,geometry or nullflag supplied to estimator. Recheck all2560 archivedreal proofs and2560newnull proofs without refitting real models.",
+  "parent_evidence": "Pin H1bq scientific protocol, summary, masks, models, receipts and64raw observationfile hashes across32banks before histograms. Original source/noise origin inherited from H1bq complete audits; charged rawrun independently verifies realobservations/counts and histogramprovenance. Public replay uses published histograms/seeds; rawlabel-to-histogram provenance requires rawarchive. Do not pin mutable packagingmanifest.",
+  "budget": {
+    "new_LPs": 2560,
+    "archived_LPs_rechecked": 2560,
+    "analytic_zero_witnesses_checked": 128,
+    "max_cpu_workers": 8,
+    "aggregate_cpu_seconds": 900,
+    "wall_seconds": 180,
+    "lp_wall_seconds": 1.0,
+    "gpu_seconds": 0
+  },
+  "query_accounting": {
+    "new_official_source_rows": 0,
+    "new_official_cell_queries": 0,
+    "new_clean_oracle_cells": 0,
+    "synthetic_shuffled_entry_assignments": 829440,
+    "each_shuffle_arm_entries": 414720,
+    "shared_synthetic_assignments": 0,
+    "reused_real_physical_query_union": 460721,
+    "official_noisy_label_sequence_unchanged": 10540119
+  },
+  "budget_scope": "Raw observation/hash/count/histogram provenance,32archivedmaskbundles,64shuffledarms/LPgrids, exactreal/shufflecosts/proofs/statistics, fullqueried-label substitution gates,literalaccounting andexport; syntheticpreflight andpublicationchecks separate.",
+  "interpretation": "This conditional permutation null preserves exact empirical per-cell digit histograms and masks, while randomizing cross-cell row associations. It induces within-column finite-population dependence and does not preserve row-level digit counts or calibrate confidence in exactgraph recovery. Every examinedreal bank retained irrespective of realgraphsuccess. Arm-specific shuffled entries charged separately even when realized values agree.",
+  "shuffle_seed_base": 202612700000
+}

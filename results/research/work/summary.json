@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-15T11:06:58.134363+00:00",
+  "updated_utc": "2026-11-15T11:21:36.828047+00:00",
   "title": "Maze-Hard size transfer, causal branch pruning and eta acceleration",
   "status": "Ongoing research; H2aj prospective factorial complete with independent state and trace audits",
   "host": "work",
@@ -1330,6 +1330,16 @@
       "campaign": "artifact_overlap",
       "hypothesis": "H2bi >=1.15 median paired complete research-pipeline speedup with exact scientific-archive parity and bounded memory",
       "outcome": "supported"
+    },
+    {
+      "campaign": "certificate_fallback",
+      "hypothesis": "H2bj_execution",
+      "outcome": "supported"
+    },
+    {
+      "campaign": "certificate_fallback",
+      "hypothesis": "H2bj_cross_certificate",
+      "outcome": "supported"
     }
   ],
   "run_tables": [
@@ -1651,6 +1661,12 @@
       "frozen_utc": "2026-11-15T10:52:24.412840+00:00",
       "hypothesis": "H2bi",
       "status": "completed"
+    },
+    "certificate-fallback-protocol": {
+      "sha256": "7af6b601ab0fea5d81206eb88ff0a132c7b1576300084edab01aa94658170e82",
+      "frozen_utc": "2026-11-15T11:14:42.497646+00:00",
+      "hypothesis": "H2bj",
+      "status": "completed"
     }
   },
   "audit_sha256": {
@@ -1702,7 +1718,8 @@
     "artifacts/research/20261114/work/veto_speed/audit.json": "3358adf486fd4226934be09874d7fe6dbb1cd886c93244b15781a61b21954170",
     "artifacts/research/20261114/work/loop80_continuation/audit.json": "9a95fa1b6cdfc1c4b8e9b05a23b10326a142f90434d9c08b364f79451fdfe83a",
     "artifacts/research/20261114/work/loop80_confirmation/audit.json": "bcf56c42c1696bd29f94dddec675e81820ea29a845ae976eb2c7d0febe23eb1c",
-    "artifacts/research/20261114/work/artifact_overlap/audit.json": "47cc37b529f2031adf7dca3c6e64793309d33c3532dd4ef09568a1279d529d54"
+    "artifacts/research/20261114/work/artifact_overlap/audit.json": "47cc37b529f2031adf7dca3c6e64793309d33c3532dd4ef09568a1279d529d54",
+    "artifacts/research/20261114/work/certificate_fallback/audit.json": "477f73438466cffda3ffbecf7d3d8316d7bdbec2155c8be6c8f7556801565602"
   },
   "model_sha256": {
     "0": {
@@ -2774,5 +2791,27 @@
     "source_cohort_inputs": 256,
     "source_models": 3,
     "scope": "Bounded asynchronous lossless artifact writing on frozen H2bh shard00. Four paired timings; full per-replay compute, diagnostics, copy, hash, flush and join charged; 2 threads, 2 pending tasks and 8 GiB peak RSS limit. Model/data preload and warmup are excluded from the timing endpoint but included in worker budgets. No model-inference latency, fsync durability or new accuracy claim. The original H2bh absolute 99.9% endpoint remains inconclusive."
+  },
+  "certificate_fallback": {
+    "hypothesis": "H2bj",
+    "fresh_inputs": 0,
+    "new_scientific_evaluations": 0,
+    "execution_decision": "supported",
+    "cross_certificate_decision": "supported",
+    "joint_success": {
+      "bp_adamw_native": 3917,
+      "lp96": 4095,
+      "lp96_bp_fallback": 4096,
+      "lp96_bp_dual_certificate": 4096
+    },
+    "model_success": {
+      "bp_adamw_native": 11778,
+      "lp96": 12285,
+      "lp96_bp_fallback": 12288,
+      "lp96_bp_dual_certificate": 12288
+    },
+    "accepted_lp_model_inputs": 12285,
+    "actual_routed_bp_model_inputs": 3,
+    "scope": "Complete archived H2bh cohort. The BP rescue was known; actual subset execution is verified. New finite diagnostic finds all three BP outputs satisfy the original LP local certificate. No graph/global proof follows from that certificate. Zero fresh evidence; H2bh absolute99.9% remains inconclusive."
   }
 }

@@ -1,0 +1,25 @@
+{
+  "id": "H4ap-bootstrap-consensus",
+  "status": "prospective_design_no_bootstrap_outcomes",
+  "scope": "All256 H4an600row banks,64 eachcycle81/power2/power3/cliques9. Archivedsource intervention, no new source draws/labels/corruption/puzzleinputs;8192newbootstrapresamples.129baselineexact retained.",
+  "method": "Fixedoriginalinferreddegree fromH4an; nevertruegeometry/family/degree supplied separately.32independentlyseeded600row bootstrapresamples withreplacement perbank. Atthatfixeddegree, minimize original raw equalitycounts and retain exactcertifiedscale2primalincludingfractionals. Sum32primalvotes (integers0..64), finalLPcost64-votes_twice atsamefixeddegree. No bootstrapdegreegrid, no changingrepetitions/consensusrule.",
+  "primary": {
+    "recovery": "Atleast145/256certifiedintegralexactconsensusgraphs,16morethan129baseline.",
+    "paired_loss": "Atmost8/256baseline-exact toconsensusfailure regressions, separatelydecided."
+  },
+  "unresolved": "Anyuncertifiedbootstrap orconsensus makesbankunresolved; neverzerofill/prunebootstrapvotes. Certifiedfractionalbootstrapvalid halfvotes; finalfractionalconsensusresolvedfailure. Recoverylower>=145supports,upper<145falsifies;otherwiseinconclusive. Forloss, resolvedlosses+unresolvedamongbaseline-success<=8supports;resolvedlosses>8falsifies;otherwiseinconclusive. Whole resourcefailureincomplete.",
+  "diagnostics": "Familycounts, bootstrapfractionalcounts, pairedgains/losses andallselecteddegreesdescriptive. No information-theoreticclaim orcooptimaluniqueness; inheriteddegree/commonregularitypriors remain.",
+  "counts": "All256resamplingindexarrayssealedbeforeanyLP. Precompute600x3240equalityindicators/bank andmultiply32integer multiplicityrows infloat64; allnonnegativeintegerpartials<=600exactbinary64, exactintegercastchecked; BLASthreads1beforeimports. Independentdirectresampledrowcountaudit. Toycountbenchmark measures completeweight/indicator/conversion work; commonindicesexcluded.",
+  "budget": {
+    "workers": 8,
+    "LPs": 8448,
+    "bootstrap_LPs": 8192,
+    "consensus_LPs": 256,
+    "CPU_seconds": 900,
+    "wall_seconds": 180,
+    "GPU_seconds": 0
+  },
+  "budget_scope": "Sourceprefixcounts/bootstrapconstruction/allLPs/allindependentcounts/certificates/selection/export included; prefreeze toy andpostrunpublicreplay separate.",
+  "seed_status": "Proposedbootstrap2030010000..2030018191 (32separate streams/bank) andsolver2028011502..2028019949 (33LPs/bank). Audit against frozenexplicitseedvalues beforefreeze; no outcomes yet.",
+  "review": "Ripper approved scientific design withexplicitfractional-vote/unresolved/lossboundclarifications. Implementindependenttests/countbenchmark/source-review beforefreeze."
+}

@@ -1247,3 +1247,34 @@ The [portable independent verification](../../../results/research/work/artifact-
 This implementation experiment adds **zero fresh jobs or scientific evaluations**. Totals remain **2,074 planned jobs / 1,556,222 primary evaluations**, or **2,080 included jobs / 1,556,354 evaluations**. H2bh's absolute 99.9% accuracy endpoint remains **inconclusive**. The 1.279× ratio is not multiplied by earlier geometry speedups, which used different cohorts and timed scopes. Four paired timings support the prespecified measured endpoint, with no timing confidence interval or hardware-general claim.
 
 ![H2bi improves complete research-pipeline throughput with exact archived evidence and bounded memory.](../../../results/research/work/artifact-overlap/artifact-overlap.png)
+
+### H2bj: the known BP rescue executes correctly and also passes the original LP certificate
+
+The [frozen source diagnostic](certificate-fallback-protocol.json) separates a known availability result from a new mechanistic test. H2bh already established that BP solves input4078 for all three models while LP96 reaches its cycle cap. H2bj verifies actual numerical-only routing and BP subset execution, then asks whether those BP boards also satisfy the **original LP local energy certificate**. All three do: their minimum LP flip margins are **0.043117924, 0.042931078 and 0.042252616**, well above the unchanged −1e−6 tolerance. Both the source execution endpoint and the finite cross-certificate endpoint are **supported**. A local certificate alone proves neither graph validity, shortestness nor global energy optimality.
+
+Routing examines every one of the **12,288 model-inputs** from the complete original4,096-input H2bh cohort. LP acceptance requires converged shared hidden state, finite/stopped output, no native or block cap, and a finite original LP margin at least−1e−6. No labels, shortest distances, graph checks, success flags or input identifiers enter selection. Exactly **12,285 LP outputs are retained unchanged** and **three are routed**, one for each seed at input4078. Empty or unexpected route cohorts would have stopped the experiment rather than silently changing its scope. The routing pass takes1.356seconds.
+
+| Source arm | Joint solved / 4,096 | Model-input solved / 12,288 | Evidence |
+|---|---:|---:|---|
+| BP AdamW continued PL, native | 3,917 | 11,778 | Archived whole-cohort control |
+| LP96 | 4,095 | 12,285 | Archived whole-cohort control |
+| LP96 with actual numerical-only BP fallback | 4,096 | 12,288 | 12,285 identity reuses plus three actual BP replays |
+| Same fallback, requiring both BP and LP certificates | 4,096 | 12,288 | Same boards; separate dual-certificate acceptance |
+
+Each fallback runs the immutable seed's BP native float32 solver at `u=3`, `eta=0.5`, cap8,192 and check16, using the frozen shared float32 hidden couplings. Both GPU workers first reproduce the original32-input BP batch for every assigned seed. A barrier prevents any subset execution until **all96 original-batch cases** pass. Actual singleton replays then match archived BP boards, iterations, finite/stopped flags and full logits exactly. All three cases remain in the diagnostic. Any parity or infrastructure failure would have made the cross-certificate study incomplete, rather than counting as an algorithmic certificate failure.
+
+| Fixed model seed | BP original minimum margin | LP original minimum margin on the BP board | Own BP / additional LP certificate |
+|---|---:|---:|---|
+| 0 | 4.699142591 | 0.043117924 | Pass / pass |
+| 1 | 4.784897006 | 0.042931078 | Pass / pass |
+| 2 | 4.870350187 | 0.042252616 | Pass / pass |
+
+The [independent full audit](../../../results/research/work/certificate-fallback/audit.json) rechecks all12,288 routing decisions, source hashes and unchanged-output mapping, all96 full-batch parity states, all three actual BP replays, and direct extended-precision original BP/LP energies and flip margins. It evaluates graph shortestness only after replay files and receipts are sealed. Maximum discrepancies are2.67e−15 for margins and2.33e−10 for energies. All three retained source LP boards remain finite native-stable block caps and fail graph shortestness; all three replayed BP boards pass. The audit takes **2.310seconds** and retains the minimum-flip locations and both original energies for each case.
+
+Workers finish in **2.408 and2.336seconds**, including setup, source gates, actual subset execution and diagnostics, inside their120-second limits. Actual BP solve times are0.1124–0.1169seconds per routed model case. Source-gate, gather, output-return and both-certificate costs are recorded separately; these three cases support no throughput or service-latency claim. [Live evidence](../../../results/research/work/certificate-fallback/live-progress.json) records both GPU UUIDs/PIDs, nonzero utilization and advancing gate/fallback counters. Both GPUs return idle after the bounded jobs finish.
+
+The [portable checker](../../../results/research/work/certificate-fallback/public-verification.json) passes with Torch, SciPy, study and production policy/decoder imports blocked. It verifies all published routing fields, all96 parity states, all three routed cases and both certificates, and reconstructs all4,096 joint rows and12,288 model rows. Correctness of unchanged accepted boards is inherited from the hash-bound complete H2bh audit; the public package does not claim to independently re-evaluate those12,285 boards. Run `upstream/.venv/bin/python research/20261114/work/verify_certificate_fallback_public.py results/research/work/certificate-fallback`. See [per-input rows](../../../results/research/work/certificate-fallback/per-input.csv), [per-model provenance and outcomes](../../../results/research/work/certificate-fallback/per-model-input.csv), and the [complete routed-case manifest](../../../results/research/work/certificate-fallback/public-fixtures/manifest.json). The figure is visually inspected and [two renders are byte-identical](../../../results/research/work/certificate-fallback/figure-determinism.json).
+
+This source diagnostic adds **zero fresh jobs or scientific evaluations**. Totals remain **2,074 planned jobs /1,556,222 primary evaluations**, or **2,080 included jobs /1,556,354 evaluations**. Repairing the known source failure does not upgrade H2bh's absolute99.9% result, which remains **inconclusive**. The next population test must use separately frozen fresh inputs.
+
+![H2bj verifies the known source rescue and finds positive original LP margins for all three actual BP fallback boards.](../../../results/research/work/certificate-fallback/certificate-fallback.png)

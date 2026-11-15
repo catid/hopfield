@@ -24,6 +24,8 @@ The same selector also recovers **64/64 graphs in each of four synthetic familie
 
 **Most of these failures are not ties:** the true graph has strictly higher empirical LP cost in **385/394** failed cases. For 331, a wrong integral graph is cheaper; another 54 have a cheaper fractional optimum. Only nine failures leave truth co-optimal. [Exact gap diagnosis and implications](research/20261114/foureyes/REPORT-objective-gap.md)
 
+Bootstrap voting does not repair this boundary: on the 256 examined 600-row banks, 32-bootstrap consensus reduces exact recovery from **129 to 108**, with ten gains and 31 losses. Both frozen targets fail. [Paired results, graph and exact certificates](research/20261114/foureyes/REPORT-bootstrap-consensus.md)
+
 **Spend the same label budget on more cells per board:** querying 72 cells on 200 boards recovers **32/32 noisy Sudoku graphs**, versus **6/32** from 32 cells on 450 boards. Both cost 14,400 labels per bank. This fresh paired experiment changes both pair coverage and the number of independent boards; it does not isolate either as the sole cause. [Frozen targets, query accounting and controls](research/20261114/ripper/REPORT-coverage-tradeoff.md)
 
 ![Same label budget: broader observation per board recovers more exact graphs](assets/figures/coverage_tradeoff.png)
@@ -33,6 +35,8 @@ When total pair coqueries are matched instead, dense acquisition recovers **31/3
 **Noise structure matters as well as its marginal rate.** On fresh 124-row banks, independent 5% digit corruption recovers **15/32 graphs**, versus **30/32** for bursty corruption at the same marginal rate. Matching true-edge collision probability instead restores 30/32. A separate fresh test recovers **32/32** under independent 5% noise with 248 rows, versus **12/32** on their literal 124-row prefixes. [Corruption-law control](research/20261114/ripper/REPORT-corruption-law.md) · [Doubled-data confirmation](research/20261114/ripper/REPORT-iid-row-budget.md)
 
 Balancing every pair’s exposure gives **32/32**, tying uniform masks at 5% noise. At 7.5% noise, it reaches **26/32 versus 25/32**; the prespecified four-recovery advantage fails. Equal exposure alone does not guarantee better recovery. [Balanced-mask control](research/20261114/ripper/REPORT-balanced-masks.md) · [Harder-noise test](research/20261114/ripper/REPORT-higher-noise.md)
+
+The curvature signal survives a stricter control: **all 32 real banks beat shuffled controls in both mask arms**, even when every cell’s observed digit histogram is preserved exactly. All 13 nonexact real graphs also pass this contrast, so detecting structure does not certify graph recovery. [Histogram-preserving control](research/20261114/ripper/REPORT-marginal-shuffle.md) · [Independent-label null](research/20261114/ripper/REPORT-null-signal.md)
 
 ## Cycle cuts solve fresh mazes at two sizes
 
@@ -53,6 +57,8 @@ The revised decoder also solves **4,096/4,096 fresh 180×180 mazes at 50% loop d
 At **80% loop density**, a 96-round decoder solves **4,095/4,096 fresh mazes jointly across all three models**, versus 4,020 for 48 rounds and 3,917 for BP AdamW. It gains 75 inputs over 48 rounds with zero losses, adding **3.24%** measured answer cost. The separate **99.9% reliability target remains inconclusive**: its one-sided 95% lower bound is 99.884%. The single failure is retained; BP solves it. [Fresh confirmation, all endpoint decisions and full costs](research/20261114/work/REPORT.md#h2bh-fresh96-reaches-40954096-the-absolute-999-target-remains-inconclusive) · [Earlier density limit](research/20261114/work/REPORT.md#h2be-denser-mazes-falsify-999-sufficiency-of-the-fixed-48-round-decoder) · [Archived-input intervention](research/20261114/work/REPORT.md#h2bg-more-rounds-repair-every-archived-loop80-cap-a-larger-chain-limit-changes-nothing)
 
 ![Fresh dense-maze result retains its one failure and separates accuracy from added cost](results/research/work/confirmation96/confirmation96.png)
+
+A numerical-only fallback detects that known failure and executes BP successfully for all three models; the returned boards also pass the original LP local certificate. This is an audited intervention on the same cohort, with **zero fresh accuracy samples**. [Routing, actual replays and both certificates](research/20261114/work/REPORT.md#h2bj-the-known-bp-rescue-executes-correctly-and-also-passes-the-original-lp-certificate)
 
 An exact geometry optimization makes this complete inference policy **1.33× faster** on a fixed 768-model-input replay cohort, with identical boards, counters, flags and search traces. Candidate generation alone is 4.98× faster. Both frozen speed targets pass across four balanced paired repetitions; this is a measured source-cohort speed result, with no new accuracy samples. [Correctness gates, timing scope and all pairs](research/20261114/work/REPORT.md#h2bd-exact-bridge-geometry-meets-separate-geometry-and-complete-policy-speed-targets)
 
@@ -87,6 +93,8 @@ The source-example budget matters: on a new paired cohort, **eight positives ide
 When 4,096 fresh rule-and-example cases are instead sampled from the declared prior, posterior weighting uses **422 continuation calls versus 488 for uniform (13.52% fewer)**, supporting its separate 2% target. Including the shared MAP questions, total policy cost falls only **0.63%: 10,421 → 10,355**. All policies identify 4,083/4,096 cases. These are finite cohorts within the supplied rule class. [Matched-prior test, full costs and sampling audit](research/20261114/loki/h3br/REPORT.md)
 
 Earlier failures remain explicit: posterior weighting increased actual cost on selected checkpoints, and uniform weighting's initial 2.83% saving missed its frozen 5% target. [Expected-versus-actual discrepancy](research/20261114/loki/h3bn/REPORT.md) · [Selected posterior diagnostic](research/20261114/loki/h3bo/REPORT.md) · [Retained uniform-target failure](research/20261114/loki/h3bp/REPORT.md)
+
+Switching to a question tree as soon as one fits also fails: it preserves the same 4,083 exact results but raises total paid calls from **10,355 to 10,937 (+5.62%)** on the archived cohort. Fewer preliminary questions do not necessarily mean fewer total labels. [Early-handoff test and cost decomposition](research/20261114/loki/h3bs/REPORT.md)
 
 ## Confidence weights recover answers under noisy labels
 

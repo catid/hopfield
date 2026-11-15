@@ -1,0 +1,372 @@
+{
+  "id": "H3bs-online-certified-early-handoff-total-query-cost",
+  "frozen_utc": "2026-11-15T11:22:52.626692+00:00",
+  "normalizers": {
+    "selection_path": "results/research/loki/h3at/source-selection.json",
+    "ordinary_path": "results/research/loki/h3at/source-ordinary-columns.npy",
+    "bits_path": "results/research/loki/h3at/candidate-validity-bits.npz"
+  },
+  "candidate_prior": {
+    "orbits": [
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        2,
+        11
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        3,
+        11
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        5,
+        11
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        6,
+        11
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        7,
+        9
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        7,
+        11
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        8,
+        11
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        9,
+        11
+      ],
+      [
+        10,
+        11
+      ]
+    ],
+    "models": 1541,
+    "definition": "Ordinary queens plus zero, one or two D4 leaper orbits 1<=a<b<=11. No likelihood/prior weighting or true-orbit-count restriction."
+  },
+  "archive": {
+    "sources": "results/research/loki/h3br/source-banks.json",
+    "cases": "results/research/loki/h3br/case-results.json",
+    "checkpoints": "results/research/loki/h3br/checkpoints.json",
+    "ledger": "results/research/loki/h3br/query-ledger.jsonl.gz",
+    "raw_ledger_sha256": "d5bddc73e3b956a6b54c6bdb22ae7b45e6f5a92dd06c91bca5c46d09bb971e5a",
+    "cases_count": 4096,
+    "baseline_posterior_policy_calls": 10355,
+    "baseline_exact_cases": 4083,
+    "baseline_infeasible_cases": 13
+  },
+  "hypothesis": "Certifiedearlyhandoff usesatleast2percent fewer ACTUALTOTALnewpolicy membershipcalls thanarchived4MAP+posterior-tree10355calls:100*new_calls<=98*10355, maximuminteger10147. Soleprimary counts bothnewMAPandnewtreecalls; not continuation-only.",
+  "primary": {
+    "old_policy_calls": 10355,
+    "multiplier": 100,
+    "comparator_multiplier": 98,
+    "passing_maximum": 10147,
+    "scope": "EverynewMAP/tree membershipcall acrossall4096archivedcases; no exclusions or inheritedfreeMAPlabels."
+  },
+  "source_scope": "All4096examinedH3brtruth/sourcebanks unchanged, including7previousduplicatebankcases,13baselineinfeasiblecases andallprior successes. Zero newtruth/source drawsorpositiveexamples;32768historicalpositiveappearances reused. Notindependentconfirmation. No truth/source/success filtering ornewseedselection.",
+  "routing": "At0,1,2,3,4paidMAPqueries, stopifsingleton. Otherwise onlinecertify currentcandidate-set depth4posterior-optimal tree:>16exactbinaryinformationbound;<=16unchangedH3blweightedoptimizer. If feasible, handoffimmediately andfollowtree tosingleton; otherwise takeunchangedMAPquery iffewerthan4, or stopunresolved at4. No-informativeMAP stopsunresolved. No depth/budget extension orcost-basedhandoff tuning.",
+  "weighting": "Unchangedcorrect8-positive source score C(55,k)C(M,8), allcompatible1541classmodels. Exactpositiveintegerweights proportionalreciprocalscore, depth4, lexoptimalboardties. Full73712ordinaryN13queryuniverse. MAPselectorbyteidenticalH3bm; no trueidentity,futurelabels orarchivedcheckpoints passedto routing/compilers.",
+  "compilation": "Compileonline from currentset only, afteractualpriorMAPanswers. Logcompleteproof/cacheidentity beforeanytreequery. Do notprecompilefuturetruth-conditionedarchivedcheckpoints. Cachedinputs include policy/method/candidates/weights/depth/catalogSHA/predictionsSHA/compilerSHA; immutablepredictionarray andscoretuple, sameinputs only. Information-boundproofs explicitlytyped. Everycachemisscompile andruntimegate chargedglobalbudgets.",
+  "correctness": "Terminalexactflag mustequalarchivedbaseline forEVERYcase, total4083. Restrictionlemma: pruneunreachablebranches andsuppresssingle-branchqueries fromany feasibledepth4tree toobtain adepth<=4tree foranynonemptycandidatesubset. BaselineMAPcontinuation afterahandoff followsasubset, so itsdepth4checkpointcannotbeinfeasible. Withnoearlyhandoff, identicalMAPprefixand4stepcompiler preservebaselineoutcome. No empiricalaccuracygain claim. Costcanincreaseordecrease;2percentreductionnotguaranteed.",
+  "leakage_boundary": "Archivedsourcepositives/filtersets usedasdeclaredinputs. Onlyarchivedquerymetadata (case/board/sequence/hash/policy/phase) decodedbeforeexecution, solelytoannotatealreadyselectednewqueries. Archivedanswers neverdecodedforrouting andneverusedinselect/compile. Baselinecaseoutcomes/checkpoints opened onlyafterall4096newexecutionscomplete, forcorrectnessandrestricted-treeevaluation. FullimmutablecandidatepredictionsandtrueIDavailableonlytoseparateoracle/evaluator asinthepreviousfiniteclassstudies.",
+  "charging": "AllrequiredMAPandtreeanswers reacquiredandpaid, evenwhenavailableinarchivedH3brsharedMAP/firstlex/posterior/uniformarms. Recordallmatchingpriorqueryreferences afterselection. Everyqueryfsyncedbeforeseparateoracle read and immediatehashlinkedanswer. No priorlabelcache, no freeinheritedMAPcalls. Eachcaseatmost4MAP+4tree<=8;total<=32768.",
+  "gates": "Prefreezeweightedbruteforce/depth/lex/capfixtures;constructrestrictedtreesforEVERYnonemptysubsetoffeasibletoyfixtures,verifyeverycandidateandnonincreasingdepth;onlinecompiler/cache/read-onlypredictionfixtureand17candidateinformationbound;all4096archivedcaseIDs/comparatorflags. Runtimefull1541population/scoreparity,all4096sourcefilters,durable8archivalqueryfixtures,weightedfixturesandrestrictiongate. Prefreezeandpostauditcostseparate;runtimeallcharged.",
+  "ledger": "One append-only JSONL ledger with sequence, previous-record SHA256, UTC, monotonic time, kind and data; canonical sorted compact JSON hash. Every append flushes and fsyncs before return. Query record is committed before oracle is called; next answer references query hash. Source draws and final results also retained. Never regenerate records after answers. Publish exact raw bytes or deterministic gzip with decompressed hash.",
+  "ledger_gate": {
+    "archival_query_answer_paths": [
+      [
+        "results/research/loki/h3bd/cases/case0/q0-sealed.json",
+        "results/research/loki/h3bd/cases/case0/q0-answer.json"
+      ],
+      [
+        "results/research/loki/h3bd/cases/case0/q1-sealed.json",
+        "results/research/loki/h3bd/cases/case0/q1-answer.json"
+      ],
+      [
+        "results/research/loki/h3bd/cases/case0/q2-sealed.json",
+        "results/research/loki/h3bd/cases/case0/q2-answer.json"
+      ],
+      [
+        "results/research/loki/h3bd/cases/case1/q0-sealed.json",
+        "results/research/loki/h3bd/cases/case1/q0-answer.json"
+      ],
+      [
+        "results/research/loki/h3bd/cases/case1/q1-sealed.json",
+        "results/research/loki/h3bd/cases/case1/q1-answer.json"
+      ],
+      [
+        "results/research/loki/h3bd/cases/case1/q2-sealed.json",
+        "results/research/loki/h3bd/cases/case1/q2-answer.json"
+      ],
+      [
+        "results/research/loki/h3bd/cases/case2/q0-sealed.json",
+        "results/research/loki/h3bd/cases/case2/q0-answer.json"
+      ],
+      [
+        "results/research/loki/h3bd/cases/case2/q1-sealed.json",
+        "results/research/loki/h3bd/cases/case2/q1-answer.json"
+      ]
+    ],
+    "required": "Before new source draws, reproduce fixed8 archived query/answer logical fields in old separate-file and new ledger format. Oracle callbacks must read and verify committed query before returning label; enforce sequence/hash/time/reference replay. Reject altered answer, swapped order, broken chain, and rehashed wrong query-reference fixtures. Charge all serialization/gate costs."
+  },
+  "budget": {
+    "aggregate_CPU_seconds": 600,
+    "wall_seconds": 900,
+    "GPUs": 0,
+    "max_memo_states_total": 2000000,
+    "max_canonical_split_attempts_total": 50000000,
+    "max_integer_bits": 100000,
+    "membership_calls": 32768,
+    "planned_cases": 4096,
+    "new_positive_appearances": 0,
+    "historical_positive_appearances": 32768,
+    "enforcement": "Allcompilation/cacheconstruction/gates/preparation/serialization/monitorcharged. Anycap,error,missingproof orcorrectnessviolation whole-studyincomplete; retainall4096statuses/proofs/paidcalls, no reducedscope orfallbacktuning."
+  },
+  "descriptive": "Handoffstep0..4histogram, MAP/treecostsplit, percasecostchanges, compilerstates/timing andreacquisitionoverlap. Baselinefailures/preservedaccuracy arecorrectnesscontext, notscientificsuccess. Archivedfinitecohortonly, no population/arbitraryrule/optimizer/equal-positive-only-oraclefairness claim. BPAdamWnotmeasured.",
+  "source_sha256": {
+    "research/20261114/loki/h3bs/common.py": "cb02cbc829357993b8261465644533ff7f42f8364aa292fd8141387d4a2b7b06",
+    "research/20261114/loki/h3bs/compiler.py": "de66c5905292b00e803d2bccd4a8986bd6b9e86fb371f301244eac25910b20ba",
+    "research/20261114/loki/h3bs/weights.py": "ea77045aa170e7bdfb2026815fcc3a7e0a34ef1906c3e151ed5c0b1317d0f25a",
+    "research/20261114/loki/h3bs/selector.py": "48ff1dc43b1a945540ccf215ef114104683acbf48feea160f2a10a87a73d185f",
+    "research/20261114/loki/h3bs/ledger.py": "4ffe3b14d6701ef78ee910356248ae0e8e0fd38e689804d4200fca78943522be",
+    "research/20261114/loki/h3bs/ledger_gate.py": "989fd5cab820de1af89ba3b635d83ea3d3f8dc9b8b91be657507375074656ed9",
+    "research/20261114/loki/h3bs/synthetic_gate.py": "b4f7a54a9facab697b46672ab2b8738a8ce16752110a52a99b952682bef5fbbf",
+    "research/20261114/loki/h3bs/restriction.py": "96807a985e8b5d92c07868b426b1336a75c0f051b7daa3d6a6a378b9fe780eef",
+    "research/20261114/loki/h3bs/policy.py": "4082bfc4adc583a71e0b77f88584d47a0ae7dedccf97e0298438deee5c95473e",
+    "research/20261114/loki/h3bs/prepare.py": "1f928d53c15c26571be48f27b2ade7e3ee68cb6da4473d1e66e091f883104638",
+    "research/20261114/loki/h3bs/preflight.py": "9c41b009e666f6633905056a1f58bbe7abcb25ecfb61cfcd1beee2a13d8fe166",
+    "research/20261114/loki/h3bs/study.py": "e251e8f5b1443b2f55a47075ed3c30e0d77ff0b1310a0dbcb190e6cf43035e17",
+    "research/20261114/loki/h3bs/gate.py": "e825128e3040508f132ab35239560c1bc75edab29285ec6e94e8ed9579c15a89",
+    "research/20261114/loki/h3bs/freeze.py": "41b689c5c0c9f44ed454601c555c034f8215b6534171aef74c564b7d71982ee9",
+    "research/20261114/loki/h3at/source.py": "b2c2073b70346855d6c5bfda3db6769a2969c031115bcf8271f911ae194ce1f9"
+  },
+  "source_data_sha256": {
+    "research/20261114/loki/h3bl/compiler.py": "de66c5905292b00e803d2bccd4a8986bd6b9e86fb371f301244eac25910b20ba",
+    "research/20261114/loki/h3bl/weights.py": "ea77045aa170e7bdfb2026815fcc3a7e0a34ef1906c3e151ed5c0b1317d0f25a",
+    "research/20261114/loki/h3bm/ledger.py": "4ffe3b14d6701ef78ee910356248ae0e8e0fd38e689804d4200fca78943522be",
+    "research/20261114/loki/h3bm/selector.py": "48ff1dc43b1a945540ccf215ef114104683acbf48feea160f2a10a87a73d185f",
+    "research/20261114/loki/h3br/protocol.json": "a2ecc723e83f52380be6c0f96ff0914578108c561bf155cfc2843bee2fc783ff",
+    "research/20261114/loki/h3bs/LEMMA.md": "70642bac258e260519e783b6a0f4f7f12263f640e8ba4ee5548a2eb5edae91d0",
+    "research/20261114/loki/h3bs/preflight-synthetic-gate.json": "6cd245365645abf04eb96a4c4c91c2ca12397efa7ee6f86b47bcae3644fae4c4",
+    "research/20261114/loki/h3bs/preflight.json": "7bb0d9feceab97132bc5a9d5e8e09d33e785700ed88f171790ccf289ecce269c",
+    "results/research/loki/h3at/candidate-validity-bits.npz": "45ea2b26333e480f9464564a3a9fe8489d14c1c5d7ca8ab107c487ac2c27b920",
+    "results/research/loki/h3at/source-ordinary-columns.npy": "d63a5e609d915846898d02d0d9f6e43760d2cfe82f5e609d42656ea0b72e28f4",
+    "results/research/loki/h3at/source-selection.json": "c3e1a5aff0fc737aa2921db159bb4311ee83402ad364037a4d993c73280c1976",
+    "results/research/loki/h3bc/ordinary13.npy": "fe81ed5d8b256e263ecd1fed3ea4698096040e416dc9faa4a85af2594058c225",
+    "results/research/loki/h3bc/predictions-bits.npy": "5c6de623de9d854a1fd17b3922bbd627ef5f4f2bce3654390319f41ec67052bd",
+    "results/research/loki/h3bc/preparation.json": "1a63dc1e2a1adc8841a5e69c24c6b46dc08008f337bca37cf556c7d1022a555f",
+    "results/research/loki/h3bc/summary.json": "5edc7f3d062605faecaddcbf8c18e63cf31557b18a385d38969f5fd3f45721d2",
+    "results/research/loki/h3bd/cases/case0/q0-answer.json": "eddcd504694b7600f9d4abf81e6c34cbcbbbc0f92017c74bf8b6c336fb06adc5",
+    "results/research/loki/h3bd/cases/case0/q0-sealed.json": "93ff37304559798810fb53cde53bdf31ef0e08e4a7065a2d75563a45642c054c",
+    "results/research/loki/h3bd/cases/case0/q1-answer.json": "d70aaa8ca6f6fe990257f84a59da113190207c88b33d3d2a0ee8202b0582fbc7",
+    "results/research/loki/h3bd/cases/case0/q1-sealed.json": "9e110bcf10c242838b48d2ca658cf780801c5a97f35618abf8121fd186d05021",
+    "results/research/loki/h3bd/cases/case0/q2-answer.json": "7764fa31c026a55d1ab3982e21fcb0ed0d11a91f2ed3872a1ac6762072392c1c",
+    "results/research/loki/h3bd/cases/case0/q2-sealed.json": "9c4a480543b8d934f61d0528396554a885d4a86a746f1d4d0fc6e85abc77ecaa",
+    "results/research/loki/h3bd/cases/case1/q0-answer.json": "51259d8715c7a6d3f32a7c2a162528b53f8a7283556986cbebb7bea642948adf",
+    "results/research/loki/h3bd/cases/case1/q0-sealed.json": "8d208c6fcf1afb66400891c439273dd4bc79089a40dde62a070c5f086b2ae254",
+    "results/research/loki/h3bd/cases/case1/q1-answer.json": "9635c5e149bc64d92e2977c3944e5e5c1fe9fded7b36294176f21d0714be6ec3",
+    "results/research/loki/h3bd/cases/case1/q1-sealed.json": "3ff5facbebbfb94ae881735e140906f0962f546adc289727455897dc31c18ade",
+    "results/research/loki/h3bd/cases/case1/q2-answer.json": "8e4fb423067e386e2b43f8220c03d7b41826ffde700ca709df30402123ea63f3",
+    "results/research/loki/h3bd/cases/case1/q2-sealed.json": "fb1cfdfe04b7b3fc0fb22bc2ba202451608f837269a80990688f62d383713900",
+    "results/research/loki/h3bd/cases/case2/q0-answer.json": "9a05497a8ea490138fa630f0a98c079c8d94037c7f5df914d7c1de16053ff620",
+    "results/research/loki/h3bd/cases/case2/q0-sealed.json": "8f0560b51c0e6b77ff600639b396edefaf8a306eba3b18f641a3608f264daa50",
+    "results/research/loki/h3bd/cases/case2/q1-answer.json": "e1c04283f0e672e02d69dfb3ac7c23eb12d909aa59f58f61b0ff824eeb845ea7",
+    "results/research/loki/h3bd/cases/case2/q1-sealed.json": "0f9b49d1de657fbb5f792bf298c59ca07e5019a8254623f7178a57c420580d19",
+    "results/research/loki/h3bj/score-values.json": "fcd40764e77756d48856d2ab8714166ad56e23ea8fc05fece771cac346127814",
+    "results/research/loki/h3bm/score-values8.json": "59fe30b54e6a7ca0ae98f52f5c4313fbe9626a697e86859137aaec37f8201c60",
+    "results/research/loki/h3br/case-results.json": "340fbec1a30891d886f02f298cf2900a5ed9d542ddeb9dd2c91cad3a443ae20c",
+    "results/research/loki/h3br/checkpoints.json": "edb15856d3171a0a8d2f96e39107ce5dcee520908eac8c6c518af000eb6eff0d",
+    "results/research/loki/h3br/query-ledger.jsonl.gz": "02e60b12993aa63b7c93e7a844bf77f69a7f9f296ca49318080757a4b7af0319",
+    "results/research/loki/h3br/source-banks.json": "0a78b37f90494c1db785ac1dbf0ef7b2a1e2cc2a4c120c1c16ed526c436996a7",
+    "results/research/loki/h3br/summary.json": "b7af5a8a4c7c3c0856b4cab52421fd4ded49e98ac8b0536fbeb97939b21e56f6"
+  },
+  "target_data_sha256": {}
+}

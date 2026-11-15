@@ -1,0 +1,3 @@
+# H3bs: early-handoff total-cost target falsified
+
+[Full report](../../../../research/20261114/loki/h3bs/REPORT.md). The first feasible depth-four posterior-tree handoff uses 10,937 newly paid calls versus the archived 10,355-call policy (+582, +5.62%), falsifying the frozen ≥2% reduction / ≤10,147 target. MAP calls fall from 9,933 to 3,224, but tree calls rise from 422 to 7,713. All 4,096 cases and their exact flags are retained (4,083 exact, thirteen failures), supported by the restriction lemma and full per-case audit. All MAP/tree answers reacquired, including 7,578 archived-query overlaps. Online compilation included in 30.731 CPU / 60.954 wall seconds. Archived-cohort intervention; no new positive examples or independent confirmation.

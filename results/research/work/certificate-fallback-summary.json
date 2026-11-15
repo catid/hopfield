@@ -1,0 +1,142 @@
+{
+  "status": "passed",
+  "hypothesis": "H2bj",
+  "protocol_sha256": "7af6b601ab0fea5d81206eb88ff0a132c7b1576300084edab01aa94658170e82",
+  "model_inputs_routing_checked": 12288,
+  "accepted_lp_model_inputs": 12285,
+  "routed_model_inputs": 3,
+  "all_routed_cases": [
+    {
+      "input_index": 4078,
+      "model_seed": 0,
+      "bp_model_certificate": true,
+      "original_lp_certificate": true,
+      "graph_valid_shortest": true,
+      "bp_original_margin": 4.699142590979534,
+      "lp_original_margin": 0.04311792386828282,
+      "minimum_flip_locations_bp_lp": [
+        [
+          171,
+          147
+        ],
+        [
+          91,
+          165
+        ]
+      ],
+      "original_energies_bp_lp": [
+        -339918.2139565285,
+        -1238467.9205621162
+      ],
+      "subset_parity": "passed",
+      "source_batch_parity_inputs": 32
+    },
+    {
+      "input_index": 4078,
+      "model_seed": 1,
+      "bp_model_certificate": true,
+      "original_lp_certificate": true,
+      "graph_valid_shortest": true,
+      "bp_original_margin": 4.7848970059485945,
+      "lp_original_margin": 0.0429310782686746,
+      "minimum_flip_locations_bp_lp": [
+        [
+          171,
+          147
+        ],
+        [
+          53,
+          169
+        ]
+      ],
+      "original_energies_bp_lp": [
+        -338639.2238170493,
+        -889791.5185317155
+      ],
+      "subset_parity": "passed",
+      "source_batch_parity_inputs": 32
+    },
+    {
+      "input_index": 4078,
+      "model_seed": 2,
+      "bp_model_certificate": true,
+      "original_lp_certificate": true,
+      "graph_valid_shortest": true,
+      "bp_original_margin": 4.8703501873337744,
+      "lp_original_margin": 0.04225261625835709,
+      "minimum_flip_locations_bp_lp": [
+        [
+          171,
+          147
+        ],
+        [
+          1,
+          177
+        ]
+      ],
+      "original_energies_bp_lp": [
+        -338062.3887150114,
+        -1224107.0581577655
+      ],
+      "subset_parity": "passed",
+      "source_batch_parity_inputs": 32
+    }
+  ],
+  "joint_success": {
+    "bp_adamw_native": 3917,
+    "lp96": 4095,
+    "lp96_bp_fallback": 4096,
+    "lp96_bp_dual_certificate": 4096
+  },
+  "model_success": {
+    "bp_adamw_native": 11778,
+    "lp96": 12285,
+    "lp96_bp_fallback": 12288,
+    "lp96_bp_dual_certificate": 12288
+  },
+  "source_joint_gains": 1,
+  "source_joint_losses": 0,
+  "execution_decision": "supported",
+  "cross_certificate_decision": "supported",
+  "maximum_margin_error": 2.6645352591003757e-15,
+  "maximum_energy_error": 2.3283064365386963e-10,
+  "worker_receipts": [
+    {
+      "status": "complete",
+      "gpu": 0,
+      "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+      "pid": 1923363,
+      "started_utc": "2026-11-15T11:15:16.743060+00:00",
+      "completed_gates": [
+        0,
+        2
+      ],
+      "completed_fallbacks": [
+        0,
+        2
+      ],
+      "watchdog_checks": 5,
+      "worker_seconds": 2.40829361701617,
+      "updated_utc": "2026-11-15T11:15:18.594697+00:00"
+    },
+    {
+      "status": "complete",
+      "gpu": 1,
+      "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+      "pid": 1923364,
+      "started_utc": "2026-11-15T11:15:16.724239+00:00",
+      "completed_gates": [
+        1
+      ],
+      "completed_fallbacks": [
+        1
+      ],
+      "watchdog_checks": 6,
+      "worker_seconds": 2.3357993959798478,
+      "updated_utc": "2026-11-15T11:15:18.520861+00:00"
+    }
+  ],
+  "seconds": 2.310037271992769,
+  "source_sha256": "4f77cdbeac10b9ee54ce59ee9090152b68df904ae6c56d71cef387173bb17f93",
+  "scope": "Complete archived H2bh cohort; known BP rescue execution verification plus finite cross-model local-certificate diagnostic. Zero new scientific totals. No fresh accuracy, shortestness from certificates, global optimality or H2bh confidence upgrade."
+}

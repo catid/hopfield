@@ -2,6 +2,11 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Early question-tree handoff preserves recovery but raises total paid calls by 5.62%](../research/20261114/loki/h3bs/REPORT.md)
+- [Bootstrap consensus reduces graph recovery from 129/256 to 108/256; both targets fail](../research/20261114/foureyes/REPORT-bootstrap-consensus.md)
+- [Histogram-preserving shuffles: all 32 real banks retain a stronger curvature signal in both mask arms](../research/20261114/ripper/REPORT-marginal-shuffle.md)
+- [Independent-label nulls separate structure detection from graph-recovery confidence](../research/20261114/ripper/REPORT-null-signal.md)
+- [Numerical fallback verifies the known BP rescue and both original energy certificates](../research/20261114/work/REPORT.md#h2bj-the-known-bp-rescue-executes-correctly-and-also-passes-the-original-lp-certificate)
 - [Matched-prior question policy: posterior saves 13.52% continuation calls, 0.63% total calls](../research/20261114/loki/h3br/REPORT.md)
 - [Bounded asynchronous archives: 1.28× complete research-pipeline speed with identical artifacts](../research/20261114/work/REPORT.md#h2bi-bounded-asynchronous-archives-improve-complete-research-pipeline-throughput-by-1279)
 - [Exact objective diagnosis: truth is strictly suboptimal in 385/394 selected graph failures](../research/20261114/foureyes/REPORT-objective-gap.md)

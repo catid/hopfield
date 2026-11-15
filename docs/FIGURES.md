@@ -4,6 +4,11 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Early question-tree handoff raises total cost | [Every online route, exact proof and paid call](../results/research/loki/h3bs/) | [plot_public.py](../research/20261114/loki/h3bs/plot_public.py) |
+| Bootstrap consensus and lost graph recoveries | [Every resample, count and exact proof](../results/research/foureyes/bootstrap_consensus/) | [plot_bootstrap_consensus.py](../scripts/plot_bootstrap_consensus.py) |
+| Histogram-preserving shuffle control | [Histograms, shuffled observations and proofs](../results/research/ripper/marginal_shuffle/) | [plot_marginal_shuffle.py](../scripts/plot_marginal_shuffle.py) |
+| Independent-label null signal | [Null observations and full degree grids](../results/research/ripper/null_signal/) | [plot_null_signal.py](../scripts/plot_null_signal.py) |
+| Numerical fallback and both original energy certificates | [All routes, actual replays and margins](../results/research/work/certificate-fallback/) | [plot_certificate_fallback.py](../research/20261114/work/plot_certificate_fallback.py) |
 | Matched-prior question policy | [All prior draws, proofs and paid calls](../results/research/loki/h3br/) | [plot_public.py](../research/20261114/loki/h3br/plot_public.py) |
 | Complete research-pipeline archive overlap | [Timings and complete public state snapshots](../results/research/work/artifact-overlap/) | [plot_artifact_overlap.py](../research/20261114/work/plot_artifact_overlap.py) |
 | Exact empirical objective gaps | [All 768 exact gaps](../results/research/foureyes/objective_gap/) | [plot_objective_gap.py](../scripts/plot_objective_gap.py) |

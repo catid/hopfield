@@ -1,0 +1,22 @@
+{
+  "id": "H1br-null-signal",
+  "status": "prospective_design_no_null_draws_or_ratios_computed",
+  "scope": "All32 examined H1bq real banks and both archived mask arms, paired with newly generated IIDuniform9-symbol180x81 null boards. Conditional archived-real/matched-null study, not fresh real-source confirmation.",
+  "banks": 32,
+  "rows": 180,
+  "arms": ["uniform", "balanced"],
+  "null_law": "For each bank, NumPy2.3.4 default_rng(null_seed+bank).integers(0,9,size=(180,81),dtype=int8). Entries independent discrete uniform; same null board shared across both archived masks. No added noise: symmetric IID cell corruption would preserve this marginal law. No source solutions or Sudoku constraints used by generator.",
+  "null_seed_base": 202612600000,
+  "solver_seed_base": 2026261502,
+  "solver_seed_rule": "Index=2*bank+arm_index; sharedsolver offset150000+index*41+d.",
+  "statistic": "From all40 certified positive-degree LPs plus degreezero witness, kappa_d=F(d+1)+F(d-1)-2F(d) for d1..39, using exact doubled objectives. R=max(kappa)/sum(kappa). If allkappa=0 defineR=0/1. Compare realR>nullR by exact integer crossproducts; strict ties fail. No arbitrary peak threshold or graphtruth used in statistic.",
+  "primary": {"required_joint_real_greater":29,"total_banks":32,"joint_rule":"Both uniform and balanced arms have realR>nullR in the same bank."},
+  "decision": "Arm comparison unresolved if any required griddegree is uncertified. Jointbank succeeds iff both comparisons true; resolvedfailure iff either comparison false; otherwise unresolved. Lower=jointsuccess; upper=jointsuccess+unresolved. Supported iff lower>=29, falsified iff upper<29, else inconclusive. Runtime failure incomplete. No droppedbanks or denominator reduction.",
+  "diagnostics": "Perarm real>null counts, all ratios, nullselecteddegree distribution and degree20 frequency, nullreferenceSudokugraph exactness, fixed20/top810 controls, parentreal successes/failures descriptive. Curvature sharpness is not calibrated confidence in exactgraph recovery.",
+  "inference": "Unchanged Laplace rates, fresh degree1..40 LPs fornull only, zero witness, exactcurvature1..39 lowerdegree ties. Commondegree prior/grid retained; no degree20,edge810,geometry or nullflag supplied to estimator. Recheck all2560 archivedreal proofs and2560newnull proofs without refitting real models.",
+  "parent_evidence": "Pin H1bq scientific protocol, summary, masks, models andreceipts. Parentreal source/noise/count origin inherited from H1bq complete audits; currentrun rechecks maskreplay, exactcosts, allrealproofs and objectivevectors. Do not pin mutable packagingmanifest.",
+  "budget": {"new_LPs":2560,"archived_LPs_rechecked":2560,"analytic_zero_witnesses_checked":128,"max_cpu_workers":8,"aggregate_cpu_seconds":900,"wall_seconds":180,"lp_wall_seconds":1.0,"gpu_seconds":0},
+  "query_accounting": {"new_official_source_rows":0,"new_official_cell_queries":0,"new_clean_oracle_cells":0,"synthetic_generated_cells":466560,"each_null_mask_deployment":414720,"null_shared_queries":368719,"null_physical_query_union":460721,"reused_real_physical_query_union":460721,"official_noisy_label_sequence_unchanged":10540119},
+  "budget_scope": "Null generation, copies ofall32 archivedmaskbundles,64newgrids, exactreal/nullcosts/proofs/statistics, full-null-label substitution gates, literalaccounting andexport; syntheticpreflight andpublicationchecks separate.",
+  "interpretation": "This null preserves IID uniform single-cell marginals and archived mask schedule, while erasing graph-dependent cross-cell observations. It does not match real higher-order dependencies or nonpeer equality rates, establish detector calibration or certify exactgraph recovery. Every examinedreal bank retained irrespective of realgraphsuccess."
+}

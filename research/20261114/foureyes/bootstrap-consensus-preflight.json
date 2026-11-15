@@ -1,0 +1,104 @@
+{
+  "status": "passed",
+  "actual_bootstrap_outcomes_read": false,
+  "toy_seed": 937107,
+  "all32_resampled_counts_match": true,
+  "extreme_multiplicities_and_zero600_counts": true,
+  "fractional_votes_exact_and_no_rounding": true,
+  "uncertified_primal_rejected": true,
+  "endpoint_cases": [
+    {
+      "success": 145,
+      "unresolved": 0,
+      "losses": 0,
+      "unresolved_old": 0,
+      "expected": [
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "success": 144,
+      "unresolved": 0,
+      "losses": 0,
+      "unresolved_old": 0,
+      "expected": [
+        "falsified",
+        "supported"
+      ]
+    },
+    {
+      "success": 144,
+      "unresolved": 1,
+      "losses": 8,
+      "unresolved_old": 1,
+      "expected": [
+        "inconclusive",
+        "inconclusive"
+      ]
+    },
+    {
+      "success": 145,
+      "unresolved": 1,
+      "losses": 9,
+      "unresolved_old": 0,
+      "expected": [
+        "supported",
+        "falsified"
+      ]
+    },
+    {
+      "success": 0,
+      "unresolved": 256,
+      "losses": 0,
+      "unresolved_old": 129,
+      "expected": [
+        "inconclusive",
+        "inconclusive"
+      ]
+    }
+  ],
+  "seed_audit_sha256": "19559b96b05049280959e70946407067e087bde8ba9e87a39170d364d3d5ba98",
+  "count_benchmark": {
+    "status": "passed",
+    "scope": "Unrelated IID9-symbol toy; no H4ap observations or bootstrapindices loaded. Three count trials,32resamples600rows81cells; multiplicityweights/indicators/conversionsincluded;commonresamplingindicesexcluded; seed937106.",
+    "times": {
+      "direct": [
+        0.06331221997970715,
+        0.061566238990053535,
+        0.06141853501321748
+      ],
+      "integer": [
+        0.023015106038656086,
+        0.021782402007374913,
+        0.021592485019937158
+      ],
+      "float64": [
+        0.0028017970034852624,
+        0.002588645031210035,
+        0.0027468240004964173
+      ]
+    },
+    "median_speedup_vs_direct": {
+      "direct": 1.0,
+      "integer": 2.8264210241464154,
+      "float64": 22.413608945795957
+    },
+    "arithmetic": "Float64 candidates operate onlynonnegativeintegerweights and0/1indicators; eachsum<=600, wellinsideexactbinary64 integerrepresentability. This is a candidate optimization, not yet frozen production.",
+    "environment": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    }
+  },
+  "source_sha256": {
+    "research/20261114/foureyes/bootstrap_consensus.py": "6757a4e4801ba0980dce3fc59645b803419a397872b26ae99fde259a5c705d17",
+    "research/20261114/foureyes/audit_bootstrap_consensus.py": "949379fa15989298964787a2ffc6a75dd9d75d50b4547d8742478bc6312094e9",
+    "research/20261114/foureyes/preflight_bootstrap_consensus.py": "b4ded98ff8957c100a71d3bd12085222044a599e2ebc447ef7d55d9fd8450981",
+    "research/20261114/foureyes/audit_objective_gap.py": "f38bd2848130c30e02cfbb12fae41c8b4687c4634d2ff9947db9e109b102050a",
+    "research/20261114/ripper/degree_prior_solver.py": "2af92a5d4326e74813f514291a7a76e6ac92778335e1dd76ffbb01f83d474c43",
+    "research/20261114/ripper/degree_prior_math.py": "5a3ad2c21f59dfe0d2de40065385d484e171c0f854c49c649e868ce5a98a1f8e",
+    "research/20261114/ripper/audit_degree_prior.py": "179feb9815c787a5381d1924ccb0ac41af49e103222503f5ff988dc13559f55b"
+  },
+  "wall_seconds": 0.10372448404086754
+}

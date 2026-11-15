@@ -1,0 +1,125 @@
+{
+  "status": "passed",
+  "host": "ripper",
+  "scope": "Synthetic null/masks/objectivevectors only; no official H1br null streams or archivedreal concentration ratios read.",
+  "incidence": {
+    "field_elements": 9,
+    "field_associativity_distributivity_triples": 729,
+    "lines": 90,
+    "points": 81,
+    "omitted_cells_per_line": 9,
+    "lines_per_point": 10,
+    "lines_per_distinct_pair": 1,
+    "one_cycle_pair_coqueries": 71,
+    "two_cycle_pair_coqueries": 142,
+    "two_cycle_queries_per_cell": 160,
+    "independent_replay_seeds": 3
+  },
+  "independent_null_replay": true,
+  "all_counts_match_independent_reference": true,
+  "shared_null_values_identical": true,
+  "complete_label_gates": [
+    {
+      "arm": "uniform",
+      "status": "passed",
+      "all_generated_and_queried_labels_changed": true,
+      "masks_and_joint_counts_unchanged": true,
+      "equality_counts_changed": true,
+      "original_sha256": "c9127d5ee531a75e7a06be7c72ffb5be5d0cf5ee152eb1457859151c7b8f65e5",
+      "changed_sha256": "f4692a7bc9eaed8236c2863d0c2eda07ff6f200a633d1586fe05a2198a75cfd3"
+    },
+    {
+      "arm": "balanced",
+      "status": "passed",
+      "all_generated_and_queried_labels_changed": true,
+      "masks_and_joint_counts_unchanged": true,
+      "equality_counts_changed": true,
+      "original_sha256": "c9127d5ee531a75e7a06be7c72ffb5be5d0cf5ee152eb1457859151c7b8f65e5",
+      "changed_sha256": "f4692a7bc9eaed8236c2863d0c2eda07ff6f200a633d1586fe05a2198a75cfd3"
+    }
+  ],
+  "query_accounting": {
+    "uniform_queries": 12960,
+    "balanced_queries": 12960,
+    "shared_queries": 11540,
+    "new_union_queries": 14380
+  },
+  "ratio_cases": [
+    {
+      "numerator": 0,
+      "denominator": 1,
+      "all_zero_curvature": true
+    },
+    {
+      "numerator": 1,
+      "denominator": 39,
+      "all_zero_curvature": false
+    },
+    {
+      "numerator": 40,
+      "denominator": 78,
+      "all_zero_curvature": false
+    }
+  ],
+  "all_nine_ratio_comparisons_match": [
+    false,
+    false,
+    false,
+    true,
+    false,
+    false,
+    true,
+    true,
+    false
+  ],
+  "integer_beyond_binary64_compare": true,
+  "zero_denominator_and_unresolved_rules": true,
+  "endpoint_bound_cases": [
+    {
+      "lower": 29,
+      "upper": 29,
+      "required": 29,
+      "total": 32,
+      "decision": "supported"
+    },
+    {
+      "lower": 28,
+      "upper": 29,
+      "required": 29,
+      "total": 32,
+      "decision": "inconclusive"
+    },
+    {
+      "lower": 28,
+      "upper": 28,
+      "required": 29,
+      "total": 32,
+      "decision": "falsified"
+    },
+    {
+      "lower": 0,
+      "upper": 2,
+      "required": 29,
+      "total": 32,
+      "decision": "falsified"
+    }
+  ],
+  "source_sha256": {
+    "research/20261114/ripper/null_signal_study.py": "ec5102c58601623671c2f3df04d46a3420df72fb7aa51a8977e63fb7a4c0b3d5",
+    "research/20261114/ripper/audit_null_signal.py": "8e8c16187bcc3caec2596026d91f9c9f7ce668923920bbeac5b9c9d94d05ce44",
+    "research/20261114/ripper/preflight_null_signal.py": "18680819a86a17c49837bc2c5ac364093c6907577590c2da1d37d4f4b76eff4e",
+    "research/20261114/ripper/run_null_signal.py": "5857f8db0751d9bf6a6da3c6a2df036e2307d6d35179725738073e9ec2ade32f",
+    "research/20261114/ripper/balanced_mask_math.py": "1e2934cd17ac2ad18e911361338e8814e9f7f0cee61e18e2910ce62329d2e7e8",
+    "research/20261114/ripper/audit_balanced_mask_math.py": "72fb176a1f8e72ed263c2a27aa0b80ab009be58a6cb1573e1218651022ca5a33",
+    "research/20261114/ripper/partial_degree_study.py": "054cb8d1c4eebda07816735d23d57213052b563cc0a924ec006e6ac965fc8013",
+    "research/20261114/ripper/audit_partial_degree.py": "f867b787e7253ea835be574ed6ffcb82ec8d1a53438aaf75895ffaf5267ddde4",
+    "research/20261114/ripper/extra_coverage_study.py": "ecad651aa4baa117e50acf3afab9b66e323834719ae959aaf7db580af3780e8a",
+    "research/20261114/ripper/audit_extra_coverage.py": "58d0d10e1974506cbca83c37fabd403de17bae46e5683eb89413fdac95982a63",
+    "research/20261114/ripper/run.py": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+    "research/20261114/ripper/degree_prior_solver.py": "2af92a5d4326e74813f514291a7a76e6ac92778335e1dd76ffbb01f83d474c43",
+    "research/20261114/ripper/degree_prior_math.py": "5a3ad2c21f59dfe0d2de40065385d484e171c0f854c49c649e868ce5a98a1f8e",
+    "research/20261114/ripper/audit_degree_prior.py": "179feb9815c787a5381d1924ccb0ac41af49e103222503f5ff988dc13559f55b",
+    "research/20261114/ripper/audit_laplace_rate.py": "378e36af14e26bfb53d7f876d123cc24b3151273d6bb2a015a3f2b5e0dfeddcd",
+    "research/20261114/ripper/laplace_rate_math.py": "439d2edecdf2e518f243b27cc20676a24e561e4260217876230edf6023939093"
+  }
+}
