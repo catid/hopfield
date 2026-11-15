@@ -1,0 +1,14 @@
+{
+  "hypothesis_id": "H4aq",
+  "status": "prospective_design_before_consensus_true_graph_gaps",
+  "hypothesis": "At least 25 of the 31 baseline-exact graphs lost by H4ap bootstrap consensus have strictly positive true-graph objective gaps under the consensus vote cost.",
+  "motivation": "H4ap lost 31 baseline successes and gained ten. Discrete vote costs may create ties, or they may strictly prefer an incorrect graph. The loss count is already known; no consensus true-graph gap has been calculated for this study before this design.",
+  "scope": "All 256 archived H4ap banks, all 31 lost baseline successes as the fixed primary denominator. Diagnostic gaps for other banks retained. No new source observations, bootstrap samples, LP optimization, labels, puzzle solves or GPU work. BP AdamW is outside this source-only diagnosis and is not rerun.",
+  "endpoint": {"denominator":31,"required_strict":25,"rule":"Support if strict >= 25; otherwise falsify, provided every required certificate and binding is valid. Any unresolved dependency or invalid certificate makes the study incomplete; no dropping cases."},
+  "method": "Reconstruct vote cost from all 32 archived scale-two primal vectors. Recheck consensus and original selected-degree baseline exact primal/dual certificates. Verify true-graph degree feasibility. Compute doubled gap = 2*sum(cost over true edges) - sum(cost*consensus_primal_twice) using exact integers. Zero means truth is co-optimal, not uniquely optimal; positive means all optimum solutions exclude truth. Reconstruct baseline success and loss classification independently.",
+  "inheritance": "All bootstrap primal validity, row-resampling and count provenance inherit H4ap's complete 8448-proof public audit, which is run before freezing this design. This diagnostic rechecks 512 baseline/consensus certificates and their 1536 mutations; it does not claim 8192 fresh bootstrap audits.",
+  "budget": {"cpu_seconds":60,"wall_seconds":90,"workers":1,"gpu_seconds":0,"no_extensions":true},
+  "budget_scope": "Producer hash checks, all 256 diagnostics, export and the first independent auditor with 1536 mutations are charged together. Later portable publication replays are separate. No concurrent worker pool; the producer and auditor run sequentially.",
+  "controls": "Retain all 256 cases and all baseline/consensus success combinations. Truth graphs enter only post-estimation diagnosis; neither truth nor gaps change the frozen estimator. Existing H4ap targets remain falsified regardless of the new endpoint.",
+  "interpretation": "Strict gap excludes repair by choosing another optimum at the same consensus objective. A strict wrong integral optimum also rules out integrality alone repairing that case. This is neither an impossibility result for the observations nor a fresh-source population claim. No accuracy improvement is asserted."
+}

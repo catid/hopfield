@@ -1,0 +1,59 @@
+{
+  "id": "H1bt-signal-detection",
+  "status": "prospective_design_no_new_null_boards_or_shuffle_outcomes",
+  "scope": "All 32 examined H1bq real banks, plus 32 fresh IID-uniform nine-symbol null boards; both archived mask arms per bank. Conditional signal-detection study, not fresh real-source confirmation and not confidence in exact graph recovery.",
+  "banks_per_cohort": 32,
+  "rows": 180,
+  "arms": [
+    "uniform",
+    "balanced"
+  ],
+  "shuffles_per_arm": 31,
+  "statistic": "Exact doubled LP objectives F(0..40); kappa(d)=F(d+1)+F(d-1)-2F(d), d=1..39. R=max(kappa)/sum(kappa), with zero sum mapped to 0/1. All rational comparisons use integer crossproducts or independent Fraction arithmetic.",
+  "randomization_test": "Per arm p=(1+number of shuffled R >= observed R)/32. Ties count >=. Call arm signal iff p<=1/32, equivalently all 31 shuffled ratios strictly lower. Call bank signal iff both arms call signal; do not assume independence between arms.",
+  "conditional_null": "Conditional on fixed missingness masks and each cell observed-digit histogram, labels are independently uniform over all multiset arrangements across the observed rows of each cell, independently across cells. A common fresh IID uniform 180x81 board satisfies this null separately for both arms; the two arms remain dependent because masks overlap.",
+  "randomization_law": "For each arm, sort its observed labels into each cell canonical multiset and independently draw a uniform permutation for cells 0..80. The 31 shuffles use distinct declared streams and are independent under the ideal randomization model. Each multiset arrangement has identical factorial multiplicity, so canonical shuffling is uniform on the conditional orbit. Under the conditional null, the original arrangement and the 31 shuffled arrangements are exchangeable; applying the same exact LP-optimum statistic preserves exchangeability. Conservative upper ranks satisfy P(p<=k/32)<=k/32, including ties. Thus each arm type-I probability is <=1/32 and the AND event is <=1/32 without multiplying probabilities. This is a conditional mathematical guarantee, not a proof of independence for fixed finite PRNG output, nor a guarantee under arbitrary row-dependent or cross-column-dependent nulls. Uncertified numerical grids cause abstention and cannot enlarge the event of a certified ideal-test rejection. The statistic and rule must be fixed before examining a fresh test case. The already examined real banks helped motivate R, so their p-values are descriptive retrospective sensitivity, not calibrated post-selection inference. The guarantee applies to the frozen rule on fresh null cases and makes no familywise claim across the research sequence.",
+  "primary": {
+    "real_required_joint_signals": 29,
+    "null_maximum_joint_signals": 2,
+    "total_each": 32,
+    "separate_targets": true
+  },
+  "decision": "Any uncertified required grid makes that arm unresolved. Bank no_signal if either arm false, signal if both true, otherwise unresolved. Real target supported if lower>=29, falsified if upper<29; null target supported if upper<=2, falsified if lower>2; otherwise inconclusive. lower=signals, upper=signals+unresolved. No filtering, retries, optional stopping, threshold changes, or denominator reduction. Runtime failure incomplete.",
+  "inference": "Fresh degree 1..40 fits for all 3968 shuffled arms and 64 fresh-null observed arms. Recheck 2560 archived-real LP proofs without refitting those observations. Analytic degree-zero witnesses and certified intermediate fractional primals remain valid objective evidence. Graph truth is used only in diagnostic outcome labels, never in R or p.",
+  "source": "Pin all 32 parent mask bundles, 64 observed-real models/receipts, parent scientific protocol/summary and 64 raw observation hashes before new draws. Charged raw run independently reconstructs real counts and per-cell histograms. Public replay reconstructs every new null board/shuffle and inherits raw real-label-to-histogram provenance.",
+  "diagnostics": "All 128 arm p-values, all 4096 objective grids and ratios; observed selected degree and reference-graph classification; number of positive signal tests on nonexact graphs. All 13 known nonexact real arm outputs retained. Null detection count is a finite sample endpoint, not a precise population error-rate estimate.",
+  "shuffle_seed_base": 202612800000,
+  "null_seed_base": 202612900000,
+  "solver_seed_base": 2027111502,
+  "seed_mapping": "case=0..31 real,32..63 null; bank=case%32; arm=0 uniform/1 balanced; draw=0 observed,1..31 shuffle. Shuffle seed=base+62*case+31*arm+draw-1. Null board seed=base+bank. grid_index=(2*case+arm)*32+draw. Solver seed=solver_base+41*grid_index+degree, d=1..40. No new LPs for real draw0. Distinct seed values do not prove independent PRNG streams.",
+  "budget": {
+    "new_LPs": 161280,
+    "archived_LPs_rechecked": 2560,
+    "analytic_zero_witnesses_checked": 4096,
+    "max_cpu_workers": 8,
+    "aggregate_cpu_seconds": 3600,
+    "wall_seconds": 600,
+    "lp_wall_seconds": 1.0,
+    "gpu_seconds": 0
+  },
+  "budget_rationale": "H1bs completed 2560 new LPs plus 2560 archived checks in 34.643 CPU-s and 4.499 wall-s. Scaling new solve volume suggests roughly 2200 CPU-s/275 wall-s; the frozen 3600 CPU/600 wall ceilings allow audit and export overhead. These are planning estimates, not H1bt pilot measurements. Eight independent cases keep CPU workers useful; fixed mathematical LP protocol is unchanged.",
+  "budget_scope": "All raw provenance/hash/count reconstruction, 32 fresh null boards, 3968 shuffles, 161280 new LPs, all 163840 certificate checks and mutations, exact p-values, 128 complete label gates, accounting and scientific export. Synthetic preflight and subsequent publication validation separate.",
+  "query_accounting": {
+    "new_official_source_rows": 0,
+    "new_official_cell_queries": 0,
+    "new_clean_oracle_cells": 0,
+    "synthetic_shuffled_entry_assignments": 51425280,
+    "synthetic_shuffles": 3968,
+    "each_shuffled_arm_entries": 12960,
+    "new_IID_generated_cells": 466560,
+    "new_IID_observed_union": 460721,
+    "new_IID_each_deployment_queries": 414720,
+    "new_IID_shared_deployment_queries": 368719,
+    "reused_real_physical_query_union": 460721,
+    "official_noisy_label_sequence_unchanged": 10540119,
+    "ripper_source_ledger_unchanged": 2132001,
+    "combined_source_ledger_unchanged": 2368426
+  },
+  "interpretation": "Published baselines stay clearly labeled. BP AdamW is outside this structural-inference test. A small conditional randomization p-value detects cross-cell association relative to the stated conditional null; it does not certify the selected graph, its degree, or a calibrated probability of graph correctness."
+}

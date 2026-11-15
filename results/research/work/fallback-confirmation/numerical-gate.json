@@ -1,0 +1,87 @@
+{
+  "status": "passed",
+  "protocol_sha256": "3cc4c1768f872915913e10f9d1f3d6b8a8de90ff4db4003ca722b683d0329395",
+  "source_shard00_model_inputs": 768,
+  "source_cap_batch_model_inputs": 96,
+  "actual_subset_replays": 3,
+  "rows": [
+    {
+      "status": "passed",
+      "protocol_sha256": "3cc4c1768f872915913e10f9d1f3d6b8a8de90ff4db4003ca722b683d0329395",
+      "gpu": 0,
+      "rows": [
+        {
+          "seed": 0,
+          "all256_prefix_gate": {
+            "scientific_npz_payloads_compared": 57,
+            "candidate_records_compared": 39315
+          },
+          "original32_cap_batch_and_actual_subset_gate": {
+            "scientific_npz_payloads_compared": 8,
+            "candidate_records_compared": 14524
+          }
+        },
+        {
+          "seed": 2,
+          "all256_prefix_gate": {
+            "scientific_npz_payloads_compared": 57,
+            "candidate_records_compared": 40002
+          },
+          "original32_cap_batch_and_actual_subset_gate": {
+            "scientific_npz_payloads_compared": 8,
+            "candidate_records_compared": 14577
+          }
+        }
+      ],
+      "worker": {
+        "status": "passed",
+        "gpu": 0,
+        "inventory": "0, GPU-7d991585-c5b5-889b-932b-a541900410ed, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+        "completed_seeds": [
+          0,
+          2
+        ],
+        "watchdog_checks": 1250,
+        "pid": 1928096,
+        "seconds": 24.448940215981565,
+        "peak_rss_kib": 2549148
+      },
+      "scope": "All768 H2bh shard00 model-input prefixes and96 source cap-batch model-inputs, plus all three actual H2bj subset replays. Complete original scientific arrays and traces exact, except declared protocol identity/offset metadata. Async scientific batch/final archives byte-identical."
+    },
+    {
+      "status": "passed",
+      "protocol_sha256": "3cc4c1768f872915913e10f9d1f3d6b8a8de90ff4db4003ca722b683d0329395",
+      "gpu": 1,
+      "rows": [
+        {
+          "seed": 1,
+          "all256_prefix_gate": {
+            "scientific_npz_payloads_compared": 57,
+            "candidate_records_compared": 39385
+          },
+          "original32_cap_batch_and_actual_subset_gate": {
+            "scientific_npz_payloads_compared": 8,
+            "candidate_records_compared": 14524
+          }
+        }
+      ],
+      "worker": {
+        "status": "passed",
+        "gpu": 1,
+        "inventory": "1, GPU-fe20a538-1ffc-7010-63c3-d39d97f24013, NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 620.70.06",
+        "completed_seeds": [
+          1
+        ],
+        "watchdog_checks": 624,
+        "pid": 1928097,
+        "seconds": 13.409019333019387,
+        "peak_rss_kib": 2562788
+      },
+      "scope": "All768 H2bh shard00 model-input prefixes and96 source cap-batch model-inputs, plus all three actual H2bj subset replays. Complete original scientific arrays and traces exact, except declared protocol identity/offset metadata. Async scientific batch/final archives byte-identical."
+    }
+  ],
+  "receipt_sha256": {
+    "source-gate-gpu0.json": "0e7d059a4819deaccaf4b3cec9fb69ab56ef647adfe514fcd15a81911a5f1dbd",
+    "source-gate-gpu1.json": "bd6e761920333bfed7545d01451f38afe17f350ee2545eb9367952ece1fcfdd3"
+  }
+}

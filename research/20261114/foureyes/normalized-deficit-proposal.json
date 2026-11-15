@@ -1,0 +1,23 @@
+{
+  "hypothesis_id": "H4ar",
+  "status": "prospective_design_before_new_scores_or_LPs",
+  "motivation": "Raw-count and bootstrap-vote optima often strictly exclude the true graph at 600 rows. Under a heuristic independent symmetric-corruption model, departures of pair equality rates from 1/9 are attenuated by a product of cell reliabilities. Test an observable per-cell normalization that may remove this multiplicative distortion. The actual exactly-nine-corrupt-cells law is dependent, so this is a falsifiable heuristic, not a derived likelihood for the actual experiment.",
+  "scope": "All 256 archived H4an 600-row banks, four specified synthetic graph families with 64 banks each. Same corrupted observations and original inferred degrees. No new source rows, labels, corruption, bootstrap samples, true degree, geometry or family identity supplied to estimation. No new puzzle-solving evidence. BP AdamW is outside this count/LP intervention and is not rerun.",
+  "estimator": {
+    "observed_counts": "For each cell pair i<j, c_ij is the exact equality count among N=600 observed rows. d is the original degree selected without truth, now held fixed.",
+    "cell_scale": "For each cell i, form max(N-9*c_ij,0) over the 80 other cells. Let S_i be max(d, sum of its d largest deficits). The complete multiset order is irrelevant to tied values; self-pairs excluded. The lower bound makes mean deficit S_i/d at least one.",
+    "normalized_cost": "For each pair, cost_ij = round-half-to-even(1000000 * d^2 * (9*c_ij-N) / (S_i*S_j)), using exact signed integer rational arithmetic. Negative costs are retained; no clipping, rank transform or post-outcome scale adjustment.",
+    "fit": "One exact common-degree LP per bank at the original inferred d, with the same literal scale-two primal/dual proof requirements. Certified fractional outputs are resolved graph failures; uncertified outputs unresolved. No rounding of graph primals and no replacement estimator. The observed per-cell scale is computed from the same bank, without truth labels or raw corruption metadata.",
+    "limitations": "Top-d deficits can themselves contain wrong edges and sampling extremes; per-cell normalization may amplify noise. Additive cell offsets would cancel under fixed degrees, but this multiplicative transformation changes the objective. No fitted reliability, optimality or consistency claim."
+  },
+  "paired_controls": "Original 600-row raw-count LP, baseline exact 129/256, remains unchanged. Archived 32-bootstrap consensus108/256 is descriptive context, with its own failed targets retained. No outcome-based choice between estimators.",
+  "endpoints": {
+    "recovery": "At least145/256 exact graphs, a net gain of at least16 over the fixed raw-count baseline. Lower=exact, upper=exact+unresolved; support if lower>=145, falsify if upper<145, otherwise inconclusive.",
+    "paired_loss": "At most8 previously correct raw-count graphs lost. Lower=resolved nonexact or fractional outputs among baseline successes; upper adds unresolved baseline successes. Support if upper<=8, falsify if lower>8, otherwise inconclusive.",
+    "separate": true
+  },
+  "proof_and_gates": "Before freeze, independently implement signed half-even rational rounding with Fraction, hand-check cell scales/self-pair exclusion/ties/zero-deficit clamp, compare exact producer/reference scores on unrelated toy counts, certify a negative-cost toy LP, and audit explicit seed namespaces. Reconstruct every actual normalized score independently, verify all256 new and256 baseline LP certificates, reject three altered versions of each, and reconstruct truth only in the post-fit auditor. Preserve full counts, scales, scores, solver records and all outputs.",
+  "budget": {"new_LPs":256,"workers":8,"aggregate_cpu_seconds":300,"wall_seconds":90,"gpu_seconds":0,"no_extension":true},
+  "budget_scope": "Source hash verification, exact score construction, new LPs, independent per-bank audits and public export. Synthetic gates and subsequent public replays separate. All banks retained; technical budget or provenance failures make the study incomplete rather than silently shrinking the cohort.",
+  "next_gate": "Design and source review required before final protocol freeze, normalized study-score calculation or new LP outcomes. No study code or outcomes exist at proposal creation."
+}

@@ -1,0 +1,900 @@
+{
+  "hypothesis_id": "H2bk",
+  "status": "frozen_before_mandatory_source_gates_and_fresh_draws",
+  "scope": "4096 fresh independent180x180 loop80 mazes, three unchanged fixed BP/LP model seeds. Four reported arms: BP AdamW native, LP96, numerical-only LP96-to-actual-BP fallback, and the same fallback with an additional original-LP certificate requirement. Ten internal/final states retained (eight H2bh states plus two hybrid mappings). No parameter fitting or policy retuning.",
+  "inputs": {
+    "n": 4096,
+    "size": 180,
+    "loop_probability": 0.8,
+    "proposed_base_seed": 2026111528,
+    "seed_rule": "SeedSequence([base,180,80,index])",
+    "independent_unit": "Maze; joint success requires all three fixed models, not a union or three independent trials.",
+    "registry": "Before freeze, verify proposed base seed unused, reserve it and hash all prior Work dataset manifests. Before evaluation, independently validate all shortest labels, distinctness and zero overlap with every hash-verified registered prior dataset. No replacement after outcomes."
+  },
+  "frozen_policy": {
+    "lp": "Exactly H2bh LP96,256-cell candidate limit, unchanged eight-state pipeline, no extra cycle rounds.",
+    "route": "Per model-input, accept LP96 iff hidden_good,finite,stopped,no native cap,no block cap,and finite original LP minimum flip margin>=-1e-6. Only these numerical fields enter selection. No labels, shortest distances, graph-feasibility validation, outcome flags,input identifiers or cross-model voting.",
+    "fallback": "Each nonempty rejected subset within the original32-input batch executes BP native float32 u3/eta0.5/cap8192/check16 with cached identical shared float32 hidden couplings. BP all-input control executes independently in its original32-input batch. Never substitute its archived/control answer for the actual subset replay.",
+    "main_acceptance": "Accepted LP output is unchanged. Routed BP output requires converged original shared hidden state,finite/stopped BP flags and its own finite original float64 margin>=-1e-6. All unresolved or wrong-certified outputs remain failures in the full denominator.",
+    "strict_acceptance": "Same boards and routing, additionally require each routed BP board's original LP margin>=-1e-6. Report BP and LP model provenance and separate own/dual-certificate flags. Local certificates do not prove graph validity, shortestness or global optimality.",
+    "no_hidden_changes": "Same model checkpoints, shared hidden tol1e-6/cap4000/check8, existing native and graph solver parameters. No third fallback, extra budget, graph repair or training."
+  },
+  "endpoints": [
+    {
+      "id": "hybrid_absolute",
+      "claim": "Main hybrid joint success>=99.9%",
+      "decision": "Separately one-sided95% exact CP success bounds at alpha0.05. Support if lower>=0.999, falsify if upper<0.999, otherwise inconclusive."
+    },
+    {
+      "id": "strict_absolute",
+      "claim": "Dual-certificate hybrid joint success>=99.9%",
+      "decision": "Same separately one-sided95% CP rule, separate endpoint; do not substitute for main hybrid."
+    },
+    {
+      "id": "bp_noninferiority",
+      "claim": "Main hybrid joint success minus BP joint success>=-0.1percentage point",
+      "decision": "Paired gain/loss marginal CP tail alpha0.025 each for separately one-sided95% net bounds. Support if lower>=-0.1pp, falsify if upper<-0.1pp, otherwise inconclusive. No familywise95% claim."
+    },
+    {
+      "id": "charged_cost",
+      "claim": "Main hybrid added charged answer cost versus LP96<=10%",
+      "decision": "One complete fixed-cohort measured sum across both workers,100*(hybrid_charged-LP96_charged)/LP96_charged<=10 supports, otherwise falsifies. No timing confidence interval or hardware-general claim. Strict dual cost reported separately with same fixed10% descriptive threshold."
+    }
+  ],
+  "timing": {
+    "baseline": "LP96 pays its complete H2bh answer dependency chain and own final CPU board/counter/flag return, exactly as the previous confirmation.",
+    "incremental": "All original LP routing-margin computation, finite/cap predicate and CPU/device transfers, rejected-index construction, gather/setup, actual BP subset initialization/solve/CPU return, own BP margin computation and acceptance, final hybrid mapping/copy and output provenance flags are charged. The strict arm additionally pays original-LP margin verification on routed BP boards and strict flags. Shared prefixes execute once, but every logical arm pays all dependencies.",
+    "bp_loading": "Record additional BP model-load time separately and include it once per GPU worker in the primary hybrid numerator, even if loading eagerly serves the all-input BP control. LP baseline does not receive BP all-input-control solve costs. Do not claim deployment cost by omitting mandatory fallback model loading.",
+    "controls": "BP/native all-input control execution balanced with LP top-level order across jobs/batches. Actual fallback may execute only after its LP parent and never reuses the BP control output. Retain and report any fresh full-batch/subset differences; no assuming equality from source gates.",
+    "excluded_reported": "Dataset reading,generation,model-independent warmup,reference comparisons,non-routing diagnostics,full traces,lossless archiving and audits are outside charged answer cost but included in worker wall budgets. Report shared token/hidden work and all model loads separately; no service latency claim."
+  },
+  "gates_before_fresh_draws": {
+    "numerical": "Protocol-bound source gate reproduces all H2bh shard00 inputs/all3models across all eight states plus original cap case4078/all3models. Recheck H2bj full32-batch and singleton BP parity, routing decisions and both original-model margins. Match all boards,iterations,flags,logits,candidate/trace states and cost choices; fail closed on implementation mismatch.",
+    "statistics": "Independent SciPy boundary checks for both absolute decisions and BP paired NI at stated alpha before freeze.",
+    "archive_writer": "Reuse H2bi bounded2-thread/2-pending lossless writer unchanged where eligible, with owning copies and full error propagation/join. Source gate proves complete scientific file/payload parity before fresh runs. Never reduce diagnostic or trace evidence to save time."
+  },
+  "budgets": {
+    "source_gate_gpu_worker_seconds": 120,
+    "source_gate_total_gpu_minutes": 4,
+    "fresh_gpu_worker_seconds": 600,
+    "fresh_total_gpu_minutes": 20,
+    "input_audit_cpu_wall_seconds": 120,
+    "full_independent_cpu_audit_wall_seconds": 1200,
+    "cpu_audit_workers": 16,
+    "cpu_peak_rss_gib_per_gpu_worker": 8,
+    "no_extension": true,
+    "failure": "Preserve all completed/partial results; no posthoc sample reduction,rerun,cap extension or target change."
+  },
+  "schedule": "Alternate16shards over WorkGPU0/GPU1, three model seeds per shard,32-input batches. Keep both GPUs productive with independent shard/model jobs. Overlap input validation and immutable completed-job audits with remaining inference when dependencies allow. Record live GPU UUID/PID/utilization and advancing job/batch counters.",
+  "independent_verification": "All4096inputs and12288model-inputs remain. Audit all eight original prefix states and every candidate cost/native/terminal transition with existing independent direct-factor machinery; verify both hybrid maps by identity on accepted cases and independently evaluate every actual routed board under both BP and LP original objectives. Verify all controls,all wrong-certified accepted LP outputs,all BP failures,all caps/nonfinite states and every actual subset/control difference. Publish a fixed index-based public subset plus all routed/failure cases separately,complete per-input/model/run tables and timing receipts. Reference labels used only for generation checks and post-output evaluation.",
+  "accounting": "Four reported arms add48paired source jobs and49152logical primary model-maze-arm evaluations. Internal prefixes,source gates,timing checks and identity reuse remain separately labelled. Actual fallback trajectories,source gate trajectories,and reused logical states are reported explicitly; no pooling with H2bh/H2bj. H2bh remains independently inconclusive regardless of this new result.",
+  "frozen_utc": "2026-11-15T11:33:10.285270+00:00",
+  "arms": [
+    "pl",
+    "old_binary",
+    "connectivity_veto",
+    "original_lexical16",
+    "unified16",
+    "unified48",
+    "unified64",
+    "unified96"
+  ],
+  "reported_arms": [
+    "pl",
+    "unified96",
+    "hybrid",
+    "dual_certificate"
+  ],
+  "models": {
+    "0": {
+      "pl": {
+        "path": "artifacts/research/20261114/work/contrastive_training/fits/s0-pl/checkpoint.pt",
+        "sha256": "0218e6d814f2ee5b6028877056fc9c705daf53e20233c2ebb083b46f5732752c"
+      },
+      "old_binary": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "connectivity_veto": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "original_lexical16": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "unified16": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "unified48": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "unified64": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      },
+      "unified96": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed0.pt",
+        "sha256": "a391c2a0f5f1de9e851af8ce74bc2e8e688aad331e99909e4e5043a24645c41a"
+      }
+    },
+    "1": {
+      "pl": {
+        "path": "artifacts/research/20261114/work/contrastive_training/fits/s1-pl/checkpoint.pt",
+        "sha256": "3799b046bdfd3425b9603338f90bd60ccd6637707f20eac0d59139ce5d21445c"
+      },
+      "old_binary": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "connectivity_veto": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "original_lexical16": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "unified16": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "unified48": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "unified64": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      },
+      "unified96": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed1.pt",
+        "sha256": "dd0e378b589ee30b29d4dc559ace60146c45b4e028ffea953e1776b1644f0b1b"
+      }
+    },
+    "2": {
+      "pl": {
+        "path": "artifacts/research/20261114/work/contrastive_training/fits/s2-pl/checkpoint.pt",
+        "sha256": "76b8d4e38979cc5282d15b30f4b27c2468dbe5fe43426cfa6e085bb62b333672"
+      },
+      "old_binary": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "connectivity_veto": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "original_lexical16": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "unified16": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "unified48": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "unified64": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      },
+      "unified96": {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/second-negative-scaled-seed2.pt",
+        "sha256": "854832da2116bee3f95f5041a56050a35a8d16748f11b7beaaae38edb2e4d8d4"
+      }
+    }
+  },
+  "jobs": [
+    {
+      "id": "shard00-s0",
+      "shard": 0,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard00-s1",
+      "shard": 0,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard00-s2",
+      "shard": 0,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard01-s0",
+      "shard": 1,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard01-s1",
+      "shard": 1,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard01-s2",
+      "shard": 1,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard02-s0",
+      "shard": 2,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard02-s1",
+      "shard": 2,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard02-s2",
+      "shard": 2,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard03-s0",
+      "shard": 3,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard03-s1",
+      "shard": 3,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard03-s2",
+      "shard": 3,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard04-s0",
+      "shard": 4,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard04-s1",
+      "shard": 4,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard04-s2",
+      "shard": 4,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard05-s0",
+      "shard": 5,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard05-s1",
+      "shard": 5,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard05-s2",
+      "shard": 5,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard06-s0",
+      "shard": 6,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard06-s1",
+      "shard": 6,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard06-s2",
+      "shard": 6,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard07-s0",
+      "shard": 7,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard07-s1",
+      "shard": 7,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard07-s2",
+      "shard": 7,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard08-s0",
+      "shard": 8,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard08-s1",
+      "shard": 8,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard08-s2",
+      "shard": 8,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard09-s0",
+      "shard": 9,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard09-s1",
+      "shard": 9,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard09-s2",
+      "shard": 9,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard10-s0",
+      "shard": 10,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard10-s1",
+      "shard": 10,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard10-s2",
+      "shard": 10,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard11-s0",
+      "shard": 11,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard11-s1",
+      "shard": 11,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard11-s2",
+      "shard": 11,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard12-s0",
+      "shard": 12,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard12-s1",
+      "shard": 12,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard12-s2",
+      "shard": 12,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard13-s0",
+      "shard": 13,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard13-s1",
+      "shard": 13,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard13-s2",
+      "shard": 13,
+      "seed": 2,
+      "gpu": 1
+    },
+    {
+      "id": "shard14-s0",
+      "shard": 14,
+      "seed": 0,
+      "gpu": 0
+    },
+    {
+      "id": "shard14-s1",
+      "shard": 14,
+      "seed": 1,
+      "gpu": 0
+    },
+    {
+      "id": "shard14-s2",
+      "shard": 14,
+      "seed": 2,
+      "gpu": 0
+    },
+    {
+      "id": "shard15-s0",
+      "shard": 15,
+      "seed": 0,
+      "gpu": 1
+    },
+    {
+      "id": "shard15-s1",
+      "shard": 15,
+      "seed": 1,
+      "gpu": 1
+    },
+    {
+      "id": "shard15-s2",
+      "shard": 15,
+      "seed": 2,
+      "gpu": 1
+    }
+  ],
+  "cohort": {
+    "base_seed": 2026111528,
+    "n": 4096,
+    "size": 180,
+    "loop_probability": 0.8,
+    "prior_registry": [
+      {
+        "path": "artifacts/research/20261114/work/binary_coordinate/datasets.json",
+        "sha256": "a520ef8fa5d1e55bb22b6f519708f16c820a937a80cc7fe2cbee2a1acd7624c2",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/binary_relaxation/datasets.json",
+        "sha256": "27881b30ad9e23f456b4a7b724de9fda00c094ec3a778e5dd7450a9a51e8a134",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/cap_transfer/datasets.json",
+        "sha256": "4bad3da88183f6e260ac6f599c02cc2597aae0f0551351a03b012fcad8c67fb3",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/connectivity_transfer_180/datasets.json",
+        "sha256": "9457e4670bf17deeee0315246477ec6da74fb402867d8c9eda9c99841fb45bfd",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/contrastive_training/datasets.json",
+        "sha256": "db7567f0b53b5817d4f743b8167b60dcf10900777359e7c87fd46a971ebe3dbe",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/cycle_transfer/datasets.json",
+        "sha256": "56e0ada0bb3d2d1cf6bf3460fb4a880e3e8f7555903aaf8600ecbf1ae13f8852",
+        "dataset_records": 32
+      },
+      {
+        "path": "artifacts/research/20261114/work/cycle_transfer_180/datasets.json",
+        "sha256": "2ec781c2b553cfbce82eeb42d9d172cdf1ca63a9f752f5f779403ba77ce2835d",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/density_transfer/datasets.json",
+        "sha256": "45e2700efdc63f8873e1a768623e4a1f733604b0bd2c0744b6e8bfb370a9f92e",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/factorial_transfer/datasets.json",
+        "sha256": "1bb811438c5ee6e8475d9067b3d3971ba12d843366178ce332484176d0885db8",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/hard_negative_transfer/datasets.json",
+        "sha256": "025c5eaa7cafbe1eb2445e88abd8b90789e17806a1126506499d82be2d980cfb",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/larger_relaxation/datasets.json",
+        "sha256": "8178b09848f9181278c69cb814ee18e2bf8becb10a6594787599d8e4aeb8f30f",
+        "dataset_records": 64
+      },
+      {
+        "path": "artifacts/research/20261114/work/loop80_confirmation/datasets.json",
+        "sha256": "f1dcbd0338cdeef8d214b94ea1803cf6b9cbc45bffc1dd02b8fc61c5f678bc8d",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/loop80_transfer/datasets.json",
+        "sha256": "8fb2b9e8467b38af6236b1fcbe73faf1f40f3b978f8d2cce28ffe9bc63d5e0e1",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/lp_relaxation/datasets.json",
+        "sha256": "c65eb9afc92a06baea4cda41e1dc0afe4a058641aa4f60aa8d9d14ba25aac891",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/lp_transfer/datasets.json",
+        "sha256": "70689431e875615e5584c4e5330030113fd4d2e711866a5899dc21ca5f7444d7",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/margin_intervention/datasets.json",
+        "sha256": "88c09499cdd4a54759256688928f4db6f180d10416c30be36a69c9a99ea72cda",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/native_relaxation/datasets.json",
+        "sha256": "1dc78728ea6c2df930cf28daa1e184b151bf88d0cac869a223cdbc5a34e0b475",
+        "dataset_records": 64
+      },
+      {
+        "path": "artifacts/research/20261114/work/native_restart/datasets.json",
+        "sha256": "7ada3cbcc02c5544baad95173963dc3cfab107d06ede812d724599eee42658a1",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/restart/datasets.json",
+        "sha256": "d2aeade91015a5cead0352fb91d0d0dd3e010541136e7533eccec8c09ce6d08a",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/safe_block_transfer/datasets.json",
+        "sha256": "dd3bfd9819916cff1c51a3bf0f92816df8b0a19db57069aad64b5c08f91ed300",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/second_negative_transfer/datasets.json",
+        "sha256": "3408578608ff9519f30fe232cece9a24edf809775fec2ca7ff4bcd2a0fb5dcc0",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/selective_fallback/datasets.json",
+        "sha256": "ba205d47c3e4f82d57dc92a12068f324d40845f204a7088a1fdb0bce5fcdaac4",
+        "dataset_records": 64
+      },
+      {
+        "path": "artifacts/research/20261114/work/sign_intervention/datasets.json",
+        "sha256": "5e8d59f20ff3feceb6777472aa3a6b4870f8c0ef23e4d9cfcf0f164b9f841059",
+        "dataset_records": 8
+      },
+      {
+        "path": "artifacts/research/20261114/work/unified_cycle/datasets.json",
+        "sha256": "b55039f0757ff3074d6f8f6c68d0c830fe65f3f3fc0d278636d944895892f4e9",
+        "dataset_records": 16
+      },
+      {
+        "path": "artifacts/research/20261114/work/window_fallback/datasets.json",
+        "sha256": "f52483e61846fcc5cc42f439671199d5724445edca8292394c3548b41c6570e4",
+        "dataset_records": 64
+      }
+    ]
+  },
+  "source_sha256": {
+    "research/20261114/work/unified_cycle.py": "dce68fc34ab00008f441e52382dfdd0b3d6b95da7fdd7ed3a80bfb64cb683c8e",
+    "research/20261114/work/freeze_unified_cycle.py": "86a7d60259b6b60440fa2c7d151c36bfca8519e12152d314ec79ca2e2308aa5a",
+    "research/20261114/work/unified_cycle_batch.py": "9a3b8ea3736a4d084c0c6be1cadebc1aab215c220274ff025d9a15f636ae31ba",
+    "research/20261114/work/bounded_lexical_cycle_moves.py": "9cfbe975b27be2130e7fd601566507b4c76bf77cd03c4d19ece04af74c96a0bd",
+    "research/20261114/work/preflight_unified_cycle.py": "e4285ff19d0ccc958b57a84953bd583b58728940f0b5b20301d7e59ec58cc44d",
+    "research/20261114/work/audit_unified_cycle.py": "2898bc17b39bb95cd93a1d8124266ec9e4a5275797296127a7292249b1dc00d3",
+    "research/20261114/work/audit_unified_seed_registry.py": "366e38a649f2be51ee12fca328f6dc0854102ac5b6c364561f1b2f23cb94c410",
+    "research/20261114/work/audit_unified_cycle_inputs.py": "afe854a9a39c9bfc9f921b22c348df7bd3d946948465f347ce138607f5df5658",
+    "research/20261114/work/terminal_cycle_moves.py": "646cc3a76a9b2878e2c923d38a5f69472606a003bdce7692e32f87e2ef340850",
+    "research/20261114/work/lexical_cycle_cut_moves.py": "e1765ba133a37358f3c92bded10f95e69fc545e6187c4039580d3f45671ddc42",
+    "research/20261114/work/connected_block_moves.py": "e1f959f4d8d134fc47b3bd131b9585073b69df5f06939b918c4e73e3caedc14d",
+    "research/20261114/work/graph_block_moves.py": "fa0a68c016da1494d5db42777194ccc125e06508fa0476a7e99a7e2f94589568",
+    "research/20261114/work/binary_coordinate.py": "657c33162a667f0304313612d51387b1d9638ca9290a4002411d7e9b78b5d21d",
+    "research/20261114/work/larger_relaxation.py": "6be58f66b7d354f7d47da697520bddb73dcadc6114cedcde0885ad5e61ea4cd1",
+    "research/20261114/work/factorial_transfer.py": "9381151f81aeda3f45320437a1985a4d6bc0e0ebb3a90fed9dd2cb21ea995f84",
+    "research/20261114/work/fast_npz.py": "2c3f6e8868a22aed0dbb5a389629accc6472a0a877208e01193a97e2a3c039ec",
+    "research/20261114/work/study.py": "c912470b19d0d13b151a4cac9a276455a915adeecf15088d1c5d43db66dbf721",
+    "research/20261114/work/audit.py": "d27d3397a620fa4998428baffeea704cff06c29111160246d17e684278522ec3",
+    "research/20261114/work/local_factor_delta.py": "178b4f2465959fd4acdaf3a5857e9e9a0228e508cbf30a0584f1c931b5ecbcd6",
+    "research/20261114/work/verify_training_feasibility.py": "3364c8127bea8589100fd6e405d3e6630457408742dc4b7cf48103adf41ed195",
+    "research/20261114/work/verify_large_cycle_geometry.py": "4bec48f982f1b535c5520caf2cc0d639033f2f8f67ab1f6804029f7b05cc09a1",
+    "research/20261114/work/verify_graph_block_source.py": "4bea8e314cd10caf78e705dac0f54711f54c36198d9d1bcad68df0ada5966745",
+    "research/20261114/work/audit_connectivity_screen.py": "04931d25d3a467cb2e972ca8f946c107c0fb4370c7e820570416644962f8c5c9",
+    "research/20261114/work/audit_larger_relaxation.py": "198fe957a9e800e9a8776b03a5eec069484966193d5a94728c82a09a54571209",
+    "research/20261114/work/audit_contrastive_inputs.py": "6fd50bf60c7229b264fe6202c41e2227b628cec803dd2c3f28fc488eabc777cb",
+    "research/20261114/work/verify_cycle_cut_geometry_checked.py": "5e60359e2e9ad2db4f581a7533e70174bd79c34221b1465a795536fada29a496",
+    "research/20261114/work/extract_unified_cycle_models.py": "71a6f49e33f4acba5423827b3a6de9eda205976c5e6b920dbe038f0888634946",
+    "research/20261114/work/loop80_transfer.py": "9216136a943bd79314b12317a37a92059916251aff4c44d1f331e73a62d7edf9",
+    "research/20261114/work/freeze_loop80_transfer.py": "f5d394bd8278cf7fb05111625fb65683c76fd26a5a5bd1f38615069db690b4f4",
+    "research/20261114/work/fast_unified_cycle_batch.py": "66fe0f069f3217e3720a1f1506d53f5310109672f1ce60cd1f08f207d54e6014",
+    "research/20261114/work/preflight_loop80_transfer.py": "e85e978e06322c6b149abb4ec983fd3c7731a2fc664ab47a57f5c3d3803d7525",
+    "research/20261114/work/audit_loop80_seed_registry.py": "cd937d70b3c825aa3ea3a9b86259220dc87c26bea0c8e8ab6dce4633ffa4a21d",
+    "research/20261114/work/audit_loop80_inputs.py": "d3db7b64d4cb5bb6474264ac478d7f8936f26e00d3934b7a57c425571bb70be6",
+    "research/20261114/work/audit_loop80_transfer.py": "adab1c02004a17f0f5c6baa9cb00c4c054cbf6c87124912e5a04cb05dbc0afae",
+    "research/20261114/work/extract_loop80_models.py": "1013071917f3d70b84667fb0930bf9bbeb1fe180c00b697bb7baeaeec0d2d443",
+    "research/20261114/work/bridge_cycle_geometry.py": "47358b52d015f94cc989ea1aa023c68310b13fc7e2c90ea550da81aaa51958b6",
+    "research/20261114/work/bridge_lexical_moves.py": "4e23a5ae1f6d261bf0840cae5929998cb6a5805c69f3bfef44c99ae654ac1c31",
+    "research/20261114/work/bridge_terminal_moves.py": "845d50017ceac468e8099cec54c306d5921ed583eeaf7fe2aff544c82043d3fc",
+    "research/20261114/work/confirmation96_study.py": "860d36e373e7b69a32d8c80224e34f7c43680172e95c4d98c62b239a68f6bf46",
+    "research/20261114/work/confirmation96_batch.py": "fcddad9dbeb7a1873990fa2ecd75b54810760b6c1d57acc62ce465eb206c30a3",
+    "research/20261114/work/freeze_confirmation96.py": "cfe17c75b432851d2d912db8366fc78dca352cb86c16f50f3317b67d3c14b0b4",
+    "research/20261114/work/preflight_confirmation96.py": "6e2a7d4a06adcb5049dc5ac0911c2a29021efc23d32f84574fabf701d943a60b",
+    "research/20261114/work/preflight_confirmation96_statistics.py": "ec3e0e3ddbe87b7d0674a42ac10d13b48f3e727239058ad9849c899385673277",
+    "research/20261114/work/audit_confirmation_seed_registry.py": "99fea3bb8ef6eaa31f8376f4a22573ad90a53c7ad65f5564e0b306bf278b8edc",
+    "research/20261114/work/audit_confirmation96_inputs.py": "b034d448fe549bcf1fefa6cf52b27594d356d5cecf8e37b5aaf0b9082818ff69",
+    "research/20261114/work/audit_confirmation96.py": "b162a382cc383e5ba9860618c2e5f9b42fa2091ebcf0a19acce465807544a13a",
+    "research/20261114/work/extract_confirmation96_models.py": "dcd90e04c5fcd093f6f81e3c79a665a8bf101bea6db04b11abc856d5c243a33c",
+    "research/20261114/work/bridge_veto_geometry.py": "85c80f622921576008762f3ec5432f3d94f314baea48f094d20d314d2c2b01f9",
+    "research/20261114/work/bridge_veto_moves.py": "43ae39cf9203cc7c2a337ad3b97c4ce114449a25ef9e7ce62a71fc1ecc918feb",
+    "research/20261114/work/fallback_confirmation_study.py": "edb6a353dc8dfa3771d512653a2cf66d676ff2aa36b9aebcac90128e9116c56a",
+    "research/20261114/work/fallback_confirmation_batch.py": "4ecfcb98f1c6243dfc3840292c501a683c09a0f16614334f6c777ee3f2c87aaa",
+    "research/20261114/work/fallback_confirmation_job.py": "886fe1bdf38f08ed54449fa769aa926c26769dcefe6cecec6cd086d99b43da35",
+    "research/20261114/work/fallback_confirmation_statistics.py": "d8d8e16f8373639983709171174f45557a54726228bed4327bae3dbf94a90941",
+    "research/20261114/work/preflight_fallback_confirmation_statistics.py": "7758ebad494bcbd1a6c0423b8d6f33c57c97ef246a842cad21315eebd9e2fa53",
+    "research/20261114/work/freeze_fallback_confirmation.py": "31a88506bc42c8ca1e2e26758c06f6f1e0ca3c4ab23db524934d9bbc375eb1d0",
+    "research/20261114/work/preflight_fallback_confirmation.py": "9ea4d37167472c171df637bb2a19edd8f8eb58654c14b6cccab461dfeb4d4bdc",
+    "research/20261114/work/audit_fallback_confirmation.py": "3e6bba953acf3364b531a0f0fe8db31dae3002e4296870f378a897fc66dc8ed5",
+    "research/20261114/work/audit_fallback_confirmation_inputs.py": "a92169ed69772483b0dcc6ed23a5e4640fdce04bea99a33f8e390be12f705111",
+    "research/20261114/work/audit_fallback_confirmation_seed_registry.py": "dba16d00600fe1e974d61d3785c51a961bf8f22d5217800d1e6f9e9f5cb6d5e4",
+    "research/20261114/work/certificate_fallback_policy.py": "eeebdca1dfb190f6ee16f631bc9a32cc8c9d44ed26c4d59c0083393acbfa5b26",
+    "research/20261114/work/bounded_archive_writer.py": "f38270bdcba687f631060ef52ebb63207eb757a1549ad5ca9081340bd0771b67",
+    "research/20261114/work/artifact_overlap_pipeline.py": "6720452e821d49a5fcf9756a84dc7049388d27a40bbcb782626e2822e0cadf8a"
+  },
+  "source_evidence_sha256": {
+    "research/20261114/work/fallback-confirmation-proposal.json": "ef029cca268ee36c13a1f52dbd7ce16fb0ad025a3bbf10cc88991cac114d7bbb",
+    "artifacts/research/20261114/work/fallback_confirmation/seed-registry.json": "cacdc13bc5b73677fa7b177f3554204c21f8a58a961f3f25e5b344cbb464579c",
+    "artifacts/research/20261114/work/fallback_confirmation/statistics-gate.json": "61765f84d247442d6bce5c9696c049606f046ecd5e0fc40e82ddc7b40805f6d9",
+    "artifacts/research/20261114/work/loop80_confirmation/protocol.json": "09616973cf71dc5717dfbb4e5f491b534ba2a122d9bf649f7f04c83b3b840058",
+    "artifacts/research/20261114/work/loop80_confirmation/audit.json": "bcf56c42c1696bd29f94dddec675e81820ea29a845ae976eb2c7d0febe23eb1c",
+    "artifacts/research/20261114/work/loop80_confirmation/datasets.json": "f1dcbd0338cdeef8d214b94ea1803cf6b9cbc45bffc1dd02b8fc61c5f678bc8d",
+    "artifacts/research/20261114/work/loop80_confirmation/model-extraction.json": "343867afb85a2ec3e7a703571bf98e57286f7938494d202f80fffd6dc0720354",
+    "artifacts/research/20261114/work/certificate_fallback/audit.json": "477f73438466cffda3ffbecf7d3d8316d7bdbec2155c8be6c8f7556801565602",
+    "artifacts/research/20261114/work/artifact_overlap/audit.json": "47cc37b529f2031adf7dca3c6e64793309d33c3532dd4ef09568a1279d529d54",
+    "artifacts/research/20261114/work/certificate_fallback/protocol.json": "7af6b601ab0fea5d81206eb88ff0a132c7b1576300084edab01aa94658170e82",
+    "artifacts/research/20261114/work/certificate_fallback/routing.json": "fe9e9a6df575e6cdad76fa200f5dcb907ceeface25318868828f0a31aecf159e",
+    "artifacts/research/20261114/work/artifact_overlap/protocol.json": "03092b01396b0b2a1a878ff93a632cc2733567114638c41c50c77a7c578e59db",
+    "artifacts/research/20261114/work/artifact_overlap_preflight/synthetic-gate.json": "c7f0fd135241e8a4f528a140f4fa7218098076499ae000ff83434c2c0a9982de",
+    "artifacts/research/20261114/work/loop80_confirmation/model-seed0-pl.npz": "b57f86b580b01b2fae5b07d11a14f932bd15991e79627d88fc351a1a2328d82f",
+    "artifacts/research/20261114/work/loop80_confirmation/model-seed0-old_binary.npz": "4e3b9ba1ea24a0978a239ec62830cd0f0bcd6793ea217b88fe7d5141311e5eb2",
+    "artifacts/research/20261114/work/loop80_confirmation/model-seed1-pl.npz": "0978a4b3afb9d7f1bd108e2e830536af51540e73524a502c2ef06414c9d5d1fb",
+    "artifacts/research/20261114/work/loop80_confirmation/model-seed1-old_binary.npz": "0f0bc3f6a1c3be8c3dcc9f5d43ed2336b61126a6ae21bb191d06a1222615a02e",
+    "artifacts/research/20261114/work/loop80_confirmation/model-seed2-pl.npz": "a2fe624187ff7c267e799781cf0049496ae7e334d5f8100c960dbd0a4a39faf1",
+    "artifacts/research/20261114/work/loop80_confirmation/model-seed2-old_binary.npz": "87b9ad4fa90d05f4b6d3675140130515df26284f58caf1be201a8fe59f316ec1"
+  },
+  "source_gate_files": {
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch04-original_lexical16-trace.npz": "34dd31fcb39a6ab6976d01320b05b597521d82ce5d499b8db2b16535919f27fa",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch02-original_lexical16-trace.npz": "90e993b6f109ccaf5d31a2a9fb21650fe56181a81780564157679a7f4f642e87",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch05-unified96-trace.npz": "64ddab31ec8c2a5d1e4b4841add7719af94b666c3b0bb43891e7b4de7eeb523c",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch01-unified96-trace.npz": "80c2d712fca0c58220d1d97ffe99e14ea47624ce9ce8d3b14d9185f22051825d",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch04-unified48-trace.npz": "2d031df9c85dca54c77ee3763a78ac50f5f5756d048502118565e14f75527795",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch00-unified96-trace.npz": "a185e92905b68b50562714c9102e23a0d3cb0c05f660d23fae335fae038b35e1",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch03.npz": "55aa12eae0c8a3ca7f3e1cc9bd7707dac32ec43003cc2226849e6886bb427e8a",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch03-unified64-trace.npz": "03eb9118d51bfe96a36e362dfcd8d88cf2e9dd935a2abd4a5eb067107ee676a9",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch07-unified64-trace.npz": "c96c499deebe16859e4331bdae9daa3c885584437ecfa4ff5c0cf00b65e39764",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch03-unified96-trace.npz": "22d66b3af2a53f36de16ddb7aee6605f552d57ab37cb0a898a7dfcfb0445f6ba",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch04-unified16-trace.npz": "2c781b3cd335ec23e32fbf637815bf50229b3b3571cfad44162af85cd9fc9d52",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch03-connectivity_veto-trace.npz": "7466e95e555da981646254dbc4f05d90b7c5abdcdc647b506b037b38e30e51f6",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch05-connectivity_veto-trace.npz": "87f8ba7509316d49712df365c4ef917f70737b0ffb2053a3f4c34b57f9d7271e",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch00-original_lexical16-trace.npz": "4ca260c7b1576b75b48ace6a24bc76acd88836b3ca3200c72c1684f4dabefa3f",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch07.npz": "2daec435b96806d3067c4754ab917a6fb116f7c18995f47bce8dc64b620e7aad",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch02-unified64-trace.npz": "85ba5fdca225f3aa19e9a616060daff473f130bbad03e698eec917df6ae2e93c",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch07-unified96-trace.npz": "a53d6358eb7602ef7fbbe0eb8a48afc330b156e522642eceac80981eb7688b3a",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch05-unified16-trace.npz": "69afe791f64e8be8adc6724fa96a3e014e79aa0c76c467235fd4b5ab76208574",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch06-connectivity_veto-trace.npz": "2e65a6f9fb3c92f65ba61329dd51b059aa1e8a8903a2b6f9904259828ac95e33",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch02.npz": "9d8c347e3ad11787f81b5f92d2d9e31a2c5102c15f1ac99d0b7d4f4a9eabb2fd",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch03-original_lexical16-trace.npz": "dd6945a2de10f9b171bcf17028c3c968944867db928ce34cec9953dc040f4865",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch07-unified48-trace.npz": "a3dfc25f9b308edae3db8643ee48f291eb2c2f72f948c2378bfc052a4d2c0575",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch03-unified16-trace.npz": "c112db10a2a62f85e6bc8ff91da80efe01004b59f6f6bd7a20c457d770d64f7c",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch05-original_lexical16-trace.npz": "78429c9852c43338f8a65bfa63507d3c4ffb6416d5973ba08594c1c58b338655",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch02-unified96-trace.npz": "b17af7fa854b1ba455c4925698df479b2d3882b25abbb2836eafef46b74df18c",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch04-unified96-trace.npz": "c29c2a43ec8fbd101909f30638749dee7212a09aa1b850eeac4d13790b624f4d",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch05.npz": "7299091e8af3c32572084df63b1010090474869dfede61674457e2fbf8c63eb8",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch03-unified48-trace.npz": "925fd4e50bc801bf0acb676b692ce74ba45f88b08268f0be66be534f4449c229",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch00-unified64-trace.npz": "3f2b60c173625d9554d5adbe5b736de66b475bdf65ac0f458e5bde4e1e33fc22",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch07-original_lexical16-trace.npz": "116008135d5967f11e3d4ad6082853821c4fa9fda929dda7b7319b6440f4781c",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch07-connectivity_veto-trace.npz": "da581a7f35bff8f451b7712c875ddbe6476536f0b7296c640a2b65523d685b44",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch04.npz": "a4ccd0b00c28c308e83481619391a0b5fc1aa151dded1f2608d9d507ef7161ab",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/outputs.npz": "aa952c806bac7356899e1e2dff56a09518ac3149b89d2105751ee04c64a940c1",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch06-unified16-trace.npz": "4b62f3ee619e6cdcc9e5f23d7c1ce323a02e310897e26786ba294f130c1e51ef",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch01-connectivity_veto-trace.npz": "1f14ee97ff61ba1f2a1f639da1cedcbc6a7b2dfdf7e57514282e28bda5ef8d7a",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch06-original_lexical16-trace.npz": "d42105efdb2002950a608c949090864e6ed51ae3a388da2a97c80cf3e9f7bc4c",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch05-unified48-trace.npz": "21a4bef4403cbd06e43283f307f315bbe47bff3b7c4d5bc0bf143bb5fb273681",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch06-unified96-trace.npz": "ac1d2afcfbd4b468f779f12efd25cc3870e03ba565fd28cd68c3c67ca43b613c",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch01-original_lexical16-trace.npz": "823e896d61ae6ea3bcaa6c02a7d4b9b4246f7cad20f989e78faf238300e4714f",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch01-unified48-trace.npz": "a5c3ccd7428894e7627e91e6860a56e1e5ea5cdf073ef2cc30d0942f8077c7d5",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch04-unified64-trace.npz": "e75656931681984dc1098f61fa1bb93484bd17c1e53626a4d41ac6e9684b8ea6",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch05-unified64-trace.npz": "0a1298978fbd8ebea08e98c6c2b1a4fe3f30f24ddf351ee8cff11096cdaa2f72",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch01-unified16-trace.npz": "0169a7399d6a3b613a2318371769f44f6b99073cf6fc4416bf7989c9b5cb674d",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch02-unified16-trace.npz": "4abed7c53a433272ae09c24331585021ed9c7022b862efe35ed1f1fdb31a8678",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch00-unified16-trace.npz": "d95ada93e275c53bbb2c794213b6925932435c32f06e6a79f100a051a93d323f",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch01-unified64-trace.npz": "40e21a7df9f41b9a86f8824c80d943e8f5d3766932e4d2cba76e6a6f27fe612f",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch02-connectivity_veto-trace.npz": "1d85c3374ab50f8deaeaef2fbe54a1ab8331deda5203e48b6de6994e87c4cdb8",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch06-unified64-trace.npz": "cb88adefdf61675f89bf07ea90b93ef434ecb9f1282a3f9383fc2d9ddaa46931",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch00-unified48-trace.npz": "99d785772c8231547222dff7b45dbd555f2c92b8b25faa7194549dc4338ceeed",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch07-unified16-trace.npz": "3b9200aa19930427ec34659c5a8d8512d3aaca16b1a7e7d6f3a3791600fc5144",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch01.npz": "2b1f3f610074df6a8c77ab41cbc790afa259ee30a1096ef3e666be016467d85a",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch00.npz": "0f622c1eaeb78c985c27f53fc48c4ada3ee30d2b049f24ac3a0b2d8a235b1690",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch02-unified48-trace.npz": "b258d442f339a1d938447cab8501d109641cd6644f4001805c5fa9a7eac960b4",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch00-connectivity_veto-trace.npz": "6515d65b54d252e8eb628d1abf3a95b03c068dda5cadf7852da9a19ffdec491e",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch06.npz": "4bed34d4c20644ebe3382210636435fa03fc702bdce8acd7a4f65c60d405e124",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch06-unified48-trace.npz": "f34bf2c63b286694756056f985c8c421c7df1ff19461741f2f65b654cd797ba0",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s0/batch04-connectivity_veto-trace.npz": "f520d77b255689fc413abe98eb0e7d7e7093bdddbd2ff917975111c9d2e02e5c",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s0/batch07-unified64-trace.npz": "56f2192919130802d532ec30bf76d4f087103a286fe2d1567850c6df6092e883",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s0/batch07.npz": "7a2508b138fcf49d977772c1144c91a0c73b2432e843c6e92c5ff47171dcfd39",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s0/batch07-unified96-trace.npz": "3b6bb9ab7bf81c7b6018b72b51e4a8e35cafd95b84c430c6b1bee90f1fbee95e",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s0/batch07-unified48-trace.npz": "01223c2b1de41369a550800260a1d37397c01ef0673866bae18497fb0c08411b",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s0/batch07-original_lexical16-trace.npz": "587fd8ba46acbd9b4e76f73e795f7c7475b844e1469d32c155501c021bf90c73",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s0/batch07-connectivity_veto-trace.npz": "7ab2a26e64db2fa86b11d1673ba2bfd39ba3c70f9d126db92129690ee5535c8d",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s0/batch07-unified16-trace.npz": "40dc2294f4e926660b2688db9b6a84b25dfea4d6705fb19828391b2deff694b7",
+    "artifacts/research/20261114/work/certificate_fallback/fallback/i4078-s0.npz": "9481de95cd6f658c071b98fe8a82eba8665f9b3f0aed9ccc913bf98f6c53a751",
+    "artifacts/research/20261114/work/certificate_fallback/diagnostics/i4078-s0.npz": "b2dc9583df66725ce90db6e8a40cabb86a02831e2c4f7350b51b095b37eab80a",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch04-original_lexical16-trace.npz": "1a80cca40e179f8d98edf151966711656e7ab617c341a33db7f5a1f5961ffeac",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch02-original_lexical16-trace.npz": "d7f4ee2546ba119e54d32f4156e38e05ed87f8cb0631613248b2e0a7f3ff8809",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch05-unified96-trace.npz": "64ddab31ec8c2a5d1e4b4841add7719af94b666c3b0bb43891e7b4de7eeb523c",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch01-unified96-trace.npz": "80c2d712fca0c58220d1d97ffe99e14ea47624ce9ce8d3b14d9185f22051825d",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch04-unified48-trace.npz": "255ff8a57d9528c8d02e852335cd0ea20c1c32ad3709c6031e1d2efefe6be578",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch00-unified96-trace.npz": "a185e92905b68b50562714c9102e23a0d3cb0c05f660d23fae335fae038b35e1",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch03.npz": "6e0b981fbdab5dbc92a3c35a8b5fecb2d6a633bc8e7f8c9a8d55b1976cb4502f",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch03-unified64-trace.npz": "03eb9118d51bfe96a36e362dfcd8d88cf2e9dd935a2abd4a5eb067107ee676a9",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch07-unified64-trace.npz": "ef9583a46bac0314d66e8e9ca225cc8d9c0f1502df7a4ba8a411556e287164cd",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch03-unified96-trace.npz": "22d66b3af2a53f36de16ddb7aee6605f552d57ab37cb0a898a7dfcfb0445f6ba",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch04-unified16-trace.npz": "2c781b3cd335ec23e32fbf637815bf50229b3b3571cfad44162af85cd9fc9d52",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch03-connectivity_veto-trace.npz": "d8143e89b0ca5b0846b03f7c94afe9c52c4440d6c7ca07cefea1204a17aa83d8",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch05-connectivity_veto-trace.npz": "019e8cf804fa50afb8dc64d40394aff73f46ebacec90fc50583c6b637fa811e4",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch00-original_lexical16-trace.npz": "0ce1795ed4d0012c239827b5e6dac62cf41177c6d5f2537211c41d5b52b222ed",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch07.npz": "0238d359f5a2fbea81c6ee8250271ac5ebb8bb1a68f62e648594fe688551f1df",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch02-unified64-trace.npz": "828a49599a725bf066a0ab4cb337dea37b3e2af5f8c8089205cf0a831732f9fa",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch07-unified96-trace.npz": "a53d6358eb7602ef7fbbe0eb8a48afc330b156e522642eceac80981eb7688b3a",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch05-unified16-trace.npz": "69afe791f64e8be8adc6724fa96a3e014e79aa0c76c467235fd4b5ab76208574",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch06-connectivity_veto-trace.npz": "49d79820c1f59b5f379f67904b120812212792333d902ca2577b0b1f4a6901e1",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch02.npz": "e7f09e50da125e521095c0262891f52accf7d151fcb3fa26805d1ecce4b637fc",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch03-original_lexical16-trace.npz": "1613d24d373593eedbae7e5aeb7b023efc11b0470916c23f7b697023c10ae14d",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch07-unified48-trace.npz": "c755396cbc6c83108bb2b770ac772cb7bfcc409737e358aeeb5289537b7fa0ae",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch03-unified16-trace.npz": "c112db10a2a62f85e6bc8ff91da80efe01004b59f6f6bd7a20c457d770d64f7c",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch05-original_lexical16-trace.npz": "1ed1856d9786a703fedca780b2574b19c834037b979ea6dabb49f611001f82b7",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch02-unified96-trace.npz": "e6e6a8f4b4964722fb2375e8bd25182ec45c258166091d496438f11c754f6006",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch04-unified96-trace.npz": "c29c2a43ec8fbd101909f30638749dee7212a09aa1b850eeac4d13790b624f4d",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch05.npz": "9d1ae6bd1139226c1dde365ebfe9bf3fa7fa468c30ab8eddf68954394d29af1b",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch03-unified48-trace.npz": "afccf0bb9e8b451feae058a5433114025920a3db9bc42628bff4a0d8e137face",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch00-unified64-trace.npz": "3f2b60c173625d9554d5adbe5b736de66b475bdf65ac0f458e5bde4e1e33fc22",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch07-original_lexical16-trace.npz": "bb7f84d533a28e9a234564ba3d749d683293f4ea1d508d7309bab8708188da15",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch07-connectivity_veto-trace.npz": "1edeb5b7bc00a83caf019e4f7e9154a755c9c555d4bab531d69aebe524424130",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch04.npz": "199a7c34ce9fd0c3c4c7d24bc9bf355410f141d8b59b725401fc62a45a1a264d",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/outputs.npz": "4ed2600303d4455e525c60ef737e548293b404596f7ed7135653343f74de6c78",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch06-unified16-trace.npz": "4b62f3ee619e6cdcc9e5f23d7c1ce323a02e310897e26786ba294f130c1e51ef",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch01-connectivity_veto-trace.npz": "f9391974d04140837c4238d5b8aed88c3f7c727e7623b602adbf554e48217bf2",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch06-original_lexical16-trace.npz": "33c69662a3eb6117f08c0afa8bd32635a467a6f5e1a2e63b8ffdbaac2ae467f0",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch05-unified48-trace.npz": "45eae7ab92617fa58b10d4aed080b7d40a1d61d11d23ab545c6a118e714ed92f",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch06-unified96-trace.npz": "ac1d2afcfbd4b468f779f12efd25cc3870e03ba565fd28cd68c3c67ca43b613c",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch01-original_lexical16-trace.npz": "30ea7c3d1eab79410147fcdd7a233a642032cf822c70d57372ffa2610428bd68",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch01-unified48-trace.npz": "9a68a38c035be6cf576a20d86f5397e934e90cc69db175c87fd64cbebd7e2fad",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch04-unified64-trace.npz": "e75656931681984dc1098f61fa1bb93484bd17c1e53626a4d41ac6e9684b8ea6",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch05-unified64-trace.npz": "0a1298978fbd8ebea08e98c6c2b1a4fe3f30f24ddf351ee8cff11096cdaa2f72",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch01-unified16-trace.npz": "0169a7399d6a3b613a2318371769f44f6b99073cf6fc4416bf7989c9b5cb674d",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch02-unified16-trace.npz": "4abed7c53a433272ae09c24331585021ed9c7022b862efe35ed1f1fdb31a8678",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch00-unified16-trace.npz": "d95ada93e275c53bbb2c794213b6925932435c32f06e6a79f100a051a93d323f",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch01-unified64-trace.npz": "40e21a7df9f41b9a86f8824c80d943e8f5d3766932e4d2cba76e6a6f27fe612f",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch02-connectivity_veto-trace.npz": "b2fab55f59a9cede968b564afcd27adea3d19e205f7b47685277254623052a74",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch06-unified64-trace.npz": "cb88adefdf61675f89bf07ea90b93ef434ecb9f1282a3f9383fc2d9ddaa46931",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch00-unified48-trace.npz": "7f579abd63f239b22fc92b7e43fe2457129a5ac8a6bbcffa4d1ad031af4f0a59",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch07-unified16-trace.npz": "3b9200aa19930427ec34659c5a8d8512d3aaca16b1a7e7d6f3a3791600fc5144",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch01.npz": "9e60aed4121021d75a588589e0a4459a4bb725db040bb45fc5c1ab33d23db5f1",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch00.npz": "4ff44f6e402e6d4fb9be8c393d8a325ec8634339f7042d53fcc45f4c97659725",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch02-unified48-trace.npz": "4f1eac95af177bab1bde7b6f3b492425810ea2d422dc048a3b52ee44ae319608",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch00-connectivity_veto-trace.npz": "7191a8194ecd6b9bc28e9786388348172a3fa713eb3eea8fbe26e76264c2b131",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch06.npz": "65d3533baef067430d2330870913fe52af8ae753eb237884acd94f07d1505080",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch06-unified48-trace.npz": "9f23a19dfd87841bbeb481ac270fa4c799c96bde5416ad5cfa4ae11b4b8cc3fc",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s1/batch04-connectivity_veto-trace.npz": "65ed640eecf876d1c8647a9e00a53e5d21e9e98f0a056de294b0d8c55dab5965",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s1/batch07-unified64-trace.npz": "dc7820ba88d1befd0af7dfda61c068bd62d0fcf22add53cfb531e2decdbec329",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s1/batch07.npz": "58bc4d0ddfd8cb8be4f3c2bcbed74bc2ed1378f30e7a9064ca9c923e13de1d41",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s1/batch07-unified96-trace.npz": "87eaf326cb96251dd3d571cc38d9675def8c33bcbfd636fcc48b7ef022e7ade2",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s1/batch07-unified48-trace.npz": "5064b7ef2ef04ec32452f93f5afb786a9bbb8041dc60225dbf5fb23ab2ca5ca6",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s1/batch07-original_lexical16-trace.npz": "0949a2989a5d5215648812ecd04a6cf0ca8c24c5d0de45f762fbc68a6ae38702",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s1/batch07-connectivity_veto-trace.npz": "b4a3f69643050b455299cf5d8d577f73f732efaedbc759d4b0652d1ec01b5580",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s1/batch07-unified16-trace.npz": "40dc2294f4e926660b2688db9b6a84b25dfea4d6705fb19828391b2deff694b7",
+    "artifacts/research/20261114/work/certificate_fallback/fallback/i4078-s1.npz": "86b3e26f7c84fcde96265f57330d1a9193050f9ee592bb2905ff86c16718b479",
+    "artifacts/research/20261114/work/certificate_fallback/diagnostics/i4078-s1.npz": "23b913726159c8d4b256488bf95df3c7241d27800a60b6c218fabdf1e4882d13",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch04-original_lexical16-trace.npz": "620233d63713172383457ec5e62a6f278e9d1179737f246beb9def33eaf34b1f",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch02-original_lexical16-trace.npz": "b32dd456aede5f081e8313aac698007f2473c71b6803d2af49fa6c9099c1fe0f",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch05-unified96-trace.npz": "64ddab31ec8c2a5d1e4b4841add7719af94b666c3b0bb43891e7b4de7eeb523c",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch01-unified96-trace.npz": "80c2d712fca0c58220d1d97ffe99e14ea47624ce9ce8d3b14d9185f22051825d",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch04-unified48-trace.npz": "9a4d190ce7475fe9dcc76dfa0d2dd9097b04d31b91882f2418f7bf741a903861",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch00-unified96-trace.npz": "a185e92905b68b50562714c9102e23a0d3cb0c05f660d23fae335fae038b35e1",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch03.npz": "0057aa61681f92b2f9e91dbe8354aa1613ea80fb6238092f560fda4e4c16f9a6",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch03-unified64-trace.npz": "03eb9118d51bfe96a36e362dfcd8d88cf2e9dd935a2abd4a5eb067107ee676a9",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch07-unified64-trace.npz": "413c231a6769c0a2572249e7c84104576770fcf9495efdb7aec875386a410e9c",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch03-unified96-trace.npz": "22d66b3af2a53f36de16ddb7aee6605f552d57ab37cb0a898a7dfcfb0445f6ba",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch04-unified16-trace.npz": "2c781b3cd335ec23e32fbf637815bf50229b3b3571cfad44162af85cd9fc9d52",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch03-connectivity_veto-trace.npz": "4fcee31ead52233fdd65364eaa3359da7cfab37d831d274ca56a8e2ceedd924e",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch05-connectivity_veto-trace.npz": "4a99eebc53dcd7693b43bea71ec2eb2e4c0acf2ee54fae5f84b5b578ceba7de8",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch00-original_lexical16-trace.npz": "d863ca0a0933153084c1112b6065bc02eff27f8363bd26bede6b49f5b8bd8c24",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch07.npz": "24ff9958d50879e144f057bf01ba932c80c04cdef7362b1c15f3e2c71e74230a",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch02-unified64-trace.npz": "d3603166acca9e98c6cb1da0cf707b461f861c2c45f16800fda6c60d5b79d37d",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch07-unified96-trace.npz": "a53d6358eb7602ef7fbbe0eb8a48afc330b156e522642eceac80981eb7688b3a",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch05-unified16-trace.npz": "331b3c5ef0e4991560d21cd176f4b803fe8c2845b9179677bdb87ec913efc895",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch06-connectivity_veto-trace.npz": "eb9fcb62715720ac7cc050ab7aedec7567752ee94507ed16e38cb7032349c4af",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch02.npz": "2a2e46d13ecfcc3ca142741df7ca7274803dab0e1c7a44a83786bbeac7371028",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch03-original_lexical16-trace.npz": "aa0741dd77faf754b6457f8c16957e9af95cbee6d8104effec04a421c0224cc4",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch07-unified48-trace.npz": "be736b2cf4dfe3054cb4af0e1a7bb65c6c766139591551f879628bdd0d3ecc5b",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch03-unified16-trace.npz": "c112db10a2a62f85e6bc8ff91da80efe01004b59f6f6bd7a20c457d770d64f7c",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch05-original_lexical16-trace.npz": "e41691ad7b7c6f255b2a823ed05477e04810b17a85f266a7da961972f987e3a5",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch02-unified96-trace.npz": "53fbbba71bf7e5633c56de977acccb5de326a9bb51d9505e653add661f936984",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch04-unified96-trace.npz": "c29c2a43ec8fbd101909f30638749dee7212a09aa1b850eeac4d13790b624f4d",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch05.npz": "b2a36e2f4895c968002993a13edcb1f98e52ee8ecadaf4d1a2586e5b6fbe3bee",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch03-unified48-trace.npz": "3f091522c2d081b6a765ff214261a1f18c405a2b2c048483474df6294967b470",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch00-unified64-trace.npz": "3f2b60c173625d9554d5adbe5b736de66b475bdf65ac0f458e5bde4e1e33fc22",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch07-original_lexical16-trace.npz": "41ea928451141473d1bea52f56c2b70bd009ea79a3c4e1f6c1a4e45478deab28",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch07-connectivity_veto-trace.npz": "db4b7244b624e7d97491cfe4bf243a851d9135f7d5e08fd528a4b65401561e90",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch04.npz": "a0ba7c478c786050a75da7295083c5048a1e39b1deff4a5fe8857ddbe0132249",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/outputs.npz": "ccf9d9323884a574f78f4e0233ed5f23035c27718bdb797beed7f152f9d8ea5a",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch06-unified16-trace.npz": "4b62f3ee619e6cdcc9e5f23d7c1ce323a02e310897e26786ba294f130c1e51ef",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch01-connectivity_veto-trace.npz": "e2b234c43b8ef7e02316c0fbc93c5f12dbe42b75ce936d180820707cc3782391",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch06-original_lexical16-trace.npz": "a8f5a67778dda69f512b051923de9480684342a3d2903ce376e2231bdb592ec9",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch05-unified48-trace.npz": "cf01c3bd1f11e080a6790316c5fa3f44351252092efe81a0dee71a771f3e4a8a",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch06-unified96-trace.npz": "ac1d2afcfbd4b468f779f12efd25cc3870e03ba565fd28cd68c3c67ca43b613c",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch01-original_lexical16-trace.npz": "49e2424f71083bb646d1fe4fd99081b97298de65f01ad2faac32a7d0fa2c42d1",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch01-unified48-trace.npz": "988e6c9ce446b11b81969883fd137a42e076b85195eeff157821713b8da8a65c",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch04-unified64-trace.npz": "e75656931681984dc1098f61fa1bb93484bd17c1e53626a4d41ac6e9684b8ea6",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch05-unified64-trace.npz": "0a1298978fbd8ebea08e98c6c2b1a4fe3f30f24ddf351ee8cff11096cdaa2f72",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch01-unified16-trace.npz": "d1f17cbe855f835f02604c6f52f03ffe865ba739469e7d9574601b503b88ddbb",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch02-unified16-trace.npz": "0a9a27e5fe21f6cf7104f2be390563624ab924a71b59cdb37a9eb479c46007ef",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch00-unified16-trace.npz": "0c4356894e0ef0521be7ce39e1646abf0c1e1b4000e31f2820081d15efc435bf",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch01-unified64-trace.npz": "40e21a7df9f41b9a86f8824c80d943e8f5d3766932e4d2cba76e6a6f27fe612f",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch02-connectivity_veto-trace.npz": "e3628c009e61e733b35125dc47dfe1ffc7b8bfcf3249ef88e2087679995bb8e2",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch06-unified64-trace.npz": "cb88adefdf61675f89bf07ea90b93ef434ecb9f1282a3f9383fc2d9ddaa46931",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch00-unified48-trace.npz": "d3f1f19b6ec4985a3679bb66dd543a228df3f3e17f4817343cd9c7ec6b5ed9ee",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch07-unified16-trace.npz": "3b9200aa19930427ec34659c5a8d8512d3aaca16b1a7e7d6f3a3791600fc5144",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch01.npz": "2594ce831d674774a8a5ca37a5a1ddfdde7b4bfee8dd1679563917b2054fe634",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch00.npz": "3bb4af561b89349d2bacf9686827031b6c6904f2026739d4c126e2857a1da54d",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch02-unified48-trace.npz": "d3b172f8c4b4f2dbcec99eb6ec095d4e1ed8b747d02343d6a729dbf03e092124",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch00-connectivity_veto-trace.npz": "51f301ff120206fca41293c205baf9b2636d10d982502164fe6075623b16eae9",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch06.npz": "635877c67cc86eb6c12e7354e078e5564268f0f99961bf275cf0a9edb2c7d376",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch06-unified48-trace.npz": "13ebb4f0797a5efc79e08148bd146b3f75436dfc04fd3e820a9a359b47f4f92a",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard00-s2/batch04-connectivity_veto-trace.npz": "ce2fa04dfdac2a7091d5cc49bc9e9b726d8e8daf849b24af9fdcacaab0f8a843",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s2/batch07-unified64-trace.npz": "e4adf32dc41d1b54dc0b16ba77ff76772af516c39f349390a9f82a97e2a04fb6",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s2/batch07.npz": "3b9c40f3f6bcb8d6c196036fba538a4a0f85a5b460e48300c7e039c758faa16d",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s2/batch07-unified96-trace.npz": "39ce238b66b361c6fea2b249d0743f188f9272eae9919838b2cda2bd98e6328a",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s2/batch07-unified48-trace.npz": "6bc38b02ddbab24387593e48e861b1b2b6b26e9cf0597e1228096a636eea17c0",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s2/batch07-original_lexical16-trace.npz": "e99c10550053464f03946c6a0e87ccee627b4e681437f1841cf47d766b09f533",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s2/batch07-connectivity_veto-trace.npz": "3936d90c668d48a2c10880d7eb4a9f79a7dca43194234aa68ad3e15d94a2ce54",
+    "artifacts/research/20261114/work/loop80_confirmation/runs/shard15-s2/batch07-unified16-trace.npz": "40dc2294f4e926660b2688db9b6a84b25dfea4d6705fb19828391b2deff694b7",
+    "artifacts/research/20261114/work/certificate_fallback/fallback/i4078-s2.npz": "50af73cc59c5df4abc8cdcce67f2c2653047562d3f17093f7e443645366daf96",
+    "artifacts/research/20261114/work/certificate_fallback/diagnostics/i4078-s2.npz": "444d5324723a135764bc97bd62768ac5379e3e5ee16671eb26ebfb0083b7c684"
+  }
+}

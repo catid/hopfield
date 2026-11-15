@@ -2,6 +2,10 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Fresh dense-maze confirmation solves 4,096/4,096; no fallback is triggered](../research/20261114/work/REPORT.md#h2bk-fresh-lp96-solves-40964096-the-fallback-branch-is-never-used)
+- [Conditional signal test: 32/32 examined real detections, 0/32 fresh null detections; no graph-confidence claim](../research/20261114/ripper/REPORT-signal-detection.md)
+- [Per-cell deficit normalization reduces exact graph recovery from 129/256 to 98/256](../research/20261114/foureyes/REPORT-normalized-deficit.md)
+- [Exact vote-cost diagnosis: 30 of 31 lost graphs are strictly excluded by the bootstrap objective](../research/20261114/foureyes/REPORT-consensus-gap.md)
 - [Early question-tree handoff preserves recovery but raises total paid calls by 5.62%](../research/20261114/loki/h3bs/REPORT.md)
 - [Bootstrap consensus reduces graph recovery from 129/256 to 108/256; both targets fail](../research/20261114/foureyes/REPORT-bootstrap-consensus.md)
 - [Histogram-preserving shuffles: all 32 real banks retain a stronger curvature signal in both mask arms](../research/20261114/ripper/REPORT-marginal-shuffle.md)

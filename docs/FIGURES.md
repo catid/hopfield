@@ -4,6 +4,10 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Fresh dense-maze confirmation with zero fallback calls | [All outcomes, costs and complete failure supplement](../results/research/work/fallback-confirmation/) | [plot_fallback_confirmation.py](../research/20261114/work/plot_fallback_confirmation.py) |
+| Conditional-randomization signal detection | [All 4,096 objective grids and exact tests](../results/research/ripper/signal_detection/) | [plot_signal_detection.py](../scripts/plot_signal_detection.py) |
+| Per-cell deficit normalization loses graph recoveries | [All normalized costs, scales and proofs](../results/research/foureyes/normalized_deficit/) | [plot_normalized_deficit.py](../scripts/plot_normalized_deficit.py) |
+| Exact vote-cost gaps among lost graphs | [Every consensus true-graph gap](../results/research/foureyes/consensus_gap/) | [plot_consensus_gap.py](../scripts/plot_consensus_gap.py) |
 | Early question-tree handoff raises total cost | [Every online route, exact proof and paid call](../results/research/loki/h3bs/) | [plot_public.py](../research/20261114/loki/h3bs/plot_public.py) |
 | Bootstrap consensus and lost graph recoveries | [Every resample, count and exact proof](../results/research/foureyes/bootstrap_consensus/) | [plot_bootstrap_consensus.py](../scripts/plot_bootstrap_consensus.py) |
 | Histogram-preserving shuffle control | [Histograms, shuffled observations and proofs](../results/research/ripper/marginal_shuffle/) | [plot_marginal_shuffle.py](../scripts/plot_marginal_shuffle.py) |
