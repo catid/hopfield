@@ -1,0 +1,230 @@
+{
+  "id": "H1cg-cell-channel",
+  "status": "frozen_before_fresh_draws_masks_noise_estimates_scores_and_fits",
+  "hypothesis": "On 72 fresh banks with fixed within-bank cell-dependent noise, both the unchanged scalar estimated-channel method and an explicitly privileged supplied-per-cell-channel control recover at least 60/72 exact graphs. The scalar method loses to the supplied-per-cell control on at most 2/72 banks. Assess these three endpoints separately; the supplied-control absolute target prevents vacuous preservation when both methods fail.",
+  "why_nonredundant": "H1cf varied a single nominal rate between banks and found identical selected primals on all 72 banks. H1cg instead varies the rate across cells within every bank, so endpoints of a graph edge may have different channels. This directly tests the scalar channel model's misspecification boundary. H1cf outcomes motivate the question but do not establish within-bank robustness.",
+  "scope": "72 new banks of 90 official source rows. Freshness is relative to the declared combined Ripper/H4ak ledger through H1cf, not universal repository untouchedness. Use all banks and both arms without outcome filtering, tuning, retries, extensions or pilot observations. Preserve reserved and unrelated work.",
+  "banks": 72,
+  "rows": 90,
+  "arms": [
+    "supplied_per_cell",
+    "estimated_scalar"
+  ],
+  "prior_combined_excluded_ids": 2437929,
+  "prior_ripper_ledger_ids": 2201504,
+  "pool_size": 3831994,
+  "eligible_rows": 1394065,
+  "source": "upstream/data/sudoku-extreme/train.csv",
+  "masks": "One fresh 90-row GF(9) affine-line-complement mask per bank: 72 observed cells per row, 80 observed rows per cell and 71 coqueries per pair. The same mask serves all three query streams and both methods.",
+  "cell_channels": "Per bank, a new seeded permutation of cell indices 0..80 assigns its first 27 cells nominal 3/80, next 27 nominal 3/40, and last 27 nominal 3/20. The assignment is constant across all 90 rows and all three query streams in that bank; new assignments are independently seeded across banks. It is chosen independently of source IDs, masks and labels, with no graph-structure targeting. Each rate therefore covers exactly 2160 observed positions per stream, 6480 acquired queries per bank and 466560 acquired queries across all 72 banks.",
+  "acquisition": "For each bank and each of three query streams, draw one 90x81 binary64 uniform array followed by one 90x81 int8 offset array in 1..8. At cell c, corrupt iff uniform < float(nominal_rate[c]); add the offset modulo 9. Freeze exact binary64 threshold hex and actual 53-bit event probability ceil(threshold*2^53)/2^53 for all three rates. Preserve full raw streams. Independently reconstruct all acquired query records, then globally seal all 72 before any estimate or score. Distinct seeds do not prove statistical PRNG independence.",
+  "information_boundary": "The supplied_per_cell arm receives the entire nominal channel map, an explicit privileged parameter advantage; it receives no clean labels or true graph. The estimated_scalar arm receives only the shared triple observed-label tensor and mask, and calls immutable H1ce estimator/scorer code with no supplied map, nominal-rate argument, class membership or per-cell estimates. The acquisition module and later auditor know the map. This comparison measures the boundary of a fixed scalar model against privileged channel information; it is not a fair equal-information algorithm ranking or a causal isolation of estimation alone.",
+  "supplied_per_cell_math": "For cell c with nominal p=a/b and three observed labels, compute exact integer digit likelihood W_c(d)=product_q[8*(b-a) if y_q=d else a], D_c=sum_d W_c(d). For each coobserved pair i,j, posterior equality is e_ij=sum_d W_i(d)*W_j(d)/(D_i*D_j), allowing different channels at the two cells. The edge cost is round_half_even(1e6*sum_rows[-ln(1-e_ij)]). This is the same pair composite objective generalized to supplied cell channels, not full graph maximum likelihood. Producer uses fixed 80/160-digit outward intervals; an independent literal per-cell likelihood and rational-product scorer uses the immutable 200-digit, 240-term reference log bounds. Neither agreement of ordinary floating-point values nor a supplied p estimate substitutes for certification.",
+  "estimated_scalar_math": "Use unchanged H1ce estimate and independent_estimate, with all 19440 repeated-label pair comparisons, exact moment inversion f(p)=2p-9p^2/8 on p<=8/9, fixed nearest 1% grid 1..88%, half-even ties and explicit endpoint clipping. Then call its unchanged scalar composite-likelihood scorer and independent reference. The shared observations estimate p and score edges; no independence or unbiasedness claim. For nominal continuous probabilities, the mean rate is 7/80 but mean f(p_c)=8393/51200 differs from f(7/80)=8519/51200. Thus the scalar moment targets an effective mixture channel, not exactly the arithmetic mean. Actual binary64 event-law mixtures are reported separately; no threshold changes follow from this diagnostic.",
+  "inference": "144 complete degree 1..40 grids, analytic degree-zero witnesses, exact curvature over 1..39 and lower-degree tie breaking. Do not provide true degree 20 or edge count 810 to model selection. Reuse immutable single-thread HiGHS options and literal half-integral exact certificates. Finalize both bank grids before truth diagnostics. Selected fractional is a resolved failure; inadmissible scalar estimates, uncertified costs or required grid points are unresolved. Never pass an uncertified placeholder to the solver. Retain all 144 outcomes.",
+  "primary": {
+    "supplied_exact": "At least 60/72. Lower=known supplied exact; upper adds supplied unresolved. Support if lower>=60; falsify if upper<60; otherwise inconclusive.",
+    "scalar_exact": "At least 60/72. Lower=known scalar exact; upper adds scalar unresolved. Support if lower>=60; falsify if upper<60; otherwise inconclusive.",
+    "paired_regressions": "At most 2/72 pairs where supplied is exact and scalar is nonexact. Lower=known supplied exact with resolved scalar failure. Upper includes every pair possibly supplied exact and possibly scalar nonexact, accounting for unresolved status on either arm. Support if upper<=2; falsify if lower>2; otherwise inconclusive."
+  },
+  "controls": "The fresh supplied-per-cell arm is the primary paired control with an explicit information advantage. H1cf is separately labeled historical context, not pooled into the denominator or used as a paired control. BP AdamW is first in comparison tables and explicitly outside structural graph-inference scope. No new neural training or fresh measurement claim for published baselines.",
+  "diagnostics": "Report all bank statuses, gains/losses and conservative bounds, estimated scalar bins and clipping, mixture disagreement calibration, selected degree/ties, diagnostic fixed20/top810 recovery, literal selected-primal differences, exact selected truth gaps, cost differences, raw query errors per assigned rate, ledger overlaps/repeats, provenance and resources. Whole-bank diagnostics are primary; channel-pair classes are descriptive only and may not select a new method or threshold. Costs from different channel models have different scales and their gaps are not directly comparable effect sizes. Optimality certificates do not assert uniqueness.",
+  "seeds": {
+    "source": 202613600000,
+    "balanced_mask": 202613610000,
+    "cell_channel_assignment": 202613620000,
+    "first_noise": 202613630000,
+    "repeat1": 202613640000,
+    "repeat2": 202613650000,
+    "solver_base": 2042531502
+  },
+  "seed_rule": "Acquisition seed=base+bank0..71, including the independent cell-channel map stream. Solver seed=base+41*(2*bank+arm)+degree. Audit explicit frozen historical seed fields and expand recent H1bv/bw/ca/cf acquisition streams and H1bv/bw/by/bz/ca/cc/cd/ce/cf actual solver grids before freeze. 432 acquisition and 5760 solver seeds; no collision or independence claims beyond the declared audit scope.",
+  "budget": {
+    "new_LPs": 5760,
+    "new_analytic_zero_witnesses": 144,
+    "workers": 8,
+    "aggregate_cpu_seconds": 900,
+    "wall_seconds": 180,
+    "gpu_seconds": 0,
+    "new_noisy_cell_queries": 1399680,
+    "source_instances": 6480,
+    "clean_oracle_unique_cell_queries_cap": 524880
+  },
+  "budget_scope": "ID/mask/channel-map sealing, CSV materialization and independent source audit, raw query generation/reconstruction/seal, both arm grids, all numerical/proof/estimator/endpoint/accounting audits, monitoring and export. Gates/registration outside charged execution; public replays separately timed. Stop at the frozen ceilings with incomplete results if necessary; no extensions or retries.",
+  "query_accounting": {
+    "physical_union_per_bank": 19440,
+    "physical_union_all72": 1399680,
+    "each_standalone_method_all72": 1399680,
+    "reuse": "Both methods reuse exactly the same three query identities at each observed position; do not double the physical union.",
+    "per_nominal_rate_all72": 466560,
+    "source_instances": 6480,
+    "clean_materialized_cell_instances": 524880,
+    "clean_unique_formula": "81*new unique official IDs, reusing source values for repeats across banks.",
+    "official_noisy_label_sequence_before": 18160599,
+    "official_noisy_label_sequence_after_full_run": 19560279
+  },
+  "gates": "Independently reviewed exact mixed-channel implementation before freeze: enumerate all 729 triple-label patterns for each of three channels and match literal integer likelihoods; verify all nine ordered channel-pair table combinations, pair-swap and digit-permutation invariance, same-channel equivalence to immutable H1cd scores, and independent rational-log certification of every unique table value. Test complete synthetic mixed full-shape observations against the independent per-cell product scorer, all fixed numerical failure/skip modes, and exact 80/160 rounding boundaries. Validate dtype/shape/range and integer overflow bounds, all per-cell threshold events, channel-map 27/27/27 assignment/parity/sealing, source/mask/query lifecycle, complete-label substitution, explicit metadata isolation, all 16 paired uncertainty combinations, endpoint boundaries, proof mutations, worker/runner bindings and seed expansion. No cohort pilots or data-dependent numerical settings.",
+  "optimization": "Reuse certified logarithm primitives and eight persistent single-thread workers. Cache only data-independent mixed-channel type tables within a worker, with bounded construction and exhaustive gates. Measure table creation and independent reference costs on unrelated synthetic fixtures; record full charged source/acquisition/certification/fit/audit timings and live counters. H1cf showed solver calls were only 5.968% of charged CPU, so optimize certified numerical and preparation overhead without relaxing evidence. No eligible GPU implementation is available for this exact LP/rational pipeline.",
+  "interpretation": "This tests fixed scalar inference under a specified within-bank symmetric channel mixture, against a privileged supplied map. It does not test unknown per-cell channel estimation, causal attribution, arbitrary corruptions, universal robustness or CRAM neural training. Every result, including failure or incomplete execution, remains separately reported.",
+  "review": "Design only. No H1cg implementation, fresh source/mask/map/noise draws, estimator, score or LP has been executed. Await independent design approval, then independent full source/numerical gates before freeze.",
+  "frozen_utc": "2026-11-15T16:01:31.326797+00:00",
+  "sampling": "Build exclusions from H1cf archived exclusions union H1cf selected IDs. Sample 90 IDs without replacement within each bank from eligible IDs; retain repeats across banks. Seal all 72 ID arrays, masks and cell-channel assignments before selected CSV labels are read. Independently check CSV correspondence and update ledgers even if fitting later fails.",
+  "source_csv_sha256": "64b46674db0148e0d73a16346dadeb2b1c00824d3fca3f85b2ae7037f6b4b38e",
+  "source_seed_base": 202613600000,
+  "balanced_seed_base": 202613610000,
+  "cell_channel_seed_base": 202613620000,
+  "noise_seed_base": 202613630000,
+  "repeat1_seed_base": 202613640000,
+  "repeat2_seed_base": 202613650000,
+  "acquisition_channels": [
+    {
+      "nominal": [
+        3,
+        80
+      ],
+      "threshold_hex": "0x1.3333333333333p-5",
+      "binary64_ratio": [
+        5404319552844595,
+        144115188075855872
+      ],
+      "event_probability": [
+        337769972052788,
+        9007199254740992
+      ]
+    },
+    {
+      "nominal": [
+        3,
+        40
+      ],
+      "threshold_hex": "0x1.3333333333333p-4",
+      "binary64_ratio": [
+        5404319552844595,
+        72057594037927936
+      ],
+      "event_probability": [
+        675539944105575,
+        9007199254740992
+      ]
+    },
+    {
+      "nominal": [
+        3,
+        20
+      ],
+      "threshold_hex": "0x1.3333333333333p-3",
+      "binary64_ratio": [
+        5404319552844595,
+        36028797018963968
+      ],
+      "event_probability": [
+        1351079888211149,
+        9007199254740992
+      ]
+    }
+  ],
+  "solver": {
+    "highspy": "1.12.0",
+    "numpy": "2.3.4",
+    "threads": 1,
+    "parallel": "off",
+    "solver": "simplex",
+    "simplex_strategy": 1,
+    "presolve": "off",
+    "time_limit": 1.0,
+    "random_seed_base": 2042531502,
+    "primal_feasibility_tolerance": 1e-09,
+    "dual_feasibility_tolerance": 1e-09
+  },
+  "source_sha256": {
+    "research/20261114/ripper/audit_balanced_mask_math.py": "72fb176a1f8e72ed263c2a27aa0b80ab009be58a6cb1573e1218651022ca5a33",
+    "research/20261114/ripper/audit_cell_channel.py": "f9e47b70a4d95463dac219c7d77e627d77bb80db4030deef6e8014098d0de359",
+    "research/20261114/ripper/audit_channel_misspecification.py": "e721f93883658af4dd36d797d84a669b3c889234f8d6bd950fef8be52275bc3b",
+    "research/20261114/ripper/audit_degree_prior.py": "179feb9815c787a5381d1924ccb0ac41af49e103222503f5ff988dc13559f55b",
+    "research/20261114/ripper/audit_estimated_channel.py": "c86fa312818b9c371e5368c3f047a4e57f7737cceb9134d8eef32f7c2056428e",
+    "research/20261114/ripper/audit_extra_coverage.py": "58d0d10e1974506cbca83c37fabd403de17bae46e5683eb89413fdac95982a63",
+    "research/20261114/ripper/audit_fixed_270_confirm.py": "1be2f42d8567b0c3b4dff798b4675267e0c67244b6187c2dea8fdca896456248",
+    "research/20261114/ripper/audit_heterogeneous_channel.py": "25a4c58a1865a6cb3e4d19f566266da72b1a6f39622b7248ca11be0ac99fdf49",
+    "research/20261114/ripper/audit_higher_noise.py": "db69b14a93b91e86104c54d21e57d7533662cd5e17654d6ef2e0889185de65e5",
+    "research/20261114/ripper/audit_laplace_rate.py": "378e36af14e26bfb53d7f876d123cc24b3151273d6bb2a015a3f2b5e0dfeddcd",
+    "research/20261114/ripper/audit_pair_likelihood.py": "09db24e4462b54c7b86fba237b52334274d2698398479b4acf829875e55afa23",
+    "research/20261114/ripper/audit_partial_degree.py": "f867b787e7253ea835be574ed6ffcb82ec8d1a53438aaf75895ffaf5267ddde4",
+    "research/20261114/ripper/audit_posterior_fresh_confirm.py": "6cb50cd08842a8c95f85df52ae7a90143a92a108efc9b883390e26a211ac231f",
+    "research/20261114/ripper/audit_posterior_query_labels.py": "2fab73dda359065bcd18fd556a0e51300a2354ff502963170a0fdeaea9c9fb3a",
+    "research/20261114/ripper/audit_repeat_query_tradeoff.py": "211a824bc4be9bd458a9cbbffd59614415873b61dbc7e7e289b75bfc5fea9967",
+    "research/20261114/ripper/audit_stability_stopping.py": "b910c1558f3c60156d8545ea9bebdc13600fc9a4fbf2c30cf50e2a4832fa7bde",
+    "research/20261114/ripper/balanced_mask_math.py": "1e2934cd17ac2ad18e911361338e8814e9f7f0cee61e18e2910ce62329d2e7e8",
+    "research/20261114/ripper/benchmark_fixed_270_preparation.py": "84e25e949a91f2b3bbeb0e85a0e297450f8454830caa1acc5803daa5499e8d02",
+    "research/20261114/ripper/cell_channel_data.py": "3d77ad59ac70f42ea08db308b6cc1e547d16c19f52e27874416c9cae757e90fc",
+    "research/20261114/ripper/cell_channel_math.py": "d4dd6c7c3a0bc1d6de37905ab373eb3dfaf373916220aaa6e2355e0218fdb842",
+    "research/20261114/ripper/cell_channel_study.py": "aa676f51233faf9495db747f5639ae228e11b93506b058951527296fa3efbf10",
+    "research/20261114/ripper/channel_misspecification_math.py": "6b8494ff5fc63ea91358d491c4c31d7da266f40315e9e13a3813df1790af3575",
+    "research/20261114/ripper/channel_misspecification_study.py": "97932afbafef852dfaaf463a6711f003e78d3ef688d1d533bff13bd7038f327f",
+    "research/20261114/ripper/check_channel_misspecification_math.py": "200731cd360d578b4eba558ae949c6df9bc56998dcb0360726746a98f127c21d",
+    "research/20261114/ripper/check_estimated_channel_math.py": "2d6122b9c6cc46ed1e4451ba3b215d94942c06c283de389e8856f3d77fe3702d",
+    "research/20261114/ripper/check_pair_likelihood_math.py": "c46ddf131be8310ec74b1105653affbbbe10a79cece45fccbf7dc543b7766d61",
+    "research/20261114/ripper/check_posterior_query_math.py": "8065d0fe2f2c2586d3ab4b180584b8d90f2408ec71d695e226b8ea118591bdaf",
+    "research/20261114/ripper/degree_prior_math.py": "5a3ad2c21f59dfe0d2de40065385d484e171c0f854c49c649e868ce5a98a1f8e",
+    "research/20261114/ripper/degree_prior_solver.py": "2af92a5d4326e74813f514291a7a76e6ac92778335e1dd76ffbb01f83d474c43",
+    "research/20261114/ripper/estimated_channel_math.py": "f98405b80d59079bf2ca9bc24688fd74d0bc7df04ae2685473e37cf418a8cf1a",
+    "research/20261114/ripper/estimated_channel_study.py": "f02dcd7cae46ac66a333fa6e9caed0f844ed7cbf8b55c5be3209ea9ca1e0982a",
+    "research/20261114/ripper/extra_coverage_study.py": "ecad651aa4baa117e50acf3afab9b66e323834719ae959aaf7db580af3780e8a",
+    "research/20261114/ripper/fixed_270_confirm_study.py": "c91ab14432ec868a6c504c6f1f3656813ca521ed8d357826365177e6be68f2f1",
+    "research/20261114/ripper/heterogeneous_channel_data.py": "6e88b107a187ade2aed42ff8fae9ec623f125369641638dedd93058ec6e5fe31",
+    "research/20261114/ripper/heterogeneous_channel_study.py": "35e1aa19749c514b17281af1e9d85dd0cc55e16e406a0f31a0745f5de50afa70",
+    "research/20261114/ripper/higher_noise_study.py": "d3554a32c3c84a7517c2a34acac02a6c06700fbb2dbe3731b4ef26f6178a19c5",
+    "research/20261114/ripper/laplace_rate_math.py": "439d2edecdf2e518f243b27cc20676a24e561e4260217876230edf6023939093",
+    "research/20261114/ripper/pair_likelihood_math.py": "5bae12f9f975123344656ce98e00b4b1081e40c0fb35c4e3f2a7382538357d12",
+    "research/20261114/ripper/pair_likelihood_study.py": "016b29a5b8bd05b204caebb28949ce91fed6c46b345023180de8911a0341510b",
+    "research/20261114/ripper/partial_degree_study.py": "054cb8d1c4eebda07816735d23d57213052b563cc0a924ec006e6ac965fc8013",
+    "research/20261114/ripper/posterior_fresh_confirm_study.py": "b15401fa060138c1cdf994c2a40cda5e35e4734571afdc163ab5552073ef9003",
+    "research/20261114/ripper/posterior_query_labels.py": "0712a25d541aa6046787279160b7b5b6ed27c27581607a7b3a4e17c94c61a7dd",
+    "research/20261114/ripper/posterior_query_math.py": "e9dc113e5403b07884dd7c35dceb9d1efacd4f3d0a5781db65ea975e8da1f059",
+    "research/20261114/ripper/preflight_cell_channel.py": "22d1c156d9f03ff6feddc3da889577ebd02f023460f9b38a663baa18674e9b59",
+    "research/20261114/ripper/preflight_cell_channel_math.py": "d54dba4c703e3e4ff0ba1ccef77c33fb3bab47791bbbb1c3059683646780e43c",
+    "research/20261114/ripper/preflight_channel_misspecification.py": "4faa6ff2f4270c19ddb20774f881ecae4136338fba78ac4d0b8724c2379ac1bd",
+    "research/20261114/ripper/preflight_estimated_channel.py": "1da85c5bef3f29bd93daf17803d389acfa91bc9d6afd4dbee72a0174bbeba112",
+    "research/20261114/ripper/preflight_fixed_270_confirm.py": "b5f56e6a330e2b4cd023f4a970213a3d7f929010f37cfff578c043bc19b89c63",
+    "research/20261114/ripper/preflight_heterogeneous_channel.py": "2d7f1e2edbfd1bfe6da2e167dc033d4bdfc62ea30380fb9d71638cdd8dbe3b19",
+    "research/20261114/ripper/preflight_higher_noise.py": "6f61f91edf74519cb21c5e239d4da20ed85c96e6752461a4d600cefd32d959ac",
+    "research/20261114/ripper/preflight_pair_likelihood.py": "e7a0ae73ff32963f211a9f7985c78b42c48bba1a558a40afc429d17f8bf7ca06",
+    "research/20261114/ripper/preflight_posterior_fresh_confirm.py": "c86cfa10fc658ba6d1beaef9377638c278cefc0ff365b5d83543656050c8421f",
+    "research/20261114/ripper/preflight_posterior_query_labels.py": "93b6740748adf55b27959487ea2e32db607b75f84cf85b3510cbb7cb4b1cba02",
+    "research/20261114/ripper/preflight_repeat_query_tradeoff.py": "b769d2025af66f905a3a2157a6d86bac58095ef52e1a14e238c64b1d59bcd437",
+    "research/20261114/ripper/preflight_stability_stopping.py": "c72a6dc0a9dcd2cc8feb0a0744e1fb780633ae3633579980a065573a1b748d1f",
+    "research/20261114/ripper/prepare_posterior_queries.py": "8cc171b36cbce3e1f71420e5a232e585004d8ed0d9128fdce1b82282cd1775f6",
+    "research/20261114/ripper/repeat_query_math.py": "3b00e5d2cf47e2e2daf22e31394bf47d3f130b786e11f9d5bfc631891c5451e8",
+    "research/20261114/ripper/repeat_query_tradeoff_study.py": "c02101460b23dfc29242152ecac5265b78e975d763367c6d82652defcf3147f5",
+    "research/20261114/ripper/run.py": "b2ce3c3b9ff5fb9348d300b2dc02c85ddd19a6790dd3052ba34c6e53fa8900ac",
+    "research/20261114/ripper/run_cell_channel.py": "6050e4f10ca00a76e74b19949f8324918448612a8db89dd9b510b03f9ff96105",
+    "research/20261114/ripper/run_channel_misspecification.py": "aa4c8f7ee69af09636b87d6c6ba917f8c38893686c8f5a6fea6283c8d6cc15cb",
+    "research/20261114/ripper/run_estimated_channel.py": "e03c829a3badd33e781a8faf7a1d10ac4b6c718fa946dec810c6ac6855edeb33",
+    "research/20261114/ripper/run_fixed_270_confirm.py": "9ca750bd61ffe2ec461bba94f6b4aa96732f5000b99a5e16a42eb702909851a7",
+    "research/20261114/ripper/run_heterogeneous_channel.py": "f42fa07d83bf279c9bde04f5d3ee4bb11163f2bf8de0ba74e47bdc0f89d352d0",
+    "research/20261114/ripper/run_higher_noise.py": "11074b0d083d5d306095e4dbb4a9baf5ecb4ae33e6a2c6e3dce2f3d469d6d0de",
+    "research/20261114/ripper/run_pair_likelihood.py": "99caa271f733aa30748aab47940dfd47505cf95fa125d5b00c15d50294bef130",
+    "research/20261114/ripper/run_posterior_fresh_confirm.py": "cb48eec6098e0a134f57d82b58d750b3ca277ae6a21e7b105b41a9e5c0f8d19c",
+    "research/20261114/ripper/run_posterior_query_labels.py": "2cb5ee4c3cb47abd5981bc6e084914386604dacd2cc13530325b71898a493929",
+    "research/20261114/ripper/run_repeat_query_tradeoff.py": "97edd3ccfba046c8a451f48985734c6222cbbf47ff23ee776def8a7391395686",
+    "research/20261114/ripper/run_stability_stopping.py": "b54759deee1e93ae80ae453143171503489b0bbda31e1e10839925eb5ee25dcd",
+    "research/20261114/ripper/stability_stopping_study.py": "b71667e59d864d3d5f817123e9e69b7008ae084b45ed356235c0e011e721e0c1"
+  },
+  "input_sha256": {
+    "research/20261114/ripper/cell-channel-preflight.json": "37b4a25ae30dbf33ae62ed201fb4a1fe2fc572e546791ce40e0b1e08b5164a83",
+    "research/20261114/ripper/cell-channel-seed-audit.json": "661e3aaf2143fbd2ecedadcfea6ef5143f15ec8ce2f242b4a1d86ce74e91f1a0",
+    "research/20261114/ripper/cell-channel-proposal.json": "090d9fd8a017413efebf7350de5d01d1a6a20f3e05d7502ce8600463acac2752",
+    "research/20261114/ripper/protocol-heterogeneous-channel.json": "feade75366e2c5242bc48c865394d758edba4a12c8e8bd2f5c666385ee061003",
+    "research/20261114/ripper/protocol-channel-misspecification.json": "0438aab1adf16a9331cb56c31952778bf30037bedcb3b639b8d3b251492277cb",
+    "research/20261114/ripper/protocol-estimated-channel.json": "f53565060e8a41cb188c49eff9daed83ea06f46056096014b946ddf2ae1e460a",
+    "research/20261114/ripper/cell-channel-math-check.json": "722c638440de11655e10c28e0865115ec1ff4d2718c14a51884145258a681663",
+    "research/20261114/ripper/estimated-channel-math-check.json": "d4077a68c634da536015b5615ca74748defb057730ef0590985daa3d3d0f3023",
+    "artifacts/research/20261114/ripper/cell_channel_registration/excluded_ids.npz": "aa9099477cadeb27bceb1b2888dc7a57401187182e701f9e425f492d8e473d0e",
+    "artifacts/research/20261114/ripper/cell_channel_registration/ledger.json": "e91c87bb59e05515314776973551bf64dfca19946b5fe12abf71ed3033e07589",
+    "results/research/ripper/heterogeneous_channel/excluded_ids.npz": "6fcb69407edd518befadb274d8976c21c1baa74b8694ed5390956fbc379b632d",
+    "results/research/ripper/heterogeneous_channel/selected_sources.npz": "7bd5bc0e98e7cfe1b3124eb153074f70af7ac76e2a9a8d2c95a64c8249fb9089",
+    "results/research/ripper/heterogeneous_channel/source-audit.json": "a9253a38904705d7299742e281b2eb488408cf4d6cf57bf94731d6db4fcb504b"
+  },
+  "raw_input_sha256": {
+    "upstream/data/sudoku-extreme/train.csv": "64b46674db0148e0d73a16346dadeb2b1c00824d3fca3f85b2ae7037f6b4b38e"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "status": "passed_monitor_accounting_probes",
+  "probes": [
+    {
+      "mode": "initial_hash",
+      "receipt": {
+        "status": "failed_or_incomplete",
+        "error": "Compiler stopped without final receipt",
+        "utc": "2026-11-15T15:35:31.942733+00:00",
+        "aggregate_cpu_seconds": 0.137426,
+        "wall_seconds": 0.12024729797849432,
+        "cpu_seconds_ceiling": 0.08,
+        "wall_seconds_guard": 3,
+        "monitor_peak_live_cpu_seconds": 0.13741899999999999,
+        "monitor_cpu_seconds": 0.13744499999999998,
+        "subprocess_inclusive_CPU_accounting": true,
+        "full_monitor_process_lifetime_CPU_charged": true,
+        "initial_source_hashing_inside_wall_and_CPU_budget": true,
+        "monitor_and_import_wall_seconds": 0.12024729797849432,
+        "partial_cache_usable": false,
+        "monitor_expired": true,
+        "monitor_reason": "Initial imports/source verification exhausted the aggregate budget",
+        "protocol_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+      }
+    },
+    {
+      "mode": "descendants",
+      "receipt": {
+        "status": "complete_verified",
+        "stage_wall_seconds": 0.06832457199925557,
+        "stage_cpu_seconds": 0.11083499999999999,
+        "utc": "2026-11-15T15:35:32.103757+00:00",
+        "aggregate_cpu_seconds": 0.171185,
+        "wall_seconds": 0.14134783297777176,
+        "cpu_seconds_ceiling": 1,
+        "wall_seconds_guard": 3,
+        "monitor_peak_live_cpu_seconds": 0.156289,
+        "monitor_cpu_seconds": 0.056507999999999996,
+        "subprocess_inclusive_CPU_accounting": true,
+        "full_monitor_process_lifetime_CPU_charged": true,
+        "initial_source_hashing_inside_wall_and_CPU_budget": true,
+        "monitor_and_import_wall_seconds": 0.07302326097851619,
+        "partial_cache_usable": true,
+        "monitor_expired": false,
+        "monitor_reason": null,
+        "protocol_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+      }
+    },
+    {
+      "mode": "cpu_cap",
+      "receipt": {
+        "status": "failed_or_incomplete",
+        "stage_wall_seconds": 0.22967525298008695,
+        "utc": "2026-11-15T15:35:32.420126+00:00",
+        "aggregate_cpu_seconds": 0.305289,
+        "wall_seconds": 0.2972117729950696,
+        "cpu_seconds_ceiling": 0.3,
+        "wall_seconds_guard": 3,
+        "monitor_peak_live_cpu_seconds": 0.286275,
+        "monitor_cpu_seconds": 0.056512999999999994,
+        "subprocess_inclusive_CPU_accounting": true,
+        "full_monitor_process_lifetime_CPU_charged": true,
+        "initial_source_hashing_inside_wall_and_CPU_budget": true,
+        "monitor_and_import_wall_seconds": 0.06753652001498267,
+        "partial_cache_usable": false,
+        "monitor_expired": true,
+        "monitor_reason": "Aggregate CPU ceiling or wall guard",
+        "protocol_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+      }
+    },
+    {
+      "mode": "wall_cap",
+      "receipt": {
+        "status": "failed_or_incomplete",
+        "stage_wall_seconds": 0.22952438797801733,
+        "utc": "2026-11-15T15:35:32.730118+00:00",
+        "aggregate_cpu_seconds": 0.075331,
+        "wall_seconds": 0.2893385519855656,
+        "cpu_seconds_ceiling": 1,
+        "wall_seconds_guard": 0.3,
+        "monitor_peak_live_cpu_seconds": 0.066672,
+        "monitor_cpu_seconds": 0.05692799999999999,
+        "subprocess_inclusive_CPU_accounting": true,
+        "full_monitor_process_lifetime_CPU_charged": true,
+        "initial_source_hashing_inside_wall_and_CPU_budget": true,
+        "monitor_and_import_wall_seconds": 0.05981416400754824,
+        "partial_cache_usable": false,
+        "monitor_expired": true,
+        "monitor_reason": "Aggregate CPU ceiling or wall guard",
+        "protocol_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+      }
+    }
+  ],
+  "gate_source_sha256": "95022be069092fece0b7126b1a871613363beebcc9560ffe7a208782926aa864",
+  "probe_source_sha256": "a1fb9c81fab7a1ce3538e4f3ca49127c131d3aaa3a8792bf9e6ecfa1425d5675",
+  "fresh_truth_draws": 0,
+  "fresh_source_draws": 0,
+  "actual_oracle_calls": 0
+}

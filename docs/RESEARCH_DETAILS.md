@@ -229,3 +229,13 @@ One raw-count fit on the same 1,800 observations recovers **254/256** examined s
 ## Estimating noise across fresh rates
 
 On 72 fresh banks with 24 each at 3.75%, 7.5% and 15% noise, supplied-rate and estimated-rate likelihoods each recover **67/72** exact graphs, with no paired gains or losses. Both absolute targets and the regression bound pass. All five wrong outputs strictly exclude truth under their objectives. Rates differ between banks and remain constant across cells within each bank. [Fresh protocol, strata and exact gaps](../research/20261114/ripper/REPORT-heterogeneous-channel.md).
+
+## Fewer questions can still lose a solved case
+
+Uniform fitted query weights reduce actual calls from **3,121 to 2,771** across 1,024 fresh uniform-truth pairs, while exact identification rises from **1,017 to 1,020**. The prespecified joint hypothesis is nevertheless **falsified**: the new policy loses one original success, alongside four gains. The five discordant failing arms stop with more than 16 candidates after four MAP questions; none reaches a terminal tree. These are policy routing stops, with no global resource cap reached. [All paired outcomes and sealed-transcript diagnosis](../research/20261114/loki/h3bz/REPORT.md).
+
+![Query savings with an explicit lost identification](../results/research/loki/h3bz/joint-cost-and-exact.png)
+
+## Scalar inference with different noise rates across cells
+
+The unchanged scalar estimator and a control supplied with the true per-cell channel map both recover the same **70/72** graphs on fresh banks. Each bank assigns 27 cells each to 3.75%, 7.5% and 15% noise. All three fixed targets pass, with two strict objective failures retained. Every selected primal agrees even though all edge costs change. The supplied control has privileged parameter information; this is a specified mixture test, not an equal-information method ranking. [Acquisition, every failure and independent checks](../research/20261114/ripper/REPORT-cell-channel.md).

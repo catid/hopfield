@@ -1,0 +1,75 @@
+{
+  "status": "passed_two_arm_namespace_disagreement_and_payment_gate",
+  "checks": 390,
+  "actual_oracle_calls": 0,
+  "fresh_truth_draws": 0,
+  "fresh_source_draws": 0,
+  "synthetic_memo_states": 14,
+  "synthetic_work_steps": 36,
+  "exact_disagreement_fixture": {
+    "decision": "falsified",
+    "joint_primary": {
+      "left": 700,
+      "right": 686,
+      "threshold_percent": 2,
+      "passing_maximum": 6,
+      "cost_passes": false,
+      "per_case_exact_no_loss": false
+    },
+    "H_calls": 7,
+    "U_calls": 7,
+    "actual_membership_calls": 14,
+    "exact_transitions": {
+      "both_exact": 2,
+      "H_only_exact": 1,
+      "U_only_exact": 1,
+      "neither_exact": 0
+    },
+    "H_exact": 3,
+    "U_exact": 3
+  },
+  "full_independent_arm_audits": {
+    "H": {
+      "arm": "H",
+      "tree_memo_states": 4,
+      "compiler_work_steps": 17,
+      "counterfactual_memo_states": 3,
+      "counterfactual_MAP_partitions": 1,
+      "distinct_compiled_inputs": 2,
+      "huffman_merge_operations": 0,
+      "canonical_computation_reuse_hits": 0,
+      "deeper_tree_candidate_paths": 2,
+      "counterfactual_candidate_entries": 4
+    },
+    "U": {
+      "arm": "U",
+      "tree_memo_states": 4,
+      "compiler_work_steps": 17,
+      "counterfactual_memo_states": 3,
+      "counterfactual_MAP_partitions": 1,
+      "distinct_compiled_inputs": 2,
+      "huffman_merge_operations": 0,
+      "canonical_computation_reuse_hits": 0,
+      "deeper_tree_candidate_paths": 2,
+      "counterfactual_candidate_entries": 4
+    }
+  },
+  "synthetic_paid_calls": 14,
+  "storage": {
+    "status": "passed_raw_scientific_artifact_audit",
+    "proof_files": 4,
+    "counterfactual_logical_files": 12,
+    "all_proofs_and_cost_documents_replayed": true
+  },
+  "separate_caches_and_selectors_verified": true,
+  "all_synthetic_queries_and_proofs_replayed": true,
+  "source_sha256": {
+    "arm.py": "c44bdab27aabced42db95c02813029b301963039940f4864d84264849e3259a3",
+    "oracle.py": "56920206c08b897ff7ad403d518a62300a25b77b6c4d8b74ed1d815930b983ed",
+    "endpoint.py": "128f87b2bd067e148ec87324cda8f09dcf2515764128ee37c450afb3e6aa4b60",
+    "audit_arm.py": "94ca92b691a30f33fc94ba78d0b7a95312c1be2a009d1246bb239550883da2d5",
+    "audit_queries.py": "8410ad483d378ec920474b53f4440579c471b2fa7121d03370693912e0c34fc8",
+    "namespace_gate.py": "67c4743e7743bde70e29bf39b638915173e19eacee62d6fd00c30df37a59febe",
+    "audit_namespace_gate.py": "fd5de1038d2762997907d71b5682ba6bbe51c517c1e188489fc1ad59de1b41cd"
+  }
+}

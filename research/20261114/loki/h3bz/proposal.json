@@ -1,0 +1,42 @@
+{
+  "status": "prospective_proposal_not_frozen",
+  "study": "H3bz",
+  "cases": 1024,
+  "actual_truth_prior": "Uniform1522eligible_models",
+  "arms": {
+    "H": "Fixed deeper policy with reciprocal[C(55,k)C(M,8)] hierarchical fitted weights",
+    "U": "Same deeper policy with reciprocal C(M,8) uniform fitted weights"
+  },
+  "execution_order": [
+    "H",
+    "U"
+  ],
+  "joint_primary": {
+    "cost": "100*U<=98*H, H>0",
+    "exact": "For every case, H_exact implies U_exact",
+    "cross_arm_exact_equality": "Not a correctness invariant; report all four transition counts",
+    "complete_failure": "Either joint condition false falsifies the joint hypothesis",
+    "incomplete": "Any cap/missing case/proof/correctness error gives no joint decision"
+  },
+  "seed_bases": {
+    "truth": 2027300000,
+    "source": 2027400000
+  },
+  "budget": {
+    "aggregate_CPU_seconds": 600,
+    "wall_seconds": 900,
+    "max_memo_states": 2000000,
+    "max_work_steps": 50000000,
+    "max_integer_bits": 100000,
+    "max_actual_calls": 16384,
+    "max_actual_calls_per_arm": 8192
+  },
+  "source_positive_appearances": 8192,
+  "arm_positive_appearances": 16384,
+  "design_sha256": "0f6233383d5d73f89ccf812d2863b9947852316dd4c60a368e0ac7ee3b44be38",
+  "seed_audit_sha256": "6037e3e6159559e46c71eee492c4557f0716693de066d41f58f7a92c102c0a24",
+  "fixed_parent_protocol_sha256": "16409bccadf54d896f8f6a1969ffbf05e59c24c8fe203eade831e75ad78007b1",
+  "fresh_truth_draws": 0,
+  "fresh_source_draws": 0,
+  "actual_oracle_calls": 0
+}

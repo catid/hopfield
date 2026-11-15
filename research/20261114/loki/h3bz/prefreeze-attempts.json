@@ -1,0 +1,23 @@
+{
+  "status": "source_only_prefreeze_attempts_retained",
+  "fresh_truth_draws": 0,
+  "fresh_source_draws": 0,
+  "actual_oracle_calls": 0,
+  "attempts": [
+    {
+      "path": "artifacts/research/20261114/loki/h3bz-source-audit-v1",
+      "status": "failed",
+      "reason": "Broad text substitution created tuple dictionary key in tamper-gate code; source-only KeyError before completion"
+    },
+    {
+      "path": "artifacts/research/20261114/loki/h3bz-source-audit-v2",
+      "status": "superseded_invalid_mutation_coverage",
+      "reason": "Three new mutation labels mistakenly fell through to historical seed-digest mutation; positive replay valid but claimed distinct coverage was not. Found by source inspection; never used for freeze"
+    },
+    {
+      "path": "artifacts/research/20261114/loki/h3bz-source-audit-v3",
+      "status": "passed_corrected_distinct_mutations",
+      "reason": "Each mutation now explicitly constructed and must reject at its exact expected independent check"
+    }
+  ]
+}

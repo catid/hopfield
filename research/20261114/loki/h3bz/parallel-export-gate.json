@@ -1,0 +1,83 @@
+{
+  "status": "passed_full_runtime_export_independent_replay",
+  "checks": 6621,
+  "runtime": {
+    "memo_states": 409517,
+    "work_steps": 856035,
+    "inline_artifact_checks": 1241564,
+    "baseline_artifact_checks": 666061,
+    "wrapper_states": 186,
+    "wrapper_work": 601
+  },
+  "namespace": {
+    "exact_disagreement_fixture": {
+      "decision": "falsified",
+      "joint_primary": {
+        "left": 700,
+        "right": 686,
+        "threshold_percent": 2,
+        "passing_maximum": 6,
+        "cost_passes": false,
+        "per_case_exact_no_loss": false
+      },
+      "H_calls": 7,
+      "U_calls": 7,
+      "actual_membership_calls": 14,
+      "exact_transitions": {
+        "both_exact": 2,
+        "H_only_exact": 1,
+        "U_only_exact": 1,
+        "neither_exact": 0
+      },
+      "H_exact": 3,
+      "U_exact": 3
+    },
+    "full_independent_arm_audits": {
+      "H": {
+        "arm": "H",
+        "tree_memo_states": 4,
+        "compiler_work_steps": 17,
+        "counterfactual_memo_states": 3,
+        "counterfactual_MAP_partitions": 1,
+        "distinct_compiled_inputs": 2,
+        "huffman_merge_operations": 0,
+        "canonical_computation_reuse_hits": 0,
+        "deeper_tree_candidate_paths": 2,
+        "counterfactual_candidate_entries": 4
+      },
+      "U": {
+        "arm": "U",
+        "tree_memo_states": 4,
+        "compiler_work_steps": 17,
+        "counterfactual_memo_states": 3,
+        "counterfactual_MAP_partitions": 1,
+        "distinct_compiled_inputs": 2,
+        "huffman_merge_operations": 0,
+        "canonical_computation_reuse_hits": 0,
+        "deeper_tree_candidate_paths": 2,
+        "counterfactual_candidate_entries": 4
+      }
+    },
+    "synthetic_paid_calls": 14
+  },
+  "storage": {
+    "status": "passed",
+    "counterfactual_logical_files": 170,
+    "counterfactual_raw_bytes": 154609,
+    "counterfactual_archive_bytes": 108033,
+    "proofs": {
+      "status": "passed",
+      "proof_files": 57,
+      "raw_proof_bytes": 3427567,
+      "compressed_proof_bytes": 169952,
+      "all_raw_and_compressed_identities_verified": true
+    },
+    "all_logical_and_physical_identities_verified": true
+  },
+  "timing": {
+    "workers": 4,
+    "elapsed_seconds": 0.05240781500469893,
+    "compression": "Identical gzip level6 mtime0 and ordered deflate6 ZIP bytes; independent files compressed in four threads"
+  },
+  "nested_fixture_ledger_and_prediction_inputs_retained": true
+}

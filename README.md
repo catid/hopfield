@@ -48,6 +48,8 @@ Keeping all three labels closes much of the gap, but uses the **known noise chan
 
 A fresh follow-up varies the noise rate between banks: 3.75%, 7.5% and 15%, with 24 banks each. Estimating the rate from the repeated labels recovers **67/72** graphs, matching the supplied-rate control on every bank. Both recover 24, 23 and 20 graphs in the three strata; all three fixed targets pass. Noise remains uniform across cells within each bank. [Fresh rate-variation test and all five failures](research/20261114/ripper/REPORT-heterogeneous-channel.md) · [Earlier examined-data test](research/20261114/ripper/REPORT-estimated-channel.md)
 
+When noise rates vary across cells within a bank, the same scalar estimator recovers **70/72** graphs, matching a control given the true per-cell rates on every bank. That control has an explicit information advantage; two graph failures remain. [Fresh within-bank mixture and exact checks](research/20261114/ripper/REPORT-cell-channel.md)
+
 The original hard-decoder study recovered 50/64 versus 64/64 from more boards. Posterior scoring then reached 63/64 on those examined inputs before the fresh confirmation above. [Original negative result](research/20261114/ripper/REPORT-repeat-query-tradeoff.md) · [Examined-cohort intervention](research/20261114/ripper/REPORT-posterior-query-labels.md)
 
 ## Use all the noisy observations

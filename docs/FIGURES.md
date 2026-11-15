@@ -277,3 +277,15 @@ Both methods use the same 1,800-row union; all four families and two remaining f
 ![Supplied and estimated noise channels on fresh banks](../assets/figures/heterogeneous_channel.png)
 
 All 72 fresh banks and three rate strata remain in the figure. [Report](../research/20261114/ripper/REPORT-heterogeneous-channel.md) · [Renderer](../scripts/plot_heterogeneous_channel.py) · [Provenance](../assets/figures/heterogeneous_channel-provenance.json).
+
+### Query savings with a lost success (H3bz)
+
+![Joint no-loss hypothesis falsified](../results/research/loki/h3bz/joint-cost-and-exact.png)
+
+The figure retains all 1,024 pairs, the 11.21% cost saving and the single lost identification that falsifies the joint endpoint. [Report](../research/20261114/loki/h3bz/REPORT.md) · [Renderer](../research/20261114/loki/h3bz/plot_public.py) · [Provenance](../results/research/loki/h3bz/plot-provenance.json).
+
+### Within-bank noise mixture (H1cg)
+
+![Scalar and privileged per-cell-channel comparison](../assets/figures/cell_channel.png)
+
+All 72 paired banks, two failures and the scalar calibration distribution are retained. [Report](../research/20261114/ripper/REPORT-cell-channel.md) · [Renderer](../scripts/plot_cell_channel.py) · [Provenance](../assets/figures/cell_channel-provenance.json).

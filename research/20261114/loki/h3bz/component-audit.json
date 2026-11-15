@@ -1,0 +1,114 @@
+{
+  "status": "passed_independent_complete_verifier_components",
+  "checks": 6622,
+  "runtime_gate_audit": {
+    "memo_states": 409517,
+    "work_steps": 856035,
+    "inline_artifact_checks": 1241564,
+    "baseline_artifact_checks": 666061,
+    "wrapper_states": 186,
+    "wrapper_work": 601
+  },
+  "namespace_gate_audit": {
+    "exact_disagreement_fixture": {
+      "decision": "falsified",
+      "joint_primary": {
+        "left": 700,
+        "right": 686,
+        "threshold_percent": 2,
+        "passing_maximum": 6,
+        "cost_passes": false,
+        "per_case_exact_no_loss": false
+      },
+      "H_calls": 7,
+      "U_calls": 7,
+      "actual_membership_calls": 14,
+      "exact_transitions": {
+        "both_exact": 2,
+        "H_only_exact": 1,
+        "U_only_exact": 1,
+        "neither_exact": 0
+      },
+      "H_exact": 3,
+      "U_exact": 3
+    },
+    "full_independent_arm_audits": {
+      "H": {
+        "arm": "H",
+        "tree_memo_states": 4,
+        "compiler_work_steps": 17,
+        "counterfactual_memo_states": 3,
+        "counterfactual_MAP_partitions": 1,
+        "distinct_compiled_inputs": 2,
+        "huffman_merge_operations": 0,
+        "canonical_computation_reuse_hits": 0,
+        "deeper_tree_candidate_paths": 2,
+        "counterfactual_candidate_entries": 4
+      },
+      "U": {
+        "arm": "U",
+        "tree_memo_states": 4,
+        "compiler_work_steps": 17,
+        "counterfactual_memo_states": 3,
+        "counterfactual_MAP_partitions": 1,
+        "distinct_compiled_inputs": 2,
+        "huffman_merge_operations": 0,
+        "canonical_computation_reuse_hits": 0,
+        "deeper_tree_candidate_paths": 2,
+        "counterfactual_candidate_entries": 4
+      }
+    },
+    "synthetic_paid_calls": 14
+  },
+  "all_fixed_proof_artifacts_reachable": {
+    "status": "passed_raw_scientific_artifact_audit",
+    "proof_files": 57,
+    "counterfactual_logical_files": 170,
+    "all_proofs_and_cost_documents_replayed": true
+  },
+  "paid_query_binding_gate": {
+    "status": "passed_paid_query_binding_and_semantic_tamper_gate",
+    "checks": 14,
+    "independently_replayed_synthetic_queries": 2,
+    "cross_arm_reacquisitions_paid": 1,
+    "all10_rehashed_semantic_mutations_rejected": {
+      "wrong_case": true,
+      "wrong_arm": true,
+      "wrong_phase": true,
+      "inherited_query": true,
+      "candidate_dropped_from_request": true,
+      "forged_candidate_prediction": true,
+      "different_board_columns": true,
+      "wrong_oracle_label": true,
+      "wrong_candidate_filter": true,
+      "unpaid_cross_arm_reuse_annotation": true
+    },
+    "source_sha256": {
+      "audit_queries.py": "8410ad483d378ec920474b53f4440579c471b2fa7121d03370693912e0c34fc8",
+      "query_audit_gate.py": "f9a662902093c8e6b4082d56bb16e19b68e40cb335661dd0269008e999da8001",
+      "audit_costs.py": "229a1d18f46f20c86fcd37dd34d0121d922f70eef37c26d21c78c3c14b173298",
+      "ledger.py": "4ffe3b14d6701ef78ee910356248ae0e8e0fd38e689804d4200fca78943522be"
+    },
+    "fresh_truth_draws": 0,
+    "fresh_source_draws": 0,
+    "actual_oracle_calls": 0
+  },
+  "fresh_truth_draws": 0,
+  "fresh_source_draws": 0,
+  "actual_oracle_calls": 0,
+  "source_sha256": {
+    "audit_arm.py": "94ca92b691a30f33fc94ba78d0b7a95312c1be2a009d1246bb239550883da2d5",
+    "audit_baseline_gate.py": "a56f3abfa7be975004b7ae37f09510d984ec5e08ead810659e78f73d1b43ef50",
+    "audit_costs.py": "229a1d18f46f20c86fcd37dd34d0121d922f70eef37c26d21c78c3c14b173298",
+    "audit_gate.py": "e4d35192c3c09a777d3f0838437f99d0c31dcdb11a930037b2c14f72ac3b283e",
+    "audit_io.py": "018c68fb3cc81d9849fccfe761a2b326b4ce4ebedccc743fb058e30eee77d74e",
+    "audit_namespace_gate.py": "fd5de1038d2762997907d71b5682ba6bbe51c517c1e188489fc1ad59de1b41cd",
+    "audit_original.py": "ed45338b77c8bca2be1bb65b3f0d96f81e6375da63df8b3844cf00de7d671640",
+    "audit_preflight.py": "17ddaf0c5f894f2d0a8961b717cc4cbdedbb3e8f8eca716a3629464ee7a2fc37",
+    "audit_queries.py": "8410ad483d378ec920474b53f4440579c471b2fa7121d03370693912e0c34fc8",
+    "audit_runtime.py": "3b1bad8d0679bae7b44e98ed21c265aa888131fe6b68fc5a64dfbe5361c6572f",
+    "audit_source_gate.py": "bcb66a5f61a09e59f23460281b7e79f55678069e9d05acec6debadb112f6d2a9",
+    "audit_sources.py": "417319e3b35031734188b53afc6d02df7e622f004a5b09234e988d57583626a8",
+    "audit_trees.py": "c602762116a31e021d793cad143e7d1c0535e09bc719dab45d084d19f32886ee"
+  }
+}

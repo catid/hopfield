@@ -2,6 +2,8 @@
 
 These compact exports contain the measurements and provenance used by the repository's figures. They exclude full raw datasets and predicted-board archives. The matched maze training study includes small model and optimizer states, its 1,000 training fixtures, and frozen readouts.
 
+- [Within-bank noise variation: scalar inference matches a privileged per-cell-channel control at 70/72 fresh graphs](../research/20261114/ripper/REPORT-cell-channel.md)
+- [Uniform fitted query weights save 11.21% of calls but lose one prior success, falsifying the joint no-loss target](../research/20261114/loki/h3bz/REPORT.md)
 - [Pooling the same 1,800 observations recovers 254/256 graphs versus 229 with donor masking; 25 gains, zero losses](../research/20261114/foureyes/REPORT-pooled-donor.md)
 - [Fresh noise-rate variation: estimated and supplied channels each recover the same 67/72 graphs](../research/20261114/ripper/REPORT-heterogeneous-channel.md)
 - [Fresh opposite-region maze endpoints: all 4,096 cases solved and 18.43% complete answer-cost saving](../research/20261114/work/REPORT.md#h2bq-opposite-region-endpoints-preserve-joint-success-and-save-1843-complete-answer-cost)
