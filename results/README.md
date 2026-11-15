@@ -59,6 +59,7 @@ These compact exports contain the measurements and provenance used by the reposi
 - [Queen-plus-camel learned soft weights and incorrect certificates](../research/20261114/loki/h3u/REPORT.md)
 - [Queen-plus-camel weighted versus uniform search on one fixed zero set](../research/20261114/loki/h3v/REPORT.md)
 - [Queen-plus-camel permutation initialization and search prior](../research/20261114/loki/h3w/REPORT.md)
+- [Queen-plus-camel search at matched measured GPU time](../research/20261114/loki/h3ab/REPORT.md)
 - [Queen-plus-camel shared-initialization proposal control](../research/20261114/loki/h3aa/REPORT.md)
 - [Complete-source minimum-rule selection and inherited oracle identity](../research/20261114/loki/h3x/REPORT.md)
 - [Minimum-rule transfer across a fixed 18-case family/size grid](../research/20261114/loki/h3y/REPORT.md)

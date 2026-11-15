@@ -1,0 +1,110 @@
+{
+  "id": "H3ab-source-calibrated-matched-compute-proposals",
+  "frozen_utc": "2026-11-15T03:13:55.985707+00:00",
+  "hypothesis": "With identical positive BPAdamWenergy,source temperature andpermutation starts,permutation proposals gain atleast50percentage points certifiedsuccess at source-calibrated matched GPUsolve time,withzero wrongstops.",
+  "antecedent": "H3aa isolated a66.36point proposal gain under equal20000proposal caps but permutation consumedmoretime. H3abseparates practical quality from this compute mismatch.",
+  "arms": [
+    "arbitrary",
+    "permutation"
+  ],
+  "model_sha256": "e893ff379d9394e8437c7c778a45a4d7d0ea57a2587116d42b959e864d96e84a",
+  "unit": 3.0367188453674316,
+  "frozen_model": "Unchanged H3aapositive BPAdamWJ,h,F,qandunit. Same308falsepairs; nofit,supportchange,reweighting orsourcecalibrationchange.",
+  "calibration_inputs": "4096uniqueN13-shaped inputs derived ONLYfrom176completeN12sourceboards. Embed each sourcecell(r,c)at13*r+c,enumerate unique1/2/3clue subsets,then draw2/205/3889unique subsets bycluecount usingRNG2026112602. No N13targetbanks,labels,heldoutkeys or targetaccuracy accessed during calibration. Exclude everycalibrationkey fromlaterfreshcohort.",
+  "initialization": "Reuse frozen H3aaCPUinitializer: samecomplete saved permutationarray for bothkernels at everyinput/searchseed; initialization seed2026112600+searchseed. Calibration streams101/102/103; targetstreams0/1/2. ProposalGPUgenerators reset separately to correspondingsearchseed.",
+  "calibration": {
+    "reference_kernel": "arbitrary",
+    "reference_cap": 20000,
+    "permutation_grid": [
+      4000,
+      8000,
+      12000,
+      16000
+    ],
+    "streams": [
+      101,
+      102,
+      103
+    ],
+    "physical_gpus": [
+      0,
+      1
+    ],
+    "timings_per_configuration": 6,
+    "order": "EachphysicalGPUrunsallthree streams and everyconfiguration. Configurationorder reverses when(gpu+stream_index)isodd,balancing ascending/descendingorder acrossdevices/streams.",
+    "timing": "SynchronizeGPUbefore/after complete solve-call; elapsedincludes initialtransfer and returnedCPUarrays. No targetvalidityscoring. Record proposals/accepted/self-stopped counts for forwardprogress,never targetaccuracy.",
+    "warmup": "Each calibrationworkerphase first runs BOTHkernels for32proposals on thefullsource-derived4096\u00d720shape. Checkq/givens,sampledexactconflicts,and permutationinvariants. Warmup time counts within totalGPUworkerbudget but not timed solve-trial medians.",
+    "selection": "Choose permutationcap minimizing abs(medianpermtime/medianarbitrarytime-1); ties choose smallercap. Accept if within5%. Ifnonequalifies,one deterministic linear interpolation in thefirst adjacentascending-cap pair bracketingreference time,rounded to nearest128proposals with ties-to-even; measureits same6trials. No extrapolation. If stilloutside5%,no bracket,or roundedcap repeatsanexistingcap,declare sourcecalibrationinconclusive anddonotlaunch targetsearch. No additionalretuning.",
+    "uncertainty": "Report all6timings,range,device medians and pairedsource-stream bootstrap5/95ratio endpoints using2000draws,RNG2026112604,retainingbothphysicalGPUsinsideeachstream. Sixmeasurements are3searchstreams\u00d72devices,not6independentlearningreplicates.",
+    "freeze": "Seal selectedfixedcaps andcomplete timingreceipt BEFOREreserving freshtargetcohort."
+  },
+  "target": {
+    "unique_inputs": 4096,
+    "input_seed": 2026112515,
+    "chains": 20,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "block": 65536,
+    "q": 13,
+    "end_temperature_ratio": 0.01,
+    "exclusion": "Union ofH3aaprior_target_test_keys,H3aatest_keys,andallcalibrationinputkeys; uniformdrawfromremainingvalid1/2/3-clueN13universe.",
+    "device_assignment": "GPU0:arbitraryseed0,permutationseed1,arbitraryseed2.GPU1:permutationseed0,arbitraryseed1,permutationseed2.",
+    "warmup": "Beforeeach of6timed targetjobs,run anunscored fullshape32-proposal warmup withproposal seed100and thejobinitialarray; no targetaccuracy iscomputedfromwarmups. Sixmeasuredsearches plus6unscoredwarmups; alltimecounts towardstudybudget.",
+    "timing": "Same synchronized complete solve-call scope ascalibration. Exclude valid-output scoring/serialization fromsolve timingsbutinclude them in aggregateworkerbudget."
+  },
+  "temperature": "T(k)=u*0.01**(k/(cap-1)),u=3.0367188453674316. Endpointtemperaturesunchanged; cap-specific annealingduration is explicitly partof each matched-computerecipe.",
+  "certificate": "Exactinteger zero occupiedFedges,including given-given edges; q13always. Primary abstains if no independentlyvalid stoppedcompletion among20chains.",
+  "primary": {
+    "required_gain_pp": 50.0,
+    "source_time_match_tolerance": 0.05,
+    "target_time_match_tolerance": 0.1,
+    "wrong_stops": 0,
+    "quality": "Paired-input bootstrap gain permutation-minus-arbitrary. Supportquality iff one-sided95%lower>=50pp,zero wrongstops,and numericalgatepasses; falsifyquality iff upper<50pp ORanywrongstop; otherwiseinconclusive.",
+    "matched_compute": "Supportmatchedcompute onlyif source mediansmatchwithin5%,fresh target median solve-time ratio matcheswithin10%,andqualityissupported. If targettimegatefails,matchedcomputeisinconclusive regardlessquality; reportqualityandfreshcostsseparately withoutretuning. Anywrongstopfalsifiesthezero-wrongstopclaim.",
+    "statistics": "2000pairedinputbootstrapdraws,RNG20261114,all3searchseedsretainedinsideeachinputcluster. Oneinheritedfit; timingandsearchseedsarenotlearningreplicates."
+  },
+  "diagnostics": "Original/certificate-first fallbackaccuracy,coverage,exactFcapacity,allcapreturns,proposals/accepts,per-proposal cost,source timing uncertainty,freshmediantimesandphysicalGPUassignment. Auditall491520timedtargetstates;maxrunningenergyerror>.1preventsqualitysupport.",
+  "gates": "Frozen H3aabackends/initializer andpassedCPU/CUDAgates are hashpinned. Sourcefullshape warmupsverifyarray/counterinvariants beforetiming. Targetpreflight checksfrozenselection,sourceexclusion,allvaliditycounts andregeneratessharedinitials.",
+  "budget": {
+    "whole_study_gpu_minutes": 20,
+    "whole_study_wall_seconds": 600,
+    "concurrent_gpu_workers": 2,
+    "grid_timing_trials": 30,
+    "maximum_refinement_trials": 6,
+    "measured_target_searches": 6,
+    "includes": "ALLcalibrationgrid/refinement workers,warmups,andfresh targetworkers. One shareddeadline startswithfirstcalibrationGPUworker; no freshdeadlinefortargetphase. Actualaggregateworkerwallmuststay<=1200s. CPUsourceinputpreparation precedesdeadline; noGPUworkthere.",
+    "on_expiry": "Retaincompleted trials/results andreportincomplete; do notextendtime,dropfailedtrial,changegrid,retuneontargetorclaimmatchedtimewithoutgate."
+  },
+  "limits": [
+    "Samefixed support/weights but cap-specific schedule duration; this tests declaredmatched-computerecipes,notpureproposalcountscaling.",
+    "Source-derived target-shaped timing inputs can differ in stoppingdifficulty fromfresh targets; the realized10%gate mayfail.",
+    "Alltargetcostsreportedwithoutretuning; sourcecalibrationmatchingdoesnotguaranteetargetmatching.",
+    "OneinheritedBPAdamWfit andsourcebank; search/timingrepeatsarenotindependenttrainingdraws.",
+    "No targetaccuracyin sourcecountselection; knownhistoricalH3aaaccuracydoesnotenterselectioncode."
+  ],
+  "source_sha256": {
+    "research/20261114/loki/h3ab/common.py": "435b8c21beb3ed7ec0cc3af9c54ed4b57089c8dcaa1f59482cca4d743bba23d1",
+    "research/20261114/loki/h3ab/calibration.py": "a930941e79e05288208ad9b9b5cc2f1c9ff0ff3fb702273ea9adbc1d77737edc",
+    "research/20261114/loki/h3ab/prepare.py": "5f6331ae1b00c3817793d299a9da82265d80bebc6f5aa2f40d8cb2e7695ea6c2",
+    "research/20261114/loki/h3ab/driver.py": "737c2e7a95716a12a2d57a9ce10cda24bdbd5d30655b86c2079c3dd07e0f122a",
+    "research/20261114/loki/h3ab/freeze.py": "ae1ea687628bda1ccd6762d736919822a5b5e2e33ca27e6ac86f218a2ff073a8",
+    "research/20261114/loki/h3aa/initialization.py": "3f128033466fc61d75cbd6ab417041df83c0107c1bc5b678898a3b9a85efc20c",
+    "research/20261114/loki/h3aa/arbitrary_backend.py": "5fd01d224a47152f9e27db749814aa29aa3518fea046a494ab02521540c137c0",
+    "research/20261114/loki/h3aa/permutation_backend.py": "2d4504f0f3f19bf5d58e9dd23ed32478e18fc4a8912e75a5d8b5cd50b6c31292",
+    "research/20261114/loki/h3aa/gate.py": "28ca8f39290967b879dc178c11758790d1a240c0fea5c1549e25068d391a601f",
+    "research/20261114/loki/h3aa/protocol.json": "bb39b64ba015da8c8184ed7bcddd65f985bd383e8b1b70802fea09465e43a5db",
+    "research/20261114/loki/analyze.py": "0a8d1427908062360db73bbeb83b7bbc881ed8eec81450a0245cff40043142e0"
+  },
+  "data_sha256": {
+    "artifacts/research/20261114/loki/h3aa/model.npz": "e893ff379d9394e8437c7c778a45a4d7d0ea57a2587116d42b959e864d96e84a",
+    "artifacts/research/20261114/loki/h3aa/data.npz": "f90fb39c8b2244c2f2817910a36c00c074de0250d982ab475b4a8a55bdcbc989",
+    "artifacts/research/20261114/loki/h3aa/gate-cpu.json": "3964b134aa7983d9c238eb810e1dd68022c333451e618d97a4e608623a3e318e",
+    "artifacts/research/20261114/loki/h3aa/gate-cuda.json": "d42a3574599b4e05ca1bab59df3aae8ed893807c723cec668610f2b3bf92ce3b",
+    "artifacts/research/20261114/loki/h3t/solutions-n12.npy": "509cca770756fdce427345ef6400d69e1f96e4677d30535ee62f8d2385a71ba8",
+    "artifacts/research/20261114/loki/h3t/solutions-n13.npy": "c6d9786fbeb885aed2e69ec37ebcfa0904caab7d5a2e90064b3e8c650aba56cf",
+    "artifacts/research/20261114/loki/h3t/input-universe.npz": "b16569ce94a255103a42ed81c1ecf0873f4fe56ddd50a1658694eae19ec82fe8"
+  }
+}

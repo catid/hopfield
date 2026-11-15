@@ -33,6 +33,7 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 | Queen-plus-camel soft-weight transfer and wrong stops | [Matched transfer exports](../results/research/loki/h3u/) | [plot_public.py](../research/20261114/loki/h3u/plot_public.py) |
 | Queen-plus-camel weights versus search on fixed support | [Fixed-support exports](../results/research/loki/h3v/) | [plot_public.py](../research/20261114/loki/h3v/plot_public.py) |
 | Queen-plus-camel permutation initialization and search prior | [Permutation exports](../results/research/loki/h3w/) | [plot_public.py](../research/20261114/loki/h3w/plot_public.py) |
+| Queen-plus-camel matched measured GPU time | [Matched-time exports](../results/research/loki/h3ab/) | [plot_public.py](../research/20261114/loki/h3ab/plot_public.py) |
 | Queen-plus-camel shared-initialization proposal control | [Triangle exports](../results/research/loki/h3aa/) | [plot_public.py](../research/20261114/loki/h3aa/plot_public.py) |
 | Complete-source minimum D4 rule | [Rule-selection exports](../results/research/loki/h3x/) | [plot_public.py](../research/20261114/loki/h3x/plot_public.py) |
 | Fixed multi-family rule-transfer stress grid | [Stress-grid exports](../results/research/loki/h3y/) | [plot_public.py](../research/20261114/loki/h3y/plot_public.py) |

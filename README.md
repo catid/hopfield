@@ -4,6 +4,8 @@
 
 An independent implementation, reproduction and experimental extension of [*Classical Energies Learn to Reason 1,000× Faster than Looped Models*](https://arxiv.org/abs/2611.17309v1), by Benjamin Hoover, Hugh Blayney and James C. R. Whittington. CRAM learns a classical energy function, then searches for low-energy solutions. Our follow-ups test what the optimizer, data augmentation and search each contribute.
 
+**A search prior also raises certified queen-plus-camel success from 21.06% to 88.77% at matched measured GPU time**, using identical learned weights. [Comparison and compute audit →](research/20261114/loki/h3ab/REPORT.md)
+
 [Paper in reviewed Markdown](references/2611.17309v1.md) · [Research results](results/README.md) · [Reproduction](REPRODUCTION.md) · [Run the code](docs/RERUN_GUIDE.md)
 
 ## Simple counts match the transformed Sudoku energy
@@ -92,9 +94,11 @@ The earlier study included every complete pattern in training, where simple bank
 
 Earlier N-Queens-10 experiments showed faster fitting with Adam and a weight-decay gap. A learned-certificate-first output policy then fixed all 77 failed AdamW input–seed cases without extra search, showing that the gap depends on output selection. [Optimizer experiments →](research/20261114/loki/h3c/REPORT.md) · [Selection control →](research/20261114/loki/h3d/REPORT.md)
 
-**Preserving a permutation makes the search much more effective.** With identical learned weights, temperatures and permutation starting boards, proposals that preserve one queen per row and column raise certified queen-plus-camel success from **20.87% to 87.23%**: **+66.36 points**, with one-sided 95% endpoints [65.43, 67.28] and zero wrong stops. Changing initialization alone gives no demonstrated large gain. The proposal prior comes from source-inferred lines. Both arms get 20,000 proposals per chain, but permutation proposals cost more: 100.36 versus 65.82 aggregate GPU-worker seconds. [Matched initialization control and audit →](research/20261114/loki/h3aa/REPORT.md) · [Original combined intervention →](research/20261114/loki/h3w/REPORT.md)
+**Preserving a permutation makes search much more effective at matched measured GPU time.** With identical learned weights, temperatures and permutation starting boards, permutation-preserving proposals reach **88.77%** certified queen-plus-camel success versus **21.06%** for arbitrary-cell proposals. The gain is **67.71 points**, with one-sided 95% endpoints [66.79, 68.56] and zero wrong stops. Median complete solve calls take **21.31 versus 21.86 seconds**, passing the frozen ±10% timing gate. Counts were selected using source-only timing before fresh targets: 12,000 versus 20,000 proposals per chain. This measures GPU time, not equal FLOPs, and uses one inherited fitted model. [Matched-time protocol, full calibration costs and audit →](research/20261114/loki/h3ab/REPORT.md)
 
-![Identical permutation starts isolate the gain from permutation-preserving proposals](results/research/loki/h3aa/initialization-triangle.png)
+![Permutation proposals retain the large success gain at matched measured GPU time](results/research/loki/h3ab/matched-compute.png)
+
+An earlier three-arm control showed that changing initialization alone gives no demonstrated large gain; changing proposals with identical starts raises success by **66.36 points** at equal proposal caps. The added prior comes from source-inferred rows and columns. [Initialization/proposal decomposition →](research/20261114/loki/h3aa/REPORT.md) · [Original combined intervention →](research/20261114/loki/h3w/REPORT.md)
 
 **A complete source universe can support compact rule learning.** Given all 176 N12 queen-plus-camel solutions, an explicit completeness assumption, D4 symmetry and a preference for fewer rule generators, exhaustive selection identifies the single `(1,3)` leaper rule. Its N13 energy exactly matches the already-audited oracle, inheriting **100%** certified success without another search. This uses substantial extra priors and reused outcomes. A fixed 18-case stress grid succeeds in 12 cases and includes a unique wrong rule that certifies 12 invalid complete boards. [Exact selection and identity mapping](research/20261114/loki/h3x/REPORT.md) · [Full stress grid and counterexamples](research/20261114/loki/h3y/REPORT.md)
 
