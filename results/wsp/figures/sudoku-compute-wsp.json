@@ -1,0 +1,954 @@
+{
+  "figure": "2a-wsp-extended",
+  "subset": "full-all rows10000..19999; 10000 held-out test puzzles",
+  "wsp_assoc_vs_published_baselines": [
+    {
+      "method": "EBR",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan0.2-cap64-N8",
+        "table1": false,
+        "knobs": {
+          "depth": 64,
+          "samples": 8,
+          "stop": "|grad_M E| < 0.2",
+          "tau": 0.2
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9986333333333334,
+        "solve_rate_sd": 0.0007637626158259498,
+        "mean_flop": 541474634138.8077,
+        "p99_flop": 3147620035392.481
+      },
+      "wsp_assoc_matching_point": {
+        "cap": 421696503.42858225,
+        "solved_per_seed": [
+          0.9992,
+          0.9988,
+          0.9985
+        ],
+        "solved_mean": 0.9988333333333334,
+        "solved_sd": 0.00035118845842838596,
+        "mean_flop_per_seed": [
+          23891841.370142866,
+          23791497.9083143,
+          24064938.92324287
+        ],
+        "mean_flop": 23916092.73390001,
+        "p99_flop_per_seed": [
+          211636351.60000014,
+          199432992.40000096,
+          201366877.0400003
+        ],
+        "p99_flop": 204145407.0133338
+      },
+      "baseline_mean_flops_over_wsp_assoc": 22640.59769977774
+    },
+    {
+      "method": "EqR",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "EqR",
+        "knob": "depth x breadth",
+        "setting": "D64-B128-n0.5",
+        "table1": true,
+        "knobs": {
+          "depth": 64,
+          "breadth": 128,
+          "noise": 0.5,
+          "random_init": true,
+          "answer": "top1_conv"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9949,
+        "solve_rate_sd": 0.0014177446878758143,
+        "mean_flop": 210602174233856.0,
+        "p99_flop": 210602174233856.0
+      },
+      "wsp_assoc_matching_point": {
+        "cap": 316227766.01683795,
+        "solved_per_seed": [
+          0.9976,
+          0.997,
+          0.9971
+        ],
+        "solved_mean": 0.9972333333333334,
+        "solved_sd": 0.00032145502536645975,
+        "mean_flop_per_seed": [
+          23754629.934240412,
+          23593255.970050514,
+          23870623.92074883
+        ],
+        "mean_flop": 23739503.275013253,
+        "p99_flop_per_seed": [
+          211636351.60000014,
+          199432992.40000096,
+          201366877.0400003
+        ],
+        "p99_flop": 204145407.0133338
+      },
+      "baseline_mean_flops_over_wsp_assoc": 8871380.828575421
+    },
+    {
+      "method": "FRM",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "FRM",
+        "knob": "iterations",
+        "setting": "iters8192",
+        "table1": false,
+        "knobs": {
+          "held_iters": 8192,
+          "nfe": 8193,
+          "sampler": "held_t"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9942000000000001,
+        "solve_rate_sd": 0.0013453624047073467,
+        "mean_flop": 7809603854025.0,
+        "p99_flop": 7809603854025.0
+      },
+      "wsp_assoc_matching_point": {
+        "cap": 316227766.01683795,
+        "solved_per_seed": [
+          0.9976,
+          0.997,
+          0.9971
+        ],
+        "solved_mean": 0.9972333333333334,
+        "solved_sd": 0.00032145502536645975,
+        "mean_flop_per_seed": [
+          23754629.934240412,
+          23593255.970050514,
+          23870623.92074883
+        ],
+        "mean_flop": 23739503.275013253,
+        "p99_flop_per_seed": [
+          211636351.60000014,
+          199432992.40000096,
+          201366877.0400003
+        ],
+        "p99_flop": 204145407.0133338
+      },
+      "baseline_mean_flops_over_wsp_assoc": 328970.81979996234
+    },
+    {
+      "method": "GRAM",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps32-n20",
+        "table1": false,
+        "knobs": {
+          "act_steps": 32,
+          "samples": 20,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9473666666666668,
+        "solve_rate_sd": 0.009645897228010136,
+        "mean_flop": 17022702185580.0,
+        "p99_flop": 17022702185580.0
+      },
+      "wsp_assoc_matching_point": {
+        "cap": 100000000.0,
+        "solved_per_seed": [
+          0.9574,
+          0.96,
+          0.9582
+        ],
+        "solved_mean": 0.9585333333333333,
+        "solved_sd": 0.0013316656236958403,
+        "mean_flop_per_seed": [
+          20903081.4782,
+          20891240.919,
+          21134967.7402
+        ],
+        "mean_flop": 20976430.0458,
+        "p99_flop_per_seed": [
+          100000000.0,
+          100000000.0,
+          100000000.0
+        ],
+        "p99_flop": 100000000.0
+      },
+      "baseline_mean_flops_over_wsp_assoc": 811515.6939675903
+    },
+    {
+      "method": "HRM",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "HRM",
+        "knob": "act_steps",
+        "setting": "act32",
+        "table1": false,
+        "knobs": {
+          "act_steps": 32
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.5709666666666667,
+        "solve_rate_sd": 0.04452823074559924,
+        "mean_flop": 440852595808.0,
+        "p99_flop": 440852595808.0
+      },
+      "wsp_assoc_matching_point": {
+        "cap": 13335214.32163324,
+        "solved_per_seed": [
+          0.583,
+          0.5794,
+          0.5728
+        ],
+        "solved_mean": 0.5783999999999999,
+        "solved_sd": 0.005173006862551024,
+        "mean_flop_per_seed": [
+          8755318.52512106,
+          8784488.90807894,
+          8803753.127401719
+        ],
+        "mean_flop": 8781186.853533907,
+        "p99_flop_per_seed": [
+          13335214.32163324,
+          13335214.32163324,
+          13335214.32163324
+        ],
+        "p99_flop": 13335214.32163324
+      },
+      "baseline_mean_flops_over_wsp_assoc": 50204.21534824566
+    },
+    {
+      "method": "TRM",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "TRM",
+        "knob": "act_steps",
+        "setting": "act32",
+        "table1": false,
+        "knobs": {
+          "act_steps": 32
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.8972333333333333,
+        "solve_rate_sd": 0.005961822987420326,
+        "mean_flop": 822497277984.0,
+        "p99_flop": 822497277984.0
+      },
+      "wsp_assoc_matching_point": {
+        "cap": 74989420.93324558,
+        "solved_per_seed": [
+          0.9322,
+          0.932,
+          0.9315
+        ],
+        "solved_mean": 0.9319000000000001,
+        "solved_sd": 0.00036055512754642083,
+        "mean_flop_per_seed": [
+          19557362.86507405,
+          19587361.3946607,
+          19790691.722027324
+        ],
+        "mean_flop": 19645138.66058736,
+        "p99_flop_per_seed": [
+          74989420.93324558,
+          74989420.93324558,
+          74989420.93324558
+        ],
+        "p99_flop": 74989420.93324558
+      },
+      "baseline_mean_flops_over_wsp_assoc": 41867.72576129064
+    },
+    {
+      "method": "TRMP",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "TRMP",
+        "knob": "rollouts",
+        "setting": "K64",
+        "table1": true,
+        "knobs": {
+          "rollouts": 64,
+          "step_cap": 1024,
+          "rollout_subset": "first K of 64"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9987,
+        "solve_rate_sd": 0.0008717797887081023,
+        "mean_flop": 4734045979380.171,
+        "p99_flop": 100744967923804.06
+      },
+      "wsp_assoc_matching_point": {
+        "cap": 421696503.42858225,
+        "solved_per_seed": [
+          0.9992,
+          0.9988,
+          0.9985
+        ],
+        "solved_mean": 0.9988333333333334,
+        "solved_sd": 0.00035118845842838596,
+        "mean_flop_per_seed": [
+          23891841.370142866,
+          23791497.9083143,
+          24064938.92324287
+        ],
+        "mean_flop": 23916092.73390001,
+        "p99_flop_per_seed": [
+          211636351.60000014,
+          199432992.40000096,
+          201366877.0400003
+        ],
+        "p99_flop": 204145407.0133338
+      },
+      "baseline_mean_flops_over_wsp_assoc": 197943.95481122503
+    },
+    {
+      "method": "TRMP-fast",
+      "paper_main_figure_comparison": false,
+      "baseline_best_setting": {
+        "method": "TRMP-fast",
+        "knob": "budget",
+        "setting": "K64-B1000",
+        "table1": true,
+        "knobs": {
+          "chains": 64,
+          "budget": 1000,
+          "check_every": 1
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9879333333333333,
+        "solve_rate_sd": 0.002386070689089801,
+        "mean_flop": 354867837652.482,
+        "p99_flop": 6801786580274.667
+      },
+      "wsp_assoc_matching_point": {
+        "cap": 237137370.56616554,
+        "solved_per_seed": [
+          0.9929,
+          0.9934,
+          0.9934
+        ],
+        "solved_mean": 0.9932333333333333,
+        "solved_sd": 0.0002886751345947811,
+        "mean_flop_per_seed": [
+          23401763.366919775,
+          23242403.898736693,
+          23524325.613336693
+        ],
+        "mean_flop": 23389497.626331054,
+        "p99_flop_per_seed": [
+          211636351.60000014,
+          199432992.40000096,
+          201366877.0400003
+        ],
+        "p99_flop": 204145407.0133338
+      },
+      "baseline_mean_flops_over_wsp_assoc": 15172.10174078235
+    }
+  ],
+  "fresh_cram_vs_published_baselines": [
+    {
+      "method": "EBR",
+      "baseline_provenance": "Published imported sweep, not locally reproduced",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "EBR",
+        "knob": "tau x samples",
+        "setting": "gtan0.2-cap64-N8",
+        "table1": false,
+        "knobs": {
+          "depth": 64,
+          "samples": 8,
+          "stop": "|grad_M E| < 0.2",
+          "tau": 0.2
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9986333333333334,
+        "solve_rate_sd": 0.0007637626158259498,
+        "mean_flop": 541474634138.8077,
+        "p99_flop": 3147620035392.481
+      },
+      "fresh_cram_matching_point": {
+        "cap": 177827941003.89227,
+        "solved_per_seed": [
+          0.9988,
+          0.9988,
+          0.999
+        ],
+        "solved_mean": 0.9988666666666667,
+        "solved_sd": 0.00011547005383791244,
+        "mean_flop_per_seed": [
+          2024383347.3714712,
+          1989566480.949471,
+          1883928715.5524921
+        ],
+        "mean_flop": 1965959514.624478,
+        "p99_flop_per_seed": [
+          17798910077.08001,
+          17306290913.56007,
+          17152674128.360008
+        ],
+        "p99_flop": 17419291706.333363
+      },
+      "published_cram_matching_point": {
+        "cap": 177827941003.89227,
+        "solved_per_seed": [
+          0.9995,
+          0.9987,
+          0.9991
+        ],
+        "solved_mean": 0.9991,
+        "solved_sd": 0.00040000000000001146,
+        "mean_flop_per_seed": [
+          1829215432.5575461,
+          1997740723.4162602,
+          1930274656.789303
+        ],
+        "mean_flop": 1919076937.5877032,
+        "p99_flop_per_seed": [
+          16447376946.640041,
+          17323206473.820023,
+          17208240992.340042
+        ],
+        "p99_flop": 16992941470.93337
+      },
+      "baseline_mean_flops_over_published_cram": 282.1536872927284,
+      "baseline_mean_flops_over_fresh_cram": 275.42511944465747
+    },
+    {
+      "method": "EqR",
+      "baseline_provenance": "Published imported sweep, not locally reproduced",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "EqR",
+        "knob": "depth x breadth",
+        "setting": "D64-B128-n0.5",
+        "table1": true,
+        "knobs": {
+          "depth": 64,
+          "breadth": 128,
+          "noise": 0.5,
+          "random_init": true,
+          "answer": "top1_conv"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9949,
+        "solve_rate_sd": 0.0014177446878758143,
+        "mean_flop": 210602174233856.0,
+        "p99_flop": 210602174233856.0
+      },
+      "fresh_cram_matching_point": {
+        "cap": 42169650342.85822,
+        "solved_per_seed": [
+          0.9942,
+          0.9954,
+          0.996
+        ],
+        "solved_mean": 0.9952,
+        "solved_sd": 0.0009165151389911761,
+        "mean_flop_per_seed": [
+          1657198529.389376,
+          1667416239.7985466,
+          1627787178.0244312
+        ],
+        "mean_flop": 1650800649.0707862,
+        "p99_flop_per_seed": [
+          17798910077.08001,
+          17306290913.56007,
+          17152674128.360008
+        ],
+        "p99_flop": 17419291706.333363
+      },
+      "published_cram_matching_point": {
+        "cap": 42169650342.85822,
+        "solved_per_seed": [
+          0.9956,
+          0.9959,
+          0.9949
+        ],
+        "solved_mean": 0.9954666666666667,
+        "solved_sd": 0.0005131601439446932,
+        "mean_flop_per_seed": [
+          1594640359.7681744,
+          1691097269.8737173,
+          1654494910.471975
+        ],
+        "mean_flop": 1646744180.0379572,
+        "p99_flop_per_seed": [
+          16447376946.640041,
+          17323206473.820023,
+          17208240992.340042
+        ],
+        "p99_flop": 16992941470.93337
+      },
+      "baseline_mean_flops_over_published_cram": 127890.03707242594,
+      "baseline_mean_flops_over_fresh_cram": 127575.77624675709
+    },
+    {
+      "method": "FRM",
+      "baseline_provenance": "Published imported sweep, not locally reproduced",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "FRM",
+        "knob": "iterations",
+        "setting": "iters8192",
+        "table1": false,
+        "knobs": {
+          "held_iters": 8192,
+          "nfe": 8193,
+          "sampler": "held_t"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9942000000000001,
+        "solve_rate_sd": 0.0013453624047073467,
+        "mean_flop": 7809603854025.0,
+        "p99_flop": 7809603854025.0
+      },
+      "fresh_cram_matching_point": {
+        "cap": 42169650342.85822,
+        "solved_per_seed": [
+          0.9942,
+          0.9954,
+          0.996
+        ],
+        "solved_mean": 0.9952,
+        "solved_sd": 0.0009165151389911761,
+        "mean_flop_per_seed": [
+          1657198529.389376,
+          1667416239.7985466,
+          1627787178.0244312
+        ],
+        "mean_flop": 1650800649.0707862,
+        "p99_flop_per_seed": [
+          17798910077.08001,
+          17306290913.56007,
+          17152674128.360008
+        ],
+        "p99_flop": 17419291706.333363
+      },
+      "published_cram_matching_point": {
+        "cap": 31622776601.683792,
+        "solved_per_seed": [
+          0.9947,
+          0.9946,
+          0.9939
+        ],
+        "solved_mean": 0.9944000000000001,
+        "solved_sd": 0.000435889894354083,
+        "mean_flop_per_seed": [
+          1543162903.0793233,
+          1643764481.6402917,
+          1596016731.63647
+        ],
+        "mean_flop": 1594314705.4520292,
+        "p99_flop_per_seed": [
+          16447376946.640041,
+          17323206473.820023,
+          17208240992.340042
+        ],
+        "p99_flop": 16992941470.93337
+      },
+      "baseline_mean_flops_over_published_cram": 4898.407966331074,
+      "baseline_mean_flops_over_fresh_cram": 4730.797663800849
+    },
+    {
+      "method": "GRAM",
+      "baseline_provenance": "Published imported sweep, not locally reproduced",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "GRAM",
+        "knob": "act_steps x samples",
+        "setting": "steps32-n20",
+        "table1": false,
+        "knobs": {
+          "act_steps": 32,
+          "samples": 20,
+          "vote": "majority over decoded boards, ties by mean sigmoid(q_halt)"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9473666666666668,
+        "solve_rate_sd": 0.009645897228010136,
+        "mean_flop": 17022702185580.0,
+        "p99_flop": 17022702185580.0
+      },
+      "fresh_cram_matching_point": {
+        "cap": 7498942093.324558,
+        "solved_per_seed": [
+          0.9656,
+          0.9665,
+          0.9651
+        ],
+        "solved_mean": 0.9657333333333334,
+        "solved_sd": 0.0007094598884597902,
+        "mean_flop_per_seed": [
+          1309624083.6135578,
+          1331088049.8219652,
+          1313013414.2398195
+        ],
+        "mean_flop": 1317908515.891788,
+        "p99_flop_per_seed": [
+          7498942093.324558,
+          7498942093.324558,
+          7498942093.324558
+        ],
+        "p99_flop": 7498942093.324558
+      },
+      "published_cram_matching_point": {
+        "cap": 7498942093.324558,
+        "solved_per_seed": [
+          0.9675,
+          0.9599,
+          0.9685
+        ],
+        "solved_mean": 0.9653,
+        "solved_sd": 0.004703190406521968,
+        "mean_flop_per_seed": [
+          1283596628.2312415,
+          1361003236.934706,
+          1315148259.7597167
+        ],
+        "mean_flop": 1319916041.6418953,
+        "p99_flop_per_seed": [
+          7498942093.324558,
+          7498942093.324558,
+          7498942093.324558
+        ],
+        "p99_flop": 7498942093.324558
+      },
+      "baseline_mean_flops_over_published_cram": 12896.806803260602,
+      "baseline_mean_flops_over_fresh_cram": 12916.452075629288
+    },
+    {
+      "method": "HRM",
+      "baseline_provenance": "Published imported sweep, not locally reproduced",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "HRM",
+        "knob": "act_steps",
+        "setting": "act32",
+        "table1": false,
+        "knobs": {
+          "act_steps": 32
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.5709666666666667,
+        "solve_rate_sd": 0.04452823074559924,
+        "mean_flop": 440852595808.0,
+        "p99_flop": 440852595808.0
+      },
+      "fresh_cram_matching_point": {
+        "cap": 749894209.3324559,
+        "solved_per_seed": [
+          0.5829,
+          0.5725,
+          0.5781
+        ],
+        "solved_mean": 0.5778333333333333,
+        "solved_sd": 0.0052051256789181505,
+        "mean_flop_per_seed": [
+          454565441.9459776,
+          462668616.7078327,
+          459691421.1487714
+        ],
+        "mean_flop": 458975159.9341851,
+        "p99_flop_per_seed": [
+          749894209.3324559,
+          749894209.3324559,
+          749894209.3324559
+        ],
+        "p99_flop": 749894209.332456
+      },
+      "published_cram_matching_point": {
+        "cap": 749894209.3324559,
+        "solved_per_seed": [
+          0.5806,
+          0.5762,
+          0.5718
+        ],
+        "solved_mean": 0.5762,
+        "solved_sd": 0.004400000000000015,
+        "mean_flop_per_seed": [
+          456841032.52904207,
+          459585770.3589035,
+          464013296.5295638
+        ],
+        "mean_flop": 460146699.80582803,
+        "p99_flop_per_seed": [
+          749894209.3324559,
+          749894209.3324559,
+          749894209.3324559
+        ],
+        "p99_flop": 749894209.332456
+      },
+      "baseline_mean_flops_over_published_cram": 958.0696677690621,
+      "baseline_mean_flops_over_fresh_cram": 960.515152652741
+    },
+    {
+      "method": "TRM",
+      "baseline_provenance": "Published imported sweep, not locally reproduced",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "TRM",
+        "knob": "act_steps",
+        "setting": "act32",
+        "table1": false,
+        "knobs": {
+          "act_steps": 32
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.8972333333333333,
+        "solve_rate_sd": 0.005961822987420326,
+        "mean_flop": 822497277984.0,
+        "p99_flop": 822497277984.0
+      },
+      "fresh_cram_matching_point": {
+        "cap": 4216965034.2858224,
+        "solved_per_seed": [
+          0.9138,
+          0.916,
+          0.9156
+        ],
+        "solved_mean": 0.9151333333333334,
+        "solved_sd": 0.0011718930554165015,
+        "mean_flop_per_seed": [
+          1131240798.298634,
+          1153566020.9562051,
+          1132515869.795921
+        ],
+        "mean_flop": 1139107563.0169234,
+        "p99_flop_per_seed": [
+          4216965034.2858224,
+          4216965034.2858224,
+          4216965034.2858224
+        ],
+        "p99_flop": 4216965034.2858224
+      },
+      "published_cram_matching_point": {
+        "cap": 4216965034.2858224,
+        "solved_per_seed": [
+          0.9197,
+          0.9089,
+          0.9182
+        ],
+        "solved_mean": 0.9156,
+        "solved_sd": 0.005850640990523996,
+        "mean_flop_per_seed": [
+          1115759853.9967482,
+          1160253909.6568327,
+          1142178786.5651753
+        ],
+        "mean_flop": 1139397516.73959,
+        "p99_flop_per_seed": [
+          4216965034.2858224,
+          4216965034.2858224,
+          4216965034.2858224
+        ],
+        "p99_flop": 4216965034.2858224
+      },
+      "baseline_mean_flops_over_published_cram": 721.8703445462944,
+      "baseline_mean_flops_over_fresh_cram": 722.0540927720804
+    },
+    {
+      "method": "TRMP",
+      "baseline_provenance": "Published imported sweep, not locally reproduced",
+      "paper_main_figure_comparison": true,
+      "baseline_best_setting": {
+        "method": "TRMP",
+        "knob": "rollouts",
+        "setting": "K64",
+        "table1": true,
+        "knobs": {
+          "rollouts": 64,
+          "step_cap": 1024,
+          "rollout_subset": "first K of 64"
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9987,
+        "solve_rate_sd": 0.0008717797887081023,
+        "mean_flop": 4734045979380.171,
+        "p99_flop": 100744967923804.06
+      },
+      "fresh_cram_matching_point": {
+        "cap": 177827941003.89227,
+        "solved_per_seed": [
+          0.9988,
+          0.9988,
+          0.999
+        ],
+        "solved_mean": 0.9988666666666667,
+        "solved_sd": 0.00011547005383791244,
+        "mean_flop_per_seed": [
+          2024383347.3714712,
+          1989566480.949471,
+          1883928715.5524921
+        ],
+        "mean_flop": 1965959514.624478,
+        "p99_flop_per_seed": [
+          17798910077.08001,
+          17306290913.56007,
+          17152674128.360008
+        ],
+        "p99_flop": 17419291706.333363
+      },
+      "published_cram_matching_point": {
+        "cap": 177827941003.89227,
+        "solved_per_seed": [
+          0.9995,
+          0.9987,
+          0.9991
+        ],
+        "solved_mean": 0.9991,
+        "solved_sd": 0.00040000000000001146,
+        "mean_flop_per_seed": [
+          1829215432.5575461,
+          1997740723.4162602,
+          1930274656.789303
+        ],
+        "mean_flop": 1919076937.5877032,
+        "p99_flop_per_seed": [
+          16447376946.640041,
+          17323206473.820023,
+          17208240992.340042
+        ],
+        "p99_flop": 16992941470.93337
+      },
+      "baseline_mean_flops_over_published_cram": 2466.8349072710494,
+      "baseline_mean_flops_over_fresh_cram": 2408.00786799744
+    },
+    {
+      "method": "TRMP-fast",
+      "baseline_provenance": "Published imported sweep, not locally reproduced",
+      "paper_main_figure_comparison": false,
+      "baseline_best_setting": {
+        "method": "TRMP-fast",
+        "knob": "budget",
+        "setting": "K64-B1000",
+        "table1": true,
+        "knobs": {
+          "chains": 64,
+          "budget": 1000,
+          "check_every": 1
+        },
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "solve_rate_mean": 0.9879333333333333,
+        "solve_rate_sd": 0.002386070689089801,
+        "mean_flop": 354867837652.482,
+        "p99_flop": 6801786580274.667
+      },
+      "fresh_cram_matching_point": {
+        "cap": 17782794100.38923,
+        "solved_per_seed": [
+          0.9899,
+          0.9902,
+          0.9904
+        ],
+        "solved_mean": 0.9901666666666666,
+        "solved_sd": 0.0002516611478423306,
+        "mean_flop_per_seed": [
+          1486768905.5661302,
+          1502912744.5106132,
+          1485130353.3547354
+        ],
+        "mean_flop": 1491604001.1438274,
+        "p99_flop_per_seed": [
+          17782794100.38923,
+          17306290913.56007,
+          17152674128.360008
+        ],
+        "p99_flop": 17413919714.1031
+      },
+      "published_cram_matching_point": {
+        "cap": 17782794100.38923,
+        "solved_per_seed": [
+          0.9907,
+          0.9902,
+          0.9902
+        ],
+        "solved_mean": 0.9903666666666666,
+        "solved_sd": 0.0002886751345948452,
+        "mean_flop_per_seed": [
+          1449949618.4842188,
+          1545625302.983613,
+          1490740117.8524132
+        ],
+        "mean_flop": 1495438346.4400828,
+        "p99_flop_per_seed": [
+          16447376946.640041,
+          17323206473.820023,
+          17208240992.340042
+        ],
+        "p99_flop": 16992941470.93337
+      },
+      "baseline_mean_flops_over_published_cram": 237.30021267493314,
+      "baseline_mean_flops_over_fresh_cram": 237.91022106427292
+    }
+  ],
+  "source_sha256": {
+    "results/reproduction/figures/sudoku-compute-comparison.json": "c9ce42b7022df42657be1262ad419e96b4ff84307c8251ecb264f405ebfcce00",
+    "results/wsp/sudoku/wsp-sudoku-anytime-curves.json": "22b7a514da3ef13967a96988154b79475d435221a88e46a1bb514b78215c965d"
+  }
+}

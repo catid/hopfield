@@ -6,7 +6,17 @@ Independent implementation, reproduction and research extensions of [*Classical 
 
 **Fresh dense mazes:** **4,096/4,096** solved across three fixed models. A BP-first cascade cuts complete answer cost **35.40%** with corner endpoints and **18.43%** across opposite corner regions, but costs **15.54% more** with uniformly sampled open-cell endpoints. Each cohort retains every LP96 success. [Speedup](research/20261114/work/REPORT.md#h2bo-fresh-confirmation-supports-999-joint-success-and-saves-3540-complete-answer-cost) · [Endpoint-shift slowdown](research/20261114/work/REPORT.md#h2bp-uniform-endpoints-preserve-joint-success-but-falsify-the-cost-saving-target)
 
-[Reviewed paper](references/2611.17309v1.md) · [All results](results/README.md) · [Reproduction](REPRODUCTION.md) · [Run the code](docs/RERUN_GUIDE.md)
+[Reviewed paper](references/2611.17309v1.md) · [Weight-Space Programming](docs/WSP_BENCHMARK_REPORT.md) · [All results](results/README.md) · [Reproduction](REPRODUCTION.md) · [Run the code](docs/RERUN_GUIDE.md)
+
+## Weight-Space Programming: rules without Transformers, reasoning with search
+
+![Weight-Space Programming headline comparison](assets/figures/wsp-comparison.png)
+
+Following [*Weight-Space Programming Doesn't Need Transformers*](https://github.com/effl-lab/Weight-Space-Programming) (Ok & Lee, 2026), we compile explicit task rules directly into pure PyTorch tensor weights (`k=0` training examples, `0` learned parameters, `wsp.free_model.static_problems == []`) across every benchmark in this repository:
+
+- **Sudoku-Extreme (`412,786` unseen test puzzles)**: Programming a 2-layer looped Transformer (`WSP-Transformer`, `614K` entries) solves **10.52%** at **1.71B `FC2` FLOPs**; direct deterministic tensor propagation (`WSP-Det`, `3` distinct coefficients) reaches **14.16%** in **15.4M FLOPs** (`111×` fewer FLOPs) but stalls when guessing is required. Pairing deductive tensor domain reduction with `C=4` candidate-restricted Gumbel-Potts search (`WSP-Assoc`, `7` distinct coefficients) solves **100.0000% (`1,238,358/1,238,358`, `0` wrong halts)** in **23.8M `FC2` FLOPs**—**22,641×** fewer FLOPs than published EBR at matched `10k` accuracy and **4.55×** fewer than Hand-set CRAM.
+- **Loopy mazes & multi-solution diversity**: On cyclic `Maze-Hard` (`1,000` mazes), local degree pruning (`WSP-DeadEnd`) halts on the graph 2-core (**0% solved, 100% wrong halts**), whereas min-plus `WSP-Wavefront` and resistive-flow `WSP-Potential` both solve **1,000/1,000 (`100%`, including Test Maze `106`)**. On `N-Queens` (`8, 10`) and 3-color `Graph Coloring` (`8, 10`), 20-chain `WSP-Assoc` eliminates deterministic mode collapse (`Cov@20` **9.0% → 95.5%** on 10-Queens; **8.6% → 55.5%** with **0/0/0** conflicts on 10-vertex coloring).
+- **Explicit prior disclosure**: WSP models receive supplied domain rules (`Fit time = none`, grouped with Hand-set CRAM), whereas data-learned models below (`Count energy`, `CRAM`, `EBR`, `TRM`) infer constraints from solved examples without supplied rules. [Full WSP report & extended Figures 2a/3a/3b](docs/WSP_BENCHMARK_REPORT.md) · [Main comparison tables](docs/MAIN_COMPARISON.md) · [Consolidated JSON](results/wsp/wsp-comparison-tables.json)
 
 ## Sudoku from simple counts
 
@@ -14,7 +24,7 @@ Independent implementation, reproduction and research extensions of [*Classical 
 
 Connect cells that **never share a digit in training solutions**, assign weight one, and search. On 10,000 reserved official puzzles across six search seeds, this solves **59,974/60,000 evaluations (99.9567%)**, with zero wrong stops. The transformed learned energy reaches **99.9417%** at the same budget: four chains, 16,777,216 moves per chain. At the shorter 262,144-move cap, counts reach 81.50%.
 
-This headline uses ten base solutions with 99 stored Sudoku-symmetry variants each. **Augmentation supplies task knowledge.** A separate control recovers the same constraint graph from 100 distinct unaugmented solutions in all six samples. The estimator receives no cell geometry. [Budget, uncertainty and stopping proof](research/20261114/foureyes/REPORT-budget.md) · [Raw-data control](research/20261114/ripper/REPORT-raw-count.md)
+This headline uses ten base solutions with 99 stored Sudoku-symmetry variants each. **Augmentation supplies task knowledge.** A separate control recovers the same constraint graph from 100 distinct unaugmented solutions in all six samples. The estimator receives no cell geometry. By contrast, when Sudoku rules are supplied directly in weight space (`k=0` boards, hatched in the plot above), deterministic `WSP-Det` plateaus at **14.06%**, while associative `WSP-Assoc` reaches **96.86%** at 262,144 moves and **100.0000%** (`60,000/60,000`) from 4,194,304 moves onward. [Budget, uncertainty and stopping proof](research/20261114/foureyes/REPORT-budget.md) · [Raw-data control](research/20261114/ripper/REPORT-raw-count.md) · [WSP budget sweep](docs/WSP_BENCHMARK_REPORT.md#23-compute-frontier-figure-2a-difficulty-scaling-figure-3a-zero-data-reference-figure-3b--count-budget-sweep)
 
 ## Maze speed depends on endpoint placement
 
@@ -32,7 +42,9 @@ On a fresh 50:50 mixture of uniform and far-region endpoints, a distance-based d
 
 Packing those same examined inputs into groups with the same route reduces the dispatcher's complete answer cost **31.34%**, with identical outputs and trajectories across all 147,456 timed copies. This improves the dispatcher; a new matched comparison against LP96 and always-cascade was prepared but **not run** before research stopped. [Measured packing result and unrun follow-up](research/20261114/work/REPORT.md)
 
-The decoder supplies an explicit graph prior. Geometry alone does not prove shortestness, and energy certificates do not prove graph validity. Every reported solve receives independent graph checks. These distinct endpoint distributions are reported separately; the comparison does not isolate a causal effect of path length. [Controls and earlier cohorts](docs/RESEARCH_DETAILS.md#cycle-cuts-solve-fresh-dense-mazes)
+The decoder supplies an explicit graph prior. Geometry alone does not prove shortestness, and energy certificates do not prove graph validity. Every reported solve receives independent graph checks. These distinct endpoint distributions are reported separately; the comparison does not isolate a causal effect of path length. When the shortest-path prior is compiled directly into weights via `WSP-Wavefront` (`k=0` training mazes), all **4,096/4,096** mazes are solved in every cohort with **93.21% (`14.72×`)**, **88.79% (`8.92×`)**, and **91.76% (`12.20×`)** complete-cost savings over `LP96`—and no endpoint-shift reversal on uniform endpoints (`8.51 s` vs `76.13 s` at `B=32`). [Controls and earlier cohorts](docs/RESEARCH_DETAILS.md#cycle-cuts-solve-fresh-dense-mazes) · [WSP three-cohort replay](docs/WSP_BENCHMARK_REPORT.md#33-dense-180180-80-loop-mazes-across-three-endpoint-distributions-h2bo--h2bp--h2bq)
+
+![Dense 180x180 maze endpoint-cost comparison with WSP-Wavefront](assets/figures/wsp-maze-endpoint-cost.png)
 
 ## Change the search, keep the learned energy
 
@@ -40,7 +52,9 @@ The decoder supplies an explicit graph prior. Geometry alone does not prove shor
 
 Keep one queen in each row and column while proposing moves. With identical fitted weights and starting boards, this raises certified success from **5.75% to 99.78%** for queen-plus-zebra and **7.68% to 99.87%** for queen-plus-(2,5)-leaper. Median complete GPU solve times are within **1.2% and 4.2%**, respectively. Both frozen 50-point gain targets pass, with zero wrong stops.
 
-Each family uses a complete N12 training universe and 4,096 fresh N13 inputs, with 20 chains and three search seeds. These are two fixed families with a supplied permutation prior. [Matched-time replication and controls](research/20261114/loki/h3ad/REPORT.md) · [Question-selection experiments and retained failures](docs/RESEARCH_DETAILS.md#a-search-prior-makes-the-same-learned-energy-much-more-useful)
+Each family uses a complete N12 training universe and 4,096 fresh N13 inputs, with 20 chains and three search seeds. These are two fixed families with a supplied permutation prior. Replacing the transferred N12 learned weights with noise-free zero-training WSP attack weights (`~5.0 s` matched GPU solve time on the identical 4,096 boards and starting states) lifts arbitrary swaps from **5.75% / 7.68%** to **86.73% / 90.23%**, yet **10–13% of inputs still fail (`~40–50%` `Cov@20` loss)** without rook-permutation proposals, where `WSP-Permutation` reaches **100.00% (`4,096/4,096`)** and **92.63% / 87.80% `Cov@20`**. [Matched-time replication and controls](research/20261114/loki/h3ad/REPORT.md) · [WSP oracle-weight vs proposal decomposition](docs/WSP_BENCHMARK_REPORT.md#42-n--13-generalized-queenleaper-at-matched-gpu-solve-time-h3ad) · [Question-selection experiments and retained failures](docs/RESEARCH_DETAILS.md#a-search-prior-makes-the-same-learned-energy-much-more-useful)
+
+![N=13 Queen+Leaper learned vs zero-training WSP comparison](assets/figures/wsp-queen-families.png)
 
 ## Spend noisy queries on distinct boards
 
@@ -95,13 +109,17 @@ uv pip install --python upstream/.venv/bin/python --no-deps -e .
 CUDA_VISIBLE_DEVICES= upstream/.venv/bin/python -m pytest -q tests/test_reference.py tests/test_counting.py
 ```
 
-Build the optimizer-free energy from completed training boards:
+Build the optimizer-free energy from completed training boards, or compile explicit task rules via Weight-Space Programming (`k=0` training boards):
 
 ```python
-from hopfield_cram import fit_never_equal
+from hopfield_cram import fit_never_equal, build_wsp_assoc_weights, solve_wsp_wavefront
 
-# Integer tensor (examples, 81), digits 0..8; training data only.
+# 1. Data-learned count energy (no geometry supplied; integer tensor (examples, 81), digits 0..8):
 energy, equality_counts = fit_never_equal(training_solutions, n_values=9)
+
+# 2. Zero-training Weight-Space Programming (explicit rules compiled into pure tensor weights):
+w_sudoku = build_wsp_assoc_weights(device="cpu")
+maze_result = solve_wsp_wavefront(maze_grids)  # WSPMazeResult (.predictions, .halted)
 ```
 
 The [public API](src/hopfield_cram/counting.py) receives no cell geometry; insufficient data can still create false exclusions. All 38 reference/counting tests pass. The sparse checkout above downloads the code needed for this quickstart. Run `git sparse-checkout disable` to fetch the research evidence, figures and [research runners](research/20261114/); the full proof collection is several gigabytes.

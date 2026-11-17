@@ -1,0 +1,1373 @@
+{
+  "benchmark": "graph_coloring_multi_solution",
+  "dev_selections_sha256": "1c826145b467546ad0fd534061bcbadf41f7ee27cc69035adf1d986f7db55a56",
+  "cuda_context_seconds": 0.22207729308865964,
+  "hardware": {
+    "hostname": "foureyes",
+    "python": "3.13.13",
+    "torch": "2.11.0+cu128",
+    "device": "cuda",
+    "cuda_visible_devices": "0",
+    "tmpdir": "/home/catid/.cache/hopfield_tmp",
+    "triton_cache_dir": "/home/catid/.cache/hopfield_tmp/triton_multi",
+    "torchinductor_cache_dir": "/home/catid/.cache/hopfield_tmp/inductor_multi",
+    "wsp_upstream_commit": "02c31abd3b34d84854cc80d9717717c45365c719",
+    "gpu_name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+    "gpu_capability": [
+      12,
+      0
+    ],
+    "nvidia_smi_snapshot": "0, GPU-4c394fc5-b18f-6622-ca94-f7fbd7112927, 1 %, 96.91 W, 740 MiB, 96571 MiB",
+    "cotenant_compute_apps": [
+      "2524702, /home/catid/hopfield/upstream/.venv/bin/python, 730 MiB"
+    ]
+  },
+  "sizes": {
+    "8": {
+      "n": 8,
+      "test_graphs": 255,
+      "solutions_total": 912,
+      "arms": {
+        "wsp_det": {
+          "label": "WSP-Det (rule-programmed deterministic Potts relaxation)",
+          "disclosure": {
+            "params_learned": 0,
+            "distinct_programmed_coefficients": 1,
+            "distinct_programmed_values": [
+              1.0
+            ],
+            "distinct_nonzero_all_w_tensors": 8,
+            "energy_entries": 9,
+            "energy_nonzero": 3,
+            "materialized_entries": 84,
+            "materialized_nonzero": 69,
+            "fit_seconds": null,
+            "fit_display": "none",
+            "prior_disclosure": "rule-programmed zero-training; deterministic Gauss-Seidel Potts relaxation + in-arch tensor color canonicalizer"
+          },
+          "n1_conflicts_per_seed": [
+            34,
+            34,
+            34
+          ],
+          "n20_conflicts_min_energy_per_seed": [
+            34,
+            34,
+            34
+          ],
+          "n20_conflicts_majority_per_seed": [
+            34,
+            34,
+            34
+          ],
+          "metrics": {
+            "coverage_20_pct": {
+              "mean": 24.232456140350877,
+              "sd": 0.0,
+              "per_seed": [
+                24.232456140350877,
+                24.232456140350877,
+                24.232456140350877
+              ]
+            },
+            "coverage_canonicalized_20_pct": {
+              "mean": 24.232456140350877,
+              "sd": 0.0,
+              "per_seed": [
+                24.232456140350877,
+                24.232456140350877,
+                24.232456140350877
+              ]
+            },
+            "proper_1_pct": {
+              "mean": 86.66666666666667,
+              "sd": 0.0,
+              "per_seed": [
+                86.66666666666667,
+                86.66666666666667,
+                86.66666666666667
+              ]
+            },
+            "worker_solve_seconds": {
+              "mean": 0.010905887310703596,
+              "sd": 0.012615109914371961,
+              "per_seed": [
+                0.02547041792422533,
+                0.003840034012682736,
+                0.00340720999520272
+              ]
+            }
+          },
+          "mean_fc2_flops_n1_per_graph": 5407.0,
+          "mean_fc2_flops_n20_per_graph": 5407.0,
+          "mean_fc2_flops_with_compare_n20_per_graph": 5702.0,
+          "pooled_wrong_stops": 0,
+          "pooled_budget_failures": 2040,
+          "per_seed": [
+            {
+              "graphs": 255,
+              "samples": 20,
+              "solutions_total": 912,
+              "conflicts_1": 34,
+              "conflicts_n20_min_energy": 34,
+              "conflicts_majority_20": 34,
+              "proper_1_pct": 86.66666666666667,
+              "proper_canonical_1_pct": 86.66666666666667,
+              "proper_any_20_pct": 86.66666666666667,
+              "all_outputs_canonical": true,
+              "coverage_20_pct": 24.232456140350877,
+              "coverage_canonicalized_20_pct": 24.232456140350877,
+              "wrong_stops_1": 0,
+              "wrong_stops_all": 0,
+              "halted_pct": 86.66666666666667,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures_1": 34,
+              "budget_failures_all": 680,
+              "unstopped_but_proper": 0,
+              "moves_mean": 64.0,
+              "moves_max": 64,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 5407.0,
+                "median_flops_per_instance": 5407.0,
+                "mean_flops_with_compare_per_instance": 5702.0,
+                "median_flops_with_compare_per_instance": 5702.0,
+                "total_flops_all_instances": 1378785,
+                "total_flops_with_compare_all_instances": 1454010,
+                "deterministic_passes_mode": true
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 5407.0,
+                "median_flops_per_instance": 5407.0,
+                "mean_flops_with_compare_per_instance": 5702.0,
+                "median_flops_with_compare_per_instance": 5702.0,
+                "total_flops_all_instances": 1378785,
+                "total_flops_with_compare_all_instances": 1454010,
+                "deterministic_passes_mode": true
+              },
+              "gpu_kernel_seconds": 0.025359009974636137,
+              "worker_solve_seconds": 0.02547041792422533,
+              "seed": 0,
+              "records_npz": "artifacts/wsp/multi/graph_coloring/n8/wsp_det-s0.npz",
+              "records_sha256": "d1793f541514d22f748d5ae9cf8b50f6e01714d5d8f9313fe204962e36063cfe"
+            },
+            {
+              "graphs": 255,
+              "samples": 20,
+              "solutions_total": 912,
+              "conflicts_1": 34,
+              "conflicts_n20_min_energy": 34,
+              "conflicts_majority_20": 34,
+              "proper_1_pct": 86.66666666666667,
+              "proper_canonical_1_pct": 86.66666666666667,
+              "proper_any_20_pct": 86.66666666666667,
+              "all_outputs_canonical": true,
+              "coverage_20_pct": 24.232456140350877,
+              "coverage_canonicalized_20_pct": 24.232456140350877,
+              "wrong_stops_1": 0,
+              "wrong_stops_all": 0,
+              "halted_pct": 86.66666666666667,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures_1": 34,
+              "budget_failures_all": 680,
+              "unstopped_but_proper": 0,
+              "moves_mean": 64.0,
+              "moves_max": 64,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 5407.0,
+                "median_flops_per_instance": 5407.0,
+                "mean_flops_with_compare_per_instance": 5702.0,
+                "median_flops_with_compare_per_instance": 5702.0,
+                "total_flops_all_instances": 1378785,
+                "total_flops_with_compare_all_instances": 1454010,
+                "deterministic_passes_mode": true
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 5407.0,
+                "median_flops_per_instance": 5407.0,
+                "mean_flops_with_compare_per_instance": 5702.0,
+                "median_flops_with_compare_per_instance": 5702.0,
+                "total_flops_all_instances": 1378785,
+                "total_flops_with_compare_all_instances": 1454010,
+                "deterministic_passes_mode": true
+              },
+              "gpu_kernel_seconds": 0.0037369680358096957,
+              "worker_solve_seconds": 0.003840034012682736,
+              "seed": 1,
+              "records_npz": "artifacts/wsp/multi/graph_coloring/n8/wsp_det-s1.npz",
+              "records_sha256": "d1793f541514d22f748d5ae9cf8b50f6e01714d5d8f9313fe204962e36063cfe"
+            },
+            {
+              "graphs": 255,
+              "samples": 20,
+              "solutions_total": 912,
+              "conflicts_1": 34,
+              "conflicts_n20_min_energy": 34,
+              "conflicts_majority_20": 34,
+              "proper_1_pct": 86.66666666666667,
+              "proper_canonical_1_pct": 86.66666666666667,
+              "proper_any_20_pct": 86.66666666666667,
+              "all_outputs_canonical": true,
+              "coverage_20_pct": 24.232456140350877,
+              "coverage_canonicalized_20_pct": 24.232456140350877,
+              "wrong_stops_1": 0,
+              "wrong_stops_all": 0,
+              "halted_pct": 86.66666666666667,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures_1": 34,
+              "budget_failures_all": 680,
+              "unstopped_but_proper": 0,
+              "moves_mean": 64.0,
+              "moves_max": 64,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 5407.0,
+                "median_flops_per_instance": 5407.0,
+                "mean_flops_with_compare_per_instance": 5702.0,
+                "median_flops_with_compare_per_instance": 5702.0,
+                "total_flops_all_instances": 1378785,
+                "total_flops_with_compare_all_instances": 1454010,
+                "deterministic_passes_mode": true
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 5407.0,
+                "median_flops_per_instance": 5407.0,
+                "mean_flops_with_compare_per_instance": 5702.0,
+                "median_flops_with_compare_per_instance": 5702.0,
+                "total_flops_all_instances": 1378785,
+                "total_flops_with_compare_all_instances": 1454010,
+                "deterministic_passes_mode": true
+              },
+              "gpu_kernel_seconds": 0.0033202789491042495,
+              "worker_solve_seconds": 0.00340720999520272,
+              "seed": 2,
+              "records_npz": "artifacts/wsp/multi/graph_coloring/n8/wsp_det-s2.npz",
+              "records_sha256": "d1793f541514d22f748d5ae9cf8b50f6e01714d5d8f9313fe204962e36063cfe"
+            }
+          ]
+        },
+        "wsp_assoc": {
+          "label": "WSP-Assoc (rule-programmed 20-chain Gumbel-Potts + in-arch tensor canonicalizer)",
+          "disclosure": {
+            "params_learned": 0,
+            "distinct_programmed_coefficients": 1,
+            "distinct_programmed_values": [
+              1.0
+            ],
+            "distinct_nonzero_all_w_tensors": 9,
+            "energy_entries": 9,
+            "energy_nonzero": 3,
+            "materialized_entries": 10078,
+            "materialized_nonzero": 10063,
+            "fit_seconds": null,
+            "fit_display": "none",
+            "prior_disclosure": "rule-programmed zero-training; 3-Potts edge-equality cost + pure-tensor first-appearance color canonicalizer inside arch.forward (matched rule scope to Hand-set CRAM)"
+          },
+          "n1_conflicts_per_seed": [
+            0,
+            0,
+            0
+          ],
+          "n20_conflicts_min_energy_per_seed": [
+            0,
+            0,
+            0
+          ],
+          "n20_conflicts_majority_per_seed": [
+            0,
+            0,
+            0
+          ],
+          "metrics": {
+            "coverage_20_pct": {
+              "mean": 90.60672514619883,
+              "sd": 0.33498360343244,
+              "per_seed": [
+                90.24122807017544,
+                90.6798245614035,
+                90.89912280701753
+              ]
+            },
+            "coverage_canonicalized_20_pct": {
+              "mean": 90.60672514619883,
+              "sd": 0.33498360343244,
+              "per_seed": [
+                90.24122807017544,
+                90.6798245614035,
+                90.89912280701753
+              ]
+            },
+            "proper_1_pct": {
+              "mean": 100.0,
+              "sd": 0.0,
+              "per_seed": [
+                100.0,
+                100.0,
+                100.0
+              ]
+            },
+            "worker_solve_seconds": {
+              "mean": 0.6997091929273059,
+              "sd": 1.1618714849965366,
+              "per_seed": [
+                2.041320593911223,
+                0.026785896974615753,
+                0.031021087896078825
+              ]
+            }
+          },
+          "mean_fc2_flops_n1_per_graph": 2993.0,
+          "mean_fc2_flops_n20_per_graph": 60697.450980392154,
+          "mean_fc2_flops_with_compare_n20_per_graph": 105177.06013071895,
+          "pooled_wrong_stops": 0,
+          "pooled_budget_failures": 0,
+          "per_seed": [
+            {
+              "graphs": 255,
+              "samples": 20,
+              "solutions_total": 912,
+              "conflicts_1": 0,
+              "conflicts_n20_min_energy": 0,
+              "conflicts_majority_20": 0,
+              "proper_1_pct": 100.0,
+              "proper_canonical_1_pct": 100.0,
+              "proper_any_20_pct": 100.0,
+              "all_outputs_canonical": true,
+              "coverage_20_pct": 90.24122807017544,
+              "coverage_canonicalized_20_pct": 90.24122807017544,
+              "wrong_stops_1": 0,
+              "wrong_stops_all": 0,
+              "halted_pct": 100.0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures_1": 0,
+              "budget_failures_all": 0,
+              "unstopped_but_proper": 0,
+              "moves_mean": 32.86686274509804,
+              "moves_max": 318,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 2979.470588235294,
+                "median_flops_per_instance": 2268.0,
+                "mean_flops_with_compare_per_instance": 5156.137254901961,
+                "median_flops_with_compare_per_instance": 3837.0,
+                "total_flops_all_instances": 759765,
+                "total_flops_with_compare_all_instances": 1314815,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 60160.294117647056,
+                "median_flops_per_instance": 58635.0,
+                "mean_flops_with_compare_per_instance": 104181.3568627451,
+                "median_flops_with_compare_per_instance": 101355.0,
+                "total_flops_all_instances": 15340875,
+                "total_flops_with_compare_all_instances": 26566246,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 2.0411684539867565,
+              "worker_solve_seconds": 2.041320593911223,
+              "seed": 0,
+              "records_npz": "artifacts/wsp/multi/graph_coloring/n8/wsp_assoc-s0.npz",
+              "records_sha256": "7a454dce949345b95e36c8b4c03d7be6af666773ee8e73b27bcedc2b7a730593"
+            },
+            {
+              "graphs": 255,
+              "samples": 20,
+              "solutions_total": 912,
+              "conflicts_1": 0,
+              "conflicts_n20_min_energy": 0,
+              "conflicts_majority_20": 0,
+              "proper_1_pct": 100.0,
+              "proper_canonical_1_pct": 100.0,
+              "proper_any_20_pct": 100.0,
+              "all_outputs_canonical": true,
+              "coverage_20_pct": 90.6798245614035,
+              "coverage_canonicalized_20_pct": 90.6798245614035,
+              "wrong_stops_1": 0,
+              "wrong_stops_all": 0,
+              "halted_pct": 100.0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures_1": 0,
+              "budget_failures_all": 0,
+              "unstopped_but_proper": 0,
+              "moves_mean": 33.262549019607846,
+              "moves_max": 283,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 3069.470588235294,
+                "median_flops_per_instance": 2193.0,
+                "mean_flops_with_compare_per_instance": 5322.996078431373,
+                "median_flops_with_compare_per_instance": 3698.0,
+                "total_flops_all_instances": 782715,
+                "total_flops_with_compare_all_instances": 1357364,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 60753.82352941176,
+                "median_flops_per_instance": 60585.0,
+                "mean_flops_with_compare_per_instance": 105281.6431372549,
+                "median_flops_with_compare_per_instance": 104970.0,
+                "total_flops_all_instances": 15492225,
+                "total_flops_with_compare_all_instances": 26846819,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 0.026659615919925272,
+              "worker_solve_seconds": 0.026785896974615753,
+              "seed": 1,
+              "records_npz": "artifacts/wsp/multi/graph_coloring/n8/wsp_assoc-s1.npz",
+              "records_sha256": "ff7e3f2c6c787e2c3aa6a2b80e7f44525c8b088ec7d4bb2136ce6413a46a3fd2"
+            },
+            {
+              "graphs": 255,
+              "samples": 20,
+              "solutions_total": 912,
+              "conflicts_1": 0,
+              "conflicts_n20_min_energy": 0,
+              "conflicts_majority_20": 0,
+              "proper_1_pct": 100.0,
+              "proper_canonical_1_pct": 100.0,
+              "proper_any_20_pct": 100.0,
+              "all_outputs_canonical": true,
+              "coverage_20_pct": 90.89912280701753,
+              "coverage_canonicalized_20_pct": 90.89912280701753,
+              "wrong_stops_1": 0,
+              "wrong_stops_all": 0,
+              "halted_pct": 100.0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures_1": 0,
+              "budget_failures_all": 0,
+              "unstopped_but_proper": 0,
+              "moves_mean": 33.54549019607843,
+              "moves_max": 294,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 2930.0588235294117,
+                "median_flops_per_instance": 1968.0,
+                "mean_flops_with_compare_per_instance": 5064.552941176471,
+                "median_flops_with_compare_per_instance": 3281.0,
+                "total_flops_all_instances": 747165,
+                "total_flops_with_compare_all_instances": 1291461,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 61178.23529411765,
+                "median_flops_per_instance": 59610.0,
+                "mean_flops_with_compare_per_instance": 106068.18039215686,
+                "median_flops_with_compare_per_instance": 103160.0,
+                "total_flops_all_instances": 15600450,
+                "total_flops_with_compare_all_instances": 27047386,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 0.030875527998432517,
+              "worker_solve_seconds": 0.031021087896078825,
+              "seed": 2,
+              "records_npz": "artifacts/wsp/multi/graph_coloring/n8/wsp_assoc-s2.npz",
+              "records_sha256": "cf9fe514d24e82db05141b2069a94ca69a65d2b670202e392ae2ff5d3dab8778"
+            }
+          ]
+        },
+        "wsp_assoc_uncanonicalized": {
+          "label": "WSP-Assoc-Uncanonicalized (ablation without color-order canonicalizer)",
+          "disclosure": {
+            "params_learned": 0,
+            "distinct_programmed_coefficients": 1,
+            "distinct_programmed_values": [
+              1.0
+            ],
+            "distinct_nonzero_all_w_tensors": 9,
+            "energy_entries": 9,
+            "energy_nonzero": 3,
+            "materialized_entries": 10078,
+            "materialized_nonzero": 10062,
+            "fit_seconds": null,
+            "fit_display": "none",
+            "prior_disclosure": "rule-programmed zero-training; S3-symmetric 3-Potts edge-equality cost WITHOUT color-order canonicalization"
+          },
+          "n1_conflicts_per_seed": [
+            0,
+            0,
+            0
+          ],
+          "n20_conflicts_min_energy_per_seed": [
+            0,
+            0,
+            0
+          ],
+          "n20_conflicts_majority_per_seed": [
+            0,
+            0,
+            0
+          ],
+          "metrics": {
+            "coverage_20_pct": {
+              "mean": 48.79385964912281,
+              "sd": 1.2645353722226755,
+              "per_seed": [
+                48.90350877192983,
+                50.0,
+                47.478070175438596
+              ]
+            },
+            "coverage_canonicalized_20_pct": {
+              "mean": 90.60672514619883,
+              "sd": 0.33498360343244,
+              "per_seed": [
+                90.24122807017544,
+                90.6798245614035,
+                90.89912280701753
+              ]
+            },
+            "proper_1_pct": {
+              "mean": 100.0,
+              "sd": 0.0,
+              "per_seed": [
+                100.0,
+                100.0,
+                100.0
+              ]
+            },
+            "worker_solve_seconds": {
+              "mean": 0.03032407028755794,
+              "sd": 0.0024126424108510845,
+              "per_seed": [
+                0.031845001969486475,
+                0.027542238938622177,
+                0.03158496995456517
+              ]
+            }
+          },
+          "mean_fc2_flops_n1_per_graph": 2993.0,
+          "mean_fc2_flops_n20_per_graph": 60697.450980392154,
+          "mean_fc2_flops_with_compare_n20_per_graph": 105177.06013071895,
+          "pooled_wrong_stops": 0,
+          "pooled_budget_failures": 0,
+          "per_seed": [
+            {
+              "graphs": 255,
+              "samples": 20,
+              "solutions_total": 912,
+              "conflicts_1": 0,
+              "conflicts_n20_min_energy": 0,
+              "conflicts_majority_20": 0,
+              "proper_1_pct": 100.0,
+              "proper_canonical_1_pct": 20.392156862745097,
+              "proper_any_20_pct": 100.0,
+              "all_outputs_canonical": false,
+              "coverage_20_pct": 48.90350877192983,
+              "coverage_canonicalized_20_pct": 90.24122807017544,
+              "wrong_stops_1": 0,
+              "wrong_stops_all": 0,
+              "halted_pct": 100.0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures_1": 0,
+              "budget_failures_all": 0,
+              "unstopped_but_proper": 0,
+              "moves_mean": 32.86686274509804,
+              "moves_max": 318,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 2979.470588235294,
+                "median_flops_per_instance": 2268.0,
+                "mean_flops_with_compare_per_instance": 5156.137254901961,
+                "median_flops_with_compare_per_instance": 3837.0,
+                "total_flops_all_instances": 759765,
+                "total_flops_with_compare_all_instances": 1314815,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 60160.294117647056,
+                "median_flops_per_instance": 58635.0,
+                "mean_flops_with_compare_per_instance": 104181.3568627451,
+                "median_flops_with_compare_per_instance": 101355.0,
+                "total_flops_all_instances": 15340875,
+                "total_flops_with_compare_all_instances": 26566246,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 0.03169794997666031,
+              "worker_solve_seconds": 0.031845001969486475,
+              "seed": 0,
+              "records_npz": "artifacts/wsp/multi/graph_coloring/n8/wsp_assoc_uncanonicalized-s0.npz",
+              "records_sha256": "88434db789216a0842c4838a92c6f6d64ff3c84b1f26e77a36ceccb8bf4a3d03"
+            },
+            {
+              "graphs": 255,
+              "samples": 20,
+              "solutions_total": 912,
+              "conflicts_1": 0,
+              "conflicts_n20_min_energy": 0,
+              "conflicts_majority_20": 0,
+              "proper_1_pct": 100.0,
+              "proper_canonical_1_pct": 18.03921568627451,
+              "proper_any_20_pct": 100.0,
+              "all_outputs_canonical": false,
+              "coverage_20_pct": 50.0,
+              "coverage_canonicalized_20_pct": 90.6798245614035,
+              "wrong_stops_1": 0,
+              "wrong_stops_all": 0,
+              "halted_pct": 100.0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures_1": 0,
+              "budget_failures_all": 0,
+              "unstopped_but_proper": 0,
+              "moves_mean": 33.262549019607846,
+              "moves_max": 283,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 3069.470588235294,
+                "median_flops_per_instance": 2193.0,
+                "mean_flops_with_compare_per_instance": 5322.996078431373,
+                "median_flops_with_compare_per_instance": 3698.0,
+                "total_flops_all_instances": 782715,
+                "total_flops_with_compare_all_instances": 1357364,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 60753.82352941176,
+                "median_flops_per_instance": 60585.0,
+                "mean_flops_with_compare_per_instance": 105281.6431372549,
+                "median_flops_with_compare_per_instance": 104970.0,
+                "total_flops_all_instances": 15492225,
+                "total_flops_with_compare_all_instances": 26846819,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 0.027377319987863302,
+              "worker_solve_seconds": 0.027542238938622177,
+              "seed": 1,
+              "records_npz": "artifacts/wsp/multi/graph_coloring/n8/wsp_assoc_uncanonicalized-s1.npz",
+              "records_sha256": "0ab00d3915a6a33ba3c7f4f097514c00ea472a345372acd3668c9d7e91ae8e76"
+            },
+            {
+              "graphs": 255,
+              "samples": 20,
+              "solutions_total": 912,
+              "conflicts_1": 0,
+              "conflicts_n20_min_energy": 0,
+              "conflicts_majority_20": 0,
+              "proper_1_pct": 100.0,
+              "proper_canonical_1_pct": 14.117647058823529,
+              "proper_any_20_pct": 100.0,
+              "all_outputs_canonical": false,
+              "coverage_20_pct": 47.478070175438596,
+              "coverage_canonicalized_20_pct": 90.89912280701753,
+              "wrong_stops_1": 0,
+              "wrong_stops_all": 0,
+              "halted_pct": 100.0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures_1": 0,
+              "budget_failures_all": 0,
+              "unstopped_but_proper": 0,
+              "moves_mean": 33.54549019607843,
+              "moves_max": 294,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 2930.0588235294117,
+                "median_flops_per_instance": 1968.0,
+                "mean_flops_with_compare_per_instance": 5064.552941176471,
+                "median_flops_with_compare_per_instance": 3281.0,
+                "total_flops_all_instances": 747165,
+                "total_flops_with_compare_all_instances": 1291461,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 61178.23529411765,
+                "median_flops_per_instance": 59610.0,
+                "mean_flops_with_compare_per_instance": 106068.18039215686,
+                "median_flops_with_compare_per_instance": 103160.0,
+                "total_flops_all_instances": 15600450,
+                "total_flops_with_compare_all_instances": 27047386,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 0.031455092946998775,
+              "worker_solve_seconds": 0.03158496995456517,
+              "seed": 2,
+              "records_npz": "artifacts/wsp/multi/graph_coloring/n8/wsp_assoc_uncanonicalized-s2.npz",
+              "records_sha256": "912c9022be0f88676d1e1988533d6e3b8fd060501462a6c95b7f07f8f13a7ac1"
+            }
+          ]
+        }
+      }
+    },
+    "10": {
+      "n": 10,
+      "test_graphs": 192,
+      "solutions_total": 1783,
+      "arms": {
+        "wsp_det": {
+          "label": "WSP-Det (rule-programmed deterministic Potts relaxation)",
+          "disclosure": {
+            "params_learned": 0,
+            "distinct_programmed_coefficients": 1,
+            "distinct_programmed_values": [
+              1.0
+            ],
+            "distinct_nonzero_all_w_tensors": 10,
+            "energy_entries": 9,
+            "energy_nonzero": 3,
+            "materialized_entries": 120,
+            "materialized_nonzero": 103,
+            "fit_seconds": null,
+            "fit_display": "none",
+            "prior_disclosure": "rule-programmed zero-training; deterministic Gauss-Seidel Potts relaxation + in-arch tensor color canonicalizer"
+          },
+          "n1_conflicts_per_seed": [
+            41,
+            41,
+            41
+          ],
+          "n20_conflicts_min_energy_per_seed": [
+            41,
+            41,
+            41
+          ],
+          "n20_conflicts_majority_per_seed": [
+            41,
+            41,
+            41
+          ],
+          "metrics": {
+            "coverage_20_pct": {
+              "mean": 8.581043185642176,
+              "sd": 0.0,
+              "per_seed": [
+                8.581043185642176,
+                8.581043185642176,
+                8.581043185642176
+              ]
+            },
+            "coverage_canonicalized_20_pct": {
+              "mean": 8.581043185642176,
+              "sd": 0.0,
+              "per_seed": [
+                8.581043185642176,
+                8.581043185642176,
+                8.581043185642176
+              ]
+            },
+            "proper_1_pct": {
+              "mean": 79.6875,
+              "sd": 0.0,
+              "per_seed": [
+                79.6875,
+                79.6875,
+                79.6875
+              ]
+            },
+            "worker_solve_seconds": {
+              "mean": 0.004117223317734897,
+              "sd": 0.00015475826533843624,
+              "per_seed": [
+                0.004269042983651161,
+                0.004122941987589002,
+                0.0039596849819645286
+              ]
+            }
+          },
+          "mean_fc2_flops_n1_per_graph": 7837.0,
+          "mean_fc2_flops_n20_per_graph": 7837.0,
+          "mean_fc2_flops_with_compare_n20_per_graph": 8204.0,
+          "pooled_wrong_stops": 0,
+          "pooled_budget_failures": 2340,
+          "per_seed": [
+            {
+              "graphs": 192,
+              "samples": 20,
+              "solutions_total": 1783,
+              "conflicts_1": 41,
+              "conflicts_n20_min_energy": 41,
+              "conflicts_majority_20": 41,
+              "proper_1_pct": 79.6875,
+              "proper_canonical_1_pct": 79.6875,
+              "proper_any_20_pct": 79.6875,
+              "all_outputs_canonical": true,
+              "coverage_20_pct": 8.581043185642176,
+              "coverage_canonicalized_20_pct": 8.581043185642176,
+              "wrong_stops_1": 0,
+              "wrong_stops_all": 0,
+              "halted_pct": 79.6875,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures_1": 39,
+              "budget_failures_all": 780,
+              "unstopped_but_proper": 0,
+              "moves_mean": 80.0,
+              "moves_max": 80,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 7837.0,
+                "median_flops_per_instance": 7837.0,
+                "mean_flops_with_compare_per_instance": 8204.0,
+                "median_flops_with_compare_per_instance": 8204.0,
+                "total_flops_all_instances": 1504704,
+                "total_flops_with_compare_all_instances": 1575168,
+                "deterministic_passes_mode": true
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 7837.0,
+                "median_flops_per_instance": 7837.0,
+                "mean_flops_with_compare_per_instance": 8204.0,
+                "median_flops_with_compare_per_instance": 8204.0,
+                "total_flops_all_instances": 1504704,
+                "total_flops_with_compare_all_instances": 1575168,
+                "deterministic_passes_mode": true
+              },
+              "gpu_kernel_seconds": 0.004189702915027738,
+              "worker_solve_seconds": 0.004269042983651161,
+              "seed": 0,
+              "records_npz": "artifacts/wsp/multi/graph_coloring/n10/wsp_det-s0.npz",
+              "records_sha256": "07e98ee428dc2ff0fdbbf5d5fd56f55e912a85e63ed470eefa35c756f1572b47"
+            },
+            {
+              "graphs": 192,
+              "samples": 20,
+              "solutions_total": 1783,
+              "conflicts_1": 41,
+              "conflicts_n20_min_energy": 41,
+              "conflicts_majority_20": 41,
+              "proper_1_pct": 79.6875,
+              "proper_canonical_1_pct": 79.6875,
+              "proper_any_20_pct": 79.6875,
+              "all_outputs_canonical": true,
+              "coverage_20_pct": 8.581043185642176,
+              "coverage_canonicalized_20_pct": 8.581043185642176,
+              "wrong_stops_1": 0,
+              "wrong_stops_all": 0,
+              "halted_pct": 79.6875,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures_1": 39,
+              "budget_failures_all": 780,
+              "unstopped_but_proper": 0,
+              "moves_mean": 80.0,
+              "moves_max": 80,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 7837.0,
+                "median_flops_per_instance": 7837.0,
+                "mean_flops_with_compare_per_instance": 8204.0,
+                "median_flops_with_compare_per_instance": 8204.0,
+                "total_flops_all_instances": 1504704,
+                "total_flops_with_compare_all_instances": 1575168,
+                "deterministic_passes_mode": true
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 7837.0,
+                "median_flops_per_instance": 7837.0,
+                "mean_flops_with_compare_per_instance": 8204.0,
+                "median_flops_with_compare_per_instance": 8204.0,
+                "total_flops_all_instances": 1504704,
+                "total_flops_with_compare_all_instances": 1575168,
+                "deterministic_passes_mode": true
+              },
+              "gpu_kernel_seconds": 0.004041858948767185,
+              "worker_solve_seconds": 0.004122941987589002,
+              "seed": 1,
+              "records_npz": "artifacts/wsp/multi/graph_coloring/n10/wsp_det-s1.npz",
+              "records_sha256": "07e98ee428dc2ff0fdbbf5d5fd56f55e912a85e63ed470eefa35c756f1572b47"
+            },
+            {
+              "graphs": 192,
+              "samples": 20,
+              "solutions_total": 1783,
+              "conflicts_1": 41,
+              "conflicts_n20_min_energy": 41,
+              "conflicts_majority_20": 41,
+              "proper_1_pct": 79.6875,
+              "proper_canonical_1_pct": 79.6875,
+              "proper_any_20_pct": 79.6875,
+              "all_outputs_canonical": true,
+              "coverage_20_pct": 8.581043185642176,
+              "coverage_canonicalized_20_pct": 8.581043185642176,
+              "wrong_stops_1": 0,
+              "wrong_stops_all": 0,
+              "halted_pct": 79.6875,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures_1": 39,
+              "budget_failures_all": 780,
+              "unstopped_but_proper": 0,
+              "moves_mean": 80.0,
+              "moves_max": 80,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 7837.0,
+                "median_flops_per_instance": 7837.0,
+                "mean_flops_with_compare_per_instance": 8204.0,
+                "median_flops_with_compare_per_instance": 8204.0,
+                "total_flops_all_instances": 1504704,
+                "total_flops_with_compare_all_instances": 1575168,
+                "deterministic_passes_mode": true
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 7837.0,
+                "median_flops_per_instance": 7837.0,
+                "mean_flops_with_compare_per_instance": 8204.0,
+                "median_flops_with_compare_per_instance": 8204.0,
+                "total_flops_all_instances": 1504704,
+                "total_flops_with_compare_all_instances": 1575168,
+                "deterministic_passes_mode": true
+              },
+              "gpu_kernel_seconds": 0.003880514996126294,
+              "worker_solve_seconds": 0.0039596849819645286,
+              "seed": 2,
+              "records_npz": "artifacts/wsp/multi/graph_coloring/n10/wsp_det-s2.npz",
+              "records_sha256": "07e98ee428dc2ff0fdbbf5d5fd56f55e912a85e63ed470eefa35c756f1572b47"
+            }
+          ]
+        },
+        "wsp_assoc": {
+          "label": "WSP-Assoc (rule-programmed 20-chain Gumbel-Potts + in-arch tensor canonicalizer)",
+          "disclosure": {
+            "params_learned": 0,
+            "distinct_programmed_coefficients": 1,
+            "distinct_programmed_values": [
+              1.0
+            ],
+            "distinct_nonzero_all_w_tensors": 10,
+            "energy_entries": 9,
+            "energy_nonzero": 3,
+            "materialized_entries": 10114,
+            "materialized_nonzero": 10097,
+            "fit_seconds": null,
+            "fit_display": "none",
+            "prior_disclosure": "rule-programmed zero-training; 3-Potts edge-equality cost + pure-tensor first-appearance color canonicalizer inside arch.forward (matched rule scope to Hand-set CRAM)"
+          },
+          "n1_conflicts_per_seed": [
+            0,
+            0,
+            0
+          ],
+          "n20_conflicts_min_energy_per_seed": [
+            0,
+            0,
+            0
+          ],
+          "n20_conflicts_majority_per_seed": [
+            0,
+            0,
+            0
+          ],
+          "metrics": {
+            "coverage_20_pct": {
+              "mean": 55.54309216676014,
+              "sd": 0.744759180670856,
+              "per_seed": [
+                54.683118339876614,
+                55.973079080201906,
+                55.973079080201906
+              ]
+            },
+            "coverage_canonicalized_20_pct": {
+              "mean": 55.54309216676014,
+              "sd": 0.744759180670856,
+              "per_seed": [
+                54.683118339876614,
+                55.973079080201906,
+                55.973079080201906
+              ]
+            },
+            "proper_1_pct": {
+              "mean": 100.0,
+              "sd": 0.0,
+              "per_seed": [
+                100.0,
+                100.0,
+                100.0
+              ]
+            },
+            "worker_solve_seconds": {
+              "mean": 0.030867899302393198,
+              "sd": 0.005639710940567252,
+              "per_seed": [
+                0.03360783797688782,
+                0.02438169193919748,
+                0.03461416799109429
+              ]
+            }
+          },
+          "mean_fc2_flops_n1_per_graph": 2915.359375,
+          "mean_fc2_flops_n20_per_graph": 58607.760416666664,
+          "mean_fc2_flops_with_compare_n20_per_graph": 98267.00868055556,
+          "pooled_wrong_stops": 0,
+          "pooled_budget_failures": 0,
+          "per_seed": [
+            {
+              "graphs": 192,
+              "samples": 20,
+              "solutions_total": 1783,
+              "conflicts_1": 0,
+              "conflicts_n20_min_energy": 0,
+              "conflicts_majority_20": 0,
+              "proper_1_pct": 100.0,
+              "proper_canonical_1_pct": 100.0,
+              "proper_any_20_pct": 100.0,
+              "all_outputs_canonical": true,
+              "coverage_20_pct": 54.683118339876614,
+              "coverage_canonicalized_20_pct": 54.683118339876614,
+              "wrong_stops_1": 0,
+              "wrong_stops_all": 0,
+              "halted_pct": 100.0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures_1": 0,
+              "budget_failures_all": 0,
+              "unstopped_but_proper": 0,
+              "moves_mean": 24.182552083333334,
+              "moves_max": 275,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 2867.328125,
+                "median_flops_per_instance": 2276.0,
+                "mean_flops_with_compare_per_instance": 4795.177083333333,
+                "median_flops_with_compare_per_instance": 3687.0,
+                "total_flops_all_instances": 550527,
+                "total_flops_with_compare_all_instances": 920674,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 58017.640625,
+                "median_flops_per_instance": 58091.5,
+                "mean_flops_with_compare_per_instance": 97161.078125,
+                "median_flops_with_compare_per_instance": 97299.0,
+                "total_flops_all_instances": 11139387,
+                "total_flops_with_compare_all_instances": 18654927,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 0.03347582800779492,
+              "worker_solve_seconds": 0.03360783797688782,
+              "seed": 0,
+              "records_npz": "artifacts/wsp/multi/graph_coloring/n10/wsp_assoc-s0.npz",
+              "records_sha256": "c5707412c23b66d46251797595093b8c1aac19ced0b2babfe799d306408f460d"
+            },
+            {
+              "graphs": 192,
+              "samples": 20,
+              "solutions_total": 1783,
+              "conflicts_1": 0,
+              "conflicts_n20_min_energy": 0,
+              "conflicts_majority_20": 0,
+              "proper_1_pct": 100.0,
+              "proper_canonical_1_pct": 100.0,
+              "proper_any_20_pct": 100.0,
+              "all_outputs_canonical": true,
+              "coverage_20_pct": 55.973079080201906,
+              "coverage_canonicalized_20_pct": 55.973079080201906,
+              "wrong_stops_1": 0,
+              "wrong_stops_all": 0,
+              "halted_pct": 100.0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures_1": 0,
+              "budget_failures_all": 0,
+              "unstopped_but_proper": 0,
+              "moves_mean": 24.515885416666666,
+              "moves_max": 224,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 2913.09375,
+                "median_flops_per_instance": 2363.0,
+                "mean_flops_with_compare_per_instance": 4880.947916666667,
+                "median_flops_with_compare_per_instance": 3850.0,
+                "total_flops_all_instances": 559314,
+                "total_flops_with_compare_all_instances": 937142,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 58597.640625,
+                "median_flops_per_instance": 57874.0,
+                "mean_flops_with_compare_per_instance": 98248.01041666667,
+                "median_flops_with_compare_per_instance": 96891.5,
+                "total_flops_all_instances": 11250747,
+                "total_flops_with_compare_all_instances": 18863618,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 0.024258635938167572,
+              "worker_solve_seconds": 0.02438169193919748,
+              "seed": 1,
+              "records_npz": "artifacts/wsp/multi/graph_coloring/n10/wsp_assoc-s1.npz",
+              "records_sha256": "f906639f0d10afb4d390e31b6afa846c6c9dac8ac23125f4686eae3a9a3c1d06"
+            },
+            {
+              "graphs": 192,
+              "samples": 20,
+              "solutions_total": 1783,
+              "conflicts_1": 0,
+              "conflicts_n20_min_energy": 0,
+              "conflicts_majority_20": 0,
+              "proper_1_pct": 100.0,
+              "proper_canonical_1_pct": 100.0,
+              "proper_any_20_pct": 100.0,
+              "all_outputs_canonical": true,
+              "coverage_20_pct": 55.973079080201906,
+              "coverage_canonicalized_20_pct": 55.973079080201906,
+              "wrong_stops_1": 0,
+              "wrong_stops_all": 0,
+              "halted_pct": 100.0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures_1": 0,
+              "budget_failures_all": 0,
+              "unstopped_but_proper": 0,
+              "moves_mean": 24.866666666666667,
+              "moves_max": 320,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 2965.65625,
+                "median_flops_per_instance": 2363.0,
+                "mean_flops_with_compare_per_instance": 4979.442708333333,
+                "median_flops_with_compare_per_instance": 3850.0,
+                "total_flops_all_instances": 569406,
+                "total_flops_with_compare_all_instances": 956053,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 59208.0,
+                "median_flops_per_instance": 57439.0,
+                "mean_flops_with_compare_per_instance": 99391.9375,
+                "median_flops_with_compare_per_instance": 96076.0,
+                "total_flops_all_instances": 11367936,
+                "total_flops_with_compare_all_instances": 19083252,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 0.03447695099748671,
+              "worker_solve_seconds": 0.03461416799109429,
+              "seed": 2,
+              "records_npz": "artifacts/wsp/multi/graph_coloring/n10/wsp_assoc-s2.npz",
+              "records_sha256": "6725b3a972007c0970fcfd22639a3371c7a1a0d230bc485a227792133b30f9d8"
+            }
+          ]
+        },
+        "wsp_assoc_uncanonicalized": {
+          "label": "WSP-Assoc-Uncanonicalized (ablation without color-order canonicalizer)",
+          "disclosure": {
+            "params_learned": 0,
+            "distinct_programmed_coefficients": 1,
+            "distinct_programmed_values": [
+              1.0
+            ],
+            "distinct_nonzero_all_w_tensors": 10,
+            "energy_entries": 9,
+            "energy_nonzero": 3,
+            "materialized_entries": 10114,
+            "materialized_nonzero": 10096,
+            "fit_seconds": null,
+            "fit_display": "none",
+            "prior_disclosure": "rule-programmed zero-training; S3-symmetric 3-Potts edge-equality cost WITHOUT color-order canonicalization"
+          },
+          "n1_conflicts_per_seed": [
+            0,
+            0,
+            0
+          ],
+          "n20_conflicts_min_energy_per_seed": [
+            0,
+            0,
+            0
+          ],
+          "n20_conflicts_majority_per_seed": [
+            0,
+            0,
+            0
+          ],
+          "metrics": {
+            "coverage_20_pct": {
+              "mean": 22.060198167881847,
+              "sd": 0.3426865354238814,
+              "per_seed": [
+                21.761076836791922,
+                21.985417835109367,
+                22.434099831744252
+              ]
+            },
+            "coverage_canonicalized_20_pct": {
+              "mean": 55.54309216676014,
+              "sd": 0.744759180670856,
+              "per_seed": [
+                54.683118339876614,
+                55.973079080201906,
+                55.973079080201906
+              ]
+            },
+            "proper_1_pct": {
+              "mean": 100.0,
+              "sd": 0.0,
+              "per_seed": [
+                100.0,
+                100.0,
+                100.0
+              ]
+            },
+            "worker_solve_seconds": {
+              "mean": 0.031217170297168195,
+              "sd": 0.005551584857356117,
+              "per_seed": [
+                0.03404945496004075,
+                0.024820694932714105,
+                0.03478136099874973
+              ]
+            }
+          },
+          "mean_fc2_flops_n1_per_graph": 2915.359375,
+          "mean_fc2_flops_n20_per_graph": 58607.760416666664,
+          "mean_fc2_flops_with_compare_n20_per_graph": 98267.00868055556,
+          "pooled_wrong_stops": 0,
+          "pooled_budget_failures": 0,
+          "per_seed": [
+            {
+              "graphs": 192,
+              "samples": 20,
+              "solutions_total": 1783,
+              "conflicts_1": 0,
+              "conflicts_n20_min_energy": 0,
+              "conflicts_majority_20": 0,
+              "proper_1_pct": 100.0,
+              "proper_canonical_1_pct": 15.104166666666666,
+              "proper_any_20_pct": 100.0,
+              "all_outputs_canonical": false,
+              "coverage_20_pct": 21.761076836791922,
+              "coverage_canonicalized_20_pct": 54.683118339876614,
+              "wrong_stops_1": 0,
+              "wrong_stops_all": 0,
+              "halted_pct": 100.0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures_1": 0,
+              "budget_failures_all": 0,
+              "unstopped_but_proper": 0,
+              "moves_mean": 24.182552083333334,
+              "moves_max": 275,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 2867.328125,
+                "median_flops_per_instance": 2276.0,
+                "mean_flops_with_compare_per_instance": 4795.177083333333,
+                "median_flops_with_compare_per_instance": 3687.0,
+                "total_flops_all_instances": 550527,
+                "total_flops_with_compare_all_instances": 920674,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 58017.640625,
+                "median_flops_per_instance": 58091.5,
+                "mean_flops_with_compare_per_instance": 97161.078125,
+                "median_flops_with_compare_per_instance": 97299.0,
+                "total_flops_all_instances": 11139387,
+                "total_flops_with_compare_all_instances": 18654927,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 0.03390342392958701,
+              "worker_solve_seconds": 0.03404945496004075,
+              "seed": 0,
+              "records_npz": "artifacts/wsp/multi/graph_coloring/n10/wsp_assoc_uncanonicalized-s0.npz",
+              "records_sha256": "38fb7f030fff8fe71a98347839e2ee4afb3a8daa168e8fee13c4774d45267676"
+            },
+            {
+              "graphs": 192,
+              "samples": 20,
+              "solutions_total": 1783,
+              "conflicts_1": 0,
+              "conflicts_n20_min_energy": 0,
+              "conflicts_majority_20": 0,
+              "proper_1_pct": 100.0,
+              "proper_canonical_1_pct": 19.791666666666664,
+              "proper_any_20_pct": 100.0,
+              "all_outputs_canonical": false,
+              "coverage_20_pct": 21.985417835109367,
+              "coverage_canonicalized_20_pct": 55.973079080201906,
+              "wrong_stops_1": 0,
+              "wrong_stops_all": 0,
+              "halted_pct": 100.0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures_1": 0,
+              "budget_failures_all": 0,
+              "unstopped_but_proper": 0,
+              "moves_mean": 24.515885416666666,
+              "moves_max": 224,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 2913.09375,
+                "median_flops_per_instance": 2363.0,
+                "mean_flops_with_compare_per_instance": 4880.947916666667,
+                "median_flops_with_compare_per_instance": 3850.0,
+                "total_flops_all_instances": 559314,
+                "total_flops_with_compare_all_instances": 937142,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 58597.640625,
+                "median_flops_per_instance": 57874.0,
+                "mean_flops_with_compare_per_instance": 98248.01041666667,
+                "median_flops_with_compare_per_instance": 96891.5,
+                "total_flops_all_instances": 11250747,
+                "total_flops_with_compare_all_instances": 18863618,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 0.02469905198086053,
+              "worker_solve_seconds": 0.024820694932714105,
+              "seed": 1,
+              "records_npz": "artifacts/wsp/multi/graph_coloring/n10/wsp_assoc_uncanonicalized-s1.npz",
+              "records_sha256": "1a222bfacab9c14782e3d387c7fb4b62bb585cb8d1cd2ae4355ee9b9c68eb903"
+            },
+            {
+              "graphs": 192,
+              "samples": 20,
+              "solutions_total": 1783,
+              "conflicts_1": 0,
+              "conflicts_n20_min_energy": 0,
+              "conflicts_majority_20": 0,
+              "proper_1_pct": 100.0,
+              "proper_canonical_1_pct": 18.229166666666664,
+              "proper_any_20_pct": 100.0,
+              "all_outputs_canonical": false,
+              "coverage_20_pct": 22.434099831744252,
+              "coverage_canonicalized_20_pct": 55.973079080201906,
+              "wrong_stops_1": 0,
+              "wrong_stops_all": 0,
+              "halted_pct": 100.0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures_1": 0,
+              "budget_failures_all": 0,
+              "unstopped_but_proper": 0,
+              "moves_mean": 24.866666666666667,
+              "moves_max": 320,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 2965.65625,
+                "median_flops_per_instance": 2363.0,
+                "mean_flops_with_compare_per_instance": 4979.442708333333,
+                "median_flops_with_compare_per_instance": 3850.0,
+                "total_flops_all_instances": 569406,
+                "total_flops_with_compare_all_instances": 956053,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 59208.0,
+                "median_flops_per_instance": 57439.0,
+                "mean_flops_with_compare_per_instance": 99391.9375,
+                "median_flops_with_compare_per_instance": 96076.0,
+                "total_flops_all_instances": 11367936,
+                "total_flops_with_compare_all_instances": 19083252,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 0.034640668076463044,
+              "worker_solve_seconds": 0.03478136099874973,
+              "seed": 2,
+              "records_npz": "artifacts/wsp/multi/graph_coloring/n10/wsp_assoc_uncanonicalized-s2.npz",
+              "records_sha256": "4bf4a89f4bd3265bc9e9fe0bd313ae00be3b2cb2d00c856d453c33cc86c65d1a"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

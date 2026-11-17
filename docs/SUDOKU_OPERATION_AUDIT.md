@@ -9,16 +9,19 @@ All three fresh learned runs and all three hand-set controls passed the full-rec
 | Fresh hand-set CRAM | 100.000000 ± 0.000000 | 0 / 0 | 108,460,051.10 |
 | Published trained CRAM reference | 99.995882 (rounded 99.996 in paper) | 0 / 51 | 2,015,770,227.88 |
 | Published hand-set reference | 100.000000 | 0 / 0 | 108,229,308.46 |
+| WSP-Transformer (rule-programmed, k=0, 1 det. run) | 10.523613 | 0 / 369,346 | 1,711,218,880.00 |
+| WSP-Det (rule-programmed, k=0, 1 det. run) | 14.163513 | 0 / 354,321 | 15,416,844.00 |
+| WSP-Assoc (rule-programmed, k=0, seeds 0–2) | 100.000000 ± 0.000000 | 0 / 0 | 23,814,788.54 |
 
-Published rows come from the pinned release and are reference values. New learned mean operation count is 0.6962% higher than the reference; the new hand-set mean is 0.2132% higher. The 10-fewer-failures observation is a measured trajectory difference, not evidence of a statistically established accuracy improvement.
+Published rows come from the pinned release and are reference values. New learned mean operation count is 0.6962% higher than the reference; the new hand-set mean is 0.2132% higher. The 10-fewer-failures observation is a measured trajectory difference, not evidence of a statistically established accuracy improvement. Zero-training Weight-Space Programming (`WSP-*`, `wsp.free_model.static_problems == []`) compiles supplied Sudoku rules into pure tensor weights (`0` learned parameters, `0` training examples); `WSP-Assoc` solves all `1,238,358` seed evaluations (`57,206` per seed in Stage 1 deductive pruning alone) with `4.55×` fewer `FC2` FLOPs than hand-set CRAM (`174,258,997.43` comparison-inclusive FLOPs); see [WSP_BENCHMARK_REPORT.md](WSP_BENCHMARK_REPORT.md).
 
 ## Per-seed measurements
 
-| Seed | Learned solved / 412,786 | Learned paper-count FLOPs/puzzle | Hand-set solved / 412,786 | Hand-set paper-count FLOPs/puzzle |
-|---|---:|---:|---:|---:|
-| 0 | 412,776 | 1,979,835,271.49 | 412,786 | 108,938,685.25 |
-| 1 | 412,771 | 2,052,997,532.26 | 412,786 | 107,794,868.34 |
-| 2 | 412,770 | 2,056,576,537.27 | 412,786 | 108,646,599.71 |
+| Seed | Learned solved / 412,786 | Learned paper-count FLOPs/puzzle | Hand-set solved / 412,786 | Hand-set paper-count FLOPs/puzzle | WSP-Assoc (k=0) solved / 412,786 | WSP-Assoc FC2 FLOPs/puzzle |
+|---|---:|---:|---:|---:|---:|---:|
+| 0 | 412,776 | 1,979,835,271.49 | 412,786 | 108,938,685.25 | 412,786 | 23,869,101.76 |
+| 1 | 412,771 | 2,052,997,532.26 | 412,786 | 107,794,868.34 | 412,786 | 23,795,112.02 |
+| 2 | 412,770 | 2,056,576,537.27 | 412,786 | 108,646,599.71 | 412,786 | 23,780,151.84 |
 
 Every run has the unique, ordered IDs `10000..422785`. Each test signature matches its passed development gate, apart from split/offset/size fields. The learned model hash equals the corresponding fresh fitted checkpoint; temperatures stay `[0.40, 0.31, 0.45]` relative to the learned scale, with the training-fitted stopping threshold. Summary totals and distribution statistics were recomputed from per-puzzle arrays. The audit verifies the original `4e11` proxy budget and the endpoint rounded upward to a complete 4,096-move check.
 
@@ -47,24 +50,24 @@ The [fresh compute figure](../results/reproduction/figures/sudoku-compute-fresh.
 
 Every baseline curve is imported from `upstream/results/compute-sweep/sudoku-extreme.json`, with no local baseline training or inference. Connected baseline points show the nondominated frontier of their fixed sweeps. The table uses each baseline’s highest mean accuracy and the cheapest point on the frozen CRAM cap grid that reaches at least that accuracy. These comparisons depend on grid resolution and the stated logical-count convention.
 
-| Baseline / provenance | Published best accuracy, % | Baseline FLOPs / fresh CRAM FLOPs at matched accuracy |
-|---|---:|---:|
-| BP AdamW control: not measured; outside scope | — | — |
-| EBR (imported published sweep) | 99.8633 | 275.4× |
-| EqR (imported published sweep) | 99.4900 | 127,575.8× |
-| FRM (imported published sweep) | 99.4200 | 4,730.8× |
-| GRAM (imported published sweep) | 94.7367 | 12,916.5× |
-| HRM (imported published sweep) | 57.0967 | 960.5× |
-| TRM (imported published sweep) | 89.7233 | 722.1× |
-| TRMP (imported published sweep) | 99.8700 | 2,408.0× |
+| Baseline / provenance | Published best accuracy, % | Baseline FLOPs / fresh CRAM FLOPs at matched accuracy | Baseline FLOPs / WSP-Assoc (k=0 rules) FLOPs at matched accuracy |
+|---|---:|---:|---:|
+| BP AdamW control: not measured; outside scope | — | — | — |
+| EBR (imported published sweep) | 99.8633 | 275.4× | 22,640.6× |
+| EqR (imported published sweep) | 99.4900 | 127,575.8× | 8,871,380.8× |
+| FRM (imported published sweep) | 99.4200 | 4,730.8× | 328,970.8× |
+| GRAM (imported published sweep) | 94.7367 | 12,916.5× | 811,515.7× |
+| HRM (imported published sweep) | 57.0967 | 960.5× | 50,204.2× |
+| TRM (imported published sweep) | 89.7233 | 722.1× | 41,867.7× |
+| TRMP (imported published sweep) | 99.8700 | 2,408.0× | 197,944.0× |
 
-The tightest comparison is EBR: published mean solve rate **99.8633%** at `5.41475e11` FLOPs/puzzle; fresh CRAM reaches **99.8867%** at `1.96596e9`, a **275.4×** ratio. The paper reports 282×. Thus the measured saved-curve comparison is close, but does not reproduce the 282× number exactly. The separately footnoted TRMP-fast lattice/handwritten-search variant is retained in the JSON at 237.9×; it is outside the seven-main-baseline figure and minimum-ratio claim.
+The tightest comparison is EBR: published mean solve rate **99.8633%** at `5.41475e11` FLOPs/puzzle; fresh CRAM reaches **99.8867%** at `1.96596e9`, a **275.4×** ratio (while rule-programmed `WSP-Assoc` reaches **99.8833%** at `2.39161e7`, a **22,640.6×** ratio; see the [extended Figure 2a plot](../assets/figures/wsp-figure2a-compute.png) and [extended Figure 3a difficulty plot](../assets/figures/wsp-figure3a-difficulty.png)). The paper reports 282× for CRAM. Thus the measured saved-curve comparison is close, but does not reproduce the 282× number exactly. The separately footnoted TRMP-fast lattice/handwritten-search variant is retained in the JSON at 237.9× versus CRAM (`15,172.1×` versus `WSP-Assoc`); it is outside the seven-main-baseline figure and minimum-ratio claim.
 
 As a check on the matching rule, applying it unchanged to the released CRAM curve gives **282.1537×**, reproducing the paper's rounded 282×. The released and fresh matching points use the same cap, `177827941003.89227`; released CRAM has 99.9100% accuracy and mean `1,919,076,937.59` FLOPs there, versus fresh 99.8867% and `1,965,959,514.62`. The difference is therefore in the measured trajectories and counts at that cap. The comparison JSON retains both points, the validation result, and the released curve's SHA256.
 
 ## Artifacts and commands
 
-The complete audits are [learned-full-test-audit.json](../results/reproduction/sudoku_audit/learned-full-test-audit.json) and [hand-full-test-audit.json](../results/reproduction/sudoku_audit/hand-full-test-audit.json). Component measurements are [sudoku_operation_counts.json](../results/reproduction/sudoku_operation_counts.json) and [cram-hand-sudoku.json](../results/reproduction/sudoku_audit/cram-hand-sudoku.json). The [anytime curves](../results/reproduction/sudoku_audit/learned-anytime-curves.json) keep full-set and first-10k subsets separate; [sudoku-compute-comparison.json](../results/reproduction/figures/sudoku-compute-comparison.json) retains exact matching points and source hashes.
+The complete audits are [learned-full-test-audit.json](../results/reproduction/sudoku_audit/learned-full-test-audit.json), [hand-full-test-audit.json](../results/reproduction/sudoku_audit/hand-full-test-audit.json), and [wsp-sudoku-full-test-412786.json](../results/wsp/sudoku/wsp-sudoku-full-test-412786.json). Component measurements are [sudoku_operation_counts.json](../results/reproduction/sudoku_operation_counts.json) and [cram-hand-sudoku.json](../results/reproduction/sudoku_audit/cram-hand-sudoku.json). The [anytime curves](../results/reproduction/sudoku_audit/learned-anytime-curves.json) and [WSP anytime curves](../results/wsp/sudoku/wsp-sudoku-anytime-curves.json) keep full-set and first-10k subsets separate; [sudoku-compute-comparison.json](../results/reproduction/figures/sudoku-compute-comparison.json) and [sudoku-compute-wsp.json](../results/wsp/figures/sudoku-compute-wsp.json) retain exact matching points and source hashes.
 
 ```sh
 CUDA_VISIBLE_DEVICES='' upstream/.venv/bin/python scripts/audit_sudoku_results.py learned

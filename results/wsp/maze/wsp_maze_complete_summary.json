@@ -1,0 +1,402 @@
+{
+  "status": "complete",
+  "total_wall_seconds": 976.4547358099371,
+  "provenance": {
+    "utc": "2026-11-17T06:12:15.227707+00:00",
+    "host": "foureyes",
+    "python": "3.13.13 (main, May 10 2026, 19:26:54) [Clang 22.1.3 ]",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "triton": "3.6.0",
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": false,
+    "wsp_upstream_repo": "https://github.com/effl-lab/Weight-Space-Programming",
+    "wsp_upstream_commit": "02c31abd3b34d84854cc80d9717717c45365c719",
+    "wsp_upstream_license": "MIT",
+    "source_sha256": {
+      "src/hopfield_cram/wsp_maze.py": "9a16e43d8010f6bbddf23803a9042423f8f9047f4968ff3eb9a6d92c77ee4c88",
+      "scripts/run_wsp_maze.py": "a771914ffd8f842ef7bceb03bf88bf2c3da8ef8d128c78ccd27ffcf4847d5ba7",
+      "upstream/baselines/flops/fullcount.py": "77709eacc6744e79663b034212d16d0aafeb8d799e0de45162622bd6997007ea"
+    },
+    "gpu_environment": {
+      "CUDA_VISIBLE_DEVICES": "2",
+      "cuda_available": true,
+      "device_count": 1,
+      "device_name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+      "TMPDIR": "/home/catid/.cache/hopfield_tmp",
+      "TRITON_CACHE_DIR": "/home/catid/.cache/hopfield_tmp/triton_maze",
+      "TORCHINDUCTOR_CACHE_DIR": "/home/catid/.cache/hopfield_tmp/inductor_maze",
+      "nvidia_smi_all_gpus": [
+        "0, GPU-4c394fc5-b18f-6622-ca94-f7fbd7112927, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 8231 MiB, 97887 MiB, 100 %",
+        "1, GPU-f10c2baf-536b-1d40-cd4b-25b202ae0ded, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 28780 MiB, 97887 MiB, 84 %",
+        "2, GPU-04cde663-7c53-2f18-3ec4-1699820e2640, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 26684 MiB, 97887 MiB, 0 %",
+        "3, GPU-972bf85d-1b32-2d1b-20f6-babc4c804999, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 27330 MiB, 97887 MiB, 91 %"
+      ]
+    }
+  },
+  "static_ast_verification": {
+    "WSP-DeadEnd": {
+      "static_problems": [],
+      "passed": true,
+      "arch_sha256": "6193ada55455b9062024f9af51e2d67aabb8a62498c5e2560088bbb1df177dce"
+    },
+    "WSP-Wavefront": {
+      "static_problems": [],
+      "passed": true,
+      "arch_sha256": "5d44478bf3b0045469707aad2bf0b206adb65aee9fcd4c49f01e2c275afa4e83"
+    },
+    "WSP-Potential": {
+      "static_problems": [],
+      "passed": true,
+      "arch_sha256": "3fbc5d0dcd5c44bf1a82efd64a96767ad54e003bf742391627323f608ceac7bb"
+    }
+  },
+  "files": {
+    "results/wsp/maze/maze_unique_summary.json": "2974b64fee7b8aa9e8d2c35ae46d91f931a44656340aed9d69b5b5f52544094a",
+    "results/wsp/maze/maze_hard_summary.json": "c156ce1ee66f5560a4f04189224ac015023f6d3c58752a9f78b3151dfbe3405f",
+    "results/wsp/maze/maze_180x180_cohorts_summary.json": "f7cb7a52eee7baae8675a782a9c3503d5a681da78bbf360cf5cc6fe26b0298cc"
+  },
+  "headline": {
+    "Maze-Unique": {
+      "WSP-DeadEnd": {
+        "solved_pct_mean": 100.0,
+        "solved_pct_sd": 0.0,
+        "solved_per_seed": [
+          1000,
+          1000,
+          1000
+        ],
+        "halted_pct_mean": 100.0,
+        "wrong_halts_pct_of_halted": 0.0,
+        "pooled_3seed_counts": {
+          "evaluations": 3000,
+          "halted": 3000,
+          "wrong_halts": 0,
+          "solved": 3000
+        },
+        "fc2_mean_total": 1804550.3999999997,
+        "fc2_mean_total_sd": 2.8515813671787943e-10,
+        "fc2_mean_total_with_compare": 2022599.89,
+        "fc2_mean_total_with_compare_sd": 0.0,
+        "fit_time": "none",
+        "weight_build_gpu_warm_median_s": 0.0009377370588481426,
+        "weight_build_cpu_1thread_warm_median_s": 3.4150434657931328e-06,
+        "inference_gpu_warm_median_s": 0.01664809905923903,
+        "inference_cpu_1thread_warm_median_s": 3.6514974490273744
+      },
+      "WSP-Wavefront": {
+        "solved_pct_mean": 100.0,
+        "solved_pct_sd": 0.0,
+        "solved_per_seed": [
+          1000,
+          1000,
+          1000
+        ],
+        "halted_pct_mean": 100.0,
+        "wrong_halts_pct_of_halted": 0.0,
+        "pooled_3seed_counts": {
+          "evaluations": 3000,
+          "halted": 3000,
+          "wrong_halts": 0,
+          "solved": 3000
+        },
+        "fc2_mean_total": 18093737.8,
+        "fc2_mean_total_sd": 0.0,
+        "fc2_mean_total_with_compare": 19201252.522,
+        "fc2_mean_total_with_compare_sd": 0.0,
+        "fit_time": "none",
+        "weight_build_gpu_warm_median_s": 7.0957001298666e-05,
+        "weight_build_cpu_1thread_warm_median_s": 1.823797356337309e-05,
+        "inference_gpu_warm_median_s": 0.03969735198188573,
+        "inference_cpu_1thread_warm_median_s": 7.257866628002375
+      },
+      "WSP-Potential": {
+        "solved_pct_mean": 100.0,
+        "solved_pct_sd": 0.0,
+        "solved_per_seed": [
+          1000,
+          1000,
+          1000
+        ],
+        "halted_pct_mean": 100.0,
+        "wrong_halts_pct_of_halted": 0.0,
+        "pooled_3seed_counts": {
+          "evaluations": 3000,
+          "halted": 3000,
+          "wrong_halts": 0,
+          "solved": 3000
+        },
+        "fc2_mean_total": 164266824.703,
+        "fc2_mean_total_sd": 0.0,
+        "fc2_mean_total_with_compare": 169522943.32,
+        "fc2_mean_total_with_compare_sd": 0.0,
+        "fit_time": "none",
+        "weight_build_gpu_warm_median_s": 0.0001065210672095418,
+        "weight_build_cpu_1thread_warm_median_s": 2.6430003345012665e-05,
+        "inference_gpu_warm_median_s": 0.8211581580108032,
+        "inference_cpu_1thread_warm_median_s": 90.48327275901102
+      }
+    },
+    "Maze-Hard": {
+      "WSP-DeadEnd": {
+        "solved_pct_mean": 0.0,
+        "solved_pct_sd": 0.0,
+        "solved_per_seed": [
+          0,
+          0,
+          0
+        ],
+        "halted_pct_mean": 100.0,
+        "wrong_halts_pct_of_halted": 100.0,
+        "pooled_3seed_counts": {
+          "evaluations": 3000,
+          "halted": 3000,
+          "wrong_halts": 3000,
+          "solved": 0
+        },
+        "fc2_mean_total": 184291.20000000004,
+        "fc2_mean_total_sd": 3.564476708973493e-11,
+        "fc2_mean_total_with_compare": 210408.67,
+        "fc2_mean_total_with_compare_sd": 0.0,
+        "fit_time": "none",
+        "weight_build_gpu_warm_median_s": 2.2804015316069126e-05,
+        "weight_build_cpu_1thread_warm_median_s": 3.1939707696437836e-06,
+        "inference_gpu_warm_median_s": 0.005915860994718969,
+        "inference_cpu_1thread_warm_median_s": 0.7989114690572023
+      },
+      "WSP-Wavefront": {
+        "solved_pct_mean": 100.0,
+        "solved_pct_sd": 0.0,
+        "solved_per_seed": [
+          1000,
+          1000,
+          1000
+        ],
+        "halted_pct_mean": 100.0,
+        "wrong_halts_pct_of_halted": 0.0,
+        "pooled_3seed_counts": {
+          "evaluations": 3000,
+          "halted": 3000,
+          "wrong_halts": 0,
+          "solved": 3000
+        },
+        "fc2_mean_total": 17110750.6,
+        "fc2_mean_total_sd": 0.0,
+        "fc2_mean_total_with_compare": 18157412.014,
+        "fc2_mean_total_with_compare_sd": 0.0,
+        "fit_time": "none",
+        "weight_build_gpu_warm_median_s": 0.016256689094007015,
+        "weight_build_cpu_1thread_warm_median_s": 1.801806502044201e-05,
+        "inference_gpu_warm_median_s": 0.045551825081929564,
+        "inference_cpu_1thread_warm_median_s": 6.852724324911833
+      },
+      "WSP-Potential": {
+        "solved_pct_mean": 100.0,
+        "solved_pct_sd": 0.0,
+        "solved_per_seed": [
+          1000,
+          1000,
+          1000
+        ],
+        "halted_pct_mean": 100.0,
+        "wrong_halts_pct_of_halted": 0.0,
+        "pooled_3seed_counts": {
+          "evaluations": 3000,
+          "halted": 3000,
+          "wrong_halts": 0,
+          "solved": 3000
+        },
+        "fc2_mean_total": 50624506.09599999,
+        "fc2_mean_total_sd": 9.125060374972142e-09,
+        "fc2_mean_total_with_compare": 52658723.88,
+        "fc2_mean_total_with_compare_sd": 0.0,
+        "fit_time": "none",
+        "weight_build_gpu_warm_median_s": 0.00012409803457558155,
+        "weight_build_cpu_1thread_warm_median_s": 2.5479006581008434e-05,
+        "inference_gpu_warm_median_s": 0.37837919092271477,
+        "inference_cpu_1thread_warm_median_s": 34.59459141397383
+      }
+    },
+    "Maze-Hard_maze_106": {
+      "WSP-DeadEnd": {
+        "halted": true,
+        "finite": true,
+        "total_steps": 8,
+        "stage_steps": {
+          "prune_steps": 8
+        },
+        "predicted_cells": 475,
+        "exact_solved": false,
+        "valid_simple_path": false,
+        "shortest_path": false,
+        "wrong_halt": true,
+        "extra_cells_count": 358,
+        "extra_cells_coords_head": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            11
+          ],
+          [
+            0,
+            12
+          ],
+          [
+            0,
+            15
+          ],
+          [
+            0,
+            16
+          ],
+          [
+            0,
+            17
+          ],
+          [
+            0,
+            18
+          ],
+          [
+            0,
+            21
+          ],
+          [
+            0,
+            22
+          ],
+          [
+            0,
+            23
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            6
+          ]
+        ],
+        "missing_cells_count": 0,
+        "missing_cells_coords_head": []
+      },
+      "WSP-Wavefront": {
+        "halted": true,
+        "finite": true,
+        "total_steps": 256,
+        "stage_steps": {
+          "wave_steps": 128,
+          "trace_steps": 128
+        },
+        "predicted_cells": 117,
+        "exact_solved": true,
+        "valid_simple_path": true,
+        "shortest_path": true,
+        "wrong_halt": false,
+        "extra_cells_count": 0,
+        "extra_cells_coords_head": [],
+        "missing_cells_count": 0,
+        "missing_cells_coords_head": []
+      },
+      "WSP-Potential": {
+        "halted": true,
+        "finite": true,
+        "total_steps": 496,
+        "stage_steps": {
+          "hidden_steps": 128,
+          "descend_steps": 368
+        },
+        "predicted_cells": 117,
+        "exact_solved": true,
+        "valid_simple_path": true,
+        "shortest_path": true,
+        "wrong_halt": false,
+        "extra_cells_count": 0,
+        "extra_cells_coords_head": [],
+        "missing_cells_count": 0,
+        "missing_cells_coords_head": [],
+        "hopfield_energy64_predicted": 228.69078213509505,
+        "hopfield_min_flip_margin64_predicted": 1.6206000400132856,
+        "hopfield_energy64_true_label": 228.69078213509505,
+        "hopfield_min_flip_margin64_true_label": 1.6206000400132856
+      }
+    },
+    "Maze-180x180": {
+      "H2bo": {
+        "joint_solved": 4096,
+        "canonical_exact": 4096,
+        "wrong_halts": 0,
+        "fc2_mean_total": 1874826001.0,
+        "fc2_mean_total_with_compare": 1988291083.0,
+        "matched_3seed_B32_median_s": 13.35392922750907,
+        "unique_1seed_B256_median_s": 3.6796493836445734,
+        "speedup_vs_LP96": 14.71841528634342,
+        "saving_vs_LP96": 0.932050278947886,
+        "speedup_vs_cascade": 9.441286578328103,
+        "saving_vs_cascade": 0.8940623949401578
+      },
+      "H2bp": {
+        "joint_solved": 4096,
+        "canonical_exact": 4096,
+        "wrong_halts": 0,
+        "fc2_mean_total": 659828152.5625,
+        "fc2_mean_total_with_compare": 700162814.519043,
+        "matched_3seed_B32_median_s": 8.507049534935504,
+        "unique_1seed_B256_median_s": 1.82698944513686,
+        "speedup_vs_LP96": 8.922546773782962,
+        "saving_vs_LP96": 0.8879225515226082,
+        "speedup_vs_cascade": 10.308858202496705,
+        "saving_vs_cascade": 0.9029954975132002
+      },
+      "H2bq": {
+        "joint_solved": 4096,
+        "canonical_exact": 4096,
+        "wrong_halts": 0,
+        "fc2_mean_total": 1414165965.0625,
+        "fc2_mean_total_with_compare": 1499855913.0419922,
+        "matched_3seed_B32_median_s": 9.814564807747956,
+        "unique_1seed_B256_median_s": 2.857765661610756,
+        "speedup_vs_LP96": 12.204227079502648,
+        "saving_vs_LP96": 0.9176005513153137,
+        "speedup_vs_cascade": 9.935841919220017,
+        "saving_vs_cascade": 0.8988216496864382
+      }
+    }
+  }
+}

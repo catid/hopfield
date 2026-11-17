@@ -8,9 +8,15 @@ The experiment source is commit `62bbe830c7d6f87f2ba18f30a28039258b986454`. The 
 |---|---:|---|---:|---:|
 | Maze-Unique, trained CRAM | 100.00 ± 0.00 | 1,000; 1,000; 1,000 | 836,870.85 | 836,870.85 |
 | Maze-Unique, hand-set | 100.00 ± 0.00 | 1,000; 1,000; 1,000 | 837,048.85 | 837,048.85 |
+| Maze-Unique, WSP-DeadEnd (rule-programmed, k=0) | — | 1,000; 1,000; 1,000 | — | 1,804,550.40 |
+| Maze-Unique, WSP-Wavefront (rule-programmed, k=0) | — | 1,000; 1,000; 1,000 | — | 18,093,737.80 |
+| Maze-Unique, WSP-Potential (rule-programmed, k=0) | — | 1,000; 1,000; 1,000 | — | 164,266,824.70 |
 | Maze-Hard, CRAM + latent | 99.90 ± 0.00 | 999; 999; 999 | 14,058,028.20 | 14,058,028.20 |
+| Maze-Hard, WSP-DeadEnd (rule-programmed, k=0) | — | 0; 0; 0 | — | 184,291.20 |
+| Maze-Hard, WSP-Wavefront (rule-programmed, k=0) | — | 1,000; 1,000; 1,000 | — | 17,110,750.60 |
+| Maze-Hard, WSP-Potential (rule-programmed, k=0) | — | 1,000; 1,000; 1,000 | — | 50,624,506.10 |
 
-The paper rounds these operation counts to `8.37e5`, `8.37e5`, and `1.41e7`. Three runs of a shared 1,000-maze test set are three seed evaluations, not 3,000 independent mazes. Maze-Unique and the hand-set control have zero wrong stops and zero budget failures. Maze-Hard has one wrong stop and zero budget failures in each seed.
+The paper rounds the CRAM operation counts to `8.37e5`, `8.37e5`, and `1.41e7`. Three runs of a shared 1,000-maze test set are three seed evaluations, not 3,000 independent mazes. Maze-Unique and the hand-set control have zero wrong stops and zero budget failures. Maze-Hard CRAM+z has one wrong stop and zero budget failures in each seed. Under zero-training Weight-Space Programming (`WSP-*`, `k=0` training examples, `0` learned parameters, [wsp_maze_complete_summary.json](../results/wsp/maze/wsp_maze_complete_summary.json)), purely local `WSP-DeadEnd` solves `1,000/1,000` on tree-structured Maze-Unique (`1,804,550.4` `FC2` FLOPs; `2,022,599.9` w/ compare) but halts on the cyclic 2-core across all `1,000` Maze-Hard test mazes (`0/1,000` solved, `100%` wrong halts), whereas both geodesic `WSP-Wavefront` and resistive-flow `WSP-Potential` solve **`1,000/1,000` on both Maze-Unique and Maze-Hard with zero wrong stops**—including test index **106** (`117/117` shortest-path cells); see [WSP_BENCHMARK_REPORT.md](WSP_BENCHMARK_REPORT.md).
 
 ## Frozen protocols and validation
 

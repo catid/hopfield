@@ -16,8 +16,11 @@ Wrong halts uses halted boards as its denominator. Counts pool the three seeds, 
 | EBR (gradient-norm stop) (published) | 99.35 | 0.21 | 99.31 |
 | CRAM (energy threshold) (published) | 99.996 | 0.00 | 99.996 |
 | CRAM (energy threshold) (fresh local) | 99.996689 | 0.000000 | 99.996689 |
+| WSP-Transformer (zero-violation certificate) (rule-programmed, k=0) | 10.523613 | 0.000000 | 10.523613 |
+| WSP-Det (zero-violation certificate) (rule-programmed, k=0) | 14.163513 | 0.000000 | 14.163513 |
+| WSP-Assoc (zero-violation certificate) (rule-programmed, k=0) | 100.000000 | 0.000000 | 100.000000 |
 
-Fresh counts: 1,238,317 halted, 0 incorrect halts, and 1,238,317 solved out of 1,238,358 seed evaluations.
+Fresh CRAM counts: 1,238,317 halted, 0 incorrect halts, and 1,238,317 solved out of 1,238,358 seed evaluations. Zero-training WSP counts (`k=0` training examples, supplied Sudoku rules): `WSP-Assoc` halts on and solves all `1,238,358 / 1,238,358` seed evaluations (`0` wrong halts); deterministic `WSP-Transformer` and `WSP-Det` certify `43,440 / 412,786` and `58,465 / 412,786` puzzles with `0` wrong halts.
 
 ## Maze-Unique
 
@@ -31,9 +34,12 @@ Fresh counts: 1,238,317 halted, 0 incorrect halts, and 1,238,317 solved out of 1
 | EBR (gradient-norm stop) (published) | no stopping rule | no stopping rule | no stopping rule |
 | CRAM (energy threshold) (published) | 100.00 | 0.00 | 100.00 |
 | CRAM (fixed-point stop) (fresh local) | 100.000000 | 0.000000 | 100.000000 |
+| WSP-DeadEnd (fixed-point stop) (rule-programmed, k=0) | 100.000000 | 0.000000 | 100.000000 |
+| WSP-Wavefront (fixed-point stop) (rule-programmed, k=0) | 100.000000 | 0.000000 | 100.000000 |
+| WSP-Potential (fixed-point stop) (rule-programmed, k=0) | 100.000000 | 0.000000 | 100.000000 |
 
-Fresh counts: 3,000 halted, 0 incorrect halts, and 3,000 solved out of 3,000 seed evaluations.
+Fresh counts: 3,000 halted, 0 incorrect halts, and 3,000 solved out of 3,000 seed evaluations (for both fresh CRAM and all three zero-training WSP maze programs).
 
-The released Maze-Unique solver stops at a fixed point; Table 4 labels its CRAM row generically as an energy threshold. This distinction is retained. The zero-wrong-stop observation does not extend to CRAM+z on Maze-Hard: each fresh seed stops incorrectly on maze 106, as documented in the [maze report](MAZE_REPRODUCTION.md).
+The released Maze-Unique solver stops at a fixed point; Table 4 labels its CRAM row generically as an energy threshold. This distinction is retained. The zero-wrong-stop observation does not extend to CRAM+z on Maze-Hard: each fresh seed stops incorrectly on maze 106, as documented in the [maze report](MAZE_REPRODUCTION.md). Under zero-training WSP on Maze-Hard (`1,000` cyclic mazes × `3` seeds), purely local `WSP-DeadEnd` halts at fixed points on all `3,000` evaluations with **`100.000000%` wrong halts** (the graph 2-core), whereas geodesic `WSP-Wavefront` and resistive `WSP-Potential` both halt on **`3,000 / 3,000` (`100.000000%`)** with **`0.000000%` wrong halts** and **`100.000000%` solved** (including maze `106`); see [WSP_BENCHMARK_REPORT.md](WSP_BENCHMARK_REPORT.md).
 
-Regenerate without scoring any test input: `python3 scripts/export_halting_comparison.py`. Counts and source hashes are in [halting-comparison.json](../results/reproduction/halting-comparison.json).
+Regenerate frozen CRAM rows without scoring any test input: `python3 scripts/export_halting_comparison.py`. Counts and source hashes are in [halting-comparison.json](../results/reproduction/halting-comparison.json) and [wsp-comparison-tables.json](../results/wsp/wsp-comparison-tables.json).

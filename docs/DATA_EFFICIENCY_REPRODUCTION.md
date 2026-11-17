@@ -22,6 +22,7 @@ advantage over newly trained baselines.
 | TRM | Published six-seed measurements only; no local training or evaluation |
 | EBR | Published six-seed measurements only; no local training or evaluation |
 | FRM | Published six-seed measurements only; no local training or evaluation |
+| Weight-Space Programming (`WSP-*`) | Local zero-training (`k=0`) rule-programmed reference across seeds 0–5 on the same 10,000 test puzzles (supplied Sudoku rules; `0` learned parameters) |
 
 All accuracies below are percentages on 10,000 held-out puzzles per seed.
 Complete local points are the median and minimum–maximum across seeds 0–5;
@@ -49,6 +50,10 @@ interpolated.
 | 1,000 | 100.000 | 99.99–100.00 | 100.000 | 85.855 | 99.795 | 98.585 |
 | 3,000 | 100.000 | 99.99–100.00 | 100.000 | 87.140 | 99.900 | 98.895 |
 | 10,000 | 100.000 | 100.00–100.00 | 100.000 | 87.600 | 99.895 | 98.910 |
+
+### Zero-training Weight-Space Programming (`k=0`, rule-programmed) reference
+
+Separately from the data-learned `k = 1..10,000` curves above (which receive no Sudoku geometry or constraint rules), Weight-Space Programming compiles explicit Sudoku peer/unit rules directly into pure tensor weights at **`k = 0` training examples** (`0` learned parameters, `wsp.free_model.static_problems == []`). Evaluated across seeds `0–5` on the identical `10,000` held-out puzzles (`full-all` rows `10000..19999`), deterministic `WSP-Transformer` solves **`11.690%`**, deterministic `WSP-Det` solves **`15.370%`**, and associative `WSP-Assoc` solves **`100.000%` (median and range `100.00–100.00%`, `0` wrong stops, `24.05M` mean `FC2` FLOPs)**. The unchanged frozen Figure 3b outputs remain untouched; the extended comparison is rendered separately in [wsp-figure3b-data-efficiency.png](../assets/figures/wsp-figure3b-data-efficiency.png) ([PDF](../assets/figures/wsp-figure3b-data-efficiency.pdf), [JSON](../results/wsp/figures/figure3b-wsp.json); see [WSP_BENCHMARK_REPORT.md](WSP_BENCHMARK_REPORT.md)).
 
 At k=1,000 all six fitted model files have identical SHA256
 `e5550d0cba005c7b21ff50a55cf1d1755816d23e4013edbf5461d2a487330aeb`,

@@ -31,6 +31,12 @@ For CRAM and EBR, N1 is the first chain and N20 chooses the chain with the lowes
 | 10 | Released checkpoint, locally evaluated | 99.384454 ± 0.054244 | 99.994585 ± 0.000000 | 93.552680 ± 0.056905 |
 | 10 | Fresh hand-set evaluation | 99.990974 ± 0.006253 | 100.000000 ± 0.000000 | 95.526056 ± 0.025042 |
 | 10 | Paper hand-set reference | 99.992780 ± 0.003127 | 100.000000 ± 0.000000 | 95.542050 ± 0.026639 |
+| 8 | WSP-Det (rule-programmed, k=0) | 60.000000 ± 0.000000 | 60.000000 ± 0.000000 | 41.370968 ± 0.000000 |
+| 8 | WSP-Assoc-Arbitrary (rule-programmed, k=0) | 99.838710 ± 0.080645 | 100.000000 ± 0.000000 | 98.319722 ± 0.034436 |
+| 8 | WSP-Assoc-Permutation (rule-programmed + rook swaps, k=0) | 100.000000 ± 0.000000 | 100.000000 ± 0.000000 | 98.379982 ± 0.043636 |
+| 10 | WSP-Det (rule-programmed, k=0) | 25.674212 ± 0.000000 | 25.674212 ± 0.000000 | 9.000112 ± 0.000000 |
+| 10 | WSP-Assoc-Arbitrary (rule-programmed, k=0) | 99.904329 ± 0.024419 | 100.000000 ± 0.000000 | 95.471823 ± 0.057426 |
+| 10 | WSP-Assoc-Permutation (rule-programmed + rook swaps, k=0) | 99.998195 ± 0.003127 | 100.000000 ± 0.000000 | 95.555249 ± 0.025382 |
 
 † For size-10 TRM and HRM accuracy, Table 3 substitutes the original authors’ 17.50% and 37.80% because the CRAM paper’s baseline reproductions scored lower (6.90% and 22.72%). Their displayed coverage still comes from the CRAM paper’s reproductions. These mixed-provenance reference cells are preserved and none is a local measurement here.
 
@@ -57,6 +63,12 @@ The fresh CRAM and hand-set values below exactly equal the paper export, includi
 | 10 | Fresh learned, free pair tables | 1 / 0 / 0 | 0 / 0 / 0 | 52.570574 ± 0.617787 |
 | 8 | Hand-set | 0 / 0 / 0 | 0 / 0 / 0 | 90.643275 ± 0.633060 |
 | 10 | Hand-set | 0 / 0 / 0 | 0 / 0 / 0 | 55.150495 ± 0.360578 |
+| 8 | WSP-Det (rule-programmed, k=0) | 34 / 34 / 34 | 34 / 34 / 34 | 24.232456 ± 0.000000 |
+| 8 | WSP-Assoc (rule-programmed + in-arch tensor canonicalizer, k=0) | 0 / 0 / 0 | 0 / 0 / 0 | 90.606725 ± 0.334984 |
+| 8 | WSP-Assoc-Uncanonicalized (rule-programmed ablation, k=0) | 0 / 0 / 0 | 0 / 0 / 0 | 48.793860 ± 1.264535 |
+| 10 | WSP-Det (rule-programmed, k=0) | 41 / 41 / 41 | 41 / 41 / 41 | 8.581043 ± 0.000000 |
+| 10 | WSP-Assoc (rule-programmed + in-arch tensor canonicalizer, k=0) | 0 / 0 / 0 | 0 / 0 / 0 | 55.543092 ± 0.744759 |
+| 10 | WSP-Assoc-Uncanonicalized (rule-programmed ablation, k=0) | 0 / 0 / 0 | 0 / 0 / 0 | 22.060198 ± 0.342687 |
 
 The test sets contain 255 graphs at size 8 and 192 at size 10. There are zero wrong stops in all learned and hand-set evaluations. Fresh CPU-fitted weights differ from released weights by at most `7.153e-6`, while all quality metrics still match. Released-checkpoint diagnostics also match exactly at both sizes and all seeds. See [graph-coloring-paper-results.json](../results/reproduction/multi_solution/graph-coloring-paper-results.json) and [graph-coloring-fresh-validation.json](../results/reproduction/multi_solution/graph-coloring-fresh-validation.json).
 
@@ -73,6 +85,8 @@ These are the printed cells of [Table 3](../references/2611.17309v1.md#S4.T3), r
 | EBR | 7.1M each | 3.2 h | 7.6 h | 4.5 h | 7.6 h |
 | CRAM | 113 / 181 / 869 / 475 | 2.9 s | 6.8 s | 1.3 s | 0.3 s |
 | Hand-set CRAM | 2 / 2 / 1 / 1 distinct values | none | none | none | none |
+
+Zero-training Weight-Space Programming (`WSP-*`, locally evaluated on Blackwell with `k=0` training examples, `0` learned parameters, and `wsp.free_model.static_problems == []`) likewise has `Fit time = none`, using `2 / 2 / 1 / 1` distinct programmed coefficients (`4,097 / 10,001 / 9 / 9` energy entries and `1,457 / 2,941 / 3 / 3` energy nonzeros for `WSP-Assoc-Arbitrary` and `WSP-Assoc`; `24,098 / 30,002 / 10,078 / 10,114` total materialized entries including step-schedule routing tensors; `1 / 1` distinct coefficient with `4,096 / 10,000` energy entries for `WSP-Assoc-Permutation`) and warm GPU `build()` latencies of `0.089 / 0.082 / 0.037 / 0.035 ms`. All 50 WSP test evaluations have zero wrong stopping certificates; full FLOPs (`FC2`), diagnostic `coverage_canonicalized_20` comparisons, and SHA-256 hashes are in [wsp-comparison-tables.json](../results/wsp/wsp-comparison-tables.json) and [WSP_BENCHMARK_REPORT.md](WSP_BENCHMARK_REPORT.md).
 
 ## Frozen protocols
 

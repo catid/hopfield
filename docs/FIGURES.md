@@ -4,6 +4,12 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 
 | Figure | Public data | Renderer |
 |---|---|---|
+| Weight-Space Programming headline comparison (`wsp-comparison`) | [Sudoku, maze, and multi-solution WSP + CRAM exports](../results/wsp/) | [plot_wsp_headline.py](../scripts/plot_wsp_headline.py) |
+| Dense 180×180 maze endpoint-cost comparison with `WSP-Wavefront` (`wsp-maze-endpoint-cost`) | [Three-cohort WSP timings](../results/wsp/maze/maze_180x180_cohorts_summary.json), [work cohort exports](../results/research/work/) | [plot_wsp_maze_endpoint_cost.py](../scripts/plot_wsp_maze_endpoint_cost.py) |
+| `N=13` Queen+Leaper learned vs zero-training WSP (`wsp-queen-families`) | [WSP queen-leaper results](../results/wsp/multi/queen_leaper_results.json), [H3ad exports](../results/research/loki/h3ad/) | [plot_wsp_queen_families.py](../scripts/plot_wsp_queen_families.py) |
+| Extended Paper Figure 2a: Sudoku compute frontier with WSP (`wsp-figure2a-compute`) | [Matched WSP frontier](../results/wsp/figures/sudoku-compute-wsp.json), [CRAM compute comparison](../results/reproduction/figures/sudoku-compute-comparison.json) | [plot_wsp_paper_figures.py](../scripts/plot_wsp_paper_figures.py) |
+| Extended Paper Figure 3a: Sudoku difficulty scaling with WSP (`wsp-figure3a-difficulty`) | [WSP difficulty bins](../results/wsp/figures/figure3a-wsp.json), [CRAM Figure 3a](../results/reproduction/difficulty/figure3a.json) | [plot_wsp_paper_figures.py](../scripts/plot_wsp_paper_figures.py) |
+| Extended Paper Figure 3b: Data efficiency vs zero-training WSP (`wsp-figure3b-data-efficiency`) | [WSP zero-data k=0](../results/wsp/figures/figure3b-wsp.json), [Figure 3b collection](../results/reproduction/data_efficiency/collection.json) | [plot_wsp_paper_figures.py](../scripts/plot_wsp_paper_figures.py) |
 | Matched precision and rowwise recall, different graph recovery | [All masks, fits and two-stage seals](../results/research/foureyes/purified_detector/) | [plot_purified_detector.py](../scripts/plot_purified_detector.py) |
 | Exact posterior residual gaps and rounding bounds | [All192 selected objective gaps](../results/research/ripper/posterior_residual_gap/) | [plot_posterior_residual_gap.py](../scripts/plot_posterior_residual_gap.py) |
 | Observable conflict masks and location precision | [All512 fits, seals and exact certificates](../results/research/foureyes/conflict_mask/) | [plot_conflict_mask.py](../scripts/plot_conflict_mask.py) |
@@ -146,7 +152,7 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 | Maze hard-negative constraint transfer | [Hard-negative exports](../results/research/work/hard-negative-transfer-summary.json) | [plot_hard_negative_transfer.py](../research/20261114/work/plot_hard_negative_transfer.py) |
 | Coefficient weights on fixed likelihood supports | [Weight study](../results/research/foureyes/canonical_weights/) | [plot_canonical_weights.py](../scripts/plot_canonical_weights.py) |
 | Convex digit-invariant PL and zero-stop soundness | [Canonical study](../results/research/foureyes/canonical_study/) | [plot_canonical_pl.py](../scripts/plot_canonical_pl.py) |
-| No-optimizer Sudoku and budget curve | [Count and learned exports](../results/research/foureyes/) | [plot_count_results.py](../scripts/plot_count_results.py) |
+| No-optimizer Sudoku and budget curve (with zero-training WSP overlay) | [Count and learned exports](../results/research/foureyes/), [WSP count-budget 10k](../results/wsp/sudoku/wsp-sudoku-count-budget-30k-40k.json) | [plot_count_results.py](../scripts/plot_count_results.py) |
 | Sudoku counts from raw solutions | [Raw-count and PL exports](../results/research/ripper/) | [plot_raw_count_results.py](../scripts/plot_raw_count_results.py) |
 | Sudoku matched transformation control | [Transformed-PL exports](../results/research/foureyes/raw_transform/) | [plot_raw_transform_results.py](../scripts/plot_raw_transform_results.py) |
 | Sudoku fixed-restart control | [Restart exports](../results/research/foureyes/restart/) | [plot_restart_results.py](../scripts/plot_restart_results.py) |
@@ -191,11 +197,15 @@ All README graphs show measured results. They are ordinary scientific plots, wit
 | Superqueen downward transfer | [H3n exports](../results/research/loki/h3n/) | [plot_public.py](../research/20261114/loki/h3n/plot_public.py) |
 | Original data-efficiency reproduction | [102 measured rows](../results/reproduction/data_efficiency/rows.csv), [collection](../results/reproduction/data_efficiency/collection.json) | [original renderer](../scripts/plot_data_efficiency.py) |
 
-Regenerate the first two README figures from a public checkout:
+Regenerate the first two README figures and all Weight-Space Programming figures from a public checkout:
 
 ```sh
 uv run --with matplotlib --with numpy python scripts/plot_public_results.py
 uv run --with matplotlib --with numpy python scripts/plot_count_results.py
+uv run --with matplotlib --with numpy python scripts/plot_wsp_headline.py
+uv run --with matplotlib --with numpy python scripts/plot_wsp_maze_endpoint_cost.py
+uv run --with matplotlib --with numpy python scripts/plot_wsp_queen_families.py
+uv run --with matplotlib --with numpy python scripts/plot_wsp_paper_figures.py
 ```
 
 The figure receipt at [assets/figures/provenance.json](../assets/figures/provenance.json) records the renderer and exact input hashes. The original reproduction plotter expects the local `artifacts/` layout; its unchanged final figures and compact inputs are mirrored under `results/reproduction/`.

@@ -20,6 +20,9 @@ Published fit times use H200 hardware; fresh fit times use RTX PRO 6000 Blackwel
 | Hand-set CRAM (published) | 100.00 ±0.00 | 1 | 1.08e8 | none |
 | CRAM (fresh local) | 99.996689 ± 0.000779 | 7716 | 2.0298031e+09 | 0.03540196 s |
 | Hand-set CRAM (fresh local) | 100.000000 ± 0.000000 | 1 distinct coefficient | 1.0846005e+08 | none |
+| WSP-Transformer (rule-programmed, k=0) | 10.523613 (deterministic) | 0 learned (28 distinct; 613,657 entries / 4,216 nnz) | 1.7112189e+09 | none |
+| WSP-Det (rule-programmed, k=0) | 14.163513 (deterministic) | 0 learned (3 distinct; 24,836 entries / 2,831 nnz) | 15416844 | none |
+| WSP-Assoc (rule-programmed, k=0) | 100.000000 ± 0.000000 | 0 learned (7 distinct; 26,511 entries / 4,485 nnz) | 23814789 | none |
 
 ## Maze-Unique
 
@@ -37,6 +40,9 @@ Published fit times use H200 hardware; fresh fit times use RTX PRO 6000 Blackwel
 | Hand-set CRAM (published) | 100.00 ±0.00 | 3 | 8.37e5 | none |
 | CRAM (fresh local) | 100.000000 ± 0.000000 | 18 | 836870.85 | 0.10758123 s |
 | Hand-set CRAM (fresh local) | 100.000000 ± 0.000000 | 3 distinct coefficients | 837048.85 | none |
+| WSP-DeadEnd (rule-programmed, k=0) | 100.000000 ± 0.000000 | 0 learned (3 distinct; 13 entries / 8 nnz) | 1804550.4 | none |
+| WSP-Wavefront (rule-programmed, k=0) | 100.000000 ± 0.000000 | 0 learned (5 distinct; 82 entries / 16 nnz) | 18093738 | none |
+| WSP-Potential (rule-programmed, k=0) | 100.000000 ± 0.000000 | 0 learned (11 distinct; 84 entries / 19 nnz) | 1.6426682e+08 | none |
 
 ## Maze-Hard
 
@@ -50,11 +56,16 @@ Published fit times use H200 hardware; fresh fit times use RTX PRO 6000 Blackwel
 | EBR (published) | 88.30 | 1.77e6 | 1.93e13 |
 | CRAM+z (published) | 99.90 ± 0.00 | 2.90e1 | 1.41e7 |
 | CRAM+z (fresh local) | 99.900000 ± 0.000000 | 29 | 14058028 |
+| WSP-DeadEnd (rule-programmed, k=0) | 0.000000 ± 0.000000 | 0 learned (3 distinct; 13 entries / 8 nnz) | 184291.2 |
+| WSP-Wavefront (rule-programmed, k=0) | 100.000000 ± 0.000000 | 0 learned (5 distinct; 82 entries / 16 nnz) | 17110751 |
+| WSP-Potential (rule-programmed, k=0) | 100.000000 ± 0.000000 | 0 learned (11 distinct; 84 entries / 19 nnz) | 50624506 |
 
-Sudoku uses all 412,786 test puzzles per seed; both maze tasks use all 1,000 test mazes per seed. All local means and sample standard deviations use seeds 0–2. FLOPs use the paper's arithmetic convention, including unsuccessful searches and all chains. They are logical counts, not measured latency.
+Sudoku uses all 412,786 test puzzles per seed; both maze tasks use all 1,000 test mazes per seed. All local means and sample standard deviations use seeds 0–2 (`WSP-Transformer` and `WSP-Det` are deterministic forward programs). FLOPs use the paper's arithmetic convention (`FC2`), including unsuccessful searches and all chains. They are logical counts, not measured latency.
+
+Weight-Space Programming (`WSP-*`) rows compile supplied domain rules directly into pure PyTorch tensor weights (`k=0` training examples, `0` learned parameters, `wsp.free_model.static_problems == []`); they belong conceptually with `Hand-set CRAM` rather than data-learned models that infer rules from examples. Warm weight-construction (`build()`) medians on 1 Threadripper CPU thread / 1 Blackwell GPU are `8.65 / 18.79 ms` (`WSP-Transformer`), `1.21 / 4.45 ms` (`WSP-Det`), and `1.06 / 4.47 ms` (`WSP-Assoc`) on Sudoku, and `0.003–0.026 ms` CPU / `0.023–16.26 ms` GPU across the maze programs. Comparison-inclusive `FC2` counts are `1.743e8` for `WSP-Assoc` on Sudoku and `1.816e7` / `5.266e7` for `WSP-Wavefront` / `WSP-Potential` on Maze-Hard. On Maze-Hard, local `WSP-DeadEnd` halts on the cyclic 2-core (`0%`), whereas both `WSP-Wavefront` and `WSP-Potential` solve all `1,000/1,000` mazes including test maze `106`; see [WSP_BENCHMARK_REPORT.md](WSP_BENCHMARK_REPORT.md).
 
 † The paper substitutes the original authors' GRAM Sudoku and EqR Maze-Unique accuracy where its own baseline reproduction scored lower. Other columns still describe the CRAM paper's runs. Its TRMP lattice footnote reports a separate 98.90% Sudoku model, 16k parameters and 13m28s warm fit; the table uses the main ACT model. Hand-set parameter counts mean distinct coefficient values. Fresh Sudoku has 7,716 / 7,750 / 7,761 contributing coefficients by seed; its row shows seed 0.
 
 Maze-Hard baseline accuracies were published by the original authors; counts were reported by the CRAM paper. NCA uses official A* targets, while fresh CRAM+z uses the released BFS target convention. Every local CRAM+z seed has one wrong stop on maze 106; see the [maze audit](MAZE_REPRODUCTION.md).
 
-Exact source cells, measured summaries and SHA-256 hashes are in [main-comparison.json](../results/reproduction/main-comparison.json). Regenerate from saved results with `python3 scripts/export_main_comparison.py`.
+Exact source cells, measured summaries and SHA-256 hashes are in [main-comparison.json](../results/reproduction/main-comparison.json) (frozen CRAM reproduction) and [wsp-comparison-tables.json](../results/wsp/wsp-comparison-tables.json) (WSP extension, exported by `python3 scripts/export_wsp_comparisons.py`). Regenerate the frozen CRAM table from saved reproduction results with `python3 scripts/export_main_comparison.py`.

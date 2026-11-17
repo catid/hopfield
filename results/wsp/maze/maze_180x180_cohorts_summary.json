@@ -1,0 +1,1994 @@
+{
+  "status": "complete",
+  "benchmark": "Maze-180x180-Loop80-Three-Cohorts",
+  "shape": [
+    180,
+    180
+  ],
+  "n_mazes_per_cohort": 4096,
+  "cohorts_count": 3,
+  "provenance": {
+    "utc": "2026-11-17T06:12:15.227707+00:00",
+    "host": "foureyes",
+    "python": "3.13.13 (main, May 10 2026, 19:26:54) [Clang 22.1.3 ]",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "triton": "3.6.0",
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": false,
+    "wsp_upstream_repo": "https://github.com/effl-lab/Weight-Space-Programming",
+    "wsp_upstream_commit": "02c31abd3b34d84854cc80d9717717c45365c719",
+    "wsp_upstream_license": "MIT",
+    "source_sha256": {
+      "src/hopfield_cram/wsp_maze.py": "9a16e43d8010f6bbddf23803a9042423f8f9047f4968ff3eb9a6d92c77ee4c88",
+      "scripts/run_wsp_maze.py": "a771914ffd8f842ef7bceb03bf88bf2c3da8ef8d128c78ccd27ffcf4847d5ba7",
+      "upstream/baselines/flops/fullcount.py": "77709eacc6744e79663b034212d16d0aafeb8d799e0de45162622bd6997007ea"
+    },
+    "gpu_environment": {
+      "CUDA_VISIBLE_DEVICES": "2",
+      "cuda_available": true,
+      "device_count": 1,
+      "device_name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+      "TMPDIR": "/home/catid/.cache/hopfield_tmp",
+      "TRITON_CACHE_DIR": "/home/catid/.cache/hopfield_tmp/triton_maze",
+      "TORCHINDUCTOR_CACHE_DIR": "/home/catid/.cache/hopfield_tmp/inductor_maze",
+      "nvidia_smi_all_gpus": [
+        "0, GPU-4c394fc5-b18f-6622-ca94-f7fbd7112927, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 8231 MiB, 97887 MiB, 100 %",
+        "1, GPU-f10c2baf-536b-1d40-cd4b-25b202ae0ded, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 28780 MiB, 97887 MiB, 84 %",
+        "2, GPU-04cde663-7c53-2f18-3ec4-1699820e2640, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 26684 MiB, 97887 MiB, 0 %",
+        "3, GPU-972bf85d-1b32-2d1b-20f6-babc4c804999, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 27330 MiB, 97887 MiB, 91 %"
+      ]
+    }
+  },
+  "static_ast_verification": {
+    "WSP-DeadEnd": {
+      "static_problems": [],
+      "passed": true,
+      "arch_sha256": "6193ada55455b9062024f9af51e2d67aabb8a62498c5e2560088bbb1df177dce"
+    },
+    "WSP-Wavefront": {
+      "static_problems": [],
+      "passed": true,
+      "arch_sha256": "5d44478bf3b0045469707aad2bf0b206adb65aee9fcd4c49f01e2c275afa4e83"
+    },
+    "WSP-Potential": {
+      "static_problems": [],
+      "passed": true,
+      "arch_sha256": "3fbc5d0dcd5c44bf1a82efd64a96767ad54e003bf742391627323f608ceac7bb"
+    }
+  },
+  "model": "WSP-Wavefront",
+  "weight_metadata": {
+    "params_learned": 0,
+    "fit_time": "none",
+    "materialized_entries": 82,
+    "nonzero_entries": 16,
+    "distinct_nonzero_coefficients": 5,
+    "distinct_nonzero_values": [
+      0.125,
+      0.25,
+      0.375,
+      1.0,
+      1048576.0
+    ],
+    "tensors": {
+      "nbr_kernels": {
+        "shape": [
+          4,
+          1,
+          3,
+          3
+        ],
+        "dtype": "torch.float32",
+        "numel": 36,
+        "nonzero": 4
+      },
+      "move_kernels": {
+        "shape": [
+          1,
+          4,
+          3,
+          3
+        ],
+        "dtype": "torch.float32",
+        "numel": 36,
+        "nonzero": 4
+      },
+      "step_bias": {
+        "shape": [
+          4
+        ],
+        "dtype": "torch.float32",
+        "numel": 4,
+        "nonzero": 4
+      },
+      "tie_bias": {
+        "shape": [
+          4
+        ],
+        "dtype": "torch.float32",
+        "numel": 4,
+        "nonzero": 3
+      },
+      "inf_dist": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "numel": 1,
+        "nonzero": 1
+      },
+      "zero": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "numel": 1,
+        "nonzero": 0
+      }
+    }
+  },
+  "source_parity_gate": {
+    "warmup_source": "synthetic_999998",
+    "warmup_sha256": "47113076bb651a5bc32d17f4857c19199f6153fad3d2b406ee0086af96a3c1ce",
+    "triton_vs_pytorch_256_mazes_bit_exact": true,
+    "gate_wall_seconds": 0.9723252020776272
+  },
+  "fc2_calibration_180x180_path": "artifacts/wsp/maze/cohorts_180/wavefront_180x180_fc2_calibration.json",
+  "fc2_calibration_180x180_sha256": "bd9d35f5dfb3617ad5325631d3860fe783f769e0b321702c7678bcc11b5fea28",
+  "cohorts": {
+    "H2bo": {
+      "hypothesis_id": "H2bo",
+      "cohort": "bp-first-fresh-confirmation",
+      "label": "Corner endpoints (H2bo)",
+      "base_seed": 2026111529,
+      "protocol_path": "results/research/work/bp-first-fresh-confirmation/protocol.json",
+      "protocol_sha256": "fa85a3edcb996efa9d86719eb3dc68d852e9fefa2fbf919b1b9eeff5625adbb8",
+      "datasets_manifest_path": "artifacts/research/20261114/work/bp_first_fresh_confirmation/datasets.json",
+      "datasets_manifest_sha256": "275887da5049c3f7a93d1ef385d5e18d494943cb488ceb750beaff0fbac7c9e3",
+      "independent_input_audit_path": "results/research/work/bp-first-fresh-confirmation/independent-input-audit.json",
+      "independent_input_audit_sha256": "630c8c53916313deceeab4be68eaa5d00000912c14701b410707f69c342af729",
+      "all_4096_distances_matched_input_audit": true,
+      "shard_source_info": {
+        "source": "deterministic_seeded_regeneration",
+        "regenerated": true,
+        "law": "corner",
+        "base_seed": 2026111529,
+        "regeneration_wall_seconds": 24.325767234899104,
+        "shards": [
+          {
+            "shard": 0,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-fresh-confirmation_shards/shard00.npz",
+            "npz_sha256": "03b059b2558a1d26b052d0862d7cb7b16cd71817de6ddca86793a6115144d898",
+            "tokens_array_sha256": "ce4f04a6e6536fddad7c0526a6bb2c9a7d9af3d97ab3775254d702f9659348a9",
+            "labels_array_sha256": "555e75d7b7cbe94b5d77eb2a77f23ce5bd92eebea00befd4ae30b7f110626db0",
+            "shortest_edges_array_sha256": "e257ec942455d7ef8eb0e5af61e2de062762a0c95653b4147c2ce2b50da7a9c8"
+          },
+          {
+            "shard": 1,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-fresh-confirmation_shards/shard01.npz",
+            "npz_sha256": "31d07412118bb55aac46e2adac5db88a719e7d95d944f9ef30367f8f96ad8dc4",
+            "tokens_array_sha256": "41949df4d4d4652c2816204b21b650d974fdf6a6c72ecb48a5e876e968310787",
+            "labels_array_sha256": "c3bbbca321f3d24abf5838656e5a747fb93316c54f44ef24199d42426e28cd87",
+            "shortest_edges_array_sha256": "29c85d0bd6e4c296b660559f0b7373160b5d06ef93425e8ba8ff2f0353f80883"
+          },
+          {
+            "shard": 2,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-fresh-confirmation_shards/shard02.npz",
+            "npz_sha256": "24e51db89697946b701a658f660ffff32c7d34b75292547588ac92f361bcdb4c",
+            "tokens_array_sha256": "d0005263c43aeba0128d8c70e03bef31192a98f3f0f99abfe2fae3c59e10f2f8",
+            "labels_array_sha256": "94cdb01e1f119f189fbcf47d1714b4e44502ae06dba933073aaf614a1152a6b6",
+            "shortest_edges_array_sha256": "e257ec942455d7ef8eb0e5af61e2de062762a0c95653b4147c2ce2b50da7a9c8"
+          },
+          {
+            "shard": 3,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-fresh-confirmation_shards/shard03.npz",
+            "npz_sha256": "ba7f0f27b15ae486a0565be57c16291bfc5297796ceee60b33805240a9c56f1a",
+            "tokens_array_sha256": "28c2b8dad08f6409f8858a48ab0d27b67a930399d2c4ccc34a0e49ede5e505f1",
+            "labels_array_sha256": "a0878224efa7455968993ba6d0116309e0e9ae88a93e8fca97055f36a69a4b32",
+            "shortest_edges_array_sha256": "e257ec942455d7ef8eb0e5af61e2de062762a0c95653b4147c2ce2b50da7a9c8"
+          },
+          {
+            "shard": 4,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-fresh-confirmation_shards/shard04.npz",
+            "npz_sha256": "2e93b758c334a8e9996c1eecd4306a75fcaed40bbe6edb85b400b932bcf531a8",
+            "tokens_array_sha256": "a0842ee000e110bb0c3893c678bea5b400ae01e9b87d0d1b484f64a7ed8b7673",
+            "labels_array_sha256": "2acbe4b0084eee4f17c1d6e61e409dd917d9764ea7c59c44a9af29edc24e6127",
+            "shortest_edges_array_sha256": "e257ec942455d7ef8eb0e5af61e2de062762a0c95653b4147c2ce2b50da7a9c8"
+          },
+          {
+            "shard": 5,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-fresh-confirmation_shards/shard05.npz",
+            "npz_sha256": "8d0bdd9b048bd53aa8f30700516cbb2e1a5ef1df1aeb7b5fa107eff8be3bdb7e",
+            "tokens_array_sha256": "b1895938cc614744fcd9be741ebbd260d779c7d9d8fcf2399177b5fff9759a66",
+            "labels_array_sha256": "9332d7fcdc2229bc8a4e9549c6ba734935590af474f9910f7b30ad03e3e97187",
+            "shortest_edges_array_sha256": "e257ec942455d7ef8eb0e5af61e2de062762a0c95653b4147c2ce2b50da7a9c8"
+          },
+          {
+            "shard": 6,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-fresh-confirmation_shards/shard06.npz",
+            "npz_sha256": "6d1b62553434de9c0608ec6351e43e5c563869f41744ea42974c5782e49f35e3",
+            "tokens_array_sha256": "1bcf97d1ea632b6d79be0dbbc8628ba12bbb8775ecb94718ec11f75bba9e0b7b",
+            "labels_array_sha256": "06da566d9b2d868e7e21f99ae0a4cca9fb798287f68a3843c2e462ece7d29913",
+            "shortest_edges_array_sha256": "e257ec942455d7ef8eb0e5af61e2de062762a0c95653b4147c2ce2b50da7a9c8"
+          },
+          {
+            "shard": 7,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-fresh-confirmation_shards/shard07.npz",
+            "npz_sha256": "2612b231d5d6c2b14fc9c17cbe2c70d55061a392652ba283f1faa6dbb2773969",
+            "tokens_array_sha256": "682ba0384a6642b3ba9a406c0f1f2d82575c59701e910f959c5754b5aab02926",
+            "labels_array_sha256": "a504138419d76d249e205a15cd67149998ea4125debc6ff42e9f4b9f46e1fa19",
+            "shortest_edges_array_sha256": "e257ec942455d7ef8eb0e5af61e2de062762a0c95653b4147c2ce2b50da7a9c8"
+          },
+          {
+            "shard": 8,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-fresh-confirmation_shards/shard08.npz",
+            "npz_sha256": "f3bd44f719f749d307e1a77a31d6e2eec315587033a4876b402b05cba4fe9e51",
+            "tokens_array_sha256": "732ba6da0b5b0fe9e92ba847dd10021374c852868909e266ef7ce192f33a3c22",
+            "labels_array_sha256": "e56ad44690f1a97e6a8afd69b4e82a215f78eb754f090071dc12a013e0e3a539",
+            "shortest_edges_array_sha256": "e257ec942455d7ef8eb0e5af61e2de062762a0c95653b4147c2ce2b50da7a9c8"
+          },
+          {
+            "shard": 9,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-fresh-confirmation_shards/shard09.npz",
+            "npz_sha256": "5743b786377414b4351fcc9df6a682f6a2c9b55ba4ce2ad18dbf16ef45fc3f87",
+            "tokens_array_sha256": "28d9220491f26dbe6fe8932e6a259755d4af145050b424ed6e236ae1e67e510e",
+            "labels_array_sha256": "f89c619494b5b8317a64792a4405d9ed591c9d66968fd12ff1479c50deafdeab",
+            "shortest_edges_array_sha256": "e257ec942455d7ef8eb0e5af61e2de062762a0c95653b4147c2ce2b50da7a9c8"
+          },
+          {
+            "shard": 10,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-fresh-confirmation_shards/shard10.npz",
+            "npz_sha256": "8ee1f503c66642a603a90495a7fe678b7c8593e8f79084552439fa3cd59d4277",
+            "tokens_array_sha256": "621303d9e41e6735a091546bf3daa7ba0f7b99fdaa795bee85c17a485edcb5ad",
+            "labels_array_sha256": "5d1b2704b0f07d75a502a5e9f8896fa3a6c8358d359f6d2510ffa01db85b0373",
+            "shortest_edges_array_sha256": "e257ec942455d7ef8eb0e5af61e2de062762a0c95653b4147c2ce2b50da7a9c8"
+          },
+          {
+            "shard": 11,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-fresh-confirmation_shards/shard11.npz",
+            "npz_sha256": "6a1682d8cb4e547838b0eb5cbed9907c8838a86c26ee158fcc60e55b8a57c95d",
+            "tokens_array_sha256": "d47dd276b2dfd8cba20a914ce50537110a5ea7903a3841a52f0ce2bcb6873f0a",
+            "labels_array_sha256": "2c8a3376b0b99c97a8b48d1e2b9e423d95fbcef45254e554a03c3a33377fee93",
+            "shortest_edges_array_sha256": "e257ec942455d7ef8eb0e5af61e2de062762a0c95653b4147c2ce2b50da7a9c8"
+          },
+          {
+            "shard": 12,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-fresh-confirmation_shards/shard12.npz",
+            "npz_sha256": "21ee843afcf9b7768b4955eaa8e9739cf9be38d7d750931f47189c8d1d42b2eb",
+            "tokens_array_sha256": "f6f4a99cc0bb6fca3766cb9c1060145250fdd3fd4dbe38b7ad464da0976a8187",
+            "labels_array_sha256": "616e583e70155877ec377f289e2e302f7db27aa019bec3a26bdadd379397d699",
+            "shortest_edges_array_sha256": "e257ec942455d7ef8eb0e5af61e2de062762a0c95653b4147c2ce2b50da7a9c8"
+          },
+          {
+            "shard": 13,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-fresh-confirmation_shards/shard13.npz",
+            "npz_sha256": "7bed8af7902cc598b51bb09b1bd5dacf08d018e20824fc3919fb89c5f2258389",
+            "tokens_array_sha256": "311ff9e86bec8319951aa51341f5abf0d8453d196dd2c38133af40ad8505a4b5",
+            "labels_array_sha256": "8ecde796095548e0c41c117ba554daf5b4dc3fb9330783c8f06129f53aa81598",
+            "shortest_edges_array_sha256": "e257ec942455d7ef8eb0e5af61e2de062762a0c95653b4147c2ce2b50da7a9c8"
+          },
+          {
+            "shard": 14,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-fresh-confirmation_shards/shard14.npz",
+            "npz_sha256": "a408670d99b8dd38673b263bae30e54192a32de949c2c735f0bd0e57abc31bd5",
+            "tokens_array_sha256": "e39aa2083c5bafd9f530b31b367c308ae4ce48b65bc10d4b7973b3bcfe71c88b",
+            "labels_array_sha256": "c4a59204df728c2bda0e42be8caa36e9e0d7233a452c31b1ee16bf51bd361de3",
+            "shortest_edges_array_sha256": "e257ec942455d7ef8eb0e5af61e2de062762a0c95653b4147c2ce2b50da7a9c8"
+          },
+          {
+            "shard": 15,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-fresh-confirmation_shards/shard15.npz",
+            "npz_sha256": "dcd3df7fd7719a0bb060a5b7142e07506bb6fa3694d5fe105f87f5f56ddbdc8e",
+            "tokens_array_sha256": "619cbb510c21801629b90579d0e848c6df1e53772fdf800cee7e6066280e424c",
+            "labels_array_sha256": "d079732d65c68f25c9ebc35fc02d0e68c42ea3fc273c48a14b8ebd87a49cc14a",
+            "shortest_edges_array_sha256": "e257ec942455d7ef8eb0e5af61e2de062762a0c95653b4147c2ce2b50da7a9c8"
+          }
+        ]
+      },
+      "shards_verified": 16,
+      "seeded_generator_spot_replay_passed": true,
+      "sealed_timing_receipt_sha256": "34fdbcca33bf1342714167b4f23ad842e1dc118c00099064ffaa00cc84c64157",
+      "predictions_and_audit_npz": "artifacts/wsp/maze/cohorts_180/bp-first-fresh-confirmation/pair0_predictions_and_audit.npz",
+      "predictions_and_audit_sha256": "fc381c61d40407ba0c202b5e0aec106ef2c1374dda0224ebf00cc6aea2b240ef",
+      "independent_audit_wall_seconds": 75.05428548005875,
+      "accuracy": {
+        "n_mazes": 4096,
+        "joint_solved": 4096,
+        "joint_solved_pct": 100.0,
+        "model_inputs_denominator": 12288,
+        "model_inputs_solved": 12288,
+        "canonical_exact": 4096,
+        "valid_simple_paths": 4096,
+        "shortest_paths": 4096,
+        "halted": 4096,
+        "wrong_halts": 0,
+        "accepted": 4096,
+        "one_sided95_clopper_pearson_lower_pp": 99.92688874435245,
+        "one_sided95_clopper_pearson_upper_pp": 100.0,
+        "absolute_999_target_decision": "supported"
+      },
+      "fc2_flops_per_unique_maze": {
+        "n": 4096,
+        "mean_total": 1874826001.0,
+        "std_total": 0.0,
+        "min_total": 1874826001,
+        "median_total": 1874826001.0,
+        "max_total": 1874826001,
+        "sum_total": 7679287300096,
+        "mean_total_with_compare": 1988291083.0,
+        "std_total_with_compare": 0.0,
+        "min_total_with_compare": 1988291083,
+        "median_total_with_compare": 1988291083.0,
+        "max_total_with_compare": 1988291083,
+        "sum_total_with_compare": 8144040275968,
+        "stage_steps_mean": {
+          "wave_steps": 368.0,
+          "trace_steps": 368.0
+        },
+        "stage_steps_max": {
+          "wave_steps": 368,
+          "trace_steps": 368
+        }
+      },
+      "distance_strata": [
+        {
+          "bin": "1..64",
+          "mazes": 0,
+          "joint_solved": 0,
+          "model_inputs_denominator": 0,
+          "model_inputs_solved": 0,
+          "accepted": 0
+        },
+        {
+          "bin": "65..128",
+          "mazes": 0,
+          "joint_solved": 0,
+          "model_inputs_denominator": 0,
+          "model_inputs_solved": 0,
+          "accepted": 0
+        },
+        {
+          "bin": "129..256",
+          "mazes": 0,
+          "joint_solved": 0,
+          "model_inputs_denominator": 0,
+          "model_inputs_solved": 0,
+          "accepted": 0
+        },
+        {
+          "bin": ">=257",
+          "mazes": 4096,
+          "joint_solved": 4096,
+          "model_inputs_denominator": 12288,
+          "model_inputs_solved": 12288,
+          "accepted": 4096
+        }
+      ],
+      "timing_4_balanced_pairs": {
+        "pairs": [
+          {
+            "pair": 0,
+            "order": [
+              "matched_3seed_B32",
+              "unique_1seed_B256"
+            ],
+            "runs": {
+              "matched_3seed_B32": {
+                "arm_mode": "matched_3seed_B32",
+                "model_inputs": 12288,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.021731265005655587
+                  },
+                  {
+                    "seed": 1,
+                    "seconds": 0.01627695106435567
+                  },
+                  {
+                    "seed": 2,
+                    "seconds": 0.0029868140118196607
+                  }
+                ],
+                "model_readiness_seconds": 0.041008981061168015,
+                "batch_answer_seconds": 13.025483187404461,
+                "complete_answer_seconds": 13.06649216846563,
+                "component_seconds": {
+                  "input_transfer": 0.47263435274362564,
+                  "wsp_wavefront_gpu_solve": 12.396173978224397,
+                  "answer_d2h_return": 0.05541824328247458,
+                  "final_clamps_and_acceptance": 0.09808942279778421
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "02238b3664f266f6c031d955d5ea47631585823c3c9ed14d0698c2d7cba58c12",
+                  "steps_sha256": "42aa94db8576dcc2153a301778edcf608a2c9e7f4980c906eb6695cef0594db7",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              },
+              "unique_1seed_B256": {
+                "arm_mode": "unique_1seed_B256",
+                "model_inputs": 4096,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.014565615099854767
+                  }
+                ],
+                "model_readiness_seconds": 0.014572274056263268,
+                "batch_answer_seconds": 3.6792630469426513,
+                "complete_answer_seconds": 3.6938353209989145,
+                "component_seconds": {
+                  "input_transfer": 0.16617178299929947,
+                  "wsp_wavefront_gpu_solve": 3.4725361497839913,
+                  "answer_d2h_return": 0.006953230127692223,
+                  "final_clamps_and_acceptance": 0.03292170795612037
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "02238b3664f266f6c031d955d5ea47631585823c3c9ed14d0698c2d7cba58c12",
+                  "steps_sha256": "42aa94db8576dcc2153a301778edcf608a2c9e7f4980c906eb6695cef0594db7",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              }
+            }
+          },
+          {
+            "pair": 1,
+            "order": [
+              "unique_1seed_B256",
+              "matched_3seed_B32"
+            ],
+            "runs": {
+              "unique_1seed_B256": {
+                "arm_mode": "unique_1seed_B256",
+                "model_inputs": 4096,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.002837970037944615
+                  }
+                ],
+                "model_readiness_seconds": 0.002846752991899848,
+                "batch_answer_seconds": 3.1464180188486353,
+                "complete_answer_seconds": 3.149264771840535,
+                "component_seconds": {
+                  "input_transfer": 0.16831373004242778,
+                  "wsp_wavefront_gpu_solve": 2.93825433019083,
+                  "answer_d2h_return": 0.007102384581230581,
+                  "final_clamps_and_acceptance": 0.032083170604892075
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "02238b3664f266f6c031d955d5ea47631585823c3c9ed14d0698c2d7cba58c12",
+                  "steps_sha256": "42aa94db8576dcc2153a301778edcf608a2c9e7f4980c906eb6695cef0594db7",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              },
+              "matched_3seed_B32": {
+                "arm_mode": "matched_3seed_B32",
+                "model_inputs": 12288,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.0009266099659726024
+                  },
+                  {
+                    "seed": 1,
+                    "seconds": 0.002436472102999687
+                  },
+                  {
+                    "seed": 2,
+                    "seconds": 0.0012053719256073236
+                  }
+                ],
+                "model_readiness_seconds": 0.004584377980791032,
+                "batch_answer_seconds": 13.462099613971077,
+                "complete_answer_seconds": 13.466683991951868,
+                "component_seconds": {
+                  "input_transfer": 0.43094948842190206,
+                  "wsp_wavefront_gpu_solve": 12.874320151982829,
+                  "answer_d2h_return": 0.05502534646075219,
+                  "final_clamps_and_acceptance": 0.09893706603907049
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "02238b3664f266f6c031d955d5ea47631585823c3c9ed14d0698c2d7cba58c12",
+                  "steps_sha256": "42aa94db8576dcc2153a301778edcf608a2c9e7f4980c906eb6695cef0594db7",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              }
+            }
+          },
+          {
+            "pair": 2,
+            "order": [
+              "unique_1seed_B256",
+              "matched_3seed_B32"
+            ],
+            "runs": {
+              "unique_1seed_B256": {
+                "arm_mode": "unique_1seed_B256",
+                "model_inputs": 4096,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.015333233983255923
+                  }
+                ],
+                "model_readiness_seconds": 0.015340695972554386,
+                "batch_answer_seconds": 3.674542684224434,
+                "complete_answer_seconds": 3.6898833801969886,
+                "component_seconds": {
+                  "input_transfer": 0.14646776299923658,
+                  "wsp_wavefront_gpu_solve": 3.4880127866053954,
+                  "answer_d2h_return": 0.007181744906120002,
+                  "final_clamps_and_acceptance": 0.03214967297390103
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "02238b3664f266f6c031d955d5ea47631585823c3c9ed14d0698c2d7cba58c12",
+                  "steps_sha256": "42aa94db8576dcc2153a301778edcf608a2c9e7f4980c906eb6695cef0594db7",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              },
+              "matched_3seed_B32": {
+                "arm_mode": "matched_3seed_B32",
+                "model_inputs": 12288,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.0003134038997814059
+                  },
+                  {
+                    "seed": 1,
+                    "seconds": 8.462800178676844e-05
+                  },
+                  {
+                    "seed": 2,
+                    "seconds": 7.679592818021774e-05
+                  }
+                ],
+                "model_readiness_seconds": 0.00048782804515212774,
+                "batch_answer_seconds": 14.149731517652981,
+                "complete_answer_seconds": 14.150219345698133,
+                "component_seconds": {
+                  "input_transfer": 0.4382492310833186,
+                  "wsp_wavefront_gpu_solve": 13.560698716784827,
+                  "answer_d2h_return": 0.054082979331724346,
+                  "final_clamps_and_acceptance": 0.09363250306341797
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "02238b3664f266f6c031d955d5ea47631585823c3c9ed14d0698c2d7cba58c12",
+                  "steps_sha256": "42aa94db8576dcc2153a301778edcf608a2c9e7f4980c906eb6695cef0594db7",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              }
+            }
+          },
+          {
+            "pair": 3,
+            "order": [
+              "matched_3seed_B32",
+              "unique_1seed_B256"
+            ],
+            "runs": {
+              "matched_3seed_B32": {
+                "arm_mode": "matched_3seed_B32",
+                "model_inputs": 12288,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.015232862904667854
+                  },
+                  {
+                    "seed": 1,
+                    "seconds": 0.016233575996011496
+                  },
+                  {
+                    "seed": 2,
+                    "seconds": 0.006860999041236937
+                  }
+                ],
+                "model_readiness_seconds": 0.038341830018907785,
+                "batch_answer_seconds": 13.202832633047365,
+                "complete_answer_seconds": 13.241174463066272,
+                "component_seconds": {
+                  "input_transfer": 0.4247739458223805,
+                  "wsp_wavefront_gpu_solve": 12.620695255580358,
+                  "answer_d2h_return": 0.05547969997860491,
+                  "final_clamps_and_acceptance": 0.09885870106518269
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "02238b3664f266f6c031d955d5ea47631585823c3c9ed14d0698c2d7cba58c12",
+                  "steps_sha256": "42aa94db8576dcc2153a301778edcf608a2c9e7f4980c906eb6695cef0594db7",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              },
+              "unique_1seed_B256": {
+                "arm_mode": "unique_1seed_B256",
+                "model_inputs": 4096,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.014991878997534513
+                  }
+                ],
+                "model_readiness_seconds": 0.014999831095337868,
+                "batch_answer_seconds": 3.6544155559968203,
+                "complete_answer_seconds": 3.669415387092158,
+                "component_seconds": {
+                  "input_transfer": 0.14464491896796972,
+                  "wsp_wavefront_gpu_solve": 3.4713984223781154,
+                  "answer_d2h_return": 0.006959810038097203,
+                  "final_clamps_and_acceptance": 0.03072829230222851
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "02238b3664f266f6c031d955d5ea47631585823c3c9ed14d0698c2d7cba58c12",
+                  "steps_sha256": "42aa94db8576dcc2153a301778edcf608a2c9e7f4980c906eb6695cef0594db7",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              }
+            }
+          }
+        ],
+        "matched_3seed_B32_complete_seconds": [
+          13.06649216846563,
+          13.466683991951868,
+          14.150219345698133,
+          13.241174463066272
+        ],
+        "matched_3seed_B32_median_seconds": 13.35392922750907,
+        "unique_1seed_B256_complete_seconds": [
+          3.6938353209989145,
+          3.149264771840535,
+          3.6898833801969886,
+          3.669415387092158
+        ],
+        "unique_1seed_B256_median_seconds": 3.6796493836445734,
+        "comparison_vs_published_LP96_12288": {
+          "pairs": [
+            {
+              "pair": 0,
+              "wsp_seconds": 13.06649216846563,
+              "baseline_seconds": 195.01214525004616,
+              "speedup_ratio": 14.924598181039283,
+              "saving": 0.932996521054052,
+              "exact_saving": "3125802518539/3350283144687"
+            },
+            {
+              "pair": 1,
+              "wsp_seconds": 13.466683991951868,
+              "baseline_seconds": 196.10873237252235,
+              "speedup_ratio": 14.562510896500086,
+              "saving": 0.9313305234854563,
+              "exact_saving": "784441624669/842280592000"
+            },
+            {
+              "pair": 2,
+              "wsp_seconds": 14.150219345698133,
+              "baseline_seconds": 195.9909490730497,
+              "speedup_ratio": 13.850735757861855,
+              "saving": 0.9278016693494143,
+              "exact_saving": "3123999949039/3367098866323"
+            },
+            {
+              "pair": 3,
+              "wsp_seconds": 13.241174463066272,
+              "baseline_seconds": 196.95346185180824,
+              "speedup_ratio": 14.874319676186754,
+              "saving": 0.9327700344103157,
+              "exact_saving": "1578076532416/1691817354975"
+            }
+          ],
+          "median_saving": 0.932050278947886,
+          "exact_median_saving": "106252607620978198406011/113998793864337371616000",
+          "median_speedup_ratio": 14.71841528634342
+        },
+        "comparison_vs_published_BP_geometry_LP96_12288": {
+          "pairs": [
+            {
+              "pair": 0,
+              "wsp_seconds": 13.06649216846563,
+              "baseline_seconds": 125.052625322307,
+              "speedup_ratio": 9.570481787308312,
+              "saving": 0.8955120523476542,
+              "exact_saving": "1923907118005/2148387744153"
+            },
+            {
+              "pair": 1,
+              "wsp_seconds": 13.466683991951868,
+              "baseline_seconds": 125.40299177519046,
+              "speedup_ratio": 9.312091369347895,
+              "saving": 0.8926127375326615,
+              "exact_saving": "160254260388/179533916165"
+            },
+            {
+              "pair": 2,
+              "wsp_seconds": 14.150219345698133,
+              "baseline_seconds": 127.83742298197467,
+              "speedup_ratio": 9.034306808879188,
+              "saving": 0.8893108213884025,
+              "exact_saving": "325521881061/366038367275"
+            },
+            {
+              "pair": 3,
+              "wsp_seconds": 13.241174463066272,
+              "baseline_seconds": 128.15456918871496,
+              "speedup_ratio": 9.67848958913559,
+              "saving": 0.8966780931269966,
+              "exact_saving": "987098544438/1100839366997"
+            }
+          ],
+          "median_saving": 0.8940623949401578,
+          "exact_median_saving": "689694868199039218562189/771416930297356341866490",
+          "median_speedup_ratio": 9.441286578328103
+        },
+        "published_reference_cohorts_provenance_sha256": "863fe9f9d8b881b266c1697abf17abd56a9fda67ca5ba1148e6395f8af9f8ed4",
+        "hardware_note": "WSP-Wavefront measured on local RTX PRO 6000 Blackwell Max-Q (GPU 2) under identical 12,288-eval B=32 readiness+H2D+GPU+D2H+acceptance cost boundary; published H2bo/H2bp/H2bq LP96 and cascade timings ran on Work RTX PRO 6000 Blackwell."
+      }
+    },
+    "H2bp": {
+      "hypothesis_id": "H2bp",
+      "cohort": "bp-first-endpoint-shift",
+      "label": "Uniform open-cell endpoints (H2bp)",
+      "base_seed": 2026111530,
+      "protocol_path": "results/research/work/bp-first-endpoint-shift/protocol.json",
+      "protocol_sha256": "0d3a2bdb4e46e1bdd577a54a5fbbdc98c691d387b33b9afd640de92522bdee85",
+      "datasets_manifest_path": "artifacts/research/20261114/work/bp_first_endpoint_shift/datasets.json",
+      "datasets_manifest_sha256": "713c87116a7d5c9a7af45b52eb57a0d9aa720e4157c8aad62c529ded750fa592",
+      "independent_input_audit_path": "results/research/work/bp-first-endpoint-shift/independent-input-audit.json",
+      "independent_input_audit_sha256": "d029855a277a5818770f3d11db38a518790ee57e640321c04e15a0623f4449c2",
+      "all_4096_distances_matched_input_audit": true,
+      "shard_source_info": {
+        "source": "deterministic_seeded_regeneration",
+        "regenerated": true,
+        "law": "uniform",
+        "base_seed": 2026111530,
+        "regeneration_wall_seconds": 37.253570909029804,
+        "shards": [
+          {
+            "shard": 0,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-endpoint-shift_shards/shard00.npz",
+            "npz_sha256": "96084a4a777f8ecfb32ec8a8f9370c349ca547ec38931599bd94e594eb0aeee3",
+            "tokens_array_sha256": "a229ea0096996cc85b5678aa966203fe7264260147169042769f64fb8bf81d23",
+            "labels_array_sha256": "5743a4b84cbfeed2e60661234ad923b3ebfb25f2d170b5c9ff9b1f03d59dcf07",
+            "shortest_edges_array_sha256": "e52c105407faf086eea0e0c579da1bb01f7f6eedb87c370b268eaac3aef85152"
+          },
+          {
+            "shard": 1,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-endpoint-shift_shards/shard01.npz",
+            "npz_sha256": "8a48e7b64d0dee567ae37b5156cc088e5742fa8a7055eed0648768a08b4e026e",
+            "tokens_array_sha256": "4ba65d914695aed8029e853a5e1af77363a41a3cc5a3e7921de191fe6e1ead13",
+            "labels_array_sha256": "c31c9e145fab336d3ad352c835a99928a31c621d0ddad7a0c40082f07229835c",
+            "shortest_edges_array_sha256": "865dca8b14ffac26351b06a1a9a3514f0b60941922721e636d4547ca8f9dfb77"
+          },
+          {
+            "shard": 2,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-endpoint-shift_shards/shard02.npz",
+            "npz_sha256": "b0c3536f5d4236238bb40b6d9a52bfb0ee2737ca507981c61f8c28f49354b038",
+            "tokens_array_sha256": "693904fcab98379c6bba72efbb1fa11d6b7d7133ef8530546c131804f08f4a04",
+            "labels_array_sha256": "a4aca284aeda714fae10ae53bb49e35b4e7fb51e93ba5b7c11e64fa413f91ac1",
+            "shortest_edges_array_sha256": "3f583aab1fd4ba3cfa4cc9e8ce6d777a583ef3704e3f6220eeb41be15ba50f75"
+          },
+          {
+            "shard": 3,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-endpoint-shift_shards/shard03.npz",
+            "npz_sha256": "a7195a6868a8a25c6d62c79acba58acc7792fa278fec265104c5d72ae5d156fc",
+            "tokens_array_sha256": "b4b376f88a0e5d78497c758f7059d133f829e376399bb9c199b5533c21b9ae70",
+            "labels_array_sha256": "eaeaae3d8921bd88aa7581093b9f269110e4b3d1f871f73ece3510aec12a1ff6",
+            "shortest_edges_array_sha256": "d550c4c041b6b72ea21c9a86e30eeea0ffa3f3a1cd78ef8adf25dfa55a440ede"
+          },
+          {
+            "shard": 4,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-endpoint-shift_shards/shard04.npz",
+            "npz_sha256": "a498280992183ca979753994e6bbedca38817b7b6f7e69604e8f9523310c69d5",
+            "tokens_array_sha256": "e29e96108682e01234ce8393ce6d9427fc5d0b326b2e9aa7c8cc76829d79cdc0",
+            "labels_array_sha256": "2f7328ef8b1908148775aed4d9a969967e40382543e7001be7358b4eac47390d",
+            "shortest_edges_array_sha256": "05617bb59ed6da90a30579c9a619b394c6cfdcbf92778142617596d6458d0013"
+          },
+          {
+            "shard": 5,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-endpoint-shift_shards/shard05.npz",
+            "npz_sha256": "dea11ca96c0dd2d3b29ddadd7e70be561cb326cee3fc4dbff591acd93a009217",
+            "tokens_array_sha256": "b3f99d58c9cd53e5c77429b425501ad06fbf05cdd9212f82b477d5c362a6777f",
+            "labels_array_sha256": "2cb4b6c5bbfbf7d4622c0575a054e7e88c65486d605fe1417990896286d433e1",
+            "shortest_edges_array_sha256": "f1f4cd65a849b951dfc391bdd5938e77e7cac2691efc2ce4586e032962691517"
+          },
+          {
+            "shard": 6,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-endpoint-shift_shards/shard06.npz",
+            "npz_sha256": "4754a2cf207b0d344ac3f951baef095fbcd906e89625db5672910164c2a8e5eb",
+            "tokens_array_sha256": "e3d7cc6053fc5135e7023ce95d396bfeef5e188efa15e25e13859e91ce74b649",
+            "labels_array_sha256": "a73aa5cc2fe690525f3fefdff2f376c0fd4c327905b45252e33e200b170153d1",
+            "shortest_edges_array_sha256": "d09b38fd83816ee7bad68f77d9247791049f24f05185e36e5820009d95bc8426"
+          },
+          {
+            "shard": 7,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-endpoint-shift_shards/shard07.npz",
+            "npz_sha256": "f6cfda1acf2788bb1ba4edf1b33896a2ddb336907a2ec881b23f368f28da32e7",
+            "tokens_array_sha256": "4becbf1034550a2fc58fd663476d6f87b3bc4a8a16c758aa9b663e4b0e10257c",
+            "labels_array_sha256": "faab8347886574c2707551c2a146ae0d20a4e2ca105f41d9cc9568e00bb600c4",
+            "shortest_edges_array_sha256": "0c74ad48f55ea381f80d87797376ae49dfd92916352d9cde926eaa9dae814207"
+          },
+          {
+            "shard": 8,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-endpoint-shift_shards/shard08.npz",
+            "npz_sha256": "e674a7713aaf11138ddef32d577e637917871830bdeac6d9a46a26a7a1b9f1d5",
+            "tokens_array_sha256": "6fb3a1d1a8139f3e6b3ba511d5e90db8bb031912c28c9346616bc75fa550537d",
+            "labels_array_sha256": "1c4393f0ae5df22ac384ca6f0c292713e8c5895fe2a3032bc120f3387a84f277",
+            "shortest_edges_array_sha256": "4710e60d6ac4185cb51c58ea88ec55d3da5bb582bebe9e990e898ed806f18966"
+          },
+          {
+            "shard": 9,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-endpoint-shift_shards/shard09.npz",
+            "npz_sha256": "9b81d2e680e8890fe15dc659b4c9ad4105a51dc347a3c0e66532b251201e54c4",
+            "tokens_array_sha256": "f6ba5f3668387033277a9b95ac5cd0f316b0f99830f22686c305d485a1f6ffa1",
+            "labels_array_sha256": "965128948893ab077c8d9a04bd83c94645e6b57119257748fd396e9dc08dfa5d",
+            "shortest_edges_array_sha256": "ff6311ad3f99c68736a7a230ff919f14e39596b3da065fd5317e91707cc77e5a"
+          },
+          {
+            "shard": 10,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-endpoint-shift_shards/shard10.npz",
+            "npz_sha256": "e6b5538f4fd80d74d68f3ed712733551ade38a7abc2abc565ef36bc27cc52b7a",
+            "tokens_array_sha256": "11493bd93c7eac4c45047db6c5b5f3e33cff8438a516dd5dde223e1a9f869e9d",
+            "labels_array_sha256": "71e1a51a31d69a98cb6557f56be6f3463cab3da19cd61e9bacada46626f0b593",
+            "shortest_edges_array_sha256": "32d4a46f1d1c0cfecaa6ad061e35abe9b3a1afc7b3ccca31caeb027361accaa8"
+          },
+          {
+            "shard": 11,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-endpoint-shift_shards/shard11.npz",
+            "npz_sha256": "fa4ef84efbe3ff12994ee9a68c9ef96a67719479e0f4a84086dd01dfb19d40d9",
+            "tokens_array_sha256": "36c26337e0b4e1ececdf820f950df317b67332ce7ffe95d49cb66c600c9ad7a5",
+            "labels_array_sha256": "07047de01efeaa3590dd6286a8edbeeb7dc40cd3f8f130d11878887ca2b422d6",
+            "shortest_edges_array_sha256": "b3af4ae0c2907d17a1c63db4aeec0e6a4666d09d67a39ea587d049ef9e758496"
+          },
+          {
+            "shard": 12,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-endpoint-shift_shards/shard12.npz",
+            "npz_sha256": "92e88928f0281f70f68735fda80b8a76a4b76b13376c5bf8b4906171d1b14157",
+            "tokens_array_sha256": "840dbe8dec0f75f2b7e185e68188f6b6a61d2877ebda6c4697c1e847a8ff1a5d",
+            "labels_array_sha256": "974e0be3bed031714d0d33e7617a3b06c2d9ece6f99d7d0645dbc5f3f219cbe6",
+            "shortest_edges_array_sha256": "36888e3cb6447a9d7e138a6e9f1745690d84bc458491b674f6c0fd844cad3c39"
+          },
+          {
+            "shard": 13,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-endpoint-shift_shards/shard13.npz",
+            "npz_sha256": "7d1a07745e902c81744a7775fb5e4825956dd13d2550b0a0f8333cc49b57d0e3",
+            "tokens_array_sha256": "1a1b07670fdddb008bdd82dadfe5a76e3086e93721f44f50ffdc33522d899d65",
+            "labels_array_sha256": "49eda6f5dfd8faae1b0d317640017e5a6ecf1ee4172ef6b44851dc2102fc0a1a",
+            "shortest_edges_array_sha256": "619f885341b4928be961118cbb7487df0953ea46a555cbb36b1949b80aed63ce"
+          },
+          {
+            "shard": 14,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-endpoint-shift_shards/shard14.npz",
+            "npz_sha256": "3d49bacaa0531c495a987124333bc58e781da02eb7a9c361a95eef72bdce2e76",
+            "tokens_array_sha256": "94213f1a5b653ab4ff07170bd85152e52816d64de837d3dc92e08ebe8a18e32b",
+            "labels_array_sha256": "27e12e9a75e62a70c4339c0e409708cd69231528a8a3d1e66bfebc7470a10e91",
+            "shortest_edges_array_sha256": "5b9172902fe881c7a7f4f637ddcfe96bae1c5f1f5dae19bdb890b8bd343258f7"
+          },
+          {
+            "shard": 15,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-endpoint-shift_shards/shard15.npz",
+            "npz_sha256": "c5a431f6af199ca4e887ca3bd7e804de7f3c6821ffe8749a7f7ee59e7a25ccc2",
+            "tokens_array_sha256": "67a16288d6d4e4df01da45108049ed2c01bd06a5279b7cdb9aedfc1e954c5bd3",
+            "labels_array_sha256": "d365228f2580cc2baf2830554d5a79cf6daa7e3ced7225e87a5790203b580e0c",
+            "shortest_edges_array_sha256": "e8794fdbb179c1bb8ae249278fdcf59d360fa91b8bfb52420e6bbe6803766956"
+          }
+        ]
+      },
+      "shards_verified": 16,
+      "seeded_generator_spot_replay_passed": true,
+      "sealed_timing_receipt_sha256": "1c4bf4734c9e0852ee226304b9ee3b64601d84ec99600c3ca1901f1c212a3f74",
+      "predictions_and_audit_npz": "artifacts/wsp/maze/cohorts_180/bp-first-endpoint-shift/pair0_predictions_and_audit.npz",
+      "predictions_and_audit_sha256": "8acb9c8028698aed0e72c92953e42ed1debea09d416914277cb6c22a245fb038",
+      "independent_audit_wall_seconds": 73.1845355090918,
+      "accuracy": {
+        "n_mazes": 4096,
+        "joint_solved": 4096,
+        "joint_solved_pct": 100.0,
+        "model_inputs_denominator": 12288,
+        "model_inputs_solved": 12288,
+        "canonical_exact": 4096,
+        "valid_simple_paths": 4096,
+        "shortest_paths": 4096,
+        "halted": 4096,
+        "wrong_halts": 0,
+        "accepted": 4096,
+        "one_sided95_clopper_pearson_lower_pp": 99.92688874435245,
+        "one_sided95_clopper_pearson_upper_pp": 100.0,
+        "absolute_999_target_decision": "supported"
+      },
+      "fc2_flops_per_unique_maze": {
+        "n": 4096,
+        "mean_total": 659828152.5625,
+        "std_total": 302370441.9351469,
+        "min_total": 84272401,
+        "median_total": 653994001.0,
+        "max_total": 1630659601,
+        "sum_total": 2702656112896,
+        "mean_total_with_compare": 700162814.519043,
+        "std_total_with_compare": 320549787.1213775,
+        "min_total_with_compare": 90104419,
+        "median_total_with_compare": 694072903.0,
+        "max_total_with_compare": 1729447447,
+        "sum_total_with_compare": 2867866888270,
+        "stage_steps_mean": {
+          "wave_steps": 128.56640625,
+          "trace_steps": 129.765625
+        },
+        "stage_steps_max": {
+          "wave_steps": 320,
+          "trace_steps": 320
+        }
+      },
+      "distance_strata": [
+        {
+          "bin": "1..64",
+          "mazes": 791,
+          "joint_solved": 791,
+          "model_inputs_denominator": 2373,
+          "model_inputs_solved": 2373,
+          "accepted": 791
+        },
+        {
+          "bin": "65..128",
+          "mazes": 1555,
+          "joint_solved": 1555,
+          "model_inputs_denominator": 4665,
+          "model_inputs_solved": 4665,
+          "accepted": 1555
+        },
+        {
+          "bin": "129..256",
+          "mazes": 1680,
+          "joint_solved": 1680,
+          "model_inputs_denominator": 5040,
+          "model_inputs_solved": 5040,
+          "accepted": 1680
+        },
+        {
+          "bin": ">=257",
+          "mazes": 70,
+          "joint_solved": 70,
+          "model_inputs_denominator": 210,
+          "model_inputs_solved": 210,
+          "accepted": 70
+        }
+      ],
+      "timing_4_balanced_pairs": {
+        "pairs": [
+          {
+            "pair": 0,
+            "order": [
+              "matched_3seed_B32",
+              "unique_1seed_B256"
+            ],
+            "runs": {
+              "matched_3seed_B32": {
+                "arm_mode": "matched_3seed_B32",
+                "model_inputs": 12288,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.025725592044182122
+                  },
+                  {
+                    "seed": 1,
+                    "seconds": 0.003927956917323172
+                  },
+                  {
+                    "seed": 2,
+                    "seconds": 8.727202657610178e-05
+                  }
+                ],
+                "model_readiness_seconds": 0.029755903990007937,
+                "batch_answer_seconds": 8.019758897367865,
+                "complete_answer_seconds": 8.049514801357873,
+                "component_seconds": {
+                  "input_transfer": 0.39432602596934885,
+                  "wsp_wavefront_gpu_solve": 7.476601099362597,
+                  "answer_d2h_return": 0.05355263326782733,
+                  "final_clamps_and_acceptance": 0.09238471067510545
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "af2d44b2d46181c903430b845ef8a0d17ab543b118ba9c780c2a5f62d94f5b9f",
+                  "steps_sha256": "38f62652e0aa9df7ca48a2a920b1cf46fd2dc05ea17d4a112e201b6a8c35a2a5",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              },
+              "unique_1seed_B256": {
+                "arm_mode": "unique_1seed_B256",
+                "model_inputs": 4096,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.01571550196968019
+                  }
+                ],
+                "model_readiness_seconds": 0.01572323404252529,
+                "batch_answer_seconds": 1.8750983969075605,
+                "complete_answer_seconds": 1.8908216309500858,
+                "component_seconds": {
+                  "input_transfer": 0.14683876489289105,
+                  "wsp_wavefront_gpu_solve": 1.685566225205548,
+                  "answer_d2h_return": 0.007024568039923906,
+                  "final_clamps_and_acceptance": 0.03495171805843711
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "af2d44b2d46181c903430b845ef8a0d17ab543b118ba9c780c2a5f62d94f5b9f",
+                  "steps_sha256": "38f62652e0aa9df7ca48a2a920b1cf46fd2dc05ea17d4a112e201b6a8c35a2a5",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              }
+            }
+          },
+          {
+            "pair": 1,
+            "order": [
+              "unique_1seed_B256",
+              "matched_3seed_B32"
+            ],
+            "runs": {
+              "unique_1seed_B256": {
+                "arm_mode": "unique_1seed_B256",
+                "model_inputs": 4096,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.014457751996815205
+                  }
+                ],
+                "model_readiness_seconds": 0.014467866974882782,
+                "batch_answer_seconds": 1.7446244264720008,
+                "complete_answer_seconds": 1.7590922934468836,
+                "component_seconds": {
+                  "input_transfer": 0.1520853458205238,
+                  "wsp_wavefront_gpu_solve": 1.554053554078564,
+                  "answer_d2h_return": 0.007237437064759433,
+                  "final_clamps_and_acceptance": 0.030536282691173255
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "af2d44b2d46181c903430b845ef8a0d17ab543b118ba9c780c2a5f62d94f5b9f",
+                  "steps_sha256": "38f62652e0aa9df7ca48a2a920b1cf46fd2dc05ea17d4a112e201b6a8c35a2a5",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              },
+              "matched_3seed_B32": {
+                "arm_mode": "matched_3seed_B32",
+                "model_inputs": 12288,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.015938209020532668
+                  },
+                  {
+                    "seed": 1,
+                    "seconds": 0.016114264959469438
+                  },
+                  {
+                    "seed": 2,
+                    "seconds": 0.004206388024613261
+                  }
+                ],
+                "model_readiness_seconds": 0.03627397504169494,
+                "batch_answer_seconds": 8.375026514520869,
+                "complete_answer_seconds": 8.411300489562564,
+                "component_seconds": {
+                  "input_transfer": 0.4058257187716663,
+                  "wsp_wavefront_gpu_solve": 7.820408319588751,
+                  "answer_d2h_return": 0.05300747638102621,
+                  "final_clamps_and_acceptance": 0.09308298537507653
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "af2d44b2d46181c903430b845ef8a0d17ab543b118ba9c780c2a5f62d94f5b9f",
+                  "steps_sha256": "38f62652e0aa9df7ca48a2a920b1cf46fd2dc05ea17d4a112e201b6a8c35a2a5",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              }
+            }
+          },
+          {
+            "pair": 2,
+            "order": [
+              "unique_1seed_B256",
+              "matched_3seed_B32"
+            ],
+            "runs": {
+              "unique_1seed_B256": {
+                "arm_mode": "unique_1seed_B256",
+                "model_inputs": 4096,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.0003066629869863391
+                  }
+                ],
+                "model_readiness_seconds": 0.0003147160168737173,
+                "batch_answer_seconds": 2.1916219801642,
+                "complete_answer_seconds": 2.191936696181074,
+                "component_seconds": {
+                  "input_transfer": 0.14259765576571226,
+                  "wsp_wavefront_gpu_solve": 2.012223605066538,
+                  "answer_d2h_return": 0.006975083029828966,
+                  "final_clamps_and_acceptance": 0.029108478454872966
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "af2d44b2d46181c903430b845ef8a0d17ab543b118ba9c780c2a5f62d94f5b9f",
+                  "steps_sha256": "38f62652e0aa9df7ca48a2a920b1cf46fd2dc05ea17d4a112e201b6a8c35a2a5",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              },
+              "matched_3seed_B32": {
+                "arm_mode": "matched_3seed_B32",
+                "model_inputs": 12288,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.0049681589007377625
+                  },
+                  {
+                    "seed": 1,
+                    "seconds": 0.009600881021469831
+                  },
+                  {
+                    "seed": 2,
+                    "seconds": 0.0023404969833791256
+                  }
+                ],
+                "model_readiness_seconds": 0.01692391897086054,
+                "batch_answer_seconds": 8.7757579064928,
+                "complete_answer_seconds": 8.79268182546366,
+                "component_seconds": {
+                  "input_transfer": 0.41105561947915703,
+                  "wsp_wavefront_gpu_solve": 8.217376370215788,
+                  "answer_d2h_return": 0.052884307340718806,
+                  "final_clamps_and_acceptance": 0.091884765191935
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "af2d44b2d46181c903430b845ef8a0d17ab543b118ba9c780c2a5f62d94f5b9f",
+                  "steps_sha256": "38f62652e0aa9df7ca48a2a920b1cf46fd2dc05ea17d4a112e201b6a8c35a2a5",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              }
+            }
+          },
+          {
+            "pair": 3,
+            "order": [
+              "matched_3seed_B32",
+              "unique_1seed_B256"
+            ],
+            "runs": {
+              "matched_3seed_B32": {
+                "arm_mode": "matched_3seed_B32",
+                "model_inputs": 12288,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.00028226699214428663
+                  },
+                  {
+                    "seed": 1,
+                    "seconds": 7.701606955379248e-05
+                  },
+                  {
+                    "seed": 2,
+                    "seconds": 7.277005352079868e-05
+                  }
+                ],
+                "model_readiness_seconds": 0.00044442189391702414,
+                "batch_answer_seconds": 8.602354158414528,
+                "complete_answer_seconds": 8.602798580308445,
+                "component_seconds": {
+                  "input_transfer": 0.43189561646431684,
+                  "wsp_wavefront_gpu_solve": 8.013534254045226,
+                  "answer_d2h_return": 0.055123444995842874,
+                  "final_clamps_and_acceptance": 0.09902100928593427
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "af2d44b2d46181c903430b845ef8a0d17ab543b118ba9c780c2a5f62d94f5b9f",
+                  "steps_sha256": "38f62652e0aa9df7ca48a2a920b1cf46fd2dc05ea17d4a112e201b6a8c35a2a5",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              },
+              "unique_1seed_B256": {
+                "arm_mode": "unique_1seed_B256",
+                "model_inputs": 4096,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.015099421958439052
+                  }
+                ],
+                "model_readiness_seconds": 0.015107403043657541,
+                "batch_answer_seconds": 1.7480498562799767,
+                "complete_answer_seconds": 1.7631572593236342,
+                "component_seconds": {
+                  "input_transfer": 0.14544693287461996,
+                  "wsp_wavefront_gpu_solve": 1.564600128098391,
+                  "answer_d2h_return": 0.0071590893203392625,
+                  "final_clamps_and_acceptance": 0.03015992511063814
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "af2d44b2d46181c903430b845ef8a0d17ab543b118ba9c780c2a5f62d94f5b9f",
+                  "steps_sha256": "38f62652e0aa9df7ca48a2a920b1cf46fd2dc05ea17d4a112e201b6a8c35a2a5",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              }
+            }
+          }
+        ],
+        "matched_3seed_B32_complete_seconds": [
+          8.049514801357873,
+          8.411300489562564,
+          8.79268182546366,
+          8.602798580308445
+        ],
+        "matched_3seed_B32_median_seconds": 8.507049534935504,
+        "unique_1seed_B256_complete_seconds": [
+          1.8908216309500858,
+          1.7590922934468836,
+          2.191936696181074,
+          1.7631572593236342
+        ],
+        "unique_1seed_B256_median_seconds": 1.82698944513686,
+        "comparison_vs_published_LP96_12288": {
+          "pairs": [
+            {
+              "pair": 0,
+              "wsp_seconds": 8.049514801357873,
+              "baseline_seconds": 76.01160697382875,
+              "speedup_ratio": 9.443004808315447,
+              "saving": 0.8941015047329631,
+              "exact_saving": "583789926497/652934732138"
+            },
+            {
+              "pair": 1,
+              "wsp_seconds": 8.411300489562564,
+              "baseline_seconds": 75.35300166264642,
+              "speedup_ratio": 8.958543539866474,
+              "saving": 0.88837471230118,
+              "exact_saving": "575024834554/647277355593"
+            },
+            {
+              "pair": 2,
+              "wsp_seconds": 8.79268182546366,
+              "baseline_seconds": 76.23829191894038,
+              "speedup_ratio": 8.670652871590761,
+              "saving": 0.884668430992494,
+              "exact_saving": "1158706758441/1309763881979"
+            },
+            {
+              "pair": 3,
+              "wsp_seconds": 8.602798580308445,
+              "baseline_seconds": 76.44919979007682,
+              "speedup_ratio": 8.88655000769945,
+              "saving": 0.8874703907440363,
+              "exact_saving": "1165592297389/1313387251615"
+            }
+          ],
+          "median_saving": 0.8879225515226082,
+          "exact_median_saving": "1509691787018769702751387/1700251654189830637065390",
+          "median_speedup_ratio": 8.922546773782962
+        },
+        "comparison_vs_published_BP_geometry_LP96_12288": {
+          "pairs": [
+            {
+              "pair": 0,
+              "wsp_seconds": 8.049514801357873,
+              "baseline_seconds": 86.68605704477523,
+              "speedup_ratio": 10.76910337877162,
+              "saving": 0.9071417587121292,
+              "exact_saving": "675482754412/744627560053"
+            },
+            {
+              "pair": 1,
+              "wsp_seconds": 8.411300489562564,
+              "baseline_seconds": 86.5045920695411,
+              "speedup_ratio": 10.284330250343945,
+              "saving": 0.9027646938927738,
+              "exact_saving": "670816266746/743068787785"
+            },
+            {
+              "pair": 2,
+              "wsp_seconds": 8.79268182546366,
+              "baseline_seconds": 88.86392388766399,
+              "speedup_ratio": 10.106577907813463,
+              "saving": 0.9010545400113233,
+              "exact_saving": "1375613464029/1526670587567"
+            },
+            {
+              "pair": 3,
+              "wsp_seconds": 8.602798580308445,
+              "baseline_seconds": 88.89603974099737,
+              "speedup_ratio": 10.333386154649466,
+              "saving": 0.9032263011336266,
+              "exact_saving": "229904563250/254537055621"
+            }
+          ],
+          "median_saving": 0.9029954975132002,
+          "exact_median_saving": "170791251260307767290258/189138541366659590389485",
+          "median_speedup_ratio": 10.308858202496705
+        },
+        "published_reference_cohorts_provenance_sha256": "863fe9f9d8b881b266c1697abf17abd56a9fda67ca5ba1148e6395f8af9f8ed4",
+        "hardware_note": "WSP-Wavefront measured on local RTX PRO 6000 Blackwell Max-Q (GPU 2) under identical 12,288-eval B=32 readiness+H2D+GPU+D2H+acceptance cost boundary; published H2bo/H2bp/H2bq LP96 and cascade timings ran on Work RTX PRO 6000 Blackwell."
+      }
+    },
+    "H2bq": {
+      "hypothesis_id": "H2bq",
+      "cohort": "bp-first-far-placement",
+      "label": "Opposite-region endpoints (H2bq)",
+      "base_seed": 2026111531,
+      "protocol_path": "results/research/work/bp-first-far-placement/protocol.json",
+      "protocol_sha256": "45c298424988de14185731277812554979085760b3505948cb629f0ba9a7223e",
+      "datasets_manifest_path": "artifacts/research/20261114/work/bp_first_far_placement/datasets.json",
+      "datasets_manifest_sha256": "7ccf29e867a70306064e19453c0d713b818d64c6a881c28e67cc9defe92cc3ee",
+      "independent_input_audit_path": "results/research/work/bp-first-far-placement/independent-input-audit.json",
+      "independent_input_audit_sha256": "47d939c6d158ba85d8c1155f461250dc0e92dfd523fe55ee0179182afbb4c1ed",
+      "all_4096_distances_matched_input_audit": true,
+      "shard_source_info": {
+        "source": "deterministic_seeded_regeneration",
+        "regenerated": true,
+        "law": "far",
+        "base_seed": 2026111531,
+        "regeneration_wall_seconds": 36.38355888903607,
+        "shards": [
+          {
+            "shard": 0,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-far-placement_shards/shard00.npz",
+            "npz_sha256": "38605fa2a08d76531ec328b5e61fe9a682afe576d9450761bd919c7260657a19",
+            "tokens_array_sha256": "d944b9b3a7b2ef7ad5a64141e399985de7b3770c28bfa54e2d24e6bb5d36b18a",
+            "labels_array_sha256": "7dc876daa664824ac6643fcd5a8fb03aa2fac15c5889a576e82ee0ef5ce1f691",
+            "shortest_edges_array_sha256": "172c624709151d0e3f84d2b5ff54c10ffe887ddafaa32c8a93f2ede13b3f4df2"
+          },
+          {
+            "shard": 1,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-far-placement_shards/shard01.npz",
+            "npz_sha256": "e55ee671b4e886015df7c3fbeea6fb4ce67630b357e138d113be2a956736b5f3",
+            "tokens_array_sha256": "a35773ac8fd0a14bbf73183ebacfe8c7d6794fb6ef921ef422736413327979dd",
+            "labels_array_sha256": "25741d10907d6ff10ae327fbc4cfadc024bd0d9fae7de0fb75ef923f035649ba",
+            "shortest_edges_array_sha256": "54e5e5775a686a50927d753371de9b4c1b14f7e79f9148e64dad1d30aaf78aff"
+          },
+          {
+            "shard": 2,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-far-placement_shards/shard02.npz",
+            "npz_sha256": "595cf653c3a9bbea7bf75740b27c4ad869626de9fe83e33183b8e8086c6cdf7d",
+            "tokens_array_sha256": "84044197961166078df5ea5337c4e533e532b3d7988af85bd16ad91d2356ce70",
+            "labels_array_sha256": "1330e54252953f5a9b219826ff6547fcf9db44d45c316e8a9a5859d073f2ea1e",
+            "shortest_edges_array_sha256": "684050bb1cfba2caaa631d69d0cbdbae700250533a6c630d279eb8558a523c25"
+          },
+          {
+            "shard": 3,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-far-placement_shards/shard03.npz",
+            "npz_sha256": "4c1f6c2acab5a14ae4a01b042e215779239a616eed3e92fbeb5acb3c133ff628",
+            "tokens_array_sha256": "f719f075716acda971a940bf122a951dae608678cd01bfb40ec379b09df5fde9",
+            "labels_array_sha256": "f551932cbd29d17f0095091765543f271039ccb02c5d279573329b8e8c5f42af",
+            "shortest_edges_array_sha256": "d588ee9858a9e3d597dae243476dd65d73566ef9f3a9b1f41193daa6995488c6"
+          },
+          {
+            "shard": 4,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-far-placement_shards/shard04.npz",
+            "npz_sha256": "b5eabe2177a5be5921e391c3ad333575f6c9e59c3dbf6684d6ff4977be521c26",
+            "tokens_array_sha256": "b81b5f99d7527beb89e113bb9c70ca1a83e5be112accc151636594f8582acc41",
+            "labels_array_sha256": "364ef7ce14bb9cbb9effd973a3c93102b0369a6724909e4aa3532fc381f47fd0",
+            "shortest_edges_array_sha256": "0590dd6eb1d34e575931a95e92f6ae29935b28954f0b502e87fe268eb756341c"
+          },
+          {
+            "shard": 5,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-far-placement_shards/shard05.npz",
+            "npz_sha256": "756588eeac5d0df0a3853be61b21bcc8c7ffa528dca8d586529fdcc3e7d967cf",
+            "tokens_array_sha256": "9b265d2873129b9990fd8a6dd9b1510a7b1a530e7b56e357bd2e9a6f625c239f",
+            "labels_array_sha256": "d890988d91e5e93bf3a6882318bfecfd80e0c595e215a3f19876d9b691c5a947",
+            "shortest_edges_array_sha256": "1b5cf1c3ee7af16fb6a9acb572f436ffa602e6bf5d7f1cec1eee8b91a260192a"
+          },
+          {
+            "shard": 6,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-far-placement_shards/shard06.npz",
+            "npz_sha256": "525e668c8102fe4f2eda1e5b5ae5741e36689bd8f7b92d844b949d0a0d5f7758",
+            "tokens_array_sha256": "e6d54ccb866fc0cd7816b4afbdfa42e7ca5c0a6333ee3793e8059145cda315db",
+            "labels_array_sha256": "a87c4b6b269ad44b37222a5ff1f3ddeaff91bcb6e4198dc4b3dd18f5edc44f40",
+            "shortest_edges_array_sha256": "ccc020190d2310a716cd365b17cac9426fa89c679f3021e491687101ae6892e7"
+          },
+          {
+            "shard": 7,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-far-placement_shards/shard07.npz",
+            "npz_sha256": "927666b14cfcd41826452c075ec6d1754d7ccde93e621b6eb8063c976c6108b1",
+            "tokens_array_sha256": "7f6de86df081748edd9307687cae3955f9dfcc2189e5bbc161563d1dd21f8f94",
+            "labels_array_sha256": "b26ed616d1ec6e338b750675a238bec5a03f02f763cd15a696830f5f4362789b",
+            "shortest_edges_array_sha256": "fb50cef04f4f8422dd3e2b27ed746f122f0a9b4d0af6a24984f80ec62effb433"
+          },
+          {
+            "shard": 8,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-far-placement_shards/shard08.npz",
+            "npz_sha256": "d7d85b23571dc9d537a84697541ed009ef1e6f840b867f714216cdbc0aee7d26",
+            "tokens_array_sha256": "5d755e0b706165e250b6471f64fabe4cd6e6297e47743f2830ded8ab50e9838d",
+            "labels_array_sha256": "ff5dd5705b829eb7a4d1c2d28655cc117f2445bbbd4ebc76a55b8c744f73b9a7",
+            "shortest_edges_array_sha256": "33790153408f88b1b1c81b3281ed42cc6a7d6a12d7ceea7cdaff7925a42d29f5"
+          },
+          {
+            "shard": 9,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-far-placement_shards/shard09.npz",
+            "npz_sha256": "f3243bf9a44260521f642793f0aed8d9cc546476f67136f621ea5995e1f3996e",
+            "tokens_array_sha256": "098c5be09c0acf4855ba5effc849c0ba3402cc2156e136e03e2daca8f29cfd2e",
+            "labels_array_sha256": "82c9aac50be968d3fb54659900a1bea2b5eb9a544a503356e41e0c3fe5b7533f",
+            "shortest_edges_array_sha256": "4fcd0c0d7d1674074111aa7746d7d8632fb94375ddab789388439961eeba8f5c"
+          },
+          {
+            "shard": 10,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-far-placement_shards/shard10.npz",
+            "npz_sha256": "31fbf93f7706bfd3fa92f5a5995db46b67f7dcd2d62d986d456a0352974029de",
+            "tokens_array_sha256": "0a98ed5ff7b8acc7d45edcf8a3d6386b42d43b207055d081ef61a050df8ecbf1",
+            "labels_array_sha256": "c675c73653c8f26dc76e9006f82b3422fd46aa540755f3a156c6cf0739a5e7f8",
+            "shortest_edges_array_sha256": "3e8e808f7bbb1c3fe3038c4c0bb66b1842bac67ab911307b48b319c5f9f0c037"
+          },
+          {
+            "shard": 11,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-far-placement_shards/shard11.npz",
+            "npz_sha256": "b37b7a67eca1355229ba4d2b67ccd5eb2c2ad65933281cc772d8855a1a37028a",
+            "tokens_array_sha256": "85e2a5a09616044f64976b7e3537333ce16510d60930e21f70d8fb67ed5346bb",
+            "labels_array_sha256": "46131e650fdb82ad84f6b9c5a0066dfad4a5bf6355c0ec61edc3da9b90a87b9a",
+            "shortest_edges_array_sha256": "61c8569adf0f0cdc50b3880fcc8a3d7fd21e54ec7042814f59b7fed5c0f64e9e"
+          },
+          {
+            "shard": 12,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-far-placement_shards/shard12.npz",
+            "npz_sha256": "28c8dbac99bd40d2e5ba61f854d16cb660d2edc569581bb5cd457aa0339cc021",
+            "tokens_array_sha256": "c66eac2e7f5c8c41eb6d99a2b031075c60d795c2c3d278a12643cb33af70193e",
+            "labels_array_sha256": "295f1b498c506d729ea24e8a02c99f1d32c1bb97e3a7693c2733dbbd11888b78",
+            "shortest_edges_array_sha256": "588a3b6e19fd8c6d13a841dac73294e33327731a1399cf7cd9b4e4105a9a1376"
+          },
+          {
+            "shard": 13,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-far-placement_shards/shard13.npz",
+            "npz_sha256": "da23d03851a05cee4257f967f6bcc0d53eb38979a5e1f1848be5e347ff2a83e4",
+            "tokens_array_sha256": "df7d54249e97d5d379ca27dcc463ff455444fd8deb91436bcf8af3762e3f0116",
+            "labels_array_sha256": "43cff28bfe87c8d59b25a2078494bdce3f90e0fabefcce38515eca3e317da058",
+            "shortest_edges_array_sha256": "371944bcf65c87aa191dcf66bb93fdd99e30ed5461ace9283b07d88ad00f58fd"
+          },
+          {
+            "shard": 14,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-far-placement_shards/shard14.npz",
+            "npz_sha256": "ed4d73be66cdd47442a300875254b42a25df2b6b031506a876226d037e3e2c12",
+            "tokens_array_sha256": "560ff3fcc7f71051046b70d55ec774b18be56691d0e20b4e51fe1a6a75981a4b",
+            "labels_array_sha256": "ac85a2a6c869b281df60bc7806cde9167489e9484f647ffbd28eb2ef6dd3c9c4",
+            "shortest_edges_array_sha256": "4dd82255744fad7df5d3fd8d35497c509331ae1bec0dd2f03196cf1e679cdef7"
+          },
+          {
+            "shard": 15,
+            "n": 256,
+            "path": "artifacts/wsp/maze/cohorts_180/bp-first-far-placement_shards/shard15.npz",
+            "npz_sha256": "0845a6bf478a52384317595dbe3f52e006bdcd0c33b70c5e5df45eb4a4c371cf",
+            "tokens_array_sha256": "c5318253e8a34d48556c59f3f9e1a4605c1bb10a149edc771721d6c194c1bf41",
+            "labels_array_sha256": "101e330571ab10542cc3cef780525f22b50eaa08fe952a6398b7d3a99fe5e40c",
+            "shortest_edges_array_sha256": "dcb6cc7fc7dcc7d9979906e7163c1ec59c630031c5a358bd31490a013b00fa9f"
+          }
+        ]
+      },
+      "shards_verified": 16,
+      "seeded_generator_spot_replay_passed": true,
+      "sealed_timing_receipt_sha256": "784e0e83a83dfa78ba24b5d6caec0724eb3322b306aa5e9f11daedc08ed4d8ec",
+      "predictions_and_audit_npz": "artifacts/wsp/maze/cohorts_180/bp-first-far-placement/pair0_predictions_and_audit.npz",
+      "predictions_and_audit_sha256": "c7ecf4bb7244a41b3041c525f7b973852be3a106b4dec03c12538a459646807c",
+      "independent_audit_wall_seconds": 76.19391232298221,
+      "accuracy": {
+        "n_mazes": 4096,
+        "joint_solved": 4096,
+        "joint_solved_pct": 100.0,
+        "model_inputs_denominator": 12288,
+        "model_inputs_solved": 12288,
+        "canonical_exact": 4096,
+        "valid_simple_paths": 4096,
+        "shortest_paths": 4096,
+        "halted": 4096,
+        "wrong_halts": 0,
+        "accepted": 4096,
+        "one_sided95_clopper_pearson_lower_pp": 99.92688874435245,
+        "one_sided95_clopper_pearson_upper_pp": 100.0,
+        "absolute_999_target_decision": "supported"
+      },
+      "fc2_flops_per_unique_maze": {
+        "n": 4096,
+        "mean_total": 1414165965.0625,
+        "std_total": 133770923.38888213,
+        "min_total": 979549201,
+        "median_total": 1386493201.0,
+        "max_total": 1793437201,
+        "sum_total": 5792423792896,
+        "mean_total_with_compare": 1499855913.0419922,
+        "std_total_with_compare": 141811860.3259707,
+        "min_total_with_compare": 1039197751,
+        "median_total_with_compare": 1470603811.0,
+        "max_total_with_compare": 1902009871,
+        "sum_total_with_compare": 6143409819820,
+        "stage_steps_mean": {
+          "wave_steps": 276.92578125,
+          "trace_steps": 277.98828125
+        },
+        "stage_steps_max": {
+          "wave_steps": 352,
+          "trace_steps": 352
+        }
+      },
+      "distance_strata": [
+        {
+          "bin": "1..64",
+          "mazes": 0,
+          "joint_solved": 0,
+          "model_inputs_denominator": 0,
+          "model_inputs_solved": 0,
+          "accepted": 0
+        },
+        {
+          "bin": "65..128",
+          "mazes": 0,
+          "joint_solved": 0,
+          "model_inputs_denominator": 0,
+          "model_inputs_solved": 0,
+          "accepted": 0
+        },
+        {
+          "bin": "129..256",
+          "mazes": 1270,
+          "joint_solved": 1270,
+          "model_inputs_denominator": 3810,
+          "model_inputs_solved": 3810,
+          "accepted": 1270
+        },
+        {
+          "bin": ">=257",
+          "mazes": 2826,
+          "joint_solved": 2826,
+          "model_inputs_denominator": 8478,
+          "model_inputs_solved": 8478,
+          "accepted": 2826
+        }
+      ],
+      "timing_4_balanced_pairs": {
+        "pairs": [
+          {
+            "pair": 0,
+            "order": [
+              "matched_3seed_B32",
+              "unique_1seed_B256"
+            ],
+            "runs": {
+              "matched_3seed_B32": {
+                "arm_mode": "matched_3seed_B32",
+                "model_inputs": 12288,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.009354128036648035
+                  },
+                  {
+                    "seed": 1,
+                    "seconds": 7.79579859226942e-05
+                  },
+                  {
+                    "seed": 2,
+                    "seconds": 6.72810710966587e-05
+                  }
+                ],
+                "model_readiness_seconds": 0.009512338088825345,
+                "batch_answer_seconds": 4.631884442293085,
+                "complete_answer_seconds": 4.6413967803819105,
+                "component_seconds": {
+                  "input_transfer": 0.4825965586351231,
+                  "wsp_wavefront_gpu_solve": 4.040924100088887,
+                  "answer_d2h_return": 0.04350694711320102,
+                  "final_clamps_and_acceptance": 0.0629011649871245
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "116e24120d0488387eedf1d0e20874f886cf820bbb9d8a3bc2bdce9ec0014a66",
+                  "steps_sha256": "ab42cbad59990492c112fbec638cdbab73de4f03379bff3e021a498f1f053d50",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              },
+              "unique_1seed_B256": {
+                "arm_mode": "unique_1seed_B256",
+                "model_inputs": 4096,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.00018453900702297688
+                  }
+                ],
+                "model_readiness_seconds": 0.00019109901040792465,
+                "batch_answer_seconds": 1.705130180111155,
+                "complete_answer_seconds": 1.7053212791215628,
+                "component_seconds": {
+                  "input_transfer": 0.16349549498409033,
+                  "wsp_wavefront_gpu_solve": 1.502103058155626,
+                  "answer_d2h_return": 0.006547007826156914,
+                  "final_clamps_and_acceptance": 0.03233673411887139
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "116e24120d0488387eedf1d0e20874f886cf820bbb9d8a3bc2bdce9ec0014a66",
+                  "steps_sha256": "ab42cbad59990492c112fbec638cdbab73de4f03379bff3e021a498f1f053d50",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              }
+            }
+          },
+          {
+            "pair": 1,
+            "order": [
+              "unique_1seed_B256",
+              "matched_3seed_B32"
+            ],
+            "runs": {
+              "unique_1seed_B256": {
+                "arm_mode": "unique_1seed_B256",
+                "model_inputs": 4096,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.01582806301303208
+                  }
+                ],
+                "model_readiness_seconds": 0.015837337006814778,
+                "batch_answer_seconds": 2.4912794162519276,
+                "complete_answer_seconds": 2.5071167532587424,
+                "component_seconds": {
+                  "input_transfer": 0.1369528501527384,
+                  "wsp_wavefront_gpu_solve": 2.3140261392109096,
+                  "answer_d2h_return": 0.0070130969397723675,
+                  "final_clamps_and_acceptance": 0.03254631091840565
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "116e24120d0488387eedf1d0e20874f886cf820bbb9d8a3bc2bdce9ec0014a66",
+                  "steps_sha256": "ab42cbad59990492c112fbec638cdbab73de4f03379bff3e021a498f1f053d50",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              },
+              "matched_3seed_B32": {
+                "arm_mode": "matched_3seed_B32",
+                "model_inputs": 12288,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.014353845035657287
+                  },
+                  {
+                    "seed": 1,
+                    "seconds": 0.01142700097989291
+                  },
+                  {
+                    "seed": 2,
+                    "seconds": 0.016289941035211086
+                  }
+                ],
+                "model_readiness_seconds": 0.042084077023901045,
+                "batch_answer_seconds": 8.987846688483842,
+                "complete_answer_seconds": 9.029930765507743,
+                "component_seconds": {
+                  "input_transfer": 0.4749590960564092,
+                  "wsp_wavefront_gpu_solve": 8.354869713191874,
+                  "answer_d2h_return": 0.054872137727215886,
+                  "final_clamps_and_acceptance": 0.09961294406093657
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "116e24120d0488387eedf1d0e20874f886cf820bbb9d8a3bc2bdce9ec0014a66",
+                  "steps_sha256": "ab42cbad59990492c112fbec638cdbab73de4f03379bff3e021a498f1f053d50",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              }
+            }
+          },
+          {
+            "pair": 2,
+            "order": [
+              "unique_1seed_B256",
+              "matched_3seed_B32"
+            ],
+            "runs": {
+              "unique_1seed_B256": {
+                "arm_mode": "unique_1seed_B256",
+                "model_inputs": 4096,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.002643525949679315
+                  }
+                ],
+                "model_readiness_seconds": 0.002650465932674706,
+                "batch_answer_seconds": 3.205764104030095,
+                "complete_answer_seconds": 3.2084145699627697,
+                "component_seconds": {
+                  "input_transfer": 0.12795382516924292,
+                  "wsp_wavefront_gpu_solve": 3.0405867730733007,
+                  "answer_d2h_return": 0.006811855477280915,
+                  "final_clamps_and_acceptance": 0.029704784974455833
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "116e24120d0488387eedf1d0e20874f886cf820bbb9d8a3bc2bdce9ec0014a66",
+                  "steps_sha256": "ab42cbad59990492c112fbec638cdbab73de4f03379bff3e021a498f1f053d50",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              },
+              "matched_3seed_B32": {
+                "arm_mode": "matched_3seed_B32",
+                "model_inputs": 12288,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.014817825984209776
+                  },
+                  {
+                    "seed": 1,
+                    "seconds": 0.0055877360282465816
+                  },
+                  {
+                    "seed": 2,
+                    "seconds": 8.996599353849888e-05
+                  }
+                ],
+                "model_readiness_seconds": 0.020509509020484984,
+                "batch_answer_seconds": 10.96558904601261,
+                "complete_answer_seconds": 10.986098555033095,
+                "component_seconds": {
+                  "input_transfer": 0.43632820690982044,
+                  "wsp_wavefront_gpu_solve": 10.36894984159153,
+                  "answer_d2h_return": 0.0557999691227451,
+                  "final_clamps_and_acceptance": 0.10136416368186474
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "116e24120d0488387eedf1d0e20874f886cf820bbb9d8a3bc2bdce9ec0014a66",
+                  "steps_sha256": "ab42cbad59990492c112fbec638cdbab73de4f03379bff3e021a498f1f053d50",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              }
+            }
+          },
+          {
+            "pair": 3,
+            "order": [
+              "matched_3seed_B32",
+              "unique_1seed_B256"
+            ],
+            "runs": {
+              "matched_3seed_B32": {
+                "arm_mode": "matched_3seed_B32",
+                "model_inputs": 12288,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.0045592510141432285
+                  },
+                  {
+                    "seed": 1,
+                    "seconds": 0.000523081049323082
+                  },
+                  {
+                    "seed": 2,
+                    "seconds": 7.285003084689379e-05
+                  }
+                ],
+                "model_readiness_seconds": 0.005168891977518797,
+                "batch_answer_seconds": 10.594029958010651,
+                "complete_answer_seconds": 10.59919884998817,
+                "component_seconds": {
+                  "input_transfer": 0.4306435453472659,
+                  "wsp_wavefront_gpu_solve": 10.0095097735757,
+                  "answer_d2h_return": 0.054088479839265347,
+                  "final_clamps_and_acceptance": 0.09698461694642901
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "116e24120d0488387eedf1d0e20874f886cf820bbb9d8a3bc2bdce9ec0014a66",
+                  "steps_sha256": "ab42cbad59990492c112fbec638cdbab73de4f03379bff3e021a498f1f053d50",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              },
+              "unique_1seed_B256": {
+                "arm_mode": "unique_1seed_B256",
+                "model_inputs": 4096,
+                "unique_mazes": 4096,
+                "model_readiness": [
+                  {
+                    "seed": 0,
+                    "seconds": 0.014943105983547866
+                  }
+                ],
+                "model_readiness_seconds": 0.014951298013329506,
+                "batch_answer_seconds": 3.367474226630293,
+                "complete_answer_seconds": 3.3824255246436223,
+                "component_seconds": {
+                  "input_transfer": 0.13431595300789922,
+                  "wsp_wavefront_gpu_solve": 3.192840724135749,
+                  "answer_d2h_return": 0.007294624927453697,
+                  "final_clamps_and_acceptance": 0.03230418369639665
+                },
+                "cross_seed_exact": true,
+                "hashes": {
+                  "predictions_sha256": "116e24120d0488387eedf1d0e20874f886cf820bbb9d8a3bc2bdce9ec0014a66",
+                  "steps_sha256": "ab42cbad59990492c112fbec638cdbab73de4f03379bff3e021a498f1f053d50",
+                  "accepted_sha256": "dc06c462256788f0431ff17b9496e81867a539258ab6e0b8c392085a4eacf773"
+                }
+              }
+            }
+          }
+        ],
+        "matched_3seed_B32_complete_seconds": [
+          4.6413967803819105,
+          9.029930765507743,
+          10.986098555033095,
+          10.59919884998817
+        ],
+        "matched_3seed_B32_median_seconds": 9.814564807747956,
+        "unique_1seed_B256_complete_seconds": [
+          1.7053212791215628,
+          2.5071167532587424,
+          3.2084145699627697,
+          3.3824255246436223
+        ],
+        "unique_1seed_B256_median_seconds": 2.857765661610756,
+        "comparison_vs_published_LP96_12288": {
+          "pairs": [
+            {
+              "pair": 0,
+              "wsp_seconds": 4.6413967803819105,
+              "baseline_seconds": 117.84399964107433,
+              "speedup_ratio": 25.38977062662971,
+              "saving": 0.9606140593113053,
+              "exact_saving": "1944805908435/2024544497953"
+            },
+            {
+              "pair": 1,
+              "wsp_seconds": 9.029930765507743,
+              "baseline_seconds": 118.44293678860413,
+              "speedup_ratio": 13.116704863455752,
+              "saving": 0.9237613401833806,
+              "exact_saving": "1879701130505/2034834159797"
+            },
+            {
+              "pair": 2,
+              "wsp_seconds": 10.986098555033095,
+              "baseline_seconds": 119.16070935345488,
+              "speedup_ratio": 10.846499215034205,
+              "saving": 0.9078043541814937,
+              "exact_saving": "1858425662547/2047165398565"
+            },
+            {
+              "pair": 3,
+              "wsp_seconds": 10.59919884998817,
+              "baseline_seconds": 119.68349614774343,
+              "speedup_ratio": 11.291749295549542,
+              "saving": 0.9114397624472469,
+              "exact_saving": "937026978802/1028073403651"
+            }
+          ],
+          "median_saving": 0.9176005513153137,
+          "exact_median_saving": "3839165244202596894096949/4183917761055649234437694",
+          "median_speedup_ratio": 12.204227079502648
+        },
+        "comparison_vs_published_BP_geometry_LP96_12288": {
+          "pairs": [
+            {
+              "pair": 0,
+              "wsp_seconds": 4.6413967803819105,
+              "baseline_seconds": 96.08163557131775,
+              "speedup_ratio": 20.70101741299778,
+              "saving": 0.9516931955541412,
+              "exact_saving": "785465670291/825334965050"
+            },
+            {
+              "pair": 1,
+              "wsp_seconds": 9.029930765507743,
+              "baseline_seconds": 96.22960130253341,
+              "speedup_ratio": 10.656737443669927,
+              "saving": 0.9061626501275963,
+              "exact_saving": "249679822119/275535327001"
+            },
+            {
+              "pair": 2,
+              "wsp_seconds": 10.986098555033095,
+              "baseline_seconds": 97.48541030078195,
+              "speedup_ratio": 8.873524100702761,
+              "saving": 0.887305202684827,
+              "exact_saving": "743023430149/837393298158"
+            },
+            {
+              "pair": 3,
+              "wsp_seconds": 10.59919884998817,
+              "baseline_seconds": 97.67104923014995,
+              "speedup_ratio": 9.214946394770106,
+              "saving": 0.8914806492452799,
+              "exact_saving": "249313833190/279662641473"
+            }
+          ],
+          "median_saving": 0.8988216496864382,
+          "exact_median_saving": "138520887130187729104477/154113874736452958624946",
+          "median_speedup_ratio": 9.935841919220017
+        },
+        "published_reference_cohorts_provenance_sha256": "863fe9f9d8b881b266c1697abf17abd56a9fda67ca5ba1148e6395f8af9f8ed4",
+        "hardware_note": "WSP-Wavefront measured on local RTX PRO 6000 Blackwell Max-Q (GPU 2) under identical 12,288-eval B=32 readiness+H2D+GPU+D2H+acceptance cost boundary; published H2bo/H2bp/H2bq LP96 and cascade timings ran on Work RTX PRO 6000 Blackwell."
+      }
+    }
+  }
+}

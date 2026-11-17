@@ -1,0 +1,1361 @@
+{
+  "benchmark": "nqueens_multi_solution",
+  "dev_selections_sha256": "1c826145b467546ad0fd534061bcbadf41f7ee27cc69035adf1d986f7db55a56",
+  "cuda_context_seconds": 0.22207729308865964,
+  "hardware": {
+    "hostname": "foureyes",
+    "python": "3.13.13",
+    "torch": "2.11.0+cu128",
+    "device": "cuda",
+    "cuda_visible_devices": "0",
+    "tmpdir": "/home/catid/.cache/hopfield_tmp",
+    "triton_cache_dir": "/home/catid/.cache/hopfield_tmp/triton_multi",
+    "torchinductor_cache_dir": "/home/catid/.cache/hopfield_tmp/inductor_multi",
+    "wsp_upstream_commit": "02c31abd3b34d84854cc80d9717717c45365c719",
+    "gpu_name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+    "gpu_capability": [
+      12,
+      0
+    ],
+    "nvidia_smi_snapshot": "0, GPU-4c394fc5-b18f-6622-ca94-f7fbd7112927, 1 %, 96.91 W, 740 MiB, 96571 MiB",
+    "cotenant_compute_apps": [
+      "2524702, /home/catid/hopfield/upstream/.venv/bin/python, 730 MiB"
+    ]
+  },
+  "sizes": {
+    "8": {
+      "n": 8,
+      "test_rows": 1240,
+      "distinct_test_inputs": 772,
+      "solution_counts_sha256": "cc43b391b6541ea36ead94f2fbb79e47a02f816b198b03fcc669b7b9d9804b55",
+      "arms": {
+        "wsp_det": {
+          "label": "WSP-Det (rule-programmed deterministic Hopfield relaxation)",
+          "disclosure": {
+            "params_learned": 0,
+            "distinct_programmed_coefficients": 2,
+            "distinct_programmed_values": [
+              -0.5,
+              1.0
+            ],
+            "distinct_nonzero_all_w_tensors": 28,
+            "energy_entries": 4160,
+            "energy_nonzero": 1520,
+            "materialized_entries": 4209,
+            "materialized_nonzero": 1569,
+            "fit_seconds": null,
+            "fit_display": "none",
+            "prior_disclosure": "rule-programmed zero-training; unconstrained binary cells; deterministic single-mode coordinate relaxation"
+          },
+          "metrics": {
+            "acc_n1": {
+              "mean": 60.0,
+              "sd": 0.0,
+              "per_seed": [
+                60.0,
+                60.0,
+                60.0
+              ]
+            },
+            "acc_n20": {
+              "mean": 60.0,
+              "sd": 0.0,
+              "per_seed": [
+                60.0,
+                60.0,
+                60.0
+              ]
+            },
+            "acc_n20_majority_vote": {
+              "mean": 60.0,
+              "sd": 0.0,
+              "per_seed": [
+                60.0,
+                60.0,
+                60.0
+              ]
+            },
+            "cov20_per_puzzle": {
+              "mean": 41.37096774193548,
+              "sd": 0.0,
+              "per_seed": [
+                41.37096774193548,
+                41.37096774193548,
+                41.37096774193548
+              ]
+            },
+            "cov20_per_row": {
+              "mean": 21.00508187464709,
+              "sd": 0.0,
+              "per_seed": [
+                21.00508187464709,
+                21.00508187464709,
+                21.00508187464709
+              ]
+            },
+            "worker_solve_seconds": {
+              "mean": 0.06505434102534007,
+              "sd": 0.019614548597578944,
+              "per_seed": [
+                0.08770259900484234,
+                0.053881290019489825,
+                0.053579134051688015
+              ]
+            }
+          },
+          "mean_fc2_flops_n1_per_row": 222530.0,
+          "mean_fc2_flops_n20_per_row": 222530.0,
+          "mean_fc2_flops_with_compare_n20_per_row": 224259.0,
+          "pooled_wrong_stops": 0,
+          "pooled_budget_failures": 29760,
+          "per_seed": [
+            {
+              "rows": 1240,
+              "distinct_inputs": 772,
+              "chains": 20,
+              "acc_n1": 60.0,
+              "acc_n20": 60.0,
+              "acc_n20_majority_vote": 60.0,
+              "cov20_per_puzzle": 41.37096774193548,
+              "cov20_per_row": 21.00508187464709,
+              "halted_chains": 14880,
+              "total_chains": 24800,
+              "halted_pct": 60.0,
+              "wrong_stops": 0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures": 9920,
+              "unstopped_but_right": 0,
+              "halted_n1_pct": 60.0,
+              "solved_halted_n1_pct": 60.0,
+              "moves_mean": 1536.0,
+              "moves_max": 1536,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 222530.0,
+                "median_flops_per_instance": 222530.0,
+                "mean_flops_with_compare_per_instance": 224259.0,
+                "median_flops_with_compare_per_instance": 224259.0,
+                "total_flops_all_instances": 275937200,
+                "total_flops_with_compare_all_instances": 278081160,
+                "deterministic_passes_mode": true
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 222530.0,
+                "median_flops_per_instance": 222530.0,
+                "mean_flops_with_compare_per_instance": 224259.0,
+                "median_flops_with_compare_per_instance": 224259.0,
+                "total_flops_all_instances": 275937200,
+                "total_flops_with_compare_all_instances": 278081160,
+                "deterministic_passes_mode": true
+              },
+              "gpu_kernel_seconds": 0.08747864095494151,
+              "worker_solve_seconds": 0.08770259900484234,
+              "seed": 0,
+              "records_npz": "artifacts/wsp/multi/nqueens/n8/wsp_det-s0.npz",
+              "records_sha256": "8cbd1695b81d56475fc2a5d9a847ffd3b22a40154483f3ab903b8cb1e02106df"
+            },
+            {
+              "rows": 1240,
+              "distinct_inputs": 772,
+              "chains": 20,
+              "acc_n1": 60.0,
+              "acc_n20": 60.0,
+              "acc_n20_majority_vote": 60.0,
+              "cov20_per_puzzle": 41.37096774193548,
+              "cov20_per_row": 21.00508187464709,
+              "halted_chains": 14880,
+              "total_chains": 24800,
+              "halted_pct": 60.0,
+              "wrong_stops": 0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures": 9920,
+              "unstopped_but_right": 0,
+              "halted_n1_pct": 60.0,
+              "solved_halted_n1_pct": 60.0,
+              "moves_mean": 1536.0,
+              "moves_max": 1536,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 222530.0,
+                "median_flops_per_instance": 222530.0,
+                "mean_flops_with_compare_per_instance": 224259.0,
+                "median_flops_with_compare_per_instance": 224259.0,
+                "total_flops_all_instances": 275937200,
+                "total_flops_with_compare_all_instances": 278081160,
+                "deterministic_passes_mode": true
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 222530.0,
+                "median_flops_per_instance": 222530.0,
+                "mean_flops_with_compare_per_instance": 224259.0,
+                "median_flops_with_compare_per_instance": 224259.0,
+                "total_flops_all_instances": 275937200,
+                "total_flops_with_compare_all_instances": 278081160,
+                "deterministic_passes_mode": true
+              },
+              "gpu_kernel_seconds": 0.05371095205191523,
+              "worker_solve_seconds": 0.053881290019489825,
+              "seed": 1,
+              "records_npz": "artifacts/wsp/multi/nqueens/n8/wsp_det-s1.npz",
+              "records_sha256": "8cbd1695b81d56475fc2a5d9a847ffd3b22a40154483f3ab903b8cb1e02106df"
+            },
+            {
+              "rows": 1240,
+              "distinct_inputs": 772,
+              "chains": 20,
+              "acc_n1": 60.0,
+              "acc_n20": 60.0,
+              "acc_n20_majority_vote": 60.0,
+              "cov20_per_puzzle": 41.37096774193548,
+              "cov20_per_row": 21.00508187464709,
+              "halted_chains": 14880,
+              "total_chains": 24800,
+              "halted_pct": 60.0,
+              "wrong_stops": 0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures": 9920,
+              "unstopped_but_right": 0,
+              "halted_n1_pct": 60.0,
+              "solved_halted_n1_pct": 60.0,
+              "moves_mean": 1536.0,
+              "moves_max": 1536,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 222530.0,
+                "median_flops_per_instance": 222530.0,
+                "mean_flops_with_compare_per_instance": 224259.0,
+                "median_flops_with_compare_per_instance": 224259.0,
+                "total_flops_all_instances": 275937200,
+                "total_flops_with_compare_all_instances": 278081160,
+                "deterministic_passes_mode": true
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 222530.0,
+                "median_flops_per_instance": 222530.0,
+                "mean_flops_with_compare_per_instance": 224259.0,
+                "median_flops_with_compare_per_instance": 224259.0,
+                "total_flops_all_instances": 275937200,
+                "total_flops_with_compare_all_instances": 278081160,
+                "deterministic_passes_mode": true
+              },
+              "gpu_kernel_seconds": 0.05342304811347276,
+              "worker_solve_seconds": 0.053579134051688015,
+              "seed": 2,
+              "records_npz": "artifacts/wsp/multi/nqueens/n8/wsp_det-s2.npz",
+              "records_sha256": "8cbd1695b81d56475fc2a5d9a847ffd3b22a40154483f3ab903b8cb1e02106df"
+            }
+          ]
+        },
+        "wsp_arbitrary": {
+          "label": "WSP-Assoc-Arbitrary (rule-programmed 20-chain focused heat-bath)",
+          "disclosure": {
+            "params_learned": 0,
+            "distinct_programmed_coefficients": 2,
+            "distinct_programmed_values": [
+              -0.5,
+              1.0
+            ],
+            "distinct_nonzero_all_w_tensors": 4,
+            "energy_entries": 4097,
+            "energy_nonzero": 1457,
+            "materialized_entries": 24098,
+            "materialized_nonzero": 21458,
+            "fit_seconds": null,
+            "fit_display": "none",
+            "prior_disclosure": "rule-programmed zero-training; unconstrained binary cells (matched prior class to Hand-set CRAM)"
+          },
+          "metrics": {
+            "acc_n1": {
+              "mean": 99.83870967741936,
+              "sd": 0.0806451612903274,
+              "per_seed": [
+                99.91935483870968,
+                99.83870967741936,
+                99.75806451612902
+              ]
+            },
+            "acc_n20": {
+              "mean": 100.0,
+              "sd": 0.0,
+              "per_seed": [
+                100.0,
+                100.0,
+                100.0
+              ]
+            },
+            "acc_n20_majority_vote": {
+              "mean": 100.0,
+              "sd": 0.0,
+              "per_seed": [
+                100.0,
+                100.0,
+                100.0
+              ]
+            },
+            "cov20_per_puzzle": {
+              "mean": 98.31972179552825,
+              "sd": 0.03443560657639878,
+              "per_seed": [
+                98.34651817716335,
+                98.33176523297492,
+                98.2808819764465
+              ]
+            },
+            "cov20_per_row": {
+              "mean": 91.92546583850931,
+              "sd": 0.22408960850348875,
+              "per_seed": [
+                92.09486166007905,
+                92.01016374929418,
+                91.67137210615472
+              ]
+            },
+            "worker_solve_seconds": {
+              "mean": 0.8637731413279349,
+              "sd": 0.05870485865467882,
+              "per_seed": [
+                0.9005584239494056,
+                0.7960713460342959,
+                0.8946896540001035
+              ]
+            }
+          },
+          "mean_fc2_flops_n1_per_row": 162326.3139784946,
+          "mean_fc2_flops_n20_per_row": 3208539.615053763,
+          "mean_fc2_flops_with_compare_n20_per_row": 17726563.443279568,
+          "pooled_wrong_stops": 0,
+          "pooled_budget_failures": 94,
+          "per_seed": [
+            {
+              "rows": 1240,
+              "distinct_inputs": 772,
+              "chains": 20,
+              "acc_n1": 99.91935483870968,
+              "acc_n20": 100.0,
+              "acc_n20_majority_vote": 100.0,
+              "cov20_per_puzzle": 98.34651817716335,
+              "cov20_per_row": 92.09486166007905,
+              "halted_chains": 24770,
+              "total_chains": 24800,
+              "halted_pct": 99.87903225806451,
+              "wrong_stops": 0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures": 30,
+              "unstopped_but_right": 0,
+              "halted_n1_pct": 99.91935483870968,
+              "solved_halted_n1_pct": 99.91935483870968,
+              "moves_mean": 1112.314677419355,
+              "moves_max": 20000,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 158042.49677419354,
+                "median_flops_per_instance": 61155.0,
+                "mean_flops_with_compare_per_instance": 872564.2419354839,
+                "median_flops_with_compare_per_instance": 313302.0,
+                "total_flops_all_instances": 195972696,
+                "total_flops_with_compare_all_instances": 1081979660,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 3193235.922580645,
+                "median_flops_per_instance": 2377740.0,
+                "mean_flops_with_compare_per_instance": 17638226.132258065,
+                "median_flops_with_compare_per_instance": 12930948.0,
+                "total_flops_all_instances": 3959612544,
+                "total_flops_with_compare_all_instances": 21871400404,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 0.9003814068855718,
+              "worker_solve_seconds": 0.9005584239494056,
+              "seed": 0,
+              "records_npz": "artifacts/wsp/multi/nqueens/n8/wsp_arbitrary-s0.npz",
+              "records_sha256": "37e708c33f4f7818fdf123c0968d3c7421101597a7887630692b45674cb28516"
+            },
+            {
+              "rows": 1240,
+              "distinct_inputs": 772,
+              "chains": 20,
+              "acc_n1": 99.83870967741936,
+              "acc_n20": 100.0,
+              "acc_n20_majority_vote": 100.0,
+              "cov20_per_puzzle": 98.33176523297492,
+              "cov20_per_row": 92.01016374929418,
+              "halted_chains": 24762,
+              "total_chains": 24800,
+              "halted_pct": 99.84677419354838,
+              "wrong_stops": 0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures": 38,
+              "unstopped_but_right": 0,
+              "halted_n1_pct": 99.83870967741936,
+              "solved_halted_n1_pct": 99.83870967741936,
+              "moves_mean": 1126.7211693548388,
+              "moves_max": 20000,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 163144.47096774195,
+                "median_flops_per_instance": 56939.0,
+                "mean_flops_with_compare_per_instance": 902014.2903225806,
+                "median_flops_with_compare_per_instance": 288966.0,
+                "total_flops_all_instances": 202299144,
+                "total_flops_with_compare_all_instances": 1118497720,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 3232421.580645161,
+                "median_flops_per_instance": 2402152.0,
+                "mean_flops_with_compare_per_instance": 17864417.029032256,
+                "median_flops_with_compare_per_instance": 13071860.5,
+                "total_flops_all_instances": 4008202760,
+                "total_flops_with_compare_all_instances": 22151877116,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 0.7958900619996712,
+              "worker_solve_seconds": 0.7960713460342959,
+              "seed": 1,
+              "records_npz": "artifacts/wsp/multi/nqueens/n8/wsp_arbitrary-s1.npz",
+              "records_sha256": "ae808fe2fe6d896b60793dd1b373d009f3c72dbe32723fe8ef323c263c259703"
+            },
+            {
+              "rows": 1240,
+              "distinct_inputs": 772,
+              "chains": 20,
+              "acc_n1": 99.75806451612902,
+              "acc_n20": 100.0,
+              "acc_n20_majority_vote": 100.0,
+              "cov20_per_puzzle": 98.2808819764465,
+              "cov20_per_row": 91.67137210615472,
+              "halted_chains": 24774,
+              "total_chains": 24800,
+              "halted_pct": 99.89516129032258,
+              "wrong_stops": 0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures": 26,
+              "unstopped_but_right": 0,
+              "halted_n1_pct": 99.75806451612902,
+              "solved_halted_n1_pct": 99.75806451612902,
+              "moves_mean": 1114.7872580645162,
+              "moves_max": 20000,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 165791.97419354838,
+                "median_flops_per_instance": 63535.0,
+                "mean_flops_with_compare_per_instance": 917296.4604838709,
+                "median_flops_with_compare_per_instance": 327039.5,
+                "total_flops_all_instances": 205582048,
+                "total_flops_with_compare_all_instances": 1137447611,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 3199961.3419354837,
+                "median_flops_per_instance": 2426088.0,
+                "mean_flops_with_compare_per_instance": 17677047.168548387,
+                "median_flops_with_compare_per_instance": 13210027.5,
+                "total_flops_all_instances": 3967952064,
+                "total_flops_with_compare_all_instances": 21919538489,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 0.8945022709667683,
+              "worker_solve_seconds": 0.8946896540001035,
+              "seed": 2,
+              "records_npz": "artifacts/wsp/multi/nqueens/n8/wsp_arbitrary-s2.npz",
+              "records_sha256": "cc9195e27f028612b694ac0ab245eadc8980ff970e42425ed5c0aec607bdc0cd"
+            }
+          ]
+        },
+        "wsp_permutation": {
+          "label": "WSP-Assoc-Permutation (rule-programmed 20-chain rook-permutation 2-opt swaps)",
+          "disclosure": {
+            "params_learned": 0,
+            "distinct_programmed_coefficients": 1,
+            "distinct_programmed_values": [
+              1.0
+            ],
+            "distinct_nonzero_all_w_tensors": 20007,
+            "energy_entries": 4096,
+            "energy_nonzero": 1456,
+            "materialized_entries": 28200,
+            "materialized_nonzero": 22919,
+            "fit_seconds": null,
+            "fit_display": "none",
+            "prior_disclosure": "rule-programmed zero-training + row/column rook-permutation initialization and 2-opt swap proposal prior"
+          },
+          "metrics": {
+            "acc_n1": {
+              "mean": 100.0,
+              "sd": 0.0,
+              "per_seed": [
+                100.0,
+                100.0,
+                100.0
+              ]
+            },
+            "acc_n20": {
+              "mean": 100.0,
+              "sd": 0.0,
+              "per_seed": [
+                100.0,
+                100.0,
+                100.0
+              ]
+            },
+            "acc_n20_majority_vote": {
+              "mean": 100.0,
+              "sd": 0.0,
+              "per_seed": [
+                100.0,
+                100.0,
+                100.0
+              ]
+            },
+            "cov20_per_puzzle": {
+              "mean": 98.37998165215907,
+              "sd": 0.0436364599794215,
+              "per_seed": [
+                98.35541474654377,
+                98.43036354326676,
+                98.35416666666667
+              ]
+            },
+            "cov20_per_row": {
+              "mean": 92.15132693393562,
+              "sd": 0.17173242603891223,
+              "per_seed": [
+                92.03839638622247,
+                92.34895539243365,
+                92.06662902315075
+              ]
+            },
+            "worker_solve_seconds": {
+              "mean": 0.7435884593287483,
+              "sd": 0.20888607766496176,
+              "per_seed": [
+                0.9826341590378433,
+                0.5962041929597035,
+                0.651927025988698
+              ]
+            }
+          },
+          "mean_fc2_flops_n1_per_row": 45445.77204301075,
+          "mean_fc2_flops_n20_per_row": 896648.7892473118,
+          "mean_fc2_flops_with_compare_n20_per_row": 1151314.626344086,
+          "pooled_wrong_stops": 0,
+          "pooled_budget_failures": 0,
+          "per_seed": [
+            {
+              "rows": 1240,
+              "distinct_inputs": 772,
+              "chains": 20,
+              "acc_n1": 100.0,
+              "acc_n20": 100.0,
+              "acc_n20_majority_vote": 100.0,
+              "cov20_per_puzzle": 98.35541474654377,
+              "cov20_per_row": 92.03839638622247,
+              "halted_chains": 24800,
+              "total_chains": 24800,
+              "halted_pct": 100.0,
+              "wrong_stops": 0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures": 0,
+              "unstopped_but_right": 0,
+              "halted_n1_pct": 100.0,
+              "solved_halted_n1_pct": 100.0,
+              "moves_mean": 104.56298387096774,
+              "moves_max": 4349,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 44523.72258064516,
+                "median_flops_per_instance": 27969.0,
+                "mean_flops_with_compare_per_instance": 57154.67419354839,
+                "median_flops_with_compare_per_instance": 35112.0,
+                "total_flops_all_instances": 55209416,
+                "total_flops_with_compare_all_instances": 70871796,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 886613.329032258,
+                "median_flops_per_instance": 702312.0,
+                "mean_flops_with_compare_per_instance": 1137952.5491935483,
+                "median_flops_with_compare_per_instance": 892559.0,
+                "total_flops_all_instances": 1099400528,
+                "total_flops_with_compare_all_instances": 1411061161,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 0.9824252630351111,
+              "worker_solve_seconds": 0.9826341590378433,
+              "seed": 0,
+              "records_npz": "artifacts/wsp/multi/nqueens/n8/wsp_permutation-s0.npz",
+              "records_sha256": "c9c96af9183f22d79db6495ee0e72bf5d4b2084c2c28332775dfe9e2120327d9"
+            },
+            {
+              "rows": 1240,
+              "distinct_inputs": 772,
+              "chains": 20,
+              "acc_n1": 100.0,
+              "acc_n20": 100.0,
+              "acc_n20_majority_vote": 100.0,
+              "cov20_per_puzzle": 98.43036354326676,
+              "cov20_per_row": 92.34895539243365,
+              "halted_chains": 24800,
+              "total_chains": 24800,
+              "halted_pct": 100.0,
+              "wrong_stops": 0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures": 0,
+              "unstopped_but_right": 0,
+              "halted_n1_pct": 100.0,
+              "solved_halted_n1_pct": 100.0,
+              "moves_mean": 106.73407258064516,
+              "moves_max": 2991,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 45352.929032258064,
+                "median_flops_per_instance": 26937.0,
+                "mean_flops_with_compare_per_instance": 58258.74758064516,
+                "median_flops_with_compare_per_instance": 33738.0,
+                "total_flops_all_instances": 56237632,
+                "total_flops_with_compare_all_instances": 72240847,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 901550.4193548387,
+                "median_flops_per_instance": 704032.0,
+                "mean_flops_with_compare_per_instance": 1157841.060483871,
+                "median_flops_with_compare_per_instance": 894849.0,
+                "total_flops_all_instances": 1117922520,
+                "total_flops_with_compare_all_instances": 1435722915,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 0.5959921919275075,
+              "worker_solve_seconds": 0.5962041929597035,
+              "seed": 1,
+              "records_npz": "artifacts/wsp/multi/nqueens/n8/wsp_permutation-s1.npz",
+              "records_sha256": "92128d640f80f493459413315bdd7ae647d14eac035b09ca717aa981afd0e28c"
+            },
+            {
+              "rows": 1240,
+              "distinct_inputs": 772,
+              "chains": 20,
+              "acc_n1": 100.0,
+              "acc_n20": 100.0,
+              "acc_n20_majority_vote": 100.0,
+              "cov20_per_puzzle": 98.35416666666667,
+              "cov20_per_row": 92.06662902315075,
+              "halted_chains": 24800,
+              "total_chains": 24800,
+              "halted_pct": 100.0,
+              "wrong_stops": 0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures": 0,
+              "unstopped_but_right": 0,
+              "halted_n1_pct": 100.0,
+              "solved_halted_n1_pct": 100.0,
+              "moves_mean": 106.76782258064516,
+              "moves_max": 3077,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 46460.66451612903,
+                "median_flops_per_instance": 27969.0,
+                "mean_flops_with_compare_per_instance": 59733.69274193548,
+                "median_flops_with_compare_per_instance": 35112.0,
+                "total_flops_all_instances": 57611224,
+                "total_flops_with_compare_all_instances": 74069779,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 901782.6193548387,
+                "median_flops_per_instance": 694916.0,
+                "mean_flops_with_compare_per_instance": 1158150.2693548386,
+                "median_flops_with_compare_per_instance": 882710.5,
+                "total_flops_all_instances": 1118210448,
+                "total_flops_with_compare_all_instances": 1436106334,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 0.6516801830148324,
+              "worker_solve_seconds": 0.651927025988698,
+              "seed": 2,
+              "records_npz": "artifacts/wsp/multi/nqueens/n8/wsp_permutation-s2.npz",
+              "records_sha256": "843a9d1957e19b57bf912066ee1e8dde21966e02fb45324cdc3ed88c1e0f509b"
+            }
+          ]
+        }
+      }
+    },
+    "10": {
+      "n": 10,
+      "test_rows": 18466,
+      "distinct_test_inputs": 6513,
+      "solution_counts_sha256": "59e519cd5adb410ab9e19f3b9367c1b5a345cb5e6608788b0badb5cb87e55086",
+      "arms": {
+        "wsp_det": {
+          "label": "WSP-Det (rule-programmed deterministic Hopfield relaxation)",
+          "disclosure": {
+            "params_learned": 0,
+            "distinct_programmed_coefficients": 2,
+            "distinct_programmed_values": [
+              -0.5,
+              1.0
+            ],
+            "distinct_nonzero_all_w_tensors": 28,
+            "energy_entries": 10100,
+            "energy_nonzero": 3040,
+            "materialized_entries": 10149,
+            "materialized_nonzero": 3089,
+            "fit_seconds": null,
+            "fit_display": "none",
+            "prior_disclosure": "rule-programmed zero-training; unconstrained binary cells; deterministic single-mode coordinate relaxation"
+          },
+          "metrics": {
+            "acc_n1": {
+              "mean": 25.674212065417525,
+              "sd": 0.0,
+              "per_seed": [
+                25.674212065417525,
+                25.674212065417525,
+                25.674212065417525
+              ]
+            },
+            "acc_n20": {
+              "mean": 25.674212065417525,
+              "sd": 0.0,
+              "per_seed": [
+                25.674212065417525,
+                25.674212065417525,
+                25.674212065417525
+              ]
+            },
+            "acc_n20_majority_vote": {
+              "mean": 25.674212065417525,
+              "sd": 0.0,
+              "per_seed": [
+                25.674212065417525,
+                25.674212065417525,
+                25.674212065417525
+              ]
+            },
+            "cov20_per_puzzle": {
+              "mean": 9.000111594688093,
+              "sd": 0.0,
+              "per_seed": [
+                9.000111594688093,
+                9.000111594688093,
+                9.000111594688093
+              ]
+            },
+            "cov20_per_row": {
+              "mean": 4.510512796118352,
+              "sd": 0.0,
+              "per_seed": [
+                4.510512796118352,
+                4.510512796118352,
+                4.510512796118352
+              ]
+            },
+            "worker_solve_seconds": {
+              "mean": 0.08825052766284595,
+              "sd": 0.003883396316541242,
+              "per_seed": [
+                0.09273466502781957,
+                0.08599616994615644,
+                0.08602074801456183
+              ]
+            }
+          },
+          "mean_fc2_flops_n1_per_row": 534902.0,
+          "mean_fc2_flops_n20_per_row": 534902.0,
+          "mean_fc2_flops_with_compare_n20_per_row": 537603.0,
+          "pooled_wrong_stops": 0,
+          "pooled_budget_failures": 823500,
+          "per_seed": [
+            {
+              "rows": 18466,
+              "distinct_inputs": 6513,
+              "chains": 20,
+              "acc_n1": 25.674212065417525,
+              "acc_n20": 25.674212065417525,
+              "acc_n20_majority_vote": 25.674212065417525,
+              "cov20_per_puzzle": 9.000111594688093,
+              "cov20_per_row": 4.510512796118352,
+              "halted_chains": 94820,
+              "total_chains": 369320,
+              "halted_pct": 25.674212065417525,
+              "wrong_stops": 0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures": 274500,
+              "unstopped_but_right": 0,
+              "halted_n1_pct": 25.674212065417525,
+              "solved_halted_n1_pct": 25.674212065417525,
+              "moves_mean": 2400.0,
+              "moves_max": 2400,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 534902.0,
+                "median_flops_per_instance": 534902.0,
+                "mean_flops_with_compare_per_instance": 537603.0,
+                "median_flops_with_compare_per_instance": 537603.0,
+                "total_flops_all_instances": 9877500332,
+                "total_flops_with_compare_all_instances": 9927376998,
+                "deterministic_passes_mode": true
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 534902.0,
+                "median_flops_per_instance": 534902.0,
+                "mean_flops_with_compare_per_instance": 537603.0,
+                "median_flops_with_compare_per_instance": 537603.0,
+                "total_flops_all_instances": 9877500332,
+                "total_flops_with_compare_all_instances": 9927376998,
+                "deterministic_passes_mode": true
+              },
+              "gpu_kernel_seconds": 0.08460482698865235,
+              "worker_solve_seconds": 0.09273466502781957,
+              "seed": 0,
+              "records_npz": "artifacts/wsp/multi/nqueens/n10/wsp_det-s0.npz",
+              "records_sha256": "a0926144d11c48ce0620e323fa1b2344f03230b00a76cae76cff9ca8a1b26e47"
+            },
+            {
+              "rows": 18466,
+              "distinct_inputs": 6513,
+              "chains": 20,
+              "acc_n1": 25.674212065417525,
+              "acc_n20": 25.674212065417525,
+              "acc_n20_majority_vote": 25.674212065417525,
+              "cov20_per_puzzle": 9.000111594688093,
+              "cov20_per_row": 4.510512796118352,
+              "halted_chains": 94820,
+              "total_chains": 369320,
+              "halted_pct": 25.674212065417525,
+              "wrong_stops": 0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures": 274500,
+              "unstopped_but_right": 0,
+              "halted_n1_pct": 25.674212065417525,
+              "solved_halted_n1_pct": 25.674212065417525,
+              "moves_mean": 2400.0,
+              "moves_max": 2400,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 534902.0,
+                "median_flops_per_instance": 534902.0,
+                "mean_flops_with_compare_per_instance": 537603.0,
+                "median_flops_with_compare_per_instance": 537603.0,
+                "total_flops_all_instances": 9877500332,
+                "total_flops_with_compare_all_instances": 9927376998,
+                "deterministic_passes_mode": true
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 534902.0,
+                "median_flops_per_instance": 534902.0,
+                "mean_flops_with_compare_per_instance": 537603.0,
+                "median_flops_with_compare_per_instance": 537603.0,
+                "total_flops_all_instances": 9877500332,
+                "total_flops_with_compare_all_instances": 9927376998,
+                "deterministic_passes_mode": true
+              },
+              "gpu_kernel_seconds": 0.08432296093087643,
+              "worker_solve_seconds": 0.08599616994615644,
+              "seed": 1,
+              "records_npz": "artifacts/wsp/multi/nqueens/n10/wsp_det-s1.npz",
+              "records_sha256": "a0926144d11c48ce0620e323fa1b2344f03230b00a76cae76cff9ca8a1b26e47"
+            },
+            {
+              "rows": 18466,
+              "distinct_inputs": 6513,
+              "chains": 20,
+              "acc_n1": 25.674212065417525,
+              "acc_n20": 25.674212065417525,
+              "acc_n20_majority_vote": 25.674212065417525,
+              "cov20_per_puzzle": 9.000111594688093,
+              "cov20_per_row": 4.510512796118352,
+              "halted_chains": 94820,
+              "total_chains": 369320,
+              "halted_pct": 25.674212065417525,
+              "wrong_stops": 0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures": 274500,
+              "unstopped_but_right": 0,
+              "halted_n1_pct": 25.674212065417525,
+              "solved_halted_n1_pct": 25.674212065417525,
+              "moves_mean": 2400.0,
+              "moves_max": 2400,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 534902.0,
+                "median_flops_per_instance": 534902.0,
+                "mean_flops_with_compare_per_instance": 537603.0,
+                "median_flops_with_compare_per_instance": 537603.0,
+                "total_flops_all_instances": 9877500332,
+                "total_flops_with_compare_all_instances": 9927376998,
+                "deterministic_passes_mode": true
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 534902.0,
+                "median_flops_per_instance": 534902.0,
+                "mean_flops_with_compare_per_instance": 537603.0,
+                "median_flops_with_compare_per_instance": 537603.0,
+                "total_flops_all_instances": 9877500332,
+                "total_flops_with_compare_all_instances": 9927376998,
+                "deterministic_passes_mode": true
+              },
+              "gpu_kernel_seconds": 0.08436532597988844,
+              "worker_solve_seconds": 0.08602074801456183,
+              "seed": 2,
+              "records_npz": "artifacts/wsp/multi/nqueens/n10/wsp_det-s2.npz",
+              "records_sha256": "a0926144d11c48ce0620e323fa1b2344f03230b00a76cae76cff9ca8a1b26e47"
+            }
+          ]
+        },
+        "wsp_arbitrary": {
+          "label": "WSP-Assoc-Arbitrary (rule-programmed 20-chain focused heat-bath)",
+          "disclosure": {
+            "params_learned": 0,
+            "distinct_programmed_coefficients": 2,
+            "distinct_programmed_values": [
+              -0.5,
+              1.0
+            ],
+            "distinct_nonzero_all_w_tensors": 3,
+            "energy_entries": 10001,
+            "energy_nonzero": 2941,
+            "materialized_entries": 30002,
+            "materialized_nonzero": 22942,
+            "fit_seconds": null,
+            "fit_display": "none",
+            "prior_disclosure": "rule-programmed zero-training; unconstrained binary cells (matched prior class to Hand-set CRAM)"
+          },
+          "metrics": {
+            "acc_n1": {
+              "mean": 99.9043286761255,
+              "sd": 0.02441920152075847,
+              "per_seed": [
+                99.92960034658292,
+                99.88086212498646,
+                99.90252355680711
+              ]
+            },
+            "acc_n20": {
+              "mean": 100.0,
+              "sd": 0.0,
+              "per_seed": [
+                100.0,
+                100.0,
+                100.0
+              ]
+            },
+            "acc_n20_majority_vote": {
+              "mean": 100.0,
+              "sd": 0.0,
+              "per_seed": [
+                100.0,
+                100.0,
+                100.0
+              ]
+            },
+            "cov20_per_puzzle": {
+              "mean": 95.47182297050364,
+              "sd": 0.05742589325479225,
+              "per_seed": [
+                95.53729379943935,
+                95.44819311120634,
+                95.42998200086524
+              ]
+            },
+            "cov20_per_row": {
+              "mean": 88.52218310975803,
+              "sd": 0.06871954196952779,
+              "per_seed": [
+                88.59385405765389,
+                88.51584054799734,
+                88.45685472362287
+              ]
+            },
+            "worker_solve_seconds": {
+              "mean": 4.184932294612129,
+              "sd": 0.27235407745652485,
+              "per_seed": [
+                4.258985966909677,
+                4.412601102027111,
+                3.883209814899601
+              ]
+            }
+          },
+          "mean_fc2_flops_n1_per_row": 348457.3587855157,
+          "mean_fc2_flops_n20_per_row": 6948060.253005524,
+          "mean_fc2_flops_with_compare_n20_per_row": 38694084.498267084,
+          "pooled_wrong_stops": 0,
+          "pooled_budget_failures": 901,
+          "per_seed": [
+            {
+              "rows": 18466,
+              "distinct_inputs": 6513,
+              "chains": 20,
+              "acc_n1": 99.92960034658292,
+              "acc_n20": 100.0,
+              "acc_n20_majority_vote": 100.0,
+              "cov20_per_puzzle": 95.53729379943935,
+              "cov20_per_row": 88.59385405765389,
+              "halted_chains": 369032,
+              "total_chains": 369320,
+              "halted_pct": 99.92201884544568,
+              "wrong_stops": 0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures": 288,
+              "unstopped_but_right": 0,
+              "halted_n1_pct": 99.92960034658292,
+              "solved_halted_n1_pct": 99.92960034658292,
+              "moves_mean": 1572.414870572945,
+              "moves_max": 20000,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 348009.9624174158,
+                "median_flops_per_instance": 205839.0,
+                "mean_flops_with_compare_per_instance": 1938255.5544243474,
+                "median_flops_with_compare_per_instance": 1106397.0,
+                "total_flops_all_instances": 6426351966,
+                "total_flops_with_compare_all_instances": 35791827068,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 6947305.861583451,
+                "median_flops_per_instance": 5744900.0,
+                "mean_flops_with_compare_per_instance": 38689670.47319398,
+                "median_flops_with_compare_per_instance": 31654260.0,
+                "total_flops_all_instances": 128288950040,
+                "total_flops_with_compare_all_instances": 714443454958,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 4.257343684905209,
+              "worker_solve_seconds": 4.258985966909677,
+              "seed": 0,
+              "records_npz": "artifacts/wsp/multi/nqueens/n10/wsp_arbitrary-s0.npz",
+              "records_sha256": "7de38d982272d03feec554ebefe7ad64d7e45795be9e2d896613b5df41356128"
+            },
+            {
+              "rows": 18466,
+              "distinct_inputs": 6513,
+              "chains": 20,
+              "acc_n1": 99.88086212498646,
+              "acc_n20": 100.0,
+              "acc_n20_majority_vote": 100.0,
+              "cov20_per_puzzle": 95.44819311120634,
+              "cov20_per_row": 88.51584054799734,
+              "halted_chains": 369044,
+              "total_chains": 369320,
+              "halted_pct": 99.92526806021878,
+              "wrong_stops": 0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures": 276,
+              "unstopped_but_right": 0,
+              "halted_n1_pct": 99.88086212498646,
+              "solved_halted_n1_pct": 99.88086212498646,
+              "moves_mean": 1570.3279594931225,
+              "moves_max": 20000,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 344418.16083613125,
+                "median_flops_per_instance": 202511.0,
+                "mean_flops_with_compare_per_instance": 1917239.5222029677,
+                "median_flops_with_compare_per_instance": 1086925.0,
+                "total_flops_all_instances": 6360025758,
+                "total_flops_with_compare_all_instances": 35403745017,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 6938624.31149139,
+                "median_flops_per_instance": 5777972.0,
+                "mean_flops_with_compare_per_instance": 38638873.740604356,
+                "median_flops_with_compare_per_instance": 31847768.0,
+                "total_flops_all_instances": 128128636536,
+                "total_flops_with_compare_all_instances": 713505442494,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 4.410961333080195,
+              "worker_solve_seconds": 4.412601102027111,
+              "seed": 1,
+              "records_npz": "artifacts/wsp/multi/nqueens/n10/wsp_arbitrary-s1.npz",
+              "records_sha256": "8b9676ab7ef66df376d0ca84fbd2801ff3af35f4c3a1aeb0f68efbba217605c8"
+            },
+            {
+              "rows": 18466,
+              "distinct_inputs": 6513,
+              "chains": 20,
+              "acc_n1": 99.90252355680711,
+              "acc_n20": 100.0,
+              "acc_n20_majority_vote": 100.0,
+              "cov20_per_puzzle": 95.42998200086524,
+              "cov20_per_row": 88.45685472362287,
+              "halted_chains": 368983,
+              "total_chains": 369320,
+              "halted_pct": 99.90875121845554,
+              "wrong_stops": 0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures": 337,
+              "unstopped_but_right": 0,
+              "halted_n1_pct": 99.90252355680711,
+              "solved_halted_n1_pct": 99.90252355680711,
+              "moves_mean": 1575.0458139283007,
+              "moves_max": 20000,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 352943.9531030001,
+                "median_flops_per_instance": 207919.0,
+                "mean_flops_with_compare_per_instance": 1967124.8867107115,
+                "median_flops_with_compare_per_instance": 1118568.0,
+                "total_flops_all_instances": 6517463038,
+                "total_flops_with_compare_all_instances": 36324928158,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 6958250.585941731,
+                "median_flops_per_instance": 5769340.0,
+                "mean_flops_with_compare_per_instance": 38753709.281002924,
+                "median_flops_with_compare_per_instance": 31797261.0,
+                "total_flops_all_instances": 128491055320,
+                "total_flops_with_compare_all_instances": 715625995583,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 3.8749132649973035,
+              "worker_solve_seconds": 3.883209814899601,
+              "seed": 2,
+              "records_npz": "artifacts/wsp/multi/nqueens/n10/wsp_arbitrary-s2.npz",
+              "records_sha256": "83c574b6666d0f74d50d574933a845f9bee1fc0e499049827b531740abec18da"
+            }
+          ]
+        },
+        "wsp_permutation": {
+          "label": "WSP-Assoc-Permutation (rule-programmed 20-chain rook-permutation 2-opt swaps)",
+          "disclosure": {
+            "params_learned": 0,
+            "distinct_programmed_coefficients": 1,
+            "distinct_programmed_values": [
+              1.0
+            ],
+            "distinct_nonzero_all_w_tensors": 20008,
+            "energy_entries": 10000,
+            "energy_nonzero": 2940,
+            "materialized_entries": 40010,
+            "materialized_nonzero": 25889,
+            "fit_seconds": null,
+            "fit_display": "none",
+            "prior_disclosure": "rule-programmed zero-training + row/column rook-permutation initialization and 2-opt swap proposal prior"
+          },
+          "metrics": {
+            "acc_n1": {
+              "mean": 99.99819488068161,
+              "sd": 0.003126558373168727,
+              "per_seed": [
+                100.0,
+                99.99458464204484,
+                100.0
+              ]
+            },
+            "acc_n20": {
+              "mean": 100.0,
+              "sd": 0.0,
+              "per_seed": [
+                100.0,
+                100.0,
+                100.0
+              ]
+            },
+            "acc_n20_majority_vote": {
+              "mean": 100.0,
+              "sd": 0.0,
+              "per_seed": [
+                100.0,
+                100.0,
+                100.0
+              ]
+            },
+            "cov20_per_puzzle": {
+              "mean": 95.5552491987506,
+              "sd": 0.025382102355864532,
+              "per_seed": [
+                95.54518944590019,
+                95.58411921253793,
+                95.53643893781367
+              ]
+            },
+            "cov20_per_row": {
+              "mean": 88.63190942821805,
+              "sd": 0.04921517327134524,
+              "per_seed": [
+                88.58814575206925,
+                88.68518694700789,
+                88.62239558557702
+              ]
+            },
+            "worker_solve_seconds": {
+              "mean": 24.93870107604501,
+              "sd": 0.2960149113197802,
+              "per_seed": [
+                24.597281089052558,
+                25.095300007029437,
+                25.12352213205304
+              ]
+            }
+          },
+          "mean_fc2_flops_n1_per_row": 266299.41958193434,
+          "mean_fc2_flops_n20_per_row": 5367796.692371566,
+          "mean_fc2_flops_with_compare_n20_per_row": 6979081.6370988125,
+          "pooled_wrong_stops": 0,
+          "pooled_budget_failures": 93,
+          "per_seed": [
+            {
+              "rows": 18466,
+              "distinct_inputs": 6513,
+              "chains": 20,
+              "acc_n1": 100.0,
+              "acc_n20": 100.0,
+              "acc_n20_majority_vote": 100.0,
+              "cov20_per_puzzle": 95.54518944590019,
+              "cov20_per_row": 88.58814575206925,
+              "halted_chains": 369288,
+              "total_chains": 369320,
+              "halted_pct": 99.99133542727175,
+              "wrong_stops": 0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures": 32,
+              "unstopped_but_right": 0,
+              "halted_n1_pct": 100.0,
+              "solved_halted_n1_pct": 100.0,
+              "moves_mean": 473.3095851835806,
+              "moves_max": 20000,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 266541.6695548576,
+                "median_flops_per_instance": 170639.0,
+                "mean_flops_with_compare_per_instance": 346513.2622657858,
+                "median_flops_with_compare_per_instance": 219857.0,
+                "total_flops_all_instances": 4921958470,
+                "total_flops_with_compare_all_instances": 6398713901,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 5365304.452723925,
+                "median_flops_per_instance": 4671952.0,
+                "mean_flops_with_compare_per_instance": 6975790.23026102,
+                "median_flops_with_compare_per_instance": 6060099.5,
+                "total_flops_all_instances": 99075712024,
+                "total_flops_with_compare_all_instances": 128814942392,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 24.58912581310142,
+              "worker_solve_seconds": 24.597281089052558,
+              "seed": 0,
+              "records_npz": "artifacts/wsp/multi/nqueens/n10/wsp_permutation-s0.npz",
+              "records_sha256": "7b7528ed44a14ebe3ff42cff547db9ecb20c9880bb0621eb6374928634c54b9a"
+            },
+            {
+              "rows": 18466,
+              "distinct_inputs": 6513,
+              "chains": 20,
+              "acc_n1": 99.99458464204484,
+              "acc_n20": 100.0,
+              "acc_n20_majority_vote": 100.0,
+              "cov20_per_puzzle": 95.58411921253793,
+              "cov20_per_row": 88.68518694700789,
+              "halted_chains": 369285,
+              "total_chains": 369320,
+              "halted_pct": 99.99052312357847,
+              "wrong_stops": 0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures": 35,
+              "unstopped_but_right": 0,
+              "halted_n1_pct": 99.99458464204484,
+              "solved_halted_n1_pct": 99.99458464204484,
+              "moves_mean": 474.14899274342037,
+              "moves_max": 20000,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 264728.35600563197,
+                "median_flops_per_instance": 169591.0,
+                "mean_flops_with_compare_per_instance": 344118.47839272174,
+                "median_flops_with_compare_per_instance": 218473.0,
+                "total_flops_all_instances": 4888473822,
+                "total_flops_with_compare_all_instances": 6354491822,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 5374101.443951045,
+                "median_flops_per_instance": 4675620.0,
+                "mean_flops_with_compare_per_instance": 6987408.119950179,
+                "median_flops_with_compare_per_instance": 6064944.5,
+                "total_flops_all_instances": 99238157264,
+                "total_flops_with_compare_all_instances": 129029478343,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 25.086293354048394,
+              "worker_solve_seconds": 25.095300007029437,
+              "seed": 1,
+              "records_npz": "artifacts/wsp/multi/nqueens/n10/wsp_permutation-s1.npz",
+              "records_sha256": "b6678cb37a39631a840754a13de6d4848c90a0cab7f69e5235c334a34cea8ad3"
+            },
+            {
+              "rows": 18466,
+              "distinct_inputs": 6513,
+              "chains": 20,
+              "acc_n1": 100.0,
+              "acc_n20": 100.0,
+              "acc_n20_majority_vote": 100.0,
+              "cov20_per_puzzle": 95.53643893781367,
+              "cov20_per_row": 88.62239558557702,
+              "halted_chains": 369294,
+              "total_chains": 369320,
+              "halted_pct": 99.9929600346583,
+              "wrong_stops": 0,
+              "wrong_halts_pct_of_halted": 0.0,
+              "budget_failures": 26,
+              "unstopped_but_right": 0,
+              "halted_n1_pct": 100.0,
+              "solved_halted_n1_pct": 100.0,
+              "moves_mean": 473.1836050037908,
+              "moves_max": 20000,
+              "fc2_flops_n1": {
+                "chains_counted": 1,
+                "mean_flops_per_instance": 267628.2331853135,
+                "median_flops_per_instance": 173521.0,
+                "mean_flops_with_compare_per_instance": 347948.2584750352,
+                "median_flops_with_compare_per_instance": 223664.0,
+                "total_flops_all_instances": 4942022954,
+                "total_flops_with_compare_all_instances": 6425212541,
+                "deterministic_passes_mode": false
+              },
+              "fc2_flops_n20": {
+                "chains_counted": 20,
+                "mean_flops_per_instance": 5363984.180439727,
+                "median_flops_per_instance": 4658590.0,
+                "mean_flops_with_compare_per_instance": 6974046.561085238,
+                "median_flops_with_compare_per_instance": 6042454.5,
+                "total_flops_all_instances": 99051331876,
+                "total_flops_with_compare_all_instances": 128782743797,
+                "deterministic_passes_mode": false
+              },
+              "gpu_kernel_seconds": 25.11515277205035,
+              "worker_solve_seconds": 25.12352213205304,
+              "seed": 2,
+              "records_npz": "artifacts/wsp/multi/nqueens/n10/wsp_permutation-s2.npz",
+              "records_sha256": "0288d77c56a6bf415c28964c3fcc005bd025d0ce9e376d7b94cc2c5771622861"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1097 @@
+{
+  "utc": "2026-11-17T06:09:43.339782+00:00",
+  "dataset": "upstream/data/full-test/full-all.npz",
+  "dataset_sha256": "2fdc470ee042f11ffa61c89f606f39004d8914fca3312c88602d9f68212dec6c",
+  "rows": [
+    10000,
+    422786
+  ],
+  "unique_test_puzzles": 412786,
+  "op_count_convention": "FC2 (baselines/flops/fullcount.py FullCounter)",
+  "models": {
+    "WSP-Assoc": {
+      "method": "WSP-Assoc (zero-training Weight-Space Program: Stage 1 deductive tensor domain reduction + Stage 2 C=4 focused Gumbel-Potts)",
+      "params_learned": 0,
+      "training_examples": 0,
+      "fit_time_display": "none",
+      "weight_metadata": {
+        "params_learned": 0,
+        "training_examples": 0,
+        "fit_time_display": "none",
+        "distinct_programmed_coefficients": 7,
+        "distinct_nonzero_scalars_all_tensors": 87,
+        "materialized_entries": 26511,
+        "nnz": 4485,
+        "wsp_size": {
+          "weights": 26511,
+          "nonzero": 4485
+        },
+        "storage_bytes": 106324,
+        "per_tensor": {
+          "peer_adj": {
+            "shape": [
+              81,
+              81
+            ],
+            "dtype": "float32",
+            "numel": 6561,
+            "nnz": 1620,
+            "bytes": 26244,
+            "role": "programmed_weight"
+          },
+          "peer_nbr": {
+            "shape": [
+              81,
+              20
+            ],
+            "dtype": "int32",
+            "numel": 1620,
+            "nnz": 1600,
+            "bytes": 6480,
+            "role": "routing_or_mask"
+          },
+          "unit_inc": {
+            "shape": [
+              27,
+              81
+            ],
+            "dtype": "float32",
+            "numel": 2187,
+            "nnz": 243,
+            "bytes": 8748,
+            "role": "programmed_weight"
+          },
+          "r_mini": {
+            "shape": [
+              54,
+              81
+            ],
+            "dtype": "float32",
+            "numel": 4374,
+            "nnz": 162,
+            "bytes": 17496,
+            "role": "programmed_weight"
+          },
+          "r_parent": {
+            "shape": [
+              108,
+              27
+            ],
+            "dtype": "float32",
+            "numel": 2916,
+            "nnz": 108,
+            "bytes": 11664,
+            "role": "programmed_weight"
+          },
+          "r_elim": {
+            "shape": [
+              108,
+              81
+            ],
+            "dtype": "float32",
+            "numel": 8748,
+            "nnz": 648,
+            "bytes": 34992,
+            "role": "programmed_weight"
+          },
+          "color_cells": {
+            "shape": [
+              9,
+              9
+            ],
+            "dtype": "int64",
+            "numel": 81,
+            "nnz": 80,
+            "bytes": 648,
+            "role": "routing_or_mask"
+          },
+          "prop_steps": {
+            "shape": [
+              16
+            ],
+            "dtype": "int8",
+            "numel": 16,
+            "nnz": 16,
+            "bytes": 16,
+            "role": "routing_or_mask"
+          },
+          "temp": {
+            "shape": [],
+            "dtype": "float32",
+            "numel": 1,
+            "nnz": 1,
+            "bytes": 4,
+            "role": "programmed_weight"
+          },
+          "temp_hi": {
+            "shape": [],
+            "dtype": "float32",
+            "numel": 1,
+            "nnz": 1,
+            "bytes": 4,
+            "role": "programmed_weight"
+          },
+          "temp_lo": {
+            "shape": [],
+            "dtype": "float32",
+            "numel": 1,
+            "nnz": 1,
+            "bytes": 4,
+            "role": "programmed_weight"
+          },
+          "anneal_period": {
+            "shape": [],
+            "dtype": "int64",
+            "numel": 1,
+            "nnz": 1,
+            "bytes": 8,
+            "role": "routing_or_mask"
+          },
+          "theta": {
+            "shape": [],
+            "dtype": "float32",
+            "numel": 1,
+            "nnz": 1,
+            "bytes": 4,
+            "role": "programmed_weight"
+          },
+          "tau_tol": {
+            "shape": [],
+            "dtype": "float32",
+            "numel": 1,
+            "nnz": 1,
+            "bytes": 4,
+            "role": "programmed_weight"
+          },
+          "eps": {
+            "shape": [],
+            "dtype": "float32",
+            "numel": 1,
+            "nnz": 1,
+            "bytes": 4,
+            "role": "programmed_weight"
+          },
+          "neg_inf": {
+            "shape": [],
+            "dtype": "float32",
+            "numel": 1,
+            "nnz": 1,
+            "bytes": 4,
+            "role": "programmed_weight"
+          }
+        },
+        "upstream_wsp": {
+          "repo": "https://github.com/effl-lab/Weight-Space-Programming",
+          "commit": "02c31abd3b34d84854cc80d9717717c45365c719",
+          "license": "MIT"
+        }
+      },
+      "build_timings": {
+        "cpu_1thread": {
+          "cold_s": 0.0011824569664895535,
+          "warm_median_s": 0.001057518064044416,
+          "warm_mean_s": 0.001059549444887255,
+          "warm_samples_s": [
+            0.0010670620249584317,
+            0.0010668720351532102,
+            0.001057507935911417,
+            0.001057518064044416,
+            0.0010551040759310126,
+            0.0010538219939917326,
+            0.0010589599842205644
+          ]
+        },
+        "gpu": {
+          "device_name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+          "cold_s": 0.0045109959319233894,
+          "warm_median_s": 0.004470936022698879,
+          "warm_mean_s": 0.004475548580688026,
+          "warm_samples_s": [
+            0.004486970021389425,
+            0.0045249779941514134,
+            0.004470936022698879,
+            0.004482493037357926,
+            0.0044493930181488395,
+            0.0044551820028573275,
+            0.004458887968212366
+          ]
+        }
+      },
+      "config": {
+        "prop_steps": 16,
+        "temp_hi": 0.52,
+        "temp_lo": 0.38,
+        "anneal_period": 524288,
+        "theta": 0.4444444444444444,
+        "tau_tol": 0.001,
+        "C": 4,
+        "check": 4096,
+        "cap_flops": 400000000000.0
+      },
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "seed_puzzle_evaluations": 1238358,
+      "counts_pooled_over_seeds": {
+        "solved": 1238358,
+        "stopped": 1238358,
+        "wrong_stops": 0,
+        "budget_failures": 0,
+        "unstopped_but_right": 0
+      },
+      "solved_percent": {
+        "mean": 100.0,
+        "sd": 0.0,
+        "per_seed": [
+          100.0,
+          100.0,
+          100.0
+        ]
+      },
+      "halted_percent": {
+        "mean": 100.0,
+        "sd": 0.0,
+        "per_seed": [
+          100.0,
+          100.0,
+          100.0
+        ]
+      },
+      "wrong_halts_pct_of_halted": 0.0,
+      "paper_mean_flops": {
+        "mean": 23814788.54006838,
+        "sd": 47627.68200237191,
+        "per_seed": [
+          23869101.758751508,
+          23795112.024317686,
+          23780151.83713595
+        ]
+      },
+      "paper_mean_flops_with_compare": {
+        "mean": 174258997.43082696,
+        "sd": 383798.38580904726,
+        "per_seed": [
+          174696669.9035796,
+          174100438.10458687,
+          173979884.2843144
+        ]
+      },
+      "paper_p99_flops_mean_of_seed_quantiles": {
+        "mean": 195223851.5333339,
+        "sd": 592766.8557270983,
+        "per_seed": [
+          194961187.80000043,
+          195902566.6000005,
+          194807800.2000008
+        ]
+      },
+      "paper_pooled_distribution": {
+        "mean": 23814788.54006838,
+        "median": 10071889.0,
+        "p99": 195251894.99999866,
+        "p999": 413311193.5919965,
+        "max": 2480471725.0
+      },
+      "paper_pooled_distribution_with_compare": {
+        "mean": 174258997.43082696,
+        "median": 65065446.0,
+        "p99": 1559702363.5999997,
+        "p999": 3317059996.1199718,
+        "max": 19974867798.0
+      },
+      "per_seed": [
+        {
+          "seed": 0,
+          "record": "artifacts/wsp/sudoku/test/wsp-assoc-test412k-s0.npz",
+          "record_sha256": "bb170e9dd243a0e1b5602ea1c0b210e14c13461589a7ec1b2dabf30aefc307c9",
+          "dev_record_sha256": "1783fda4ed3d2b2af0d4f186959a3414b99898df88b1bc3d02c3f67679ae143d",
+          "n": 412786,
+          "solved": 412786,
+          "stopped": 412786,
+          "stage1_solved": 57206,
+          "wrong_stops": 0,
+          "wrong_halts_pct_of_halted": 0.0,
+          "budget_failures": 0,
+          "unstopped_but_right": 0,
+          "independent_rule_valid": 412786,
+          "clue_violations": 0,
+          "solved_percent": 100.0,
+          "halted_percent": 100.0,
+          "paper_flops": {
+            "mean": 23869101.758751508,
+            "median": 10079305.0,
+            "p99": 194961187.80000043,
+            "p999": 419468038.5400022,
+            "max": 2248889135.0
+          },
+          "paper_flops_with_compare": {
+            "mean": 174696669.9035796,
+            "median": 65059858.0,
+            "p99": 1557326638.000003,
+            "p999": 3366673754.400018,
+            "max": 18108704927.0
+          },
+          "move_count": {
+            "mean": 51844.290198795505,
+            "median": 18898.0,
+            "p99": 468475.8500000009,
+            "max": 5453793,
+            "T_cap": 970873786,
+            "rounded_endpoint": 970874880
+          },
+          "prop_steps_used_mean": 2.997192249737152,
+          "paper_cap": 400012024703.0,
+          "seconds": 125.98,
+          "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition"
+        },
+        {
+          "seed": 1,
+          "record": "artifacts/wsp/sudoku/test/wsp-assoc-test412k-s1.npz",
+          "record_sha256": "5397a463557c49aa854a2d8e88947169621b08d1bdd29bbb6043be181808bac6",
+          "dev_record_sha256": "0393178ba80a6ce0d33665785cd8405ff3a114fba8840cf1fa5ef50165f37dd1",
+          "n": 412786,
+          "solved": 412786,
+          "stopped": 412786,
+          "stage1_solved": 57206,
+          "wrong_stops": 0,
+          "wrong_halts_pct_of_halted": 0.0,
+          "budget_failures": 0,
+          "unstopped_but_right": 0,
+          "independent_rule_valid": 412786,
+          "clue_violations": 0,
+          "solved_percent": 100.0,
+          "halted_percent": 100.0,
+          "paper_flops": {
+            "mean": 23795112.024317686,
+            "median": 10066493.0,
+            "p99": 195902566.6000005,
+            "p999": 412901777.9800043,
+            "max": 2480471725.0
+          },
+          "paper_flops_with_compare": {
+            "mean": 174100438.10458687,
+            "median": 65038886.0,
+            "p99": 1564984882.0000029,
+            "p999": 3310234886.20015,
+            "max": 19974867798.0
+          },
+          "move_count": {
+            "mean": 51664.70367938835,
+            "median": 18885.0,
+            "p99": 470782.55000000086,
+            "max": 6015886,
+            "T_cap": 970873786,
+            "rounded_endpoint": 970874880
+          },
+          "prop_steps_used_mean": 2.997192249737152,
+          "paper_cap": 400012024703.0,
+          "seconds": 126.7,
+          "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition"
+        },
+        {
+          "seed": 2,
+          "record": "artifacts/wsp/sudoku/test/wsp-assoc-test412k-s2.npz",
+          "record_sha256": "a9413aab878fab8d4d555c9c073d74881f1c065b889a8b7f2ebc4c9f590539b7",
+          "dev_record_sha256": "7decbb523e6c2eb4283da434509d40ca83f2fe87f48c28761ac849fe484efbe7",
+          "n": 412786,
+          "solved": 412786,
+          "stopped": 412786,
+          "stage1_solved": 57206,
+          "wrong_stops": 0,
+          "wrong_halts_pct_of_halted": 0.0,
+          "budget_failures": 0,
+          "unstopped_but_right": 0,
+          "independent_rule_valid": 412786,
+          "clue_violations": 0,
+          "solved_percent": 100.0,
+          "halted_percent": 100.0,
+          "paper_flops": {
+            "mean": 23780151.83713595,
+            "median": 10068985.0,
+            "p99": 194807800.2000008,
+            "p999": 407701308.6600024,
+            "max": 1579416729.0
+          },
+          "paper_flops_with_compare": {
+            "mean": 173979884.2843144,
+            "median": 65091094.0,
+            "p99": 1556293288.0000064,
+            "p999": 3271853866.6000195,
+            "max": 12709281028.0
+          },
+          "move_count": {
+            "mean": 51628.392593256554,
+            "median": 18904.0,
+            "p99": 468164.60000000196,
+            "max": 3827271,
+            "T_cap": 970873786,
+            "rounded_endpoint": 970874880
+          },
+          "prop_steps_used_mean": 2.997192249737152,
+          "paper_cap": 400012024703.0,
+          "seconds": 105.25,
+          "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition"
+        }
+      ],
+      "source_records": {
+        "artifacts/wsp/sudoku/test/wsp-assoc-test412k-s0.npz": "bb170e9dd243a0e1b5602ea1c0b210e14c13461589a7ec1b2dabf30aefc307c9",
+        "artifacts/wsp/sudoku/test/wsp-assoc-test412k-s1.npz": "5397a463557c49aa854a2d8e88947169621b08d1bdd29bbb6043be181808bac6",
+        "artifacts/wsp/sudoku/test/wsp-assoc-test412k-s2.npz": "a9413aab878fab8d4d555c9c073d74881f1c065b889a8b7f2ebc4c9f590539b7"
+      }
+    },
+    "WSP-Det": {
+      "method": "WSP-Det (zero-training deterministic task-native Weight-Space Program)",
+      "params_learned": 0,
+      "training_examples": 0,
+      "fit_time_display": "none",
+      "weight_metadata": {
+        "params_learned": 0,
+        "training_examples": 0,
+        "fit_time_display": "none",
+        "distinct_programmed_coefficients": 3,
+        "distinct_nonzero_scalars_all_tensors": 3,
+        "materialized_entries": 24836,
+        "nnz": 2831,
+        "wsp_size": {
+          "weights": 24836,
+          "nonzero": 2831
+        },
+        "storage_bytes": 99200,
+        "per_tensor": {
+          "peer_adj": {
+            "shape": [
+              81,
+              81
+            ],
+            "dtype": "float32",
+            "numel": 6561,
+            "nnz": 1620,
+            "bytes": 26244,
+            "role": "programmed_weight"
+          },
+          "unit_inc": {
+            "shape": [
+              27,
+              81
+            ],
+            "dtype": "float32",
+            "numel": 2187,
+            "nnz": 243,
+            "bytes": 8748,
+            "role": "programmed_weight"
+          },
+          "r_mini": {
+            "shape": [
+              54,
+              81
+            ],
+            "dtype": "float32",
+            "numel": 4374,
+            "nnz": 162,
+            "bytes": 17496,
+            "role": "programmed_weight"
+          },
+          "r_parent": {
+            "shape": [
+              108,
+              27
+            ],
+            "dtype": "float32",
+            "numel": 2916,
+            "nnz": 108,
+            "bytes": 11664,
+            "role": "programmed_weight"
+          },
+          "r_elim": {
+            "shape": [
+              108,
+              81
+            ],
+            "dtype": "float32",
+            "numel": 8748,
+            "nnz": 648,
+            "bytes": 34992,
+            "role": "programmed_weight"
+          },
+          "prop_steps": {
+            "shape": [
+              16
+            ],
+            "dtype": "int8",
+            "numel": 16,
+            "nnz": 16,
+            "bytes": 16,
+            "role": "routing_or_mask"
+          },
+          "relax_steps": {
+            "shape": [
+              32
+            ],
+            "dtype": "int8",
+            "numel": 32,
+            "nnz": 32,
+            "bytes": 32,
+            "role": "routing_or_mask"
+          },
+          "eta": {
+            "shape": [],
+            "dtype": "float32",
+            "numel": 1,
+            "nnz": 1,
+            "bytes": 4,
+            "role": "programmed_weight"
+          },
+          "beta": {
+            "shape": [],
+            "dtype": "float32",
+            "numel": 1,
+            "nnz": 1,
+            "bytes": 4,
+            "role": "programmed_weight"
+          }
+        },
+        "upstream_wsp": {
+          "repo": "https://github.com/effl-lab/Weight-Space-Programming",
+          "commit": "02c31abd3b34d84854cc80d9717717c45365c719",
+          "license": "MIT"
+        }
+      },
+      "build_timings": {
+        "cpu_1thread": {
+          "cold_s": 0.001498535042628646,
+          "warm_median_s": 0.0012054319959133863,
+          "warm_mean_s": 0.0012065590292747533,
+          "warm_samples_s": [
+            0.0012247710255905986,
+            0.001207423978485167,
+            0.0012054319959133863,
+            0.0012093581026419997,
+            0.001201255014166236,
+            0.0012005440657958388,
+            0.0011971290223300457
+          ]
+        },
+        "gpu": {
+          "device_name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+          "cold_s": 0.4459354319842532,
+          "warm_median_s": 0.004447660059668124,
+          "warm_mean_s": 0.004464444870661412,
+          "warm_samples_s": [
+            0.004572871024720371,
+            0.004468102008104324,
+            0.0044425929663702846,
+            0.004447660059668124,
+            0.004432958085089922,
+            0.004416974959895015,
+            0.004469954990781844
+          ]
+        }
+      },
+      "config": {
+        "prop_steps": 16,
+        "relax_steps": 32,
+        "eta": 0.5,
+        "beta": 4.0
+      },
+      "deterministic": true,
+      "n": 412786,
+      "solved": 58465,
+      "solved_percent": 14.163513297447103,
+      "halted": 58465,
+      "halted_percent": 14.163513297447103,
+      "wrong_stops": 0,
+      "wrong_halts_pct_of_halted": 0.0,
+      "independent_rule_valid": 58465,
+      "clue_violations": 0,
+      "paper_mean_flops": 15416844.0,
+      "paper_mean_flops_with_compare": 15607034.0,
+      "seconds": 5.07,
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition"
+    },
+    "WSP-Transformer": {
+      "method": "WSP-Transformer (zero-training 2-layer looped standard Transformer programmed in weight space)",
+      "params_learned": 0,
+      "training_examples": 0,
+      "fit_time_display": "none",
+      "weight_metadata": {
+        "params_learned": 0,
+        "training_examples": 0,
+        "fit_time_display": "none",
+        "distinct_programmed_coefficients": 28,
+        "distinct_nonzero_scalars_all_tensors": 28,
+        "materialized_entries": 613657,
+        "nnz": 4216,
+        "wsp_size": {
+          "weights": 613657,
+          "nonzero": 4216
+        },
+        "storage_bytes": 2454580,
+        "per_tensor": {
+          "embed": {
+            "shape": [
+              10,
+              192
+            ],
+            "dtype": "float32",
+            "numel": 1920,
+            "nnz": 72,
+            "bytes": 7680,
+            "role": "programmed_weight"
+          },
+          "pos": {
+            "shape": [
+              81,
+              192
+            ],
+            "dtype": "float32",
+            "numel": 15552,
+            "nnz": 810,
+            "bytes": 62208,
+            "role": "programmed_weight"
+          },
+          "steps": {
+            "shape": [
+              16
+            ],
+            "dtype": "int8",
+            "numel": 16,
+            "nnz": 16,
+            "bytes": 16,
+            "role": "routing_or_mask"
+          },
+          "block0.ln1.weight": {
+            "shape": [
+              192
+            ],
+            "dtype": "float32",
+            "numel": 192,
+            "nnz": 192,
+            "bytes": 768,
+            "role": "programmed_weight"
+          },
+          "block0.ln1.bias": {
+            "shape": [
+              192
+            ],
+            "dtype": "float32",
+            "numel": 192,
+            "nnz": 0,
+            "bytes": 768,
+            "role": "programmed_weight"
+          },
+          "block0.q": {
+            "shape": [
+              192,
+              192
+            ],
+            "dtype": "float32",
+            "numel": 36864,
+            "nnz": 144,
+            "bytes": 147456,
+            "role": "programmed_weight"
+          },
+          "block0.q.bias": {
+            "shape": [
+              192
+            ],
+            "dtype": "float32",
+            "numel": 192,
+            "nnz": 0,
+            "bytes": 768,
+            "role": "programmed_weight"
+          },
+          "block0.k": {
+            "shape": [
+              192,
+              192
+            ],
+            "dtype": "float32",
+            "numel": 36864,
+            "nnz": 144,
+            "bytes": 147456,
+            "role": "programmed_weight"
+          },
+          "block0.k.bias": {
+            "shape": [
+              192
+            ],
+            "dtype": "float32",
+            "numel": 192,
+            "nnz": 0,
+            "bytes": 768,
+            "role": "programmed_weight"
+          },
+          "block0.v": {
+            "shape": [
+              192,
+              192
+            ],
+            "dtype": "float32",
+            "numel": 36864,
+            "nnz": 198,
+            "bytes": 147456,
+            "role": "programmed_weight"
+          },
+          "block0.v.bias": {
+            "shape": [
+              192
+            ],
+            "dtype": "float32",
+            "numel": 192,
+            "nnz": 0,
+            "bytes": 768,
+            "role": "programmed_weight"
+          },
+          "block0.o": {
+            "shape": [
+              192,
+              192
+            ],
+            "dtype": "float32",
+            "numel": 36864,
+            "nnz": 72,
+            "bytes": 147456,
+            "role": "programmed_weight"
+          },
+          "block0.o.bias": {
+            "shape": [
+              192
+            ],
+            "dtype": "float32",
+            "numel": 192,
+            "nnz": 0,
+            "bytes": 768,
+            "role": "programmed_weight"
+          },
+          "block0.ln2.weight": {
+            "shape": [
+              192
+            ],
+            "dtype": "float32",
+            "numel": 192,
+            "nnz": 192,
+            "bytes": 768,
+            "role": "programmed_weight"
+          },
+          "block0.ln2.bias": {
+            "shape": [
+              192
+            ],
+            "dtype": "float32",
+            "numel": 192,
+            "nnz": 0,
+            "bytes": 768,
+            "role": "programmed_weight"
+          },
+          "block0.fc1": {
+            "shape": [
+              192,
+              384
+            ],
+            "dtype": "float32",
+            "numel": 73728,
+            "nnz": 126,
+            "bytes": 294912,
+            "role": "programmed_weight"
+          },
+          "block0.fc1.bias": {
+            "shape": [
+              384
+            ],
+            "dtype": "float32",
+            "numel": 384,
+            "nnz": 36,
+            "bytes": 1536,
+            "role": "programmed_weight"
+          },
+          "block0.fc2": {
+            "shape": [
+              384,
+              192
+            ],
+            "dtype": "float32",
+            "numel": 73728,
+            "nnz": 72,
+            "bytes": 294912,
+            "role": "programmed_weight"
+          },
+          "block0.fc2.bias": {
+            "shape": [
+              192
+            ],
+            "dtype": "float32",
+            "numel": 192,
+            "nnz": 0,
+            "bytes": 768,
+            "role": "programmed_weight"
+          },
+          "block1.ln1.weight": {
+            "shape": [
+              192
+            ],
+            "dtype": "float32",
+            "numel": 192,
+            "nnz": 192,
+            "bytes": 768,
+            "role": "programmed_weight"
+          },
+          "block1.ln1.bias": {
+            "shape": [
+              192
+            ],
+            "dtype": "float32",
+            "numel": 192,
+            "nnz": 0,
+            "bytes": 768,
+            "role": "programmed_weight"
+          },
+          "block1.q": {
+            "shape": [
+              192,
+              192
+            ],
+            "dtype": "float32",
+            "numel": 36864,
+            "nnz": 144,
+            "bytes": 147456,
+            "role": "programmed_weight"
+          },
+          "block1.q.bias": {
+            "shape": [
+              192
+            ],
+            "dtype": "float32",
+            "numel": 192,
+            "nnz": 0,
+            "bytes": 768,
+            "role": "programmed_weight"
+          },
+          "block1.k": {
+            "shape": [
+              192,
+              192
+            ],
+            "dtype": "float32",
+            "numel": 36864,
+            "nnz": 144,
+            "bytes": 147456,
+            "role": "programmed_weight"
+          },
+          "block1.k.bias": {
+            "shape": [
+              192
+            ],
+            "dtype": "float32",
+            "numel": 192,
+            "nnz": 0,
+            "bytes": 768,
+            "role": "programmed_weight"
+          },
+          "block1.v": {
+            "shape": [
+              192,
+              192
+            ],
+            "dtype": "float32",
+            "numel": 36864,
+            "nnz": 54,
+            "bytes": 147456,
+            "role": "programmed_weight"
+          },
+          "block1.v.bias": {
+            "shape": [
+              192
+            ],
+            "dtype": "float32",
+            "numel": 192,
+            "nnz": 0,
+            "bytes": 768,
+            "role": "programmed_weight"
+          },
+          "block1.o": {
+            "shape": [
+              192,
+              192
+            ],
+            "dtype": "float32",
+            "numel": 36864,
+            "nnz": 54,
+            "bytes": 147456,
+            "role": "programmed_weight"
+          },
+          "block1.o.bias": {
+            "shape": [
+              192
+            ],
+            "dtype": "float32",
+            "numel": 192,
+            "nnz": 0,
+            "bytes": 768,
+            "role": "programmed_weight"
+          },
+          "block1.ln2.weight": {
+            "shape": [
+              192
+            ],
+            "dtype": "float32",
+            "numel": 192,
+            "nnz": 192,
+            "bytes": 768,
+            "role": "programmed_weight"
+          },
+          "block1.ln2.bias": {
+            "shape": [
+              192
+            ],
+            "dtype": "float32",
+            "numel": 192,
+            "nnz": 0,
+            "bytes": 768,
+            "role": "programmed_weight"
+          },
+          "block1.fc1": {
+            "shape": [
+              192,
+              384
+            ],
+            "dtype": "float32",
+            "numel": 73728,
+            "nnz": 738,
+            "bytes": 294912,
+            "role": "programmed_weight"
+          },
+          "block1.fc1.bias": {
+            "shape": [
+              384
+            ],
+            "dtype": "float32",
+            "numel": 384,
+            "nnz": 126,
+            "bytes": 1536,
+            "role": "programmed_weight"
+          },
+          "block1.fc2": {
+            "shape": [
+              384,
+              192
+            ],
+            "dtype": "float32",
+            "numel": 73728,
+            "nnz": 252,
+            "bytes": 294912,
+            "role": "programmed_weight"
+          },
+          "block1.fc2.bias": {
+            "shape": [
+              192
+            ],
+            "dtype": "float32",
+            "numel": 192,
+            "nnz": 0,
+            "bytes": 768,
+            "role": "programmed_weight"
+          },
+          "ln_f.weight": {
+            "shape": [
+              192
+            ],
+            "dtype": "float32",
+            "numel": 192,
+            "nnz": 192,
+            "bytes": 768,
+            "role": "programmed_weight"
+          },
+          "ln_f.bias": {
+            "shape": [
+              192
+            ],
+            "dtype": "float32",
+            "numel": 192,
+            "nnz": 0,
+            "bytes": 768,
+            "role": "programmed_weight"
+          },
+          "head": {
+            "shape": [
+              192,
+              9
+            ],
+            "dtype": "float32",
+            "numel": 1728,
+            "nnz": 54,
+            "bytes": 6912,
+            "role": "programmed_weight"
+          },
+          "head.bias": {
+            "shape": [
+              9
+            ],
+            "dtype": "float32",
+            "numel": 9,
+            "nnz": 0,
+            "bytes": 36,
+            "role": "programmed_weight"
+          }
+        },
+        "upstream_wsp": {
+          "repo": "https://github.com/effl-lab/Weight-Space-Programming",
+          "commit": "02c31abd3b34d84854cc80d9717717c45365c719",
+          "license": "MIT"
+        }
+      },
+      "build_timings": {
+        "cpu_1thread": {
+          "cold_s": 0.010553256957791746,
+          "warm_median_s": 0.008647517068311572,
+          "warm_mean_s": 0.008700591561916684,
+          "warm_samples_s": [
+            0.008913289057090878,
+            0.008787678903900087,
+            0.008647517068311572,
+            0.008637731894850731,
+            0.008634618017822504,
+            0.008653686032630503,
+            0.008629619958810508
+          ]
+        },
+        "gpu": {
+          "device_name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+          "cold_s": 0.06150177400559187,
+          "warm_median_s": 0.018788721063174307,
+          "warm_mean_s": 0.01890281346693103,
+          "warm_samples_s": [
+            0.018788721063174307,
+            0.01877425902057439,
+            0.018786718021146953,
+            0.019271621014922857,
+            0.019146491074934602,
+            0.018762251012958586,
+            0.0187896330608055
+          ]
+        }
+      },
+      "config": {
+        "steps": 16
+      },
+      "deterministic": true,
+      "n": 412786,
+      "solved": 43440,
+      "solved_percent": 10.523612719423623,
+      "halted": 43440,
+      "halted_percent": 10.523612719423623,
+      "wrong_stops": 0,
+      "wrong_halts_pct_of_halted": 0.0,
+      "independent_rule_valid": 43440,
+      "clue_violations": 0,
+      "paper_mean_flops": 1711218880.0,
+      "paper_mean_flops_with_compare": 1712059986.0,
+      "seconds": 83.62,
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition"
+    }
+  },
+  "opcounts_record": "results/wsp/sudoku/wsp-sudoku-opcounts-and-params.json",
+  "opcounts_sha256": "b10caf9ea7a0d8d4740ae4167c3e62307e7649ea0093a77a39193851280ae660",
+  "gpu_eval_opcounts_sha256": "6dc95ba8eb5eeadaf0a94a016de1d7aef52452dc982b97738dba3ba8219245f2"
+}

@@ -1,5 +1,6 @@
 # Public results
 
+Weight-Space Programming extension: [Complete WSP benchmark report](../docs/WSP_BENCHMARK_REPORT.md) and [consolidated comparison tables](wsp/wsp-comparison-tables.json) covering zero-training (`k=0`, `0` learned parameters, `wsp.free_model.static_problems == []`) evaluations across [Sudoku-Extreme (`412,786` test & `10k` sweeps)](wsp/sudoku/), [Maze-Unique, Maze-Hard & dense `180×180` three-cohort mazes](wsp/maze/), and [N-Queens, Graph Coloring & `N=13` Queen+Leaper](wsp/multi/). All `66/66` frozen CRAM reproduction exports remain untouched.
 
 Final round: [Source diversity recovers the graph in 72/72 fresh source banks versus 0/72 with correlated repeats](../research/20261114/ripper/REPORT-diversity-after-correlation.md), with equal noisy-label budgets, three times as many sources and a disclosed monitoring fault. [Repeated independent measurements recover 256/256 examined synthetic graphs versus 253/256](../research/20261114/foureyes/REPORT-repeat-diversity.md). [Packed maze dispatch saves 31.34% versus the original dispatcher](../research/20261114/work/REPORT.md#h2bs-stable-offline-packing-supports-the-10-complete-cost-saving-target). Research is stopped; [prepared but unrun studies](../docs/RESEARCH_STATUS.md) have no experimental conclusions.
 
